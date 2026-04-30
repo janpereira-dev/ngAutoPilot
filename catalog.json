@@ -406,6 +406,129 @@
       ]
     },
     {
+      "id": "core.autopilot-orchestrator",
+      "name": "Autopilot Orchestrator",
+      "path": "skills/_core/autopilot-orchestrator/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "JavaScript"
+      ],
+      "category": "core",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "autopilot workflow",
+        "start task",
+        "choose skill",
+        "analyze before coding",
+        "NgAutoPilot orchestration"
+      ]
+    },
+    {
+      "id": "core.compatibility-router",
+      "name": "Compatibility Router",
+      "path": "skills/_core/compatibility-router/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "JavaScript"
+      ],
+      "category": "core",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "compatibility router",
+        "version compatibility",
+        "Angular compatibility",
+        "unsupported API",
+        "fallback pattern",
+        "version gate"
+      ]
+    },
+    {
+      "id": "core.project-intake",
+      "name": "Project Intake",
+      "path": "skills/_core/project-intake/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "JavaScript"
+      ],
+      "category": "core",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "project intake",
+        "inspect repository",
+        "understand project",
+        "repo context",
+        "before coding"
+      ]
+    },
+    {
+      "id": "core.risk-assessment",
+      "name": "Risk Assessment",
+      "path": "skills/_core/risk-assessment/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "JavaScript"
+      ],
+      "category": "core",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "assess risk",
+        "change risk",
+        "risky refactor",
+        "architecture change",
+        "migration risk",
+        "safe change plan"
+      ]
+    },
+    {
+      "id": "core.skill-router",
+      "name": "Skill Router",
+      "path": "skills/_core/skill-router/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "JavaScript"
+      ],
+      "category": "core",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "route skill",
+        "select skill",
+        "choose micro-skill",
+        "skill selection",
+        "task routing"
+      ]
+    },
+    {
+      "id": "core.stack-version-detection",
+      "name": "Stack Version Detection",
+      "path": "skills/_core/stack-version-detection/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "JavaScript"
+      ],
+      "category": "core",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "detect stack version",
+        "Angular version",
+        "TypeScript version",
+        "Node version",
+        "RxJS version",
+        "package manager detection"
+      ]
+    },
+    {
       "id": "typescript.strict-types.avoid-any",
       "name": "Avoid Any",
       "path": "skills/typescript/strict-types/avoid-any/SKILL.md",
