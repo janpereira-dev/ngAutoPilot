@@ -1,0 +1,22 @@
+{
+  "name": "ngautopilot",
+  "version": "0.1.0",
+  "description": "Agnostic micro-skills for Angular, TypeScript and JavaScript development with AI agents.",
+  "type": "module",
+  "scripts": {
+    "skills:create": "node scripts/create-skill.mjs",
+    "skills:validate": "node scripts/validate-skills.mjs",
+    "skills:catalog": "node scripts/generate-catalog.mjs",
+    "skills:export": "node scripts/export-adapter.mjs"
+  },
+  "keywords": [
+    "angular",
+    "typescript",
+    "javascript",
+    "rxjs",
+    "ai-agents",
+    "skills",
+    "frontend"
+  ],
+  "license": "MIT"
+}
