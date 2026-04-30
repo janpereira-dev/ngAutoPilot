@@ -1,0 +1,283 @@
+{
+  "name": "NgAutoPilot",
+  "description": "Agnostic micro-skills for Angular, TypeScript and JavaScript development.",
+  "version": "0.1.0",
+  "skills": [
+    {
+      "id": "angular.performance.avoid-template-functions",
+      "name": "Avoid Template Functions",
+      "path": "skills/angular/performance/avoid-template-functions/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "performance",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "template function",
+        "method call in template",
+        "change detection cost",
+        "computed signals",
+        "pure pipe"
+      ]
+    },
+    {
+      "id": "angular.performance.change-detection-optimization",
+      "name": "Angular Change Detection Optimization",
+      "path": "skills/angular/performance/change-detection-optimization/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "performance",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "change detection optimization",
+        "OnPush",
+        "markForCheck",
+        "detectChanges",
+        "signals rendering"
+      ]
+    },
+    {
+      "id": "angular.performance.lazy-loading-strategy",
+      "name": "Angular Lazy Loading Strategy",
+      "path": "skills/angular/performance/lazy-loading-strategy/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "performance",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "lazy loading",
+        "initial bundle",
+        "loadChildren",
+        "loadComponent",
+        "@defer",
+        "route splitting"
+      ]
+    },
+    {
+      "id": "angular.performance.list-rendering-optimization",
+      "name": "Angular List Rendering Optimization",
+      "path": "skills/angular/performance/list-rendering-optimization/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "performance",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "list rendering",
+        "trackBy",
+        "@for track",
+        "large list",
+        "DOM recreation",
+        "virtual scroll"
+      ]
+    },
+    {
+      "id": "angular.performance.measure-before-optimizing",
+      "name": "Angular Measure Before Optimizing",
+      "path": "skills/angular/performance/measure-before-optimizing/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "JavaScript"
+      ],
+      "category": "performance",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "measure before optimizing",
+        "performance evidence",
+        "Angular DevTools",
+        "Lighthouse",
+        "Web Vitals",
+        "performance profiling"
+      ]
+    },
+    {
+      "id": "angular.performance.onpush-change-detection",
+      "name": "OnPush Change Detection",
+      "path": "skills/angular/performance/onpush-change-detection/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "performance",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "OnPush",
+        "ChangeDetectionStrategy",
+        "change detection",
+        "Angular performance",
+        "slow rendering"
+      ]
+    },
+    {
+      "id": "angular.performance.performance-audit",
+      "name": "Angular Performance Audit",
+      "path": "skills/angular/performance/performance-audit/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "performance",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular performance audit",
+        "performance checklist",
+        "slow component",
+        "slow dashboard",
+        "performance review"
+      ]
+    },
+    {
+      "id": "angular.performance.performance-orchestrator",
+      "name": "Angular Performance Orchestrator",
+      "path": "skills/angular/performance/performance-orchestrator/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "performance",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular performance",
+        "performance diagnosis",
+        "slow Angular app",
+        "performance skill selection",
+        "rendering issue"
+      ]
+    },
+    {
+      "id": "angular.performance.pipes-and-memoization",
+      "name": "Angular Pipes and Memoization Optimization",
+      "path": "skills/angular/performance/pipes-and-memoization/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "performance",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "pure pipe",
+        "impure pipe",
+        "memoization",
+        "computed values",
+        "repeated transformation",
+        "view model mapping"
+      ]
+    },
+    {
+      "id": "angular.performance.rxjs-performance",
+      "name": "Angular RxJS Performance",
+      "path": "skills/angular/performance/rxjs-performance/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "performance",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "RxJS performance",
+        "duplicated HTTP requests",
+        "nested subscriptions",
+        "takeUntilDestroyed",
+        "shareReplay",
+        "debounceTime"
+      ]
+    },
+    {
+      "id": "angular.performance.template-logic-optimization",
+      "name": "Angular Template Logic Optimization",
+      "path": "skills/angular/performance/template-logic-optimization/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "performance",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "heavy template logic",
+        "compute in template",
+        "template method call",
+        "template expression",
+        "computed signal"
+      ]
+    },
+    {
+      "id": "angular.performance.trackby-for-lists",
+      "name": "TrackBy for Lists",
+      "path": "skills/angular/performance/trackby-for-lists/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "performance",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "ngFor",
+        "@for",
+        "trackBy",
+        "track expression",
+        "large list",
+        "DOM recreation"
+      ]
+    },
+    {
+      "id": "angular.rxjs.avoid-nested-subscriptions",
+      "name": "Avoid Nested Subscriptions",
+      "path": "skills/angular/rxjs/avoid-nested-subscriptions/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "rxjs",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "nested subscribe",
+        "subscription inside subscription",
+        "switchMap",
+        "combineLatest",
+        "takeUntilDestroyed",
+        "RxJS lifecycle"
+      ]
+    },
+    {
+      "id": "typescript.strict-types.avoid-any",
+      "name": "Avoid Any",
+      "path": "skills/typescript/strict-types/avoid-any/SKILL.md",
+      "stack": [
+        "TypeScript"
+      ],
+      "category": "strict-types",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "any",
+        "unknown",
+        "strict typing",
+        "type guard",
+        "DTO",
+        "generic"
+      ]
+    }
+  ]
+}
