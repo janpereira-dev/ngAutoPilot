@@ -6,6 +6,19 @@ All notable changes to NgAutoPilot will be documented in this file.
 
 ### Added
 
+- Public documentation and release automation:
+  - `CODE_OF_CONDUCT.md`
+  - `SECURITY.md`
+  - `.github/workflows/ci.yml`
+  - `.github/workflows/publish-packages.yml`
+  - `.github/workflows/release.yml`
+  - `scripts/build-publish-bundles.mjs`
+- Public publish bundle targets:
+  - AutoSkills
+  - SkillsMP
+  - SkillsLLM
+  - LobeHub Skills
+  - MCPMarket
 - Core autopilot operating layer:
   - `core.autopilot-orchestrator`
   - `core.project-intake`

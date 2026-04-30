@@ -122,9 +122,22 @@ Provider-specific guidance belongs in `adapters/`, not in `skills/`.
 1. Create or update a skill.
 2. Run `npm run skills:validate`.
 3. Run `npm run skills:catalog`.
-4. Confirm `catalog.json` contains the expected entry.
-5. Open a pull request with a short explanation of the problem solved.
-6. Address review feedback.
+4. Run `npm run skills:publish:pack` when the change affects public packaging.
+5. Confirm `catalog.json` contains the expected entry.
+6. Open a pull request with a short explanation of the problem solved.
+7. Address review feedback.
+
+## Branch Naming
+
+Use short, descriptive branch names:
+
+```txt
+feat/core-autopilot-operating-layer
+feat/angular-dependency-injection-skill
+feat/marketplace-publish-bundles
+```
+
+Keep unrelated work in separate branches when it affects public docs, skill content, or workflows.
 
 ## Contribution Checklist
 
@@ -136,3 +149,4 @@ Provider-specific guidance belongs in `adapters/`, not in `skills/`.
 - [ ] No private or confidential content is included.
 - [ ] `npm run skills:validate` passes.
 - [ ] `npm run skills:catalog` was run.
+- [ ] `npm run skills:publish:pack` was run when publish output changed.
