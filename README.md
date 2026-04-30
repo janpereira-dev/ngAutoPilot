@@ -52,11 +52,15 @@ The MVP is intentionally simple: Markdown skills, a catalog, basic validation, a
 skills/
   angular/
     architecture/
+    components/
     performance/
     testing/
     forms/
     rxjs/
     signals/
+    state/
+    services/
+    versioning/
   typescript/
     strict-types/
     dto-mappers/
@@ -187,6 +191,7 @@ Adapter rule:
 - Add contribution review automation.
 - Add more testing, RxJS, forms, and architecture skills.
 - Improve catalog validation with JSON Schema.
+- Expand architecture skills into focused micro-skills for components, facades, state boundaries, services, and version gates.
 
 ### 0.3.x
 

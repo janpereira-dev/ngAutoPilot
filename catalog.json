@@ -4,6 +4,68 @@
   "version": "0.1.0",
   "skills": [
     {
+      "id": "angular.architecture.angular-patterns-senior",
+      "name": "Angular Senior Architecture Patterns",
+      "path": "skills/angular/architecture/angular-patterns-senior/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular architecture review",
+        "senior Angular patterns",
+        "scalable Angular structure",
+        "refactor Angular component",
+        "split Angular responsibilities",
+        "facade pattern"
+      ]
+    },
+    {
+      "id": "angular.architecture.facade-pattern",
+      "name": "Angular Facade Pattern",
+      "path": "skills/angular/architecture/facade-pattern/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "facade pattern",
+        "Angular facade",
+        "feature facade",
+        "component injects many services",
+        "simplify Angular tests",
+        "feature API"
+      ]
+    },
+    {
+      "id": "angular.components.container-presentational",
+      "name": "Angular Container Presentational Components",
+      "path": "skills/angular/components/container-presentational/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "components",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "container presentational",
+        "smart dumb components",
+        "split Angular component",
+        "presentational component fetching data",
+        "component too large",
+        "reusable Angular component"
+      ]
+    },
+    {
       "id": "angular.performance.avoid-template-functions",
       "name": "Avoid Template Functions",
       "path": "skills/angular/performance/avoid-template-functions/SKILL.md",
@@ -258,6 +320,89 @@
         "combineLatest",
         "takeUntilDestroyed",
         "RxJS lifecycle"
+      ]
+    },
+    {
+      "id": "angular.rxjs.observable-contracts",
+      "name": "Angular Observable Contracts",
+      "path": "skills/angular/rxjs/observable-contracts/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "rxjs",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "Observable as contract",
+        "expose streams",
+        "public BehaviorSubject",
+        "readonly Observable",
+        "mutable state exposure",
+        "Angular state service"
+      ]
+    },
+    {
+      "id": "angular.services.single-responsibility-services",
+      "name": "Angular Single Responsibility Services",
+      "path": "skills/angular/services/single-responsibility-services/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "services",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "god service",
+        "single responsibility service",
+        "Angular service refactor",
+        "CommonService",
+        "UtilsService",
+        "ManagerService"
+      ]
+    },
+    {
+      "id": "angular.state.signals-vs-rxjs",
+      "name": "Angular Signals vs RxJS State Decision",
+      "path": "skills/angular/state/signals-vs-rxjs/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "state",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "Signals vs RxJS",
+        "should this use signals",
+        "should this use observables",
+        "Angular state decision",
+        "toSignal",
+        "toObservable"
+      ]
+    },
+    {
+      "id": "angular.versioning.angular-version-gates",
+      "name": "Angular Version Gates",
+      "path": "skills/angular/versioning/angular-version-gates/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "versioning",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular version compatibility",
+        "version gates",
+        "unsupported Angular API",
+        "Angular 12 compatibility",
+        "Angular 17 migration",
+        "Angular 20 modernization"
       ]
     },
     {
