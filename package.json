@@ -8,7 +8,8 @@
     "skills:validate": "node scripts/validate-skills.mjs",
     "skills:catalog": "node scripts/generate-catalog.mjs",
     "skills:export": "node scripts/export-adapter.mjs",
-    "skills:publish:pack": "node scripts/build-publish-bundles.mjs"
+    "skills:publish:pack": "node scripts/build-publish-bundles.mjs",
+    "review:sage:pack": "node scripts/build-sage-review-packet.mjs"
   },
   "keywords": [
     "angular",

@@ -6,6 +6,13 @@ All notable changes to NgAutoPilot will be documented in this file.
 
 ### Added
 
+- Visual documentation assets:
+  - `assets/ngautopilot-hero.svg`
+  - `assets/ngautopilot-flow.svg`
+- Sage review packet docs and workflow support:
+  - `docs/sage-review.md`
+  - `scripts/build-sage-review-packet.mjs`
+  - `.github/workflows/sage-review.yml`
 - Public documentation and release automation:
   - `CODE_OF_CONDUCT.md`
   - `SECURITY.md`

@@ -37,6 +37,19 @@ Examples include:
 - unsafe defaults in generated bundles
 - dependency or supply-chain issues in workflows
 
+## Local Review Layer
+
+Sage can be used locally to review agent instructions and publish workflows before they reach a pull request.
+
+Use Sage to inspect:
+
+- `skills/**/SKILL.md`
+- `adapters/**`
+- `.github/workflows/**`
+- `scripts/*.mjs`
+
+Do not treat Sage as a replacement for reporting a security issue to maintainers.
+
 ## Response Goal
 
 Reports should be acknowledged, triaged, and resolved with the smallest safe change. If a fix touches workflows or publish automation, validate the change before release.

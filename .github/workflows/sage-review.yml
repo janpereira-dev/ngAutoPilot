@@ -1,0 +1,33 @@
+name: Sage Review Packet
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate skills
+        run: npm run skills:validate
+
+      - name: Build Sage review packet
+        run: npm run review:sage:pack
+
+      - name: Upload review packet
+        uses: actions/upload-artifact@v4
+        with:
+          name: ngautopilot-sage-review-packet
+          path: dist/review/sage
+          if-no-files-found: error

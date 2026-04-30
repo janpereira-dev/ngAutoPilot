@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" role="img" aria-labelledby="title desc">
+  <title id="title">NgAutoPilot workflow</title>
+  <desc id="desc">A five-step flow from project detection to publish bundle generation and Sage review.</desc>
+  <defs>
+    <linearGradient id="line" x1="0" x2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <style>
+      .bg { fill: #0b1220; }
+      .card { fill: #111827; stroke: rgba(148,163,184,0.35); stroke-width: 2; }
+      .title { font: 700 18px Inter, Segoe UI, Arial, sans-serif; fill: #f8fafc; }
+      .text { font: 400 14px Inter, Segoe UI, Arial, sans-serif; fill: #cbd5e1; }
+      .step { font: 700 15px Inter, Segoe UI, Arial, sans-serif; fill: #93c5fd; letter-spacing: 0.6px; }
+      .arrow { stroke: url(#line); stroke-width: 5; stroke-linecap: round; }
+    </style>
+  </defs>
+  <rect class="bg" width="1200" height="260" rx="24"/>
+
+  <line class="arrow" x1="170" y1="130" x2="285" y2="130"/>
+  <line class="arrow" x1="395" y1="130" x2="510" y2="130"/>
+  <line class="arrow" x1="620" y1="130" x2="735" y2="130"/>
+  <line class="arrow" x1="845" y1="130" x2="960" y2="130"/>
+
+  <g>
+    <rect class="card" x="40" y="52" width="130" height="156" rx="22"/>
+    <text x="105" y="88" text-anchor="middle" class="step">01</text>
+    <text x="105" y="120" text-anchor="middle" class="title">Detect</text>
+    <text x="105" y="146" text-anchor="middle" class="text">Stack</text>
+    <text x="105" y="166" text-anchor="middle" class="text">Version</text>
+    <text x="105" y="186" text-anchor="middle" class="text">Scope</text>
+  </g>
+  <g>
+    <rect class="card" x="265" y="52" width="130" height="156" rx="22"/>
+    <text x="330" y="88" text-anchor="middle" class="step">02</text>
+    <text x="330" y="120" text-anchor="middle" class="title">Route</text>
+    <text x="330" y="146" text-anchor="middle" class="text">Pick the</text>
+    <text x="330" y="166" text-anchor="middle" class="text">smallest</text>
+    <text x="330" y="186" text-anchor="middle" class="text">skill</text>
+  </g>
+  <g>
+    <rect class="card" x="490" y="52" width="130" height="156" rx="22"/>
+    <text x="555" y="88" text-anchor="middle" class="step">03</text>
+    <text x="555" y="120" text-anchor="middle" class="title">Apply</text>
+    <text x="555" y="146" text-anchor="middle" class="text">Change</text>
+    <text x="555" y="166" text-anchor="middle" class="text">small</text>
+    <text x="555" y="186" text-anchor="middle" class="text">safe</text>
+  </g>
+  <g>
+    <rect class="card" x="715" y="52" width="130" height="156" rx="22"/>
+    <text x="780" y="88" text-anchor="middle" class="step">04</text>
+    <text x="780" y="120" text-anchor="middle" class="title">Validate</text>
+    <text x="780" y="146" text-anchor="middle" class="text">Validate</text>
+    <text x="780" y="166" text-anchor="middle" class="text">skills</text>
+    <text x="780" y="186" text-anchor="middle" class="text">catalog</text>
+  </g>
+  <g>
+    <rect class="card" x="940" y="52" width="220" height="156" rx="22"/>
+    <text x="1050" y="88" text-anchor="middle" class="step">05</text>
+    <text x="1050" y="120" text-anchor="middle" class="title">Publish + Review</text>
+    <text x="1050" y="146" text-anchor="middle" class="text">Build marketplace bundles</text>
+    <text x="1050" y="166" text-anchor="middle" class="text">and generate a Sage packet</text>
+    <text x="1050" y="186" text-anchor="middle" class="text">for agent code review</text>
+  </g>
+</svg>
