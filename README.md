@@ -1,52 +1,55 @@
 # NgAutoPilot
 
-NgAutoPilot is a public, agent-agnostic catalog of micro-skills for Angular, TypeScript, JavaScript, RxJS, testing, frontend architecture, code quality, and pull request review.
+NgAutoPilot is a public, agent-agnostic catalog of micro-skills for Angular, TypeScript, JavaScript, RxJS, testing, code quality, architecture, and Git workflows.
 
-It is designed to help AI agents apply small, repeatable engineering practices without binding the knowledge to one tool or provider. Skills live as neutral Markdown files. Adapters translate the catalog into instructions for different agent environments.
+It is designed to help AI agents make safer technical decisions with small, focused, reusable instructions instead of one giant prompt.
 
-## Problem
+## Documentation Index
 
-AI agents often receive large prompts that mix architecture, style, testing, performance, and review guidance into one long instruction. That approach is hard to maintain, expensive to load, and easy to apply incorrectly.
+Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
 
-NgAutoPilot solves this by keeping each rule small:
+Use that index to discover the available docs before exploring deeper skill patterns or Claude-specific skill mechanics.
 
-- One skill addresses one concrete problem.
-- Each skill has metadata, triggers, examples, anti-patterns, a checklist, and expected output.
-- Agents should load only the smallest applicable skill for the current task.
+## Why This Exists
 
-## What Is a Micro-Skill?
+Modern frontend work gets messy fast:
 
-A micro-skill is a focused operational instruction that helps an agent handle a specific and repeatable development scenario.
+- architecture decisions get mixed with local fixes
+- performance advice becomes repetitive
+- version compatibility is guessed instead of detected
+- broad prompts hide the smallest safe change
+- test guidance gets lost in long discussions
 
-Good examples:
+NgAutoPilot turns that into a catalog of micro-skills that are:
 
-- `angular.performance.avoid-template-functions`
-- `angular.performance.trackby-for-lists`
-- `angular.rxjs.avoid-nested-subscriptions`
-- `typescript.strict-types.avoid-any`
+- small
+- reusable
+- version-aware
+- easy to validate
+- safe to share publicly
 
-Poor examples:
+## What NgAutoPilot Is
 
-- `angular-best-practices`
-- `typescript-guide`
-- `frontend-clean-code`
+NgAutoPilot is a skill system, not a single prompt.
 
-If a skill cannot be read quickly or applies to too many unrelated situations, it should be split.
+- `skills/_core/` contains the operating layer that decides how to think about a task.
+- `skills/angular/` contains Angular-specific skills for architecture, dependency injection, performance, RxJS, state, and version gates.
+- `skills/typescript/`, `skills/javascript/`, `skills/quality/`, and `skills/git/` hold cross-cutting skills.
+- `adapters/` contains templates for different agent ecosystems.
+- `schemas/`, `templates/`, and `scripts/` keep the catalog structured and maintainable.
 
-## What This Project Is Not
+## What It Is Not
 
 NgAutoPilot is not:
 
-- A giant prompt.
-- A framework.
-- A replacement for project architecture.
-- A collection of private or company-specific rules.
-- A tool coupled to Claude, Copilot, Codex, Cursor, Gemini, or any other provider.
-- A full CLI product.
+- a giant prompt dump
+- a private internal playbook
+- a framework
+- a CLI product
+- a replacement for project architecture
+- a provider-locked skill pack
 
-The MVP is intentionally simple: Markdown skills, a catalog, basic validation, and adapter templates.
-
-## Repository Structure
+## Skill Layers
 
 ```txt
 skills/
@@ -62,60 +65,49 @@ skills/
     components/
     dependency-injection/
     performance/
-    testing/
-    forms/
     rxjs/
-    signals/
     state/
     services/
     versioning/
   typescript/
-    strict-types/
-    dto-mappers/
   javascript/
   quality/
   git/
-adapters/
-  generic/
-  copilot/
-  claude/
-  codex/
-  cursor/
-  gemini/
-schemas/
-templates/
-scripts/
 ```
 
-## Skill Format
+The `_core` layer is the brain. It tells the agent how to inspect the repo, choose a skill, gate by compatibility, and keep the change small.
 
-Every skill must include:
+## Documentation Snapshot
 
-- Frontmatter metadata.
-- Purpose.
-- When to use.
-- Recommended patterns.
-- Anti-patterns.
-- Review checklist.
-- Expected output.
+| File | Purpose |
+| --- | --- |
+| [`README.md`](README.md) | Product overview and usage |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | Contribution rules and review flow |
+| [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) | Community behavior rules |
+| [`SECURITY.md`](SECURITY.md) | Responsible disclosure |
+| [`CHANGELOG.md`](CHANGELOG.md) | Release history |
+| [`LICENSE`](LICENSE) | MIT license text |
+| [`catalog.json`](catalog.json) | Machine-readable skill index |
 
-Use `templates/SKILL.template.md` as the source of truth.
+## How To Use
 
-## Compatibility-Aware Skills
+1. Detect the project stack.
+2. Select the smallest skill that matches the task.
+3. Apply compatibility and risk gates.
+4. Make the smallest reversible change.
+5. Validate the result.
 
-NgAutoPilot skills should not assume that every project uses the latest Angular version. Version-sensitive skills should detect the project profile first, then choose the compatible implementation.
+For Angular work, start with:
 
-Example:
+- `skills/_core/project-intake/SKILL.md`
+- `skills/_core/stack-version-detection/SKILL.md`
+- `skills/_core/skill-router/SKILL.md`
+- `skills/_core/compatibility-router/SKILL.md`
+- `skills/_core/risk-assessment/SKILL.md`
 
-```txt
-Angular 2-16  -> *ngFor + trackBy
-Angular 17-19 -> @for with track when supported
-Angular 20+   -> prefer @for for new list rendering code
-```
+Then route into the relevant Angular micro-skill.
 
-When a skill uses modern syntax such as signals, `@for`, `@defer`, standalone routes, or `takeUntilDestroyed`, it should include a fallback for older projects.
-
-## Creating a Skill
+## Creating A Skill
 
 Create a new skill from a path under `skills/`:
 
@@ -123,96 +115,84 @@ Create a new skill from a path under `skills/`:
 npm run skills:create -- angular/performance/lazy-loading-routes
 ```
 
-The script creates:
-
-```txt
-skills/angular/performance/lazy-loading-routes/SKILL.md
-```
-
-It infers:
-
-- `id` from the path using dot notation.
-- `name` from the final folder.
-- `category` from the second path segment.
-- `stack` from the first path segment.
-
-After creating the file, replace the generated draft content with specific guidance before opening a pull request.
+The generated skill is a draft. Replace the placeholder content with a narrow, practical, version-aware skill before merging.
 
 ## Validating Skills
 
-Run:
+Validate all skills with:
 
 ```bash
 npm run skills:validate
 ```
 
-Validation checks that every `SKILL.md` under `skills/` has:
-
-- Required frontmatter.
-- Required sections.
-- Allowed status.
-- No `TODO` markers.
-
-## Generating the Catalog
-
-Run:
+Regenerate the catalog with:
 
 ```bash
 npm run skills:catalog
 ```
 
-This regenerates `catalog.json` from skill frontmatter and sorts entries by `id`.
-
-## Using Adapters
-
-Adapters are templates for connecting NgAutoPilot to different agent environments. They should not duplicate skill content.
-
-Export an adapter template:
+Prepare marketplace submission bundles with:
 
 ```bash
-npm run skills:export -- generic
-npm run skills:export -- copilot
-npm run skills:export -- codex
+npm run skills:publish:pack
 ```
 
-Generated files are written to:
+## Publishing Targets
 
-```txt
-dist/adapters/
-```
+NgAutoPilot is prepared to be shared on multiple public skill catalogs.
 
-Adapter rule:
+| Target | URL | Output |
+| --- | --- | --- |
+| AutoSkills | `https://www.autoskills.sh/` | `dist/publish/autoskills-sh/` |
+| SkillsMP | `https://skillsmp.com/es` | `dist/publish/skillsmp-es/` |
+| SkillsLLM | `https://skillsllm.com/` | `dist/publish/skillsllm/` |
+| LobeHub Skills | `https://lobehub.com/skills` | `dist/publish/lobehub-skills/` |
+| MCPMarket | `https://mcpmarket.com/es/tools/skills` | `dist/publish/mcpmarket-skills/` |
 
-> Read `catalog.json`, select the smallest matching skill, then apply only that skill.
+The publish workflow generates per-site manifests and listing files. Direct submission still depends on each platform's schema and authentication, so the repo stays honest about what is automated and what is prepared for manual upload.
 
-## Initial Roadmap
+## GitHub Actions
 
-### 0.1.x
+The repo ships with workflows for:
 
-- Establish the public repository structure.
-- Define the skill template and validation rules.
-- Publish the first Angular and TypeScript micro-skills.
-- Provide initial adapter templates.
+- validation on pull requests and pushes
+- catalog regeneration checks
+- publish bundle generation
+- release artifact preparation
 
-### 0.2.x
+If a workflow is missing for a platform, add the schema once the target platform's requirements are confirmed. The repository currently favors deterministic prep artifacts over fake direct integrations.
 
-- Add contribution review automation.
-- Add more testing, RxJS, forms, and architecture skills.
-- Improve catalog validation with JSON Schema.
-- Expand architecture skills into focused micro-skills for components, facades, state boundaries, services, and version gates.
+## Contribution Model
 
-### 0.3.x
+Contributions should be:
 
-- Add richer adapter exports.
-- Add optional examples per skill.
-- Evaluate safe codemod and lint-rule integrations.
+- public
+- reusable
+- agent-agnostic
+- narrow in scope
+- version-aware when relevant
 
-## Design Principles
+Do not add private company instructions, secret routes, or vendor-specific lock-in inside skills.
 
-- Keep skills small and specific.
-- Route work through the core autopilot layer before applying specialized skills.
-- Keep skill content provider-neutral.
-- Avoid private, corporate, or confidential references.
-- Prefer practical examples over abstract advice.
-- Avoid unrelated refactors when applying a skill.
-- Keep the MVP simple enough to maintain.
+## Roadmap
+
+### Current focus
+
+- core routing and compatibility
+- Angular architecture and DI
+- Angular performance
+- TypeScript safety
+- public documentation and publish bundles
+
+### Next
+
+- testing strategy skills
+- migration helpers
+- release notes automation
+- richer publish schemas for external catalogs
+
+## License And Safety
+
+NgAutoPilot is released under the MIT license.
+
+If you discover a security issue, follow [`SECURITY.md`](SECURITY.md) instead of opening a public issue with details.
