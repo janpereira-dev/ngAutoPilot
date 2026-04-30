@@ -87,6 +87,7 @@ API compatibility concern -> core.compatibility-router
 large or risky change -> core.risk-assessment
 Angular rendering performance -> angular.performance.performance-orchestrator
 Angular architecture -> angular.architecture.angular-patterns-senior
+Angular dependency injection, providers, tokens, injectors -> angular.dependency-injection
 TypeScript unsafe typing -> typescript.strict-types.avoid-any
 RxJS nested subscriptions -> angular.rxjs.avoid-nested-subscriptions
 Observable public contract -> angular.rxjs.observable-contracts
@@ -172,6 +173,12 @@ Secondary skill: core.compatibility-router
 Task: "This service does everything."
 Primary skill: angular.services.single-responsibility-services
 Secondary skill: core.risk-assessment
+```
+
+```txt
+Task: "Fix this NullInjectorError or provider scope issue."
+Primary skill: angular.dependency-injection
+Secondary skill: core.compatibility-router
 ```
 
 ## Expected Output

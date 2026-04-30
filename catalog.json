@@ -66,6 +66,29 @@
       ]
     },
     {
+      "id": "angular.dependency-injection",
+      "name": "Angular Dependency Injection",
+      "path": "skills/angular/dependency-injection/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "dependency-injection",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "dependency injection",
+        "Angular DI",
+        "provider scope",
+        "InjectionToken",
+        "inject()",
+        "NullInjectorError",
+        "circular dependency",
+        "service provider",
+        "TestBed provider override"
+      ]
+    },
+    {
       "id": "angular.performance.avoid-template-functions",
       "name": "Avoid Template Functions",
       "path": "skills/angular/performance/avoid-template-functions/SKILL.md",

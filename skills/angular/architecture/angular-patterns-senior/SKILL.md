@@ -58,6 +58,7 @@ feature API and service coordination -> angular.architecture.facade-pattern
 god service or generic service -> angular.services.single-responsibility-services
 public reactive contracts -> angular.rxjs.observable-contracts
 version-gated Angular APIs -> angular.versioning.angular-version-gates
+providers, injectors, InjectionToken, or NullInjectorError -> angular.dependency-injection
 ```
 
 Before recommending code, identify:

@@ -93,6 +93,7 @@ architecture task -> folder structure, component/service responsibilities, state
 testing task -> test runner, existing test style, mocks, coverage expectations
 migration task -> current versions, target versions, lockfile, deprecated APIs
 quality task -> lint config, TypeScript config, existing conventions
+dependency injection task -> Angular version, provider locations, service lifetime, tests, bootstrap style
 ```
 
 Prefer repository evidence over assumptions.

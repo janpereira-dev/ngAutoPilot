@@ -13,6 +13,8 @@ All notable changes to NgAutoPilot will be documented in this file.
   - `core.skill-router`
   - `core.compatibility-router`
   - `core.risk-assessment`
+- Angular dependency injection skill:
+  - `angular.dependency-injection`
 - Angular architecture skill family:
   - `angular.architecture.angular-patterns-senior`
   - `angular.components.container-presentational`
