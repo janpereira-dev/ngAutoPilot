@@ -36,6 +36,7 @@ Use this skill when:
 
 - Angular version is unknown.
 - A recommendation mentions Signals, `toSignal`, `toObservable`, signal inputs, `@for`, `@defer`, `takeUntilDestroyed`, standalone APIs, `resource`, or `httpResource`.
+- A recommendation changes DI style between constructor injection, `inject()`, NgModule providers, application providers, route providers, or component providers.
 - The project may support Angular 12-15, Angular 16, Angular 17-18, Angular 19+, or Angular 20+ differently.
 - A shared library is consumed by multiple Angular versions.
 - The user asks for a modern Angular refactor without stating version constraints.
@@ -61,7 +62,8 @@ Apply conservative gates:
 ```txt
 Angular 2-13:
   use NgModules, *ngFor, trackBy, RxJS, async, OnPush, takeUntil
-  avoid standalone-only assumptions, Signals, @for, @defer, takeUntilDestroyed
+  use constructor injection as the safest DI default
+  avoid standalone-only assumptions, Signals, @for, @defer, inject() as a required convention, takeUntilDestroyed
 
 Angular 14-15:
   standalone may exist depending on project adoption

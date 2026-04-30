@@ -68,18 +68,22 @@ Use these Angular gates:
 ```txt
 Angular 12-13:
   use NgModules, structural directives, *ngFor + trackBy, RxJS, async pipe, OnPush, takeUntil + destroy$
-  avoid Signals, @for, @defer, signal inputs, takeUntilDestroyed as a required pattern
+  use constructor injection as the safest DI default
+  avoid Signals, @for, @defer, signal inputs, inject() as a required convention, takeUntilDestroyed as a required pattern
 
 Angular 14:
   standalone APIs may appear but should not be assumed as the project default
+  inject() may be used only in valid injection contexts and when project convention allows it
   avoid Signals, @for, @defer
 
 Angular 15:
   standalone APIs are safer than Angular 14 but NgModules remain valid
+  providedIn, NgModule providers, application providers, and constructor injection remain valid DI choices
   avoid Signals, @for, @defer unless backported tooling proves support
 
 Angular 16:
   Signals and RxJS interop can be considered with caution
+  inject() is valid in supported injection contexts
   prefer RxJS for async orchestration
   avoid forcing Signals into public library contracts
 
@@ -98,6 +102,7 @@ Angular 20:
 
 Angular 21:
   follow current Angular compatibility tables for Node, TypeScript, and RxJS
+  use current DI patterns such as providedIn, application providers, route providers, and inject() when project style supports them
   prefer current Angular patterns when the project is already current
 ```
 
@@ -149,6 +154,7 @@ Avoid unsupported code:
 Use signal inputs in Angular 12.
 Use @defer in Angular 15.
 Require takeUntilDestroyed in Angular 13.
+Require inject() style in an Angular 12 codebase.
 Use resource as a default production data-fetching baseline.
 ```
 

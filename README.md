@@ -60,6 +60,7 @@ skills/
   angular/
     architecture/
     components/
+    dependency-injection/
     performance/
     testing/
     forms/
