@@ -2,6 +2,19 @@
 
 All notable changes to NgAutoPilot will be documented in this file.
 
+## Unreleased
+
+### Added
+
+- Angular architecture skill family:
+  - `angular.architecture.angular-patterns-senior`
+  - `angular.components.container-presentational`
+  - `angular.state.signals-vs-rxjs`
+  - `angular.architecture.facade-pattern`
+  - `angular.services.single-responsibility-services`
+  - `angular.rxjs.observable-contracts`
+  - `angular.versioning.angular-version-gates`
+
 ## 0.1.0 - 2026-04-30
 
 ### Added
