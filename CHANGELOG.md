@@ -6,6 +6,13 @@ All notable changes to NgAutoPilot will be documented in this file.
 
 ### Added
 
+- Core autopilot operating layer:
+  - `core.autopilot-orchestrator`
+  - `core.project-intake`
+  - `core.stack-version-detection`
+  - `core.skill-router`
+  - `core.compatibility-router`
+  - `core.risk-assessment`
 - Angular architecture skill family:
   - `angular.architecture.angular-patterns-senior`
   - `angular.components.container-presentational`

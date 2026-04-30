@@ -50,6 +50,13 @@ The MVP is intentionally simple: Markdown skills, a catalog, basic validation, a
 
 ```txt
 skills/
+  _core/
+    autopilot-orchestrator/
+    project-intake/
+    stack-version-detection/
+    skill-router/
+    compatibility-router/
+    risk-assessment/
   angular/
     architecture/
     components/
@@ -202,6 +209,7 @@ Adapter rule:
 ## Design Principles
 
 - Keep skills small and specific.
+- Route work through the core autopilot layer before applying specialized skills.
 - Keep skill content provider-neutral.
 - Avoid private, corporate, or confidential references.
 - Prefer practical examples over abstract advice.
