@@ -1,5 +1,5 @@
 ---
-id: angular.upgrade.material.angular-material-mdc-v15-overlays-navigation
+id: angular.upgrades.material.angular-material-mdc-v15-overlays-navigation
 name: Angular Material MDC v15 Overlays Navigation
 description: >
   Migrates Angular Material dialogs, menus, snack-bars, tooltips, and tabs where overlay structure and navigation behavior can regress.

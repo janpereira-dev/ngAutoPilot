@@ -1,5 +1,5 @@
 ---
-id: angular.serviceworker.angular-swupdate-v13-migration
+id: angular.service-worker.angular-swupdate-v13-migration
 name: Angular SwUpdate v13 Migration
 description: >
   Migrate Angular service worker update code to the v13 API shape. Use when applications still rely on available or activated streams and need to use versionUpdates or related update flow changes.

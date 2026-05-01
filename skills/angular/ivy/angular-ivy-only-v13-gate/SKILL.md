@@ -1,5 +1,5 @@
 ---
-id: ivy.angular-ivy-only-v13-gate
+id: angular.ivy.angular-ivy-only-v13-gate
 name: Angular Ivy Only v13 Gate
 description: >
   Gate Angular upgrades on Ivy-only readiness. Use when the project is moving to Angular 13+ and View Engine or ngcc compatibility must be explicitly resolved before the upgrade can proceed.

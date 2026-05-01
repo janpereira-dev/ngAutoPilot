@@ -1,5 +1,5 @@
 ---
-id: angular.upgrade.material.angular-material-mdc-v15-form-controls
+id: angular.upgrades.material.angular-material-mdc-v15-form-controls
 name: Angular Material MDC v15 Form Controls
 description: >
   Migrates Angular Material v15 form controls including form-field, input, select, checkbox, radio, slide-toggle, and autocomplete with validation and layout review.

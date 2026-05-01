@@ -1,5 +1,5 @@
 ---
-id: angular.upgrade.material.angular-material-mdc-v15-data-display
+id: angular.upgrades.material.angular-material-mdc-v15-data-display
 name: Angular Material MDC v15 Data Display
 description: >
   Migrates Angular Material table, list, card, paginator, and progress components where layout and structure changes can affect business screens.

@@ -6,65 +6,10 @@ All notable changes to NgAutoPilot will be documented in this file.
 
 ### Added
 
-- Visual documentation assets:
-  - `assets/ngautopilot-hero.svg`
-  - `assets/ngautopilot-flow.svg`
-- Sage review packet docs and workflow support:
-  - `docs/sage-review.md`
-  - `scripts/build-sage-review-packet.mjs`
-  - `.github/workflows/sage-review.yml`
-- Public documentation and release automation:
-  - `CODE_OF_CONDUCT.md`
-  - `SECURITY.md`
-  - `.github/workflows/ci.yml`
-  - `.github/workflows/publish-packages.yml`
-  - `.github/workflows/release.yml`
-  - `scripts/build-publish-bundles.mjs`
-- Public publish bundle targets:
-  - AutoSkills
-  - SkillsMP
-  - SkillsLLM
-  - LobeHub Skills
-  - MCPMarket
-- Core autopilot operating layer:
-  - `core.autopilot-orchestrator`
-  - `core.project-intake`
-  - `core.stack-version-detection`
-  - `core.skill-router`
-  - `core.compatibility-router`
-  - `core.risk-assessment`
-- Angular versioning layer:
-  - `angular.versioning.angular-version-gates`
-  - `angular.versioning.angular-version-compatibility-gate`
-  - `angular.versioning.angular-versioning-index`
-- Angular major-hop system:
-  - `angular.upgrade.hops.angular-15-to-16`
-  - `angular.upgrade.hops.angular-16-to-17`
-  - `angular.upgrade.hops.angular-17-to-18`
-  - `angular.upgrade.hops.angular-18-to-19`
-  - `angular.upgrade.hops.angular-19-to-20`
-  - `angular.upgrade.hops.angular-20-to-21`
-- Angular upgrade satellites:
-  - AngularJS/ngUpgrade inventory, bootstrap, routing, service, directive, controller, filter, and decommission skills
-  - Workspace, RxJS, and HttpClient migration bridges
-  - Ivy, localize, router lazy-route, service worker, SSR, forms, and testing cleanup skills
-  - Angular Material MDC v15 family and v14 cleanup skill
-  - Router, SSR, hydration, zone, zoneless, signals, resources, templates, components, DI, debug, and hybrid follow-up skills
-- Angular modernization satellites:
-  - control flow adoption/migration for v17 through v21
-  - defer views adoption for v17 through v21
-  - standalone-first adoption for v19 through v21
-  - zoneless readiness for v17 through v21
-- Angular dependency injection skill:
-  - `angular.dependency-injection`
-- Angular architecture skill family:
-  - `angular.architecture.angular-patterns-senior`
-  - `angular.components.container-presentational`
-  - `angular.state.signals-vs-rxjs`
-  - `angular.architecture.facade-pattern`
-  - `angular.services.single-responsibility-services`
-  - `angular.rxjs.observable-contracts`
-  - `angular.versioning.angular-version-gates`
+### In progress
+
+- Public npm distribution and npx CLI support.
+- Release workflow consolidation and publication automation review.
 
 ## 0.2.0 - 2026-05-01
 
