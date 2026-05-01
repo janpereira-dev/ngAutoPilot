@@ -4,7 +4,7 @@
   <img src="assets/ngautopilot-hero.svg" alt="NgAutoPilot hero banner" />
 </p>
 
-NgAutoPilot is a public, agent-agnostic catalog of micro-skills for Angular, TypeScript, JavaScript, RxJS, testing, code quality, architecture, and Git workflows.
+NgAutoPilot is a public, agent-agnostic catalog of micro-skills for Angular, TypeScript, JavaScript, RxJS, testing, code quality, architecture, versioning, and Git workflows.
 
 It helps AI agents make better technical decisions with small, reusable instructions instead of one giant prompt.
 
@@ -17,7 +17,7 @@ It helps AI agents make better technical decisions with small, reusable instruct
 NgAutoPilot is a skill system for real projects.
 
 - 🧠 `skills/_core/` is the operating layer that decides how to think about a task.
-- 🏗️ `skills/angular/` holds Angular-specific skills for architecture, DI, performance, RxJS, state, and version gates.
+- 🏗️ `skills/angular/` holds Angular-specific skills for architecture, DI, performance, RxJS, state, migrations, versioning, and upgrade hops.
 - 🧪 `skills/typescript/`, `skills/javascript/`, `skills/quality/`, and `skills/git/` cover cross-cutting concerns.
 - 🔌 `adapters/` contains templates for different agent ecosystems.
 - 📚 `docs/` contains extra guidance such as the Sage review packet.
@@ -86,6 +86,9 @@ skills/
     rxjs/
     state/
     services/
+    migration/
+    modernization/
+    upgrades/
     versioning/
   typescript/
   javascript/
@@ -95,19 +98,24 @@ skills/
 
 ## Catalog Snapshot
 
-Current catalog size: **28 skills**
+Current catalog size: **175 skills**
 
 | Category | Skills |
 | --- | ---: |
 | Core | 6 |
-| Angular performance | 12 |
-| Angular architecture | 2 |
-| Angular components | 1 |
-| Angular dependency injection | 1 |
+| Angular architecture | 8 |
+| Angular migration | 8 |
+| Angular modernization | 18 |
+| Angular performance | 13 |
+| Angular upgrades | 60+ |
+| Angular versioning | 3 |
+| Angular components | 5 |
+| Angular dependency injection | 2 |
 | Angular RxJS | 2 |
 | Angular services | 1 |
 | Angular state | 1 |
-| Angular versioning | 1 |
+| Angular testing | 4 |
+| Angular HTTP / SSR / router / forms / Material | 30+ |
 | TypeScript strict types | 1 |
 
 ## Quick Start
@@ -153,6 +161,8 @@ Start with:
 - `skills/_core/skill-router/SKILL.md`
 - `skills/_core/compatibility-router/SKILL.md`
 - `skills/_core/risk-assessment/SKILL.md`
+- `skills/angular/versioning/angular-versioning-index/SKILL.md`
+- `skills/angular/versioning/angular-version-compatibility-gate/SKILL.md`
 
 Then route into the relevant Angular micro-skill.
 
@@ -241,8 +251,32 @@ NgAutoPilot/
 ├── adapters/
 ├── schemas/
 ├── skills/
+│   ├── _core/
+│   ├── angular/
+│   │   ├── architecture/
+│   │   ├── migration/
+│   │   ├── modernization/
+│   │   ├── upgrades/
+│   │   └── versioning/
 └── scripts/
 ```
+
+## Angular Upgrade System
+
+Angular upgrade work is organized into three layers:
+
+- `versioning/` for stack detection, routing, the compatibility gate, and the master index.
+- `upgrades/` for major-hop execution and version-specific risk satellites.
+- `modernization/` for post-upgrade adoption of newer Angular features such as control flow, `@defer`, standalone-first, and zoneless readiness.
+
+The recommended flow is:
+
+1. Detect the stack.
+2. Run the compatibility gate.
+3. Select the next hop.
+4. Run hop-specific satellites when required.
+5. Validate build, tests, and SSR or Material behavior when relevant.
+6. Keep modernization separate from the hop itself.
 
 ## Contributing
 

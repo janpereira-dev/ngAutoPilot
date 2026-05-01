@@ -25,6 +25,60 @@
       ]
     },
     {
+      "id": "angular.architecture.control-flow-adoption",
+      "name": "Control Flow Adoption",
+      "path": "skills/angular/architecture/control-flow-adoption/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "architecture",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "control flow",
+        "@if",
+        "@for",
+        "@switch",
+        "structural directives modernization"
+      ]
+    },
+    {
+      "id": "angular.architecture.defer-lazy-loading-modernization",
+      "name": "Defer Lazy Loading Modernization",
+      "path": "skills/angular/architecture/defer-lazy-loading-modernization/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "architecture",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "defer blocks",
+        "lazy loading modernization",
+        "route splitting",
+        "loading behavior modernization"
+      ]
+    },
+    {
+      "id": "angular.architecture.directive-composition-api",
+      "name": "Directive Composition API",
+      "path": "skills/angular/architecture/directive-composition-api/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "architecture",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "directive composition",
+        "composition API",
+        "inheritance reduction"
+      ]
+    },
+    {
       "id": "angular.architecture.facade-pattern",
       "name": "Angular Facade Pattern",
       "path": "skills/angular/architecture/facade-pattern/SKILL.md",
@@ -43,6 +97,59 @@
         "component injects many services",
         "simplify Angular tests",
         "feature API"
+      ]
+    },
+    {
+      "id": "angular.architecture.host-directives-adoption",
+      "name": "Host Directives Adoption",
+      "path": "skills/angular/architecture/host-directives-adoption/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "architecture",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "host directives",
+        "hostDirectives",
+        "wrapper reduction",
+        "inheritance reduction"
+      ]
+    },
+    {
+      "id": "angular.architecture.signals-adoption",
+      "name": "Signals Adoption",
+      "path": "skills/angular/architecture/signals-adoption/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "architecture",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "signals",
+        "signal state",
+        "reactive state modernization",
+        "computed effect adoption"
+      ]
+    },
+    {
+      "id": "angular.architecture.standalone-components-adoption",
+      "name": "Standalone Components Adoption",
+      "path": "skills/angular/architecture/standalone-components-adoption/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "architecture",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "standalone components",
+        "standalone adoption",
+        "NgModule reduction"
       ]
     },
     {
@@ -86,6 +193,615 @@
         "circular dependency",
         "service provider",
         "TestBed provider override"
+      ]
+    },
+    {
+      "id": "angular.forms.angular-number-input-min-max-validation-v12",
+      "name": "Angular Number Input Min Max Validation v12",
+      "path": "skills/forms/angular-number-input-min-max-validation-v12/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "forms",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "number input min max",
+        "form validity"
+      ]
+    },
+    {
+      "id": "angular.forms.angular-typed-forms-migration",
+      "name": "Angular Typed Forms Migration",
+      "path": "skills/forms/angular-typed-forms-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "forms",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "typed forms",
+        "FormControl",
+        "FormGroup",
+        "FormArray"
+      ]
+    },
+    {
+      "id": "angular.forms.angular-untyped-forms-bridge",
+      "name": "Angular Untyped Forms Bridge",
+      "path": "skills/forms/angular-untyped-forms-bridge/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "forms",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "UntypedFormGroup",
+        "UntypedFormControl",
+        "typed forms bridge"
+      ]
+    },
+    {
+      "id": "angular.i18n.angular-localize-v9-migration",
+      "name": "Angular Localize v9 Migration",
+      "path": "skills/i18n/angular-localize-v9-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "i18n",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "@angular/localize",
+        "$localize",
+        "Angular i18n"
+      ]
+    },
+    {
+      "id": "angular.ivy.angular-ivy-only-v13-gate",
+      "name": "Angular Ivy Only v13 Gate",
+      "path": "skills/ivy/angular-ivy-only-v13-gate/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "ivy",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Ivy only",
+        "View Engine",
+        "ngcc"
+      ]
+    },
+    {
+      "id": "angular.libraries.angular-view-engine-library-audit-v13",
+      "name": "Angular View Engine Library Audit v13",
+      "path": "skills/libraries/angular-view-engine-library-audit-v13/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "libraries",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "View Engine libraries",
+        "ngcc audit",
+        "Angular library compatibility"
+      ]
+    },
+    {
+      "id": "angular.migration.angularjs-decommission",
+      "name": "AngularJS Decommission",
+      "path": "skills/angular/migration/angularjs-decommission/SKILL.md",
+      "stack": [
+        "AngularJS",
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "migration",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "remove AngularJS",
+        "decommission hybrid runtime",
+        "legacy cleanup",
+        "AngularJS shutdown"
+      ]
+    },
+    {
+      "id": "angular.migration.angularjs-hybrid-ngupgrade",
+      "name": "AngularJS Hybrid ngUpgrade",
+      "path": "skills/angular/migration/angularjs-hybrid-ngupgrade/SKILL.md",
+      "stack": [
+        "AngularJS",
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "migration",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "ngUpgrade",
+        "hybrid AngularJS Angular",
+        "coexistence runtime",
+        "downgrade component",
+        "upgrade module"
+      ]
+    },
+    {
+      "id": "angular.migration.angularjs-legacy-inventory",
+      "name": "AngularJS Legacy Inventory",
+      "path": "skills/angular/migration/angularjs-legacy-inventory/SKILL.md",
+      "stack": [
+        "AngularJS",
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "migration",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "AngularJS inventory",
+        "legacy scan",
+        "ngUpgrade preparation",
+        "AngularJS modernization inventory"
+      ]
+    },
+    {
+      "id": "angular.migration.angularjs-routing-migration",
+      "name": "AngularJS Routing Migration",
+      "path": "skills/angular/migration/angularjs-routing-migration/SKILL.md",
+      "stack": [
+        "AngularJS",
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "migration",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "AngularJS routing",
+        "ngRoute migration",
+        "ui-router migration",
+        "route ownership",
+        "navigation migration"
+      ]
+    },
+    {
+      "id": "angular.migration.angularjs-service-migration",
+      "name": "AngularJS Service Migration",
+      "path": "skills/angular/migration/angularjs-service-migration/SKILL.md",
+      "stack": [
+        "AngularJS",
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "migration",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "AngularJS services",
+        "factory to injectable",
+        "provider migration",
+        "$http migration",
+        "$q migration"
+      ]
+    },
+    {
+      "id": "angular.migration.angularjs-strategy-selector",
+      "name": "AngularJS Strategy Selector",
+      "path": "skills/angular/migration/angularjs-strategy-selector/SKILL.md",
+      "stack": [
+        "AngularJS",
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "migration",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "migration strategy",
+        "rewrite by feature",
+        "strangler route",
+        "hybrid ngUpgrade",
+        "AngularJS modernization plan"
+      ]
+    },
+    {
+      "id": "angular.migration.angularjs-template-syntax-migration",
+      "name": "AngularJS Template Syntax Migration",
+      "path": "skills/angular/migration/angularjs-template-syntax-migration/SKILL.md",
+      "stack": [
+        "AngularJS",
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "migration",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "AngularJS templates",
+        "template migration",
+        "ng-repeat",
+        "ng-if",
+        "ng-click",
+        "AngularJS to Angular HTML"
+      ]
+    },
+    {
+      "id": "angular.migration.angularjs-to-angular-modernization-orchestrator",
+      "name": "AngularJS to Angular Modernization Orchestrator",
+      "path": "skills/angular/migration/angularjs-to-angular-modernization-orchestrator/SKILL.md",
+      "stack": [
+        "AngularJS",
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "migration",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "AngularJS migration",
+        "AngularJS modernization",
+        "ngUpgrade",
+        "hybrid AngularJS Angular",
+        "legacy modernization"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-control-flow-v17-migration",
+      "name": "Angular Control Flow v17 Migration",
+      "path": "skills/angular/modernization/angular-control-flow-v17-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "control flow migration",
+        "@if",
+        "@for",
+        "@switch",
+        "structural directives modernization"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-control-flow-v18-migration",
+      "name": "Angular Control Flow v18 Migration",
+      "path": "skills/angular/modernization/angular-control-flow-v18-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "control flow migration",
+        "@if",
+        "@for",
+        "@switch",
+        "structural directives modernization"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-control-flow-v19-migration",
+      "name": "Angular Control Flow v19 Migration",
+      "path": "skills/angular/modernization/angular-control-flow-v19-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "control flow migration",
+        "@if",
+        "@for",
+        "@switch",
+        "structural directives modernization"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-control-flow-v20-migration",
+      "name": "Angular Control Flow v20 Migration",
+      "path": "skills/angular/modernization/angular-control-flow-v20-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "control flow migration",
+        "@if",
+        "@for",
+        "@switch",
+        "structural directives modernization"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-control-flow-v21-migration",
+      "name": "Angular Control Flow v21 Migration",
+      "path": "skills/angular/modernization/angular-control-flow-v21-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "control flow migration",
+        "@if",
+        "@for",
+        "@switch",
+        "structural directives modernization"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-defer-views-v17-adoption",
+      "name": "Angular Defer Views v17 Adoption",
+      "path": "skills/angular/modernization/angular-defer-views-v17-adoption/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "defer views",
+        "@defer",
+        "deferrable views",
+        "lazy rendering modernization"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-defer-views-v18-adoption",
+      "name": "Angular Defer Views v18 Adoption",
+      "path": "skills/angular/modernization/angular-defer-views-v18-adoption/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "defer views",
+        "@defer",
+        "deferrable views",
+        "lazy rendering modernization"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-defer-views-v19-adoption",
+      "name": "Angular Defer Views v19 Adoption",
+      "path": "skills/angular/modernization/angular-defer-views-v19-adoption/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "defer views",
+        "@defer",
+        "deferrable views",
+        "lazy rendering modernization"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-defer-views-v20-adoption",
+      "name": "Angular Defer Views v20 Adoption",
+      "path": "skills/angular/modernization/angular-defer-views-v20-adoption/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "defer views",
+        "@defer",
+        "deferrable views",
+        "lazy rendering modernization"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-defer-views-v21-adoption",
+      "name": "Angular Defer Views v21 Adoption",
+      "path": "skills/angular/modernization/angular-defer-views-v21-adoption/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "defer views",
+        "@defer",
+        "deferrable views",
+        "lazy rendering modernization"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-standalone-first-adoption",
+      "name": "Angular Standalone First Adoption",
+      "path": "skills/angular/modernization/angular-standalone-first-adoption/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "standalone adoption",
+        "standalone components",
+        "bootstrapApplication",
+        "NgModule reduction"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-standalone-first-adoption-v19",
+      "name": "Angular Standalone First Adoption v19",
+      "path": "skills/angular/modernization/angular-standalone-first-adoption-v19/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "standalone adoption",
+        "standalone components",
+        "bootstrapApplication",
+        "NgModule reduction"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-standalone-first-adoption-v20",
+      "name": "Angular Standalone First Adoption v20",
+      "path": "skills/angular/modernization/angular-standalone-first-adoption-v20/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "standalone adoption",
+        "standalone components",
+        "bootstrapApplication",
+        "NgModule reduction"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-standalone-first-adoption-v21",
+      "name": "Angular Standalone First Adoption v21",
+      "path": "skills/angular/modernization/angular-standalone-first-adoption-v21/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "standalone adoption",
+        "standalone components",
+        "bootstrapApplication",
+        "NgModule reduction"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-zoneless-readiness-v17",
+      "name": "Angular Zoneless Readiness v17",
+      "path": "skills/angular/modernization/angular-zoneless-readiness-v17/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "zoneless readiness",
+        "Zone.js reduction",
+        "zoneless modernization",
+        "change detection assumptions"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-zoneless-readiness-v18",
+      "name": "Angular Zoneless Readiness v18",
+      "path": "skills/angular/modernization/angular-zoneless-readiness-v18/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "zoneless readiness",
+        "Zone.js reduction",
+        "zoneless modernization",
+        "change detection assumptions"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-zoneless-readiness-v19",
+      "name": "Angular Zoneless Readiness v19",
+      "path": "skills/angular/modernization/angular-zoneless-readiness-v19/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "zoneless readiness",
+        "Zone.js reduction",
+        "zoneless modernization",
+        "change detection assumptions"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-zoneless-readiness-v20",
+      "name": "Angular Zoneless Readiness v20",
+      "path": "skills/angular/modernization/angular-zoneless-readiness-v20/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "zoneless readiness",
+        "Zone.js reduction",
+        "zoneless modernization",
+        "change detection assumptions"
+      ]
+    },
+    {
+      "id": "angular.modernization.angular-zoneless-readiness-v21",
+      "name": "Angular Zoneless Readiness v21",
+      "path": "skills/angular/modernization/angular-zoneless-readiness-v21/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modernization",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "zoneless readiness",
+        "Zone.js reduction",
+        "zoneless modernization",
+        "change detection assumptions"
       ]
     },
     {
@@ -185,6 +901,23 @@
         "Lighthouse",
         "Web Vitals",
         "performance profiling"
+      ]
+    },
+    {
+      "id": "angular.performance.ng-optimized-image-adoption",
+      "name": "NgOptimizedImage Adoption",
+      "path": "skills/angular/performance/ng-optimized-image-adoption/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "performance",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "NgOptimizedImage",
+        "image performance",
+        "LCP optimization"
       ]
     },
     {
@@ -367,6 +1100,23 @@
       ]
     },
     {
+      "id": "angular.service-worker.angular-swupdate-v13-migration",
+      "name": "Angular SwUpdate v13 Migration",
+      "path": "skills/service-worker/angular-swupdate-v13-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "service-worker",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "SwUpdate",
+        "service worker updates",
+        "versionUpdates"
+      ]
+    },
+    {
       "id": "angular.services.single-responsibility-services",
       "name": "Angular Single Responsibility Services",
       "path": "skills/angular/services/single-responsibility-services/SKILL.md",
@@ -384,6 +1134,23 @@
         "CommonService",
         "UtilsService",
         "ManagerService"
+      ]
+    },
+    {
+      "id": "angular.ssr.angular-render-module-v13-migration",
+      "name": "Angular Render Module v13 Migration",
+      "path": "skills/ssr/angular-render-module-v13-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "ssr",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "renderModuleFactory",
+        "renderModule",
+        "SSR migration"
       ]
     },
     {
@@ -408,6 +1175,1875 @@
       ]
     },
     {
+      "id": "angular.testing.angular-testbed-inject-v9-migration",
+      "name": "Angular TestBed Inject v9 Migration",
+      "path": "skills/testing/angular-testbed-inject-v9-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "testing",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "TestBed.get",
+        "TestBed.inject",
+        "test modernization"
+      ]
+    },
+    {
+      "id": "angular.upgrade.angular-major-hop-executor",
+      "name": "Angular Major Hop Executor",
+      "path": "skills/angular/upgrades/angular-major-hop-executor/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "upgrades",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "major hop executor",
+        "single Angular hop",
+        "Angular version step",
+        "upgrade execution"
+      ]
+    },
+    {
+      "id": "angular.upgrade.angular-upgrade-orchestrator",
+      "name": "Angular Upgrade Orchestrator",
+      "path": "skills/angular/upgrades/angular-upgrade-orchestrator/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "upgrades",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular upgrade",
+        "major version hop",
+        "next Angular version",
+        "upgrade route planner",
+        "Angular version chain"
+      ]
+    },
+    {
+      "id": "angular.upgrade.angular-upgrade-route-planner",
+      "name": "Angular Upgrade Route Planner",
+      "path": "skills/angular/upgrades/angular-upgrade-route-planner/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "upgrades",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular upgrade route",
+        "major-by-major plan",
+        "next hop selection",
+        "upgrade chain"
+      ]
+    },
+    {
+      "id": "angular.upgrade.angular-upgrade-validation-gate",
+      "name": "Angular Upgrade Validation Gate",
+      "path": "skills/angular/upgrades/angular-upgrade-validation-gate/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "upgrades",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "upgrade validation",
+        "validation gate",
+        "build test lint",
+        "hop approval"
+      ]
+    },
+    {
+      "id": "angular.upgrade.angular-version-detector",
+      "name": "Angular Version Detector",
+      "path": "skills/angular/upgrades/angular-version-detector/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "upgrades",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular version detection",
+        "package version scan",
+        "compatibility check",
+        "source version evidence"
+      ]
+    },
+    {
+      "id": "angular.upgrade.angularjs.angularjs-controller-to-component-migration",
+      "name": "AngularJS Controller to Component Migration",
+      "path": "skills/angular/upgrades/angularjs/angularjs-controller-to-component-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "AngularJS"
+      ],
+      "category": "angularjs",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "AngularJS controller migration",
+        "controller to component",
+        "legacy controller"
+      ]
+    },
+    {
+      "id": "angular.upgrade.angularjs.angularjs-decommission-gate",
+      "name": "AngularJS Decommission Gate",
+      "path": "skills/angular/upgrades/angularjs/angularjs-decommission-gate/SKILL.md",
+      "stack": [
+        "Angular",
+        "AngularJS"
+      ],
+      "category": "angularjs",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "AngularJS decommission",
+        "hybrid removal gate",
+        "remove AngularJS"
+      ]
+    },
+    {
+      "id": "angular.upgrade.angularjs.angularjs-directive-to-component-migration",
+      "name": "AngularJS Directive to Component Migration",
+      "path": "skills/angular/upgrades/angularjs/angularjs-directive-to-component-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "AngularJS"
+      ],
+      "category": "angularjs",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "AngularJS directive migration",
+        "directive to component",
+        "legacy directive"
+      ]
+    },
+    {
+      "id": "angular.upgrade.angularjs.angularjs-downgrade-upgrade-api-bridge",
+      "name": "AngularJS Downgrade and Upgrade API Bridge",
+      "path": "skills/angular/upgrades/angularjs/angularjs-downgrade-upgrade-api-bridge/SKILL.md",
+      "stack": [
+        "Angular",
+        "AngularJS"
+      ],
+      "category": "angularjs",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "downgradeComponent",
+        "downgradeInjectable",
+        "UpgradeComponent",
+        "ngUpgrade bridge APIs"
+      ]
+    },
+    {
+      "id": "angular.upgrade.angularjs.angularjs-filter-to-pipe-migration",
+      "name": "AngularJS Filter to Pipe Migration",
+      "path": "skills/angular/upgrades/angularjs/angularjs-filter-to-pipe-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "AngularJS"
+      ],
+      "category": "angularjs",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "AngularJS filter migration",
+        "filter to pipe",
+        "legacy filter"
+      ]
+    },
+    {
+      "id": "angular.upgrade.angularjs.angularjs-ngupgrade-hybrid-bootstrap",
+      "name": "AngularJS ngUpgrade Hybrid Bootstrap",
+      "path": "skills/angular/upgrades/angularjs/angularjs-ngupgrade-hybrid-bootstrap/SKILL.md",
+      "stack": [
+        "Angular",
+        "AngularJS"
+      ],
+      "category": "angularjs",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "ngUpgrade bootstrap",
+        "hybrid AngularJS and Angular",
+        "UpgradeModule",
+        "downgradeComponent"
+      ]
+    },
+    {
+      "id": "angular.upgrade.angularjs.angularjs-routing-hybrid-migration",
+      "name": "AngularJS Routing Hybrid Migration",
+      "path": "skills/angular/upgrades/angularjs/angularjs-routing-hybrid-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "AngularJS"
+      ],
+      "category": "angularjs",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "AngularJS routing migration",
+        "hybrid routing",
+        "ui-router bridge",
+        "Angular Router coexistence"
+      ]
+    },
+    {
+      "id": "angular.upgrade.angularjs.angularjs-service-to-injectable-migration",
+      "name": "AngularJS Service to Injectable Migration",
+      "path": "skills/angular/upgrades/angularjs/angularjs-service-to-injectable-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "AngularJS"
+      ],
+      "category": "angularjs",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "AngularJS service migration",
+        "service to injectable",
+        "legacy service"
+      ]
+    },
+    {
+      "id": "angular.upgrade.angularjs.angularjs-template-syntax-migration",
+      "name": "AngularJS Template Syntax Migration",
+      "path": "skills/angular/upgrades/angularjs/angularjs-template-syntax-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "AngularJS"
+      ],
+      "category": "angularjs",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "AngularJS template syntax",
+        "ng-repeat",
+        "ng-if",
+        "ng-click",
+        "ng-model"
+      ]
+    },
+    {
+      "id": "angular.upgrade.angularjs.angularjs-upgrade-inventory",
+      "name": "AngularJS Upgrade Inventory",
+      "path": "skills/angular/upgrades/angularjs/angularjs-upgrade-inventory/SKILL.md",
+      "stack": [
+        "Angular",
+        "AngularJS"
+      ],
+      "category": "angularjs",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "AngularJS inventory",
+        "ngUpgrade inventory",
+        "legacy AngularJS app",
+        "hybrid migration planning"
+      ]
+    },
+    {
+      "id": "angular.upgrade.browser-support.angular-ie11-deprecation-removal-governance",
+      "name": "Angular IE11 Deprecation and Removal Governance",
+      "path": "skills/angular/upgrades/browser-support/angular-ie11-deprecation-removal-governance/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "browser-support",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "IE11 support",
+        "browser policy",
+        "Angular 12 IE11 deprecation",
+        "Angular 13 IE11 removal",
+        "legacy browser governance"
+      ]
+    },
+    {
+      "id": "angular.upgrade.build.angular-v20-module-resolution-bundler",
+      "name": "Angular v20 Module Resolution Bundler",
+      "path": "skills/angular/upgrades/build/angular-v20-module-resolution-bundler/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "build",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "moduleResolution bundler",
+        "secondary entry points",
+        "custom builders",
+        "tsconfig inheritance"
+      ]
+    },
+    {
+      "id": "angular.upgrade.change-detection.angular-onpush-host-bindings-v18",
+      "name": "Angular OnPush Host Bindings v18",
+      "path": "skills/angular/upgrades/change-detection/angular-onpush-host-bindings-v18/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "change-detection",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "OnPush",
+        "host bindings",
+        "markForCheck",
+        "detectChanges"
+      ]
+    },
+    {
+      "id": "angular.upgrade.changelog.angular-major-changelog-risk-review",
+      "name": "Angular Major Changelog Risk Review",
+      "path": "skills/angular/upgrades/changelog/angular-major-changelog-risk-review/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "changelog",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular changelog review",
+        "patch baseline review",
+        "minor baseline review",
+        "Angular 16 to 17 risk review"
+      ]
+    },
+    {
+      "id": "angular.upgrade.components.angular-create-component-projectable-nodes-v19",
+      "name": "Angular Create Component Projectable Nodes v19",
+      "path": "skills/angular/upgrades/components/angular-create-component-projectable-nodes-v19/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "components",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "createComponent",
+        "projectable nodes",
+        "content projection",
+        "ng-content fallback"
+      ]
+    },
+    {
+      "id": "angular.upgrade.components.angular-dynamic-component-docheck-v17",
+      "name": "Angular Dynamic Component ngDoCheck v17",
+      "path": "skills/angular/upgrades/components/angular-dynamic-component-docheck-v17/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "components",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "dynamic components",
+        "ngDoCheck",
+        "change detection",
+        "ViewContainerRef.createComponent"
+      ]
+    },
+    {
+      "id": "angular.upgrade.components.angular-v21-custom-elements-signal-inputs",
+      "name": "Angular v21 Custom Elements Signal Inputs",
+      "path": "skills/angular/upgrades/components/angular-v21-custom-elements-signal-inputs/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "components",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "custom elements",
+        "signal inputs",
+        "createCustomElement",
+        "customElements.define"
+      ]
+    },
+    {
+      "id": "angular.upgrade.debug.angular-v20-ng-reflect-cleanup",
+      "name": "Angular v20 ng-reflect Cleanup",
+      "path": "skills/angular/upgrades/debug/angular-v20-ng-reflect-cleanup/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "debug",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "ng-reflect cleanup",
+        "debug attributes",
+        "e2e selectors",
+        "DOM contracts"
+      ]
+    },
+    {
+      "id": "angular.upgrade.deprecations.angular-v15-deprecation-cleanup",
+      "name": "Angular v15 Deprecation Cleanup",
+      "path": "skills/angular/upgrades/deprecations/angular-v15-deprecation-cleanup/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "deprecations",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "deprecation cleanup",
+        "routerlinkwithhref",
+        "date pipe timezone"
+      ]
+    },
+    {
+      "id": "angular.upgrade.di.angular-di-constructor-hardening-v15",
+      "name": "Angular DI Constructor Hardening v15",
+      "path": "skills/angular/upgrades/di/angular-di-constructor-hardening-v15/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "di",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "constructor DI",
+        "inheritance",
+        "decorators",
+        "Angular DI hardening"
+      ]
+    },
+    {
+      "id": "angular.upgrade.di.angular-v20-injector-injectflags-cleanup",
+      "name": "Angular v20 Injector InjectFlags Cleanup",
+      "path": "skills/angular/upgrades/di/angular-v20-injector-injectflags-cleanup/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "di",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "InjectFlags",
+        "TestBed.get",
+        "Injector.get",
+        "DI cleanup"
+      ]
+    },
+    {
+      "id": "angular.upgrade.forms.angular-cva-set-disabled-state-v15",
+      "name": "Angular CVA setDisabledState v15",
+      "path": "skills/angular/upgrades/forms/angular-cva-set-disabled-state-v15/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "forms",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "ControlValueAccessor",
+        "setDisabledState",
+        "NG_VALUE_ACCESSOR"
+      ]
+    },
+    {
+      "id": "angular.upgrade.forms.angular-ngmodel-template-write-cleanup-v18",
+      "name": "Angular ngModel Template Write Cleanup v18",
+      "path": "skills/angular/upgrades/forms/angular-ngmodel-template-write-cleanup-v18/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "forms",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "ngModel cleanup",
+        "template write expressions",
+        "template-driven forms"
+      ]
+    },
+    {
+      "id": "angular.upgrade.forms.angular-typed-forms-migration",
+      "name": "Angular Typed Forms Migration",
+      "path": "skills/angular/upgrades/forms/angular-typed-forms-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "forms",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "typed forms",
+        "untyped forms bridge",
+        "reactive forms typing",
+        "FormControl generic"
+      ]
+    },
+    {
+      "id": "angular.upgrade.forms.angular-untyped-forms-bridge",
+      "name": "Angular Untyped Forms Bridge",
+      "path": "skills/angular/upgrades/forms/angular-untyped-forms-bridge/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "forms",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "UntypedFormGroup",
+        "UntypedFormControl",
+        "typed forms bridge"
+      ]
+    },
+    {
+      "id": "angular.upgrade.forms.angular-v21-formarray-directive-conflict",
+      "name": "Angular v21 FormArray Directive Conflict",
+      "path": "skills/angular/upgrades/forms/angular-v21-formarray-directive-conflict/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "forms",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "FormArray conflict",
+        "formArray directive",
+        "reactive forms naming"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-10-to-11",
+      "name": "Angular 10 to Angular 11 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-10-to-11/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "upgrades",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 10 to 11",
+        "major hop upgrade",
+        "router behavior",
+        "validation gate"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-11-to-12",
+      "name": "Angular 11 to Angular 12 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-11-to-12/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "upgrades",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 11 to 12",
+        "major hop upgrade",
+        "validation gate",
+        "production build"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-12-to-13",
+      "name": "Angular 12 to Angular 13 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-12-to-13/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "upgrades",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 12 to 13",
+        "major hop upgrade",
+        "IE11 removal",
+        "View Engine removal"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-13-to-14",
+      "name": "Angular 13 to Angular 14 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-13-to-14/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "upgrades",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 13 to 14",
+        "major hop upgrade",
+        "typed forms",
+        "validation gate"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-14-to-15",
+      "name": "Angular 14 to Angular 15 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-14-to-15/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "upgrades",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 14 to 15",
+        "major hop upgrade",
+        "validation gate",
+        "Material MDC"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-15-to-16",
+      "name": "Angular 15 to Angular 16 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-15-to-16/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "upgrade",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 15 to 16",
+        "Angular 16 upgrade",
+        "ngcc removal",
+        "View Engine libraries"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-16-to-17",
+      "name": "Angular 16 to Angular 17 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-16-to-17/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "upgrade",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 16 to 17",
+        "Angular 17 upgrade",
+        "Angular 16 changelog review",
+        "Zone.js imports"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-17-to-18",
+      "name": "Angular 17 to Angular 18 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-17-to-18/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "upgrade",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 17 to 18",
+        "Angular 18 upgrade",
+        "test stability",
+        "SSR platform-server"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-18-to-19",
+      "name": "Angular 18 to Angular 19 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-18-to-19/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "upgrade",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 18 to 19",
+        "Angular 19 upgrade",
+        "standalone default",
+        "effects timing"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-19-to-20",
+      "name": "Angular 19 to Angular 20 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-19-to-20/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "upgrade",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 19 to 20",
+        "Angular 20 upgrade",
+        "moduleResolution bundler",
+        "Resource API migration"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-2-to-4",
+      "name": "Angular 2 to Angular 4 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-2-to-4/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "upgrades",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 2 to 4",
+        "major hop upgrade",
+        "Angular version hop",
+        "Angular 4 migration"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-20-to-21",
+      "name": "Angular 20 to Angular 21 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-20-to-21/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "upgrade",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 20 to 21",
+        "Angular 21 upgrade",
+        "SSR allowedHosts",
+        "UpgradeAdapter removal"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-4-to-5",
+      "name": "Angular 4 to Angular 5.2 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-4-to-5/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "upgrades",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 4 to 5",
+        "Angular 5.2 upgrade",
+        "major hop upgrade",
+        "Angular version hop"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-5-to-6",
+      "name": "Angular 5 to Angular 6.1 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-5-to-6/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "upgrades",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 5 to 6",
+        "Angular 6.1 upgrade",
+        "major hop upgrade",
+        "angular.json migration"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-6-to-7",
+      "name": "Angular 6 to Angular 7.2 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-6-to-7/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "upgrades",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 6 to 7",
+        "Angular 7.2 upgrade",
+        "major hop upgrade",
+        "validation gate"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-7-to-8",
+      "name": "Angular 7 to Angular 8.2 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-7-to-8/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "upgrades",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 7 to 8",
+        "Angular 8.2 upgrade",
+        "major hop upgrade",
+        "validation gate"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-8-to-9",
+      "name": "Angular 8 to Angular 9.1 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-8-to-9/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "upgrades",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 8 to 9",
+        "Angular 9.1 upgrade",
+        "Ivy migration",
+        "major hop upgrade"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hops.angular-9-to-10",
+      "name": "Angular 9 to Angular 10.2 Upgrade",
+      "path": "skills/angular/upgrades/hops/angular-9-to-10/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "upgrades",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 9 to 10",
+        "Angular 10.2 upgrade",
+        "major hop upgrade",
+        "validation gate"
+      ]
+    },
+    {
+      "id": "angular.upgrade.http.angular-http-transfer-cache-v18",
+      "name": "Angular HTTP Transfer Cache v18",
+      "path": "skills/angular/upgrades/http/angular-http-transfer-cache-v18/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "http",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "HTTP transfer cache",
+        "authenticated HTTP requests",
+        "SSR transfer cache",
+        "withHttpTransferCache"
+      ]
+    },
+    {
+      "id": "angular.upgrade.http.angular-httpclient-migration-v6",
+      "name": "Angular HttpClient Migration v6",
+      "path": "skills/angular/upgrades/http/angular-httpclient-migration-v6/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "http",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "HttpClient migration",
+        "HttpModule",
+        "legacy Http"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hybrid.angular-v21-upgrade-adapter-removal",
+      "name": "Angular v21 Upgrade Adapter Removal",
+      "path": "skills/angular/upgrades/hybrid/angular-v21-upgrade-adapter-removal/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "hybrid",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "UpgradeAdapter",
+        "AngularJS hybrid",
+        "upgrade/static",
+        "hybrid cleanup"
+      ]
+    },
+    {
+      "id": "angular.upgrade.hydration.angular-hydration-v17-risk-gate",
+      "name": "Angular Hydration v17 Risk Gate",
+      "path": "skills/angular/upgrades/hydration/angular-hydration-v17-risk-gate/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "hydration",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "hydration risk gate",
+        "SSR hydration",
+        "provideClientHydration",
+        "ngSkipHydration"
+      ]
+    },
+    {
+      "id": "angular.upgrade.i18n.angular-localize-v9-migration",
+      "name": "Angular Localize v9 Migration",
+      "path": "skills/angular/upgrades/i18n/angular-localize-v9-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "i18n",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "angular localize",
+        "$localize",
+        "i18n migration"
+      ]
+    },
+    {
+      "id": "angular.upgrade.ivy.angular-ivy-default-v9-compatibility",
+      "name": "Angular Ivy Default v9 Compatibility",
+      "path": "skills/angular/upgrades/ivy/angular-ivy-default-v9-compatibility/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "ivy",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Ivy default",
+        "entryComponents",
+        "View Engine compatibility"
+      ]
+    },
+    {
+      "id": "angular.upgrade.ivy.angular-ivy-only-v13-gate",
+      "name": "Angular Ivy Only v13 Gate",
+      "path": "skills/angular/upgrades/ivy/angular-ivy-only-v13-gate/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "ivy",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Ivy only gate",
+        "View Engine dependency",
+        "Angular 13 gate"
+      ]
+    },
+    {
+      "id": "angular.upgrade.libraries.angular-ngcc-view-engine-removal-v16",
+      "name": "Angular ngcc View Engine Removal v16",
+      "path": "skills/angular/upgrades/libraries/angular-ngcc-view-engine-removal-v16/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "libraries",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "ngcc audit",
+        "View Engine libraries",
+        "Angular 16 library compatibility",
+        "ngcc removal"
+      ]
+    },
+    {
+      "id": "angular.upgrade.libraries.angular-view-engine-library-audit-v13",
+      "name": "Angular View Engine Library Audit v13",
+      "path": "skills/angular/upgrades/libraries/angular-view-engine-library-audit-v13/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "libraries",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "View Engine library audit",
+        "ngcc audit",
+        "Angular library compatibility"
+      ]
+    },
+    {
+      "id": "angular.upgrade.localize.angular-localize-builder-v19",
+      "name": "Angular Localize Builder v19",
+      "path": "skills/angular/upgrades/localize/angular-localize-builder-v19/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "localize",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "localize builder",
+        "@angular/localize",
+        "translation build",
+        "builder project option"
+      ]
+    },
+    {
+      "id": "angular.upgrade.material.angular-material-mdc-v15-chips-slider",
+      "name": "Angular Material MDC v15 Chips Slider",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-chips-slider/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Material chips migration",
+        "Material slider migration",
+        "MDC chips",
+        "MDC slider"
+      ]
+    },
+    {
+      "id": "angular.upgrade.material.angular-material-mdc-v15-data-display",
+      "name": "Angular Material MDC v15 Data Display",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-data-display/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Material table",
+        "Material list",
+        "Material card",
+        "Material paginator"
+      ]
+    },
+    {
+      "id": "angular.upgrade.material.angular-material-mdc-v15-form-controls",
+      "name": "Angular Material MDC v15 Form Controls",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-form-controls/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Material form controls",
+        "form-field migration",
+        "checkbox migration",
+        "radio migration"
+      ]
+    },
+    {
+      "id": "angular.upgrade.material.angular-material-mdc-v15-inventory",
+      "name": "Angular Material MDC v15 Inventory",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-inventory/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular Material inventory",
+        "MDC inventory",
+        "legacy Material imports",
+        "Material CSS overrides"
+      ]
+    },
+    {
+      "id": "angular.upgrade.material.angular-material-mdc-v15-migration",
+      "name": "Angular Material MDC v15 Migration",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular Material v15",
+        "MDC migration",
+        "Material visual regression",
+        "harness migration"
+      ]
+    },
+    {
+      "id": "angular.upgrade.material.angular-material-mdc-v15-orchestrator",
+      "name": "Angular Material MDC v15 Orchestrator",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-orchestrator/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular Material v15",
+        "MDC migration",
+        "Material orchestrator",
+        "visual regression gate"
+      ]
+    },
+    {
+      "id": "angular.upgrade.material.angular-material-mdc-v15-overlays-navigation",
+      "name": "Angular Material MDC v15 Overlays Navigation",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-overlays-navigation/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Material dialogs",
+        "Material menus",
+        "Material snack-bars",
+        "Material tooltips",
+        "Material tabs"
+      ]
+    },
+    {
+      "id": "angular.upgrade.material.angular-material-mdc-v15-testing-harnesses",
+      "name": "Angular Material MDC v15 Testing Harnesses",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-testing-harnesses/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Material harnesses",
+        "DOM-based Material tests",
+        "screenshot tests",
+        "MDC tests"
+      ]
+    },
+    {
+      "id": "angular.upgrade.material.angular-material-mdc-v15-theming-density-typography",
+      "name": "Angular Material MDC v15 Theming Density Typography",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-theming-density-typography/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Material theming",
+        "Material density",
+        "Material typography",
+        "MDC classes"
+      ]
+    },
+    {
+      "id": "angular.upgrade.material.angular-material-mdc-v15-visual-regression-gate",
+      "name": "Angular Material MDC v15 Visual Regression Gate",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-visual-regression-gate/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Material visual regression",
+        "screenshot review",
+        "MDC final gate"
+      ]
+    },
+    {
+      "id": "angular.upgrade.material.angular-material-v14-stepper-selectionlist-chips-cleanup",
+      "name": "Angular Material v14 Stepper SelectionList Chips Cleanup",
+      "path": "skills/angular/upgrades/material/angular-material-v14-stepper-selectionlist-chips-cleanup/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Material v14",
+        "stepper cleanup",
+        "selection list cleanup",
+        "chips cleanup"
+      ]
+    },
+    {
+      "id": "angular.upgrade.modules.angular-v21-ngmodulefactory-removal",
+      "name": "Angular v21 NgModuleFactory Removal",
+      "path": "skills/angular/upgrades/modules/angular-v21-ngmodulefactory-removal/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "modules",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "NgModuleFactory",
+        "dynamic module loading",
+        "legacy loaders",
+        "plugin systems"
+      ]
+    },
+    {
+      "id": "angular.upgrade.resources.angular-v20-resource-rxresource-migration",
+      "name": "Angular v20 Resource RxResource Migration",
+      "path": "skills/angular/upgrades/resources/angular-v20-resource-rxresource-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "resources",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "resource API",
+        "rxResource",
+        "ResourceStatus",
+        "params and stream"
+      ]
+    },
+    {
+      "id": "angular.upgrade.router.angular-dynamic-import-lazy-routes",
+      "name": "Angular Dynamic Import Lazy Routes",
+      "path": "skills/angular/upgrades/router/angular-dynamic-import-lazy-routes/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "router",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "lazy routes",
+        "loadChildren string",
+        "dynamic import routes"
+      ]
+    },
+    {
+      "id": "angular.upgrade.router.angular-router-error-handler-v19",
+      "name": "Angular Router Error Handler v19",
+      "path": "skills/angular/upgrades/router/angular-router-error-handler-v19/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "router",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Router.errorHandler",
+        "navigation error handling",
+        "RedirectCommand",
+        "routing failures"
+      ]
+    },
+    {
+      "id": "angular.upgrade.router.angular-router-redirect-command-v18",
+      "name": "Angular Router Redirect Command v18",
+      "path": "skills/angular/upgrades/router/angular-router-redirect-command-v18/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "router",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "RedirectCommand",
+        "router redirects",
+        "guards and resolvers",
+        "Route.redirectTo"
+      ]
+    },
+    {
+      "id": "angular.upgrade.router.angular-router-v15-behavior",
+      "name": "Angular Router v15 Behavior",
+      "path": "skills/angular/upgrades/router/angular-router-v15-behavior/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "router",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "router behavior",
+        "route timing",
+        "navigation assumptions",
+        "relativeLinkResolution"
+      ]
+    },
+    {
+      "id": "angular.upgrade.router.angular-router-v17-public-api-migration",
+      "name": "Angular Router v17 Public API Migration",
+      "path": "skills/angular/upgrades/router/angular-router-v17-public-api-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "router",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "router public API migration",
+        "malformedUriErrorHandler",
+        "absolute redirects",
+        "loadComponent inheritance"
+      ]
+    },
+    {
+      "id": "angular.upgrade.router.angular-v13-router-lazy-route-cleanup",
+      "name": "Angular v13 Router Lazy Route Cleanup",
+      "path": "skills/angular/upgrades/router/angular-v13-router-lazy-route-cleanup/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "router",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular 13 router",
+        "lazy route cleanup",
+        "loadChildren strings"
+      ]
+    },
+    {
+      "id": "angular.upgrade.router.angular-v14-router-resolver-first-emission",
+      "name": "Angular v14 Router Resolver First Emission",
+      "path": "skills/angular/upgrades/router/angular-v14-router-resolver-first-emission/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "router",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "resolver first emission",
+        "router resolver",
+        "navigation completion"
+      ]
+    },
+    {
+      "id": "angular.upgrade.router.angular-v20-guards-redirects-route-validation",
+      "name": "Angular v20 Guards Redirects Route Validation",
+      "path": "skills/angular/upgrades/router/angular-v20-guards-redirects-route-validation/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "router",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "router guards",
+        "redirects",
+        "route validation",
+        "RedirectFn"
+      ]
+    },
+    {
+      "id": "angular.upgrade.rxjs.angular-rxjs-5-to-6-bridge",
+      "name": "Angular RxJS 5 to 6 Bridge",
+      "path": "skills/angular/upgrades/rxjs/angular-rxjs-5-to-6-bridge/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "rxjs",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "RxJS 5 to 6",
+        "rxjs-compat",
+        "lettable operators"
+      ]
+    },
+    {
+      "id": "angular.upgrade.security.angular-iframe-binding-hardening",
+      "name": "Angular Iframe Binding Hardening",
+      "path": "skills/angular/upgrades/security/angular-iframe-binding-hardening/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "security",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "iframe binding",
+        "iframe security",
+        "sandbox",
+        "allow attribute"
+      ]
+    },
+    {
+      "id": "angular.upgrade.service-worker.angular-swupdate-v13-migration",
+      "name": "Angular SwUpdate v13 Migration",
+      "path": "skills/angular/upgrades/service-worker/angular-swupdate-v13-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "service-worker",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "SwUpdate migration",
+        "service worker update flow",
+        "Angular service worker"
+      ]
+    },
+    {
+      "id": "angular.upgrade.signals.angular-signals-mutate-to-update-v17",
+      "name": "Angular Signals Mutate to Update v17",
+      "path": "skills/angular/upgrades/signals/angular-signals-mutate-to-update-v17/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "signals",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "signals mutate",
+        "signals update",
+        "reactive state modernization"
+      ]
+    },
+    {
+      "id": "angular.upgrade.ssr.angular-platform-server-v18-migration",
+      "name": "Angular Platform Server v18 Migration",
+      "path": "skills/angular/upgrades/ssr/angular-platform-server-v18-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "ssr",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "platform-server migration",
+        "SSR migration",
+        "TransferState",
+        "prerender"
+      ]
+    },
+    {
+      "id": "angular.upgrade.ssr.angular-render-module-v13-migration",
+      "name": "Angular renderModule v13 Migration",
+      "path": "skills/angular/upgrades/ssr/angular-render-module-v13-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "ssr",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "renderModuleFactory",
+        "SSR migration",
+        "platform-server"
+      ]
+    },
+    {
+      "id": "angular.upgrade.ssr.angular-ssr-allowed-hosts-v21-security",
+      "name": "Angular SSR Allowed Hosts v21 Security",
+      "path": "skills/angular/upgrades/ssr/angular-ssr-allowed-hosts-v21-security/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "ssr",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "allowedHosts",
+        "SSR security",
+        "CommonEngine",
+        "trusted proxy headers"
+      ]
+    },
+    {
+      "id": "angular.upgrade.standalone.angular-standalone-default-v19-ngmodule-compat",
+      "name": "Angular Standalone Default v19 NgModule Compatibility",
+      "path": "skills/angular/upgrades/standalone/angular-standalone-default-v19-ngmodule-compat/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "standalone",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "standalone default",
+        "standalone false",
+        "NgModule compatibility",
+        "module-heavy architecture"
+      ]
+    },
+    {
+      "id": "angular.upgrade.styles.angular-keyframes-scope-v15",
+      "name": "Angular Keyframes Scope v15",
+      "path": "skills/angular/upgrades/styles/angular-keyframes-scope-v15/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "styles",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "keyframes scope",
+        "animation-name",
+        "component styles",
+        "animation regression"
+      ]
+    },
+    {
+      "id": "angular.upgrade.styles.angular-remove-styles-on-destroy-v17",
+      "name": "Angular Remove Styles on Destroy v17",
+      "path": "skills/angular/upgrades/styles/angular-remove-styles-on-destroy-v17/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "styles",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "remove styles on destroy",
+        "component style cleanup",
+        "leaked component styles"
+      ]
+    },
+    {
+      "id": "angular.upgrade.templates.angular-v20-template-operator-compat",
+      "name": "Angular v20 Template Operator Compatibility",
+      "path": "skills/angular/upgrades/templates/angular-v20-template-operator-compat/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "templates",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "template operator compatibility",
+        "in operator",
+        "void operator",
+        "parenthesized expressions"
+      ]
+    },
+    {
+      "id": "angular.upgrade.templates.angular-v21-host-binding-typecheck",
+      "name": "Angular v21 Host Binding Typecheck",
+      "path": "skills/angular/upgrades/templates/angular-v21-host-binding-typecheck/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "templates",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "host binding typecheck",
+        "HostBinding",
+        "host metadata",
+        "inherited host bindings"
+      ]
+    },
+    {
+      "id": "angular.upgrade.testing.angular-testbed-aot-summaries-cleanup-v14",
+      "name": "Angular TestBed AOT Summaries Cleanup v14",
+      "path": "skills/angular/upgrades/testing/angular-testbed-aot-summaries-cleanup-v14/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "testing",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "TestBed AOT summaries",
+        "aotSummaries",
+        "testing cleanup"
+      ]
+    },
+    {
+      "id": "angular.upgrade.testing.angular-testbed-inject-v9-migration",
+      "name": "Angular TestBed.inject v9 Migration",
+      "path": "skills/angular/upgrades/testing/angular-testbed-inject-v9-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "testing",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "TestBed.get",
+        "TestBed.inject",
+        "testing migration"
+      ]
+    },
+    {
+      "id": "angular.upgrade.testing.angular-v18-test-stability-change-detection",
+      "name": "Angular v18 Test Stability Change Detection",
+      "path": "skills/angular/upgrades/testing/angular-v18-test-stability-change-detection/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "testing",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "test stability",
+        "change detection timing",
+        "whenStable",
+        "autoDetectChanges"
+      ]
+    },
+    {
+      "id": "angular.upgrade.testing.angular-v19-effects-and-fakeasync-scheduler",
+      "name": "Angular v19 Effects and fakeAsync Scheduler",
+      "path": "skills/angular/upgrades/testing/angular-v19-effects-and-fakeasync-scheduler/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "testing",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "effects timing",
+        "fakeAsync scheduler",
+        "whenStable",
+        "ApplicationRef.tick"
+      ]
+    },
+    {
+      "id": "angular.upgrade.testing.angular-v20-testing-errors-effects-animations",
+      "name": "Angular v20 Testing Errors Effects Animations",
+      "path": "skills/angular/upgrades/testing/angular-v20-testing-errors-effects-animations/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "testing",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "effects timing",
+        "fakeAsync",
+        "animations",
+        "AsyncPipe errors"
+      ]
+    },
+    {
+      "id": "angular.upgrade.testing.angular-v21-router-zone-platformlocation-tests",
+      "name": "Angular v21 Router Zone PlatformLocation Tests",
+      "path": "skills/angular/upgrades/testing/angular-v21-router-zone-platformlocation-tests/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "testing",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "router tests",
+        "Zone.js timing",
+        "PlatformLocation",
+        "navigation assertions"
+      ]
+    },
+    {
+      "id": "angular.upgrade.workspace.angular-cli-workspace-migration-v6",
+      "name": "Angular CLI Workspace Migration v6",
+      "path": "skills/angular/upgrades/workspace/angular-cli-workspace-migration-v6/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "workspace",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "angular.json migration",
+        "angular-cli workspace",
+        ".angular-cli.json"
+      ]
+    },
+    {
+      "id": "angular.upgrade.zone.angular-v21-zone-change-detection-root-provider",
+      "name": "Angular v21 Zone Change Detection Root Provider",
+      "path": "skills/angular/upgrades/zone/angular-v21-zone-change-detection-root-provider/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "zone",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "provideZoneChangeDetection",
+        "Zone.js",
+        "scheduler behavior",
+        "root provider"
+      ]
+    },
+    {
+      "id": "angular.upgrade.zone.angular-zonejs-imports-v17-migration",
+      "name": "Angular Zone.js Imports v17 Migration",
+      "path": "skills/angular/upgrades/zone/angular-zonejs-imports-v17-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "zone",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Zone.js imports",
+        "zone.js/testing",
+        "zone.js deep imports"
+      ]
+    },
+    {
+      "id": "angular.upgrade.zoneless.angular-v20-zoneless-api-rename",
+      "name": "Angular v20 Zoneless API Rename",
+      "path": "skills/angular/upgrades/zoneless/angular-v20-zoneless-api-rename/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "zoneless",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "zoneless API rename",
+        "provideExperimentalZonelessChangeDetection",
+        "provideExperimentalCheckNoChangesForDebug"
+      ]
+    },
+    {
+      "id": "angular.versioning.angular-version-compatibility-gate",
+      "name": "Angular Version Compatibility Gate",
+      "path": "skills/angular/versioning/angular-version-compatibility-gate/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "versioning",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "angular version",
+        "angular compatibility",
+        "node typescript rxjs compatibility",
+        "angular upgrade",
+        "ng update",
+        "angular hop",
+        "angular cli version",
+        "typescript range",
+        "rxjs range"
+      ]
+    },
+    {
       "id": "angular.versioning.angular-version-gates",
       "name": "Angular Version Gates",
       "path": "skills/angular/versioning/angular-version-gates/SKILL.md",
@@ -426,6 +3062,26 @@
         "Angular 12 compatibility",
         "Angular 17 migration",
         "Angular 20 modernization"
+      ]
+    },
+    {
+      "id": "angular.versioning.angular-versioning-index",
+      "name": "Angular Versioning Index",
+      "path": "skills/angular/versioning/angular-versioning-index/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "versioning",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular versioning index",
+        "Angular upgrade roadmap",
+        "versioning catalog",
+        "hop index",
+        "compatibility gate index"
       ]
     },
     {

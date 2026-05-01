@@ -29,6 +29,7 @@ compatibility:
 ## Purpose
 
 Use this skill to reduce initial load cost by loading Angular features, routes, components, and non-critical UI only when needed.
+If the issue is shared-module bloat or eager imports rather than routing, pair this with the relevant architecture or bundle-control skill instead of forcing route changes.
 
 ## Compatibility
 
@@ -48,6 +49,7 @@ Use this skill when:
 - Routes, dashboards, reports, admin sections, or heavy widgets load eagerly.
 - Third-party libraries are imported globally but used in limited areas.
 - The user asks to improve initial load time or Core Web Vitals.
+- The app uses NgModules, standalone APIs, or both, and the smallest compatible lazy boundary must be selected.
 
 ## Do
 
@@ -82,6 +84,7 @@ Use `@defer` for non-critical visual content in Angular 17+:
 ```
 
 Separate critical initial content from demand-loaded, deferred, and preloaded content.
+Prefer route boundaries first, then component-level lazy loading, then visual deferral only when it actually reduces startup cost.
 
 ## Do Not
 
@@ -92,6 +95,7 @@ import { AdminModule } from './admin/admin.module';
 ```
 
 Avoid placing large feature dependencies in a global shared module.
+Avoid using lazy loading as a substitute for poor feature boundaries or duplicated imports that should be fixed at the module or route layer.
 
 Avoid using `@defer` for content that must be visible immediately on initial render unless layout stability and user experience are handled.
 

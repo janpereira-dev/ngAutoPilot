@@ -63,6 +63,17 @@ Audit the relevant surfaces:
 8. Bundle, network, and rendering evidence when available.
 ```
 
+Route findings to the smallest existing skill instead of inventing a new pattern for every smell:
+
+```txt
+template method calls or expensive getters -> angular.performance.avoid-template-functions
+heavy template expressions -> angular.performance.template-logic-optimization
+list identity or DOM churn -> angular.performance.trackby-for-lists or angular.performance.list-rendering-optimization
+initial bundle or route cost -> angular.performance.lazy-loading-strategy
+rendering checks or mutation issues -> angular.performance.change-detection-optimization or angular.performance.onpush-change-detection
+subscriptions, leaks, or duplicated requests -> angular.performance.rxjs-performance or angular.rxjs.avoid-nested-subscriptions
+```
+
 Classify findings by priority:
 
 ```txt
@@ -93,6 +104,7 @@ Avoid proposing syntax that the Angular version cannot support.
 - [ ] Lazy-loading opportunities are separated from rendering issues.
 - [ ] Pipes are checked for purity and repeated heavy work.
 - [ ] Evidence from Angular DevTools, Lighthouse, browser Performance, network, or bundle output is used when available.
+- [ ] The selected follow-up skill is the smallest existing skill that matches the evidence.
 
 ## Expected Output
 

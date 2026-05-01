@@ -30,6 +30,12 @@ compatibility:
 
 Use this skill to prevent the agent from recommending Angular APIs that the target project cannot compile or safely support. The goal is to detect the version first, choose compatible patterns, and provide future migration paths separately.
 
+This skill is a lightweight compatibility helper. For a formal hop gate and version matrix, prefer:
+
+```txt
+skills/angular/versioning/angular-version-compatibility-gate/SKILL.md
+```
+
 ## When to Use
 
 Use this skill when:
@@ -40,6 +46,7 @@ Use this skill when:
 - The project may support Angular 12-15, Angular 16, Angular 17-18, Angular 19+, or Angular 20+ differently.
 - A shared library is consumed by multiple Angular versions.
 - The user asks for a modern Angular refactor without stating version constraints.
+- The user needs a broad compatibility reminder and a lighter version-style profile before the dedicated gate is invoked.
 
 ## Do
 
@@ -129,3 +136,9 @@ When this skill is used, the agent should:
 3. List APIs that are safe to use.
 4. List APIs to avoid for this project.
 5. Provide compatible implementation and optional future migration path.
+
+If a formal upgrade decision is required, hand off to:
+
+```txt
+skills/angular/versioning/angular-version-compatibility-gate/SKILL.md
+```

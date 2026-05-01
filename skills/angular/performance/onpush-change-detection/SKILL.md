@@ -23,6 +23,7 @@ triggers:
 ## Purpose
 
 Use this skill to improve Angular rendering performance by applying `ChangeDetectionStrategy.OnPush` safely and intentionally. The goal is to reduce unnecessary checks without hiding state mutation bugs or breaking view updates.
+This skill is complementary to `change-detection-optimization`; keep it focused on explicit OnPush adoption and mutation safety.
 
 ## When to Use
 
@@ -33,6 +34,7 @@ Use this skill when:
 - A performance task mentions change detection, slow rendering, or heavy templates.
 - A component can be updated through immutable state changes.
 - The current code already has tests or clear rendering behavior to verify.
+- The project can prove the state flow before introducing OnPush.
 
 ## Do
 
@@ -71,6 +73,8 @@ readonly fullName = computed(() => {
 });
 ```
 
+Use `markForCheck` only when an external callback updates state outside Angular's normal path and the component still needs the view refreshed.
+
 ## Do Not
 
 Avoid applying `OnPush` blindly:
@@ -91,6 +95,8 @@ export class UserEditorComponent {
 ```
 
 Avoid using `OnPush` as a cosmetic change when the component relies on hidden side effects, mutable shared objects, or untracked state changes.
+
+Avoid turning unrelated services, global stores, or routing state into an OnPush justification if the real issue is elsewhere.
 
 ## Review Checklist
 
