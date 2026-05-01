@@ -1,5 +1,5 @@
 ---
-id: angular.upgrade.material.angular-material-mdc-v15-migration
+id: angular.upgrades.material.angular-material-mdc-v15-migration
 name: Angular Material MDC v15 Migration
 description: >
   Migrates Angular Material applications to the MDC-based v15 component set with visual validation, harness updates, and CSS override review.
@@ -62,7 +62,6 @@ Do not use this skill when:
 4. Update harness tests and selectors.
 5. Review screenshots and critical layouts.
 6. Stop and record remaining MDC debt.
-
 ## Compatibility by Version
 
 | Angular Material | Strategy recommended | Observations |

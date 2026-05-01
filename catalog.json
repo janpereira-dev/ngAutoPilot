@@ -198,7 +198,11 @@
     {
       "id": "angular.forms.angular-number-input-min-max-validation-v12",
       "name": "Angular Number Input Min Max Validation v12",
+<<<<<<< HEAD
       "path": "skills/forms/angular-number-input-min-max-validation-v12/SKILL.md",
+=======
+      "path": "skills/angular/forms/angular-number-input-min-max-validation-v12/SKILL.md",
+>>>>>>> 3315c2b2bc7a956c930148a166cf5bd45a6271ab
       "stack": [
         "Angular",
         "TypeScript"
@@ -214,7 +218,11 @@
     {
       "id": "angular.forms.angular-typed-forms-migration",
       "name": "Angular Typed Forms Migration",
+<<<<<<< HEAD
       "path": "skills/forms/angular-typed-forms-migration/SKILL.md",
+=======
+      "path": "skills/angular/forms/angular-typed-forms-migration/SKILL.md",
+>>>>>>> 3315c2b2bc7a956c930148a166cf5bd45a6271ab
       "stack": [
         "Angular",
         "TypeScript"
@@ -232,7 +240,11 @@
     {
       "id": "angular.forms.angular-untyped-forms-bridge",
       "name": "Angular Untyped Forms Bridge",
+<<<<<<< HEAD
       "path": "skills/forms/angular-untyped-forms-bridge/SKILL.md",
+=======
+      "path": "skills/angular/forms/angular-untyped-forms-bridge/SKILL.md",
+>>>>>>> 3315c2b2bc7a956c930148a166cf5bd45a6271ab
       "stack": [
         "Angular",
         "TypeScript"
@@ -249,7 +261,11 @@
     {
       "id": "angular.i18n.angular-localize-v9-migration",
       "name": "Angular Localize v9 Migration",
+<<<<<<< HEAD
       "path": "skills/i18n/angular-localize-v9-migration/SKILL.md",
+=======
+      "path": "skills/angular/i18n/angular-localize-v9-migration/SKILL.md",
+>>>>>>> 3315c2b2bc7a956c930148a166cf5bd45a6271ab
       "stack": [
         "Angular",
         "TypeScript"
@@ -266,7 +282,11 @@
     {
       "id": "angular.ivy.angular-ivy-only-v13-gate",
       "name": "Angular Ivy Only v13 Gate",
+<<<<<<< HEAD
       "path": "skills/ivy/angular-ivy-only-v13-gate/SKILL.md",
+=======
+      "path": "skills/angular/ivy/angular-ivy-only-v13-gate/SKILL.md",
+>>>>>>> 3315c2b2bc7a956c930148a166cf5bd45a6271ab
       "stack": [
         "Angular",
         "TypeScript"
@@ -283,7 +303,11 @@
     {
       "id": "angular.libraries.angular-view-engine-library-audit-v13",
       "name": "Angular View Engine Library Audit v13",
+<<<<<<< HEAD
       "path": "skills/libraries/angular-view-engine-library-audit-v13/SKILL.md",
+=======
+      "path": "skills/angular/libraries/angular-view-engine-library-audit-v13/SKILL.md",
+>>>>>>> 3315c2b2bc7a956c930148a166cf5bd45a6271ab
       "stack": [
         "Angular",
         "TypeScript"
@@ -1102,7 +1126,11 @@
     {
       "id": "angular.service-worker.angular-swupdate-v13-migration",
       "name": "Angular SwUpdate v13 Migration",
+<<<<<<< HEAD
       "path": "skills/service-worker/angular-swupdate-v13-migration/SKILL.md",
+=======
+      "path": "skills/angular/service-worker/angular-swupdate-v13-migration/SKILL.md",
+>>>>>>> 3315c2b2bc7a956c930148a166cf5bd45a6271ab
       "stack": [
         "Angular",
         "TypeScript"
@@ -1139,7 +1167,11 @@
     {
       "id": "angular.ssr.angular-render-module-v13-migration",
       "name": "Angular Render Module v13 Migration",
+<<<<<<< HEAD
       "path": "skills/ssr/angular-render-module-v13-migration/SKILL.md",
+=======
+      "path": "skills/angular/ssr/angular-render-module-v13-migration/SKILL.md",
+>>>>>>> 3315c2b2bc7a956c930148a166cf5bd45a6271ab
       "stack": [
         "Angular",
         "TypeScript"
@@ -1177,7 +1209,11 @@
     {
       "id": "angular.testing.angular-testbed-inject-v9-migration",
       "name": "Angular TestBed Inject v9 Migration",
+<<<<<<< HEAD
       "path": "skills/testing/angular-testbed-inject-v9-migration/SKILL.md",
+=======
+      "path": "skills/angular/testing/angular-testbed-inject-v9-migration/SKILL.md",
+>>>>>>> 3315c2b2bc7a956c930148a166cf5bd45a6271ab
       "stack": [
         "Angular",
         "TypeScript"
@@ -2259,6 +2295,7 @@
       ]
     },
     {
+<<<<<<< HEAD
       "id": "angular.upgrade.material.angular-material-mdc-v15-chips-slider",
       "name": "Angular Material MDC v15 Chips Slider",
       "path": "skills/angular/upgrades/material/angular-material-mdc-v15-chips-slider/SKILL.md",
@@ -2457,6 +2494,8 @@
       ]
     },
     {
+=======
+>>>>>>> 3315c2b2bc7a956c930148a166cf5bd45a6271ab
       "id": "angular.upgrade.modules.angular-v21-ngmodulefactory-removal",
       "name": "Angular v21 NgModuleFactory Removal",
       "path": "skills/angular/upgrades/modules/angular-v21-ngmodulefactory-removal/SKILL.md",
@@ -3020,6 +3059,207 @@
       ]
     },
     {
+<<<<<<< HEAD
+=======
+      "id": "angular.upgrades.material.angular-material-mdc-v15-chips-slider",
+      "name": "Angular Material MDC v15 Chips Slider",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-chips-slider/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Material chips migration",
+        "Material slider migration",
+        "MDC chips",
+        "MDC slider"
+      ]
+    },
+    {
+      "id": "angular.upgrades.material.angular-material-mdc-v15-data-display",
+      "name": "Angular Material MDC v15 Data Display",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-data-display/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Material table",
+        "Material list",
+        "Material card",
+        "Material paginator"
+      ]
+    },
+    {
+      "id": "angular.upgrades.material.angular-material-mdc-v15-form-controls",
+      "name": "Angular Material MDC v15 Form Controls",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-form-controls/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Material form controls",
+        "form-field migration",
+        "checkbox migration",
+        "radio migration"
+      ]
+    },
+    {
+      "id": "angular.upgrades.material.angular-material-mdc-v15-inventory",
+      "name": "Angular Material MDC v15 Inventory",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-inventory/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular Material inventory",
+        "MDC inventory",
+        "legacy Material imports",
+        "Material CSS overrides"
+      ]
+    },
+    {
+      "id": "angular.upgrades.material.angular-material-mdc-v15-migration",
+      "name": "Angular Material MDC v15 Migration",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular Material v15",
+        "MDC migration",
+        "Material visual regression",
+        "harness migration"
+      ]
+    },
+    {
+      "id": "angular.upgrades.material.angular-material-mdc-v15-orchestrator",
+      "name": "Angular Material MDC v15 Orchestrator",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-orchestrator/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Angular Material v15",
+        "MDC migration",
+        "Material orchestrator",
+        "visual regression gate"
+      ]
+    },
+    {
+      "id": "angular.upgrades.material.angular-material-mdc-v15-overlays-navigation",
+      "name": "Angular Material MDC v15 Overlays Navigation",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-overlays-navigation/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Material dialogs",
+        "Material menus",
+        "Material snack-bars",
+        "Material tooltips",
+        "Material tabs"
+      ]
+    },
+    {
+      "id": "angular.upgrades.material.angular-material-mdc-v15-testing-harnesses",
+      "name": "Angular Material MDC v15 Testing Harnesses",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-testing-harnesses/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Material harnesses",
+        "DOM-based Material tests",
+        "screenshot tests",
+        "MDC tests"
+      ]
+    },
+    {
+      "id": "angular.upgrades.material.angular-material-mdc-v15-theming-density-typography",
+      "name": "Angular Material MDC v15 Theming Density Typography",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-theming-density-typography/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Material theming",
+        "Material density",
+        "Material typography",
+        "MDC classes"
+      ]
+    },
+    {
+      "id": "angular.upgrades.material.angular-material-mdc-v15-visual-regression-gate",
+      "name": "Angular Material MDC v15 Visual Regression Gate",
+      "path": "skills/angular/upgrades/material/angular-material-mdc-v15-visual-regression-gate/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Material visual regression",
+        "screenshot review",
+        "MDC final gate"
+      ]
+    },
+    {
+      "id": "angular.upgrades.material.angular-material-v14-stepper-selectionlist-chips-cleanup",
+      "name": "Angular Material v14 Stepper SelectionList Chips Cleanup",
+      "path": "skills/angular/upgrades/material/angular-material-v14-stepper-selectionlist-chips-cleanup/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "material",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Material v14",
+        "stepper cleanup",
+        "selection list cleanup",
+        "chips cleanup"
+      ]
+    },
+    {
+>>>>>>> 3315c2b2bc7a956c930148a166cf5bd45a6271ab
       "id": "angular.versioning.angular-version-compatibility-gate",
       "name": "Angular Version Compatibility Gate",
       "path": "skills/angular/versioning/angular-version-compatibility-gate/SKILL.md",

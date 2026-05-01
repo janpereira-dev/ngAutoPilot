@@ -6,18 +6,13 @@ All notable changes to NgAutoPilot will be documented in this file.
 
 ### Added
 
-- Visual documentation assets:
-  - `assets/ngautopilot-hero.svg`
-  - `assets/ngautopilot-flow.svg`
-- Sage review packet docs and workflow support:
-  - `docs/sage-review.md`
-  - `scripts/build-sage-review-packet.mjs`
-  - `.github/workflows/sage-review.yml`
-- Public documentation and release automation:
-  - `CODE_OF_CONDUCT.md`
-  - `SECURITY.md`
+- Public release checklist:
+  - `docs/release-checklist.md`
+- Markdownlint workspace support:
+  - `.markdownlint.json`
+  - `.vscode/settings.json`
+- Workflow updates for release automation:
   - `.github/workflows/ci.yml`
-  - `.github/workflows/publish-packages.yml`
   - `.github/workflows/release.yml`
   - `scripts/build-publish-bundles.mjs`
 - Public publish bundle targets:
@@ -65,6 +60,21 @@ All notable changes to NgAutoPilot will be documented in this file.
   - `angular.services.single-responsibility-services`
   - `angular.rxjs.observable-contracts`
   - `angular.versioning.angular-version-gates`
+
+### In progress
+
+- Public npm distribution and npx CLI support.
+- Release workflow consolidation and publication automation review.
+
+## 0.2.0 - 2026-05-01
+
+### Added
+
+- Expanded the Angular skill catalog into a full major-hop roadmap from Angular 2 through Angular 21.
+- Added Angular compatibility gates, a master versioning index, and hop routing hooks.
+- Added AngularJS migration, workspace, RxJS, HttpClient, Ivy, localize, router, SSR, service worker, testing, forms, Material, zone, zoneless, resources, templates, DI, and hybrid satellite skills.
+- Added Angular modernization satellites for control flow, `@defer`, standalone-first, and zoneless readiness.
+- Updated the root README and changelog to explain the new versioning structure.
 
 ## 0.2.0 - 2026-05-01
 

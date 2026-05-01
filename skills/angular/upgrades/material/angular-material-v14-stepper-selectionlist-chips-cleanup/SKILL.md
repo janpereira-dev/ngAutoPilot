@@ -1,5 +1,5 @@
 ---
-id: angular.upgrade.material.angular-material-v14-stepper-selectionlist-chips-cleanup
+id: angular.upgrades.material.angular-material-v14-stepper-selectionlist-chips-cleanup
 name: Angular Material v14 Stepper SelectionList Chips Cleanup
 description: >
   Review Angular Material v14 changes affecting stepper, selection list, and chips usage. Use when legacy API and styling assumptions need cleanup before or during an Angular 14 upgrade.

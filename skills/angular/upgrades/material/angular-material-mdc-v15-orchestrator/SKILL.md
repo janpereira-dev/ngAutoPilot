@@ -1,5 +1,5 @@
 ---
-id: angular.upgrade.material.angular-material-mdc-v15-orchestrator
+id: angular.upgrades.material.angular-material-mdc-v15-orchestrator
 name: Angular Material MDC v15 Orchestrator
 description: >
   Coordinates the Angular Material v15 MDC migration by inventorying usage, selecting a safe migration strategy, delegating to focused Material skills, and enforcing visual and test validation before closing the migration.

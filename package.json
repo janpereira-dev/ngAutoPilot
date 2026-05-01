@@ -1,15 +1,45 @@
 {
   "name": "ngautopilot",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "Agnostic micro-skills for Angular, TypeScript and JavaScript development with AI agents.",
   "type": "module",
+  "bin": {
+    "ng-autopilot": "./bin/ng-autopilot.mjs"
+  },
+  "files": [
+    "bin",
+    "skills",
+    "adapters",
+    "schemas",
+    "templates",
+    "docs",
+    "catalog.json",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janpereira-dev/ngAutoPilot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/janpereira-dev/ngAutoPilot/issues"
+  },
+  "homepage": "https://github.com/janpereira-dev/ngAutoPilot#readme",
+  "engines": {
+    "node": ">=18.18.0"
+  },
   "scripts": {
     "skills:create": "node scripts/create-skill.mjs",
     "skills:validate": "node scripts/validate-skills.mjs",
     "skills:catalog": "node scripts/generate-catalog.mjs",
     "skills:export": "node scripts/export-adapter.mjs",
     "skills:publish:pack": "node scripts/build-publish-bundles.mjs",
-    "review:sage:pack": "node scripts/build-sage-review-packet.mjs"
+    "review:sage:pack": "node scripts/build-sage-review-packet.mjs",
+    "cli": "node bin/ng-autopilot.mjs",
+    "pack:dry": "npm pack --dry-run"
   },
   "keywords": [
     "angular",
@@ -20,5 +50,8 @@
     "skills",
     "frontend"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
 }

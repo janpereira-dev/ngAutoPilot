@@ -1,5 +1,5 @@
 ---
-id: angular.upgrade.material.angular-material-mdc-v15-visual-regression-gate
+id: angular.upgrades.material.angular-material-mdc-v15-visual-regression-gate
 name: Angular Material MDC v15 Visual Regression Gate
 description: >
   Enforces final visual review for Angular Material v15 MDC migration before the migration can be considered complete.

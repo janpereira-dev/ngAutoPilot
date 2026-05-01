@@ -30,9 +30,10 @@ NgAutoPilot is not:
 - a giant prompt dump
 - a private internal playbook
 - a framework
-- a CLI product
 - a replacement for project architecture
 - a provider-locked skill pack
+
+NgAutoPilot includes a small CLI for installing, inspecting, and exporting reusable micro-skills. The CLI is a distribution channel, not the core product.
 
 ## Why It Exists
 
@@ -118,6 +119,28 @@ Current catalog size: **175 skills**
 | Angular HTTP / SSR / router / forms / Material | 30+ |
 | TypeScript strict types | 1 |
 
+## What Skills We Have
+
+If you are consuming this repo, these are the skill families that matter most:
+
+| Skill family | What it covers | When to use |
+| --- | --- | --- |
+| `skills/_core/` | intake, stack detection, routing, compatibility, risk control | first, for every task |
+| `skills/angular/versioning/` | version gates, compatibility decisions, master routing | before any Angular hop |
+| `skills/angular/upgrades/` | major-hop executors and version-specific satellites | during Angular upgrades |
+| `skills/angular/modernization/` | control flow, `@defer`, standalone-first, zoneless readiness | after the hop is stable |
+| `skills/angular/architecture/` | higher-level Angular design guidance | when the task is architectural |
+| `skills/angular/components/`, `skills/angular/forms/`, `skills/angular/router/`, `skills/angular/testing/`, `skills/angular/ssr/`, `skills/angular/material/`, `skills/angular/zone/`, `skills/angular/resources/`, `skills/angular/templates/`, `skills/angular/di/` | focused Angular skills for specific risk areas | when the repo has a concrete issue there |
+| `skills/typescript/`, `skills/javascript/`, `skills/quality/`, `skills/git/` | cross-cutting code quality and workflow skills | when the task is not Angular-specific |
+
+### What You Get
+
+- smaller changes
+- version-aware guidance
+- compatibility checks before risky hops
+- focused satellites for known breakpoints
+- a catalog that can be routed by agents without a giant prompt
+
 ## Quick Start
 
 ### Create a skill
@@ -150,6 +173,22 @@ npm run skills:publish:pack
 npm run review:sage:pack
 ```
 
+### Try the CLI
+
+```bash
+npm run cli -- help
+npm run cli -- list
+npm run cli -- doctor
+```
+
+Or use it through `npx` after publishing:
+
+```bash
+npx ng-autopilot help
+npx ng-autopilot list
+npx ng-autopilot init
+```
+
 ## Recommended Workflow
 
 ### For Angular tasks
@@ -163,8 +202,13 @@ Start with:
 - `skills/_core/risk-assessment/SKILL.md`
 - `skills/angular/versioning/angular-versioning-index/SKILL.md`
 - `skills/angular/versioning/angular-version-compatibility-gate/SKILL.md`
+- `skills/angular/versioning/angular-version-gates/SKILL.md`
 
 Then route into the relevant Angular micro-skill.
+
+For a fast overview of the Angular roadmap, read:
+
+- `docs/angular-roadmap-guide.md`
 
 ### For agent code reviews
 
@@ -295,6 +339,12 @@ Read `CONTRIBUTING.md` before opening a PR.
 ## Safety And Support
 
 If you discover a security issue, follow `SECURITY.md` instead of opening a public issue with details.
+
+## Release Checklist
+
+For the release flow, use:
+
+- `docs/release-checklist.md`
 
 ## License
 
