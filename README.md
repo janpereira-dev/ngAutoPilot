@@ -166,6 +166,10 @@ Start with:
 
 Then route into the relevant Angular micro-skill.
 
+For a fast overview of the Angular roadmap, read:
+
+- `docs/angular-roadmap-guide.md`
+
 ### For agent code reviews
 
 Use the Sage review packet to inspect:
