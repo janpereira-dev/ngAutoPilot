@@ -1,5 +1,5 @@
 ---
-id: angular.forms.angular-typed-forms-migration
+id: forms.angular-typed-forms-migration
 name: Angular Typed Forms Migration
 description: >
   Migrate Angular reactive forms to typed forms in bounded slices after Angular 14+. Use when converting FormControl, FormGroup, FormArray, and FormBuilder usage incrementally.

@@ -196,108 +196,6 @@
       ]
     },
     {
-      "id": "angular.forms.angular-number-input-min-max-validation-v12",
-      "name": "Angular Number Input Min Max Validation v12",
-      "path": "skills/forms/angular-number-input-min-max-validation-v12/SKILL.md",
-      "stack": [
-        "Angular",
-        "TypeScript"
-      ],
-      "category": "forms",
-      "status": "draft",
-      "version": "0.1.0",
-      "triggers": [
-        "number input min max",
-        "form validity"
-      ]
-    },
-    {
-      "id": "angular.forms.angular-typed-forms-migration",
-      "name": "Angular Typed Forms Migration",
-      "path": "skills/forms/angular-typed-forms-migration/SKILL.md",
-      "stack": [
-        "Angular",
-        "TypeScript"
-      ],
-      "category": "forms",
-      "status": "draft",
-      "version": "0.1.0",
-      "triggers": [
-        "typed forms",
-        "FormControl",
-        "FormGroup",
-        "FormArray"
-      ]
-    },
-    {
-      "id": "angular.forms.angular-untyped-forms-bridge",
-      "name": "Angular Untyped Forms Bridge",
-      "path": "skills/forms/angular-untyped-forms-bridge/SKILL.md",
-      "stack": [
-        "Angular",
-        "TypeScript"
-      ],
-      "category": "forms",
-      "status": "draft",
-      "version": "0.1.0",
-      "triggers": [
-        "UntypedFormGroup",
-        "UntypedFormControl",
-        "typed forms bridge"
-      ]
-    },
-    {
-      "id": "angular.i18n.angular-localize-v9-migration",
-      "name": "Angular Localize v9 Migration",
-      "path": "skills/i18n/angular-localize-v9-migration/SKILL.md",
-      "stack": [
-        "Angular",
-        "TypeScript"
-      ],
-      "category": "i18n",
-      "status": "draft",
-      "version": "0.1.0",
-      "triggers": [
-        "@angular/localize",
-        "$localize",
-        "Angular i18n"
-      ]
-    },
-    {
-      "id": "angular.ivy.angular-ivy-only-v13-gate",
-      "name": "Angular Ivy Only v13 Gate",
-      "path": "skills/ivy/angular-ivy-only-v13-gate/SKILL.md",
-      "stack": [
-        "Angular",
-        "TypeScript"
-      ],
-      "category": "ivy",
-      "status": "draft",
-      "version": "0.1.0",
-      "triggers": [
-        "Ivy only",
-        "View Engine",
-        "ngcc"
-      ]
-    },
-    {
-      "id": "angular.libraries.angular-view-engine-library-audit-v13",
-      "name": "Angular View Engine Library Audit v13",
-      "path": "skills/libraries/angular-view-engine-library-audit-v13/SKILL.md",
-      "stack": [
-        "Angular",
-        "TypeScript"
-      ],
-      "category": "libraries",
-      "status": "draft",
-      "version": "0.1.0",
-      "triggers": [
-        "View Engine libraries",
-        "ngcc audit",
-        "Angular library compatibility"
-      ]
-    },
-    {
       "id": "angular.migration.angularjs-decommission",
       "name": "AngularJS Decommission",
       "path": "skills/angular/migration/angularjs-decommission/SKILL.md",
@@ -1100,23 +998,6 @@
       ]
     },
     {
-      "id": "angular.service-worker.angular-swupdate-v13-migration",
-      "name": "Angular SwUpdate v13 Migration",
-      "path": "skills/service-worker/angular-swupdate-v13-migration/SKILL.md",
-      "stack": [
-        "Angular",
-        "TypeScript"
-      ],
-      "category": "service-worker",
-      "status": "draft",
-      "version": "0.1.0",
-      "triggers": [
-        "SwUpdate",
-        "service worker updates",
-        "versionUpdates"
-      ]
-    },
-    {
       "id": "angular.services.single-responsibility-services",
       "name": "Angular Single Responsibility Services",
       "path": "skills/angular/services/single-responsibility-services/SKILL.md",
@@ -1137,20 +1018,20 @@
       ]
     },
     {
-      "id": "angular.ssr.angular-render-module-v13-migration",
-      "name": "Angular Render Module v13 Migration",
-      "path": "skills/ssr/angular-render-module-v13-migration/SKILL.md",
+      "id": "angular.serviceworker.angular-swupdate-v13-migration",
+      "name": "Angular SwUpdate v13 Migration",
+      "path": "skills/angular/service-worker/angular-swupdate-v13-migration/SKILL.md",
       "stack": [
         "Angular",
         "TypeScript"
       ],
-      "category": "ssr",
+      "category": "service-worker",
       "status": "draft",
       "version": "0.1.0",
       "triggers": [
-        "renderModuleFactory",
-        "renderModule",
-        "SSR migration"
+        "SwUpdate",
+        "service worker updates",
+        "versionUpdates"
       ]
     },
     {
@@ -1172,23 +1053,6 @@
         "Angular state decision",
         "toSignal",
         "toObservable"
-      ]
-    },
-    {
-      "id": "angular.testing.angular-testbed-inject-v9-migration",
-      "name": "Angular TestBed Inject v9 Migration",
-      "path": "skills/testing/angular-testbed-inject-v9-migration/SKILL.md",
-      "stack": [
-        "Angular",
-        "TypeScript"
-      ],
-      "category": "testing",
-      "status": "draft",
-      "version": "0.1.0",
-      "triggers": [
-        "TestBed.get",
-        "TestBed.inject",
-        "test modernization"
       ]
     },
     {
@@ -3205,6 +3069,142 @@
         "Node version",
         "RxJS version",
         "package manager detection"
+      ]
+    },
+    {
+      "id": "forms.angular-number-input-min-max-validation-v12",
+      "name": "Angular Number Input Min Max Validation v12",
+      "path": "skills/angular/forms/angular-number-input-min-max-validation-v12/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "forms",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "number input min max",
+        "form validity"
+      ]
+    },
+    {
+      "id": "forms.angular-typed-forms-migration",
+      "name": "Angular Typed Forms Migration",
+      "path": "skills/angular/forms/angular-typed-forms-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "forms",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "typed forms",
+        "FormControl",
+        "FormGroup",
+        "FormArray"
+      ]
+    },
+    {
+      "id": "forms.angular-untyped-forms-bridge",
+      "name": "Angular Untyped Forms Bridge",
+      "path": "skills/angular/forms/angular-untyped-forms-bridge/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "forms",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "UntypedFormGroup",
+        "UntypedFormControl",
+        "typed forms bridge"
+      ]
+    },
+    {
+      "id": "i18n.angular-localize-v9-migration",
+      "name": "Angular Localize v9 Migration",
+      "path": "skills/angular/i18n/angular-localize-v9-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "i18n",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "@angular/localize",
+        "$localize",
+        "Angular i18n"
+      ]
+    },
+    {
+      "id": "ivy.angular-ivy-only-v13-gate",
+      "name": "Angular Ivy Only v13 Gate",
+      "path": "skills/angular/ivy/angular-ivy-only-v13-gate/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "ivy",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "Ivy only",
+        "View Engine",
+        "ngcc"
+      ]
+    },
+    {
+      "id": "libraries.angular-view-engine-library-audit-v13",
+      "name": "Angular View Engine Library Audit v13",
+      "path": "skills/angular/libraries/angular-view-engine-library-audit-v13/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "libraries",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "View Engine libraries",
+        "ngcc audit",
+        "Angular library compatibility"
+      ]
+    },
+    {
+      "id": "ssr.angular-render-module-v13-migration",
+      "name": "Angular Render Module v13 Migration",
+      "path": "skills/angular/ssr/angular-render-module-v13-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "ssr",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "renderModuleFactory",
+        "renderModule",
+        "SSR migration"
+      ]
+    },
+    {
+      "id": "testing.angular-testbed-inject-v9-migration",
+      "name": "Angular TestBed Inject v9 Migration",
+      "path": "skills/angular/testing/angular-testbed-inject-v9-migration/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "testing",
+      "status": "draft",
+      "version": "0.1.0",
+      "triggers": [
+        "TestBed.get",
+        "TestBed.inject",
+        "test modernization"
       ]
     },
     {

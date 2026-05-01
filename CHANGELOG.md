@@ -38,12 +38,12 @@ All notable changes to NgAutoPilot will be documented in this file.
   - `angular.versioning.angular-version-compatibility-gate`
   - `angular.versioning.angular-versioning-index`
 - Angular major-hop system:
-  - `angular-15-to-16`
-  - `angular-16-to-17`
-  - `angular-17-to-18`
-  - `angular-18-to-19`
-  - `angular-19-to-20`
-  - `angular-20-to-21`
+  - `angular.upgrade.hops.angular-15-to-16`
+  - `angular.upgrade.hops.angular-16-to-17`
+  - `angular.upgrade.hops.angular-17-to-18`
+  - `angular.upgrade.hops.angular-18-to-19`
+  - `angular.upgrade.hops.angular-19-to-20`
+  - `angular.upgrade.hops.angular-20-to-21`
 - Angular upgrade satellites:
   - AngularJS/ngUpgrade inventory, bootstrap, routing, service, directive, controller, filter, and decommission skills
   - Workspace, RxJS, and HttpClient migration bridges

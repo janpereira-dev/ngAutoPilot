@@ -54,15 +54,6 @@ Do not use this skill when:
 - Harness tests
 - Screenshot/golden tests
 
-## Procedure
-
-1. Inventory Material components in use.
-2. Detect CSS overrides and harness tests.
-3. Migrate components to MDC equivalents in a bounded slice.
-4. Update harness tests and selectors.
-5. Review screenshots and critical layouts.
-6. Stop and record remaining MDC debt.
-
 ## Compatibility by Version
 
 | Angular Material | Strategy recommended | Observations |

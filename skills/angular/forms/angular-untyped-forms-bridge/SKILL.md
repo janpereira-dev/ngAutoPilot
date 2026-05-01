@@ -1,5 +1,5 @@
 ---
-id: angular.forms.angular-untyped-forms-bridge
+id: forms.angular-untyped-forms-bridge
 name: Angular Untyped Forms Bridge
 description: >
   Use untyped form controls as a temporary bridge while migrating to typed forms in Angular. Use when a large forms codebase cannot be converted safely in one pass.

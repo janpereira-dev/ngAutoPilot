@@ -1,5 +1,5 @@
 ---
-id: angular.libraries.angular-view-engine-library-audit-v13
+id: libraries.angular-view-engine-library-audit-v13
 name: Angular View Engine Library Audit v13
 description: >
   Audit Angular libraries for View Engine compatibility before Angular 13 and later upgrades. Use when ngcc or View Engine metadata could still affect the upgrade path.

@@ -1,5 +1,5 @@
 ---
-id: angular.forms.angular-number-input-min-max-validation-v12
+id: forms.angular-number-input-min-max-validation-v12
 name: Angular Number Input Min Max Validation v12
 description: >
   Review Angular numeric inputs and min/max validation after Angular 12 when <input type="number"> behavior can affect form validity and submit flows.
