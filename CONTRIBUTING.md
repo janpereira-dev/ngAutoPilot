@@ -123,9 +123,10 @@ Provider-specific guidance belongs in `adapters/`, not in `skills/`.
 2. Run `npm run skills:validate`.
 3. Run `npm run skills:catalog`.
 4. Run `npm run skills:publish:pack` when the change affects public packaging.
-5. Confirm `catalog.json` contains the expected entry.
-6. Open a pull request with a short explanation of the problem solved.
-7. Address review feedback.
+5. Run `npm run review:sage:pack` when the change touches agent instructions, workflows, or publish scripts.
+6. Confirm `catalog.json` contains the expected entry.
+7. Open a pull request with a short explanation of the problem solved.
+8. Address review feedback.
 
 ## Branch Naming
 
@@ -150,3 +151,4 @@ Keep unrelated work in separate branches when it affects public docs, skill cont
 - [ ] `npm run skills:validate` passes.
 - [ ] `npm run skills:catalog` was run.
 - [ ] `npm run skills:publish:pack` was run when publish output changed.
+- [ ] `npm run review:sage:pack` was run when agent instructions or workflows changed.
