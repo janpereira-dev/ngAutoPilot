@@ -4,6 +4,106 @@
   "version": "0.1.0",
   "skills": [
     {
+      "id": "angular.architecture.angular-enterprise-onboarding-plan",
+      "name": "Angular Enterprise Onboarding Plan",
+      "path": "skills/angular/architecture/angular-enterprise-onboarding-plan/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS",
+        "Nx"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "angular onboarding plan",
+        "enterprise onboarding",
+        "angular team onboarding",
+        "ramp up plan",
+        "new developer onboarding",
+        "angular onboarding path",
+        "project conventions",
+        "enterprise ramp up",
+        "angular introduction plan"
+      ]
+    },
+    {
+      "id": "angular.architecture.angular-enterprise-primitives",
+      "name": "Angular Enterprise Primitives",
+      "path": "skills/angular/architecture/angular-enterprise-primitives/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS",
+        "Testing"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "angular enterprise primitives",
+        "forms signals testing",
+        "training primitives",
+        "angular learning primitives",
+        "enterprise angular primitives",
+        "capability adoption path",
+        "angular adoption matrix",
+        "version aware primitives"
+      ]
+    },
+    {
+      "id": "angular.architecture.angular-enterprise-training-assessment",
+      "name": "Angular Enterprise Training Assessment",
+      "path": "skills/angular/architecture/angular-enterprise-training-assessment/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS",
+        "Nx"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "angular training assessment",
+        "angular enterprise assessment",
+        "team capability assessment",
+        "training readiness",
+        "angular skill gaps",
+        "angular baseline knowledge",
+        "onboarding assessment",
+        "enterprise training assessment",
+        "version awareness assessment"
+      ]
+    },
+    {
+      "id": "angular.architecture.angular-enterprise-training-blueprint",
+      "name": "Angular Enterprise Training Blueprint",
+      "path": "skills/angular/architecture/angular-enterprise-training-blueprint/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS",
+        "Nx"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "angular enterprise training",
+        "angular training roadmap",
+        "angular onboarding plan",
+        "angular architecture workshop",
+        "training blueprint",
+        "enterprise angular learning path",
+        "angular capability matrix",
+        "angular learning path",
+        "angular team onboarding",
+        "version aware angular training"
+      ]
+    },
+    {
       "id": "angular.architecture.angular-patterns-senior",
       "name": "Angular Senior Architecture Patterns",
       "path": "skills/angular/architecture/angular-patterns-senior/SKILL.md",
@@ -22,6 +122,31 @@
         "refactor Angular component",
         "split Angular responsibilities",
         "facade pattern"
+      ]
+    },
+    {
+      "id": "angular.architecture.angular-version-aware-training-matrix",
+      "name": "Angular Version-Aware Training Matrix",
+      "path": "skills/angular/architecture/angular-version-aware-training-matrix/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS",
+        "Nx"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "angular version aware training",
+        "version aware matrix",
+        "training matrix",
+        "angular feature matrix",
+        "angular version matrix",
+        "capability matrix",
+        "angular compatibility training",
+        "version based training",
+        "angular roadmap matrix"
       ]
     },
     {
@@ -59,6 +184,31 @@
         "lazy loading modernization",
         "route splitting",
         "loading behavior modernization"
+      ]
+    },
+    {
+      "id": "angular.architecture.design-system-for-micro-frontends",
+      "name": "Design System for Micro-frontends",
+      "path": "skills/angular/architecture/design-system-for-micro-frontends/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "Design System"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "design system for micro frontends",
+        "design system for micro-frontends",
+        "shared design system",
+        "design tokens",
+        "component library",
+        "ui kit for remotes",
+        "shell and remote design",
+        "shared visual language",
+        "micro frontends design system"
       ]
     },
     {
@@ -118,6 +268,347 @@
       ]
     },
     {
+      "id": "angular.architecture.micro-frontends-architecture",
+      "name": "Micro-frontends Architecture",
+      "path": "skills/angular/architecture/micro-frontends-architecture/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "Module Federation"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "micro frontends",
+        "micro-frontends",
+        "microfrontend",
+        "micro frontend architecture",
+        "module federation",
+        "native federation",
+        "shell app",
+        "remote app",
+        "shell and remotes",
+        "bounded context architecture",
+        "distributed frontend",
+        "runtime composition",
+        "nx monorepo architecture",
+        "angular micro frontends"
+      ]
+    },
+    {
+      "id": "angular.architecture.micro-frontends-communication-patterns",
+      "name": "Micro-frontends Communication Patterns",
+      "path": "skills/angular/architecture/micro-frontends-communication-patterns/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "Module Federation"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "micro frontends communication",
+        "micro-frontends communication",
+        "communication patterns",
+        "shell to remote events",
+        "remote to remote communication",
+        "event bus",
+        "custom events",
+        "shared state between remotes",
+        "cross micro frontend events",
+        "micro frontends events"
+      ]
+    },
+    {
+      "id": "angular.architecture.micro-frontends-dependency-sharing-policy",
+      "name": "Micro-frontends Dependency Sharing Policy",
+      "path": "skills/angular/architecture/micro-frontends-dependency-sharing-policy/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "Module Federation"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "micro fronts dependency sharing",
+        "micro-frontends dependency sharing",
+        "dependency sharing policy",
+        "shared singleton policy",
+        "bundle duplication risk",
+        "shared dependency alignment",
+        "shared library boundaries",
+        "module federation shared dependencies",
+        "micro frontends dependencies"
+      ]
+    },
+    {
+      "id": "angular.architecture.micro-frontends-fallback-and-rollback",
+      "name": "Micro-frontends Fallback and Rollback",
+      "path": "skills/angular/architecture/micro-frontends-fallback-and-rollback/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "Module Federation"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "micro fronts fallback",
+        "micro-frontends fallback",
+        "rollback policy",
+        "remote failure",
+        "fallback strategy",
+        "safe degradation",
+        "retry flow",
+        "graceful fallback",
+        "micro frontends rollback"
+      ]
+    },
+    {
+      "id": "angular.architecture.micro-frontends-observability-contract",
+      "name": "Micro-frontends Observability Contract",
+      "path": "skills/angular/architecture/micro-frontends-observability-contract/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "Module Federation"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "micro fronts observability",
+        "micro-frontends observability",
+        "observability contract",
+        "logging metrics tracing",
+        "runtime failure visibility",
+        "error boundaries",
+        "micro frontends logs",
+        "shell telemetry",
+        "remote telemetry"
+      ]
+    },
+    {
+      "id": "angular.architecture.micro-frontends-ownership-and-rbac-contract",
+      "name": "Micro-frontends Ownership and RBAC Contract",
+      "path": "skills/angular/architecture/micro-frontends-ownership-and-rbac-contract/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "Module Federation"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "micro frontends ownership",
+        "micro-frontends ownership",
+        "rbac contract",
+        "route access control",
+        "remote ownership",
+        "team ownership",
+        "least privilege",
+        "permissions policy",
+        "micro frontends access control"
+      ]
+    },
+    {
+      "id": "angular.architecture.micro-frontends-release-governance",
+      "name": "Micro-frontends Release Governance",
+      "path": "skills/angular/architecture/micro-frontends-release-governance/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "Module Federation"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "micro frontends release governance",
+        "micro-frontends release governance",
+        "release governance",
+        "versioning policy",
+        "rollout policy",
+        "deployment independence",
+        "release train",
+        "compatibility checks",
+        "micro frontends release"
+      ]
+    },
+    {
+      "id": "angular.architecture.micro-frontends-shell-container-contract",
+      "name": "Micro-frontends Shell Container Contract",
+      "path": "skills/angular/architecture/micro-frontends-shell-container-contract/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "Module Federation"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "shell container",
+        "container app",
+        "micro frontends shell",
+        "shell app contract",
+        "host app",
+        "host shell",
+        "shell routing",
+        "shell composition",
+        "remote loading",
+        "container boundary",
+        "shell fallback"
+      ]
+    },
+    {
+      "id": "angular.architecture.micro-frontends-version-compatibility-gate",
+      "name": "Micro-frontends Version Compatibility Gate",
+      "path": "skills/angular/architecture/micro-frontends-version-compatibility-gate/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "Module Federation"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "micro fronts version compatibility",
+        "micro-frontends version compatibility",
+        "compatibility gate",
+        "version compatibility gate",
+        "shell remote version",
+        "remote version drift",
+        "upgrade safety",
+        "module federation versioning",
+        "micro frontends compatibility"
+      ]
+    },
+    {
+      "id": "angular.architecture.module-federation-runtime-contract",
+      "name": "Module Federation Runtime Contract",
+      "path": "skills/angular/architecture/module-federation-runtime-contract/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "Module Federation"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "module federation runtime",
+        "federation contract",
+        "remote exposure",
+        "remote entry",
+        "remote module",
+        "native federation runtime",
+        "shared singleton dependencies",
+        "webpack federation",
+        "remote fallback",
+        "runtime composition contract",
+        "federated module contract"
+      ]
+    },
+    {
+      "id": "angular.architecture.nx-bounded-context-contract",
+      "name": "Nx Bounded Context Contract",
+      "path": "skills/angular/architecture/nx-bounded-context-contract/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "nx bounded context",
+        "bounded context contract",
+        "nx tags",
+        "nx dependency constraints",
+        "module boundaries",
+        "bounded context tags",
+        "nx enforce module boundaries",
+        "shared ui shared domain shared data access",
+        "architecture governance",
+        "monorepo governance"
+      ]
+    },
+    {
+      "id": "angular.architecture.shared-data-access-library-contract",
+      "name": "Shared Data-Access Library Contract",
+      "path": "skills/angular/architecture/shared-data-access-library-contract/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "RxJS"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "shared data access",
+        "shared data-access",
+        "shared/data-access",
+        "shared data access contract",
+        "data access library",
+        "data-access library",
+        "repository contract",
+        "api client library",
+        "persistence contract",
+        "transport layer",
+        "angular data access",
+        "nx module boundaries",
+        "bounded context data access",
+        "shared domain"
+      ]
+    },
+    {
+      "id": "angular.architecture.shared-domain-library-contract",
+      "name": "Shared Domain Library Contract",
+      "path": "skills/angular/architecture/shared-domain-library-contract/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "shared domain",
+        "shared-domain",
+        "shared domain contract",
+        "domain library",
+        "domain model library",
+        "business rules library",
+        "entity library",
+        "policy library",
+        "bounded context",
+        "bounded context domain",
+        "nx module boundaries"
+      ]
+    },
+    {
       "id": "angular.architecture.signals-adoption",
       "name": "Signals Adoption",
       "path": "skills/angular/architecture/signals-adoption/SKILL.md",
@@ -170,6 +661,43 @@
         "presentational component fetching data",
         "component too large",
         "reusable Angular component"
+      ]
+    },
+    {
+      "id": "angular.components.shared-ui-library-contract",
+      "name": "Shared UI Library Contract",
+      "path": "skills/angular/components/shared-ui-library-contract/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx"
+      ],
+      "category": "components",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "shared ui library",
+        "shared/ui",
+        "shared ui",
+        "shared ui contract",
+        "reusable angular component library",
+        "shared component contract",
+        "shared ui audit",
+        "ui kit",
+        "ui-kit",
+        "design system",
+        "design-system",
+        "component library",
+        "nx module boundaries",
+        "content projection slots",
+        "design system component",
+        "component library reuse",
+        "shared component",
+        "reusable ui component",
+        "library contract",
+        "reusable contract",
+        "bounded context ui",
+        "shared domain"
       ]
     },
     {
@@ -244,6 +772,69 @@
         "UntypedFormGroup",
         "UntypedFormControl",
         "typed forms bridge"
+      ]
+    },
+    {
+      "id": "angular.forms.form-validation-contracts",
+      "name": "Angular Form Validation Contracts",
+      "path": "skills/angular/forms/form-validation-contracts/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "forms",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "form validation",
+        "angular validation",
+        "async validators",
+        "cross field validation",
+        "validation contract",
+        "error presentation",
+        "custom validator",
+        "form errors"
+      ]
+    },
+    {
+      "id": "angular.forms.reactive-forms-patterns",
+      "name": "Angular Reactive Forms Patterns",
+      "path": "skills/angular/forms/reactive-forms-patterns/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "forms",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "reactive forms",
+        "angular forms",
+        "form group patterns",
+        "form builder",
+        "typed forms",
+        "form workflow",
+        "form architecture",
+        "enterprise forms"
+      ]
+    },
+    {
+      "id": "angular.forms.reactive-forms-patterns-v14",
+      "name": "Angular Reactive Forms Patterns v14+",
+      "path": "skills/angular/forms/reactive-forms-patterns-v14/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "forms",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "reactive forms v14",
+        "typed forms v14",
+        "angular 14 forms",
+        "typed reactive forms",
+        "forms migration 14"
       ]
     },
     {
@@ -1137,6 +1728,70 @@
       ]
     },
     {
+      "id": "angular.signals.signals-rxjs-interop",
+      "name": "Angular Signals RxJS Interop",
+      "path": "skills/angular/signals/signals-rxjs-interop/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "signals",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "signals rxjs interop",
+        "toSignal",
+        "toObservable",
+        "interop boundary",
+        "angular signals rxjs",
+        "observable to signal",
+        "signal to observable",
+        "reactive boundary"
+      ]
+    },
+    {
+      "id": "angular.signals.signals-state-patterns",
+      "name": "Angular Signals State Patterns",
+      "path": "skills/angular/signals/signals-state-patterns/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "signals",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "signals state",
+        "signal patterns",
+        "computed effect",
+        "local reactive state",
+        "angular signals",
+        "signal store",
+        "derived state",
+        "signals architecture"
+      ]
+    },
+    {
+      "id": "angular.signals.signals-state-patterns-v16",
+      "name": "Angular Signals State Patterns v16+",
+      "path": "skills/angular/signals/signals-state-patterns-v16/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "signals",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "signals v16",
+        "angular 16 signals",
+        "signals state patterns 16",
+        "local state signals",
+        "computed effect v16"
+      ]
+    },
+    {
       "id": "angular.ssr.angular-render-module-v13-migration",
       "name": "Angular Render Module v13 Migration",
       "path": "skills/angular/ssr/angular-render-module-v13-migration/SKILL.md",
@@ -1175,6 +1830,122 @@
       ]
     },
     {
+      "id": "angular.templates.extended-diagnostics-governance",
+      "name": "Angular Extended Diagnostics Governance",
+      "path": "skills/angular/templates/extended-diagnostics-governance/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "templates",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "extended diagnostics governance",
+        "angular extended diagnostics",
+        "strict templates",
+        "diagnostics warning error suppress",
+        "template diagnostics policy"
+      ]
+    },
+    {
+      "id": "angular.templates.extended-diagnostics-remediation",
+      "name": "Angular Extended Diagnostics Remediation",
+      "path": "skills/angular/templates/extended-diagnostics-remediation/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "templates",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "extended diagnostics remediation",
+        "angular diagnostic fix",
+        "NG8101",
+        "NG8113",
+        "template warning fix"
+      ]
+    },
+    {
+      "id": "angular.templates.strict-templates-adoption",
+      "name": "Angular Strict Templates Adoption",
+      "path": "skills/angular/templates/strict-templates-adoption/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "templates",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "strictTemplates adoption",
+        "strict templates adoption",
+        "template type checking",
+        "angular template strictness",
+        "strict template rollout"
+      ]
+    },
+    {
+      "id": "angular.templates.template-diagnostics-matrix",
+      "name": "Angular Template Diagnostics Matrix",
+      "path": "skills/angular/templates/template-diagnostics-matrix/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "templates",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "template diagnostics matrix",
+        "ng81xx matrix",
+        "diagnostic grouping",
+        "template problem types",
+        "angular diagnostics triage"
+      ]
+    },
+    {
+      "id": "angular.testing.angular-component-testing-patterns",
+      "name": "Angular Component Testing Patterns",
+      "path": "skills/angular/testing/angular-component-testing-patterns/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "testing",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "angular component testing",
+        "component test patterns",
+        "inputs and outputs testing",
+        "host component testing",
+        "template interaction test",
+        "harness testing",
+        "angular template test"
+      ]
+    },
+    {
+      "id": "angular.testing.angular-component-testing-patterns-v17",
+      "name": "Angular Component Testing Patterns v17+",
+      "path": "skills/angular/testing/angular-component-testing-patterns-v17/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "testing",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "component testing v17",
+        "angular 17 component tests",
+        "modern component testing",
+        "template interaction tests",
+        "component contract testing"
+      ]
+    },
+    {
       "id": "angular.testing.angular-testbed-inject-v9-migration",
       "name": "Angular TestBed Inject v9 Migration",
       "path": "skills/angular/testing/angular-testbed-inject-v9-migration/SKILL.md",
@@ -1189,6 +1960,54 @@
         "TestBed.get",
         "TestBed.inject",
         "test modernization"
+      ]
+    },
+    {
+      "id": "angular.testing.jest-angular-unit-testing",
+      "name": "Angular Jest Unit Testing",
+      "path": "skills/angular/testing/jest-angular-unit-testing/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Jest"
+      ],
+      "category": "testing",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "jest angular testing",
+        "angular jest unit testing",
+        "unit testing",
+        "TestBed",
+        "jest testbed",
+        "angular component test",
+        "angular service test",
+        "mocking strategy"
+      ]
+    },
+    {
+      "id": "angular.testing.micro-frontends-e2e-validation",
+      "name": "Micro-frontends E2E Validation",
+      "path": "skills/angular/testing/micro-frontends-e2e-validation/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "Testing"
+      ],
+      "category": "testing",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "micro frontends e2e",
+        "micro-frontends e2e",
+        "e2e validation",
+        "shell smoke test",
+        "remote smoke test",
+        "fallback test",
+        "federated integration test",
+        "micro frontends testing",
+        "end to end federation"
       ]
     },
     {
@@ -3020,6 +3839,24 @@
       ]
     },
     {
+      "id": "angular.upgrades.templates.angular-extended-diagnostics-upgrade-gate",
+      "name": "Angular Extended Diagnostics Upgrade Gate",
+      "path": "skills/angular/upgrades/templates/angular-extended-diagnostics-upgrade-gate/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript"
+      ],
+      "category": "templates",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "extended diagnostics upgrade gate",
+        "angular upgrade diagnostics",
+        "template upgrade blocker",
+        "diagnostics after upgrade"
+      ]
+    },
+    {
       "id": "angular.versioning.angular-version-compatibility-gate",
       "name": "Angular Version Compatibility Gate",
       "path": "skills/angular/versioning/angular-version-compatibility-gate/SKILL.md",
@@ -3208,6 +4045,576 @@
       ]
     },
     {
+      "id": "javascript.async-error-handling",
+      "name": "JavaScript Async Error Handling",
+      "path": "skills/javascript/async-error-handling/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "javascript",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "async error handling",
+        "promise errors",
+        "unhandled promise rejection",
+        "async await catch",
+        "retry logic",
+        "fallback behavior",
+        "promise chains",
+        "async loops"
+      ]
+    },
+    {
+      "id": "javascript.async-error-handling.browser-async-error-handling-v18",
+      "name": "Browser Async Error Handling v18+",
+      "path": "skills/javascript/async-error-handling/browser-async-error-handling-v18/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript",
+        "Browser"
+      ],
+      "category": "javascript",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "browser async error handling",
+        "web async handling",
+        "browser promise errors",
+        "user facing failure state",
+        "retry behavior",
+        "browser rejection handling"
+      ]
+    },
+    {
+      "id": "javascript.async-error-handling.browser-async-error-handling-v20",
+      "name": "Browser Async Error Handling v20+",
+      "path": "skills/javascript/async-error-handling/browser-async-error-handling-v20/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript",
+        "Browser"
+      ],
+      "category": "javascript",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "browser async error handling v20",
+        "web async handling v20",
+        "browser promise errors",
+        "user facing failure state",
+        "retry behavior",
+        "browser rejection handling"
+      ]
+    },
+    {
+      "id": "javascript.async-error-handling.nodejs-async-error-handling-v18",
+      "name": "Node.js Async Error Handling v18+",
+      "path": "skills/javascript/async-error-handling/nodejs-async-error-handling-v18/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript",
+        "Node.js"
+      ],
+      "category": "javascript",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "node async error handling",
+        "nodejs async handling",
+        "node v18 errors",
+        "process rejection handling",
+        "script failure behavior",
+        "node promise errors"
+      ]
+    },
+    {
+      "id": "javascript.async-error-handling.nodejs-async-error-handling-v20",
+      "name": "Node.js Async Error Handling v20+",
+      "path": "skills/javascript/async-error-handling/nodejs-async-error-handling-v20/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript",
+        "Node.js"
+      ],
+      "category": "javascript",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "node async error handling v20",
+        "nodejs async handling v20",
+        "node v20 errors",
+        "process rejection handling",
+        "script failure behavior",
+        "node promise errors"
+      ]
+    },
+    {
+      "id": "javascript.fundamentals",
+      "name": "JavaScript Fundamentals",
+      "path": "skills/javascript/fundamentals/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "javascript",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "javascript fundamentals",
+        "javascript learning path",
+        "javascript primitives",
+        "js fundamentals",
+        "javascript roadmap",
+        "javascript capability path"
+      ]
+    },
+    {
+      "id": "javascript.modules",
+      "name": "JavaScript Modules",
+      "path": "skills/javascript/modules/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "javascript",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "javascript modules",
+        "import export",
+        "commonjs",
+        "es modules",
+        "barrel files",
+        "circular dependencies",
+        "package exports",
+        "module boundaries"
+      ]
+    },
+    {
+      "id": "javascript.pure-functions",
+      "name": "JavaScript Pure Functions",
+      "path": "skills/javascript/pure-functions/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "javascript",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "pure functions",
+        "pure function",
+        "immutable function",
+        "deterministic logic",
+        "mapper function",
+        "validator function",
+        "business rules",
+        "side effect free"
+      ]
+    },
+    {
+      "id": "quality.eslint.eslint-autofix-safe-cleanup",
+      "name": "ESLint Autofix Safe Cleanup",
+      "path": "skills/quality/eslint/eslint-autofix-safe-cleanup/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "eslint",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "eslint autofix",
+        "safe cleanup",
+        "lint fix",
+        "auto fix",
+        "mechanical fix"
+      ]
+    },
+    {
+      "id": "quality.eslint.eslint-autofix-safe-cleanup-browser-v18",
+      "name": "ESLint Autofix Safe Cleanup Browser v18+",
+      "path": "skills/quality/eslint/eslint-autofix-safe-cleanup-browser-v18/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "eslint",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "eslint autofix browser",
+        "browser lint fix",
+        "safe autofix browser",
+        "mechanical fix browser"
+      ]
+    },
+    {
+      "id": "quality.eslint.eslint-autofix-safe-cleanup-node-v20",
+      "name": "ESLint Autofix Safe Cleanup Node v20+",
+      "path": "skills/quality/eslint/eslint-autofix-safe-cleanup-node-v20/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "eslint",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "eslint autofix node",
+        "node lint fix",
+        "safe autofix node",
+        "mechanical fix node"
+      ]
+    },
+    {
+      "id": "quality.eslint.eslint-baseline-hardening",
+      "name": "ESLint Baseline Hardening",
+      "path": "skills/quality/eslint/eslint-baseline-hardening/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "eslint",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "eslint baseline hardening",
+        "lint baseline",
+        "eslint quality gate",
+        "lint warnings",
+        "lint config review",
+        "rule hardening"
+      ]
+    },
+    {
+      "id": "quality.eslint.eslint-baseline-hardening-monorepo",
+      "name": "ESLint Baseline Hardening Monorepo",
+      "path": "skills/quality/eslint/eslint-baseline-hardening-monorepo/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "eslint",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "eslint baseline hardening monorepo",
+        "nx lint baseline",
+        "workspace lint hardening",
+        "shared eslint config"
+      ]
+    },
+    {
+      "id": "quality.eslint.eslint-disable-governance",
+      "name": "ESLint Disable Governance",
+      "path": "skills/quality/eslint/eslint-disable-governance/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "eslint",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "eslint disable governance",
+        "eslint-disable",
+        "ts-ignore",
+        "ts-expect-error",
+        "lint suppression",
+        "disable comments"
+      ]
+    },
+    {
+      "id": "quality.fundamentals",
+      "name": "Quality Fundamentals",
+      "path": "skills/quality/fundamentals/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "quality",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "quality fundamentals",
+        "quality learning path",
+        "code quality roadmap",
+        "quality primitives",
+        "quality capability path",
+        "debt and lint coordination"
+      ]
+    },
+    {
+      "id": "quality.fundamentals.quality-decision-matrix",
+      "name": "Quality Decision Matrix",
+      "path": "skills/quality/fundamentals/quality-decision-matrix/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "quality",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "quality decision matrix",
+        "choose quality tool",
+        "eslint or sonarqube",
+        "quality triage matrix",
+        "cleanup decision"
+      ]
+    },
+    {
+      "id": "quality.no-dead-code.dead-branches-cleanup",
+      "name": "Dead Branches Cleanup",
+      "path": "skills/quality/no-dead-code/dead-branches-cleanup/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "no-dead-code",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "dead branches",
+        "unreachable code",
+        "obsolete branch",
+        "legacy flags",
+        "conditional cleanup"
+      ]
+    },
+    {
+      "id": "quality.no-dead-code.orphan-files-cleanup",
+      "name": "Orphan Files Cleanup",
+      "path": "skills/quality/no-dead-code/orphan-files-cleanup/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "no-dead-code",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "orphan files",
+        "dead files",
+        "file cleanup",
+        "unused file",
+        "stale file"
+      ]
+    },
+    {
+      "id": "quality.no-dead-code.orphan-files-cleanup-monorepo",
+      "name": "Orphan Files Cleanup Monorepo",
+      "path": "skills/quality/no-dead-code/orphan-files-cleanup-monorepo/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "no-dead-code",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "orphan files monorepo",
+        "nx orphan files",
+        "workspace file cleanup",
+        "dead files monorepo",
+        "project graph cleanup"
+      ]
+    },
+    {
+      "id": "quality.no-dead-code.unused-exports-cleanup",
+      "name": "Unused Exports Cleanup",
+      "path": "skills/quality/no-dead-code/unused-exports-cleanup/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "no-dead-code",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "unused exports",
+        "export cleanup",
+        "public api cleanup",
+        "barrel exports",
+        "dead exports"
+      ]
+    },
+    {
+      "id": "quality.sonarqube.sonarqube-cognitive-complexity-reduction",
+      "name": "SonarQube Cognitive Complexity Reduction",
+      "path": "skills/quality/sonarqube/sonarqube-cognitive-complexity-reduction/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "sonarqube",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "cognitive complexity",
+        "sonar complexity",
+        "branch simplification",
+        "complex function",
+        "nested conditionals"
+      ]
+    },
+    {
+      "id": "quality.sonarqube.sonarqube-duplication-coverage-hardening",
+      "name": "SonarQube Duplication Coverage Hardening",
+      "path": "skills/quality/sonarqube/sonarqube-duplication-coverage-hardening/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "sonarqube",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "duplication coverage",
+        "sonar coverage",
+        "duplicate code",
+        "coverage hardening",
+        "test coverage"
+      ]
+    },
+    {
+      "id": "quality.sonarqube.sonarqube-quality-gate-triage",
+      "name": "SonarQube Quality Gate Triage",
+      "path": "skills/quality/sonarqube/sonarqube-quality-gate-triage/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "sonarqube",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "sonar triage",
+        "sonarqube quality gate",
+        "sonar quality gate",
+        "code smell triage",
+        "coverage gate"
+      ]
+    },
+    {
+      "id": "quality.sonarqube.sonarqube-quality-gate-triage-monorepo",
+      "name": "SonarQube Quality Gate Triage Monorepo",
+      "path": "skills/quality/sonarqube/sonarqube-quality-gate-triage-monorepo/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "sonarqube",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "sonar monorepo triage",
+        "quality gate monorepo",
+        "nx sonar",
+        "workspace sonar issues"
+      ]
+    },
+    {
+      "id": "quality.technical-debt.debt-ledger-cleanup-hop",
+      "name": "Debt Ledger Cleanup Hop",
+      "path": "skills/quality/technical-debt/debt-ledger-cleanup-hop/SKILL.md",
+      "stack": [
+        "JavaScript",
+        "TypeScript"
+      ],
+      "category": "technical-debt",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "debt ledger",
+        "technical debt cleanup",
+        "cleanup hop",
+        "debt tracking",
+        "incremental debt repayment",
+        "refactor hop"
+      ]
+    },
+    {
+      "id": "typescript.dto-mappers.browser-dto-mappers-v14",
+      "name": "Browser DTO Mappers v14+",
+      "path": "skills/typescript/dto-mappers/browser-dto-mappers-v14/SKILL.md",
+      "stack": [
+        "TypeScript",
+        "Browser"
+      ],
+      "category": "dto-mappers",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "browser dto mapping",
+        "browser dto mappers",
+        "view model mapping",
+        "serialization boundary",
+        "ui mapping contract"
+      ]
+    },
+    {
+      "id": "typescript.dto-mappers.node-dto-mappers-v18",
+      "name": "Node DTO Mappers v18+",
+      "path": "skills/typescript/dto-mappers/node-dto-mappers-v18/SKILL.md",
+      "stack": [
+        "TypeScript",
+        "Node.js"
+      ],
+      "category": "dto-mappers",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "node dto mapping",
+        "node dto mappers",
+        "backend mapping",
+        "normalization boundary",
+        "api contract mapping"
+      ]
+    },
+    {
+      "id": "typescript.fundamentals",
+      "name": "TypeScript Fundamentals",
+      "path": "skills/typescript/fundamentals/SKILL.md",
+      "stack": [
+        "TypeScript"
+      ],
+      "category": "fundamentals",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "typescript fundamentals",
+        "typescript learning path",
+        "ts fundamentals",
+        "typescript primitives",
+        "typescript capability path",
+        "type safety roadmap"
+      ]
+    },
+    {
+      "id": "typescript.strict-types",
+      "name": "TypeScript Strict Types",
+      "path": "skills/typescript/strict-types/SKILL.md",
+      "stack": [
+        "TypeScript"
+      ],
+      "category": "strict-types",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "typescript strict types",
+        "strict typing",
+        "type safety",
+        "typescript safety path",
+        "unsafe any removal",
+        "type narrowing",
+        "dto boundaries"
+      ]
+    },
+    {
       "id": "typescript.strict-types.avoid-any",
       "name": "Avoid Any",
       "path": "skills/typescript/strict-types/avoid-any/SKILL.md",
@@ -3224,6 +4631,24 @@
         "type guard",
         "DTO",
         "generic"
+      ]
+    },
+    {
+      "id": "typescript.strict-types.typescript-strict-types-strict-mode",
+      "name": "TypeScript Strict Types Strict Mode",
+      "path": "skills/typescript/strict-types/typescript-strict-types-strict-mode/SKILL.md",
+      "stack": [
+        "TypeScript"
+      ],
+      "category": "strict-types",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "strict mode typescript",
+        "strict true",
+        "strict typing strict mode",
+        "typescript strict compiler",
+        "strict null checks"
       ]
     }
   ]

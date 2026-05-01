@@ -1,6 +1,6 @@
 {
   "name": "ngautopilot",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Agnostic micro-skills for Angular, TypeScript and JavaScript development with AI agents.",
   "type": "module",
   "bin": {

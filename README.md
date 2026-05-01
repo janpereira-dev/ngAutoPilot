@@ -4,7 +4,7 @@
   <img src="assets/ngautopilot-hero.svg" alt="NgAutoPilot hero banner" />
 </p>
 
-NgAutoPilot is a public, agent-agnostic catalog of micro-skills for Angular, TypeScript, JavaScript, RxJS, testing, code quality, architecture, versioning, and Git workflows.
+NgAutoPilot is a public, agent-agnostic catalog of micro-skills for Angular, TypeScript, JavaScript, RxJS, testing, code quality, architecture, versioning, and quality governance workflows.
 
 It helps AI agents make better technical decisions with small, reusable instructions instead of one giant prompt.
 
@@ -17,8 +17,8 @@ It helps AI agents make better technical decisions with small, reusable instruct
 NgAutoPilot is a skill system for real projects.
 
 - 🧠 `skills/_core/` is the operating layer that decides how to think about a task.
-- 🏗️ `skills/angular/` holds Angular-specific skills for architecture, DI, performance, RxJS, state, migrations, versioning, and upgrade hops.
-- 🧪 `skills/typescript/`, `skills/javascript/`, `skills/quality/`, and `skills/git/` cover cross-cutting concerns.
+- 🏗️ `skills/angular/` holds Angular-specific skills for architecture, templates, DI, performance, RxJS, state, migrations, versioning, and upgrade hops.
+- 🧪 `skills/typescript/`, `skills/javascript/`, and `skills/quality/` cover cross-cutting concerns.
 - 🔌 `adapters/` contains templates for different agent ecosystems.
 - 📚 `docs/` contains extra guidance such as the Sage review packet.
 - 📦 `schemas/`, `templates/`, and `scripts/` keep the catalog structured and maintainable.
@@ -99,12 +99,12 @@ skills/
 
 ## Catalog Snapshot
 
-Current catalog size: **175 skills**
+Current catalog size: **240 skills**
 
 | Category | Skills |
 | --- | ---: |
 | Core | 6 |
-| Angular architecture | 8 |
+| Angular architecture | 20+ |
 | Angular migration | 8 |
 | Angular modernization | 18 |
 | Angular performance | 13 |
@@ -116,8 +116,10 @@ Current catalog size: **175 skills**
 | Angular services | 1 |
 | Angular state | 1 |
 | Angular testing | 4 |
-| Angular HTTP / SSR / router / forms / Material | 30+ |
-| TypeScript strict types | 1 |
+| Angular HTTP / SSR / router / forms / Material / templates | 40+ |
+| TypeScript strict types | 2+ |
+| JavaScript fundamentals | 5+ |
+| Quality governance | 10+ |
 
 ## What Skills We Have
 
@@ -131,7 +133,7 @@ If you are consuming this repo, these are the skill families that matter most:
 | `skills/angular/modernization/` | control flow, `@defer`, standalone-first, zoneless readiness | after the hop is stable |
 | `skills/angular/architecture/` | higher-level Angular design guidance | when the task is architectural |
 | `skills/angular/components/`, `skills/angular/forms/`, `skills/angular/router/`, `skills/angular/testing/`, `skills/angular/ssr/`, `skills/angular/material/`, `skills/angular/zone/`, `skills/angular/resources/`, `skills/angular/templates/`, `skills/angular/di/` | focused Angular skills for specific risk areas | when the repo has a concrete issue there |
-| `skills/typescript/`, `skills/javascript/`, `skills/quality/`, `skills/git/` | cross-cutting code quality and workflow skills | when the task is not Angular-specific |
+| `skills/typescript/`, `skills/javascript/`, `skills/quality/` | cross-cutting code quality and workflow skills | when the task is not Angular-specific |
 
 ### What You Get
 

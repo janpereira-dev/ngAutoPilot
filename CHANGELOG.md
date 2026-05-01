@@ -2,77 +2,73 @@
 
 All notable changes to NgAutoPilot will be documented in this file.
 
-## Unreleased
+## 0.2.3 - 2026-05-02
 
 ### Added
 
-- Public release checklist:
-  - `docs/release-checklist.md`
-- Markdownlint workspace support:
-  - `.markdownlint.json`
-  - `.vscode/settings.json`
-- Workflow updates for release automation:
-  - `.github/workflows/ci.yml`
-  - `.github/workflows/release.yml`
-  - `scripts/build-publish-bundles.mjs`
-- Public publish bundle targets:
-  - AutoSkills
-  - SkillsMP
-  - SkillsLLM
-  - LobeHub Skills
-  - MCPMarket
-- Core autopilot operating layer:
-  - `core.autopilot-orchestrator`
-  - `core.project-intake`
-  - `core.stack-version-detection`
-  - `core.skill-router`
-  - `core.compatibility-router`
-  - `core.risk-assessment`
-- Angular versioning layer:
-  - `angular.versioning.angular-version-gates`
-  - `angular.versioning.angular-version-compatibility-gate`
-  - `angular.versioning.angular-versioning-index`
-- Angular major-hop system:
-  - `angular-15-to-16`
-  - `angular-16-to-17`
-  - `angular-17-to-18`
-  - `angular-18-to-19`
-  - `angular-19-to-20`
-  - `angular-20-to-21`
-- Angular upgrade satellites:
-  - AngularJS/ngUpgrade inventory, bootstrap, routing, service, directive, controller, filter, and decommission skills
-  - Workspace, RxJS, and HttpClient migration bridges
-  - Ivy, localize, router lazy-route, service worker, SSR, forms, and testing cleanup skills
-  - Angular Material MDC v15 family and v14 cleanup skill
-  - Router, SSR, hydration, zone, zoneless, signals, resources, templates, components, DI, debug, and hybrid follow-up skills
-- Angular modernization satellites:
-  - control flow adoption/migration for v17 through v21
-  - defer views adoption for v17 through v21
-  - standalone-first adoption for v19 through v21
-  - zoneless readiness for v17 through v21
-- Angular dependency injection skill:
-  - `angular.dependency-injection`
-- Angular architecture skill family:
-  - `angular.architecture.angular-patterns-senior`
-  - `angular.components.container-presentational`
-  - `angular.state.signals-vs-rxjs`
-  - `angular.architecture.facade-pattern`
-  - `angular.services.single-responsibility-services`
-  - `angular.rxjs.observable-contracts`
-  - `angular.versioning.angular-version-gates`
-- README updates for the consumer-facing skill catalog:
-  - compact skill-family table
-  - quick "what skills we have" overview
-  - release checklist link
-- Angular roadmap docs updates:
-  - `docs/angular-roadmap-guide.md`
+- Angular enterprise training and primitives:
+  - `angular.architecture.angular-enterprise-training-blueprint`
+  - `angular.architecture.angular-enterprise-training-assessment`
+  - `angular.architecture.angular-enterprise-onboarding-plan`
+  - `angular.architecture.angular-version-aware-training-matrix`
+  - `angular.architecture.angular-enterprise-primitives`
+- Angular micro-frontends architecture family:
+  - `angular.architecture.micro-frontends-architecture`
+  - `angular.architecture.micro-frontends-shell-container-contract`
+  - `angular.architecture.module-federation-runtime-contract`
+  - `angular.architecture.micro-frontends-communication-patterns`
+  - `angular.architecture.design-system-for-micro-frontends`
+  - `angular.testing.micro-frontends-e2e-validation`
+  - `angular.architecture.micro-frontends-release-governance`
+  - `angular.architecture.micro-frontends-fallback-and-rollback`
+  - `angular.architecture.micro-frontends-ownership-and-rbac-contract`
+  - `angular.architecture.micro-frontends-version-compatibility-gate`
+  - `angular.architecture.micro-frontends-observability-contract`
+  - `angular.architecture.micro-frontends-dependency-sharing-policy`
+- JavaScript fundamentals and runtime variants:
+  - `javascript.fundamentals`
+  - `javascript.async-error-handling`
+  - `javascript.async-error-handling.nodejs-async-error-handling-v18`
+  - `javascript.async-error-handling.browser-async-error-handling-v18`
+  - `javascript.async-error-handling.nodejs-async-error-handling-v20`
+  - `javascript.async-error-handling.browser-async-error-handling-v20`
+  - `javascript.modules`
+  - `javascript.pure-functions`
+- TypeScript fundamentals and strictness:
+  - `typescript.fundamentals`
+  - `typescript.strict-types`
+  - `typescript.strict-types.typescript-strict-types-strict-mode`
+  - `typescript.dto-mappers.browser-dto-mappers-v14`
+  - `typescript.dto-mappers.node-dto-mappers-v18`
+- Quality governance and cleanup:
+  - `quality.fundamentals`
+  - `quality.fundamentals.quality-decision-matrix`
+  - `quality.eslint.eslint-baseline-hardening`
+  - `quality.eslint.eslint-disable-governance`
+  - `quality.eslint.eslint-autofix-safe-cleanup`
+  - `quality.eslint.eslint-autofix-safe-cleanup-browser-v18`
+  - `quality.eslint.eslint-autofix-safe-cleanup-node-v20`
+  - `quality.eslint.eslint-baseline-hardening-monorepo`
+  - `quality.no-dead-code.unused-exports-cleanup`
+  - `quality.no-dead-code.orphan-files-cleanup`
+  - `quality.no-dead-code.orphan-files-cleanup-monorepo`
+  - `quality.no-dead-code.dead-branches-cleanup`
+  - `quality.sonarqube.sonarqube-quality-gate-triage`
+  - `quality.sonarqube.sonarqube-quality-gate-triage-monorepo`
+  - `quality.sonarqube.sonarqube-cognitive-complexity-reduction`
+  - `quality.sonarqube.sonarqube-duplication-coverage-hardening`
+  - `quality.technical-debt.debt-ledger-cleanup-hop`
+- Angular template diagnostics:
+  - `angular.templates.extended-diagnostics-governance`
+  - `angular.templates.extended-diagnostics-remediation`
+  - `angular.templates.strict-templates-adoption`
+  - `angular.templates.template-diagnostics-matrix`
+  - `angular.upgrades.templates.angular-extended-diagnostics-upgrade-gate`
+- Catalog cleanup:
+  - removed placeholder `skills/git/` source folders
+  - removed placeholder `.gitkeep` files from populated skill folders
 
-### In progress
-
-- Public npm distribution and npx CLI support.
-- Release workflow consolidation and publication automation review.
-
-## 0.2.0 - 2026-05-01
+## 0.2.2 - 2026-05-01
 
 ### Added
 
