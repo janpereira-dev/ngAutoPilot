@@ -6,6 +6,21 @@ All notable changes to NgAutoPilot will be documented in this file.
 
 ### Added
 
+- Public release checklist:
+  - `docs/release-checklist.md`
+- Markdownlint workspace support:
+  - `.markdownlint.json`
+  - `.vscode/settings.json`
+- Workflow updates for release automation:
+  - `.github/workflows/ci.yml`
+  - `.github/workflows/release.yml`
+- README updates for the consumer-facing skill catalog:
+  - compact skill-family table
+  - quick "what skills we have" overview
+  - release checklist link
+- Angular roadmap docs updates:
+  - `docs/angular-roadmap-guide.md`
+
 ### In progress
 
 - Public npm distribution and npx CLI support.

@@ -119,6 +119,28 @@ Current catalog size: **175 skills**
 | Angular HTTP / SSR / router / forms / Material | 30+ |
 | TypeScript strict types | 1 |
 
+## What Skills We Have
+
+If you are consuming this repo, these are the skill families that matter most:
+
+| Skill family | What it covers | When to use |
+| --- | --- | --- |
+| `skills/_core/` | intake, stack detection, routing, compatibility, risk control | first, for every task |
+| `skills/angular/versioning/` | version gates, compatibility decisions, master routing | before any Angular hop |
+| `skills/angular/upgrades/` | major-hop executors and version-specific satellites | during Angular upgrades |
+| `skills/angular/modernization/` | control flow, `@defer`, standalone-first, zoneless readiness | after the hop is stable |
+| `skills/angular/architecture/` | higher-level Angular design guidance | when the task is architectural |
+| `skills/angular/components/`, `skills/angular/forms/`, `skills/angular/router/`, `skills/angular/testing/`, `skills/angular/ssr/`, `skills/angular/material/`, `skills/angular/zone/`, `skills/angular/resources/`, `skills/angular/templates/`, `skills/angular/di/` | focused Angular skills for specific risk areas | when the repo has a concrete issue there |
+| `skills/typescript/`, `skills/javascript/`, `skills/quality/`, `skills/git/` | cross-cutting code quality and workflow skills | when the task is not Angular-specific |
+
+### What You Get
+
+- smaller changes
+- version-aware guidance
+- compatibility checks before risky hops
+- focused satellites for known breakpoints
+- a catalog that can be routed by agents without a giant prompt
+
 ## Quick Start
 
 ### Create a skill
@@ -317,6 +339,12 @@ Read `CONTRIBUTING.md` before opening a PR.
 ## Safety And Support
 
 If you discover a security issue, follow `SECURITY.md` instead of opening a public issue with details.
+
+## Release Checklist
+
+For the release flow, use:
+
+- `docs/release-checklist.md`
 
 ## License
 
