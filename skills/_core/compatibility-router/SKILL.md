@@ -36,6 +36,12 @@ Use this skill when:
 - A shared library may be consumed by multiple Angular versions.
 - The user asks for a migration path or modern Angular implementation.
 
+Always route Angular version decisions through:
+
+```txt
+skills/angular/versioning/angular-version-compatibility-gate/SKILL.md
+```
+
 ## When Not to Use
 
 Do not use this skill when:
@@ -105,6 +111,20 @@ Angular 21:
   use current DI patterns such as providedIn, application providers, route providers, and inject() when project style supports them
   prefer current Angular patterns when the project is already current
 ```
+
+## Required Angular Version Gate
+
+Before recommending an Angular hop or version-sensitive Angular API, require:
+
+```txt
+skills/angular/versioning/angular-version-compatibility-gate/SKILL.md
+```
+
+Use it to determine:
+
+- whether the current project can move to the target Angular version,
+- whether the next hop is blocked by Node, TypeScript, RxJS or Angular CLI ranges,
+- whether routing to a satellite skill is required before planning the hop.
 
 Treat `resource`, `rxResource`, and `httpResource` as experimental unless the project explicitly opts into them.
 

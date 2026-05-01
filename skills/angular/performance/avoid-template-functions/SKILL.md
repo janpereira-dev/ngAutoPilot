@@ -23,6 +23,7 @@ triggers:
 ## Purpose
 
 Use this skill to reduce repeated computation during Angular change detection by moving expensive template method calls into precomputed state, view models, pure pipes, or computed signals.
+This skill overlaps with `template-logic-optimization`; keep `avoid-template-functions` as the concrete detector for method calls in HTML and let the other skill cover broader expression-heavy templates.
 
 ## When to Use
 
@@ -33,6 +34,7 @@ Use this skill when:
 - A component has slow rendering or frequent change detection.
 - A method performs filtering, sorting, formatting, aggregation, permissions logic, or allocation.
 - The same derived value is needed multiple times in a template.
+- A getter performs non-trivial work every time Angular evaluates the view.
 
 ## Do
 
@@ -93,6 +95,8 @@ Avoid methods that allocate new arrays or objects during change detection:
 <app-list [items]="getFilteredItems()" />
 ```
 
+Avoid using template calls as an escape hatch for derivation that belongs in component state, a facade, a selector, or a pure pipe.
+
 ## Review Checklist
 
 - [ ] Template method calls are identified and classified as trivial or risky.
@@ -102,6 +106,7 @@ Avoid methods that allocate new arrays or objects during change detection:
 - [ ] Precomputed view models are updated when source data changes.
 - [ ] The refactor does not introduce stale values or mutable shared state.
 - [ ] Tests cover changed rendering or transformation behavior.
+- [ ] Broad template-expression refactors are delegated to `template-logic-optimization` when the issue is not specifically a method call.
 
 ## Expected Output
 

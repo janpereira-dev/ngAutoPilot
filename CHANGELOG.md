@@ -33,6 +33,28 @@ All notable changes to NgAutoPilot will be documented in this file.
   - `core.skill-router`
   - `core.compatibility-router`
   - `core.risk-assessment`
+- Angular versioning layer:
+  - `angular.versioning.angular-version-gates`
+  - `angular.versioning.angular-version-compatibility-gate`
+  - `angular.versioning.angular-versioning-index`
+- Angular major-hop system:
+  - `angular.upgrade.hops.angular-15-to-16`
+  - `angular.upgrade.hops.angular-16-to-17`
+  - `angular.upgrade.hops.angular-17-to-18`
+  - `angular.upgrade.hops.angular-18-to-19`
+  - `angular.upgrade.hops.angular-19-to-20`
+  - `angular.upgrade.hops.angular-20-to-21`
+- Angular upgrade satellites:
+  - AngularJS/ngUpgrade inventory, bootstrap, routing, service, directive, controller, filter, and decommission skills
+  - Workspace, RxJS, and HttpClient migration bridges
+  - Ivy, localize, router lazy-route, service worker, SSR, forms, and testing cleanup skills
+  - Angular Material MDC v15 family and v14 cleanup skill
+  - Router, SSR, hydration, zone, zoneless, signals, resources, templates, components, DI, debug, and hybrid follow-up skills
+- Angular modernization satellites:
+  - control flow adoption/migration for v17 through v21
+  - defer views adoption for v17 through v21
+  - standalone-first adoption for v19 through v21
+  - zoneless readiness for v17 through v21
 - Angular dependency injection skill:
   - `angular.dependency-injection`
 - Angular architecture skill family:
@@ -43,6 +65,16 @@ All notable changes to NgAutoPilot will be documented in this file.
   - `angular.services.single-responsibility-services`
   - `angular.rxjs.observable-contracts`
   - `angular.versioning.angular-version-gates`
+
+## 0.2.0 - 2026-05-01
+
+### Added
+
+- Expanded the Angular skill catalog into a full major-hop roadmap from Angular 2 through Angular 21.
+- Added Angular compatibility gates, a master versioning index, and hop routing hooks.
+- Added AngularJS migration, workspace, RxJS, HttpClient, Ivy, localize, router, SSR, service worker, testing, forms, Material, zone, zoneless, resources, templates, DI, and hybrid satellite skills.
+- Added Angular modernization satellites for control flow, `@defer`, standalone-first, and zoneless readiness.
+- Updated the root README and changelog to explain the new versioning structure.
 
 ## 0.1.0 - 2026-04-30
 

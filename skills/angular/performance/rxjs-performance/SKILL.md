@@ -40,6 +40,13 @@ Use the compatible variant:
 - Angular 19+: prefer `takeUntilDestroyed` for lifecycle-bound manual subscriptions.
 - All versions: prefer `async` when the observable value is used only in the template.
 
+When duplicated HTTP requests or cacheable API reads are the main issue, keep the fix localized:
+
+- deduplicate with shared streams only when multiple subscribers truly need the same in-flight value.
+- use `shareReplay` only with explicit lifecycle semantics and bounded cache rules.
+- avoid caching sensitive or fast-changing data unless invalidation is clear.
+- prefer a facade or service boundary for controlled caching instead of scattering `subscribe` calls across components.
+
 ## When to Use
 
 Use this skill when:
@@ -80,6 +87,8 @@ this.form.valueChanges
 ```
 
 Use `shareReplay` only when sharing a source is intentional and lifecycle semantics are understood.
+Prefer `shareReplay({ bufferSize: 1, refCount: true })` or an equivalent project-safe variant when sharing a cold stream across subscribers.
+Do not use `shareReplay` as an accidental permanent cache.
 
 ## Do Not
 
@@ -111,6 +120,8 @@ Avoid using `Subject` as an improvised global state layer when a simpler observa
 - [ ] High-frequency streams use `debounceTime`, `throttleTime`, or `distinctUntilChanged` when appropriate.
 - [ ] `switchMap`, `concatMap`, `mergeMap`, and `exhaustMap` are selected by semantics.
 - [ ] HTTP duplication is checked before adding `shareReplay`.
+- [ ] Cache invalidation is defined when data is reused.
+- [ ] Sensitive or rapidly changing data is not cached by default.
 - [ ] Subscription cleanup matches the Angular version.
 - [ ] Error, loading, and empty states remain explicit.
 

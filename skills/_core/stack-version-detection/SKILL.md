@@ -80,6 +80,13 @@ linting: ESLint, TSLint, none, unknown
 feature usage: NgModules, standalone, Signals, control flow, deferrable views
 ```
 
+Pass the detected versions to:
+
+```txt
+skills/angular/versioning/angular-version-compatibility-gate/SKILL.md
+skills/_core/compatibility-router/SKILL.md
+```
+
 ## Version Compatibility
 
 Use detected versions as input for `core.compatibility-router`.

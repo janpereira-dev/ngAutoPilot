@@ -38,6 +38,7 @@ Use the compatible variant:
 - Angular 17+: use modern control flow for readability when the project supports it.
 
 Do not treat every function call in a template as a defect. Focus on functions that are expensive, impure, allocate objects, transform collections, or run inside large loops.
+If a template method is trivial and stable, document it rather than refactoring it out.
 
 ## When to Use
 
@@ -98,6 +99,10 @@ Avoid collection work in templates:
 ```
 
 Avoid side effects from template methods.
+
+Avoid putting filters, sorts, permission checks, or object creation directly into repeated bindings when the result can be derived once.
+
+When the project uses signals, prefer `computed` for local derived state; otherwise keep the derivation in the component, a facade, or a pure pipe.
 
 ## Review Checklist
 

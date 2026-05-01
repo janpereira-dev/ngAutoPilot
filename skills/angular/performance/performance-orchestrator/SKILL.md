@@ -56,11 +56,13 @@ Select the smallest skill based on the dominant symptom:
 
 ```txt
 rendering or excessive checks -> angular.performance.change-detection-optimization
+explicit OnPush adoption -> angular.performance.onpush-change-detection
 large or unstable lists -> angular.performance.list-rendering-optimization
+missing trackBy or unstable identity -> angular.performance.trackby-for-lists
 complex HTML or repeated template work -> angular.performance.template-logic-optimization
+expensive pure transformations -> angular.performance.pipes-and-memoization
 slow initial load or large bundle -> angular.performance.lazy-loading-strategy
-repeated transformations -> angular.performance.pipes-and-memoization
-RxJS leaks or duplicated calls -> angular.performance.rxjs-performance
+duplicated HTTP calls or RxJS leaks -> angular.performance.rxjs-performance
 unclear evidence -> angular.performance.measure-before-optimizing
 broad review -> angular.performance.performance-audit
 ```

@@ -24,6 +24,7 @@ triggers:
 ## Purpose
 
 Use this skill to keep Angular list rendering stable by giving Angular a reliable identity for each item. The goal is to avoid unnecessary DOM destruction and recreation when arrays are refreshed, sorted, filtered, or replaced.
+If the issue is broader list rendering cost, defer to `list-rendering-optimization`; this skill owns identity tracking specifically.
 
 ## When to Use
 
@@ -34,6 +35,7 @@ Use this skill when:
 - A list can be reordered, filtered, paginated, or refreshed.
 - Inputs, focus, animations, or expanded rows are reset unexpectedly.
 - The task mentions slow lists or unnecessary DOM updates.
+- The list contains child components, form controls, or locally managed UI state.
 
 ## Do
 
@@ -60,6 +62,7 @@ For Angular control flow with `@for`, use a stable `track` expression:
 ```
 
 Use a domain identifier when possible. If no stable ID exists, create one at the mapping boundary rather than relying on object identity.
+When the project uses `@for`, prefer `track item.id` or an equivalent stable key instead of index-based tracking.
 
 ## Do Not
 
@@ -87,6 +90,8 @@ trackByIndex(index: number): number {
 }
 ```
 
+Avoid track keys that change between renders, such as random values, timestamps, or array positions in mutable lists.
+
 ## Review Checklist
 
 - [ ] Every non-trivial Angular list has `trackBy` or `track`.
@@ -95,6 +100,7 @@ trackByIndex(index: number): number {
 - [ ] Index tracking is used only for static lists that never reorder or mutate in the middle.
 - [ ] Tracking logic does not allocate random or time-based values.
 - [ ] The change preserves focus, animation, and expanded-row behavior.
+- [ ] List-local forms, child component state, and selection state are preserved after refresh.
 
 ## Expected Output
 
