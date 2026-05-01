@@ -1,5 +1,5 @@
 ---
-id: angular.upgrade.material.angular-material-mdc-v15-chips-slider
+id: angular.upgrades.material.angular-material-mdc-v15-chips-slider
 name: Angular Material MDC v15 Chips Slider
 description: >
   Migrates Angular Material v15 chips and slider components, which have some of the largest API and template changes in the MDC rollout.

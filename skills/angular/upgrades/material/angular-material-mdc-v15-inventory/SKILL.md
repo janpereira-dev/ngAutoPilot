@@ -1,5 +1,5 @@
 ---
-id: angular.upgrade.material.angular-material-mdc-v15-inventory
+id: angular.upgrades.material.angular-material-mdc-v15-inventory
 name: Angular Material MDC v15 Inventory
 description: >
   Detects Angular Material usage, legacy imports, custom CSS overrides, harness assumptions, and MDC migration hotspots before any component changes are made.

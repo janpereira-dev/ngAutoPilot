@@ -30,9 +30,10 @@ NgAutoPilot is not:
 - a giant prompt dump
 - a private internal playbook
 - a framework
-- a CLI product
 - a replacement for project architecture
 - a provider-locked skill pack
+
+NgAutoPilot includes a small CLI for installing, inspecting, and exporting reusable micro-skills. The CLI is a distribution channel, not the core product.
 
 ## Why It Exists
 
@@ -150,6 +151,22 @@ npm run skills:publish:pack
 npm run review:sage:pack
 ```
 
+### Try the CLI
+
+```bash
+npm run cli -- help
+npm run cli -- list
+npm run cli -- doctor
+```
+
+Or use it through `npx` after publishing:
+
+```bash
+npx ng-autopilot help
+npx ng-autopilot list
+npx ng-autopilot init
+```
+
 ## Recommended Workflow
 
 ### For Angular tasks
@@ -163,8 +180,13 @@ Start with:
 - `skills/_core/risk-assessment/SKILL.md`
 - `skills/angular/versioning/angular-versioning-index/SKILL.md`
 - `skills/angular/versioning/angular-version-compatibility-gate/SKILL.md`
+- `skills/angular/versioning/angular-version-gates/SKILL.md`
 
 Then route into the relevant Angular micro-skill.
+
+For a fast overview of the Angular roadmap, read:
+
+- `docs/angular-roadmap-guide.md`
 
 ### For agent code reviews
 

@@ -1,5 +1,5 @@
 ---
-id: angular.upgrade.material.angular-material-mdc-v15-testing-harnesses
+id: angular.upgrades.material.angular-material-mdc-v15-testing-harnesses
 name: Angular Material MDC v15 Testing Harnesses
 description: >
   Updates Angular Material tests and harnesses that rely on legacy DOM structure or internal selectors during the MDC migration.

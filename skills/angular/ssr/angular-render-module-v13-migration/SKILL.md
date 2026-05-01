@@ -1,5 +1,5 @@
 ---
-id: ssr.angular-render-module-v13-migration
+id: angular.ssr.angular-render-module-v13-migration
 name: Angular Render Module v13 Migration
 description: >
   Migrate Angular SSR code from renderModuleFactory to renderModule. Use when server rendering still depends on the older factory-based API.

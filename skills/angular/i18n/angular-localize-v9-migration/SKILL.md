@@ -1,5 +1,5 @@
 ---
-id: i18n.angular-localize-v9-migration
+id: angular.i18n.angular-localize-v9-migration
 name: Angular Localize v9 Migration
 description: >
   Migrate Angular i18n apps to @angular/localize and $localize usage. Use when legacy i18n extraction or runtime localization needs to be aligned with Angular 9+ tooling.

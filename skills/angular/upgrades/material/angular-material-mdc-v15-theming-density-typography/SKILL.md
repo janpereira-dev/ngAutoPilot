@@ -1,5 +1,5 @@
 ---
-id: angular.upgrade.material.angular-material-mdc-v15-theming-density-typography
+id: angular.upgrades.material.angular-material-mdc-v15-theming-density-typography
 name: Angular Material MDC v15 Theming Density Typography
 description: >
   Reviews Angular Material v15 theme, density, and typography changes, including custom styles, mixins, and MDC class name impacts.

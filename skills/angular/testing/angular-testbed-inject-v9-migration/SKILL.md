@@ -1,5 +1,5 @@
 ---
-id: testing.angular-testbed-inject-v9-migration
+id: angular.testing.angular-testbed-inject-v9-migration
 name: Angular TestBed Inject v9 Migration
 description: >
   Replace TestBed.get with TestBed.inject in Angular tests. Use when older tests still rely on TestBed.get and need a small, controlled modernization step.
