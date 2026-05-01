@@ -1,16 +1,24 @@
 name: Release
 
 on:
-  push:
-    tags:
-      - "v*"
+  release:
+    types:
+      - published
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish to npm and create release artifacts
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
 
 jobs:
-  release:
+  publish:
     runs-on: ubuntu-latest
+    if: github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && inputs.publish == true)
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
@@ -26,10 +34,13 @@ jobs:
       - name: Regenerate catalog
         run: npm run skills:catalog
 
+      - name: Check catalog drift
+        run: git diff --exit-code -- catalog.json
+
       - name: Build publish bundles
         run: npm run skills:publish:pack
 
-      - name: Create release
+      - name: Publish release artifacts
         uses: softprops/action-gh-release@v2
         with:
           files: dist/publish/**/*
