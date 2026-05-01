@@ -62,6 +62,7 @@ Do not use this skill when:
 4. Update harness tests and selectors.
 5. Review screenshots and critical layouts.
 6. Stop and record remaining MDC debt.
+
 ## Compatibility by Version
 
 | Angular Material | Strategy recommended | Observations |

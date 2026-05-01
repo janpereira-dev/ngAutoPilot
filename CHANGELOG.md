@@ -60,6 +60,10 @@ All notable changes to NgAutoPilot will be documented in this file.
   - `angular.services.single-responsibility-services`
   - `angular.rxjs.observable-contracts`
   - `angular.versioning.angular-version-gates`
+### In progress
+
+- Public npm distribution and npx CLI support.
+- Release workflow consolidation and publication automation review.
 
 ### In progress
 

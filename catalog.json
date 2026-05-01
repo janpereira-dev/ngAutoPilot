@@ -196,6 +196,7 @@
       ]
     },
     {
+<<<<<<< HEAD
       "id": "angular.forms.angular-number-input-min-max-validation-v12",
       "name": "Angular Number Input Min Max Validation v12",
       "path": "skills/angular/forms/angular-number-input-min-max-validation-v12/SKILL.md",
@@ -212,9 +213,11 @@
       ]
     },
     {
+=======
+>>>>>>> 6f6f9acff2b196e83e0709a477e770160d8aa0a4
       "id": "angular.forms.angular-number-input-min-max-validation-v12",
       "name": "Angular Number Input Min Max Validation v12",
-      "path": "skills/forms/angular-number-input-min-max-validation-v12/SKILL.md",
+      "path": "skills/angular/forms/angular-number-input-min-max-validation-v12/SKILL.md",
       "stack": [
         "Angular",
         "TypeScript"
@@ -231,6 +234,7 @@
       "id": "angular.forms.angular-typed-forms-migration",
       "name": "Angular Typed Forms Migration",
       "path": "skills/angular/forms/angular-typed-forms-migration/SKILL.md",
+<<<<<<< HEAD
       "stack": [
         "Angular",
         "TypeScript"
@@ -249,6 +253,8 @@
       "id": "angular.forms.angular-typed-forms-migration",
       "name": "Angular Typed Forms Migration",
       "path": "skills/forms/angular-typed-forms-migration/SKILL.md",
+=======
+>>>>>>> 6f6f9acff2b196e83e0709a477e770160d8aa0a4
       "stack": [
         "Angular",
         "TypeScript"
@@ -267,6 +273,7 @@
       "id": "angular.forms.angular-untyped-forms-bridge",
       "name": "Angular Untyped Forms Bridge",
       "path": "skills/angular/forms/angular-untyped-forms-bridge/SKILL.md",
+<<<<<<< HEAD
       "stack": [
         "Angular",
         "TypeScript"
@@ -284,6 +291,8 @@
       "id": "angular.forms.angular-untyped-forms-bridge",
       "name": "Angular Untyped Forms Bridge",
       "path": "skills/forms/angular-untyped-forms-bridge/SKILL.md",
+=======
+>>>>>>> 6f6f9acff2b196e83e0709a477e770160d8aa0a4
       "stack": [
         "Angular",
         "TypeScript"
@@ -301,6 +310,7 @@
       "id": "angular.i18n.angular-localize-v9-migration",
       "name": "Angular Localize v9 Migration",
       "path": "skills/angular/i18n/angular-localize-v9-migration/SKILL.md",
+<<<<<<< HEAD
       "stack": [
         "Angular",
         "TypeScript"
@@ -318,6 +328,8 @@
       "id": "angular.i18n.angular-localize-v9-migration",
       "name": "Angular Localize v9 Migration",
       "path": "skills/i18n/angular-localize-v9-migration/SKILL.md",
+=======
+>>>>>>> 6f6f9acff2b196e83e0709a477e770160d8aa0a4
       "stack": [
         "Angular",
         "TypeScript"
@@ -335,6 +347,7 @@
       "id": "angular.ivy.angular-ivy-only-v13-gate",
       "name": "Angular Ivy Only v13 Gate",
       "path": "skills/angular/ivy/angular-ivy-only-v13-gate/SKILL.md",
+<<<<<<< HEAD
       "stack": [
         "Angular",
         "TypeScript"
@@ -352,6 +365,8 @@
       "id": "angular.ivy.angular-ivy-only-v13-gate",
       "name": "Angular Ivy Only v13 Gate",
       "path": "skills/ivy/angular-ivy-only-v13-gate/SKILL.md",
+=======
+>>>>>>> 6f6f9acff2b196e83e0709a477e770160d8aa0a4
       "stack": [
         "Angular",
         "TypeScript"
@@ -369,6 +384,7 @@
       "id": "angular.libraries.angular-view-engine-library-audit-v13",
       "name": "Angular View Engine Library Audit v13",
       "path": "skills/angular/libraries/angular-view-engine-library-audit-v13/SKILL.md",
+<<<<<<< HEAD
       "stack": [
         "Angular",
         "TypeScript"
@@ -386,6 +402,8 @@
       "id": "angular.libraries.angular-view-engine-library-audit-v13",
       "name": "Angular View Engine Library Audit v13",
       "path": "skills/libraries/angular-view-engine-library-audit-v13/SKILL.md",
+=======
+>>>>>>> 6f6f9acff2b196e83e0709a477e770160d8aa0a4
       "stack": [
         "Angular",
         "TypeScript"
@@ -1205,6 +1223,7 @@
       "id": "angular.service-worker.angular-swupdate-v13-migration",
       "name": "Angular SwUpdate v13 Migration",
       "path": "skills/angular/service-worker/angular-swupdate-v13-migration/SKILL.md",
+<<<<<<< HEAD
       "stack": [
         "Angular",
         "TypeScript"
@@ -1222,6 +1241,8 @@
       "id": "angular.service-worker.angular-swupdate-v13-migration",
       "name": "Angular SwUpdate v13 Migration",
       "path": "skills/service-worker/angular-swupdate-v13-migration/SKILL.md",
+=======
+>>>>>>> 6f6f9acff2b196e83e0709a477e770160d8aa0a4
       "stack": [
         "Angular",
         "TypeScript"
@@ -1270,6 +1291,7 @@
         "renderModuleFactory",
         "renderModule",
         "SSR migration"
+<<<<<<< HEAD
       ]
     },
     {
@@ -1287,6 +1309,8 @@
         "renderModuleFactory",
         "renderModule",
         "SSR migration"
+=======
+>>>>>>> 6f6f9acff2b196e83e0709a477e770160d8aa0a4
       ]
     },
     {
@@ -1311,6 +1335,7 @@
       ]
     },
     {
+<<<<<<< HEAD
       "id": "angular.testing.angular-testbed-inject-v9-migration",
       "name": "Angular TestBed Inject v9 Migration",
       "path": "skills/angular/testing/angular-testbed-inject-v9-migration/SKILL.md",
@@ -1328,9 +1353,11 @@
       ]
     },
     {
+=======
+>>>>>>> 6f6f9acff2b196e83e0709a477e770160d8aa0a4
       "id": "angular.testing.angular-testbed-inject-v9-migration",
       "name": "Angular TestBed Inject v9 Migration",
-      "path": "skills/testing/angular-testbed-inject-v9-migration/SKILL.md",
+      "path": "skills/angular/testing/angular-testbed-inject-v9-migration/SKILL.md",
       "stack": [
         "Angular",
         "TypeScript"
