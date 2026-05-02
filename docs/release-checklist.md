@@ -11,6 +11,8 @@ Use this checklist when preparing a public NgAutoPilot release.
    - `npm run consistency:validate`
    - `npm run skills:catalog`
    - `npm run marketplaces:validate`
+   - `npm run skills:publish:pack`
+   - `npm run publish:validate`
    - `npm pack --dry-run`
 4. Confirm the tarball includes:
    - `bin/ng-autopilot.mjs`
@@ -58,6 +60,8 @@ Use this order before publishing:
 npm run skills:validate
 npm run consistency:validate
 npm run marketplaces:validate
+npm run skills:publish:pack
+npm run publish:validate
 npm pack --dry-run
 ```
 

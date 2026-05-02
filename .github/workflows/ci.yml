@@ -33,5 +33,5 @@ jobs:
       - name: Build publish bundles
         run: npm run skills:publish:pack
 
-      - name: Validate publish output exists
-        run: test -d dist/publish
+      - name: Validate publish bundles
+        run: npm run publish:validate

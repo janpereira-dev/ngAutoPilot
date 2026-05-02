@@ -359,6 +359,8 @@ For the release flow, use:
 - `npm run skills:validate`
 - `npm run consistency:validate`
 - `npm run marketplaces:validate`
+- `npm run skills:publish:pack`
+- `npm run publish:validate`
 - `npm pack --dry-run`
 
 See `docs/release-checklist.md` for the full release checklist.
