@@ -403,6 +403,7 @@ Notes:
 - `ngautopilot-angular` now adds hard versioning gates, strict template governance, and a test-strategy router.
 - `ngautopilot-angular` now also covers forms, SSR/hydration, and router control in dedicated skills.
 - `ngautopilot-angular` now also covers signals, Core Web Vitals, bundle budgets, zoneless readiness, and a11y-first Material/CDK/Aria patterns.
+- `ngautopilot-angular` now also closes AngularJS migration and legacy decommission paths.
 - `ngautopilot-quality` remains the compatibility bundle for backward compatibility.
 - `ngautopilot-quality-lint` contains ESLint and lint cleanup workflows.
 - `ngautopilot-quality-deadcode-sonar` contains dead-code cleanup and SonarQube triage workflows.
@@ -434,6 +435,10 @@ The third layer adds typed forms governance, CVA patterns, signal forms readines
 ### Angular signals, performance, and UI
 
 The fourth layer adds signal fundamentals and interop, Core Web Vitals auditing, bundle budget governance, zoneless performance readiness, and Material/CDK/Aria patterns for accessible stable UI.
+
+### Angular migration and legacy
+
+The final migration layer closes AngularJS inventory, strategy selection, hybrid ngUpgrade, routing/template/service migration, and safe decommission work.
 
 ## License
 
