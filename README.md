@@ -394,6 +394,7 @@ Install plugins:
 /plugin install ngautopilot-core@ngautopilot
 /plugin install ngautopilot-angular@ngautopilot
 /plugin install ngautopilot-quality@ngautopilot
+/plugin install ngautopilot-css@ngautopilot
 /reload-plugins
 ```
 
@@ -425,7 +426,7 @@ Notes:
 
 - The installed Codex CLI exposed here supports marketplace management, not a separate `plugin install` subcommand.
 - The Codex marketplace manifest lives at `.agents/plugins/marketplace.json`.
-- The repo currently bundles `ngautopilot-core`, `ngautopilot-angular`, and `ngautopilot-quality` as Codex-ready plugin roots.
+- The repo currently bundles `ngautopilot-core`, `ngautopilot-angular`, `ngautopilot-quality`, `ngautopilot-angular-microfrontends`, and `ngautopilot-css` as Codex-ready plugin roots.
 - `ngautopilot-angular` now includes governance, versioning, upgrade orchestration, and standalone-modernization entry points.
 - `ngautopilot-angular` also includes targeted SSR, forms, and Material MDC entry points.
 - `ngautopilot-angular` now adds hard versioning gates, strict template governance, and a test-strategy router.
@@ -433,6 +434,7 @@ Notes:
 - `ngautopilot-angular` now also covers signals, Core Web Vitals, bundle budgets, zoneless readiness, and a11y-first Material/CDK/Aria patterns.
 - `ngautopilot-angular` now also closes AngularJS migration and legacy decommission paths.
 - `ngautopilot-angular` now also starts the security layer with XSS, sanitizer, SSR risk, token storage, and dependency triage.
+- `ngautopilot-css` covers Angular host custom properties and CSS `:has()` content-aware layouts.
 - `ngautopilot-quality` remains the compatibility bundle for backward compatibility.
 - `ngautopilot-quality-lint` contains ESLint and lint cleanup workflows.
 - `ngautopilot-quality-deadcode-sonar` contains dead-code cleanup and SonarQube triage workflows.
