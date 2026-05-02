@@ -401,6 +401,7 @@ Notes:
 - `ngautopilot-angular` now includes governance, versioning, upgrade orchestration, and standalone-modernization entry points.
 - `ngautopilot-angular` also includes targeted SSR, forms, and Material MDC entry points.
 - `ngautopilot-angular` now adds hard versioning gates, strict template governance, and a test-strategy router.
+- `ngautopilot-angular` now also covers forms, SSR/hydration, and router control in dedicated skills.
 - `ngautopilot-quality` remains the compatibility bundle for backward compatibility.
 - `ngautopilot-quality-lint` contains ESLint and lint cleanup workflows.
 - `ngautopilot-quality-deadcode-sonar` contains dead-code cleanup and SonarQube triage workflows.
@@ -424,6 +425,10 @@ Angular change work now starts with governance skills that classify the project,
 ### Angular versioning, templates, and testing
 
 The second layer is now in place for Node/TypeScript/RxJS compatibility, builder compatibility, peer dependency audits, strict templates, extended diagnostics, and test strategy selection.
+
+### Angular forms, SSR, and router
+
+The third layer adds typed forms governance, CVA patterns, signal forms readiness, SSR readiness and browser API safety, hydration risk gates, and route configuration/lazy loading/guards/testing patterns.
 
 ## License
 
