@@ -402,6 +402,7 @@ Notes:
 - `ngautopilot-angular` also includes targeted SSR, forms, and Material MDC entry points.
 - `ngautopilot-angular` now adds hard versioning gates, strict template governance, and a test-strategy router.
 - `ngautopilot-angular` now also covers forms, SSR/hydration, and router control in dedicated skills.
+- `ngautopilot-angular` now also covers signals, Core Web Vitals, bundle budgets, zoneless readiness, and a11y-first Material/CDK/Aria patterns.
 - `ngautopilot-quality` remains the compatibility bundle for backward compatibility.
 - `ngautopilot-quality-lint` contains ESLint and lint cleanup workflows.
 - `ngautopilot-quality-deadcode-sonar` contains dead-code cleanup and SonarQube triage workflows.
@@ -429,6 +430,10 @@ The second layer is now in place for Node/TypeScript/RxJS compatibility, builder
 ### Angular forms, SSR, and router
 
 The third layer adds typed forms governance, CVA patterns, signal forms readiness, SSR readiness and browser API safety, hydration risk gates, and route configuration/lazy loading/guards/testing patterns.
+
+### Angular signals, performance, and UI
+
+The fourth layer adds signal fundamentals and interop, Core Web Vitals auditing, bundle budget governance, zoneless performance readiness, and Material/CDK/Aria patterns for accessible stable UI.
 
 ## License
 
