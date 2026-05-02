@@ -398,6 +398,8 @@ Notes:
 - The installed Codex CLI exposed here supports marketplace management, not a separate `plugin install` subcommand.
 - The Codex marketplace manifest lives at `.agents/plugins/marketplace.json`.
 - The repo currently bundles `ngautopilot-core`, `ngautopilot-angular`, and `ngautopilot-quality` as Codex-ready plugin roots.
+- `ngautopilot-angular` now includes versioning, upgrade orchestration, and standalone-modernization entry points.
+- `ngautopilot-quality` now includes ESLint, unused exports, and SonarQube triage entry points.
 
 ## License
 
