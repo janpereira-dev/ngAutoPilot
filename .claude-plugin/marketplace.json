@@ -92,6 +92,20 @@
       "license": "MIT",
       "category": "typescript",
       "tags": ["typescript", "strict-types", "typing", "modernization"]
+    },
+    {
+      "name": "ngautopilot-angular-microfrontends",
+      "source": "./plugins/ngautopilot-angular-microfrontends",
+      "description": "Micro-frontends skills for Angular shell contracts, compatibility gates, dependency sharing, and rollback safety.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Jan Pereira"
+      },
+      "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+      "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+      "license": "MIT",
+      "category": "frontend",
+      "tags": ["angular", "microfrontends", "module-federation", "nx", "architecture"]
     }
   ]
 }

@@ -75,6 +75,18 @@
         "authentication": "ON_INSTALL"
       },
       "category": "TypeScript"
+    },
+    {
+      "name": "ngautopilot-angular-microfrontends",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ngautopilot-angular-microfrontends"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Frontend"
     }
   ]
 }

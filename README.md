@@ -90,6 +90,7 @@ skills/
     migration/
     modernization/
     upgrades/
+    microfrontends/
     versioning/
   typescript/
   javascript/
@@ -99,7 +100,7 @@ skills/
 
 ## Catalog Snapshot
 
-Current catalog size: **240 skills**
+Current catalog size: **280 skills**
 
 | Category | Skills |
 | --- | ---: |
@@ -116,7 +117,7 @@ Current catalog size: **240 skills**
 | Angular services | 1 |
 | Angular state | 1 |
 | Angular testing | 4 |
-| Angular HTTP / SSR / router / forms / Material / templates | 40+ |
+| Angular HTTP / SSR / router / forms / Material / templates / microfrontends | 40+ |
 | TypeScript strict types | 2+ |
 | JavaScript fundamentals | 5+ |
 | Quality governance | 10+ |
@@ -132,6 +133,7 @@ If you are consuming this repo, these are the skill families that matter most:
 | `skills/angular/upgrades/` | major-hop executors and version-specific satellites | during Angular upgrades |
 | `skills/angular/modernization/` | control flow, `@defer`, standalone-first, zoneless readiness | after the hop is stable |
 | `skills/angular/architecture/` | higher-level Angular design guidance | when the task is architectural |
+| `skills/angular/microfrontends/` | shell, remote, compatibility, sharing and rollback gates | when the repo needs distributed frontend boundaries |
 | `skills/angular/components/`, `skills/angular/forms/`, `skills/angular/router/`, `skills/angular/testing/`, `skills/angular/ssr/`, `skills/angular/material/`, `skills/angular/zone/`, `skills/angular/resources/`, `skills/angular/templates/`, `skills/angular/di/` | focused Angular skills for specific risk areas | when the repo has a concrete issue there |
 | `skills/typescript/`, `skills/javascript/`, `skills/quality/` | cross-cutting code quality and workflow skills | when the task is not Angular-specific |
 
