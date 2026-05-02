@@ -8,7 +8,9 @@ Use this checklist when preparing a public NgAutoPilot release.
 2. Confirm `package.json` has the intended release version.
 3. Run:
    - `npm run skills:validate`
+   - `npm run consistency:validate`
    - `npm run skills:catalog`
+   - `npm run marketplaces:validate`
    - `npm pack --dry-run`
 4. Confirm the tarball includes:
    - `bin/ng-autopilot.mjs`
@@ -47,4 +49,17 @@ Use this checklist when preparing a public NgAutoPilot release.
     - keep `.github/workflows/release.yml` for `release` published events
     - keep `workflow_dispatch` as a manual fallback
     - configure Trusted Publishing in npm
+
+## Release Gates
+
+Use this order before publishing:
+
+```bash
+npm run skills:validate
+npm run consistency:validate
+npm run marketplaces:validate
+npm pack --dry-run
+```
+
+`skills:validate` stays strict. `consistency:validate` is the main release gate.
 

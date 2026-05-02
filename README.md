@@ -356,7 +356,12 @@ If you discover a security issue, follow `SECURITY.md` instead of opening a publ
 
 For the release flow, use:
 
-- `docs/release-checklist.md`
+- `npm run skills:validate`
+- `npm run consistency:validate`
+- `npm run marketplaces:validate`
+- `npm pack --dry-run`
+
+See `docs/release-checklist.md` for the full release checklist.
 
 ## Claude Code and Codex Plugin Marketplaces
 
