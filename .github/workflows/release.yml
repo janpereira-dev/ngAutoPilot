@@ -56,7 +56,15 @@ jobs:
       - name: Validate publish bundles
         run: npm run publish:validate
 
+      - name: Archive publish bundles
+        run: |
+          cd dist/publish
+          for dir in */ ; do
+            name="${dir%/}"
+            tar -czf "${name}.tar.gz" "${name}"
+          done
+
       - name: Publish release artifacts
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/publish/**/*
+          files: dist/publish/*.tar.gz
