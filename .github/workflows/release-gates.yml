@@ -1,0 +1,38 @@
+name: Release Gates
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  validate-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate skills
+        run: npm run skills:validate
+
+      - name: Validate consistency
+        run: npm run consistency:validate
+
+      - name: Validate marketplaces
+        run: npm run marketplaces:validate
+
+      - name: Dry-run package
+        run: npm run pack:dry
