@@ -780,7 +780,12 @@
       ],
       "category": "forms",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "cva",
+        "control value accessor",
+        "forms"
+      ]
     },
     {
       "id": "angular.forms.angular-number-input-min-max-validation-v12",
@@ -807,7 +812,12 @@
       ],
       "category": "forms",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "signal forms",
+        "forms readiness",
+        "typed forms"
+      ]
     },
     {
       "id": "angular.forms.angular-typed-forms-governance",
@@ -818,7 +828,12 @@
       ],
       "category": "forms",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "typed forms",
+        "forms governance",
+        "null safety"
+      ]
     },
     {
       "id": "angular.forms.angular-typed-forms-migration",
@@ -927,7 +942,12 @@
       ],
       "category": "governance",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "change type",
+        "classify change",
+        "risk level"
+      ]
     },
     {
       "id": "angular.governance.angular-compatibility-evidence",
@@ -938,7 +958,12 @@
       ],
       "category": "governance",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "compatibility evidence",
+        "version proof",
+        "matrix evidence"
+      ]
     },
     {
       "id": "angular.governance.angular-migration-vs-modernization-boundary",
@@ -949,7 +974,12 @@
       ],
       "category": "governance",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "migration vs modernization",
+        "upgrade boundary",
+        "separate concerns"
+      ]
     },
     {
       "id": "angular.governance.angular-project-classifier",
@@ -960,7 +990,12 @@
       ],
       "category": "governance",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "project classifier",
+        "app type",
+        "repo shape"
+      ]
     },
     {
       "id": "angular.governance.angular-validation-contract",
@@ -971,7 +1006,12 @@
       ],
       "category": "governance",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "validation contract",
+        "build test lint",
+        "gate"
+      ]
     },
     {
       "id": "angular.i18n.angular-localize-v9-migration",
@@ -1033,7 +1073,12 @@
       ],
       "category": "material",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "aria",
+        "headless",
+        "accessibility patterns"
+      ]
     },
     {
       "id": "angular.material.angular-cdk-a11y-patterns",
@@ -1044,7 +1089,12 @@
       ],
       "category": "material",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "cdk a11y",
+        "accessibility",
+        "keyboard navigation"
+      ]
     },
     {
       "id": "angular.material.angular-material-theming-system",
@@ -1055,7 +1105,12 @@
       ],
       "category": "material",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "material theming",
+        "theme system",
+        "density typography"
+      ]
     },
     {
       "id": "angular.microfrontends.micro-frontends-architecture",
@@ -1162,7 +1217,12 @@
       ],
       "category": "migration",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "angularjs decommission",
+        "legacy cleanup",
+        "decommission"
+      ]
     },
     {
       "id": "angular.migration.angularjs-hybrid-ngupgrade",
@@ -1174,7 +1234,12 @@
       ],
       "category": "migration",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "ngupgrade",
+        "hybrid angularjs",
+        "hybrid migration"
+      ]
     },
     {
       "id": "angular.migration.angularjs-legacy-inventory",
@@ -1186,7 +1251,12 @@
       ],
       "category": "migration",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "legacy inventory",
+        "angularjs inventory",
+        "debt inventory"
+      ]
     },
     {
       "id": "angular.migration.angularjs-routing-migration",
@@ -1198,7 +1268,12 @@
       ],
       "category": "migration",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "routing migration",
+        "angularjs routes",
+        "router migration"
+      ]
     },
     {
       "id": "angular.migration.angularjs-service-migration",
@@ -1210,7 +1285,12 @@
       ],
       "category": "migration",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "service migration",
+        "angularjs services",
+        "migration plan"
+      ]
     },
     {
       "id": "angular.migration.angularjs-strategy-selector",
@@ -1222,7 +1302,12 @@
       ],
       "category": "migration",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "strategy selector",
+        "migration strategy",
+        "legacy migration"
+      ]
     },
     {
       "id": "angular.migration.angularjs-template-syntax-migration",
@@ -1234,7 +1319,12 @@
       ],
       "category": "migration",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "template syntax migration",
+        "angularjs templates",
+        "migration path"
+      ]
     },
     {
       "id": "angular.migration.angularjs-to-angular-modernization-orchestrator",
@@ -1612,7 +1702,12 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "bundle budget",
+        "performance budget",
+        "bundle size"
+      ]
     },
     {
       "id": "angular.performance.angular-core-web-vitals-audit",
@@ -1623,7 +1718,12 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "core web vitals",
+        "web vitals audit",
+        "performance audit"
+      ]
     },
     {
       "id": "angular.performance.angular-zoneless-performance-readiness",
@@ -1634,7 +1734,12 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "zoneless readiness",
+        "zonejs performance",
+        "change detection"
+      ]
     },
     {
       "id": "angular.performance.avoid-template-functions",
@@ -1898,7 +2003,12 @@
       ],
       "category": "router",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "functional guards",
+        "resolvers",
+        "router guards"
+      ]
     },
     {
       "id": "angular.router.angular-lazy-loading-routes",
@@ -1909,7 +2019,12 @@
       ],
       "category": "router",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "lazy loading routes",
+        "route splitting",
+        "router lazy load"
+      ]
     },
     {
       "id": "angular.router.angular-route-configuration-patterns",
@@ -1920,7 +2035,12 @@
       ],
       "category": "router",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "route configuration",
+        "router config",
+        "route contract"
+      ]
     },
     {
       "id": "angular.router.angular-router-testing-patterns",
@@ -1931,7 +2051,12 @@
       ],
       "category": "router",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "router testing",
+        "route tests",
+        "router harness"
+      ]
     },
     {
       "id": "angular.rxjs.avoid-nested-subscriptions",
@@ -1984,7 +2109,12 @@
       ],
       "category": "security",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "dependency vulnerability",
+        "security triage",
+        "package audit"
+      ]
     },
     {
       "id": "angular.security.angular-domsanitizer-governance",
@@ -1995,7 +2125,12 @@
       ],
       "category": "security",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "domsanitizer",
+        "sanitization",
+        "security governance"
+      ]
     },
     {
       "id": "angular.security.angular-ssr-security-risk-gate",
@@ -2006,7 +2141,12 @@
       ],
       "category": "security",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "ssr security",
+        "security risk gate",
+        "server rendering security"
+      ]
     },
     {
       "id": "angular.security.angular-token-storage-policy",
@@ -2017,7 +2157,12 @@
       ],
       "category": "security",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "token storage",
+        "auth token policy",
+        "security policy"
+      ]
     },
     {
       "id": "angular.security.angular-xss-template-safety",
@@ -2028,7 +2173,12 @@
       ],
       "category": "security",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "xss safety",
+        "template safety",
+        "sanitization"
+      ]
     },
     {
       "id": "angular.service-worker.angular-swupdate-v13-migration",
@@ -2077,7 +2227,12 @@
       ],
       "category": "signals",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "rxjs signals interop",
+        "signals bridge",
+        "interop"
+      ]
     },
     {
       "id": "angular.signals.angular-signal-state-pattern",
@@ -2088,7 +2243,12 @@
       ],
       "category": "signals",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "signal state",
+        "state pattern",
+        "signals state"
+      ]
     },
     {
       "id": "angular.signals.angular-signals-fundamentals",
@@ -2099,7 +2259,12 @@
       ],
       "category": "signals",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "signals fundamentals",
+        "computed effect",
+        "signal basics"
+      ]
     },
     {
       "id": "angular.signals.signals-rxjs-interop",
@@ -2174,7 +2339,12 @@
       ],
       "category": "ssr",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "hydration risk",
+        "hydration gate",
+        "ssr hydration"
+      ]
     },
     {
       "id": "angular.ssr.angular-render-module-v13-migration",
@@ -2202,7 +2372,12 @@
       ],
       "category": "ssr",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "browser api safety",
+        "ssr browser safety",
+        "window document"
+      ]
     },
     {
       "id": "angular.ssr.angular-ssr-readiness-audit",
@@ -2213,7 +2388,12 @@
       ],
       "category": "ssr",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "ssr readiness",
+        "ssr audit",
+        "server rendering readiness"
+      ]
     },
     {
       "id": "angular.state.signals-vs-rxjs",
@@ -2245,7 +2425,12 @@
       ],
       "category": "templates",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "extended diagnostics",
+        "template diagnostics",
+        "ng810x"
+      ]
     },
     {
       "id": "angular.templates.angular-strict-templates-gate",
@@ -2256,7 +2441,12 @@
       ],
       "category": "templates",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "strict templates",
+        "template gate",
+        "template validation"
+      ]
     },
     {
       "id": "angular.templates.extended-diagnostics-governance",
@@ -2383,7 +2573,12 @@
       ],
       "category": "testing",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "test strategy",
+        "vitest jest karma",
+        "testing router"
+      ]
     },
     {
       "id": "angular.testing.angular-testbed-inject-v9-migration",
@@ -4305,7 +4500,12 @@
       ],
       "category": "versioning",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "cli builder compatibility",
+        "builder compatibility",
+        "application builder"
+      ]
     },
     {
       "id": "angular.versioning.angular-node-typescript-rxjs-matrix",
@@ -4318,7 +4518,12 @@
       ],
       "category": "versioning",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "node typescript rxjs matrix",
+        "compatibility matrix",
+        "version gate"
+      ]
     },
     {
       "id": "angular.versioning.angular-peer-dependency-audit",
@@ -4329,7 +4534,12 @@
       ],
       "category": "versioning",
       "status": "stable",
-      "version": "0.1.0"
+      "version": "0.1.0",
+      "triggers": [
+        "peer dependency audit",
+        "peer deps",
+        "compatibility audit"
+      ]
     },
     {
       "id": "angular.versioning.angular-version-compatibility-gate",
