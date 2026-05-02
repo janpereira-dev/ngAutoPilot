@@ -384,20 +384,20 @@ Add the marketplace:
 /plugin marketplace add janpereira-dev/ngAutoPilot
 ```
 
-Install plugins:
+Current Codex CLI support in this repo:
 
 ```txt
-ngautopilot-core
-ngautopilot-angular
-ngautopilot-quality
+codex plugin marketplace add janpereira-dev/ngAutoPilot
+codex plugin marketplace add .
+codex plugin marketplace upgrade ngautopilot
+codex plugin marketplace remove ngautopilot
 ```
 
-Use installed skills:
+Notes:
 
-```txt
-$autopilot
-$angular-upgrade
-```
+- The installed Codex CLI exposed here supports marketplace management, not a separate `plugin install` subcommand.
+- The Codex marketplace manifest lives at `.agents/plugins/marketplace.json`.
+- The repo currently bundles `ngautopilot-core`, `ngautopilot-angular`, and `ngautopilot-quality` as Codex-ready plugin roots.
 
 ## License
 
