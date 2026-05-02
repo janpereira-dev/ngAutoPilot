@@ -2,6 +2,26 @@
 
 All notable changes to NgAutoPilot will be documented in this file.
 
+## 0.2.4 - 2026-05-03
+
+Release built from the accumulated changes after the unpublished 0.2.3 snapshot.
+
+### Added
+
+- CSS skill bundle and plugin packaging:
+  - `css.host-custom-properties`
+  - `css.content-aware-layouts`
+- Repository release hygiene:
+  - pre-commit git hook
+  - release bundle archiving
+
+### Changed
+
+- Normalized Angular skill structure to keep catalog and bundle paths aligned.
+- Hardened CI release and marketplace validation workflows.
+- Added consistency validation to keep the repo, catalog, and bundles in sync.
+- Documented CSS plugin installation in the root README.
+
 ## 0.2.3 - 2026-05-02
 
 ### Added
