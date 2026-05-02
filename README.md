@@ -167,6 +167,12 @@ npm run skills:validate
 npm run consistency:validate
 ```
 
+### Install git hooks
+
+```bash
+npm run hooks:install
+```
+
 ### Regenerate the catalog
 
 ```bash

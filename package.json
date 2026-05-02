@@ -44,6 +44,7 @@
     "marketplaces:validate": "npm run claude:validate && npm run codex:validate",
     "consistency:validate": "node scripts/validate-consistency.mjs",
     "release:validate": "npm run skills:validate && npm run skills:catalog && npm run marketplaces:validate && npm run consistency:validate",
+    "hooks:install": "node scripts/install-git-hooks.mjs",
     "cli": "node bin/ng-autopilot.mjs",
     "pack:dry": "npm pack --dry-run"
   },
