@@ -8,6 +8,10 @@ category: docs
 status: stable
 version: 0.1.0
 owner: NgAutoPilot
+triggers:
+  - review packet
+  - PR summary
+  - agent review
 ---
 
 # Angular Review Packet
@@ -28,6 +32,31 @@ Review packets should make risk visible before the diff is merged.
 - validation evidence
 - rollback notes
 - open risks
+
+## Purpose
+
+Build a compact review packet for humans or agents.
+
+## When to Use
+
+Use this skill when a PR or change needs a review-ready summary.
+
+## Do
+
+- make the risk visible
+- include rollback notes
+
+## Do Not
+
+- bury important risks in the diff
+- omit validation evidence
+
+## Review Checklist
+
+- [ ] The change summary is concise.
+- [ ] Risks are visible.
+- [ ] Validation is documented.
+- [ ] Rollback or follow-up is clear.
 
 ## Output
 

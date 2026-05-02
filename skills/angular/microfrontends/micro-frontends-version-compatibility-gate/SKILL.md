@@ -11,6 +11,10 @@ category: architecture
 status: stable
 version: 0.1.0
 owner: NgAutoPilot
+triggers:
+  - compatibility gate
+  - version compatibility
+  - remote version drift
 ---
 
 # Micro-frontends Version Compatibility Gate
@@ -30,6 +34,31 @@ If the shell cannot tolerate the remote version, the release is blocked.
 - shared dependency versions
 - exposed contract version
 - fallback availability
+
+## Purpose
+
+Block incompatible shell and remote combinations before runtime.
+
+## When to Use
+
+Use this skill when shell and remote versions may diverge.
+
+## Do
+
+- define an explicit compatibility matrix
+- fail unsupported combinations in CI
+
+## Do Not
+
+- ship a remote only because it builds locally
+- allow silent compatibility drift
+
+## Review Checklist
+
+- [ ] Shell and remote compatibility is documented.
+- [ ] Unsupported combinations are blocked.
+- [ ] Shared dependency drift is reviewed.
+- [ ] Upgrade safety is part of the release path.
 
 ## Output
 

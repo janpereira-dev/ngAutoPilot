@@ -8,6 +8,10 @@ category: docs
 status: stable
 version: 0.1.0
 owner: NgAutoPilot
+triggers:
+  - adr
+  - architecture decision
+  - decision record
 ---
 
 # Angular ADR for Architecture Decisions
@@ -27,6 +31,31 @@ If the decision changes architecture, write an ADR first.
 - alternatives considered
 - consequences
 - validation criteria
+
+## Purpose
+
+Record important Angular architecture decisions before code changes land.
+
+## When to Use
+
+Use this skill when a change affects architecture or boundaries.
+
+## Do
+
+- write the ADR before implementation
+- keep it short and decision-focused
+
+## Do Not
+
+- hide architecture changes in unrelated PRs
+- write a long essay instead of a decision record
+
+## Review Checklist
+
+- [ ] Context is clear.
+- [ ] Decision is explicit.
+- [ ] Alternatives were considered.
+- [ ] Validation criteria are named.
 
 ## Output
 

@@ -11,6 +11,10 @@ category: architecture
 status: stable
 version: 0.1.0
 owner: NgAutoPilot
+triggers:
+  - micro frontends
+  - micro-frontends
+  - microfrontend architecture
 ---
 
 # Micro-frontends Architecture
@@ -30,6 +34,31 @@ If the team does not need independent delivery and ownership, prefer a modular m
 - independent release need
 - shell and remote contract scope
 - shared library boundaries
+
+## Purpose
+
+Classify whether the architecture should become distributed or stay modular.
+
+## When to Use
+
+Use this skill when shell and remote boundaries are being considered.
+
+## Do
+
+- choose the simplest viable integration pattern
+- keep boundaries domain-based
+
+## Do Not
+
+- split by visual components
+- introduce federation without a real delivery need
+
+## Review Checklist
+
+- [ ] Micro-frontends are actually warranted.
+- [ ] The integration pattern is the simplest viable one.
+- [ ] Domain boundaries are explicit.
+- [ ] Required contracts are written first.
 
 ## Output
 

@@ -8,6 +8,10 @@ category: docs
 status: stable
 version: 0.1.0
 owner: NgAutoPilot
+triggers:
+  - upgrade report
+  - migration report
+  - hop summary
 ---
 
 # Angular Upgrade Report Template
@@ -29,6 +33,31 @@ No upgrade is complete until the report says what changed and what remains block
 - blockers found
 - validation run
 - next safe step
+
+## Purpose
+
+Summarize the upgrade state after a hop or migration step.
+
+## When to Use
+
+Use this skill after an Angular upgrade, migration, or compatibility gate change.
+
+## Do
+
+- record the current and target stack
+- list blockers and the next safe step
+
+## Do Not
+
+- claim the upgrade is done without validation evidence
+- omit blockers from the report
+
+## Review Checklist
+
+- [ ] The upgrade summary is concise.
+- [ ] Validation evidence is included.
+- [ ] Blockers are visible.
+- [ ] The next safe step is identified.
 
 ## Output
 

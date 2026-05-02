@@ -11,6 +11,10 @@ category: architecture
 status: stable
 version: 0.1.0
 owner: NgAutoPilot
+triggers:
+  - dependency sharing
+  - shared libraries
+  - domain leakage
 ---
 
 # Micro-frontends Dependency Sharing Policy
@@ -30,6 +34,31 @@ Share contracts, not domain ownership.
 - shared/data-access
 - shared/util
 - design-system
+
+## Purpose
+
+Allow only contracts that are safe to share across remotes.
+
+## When to Use
+
+Use this skill when deciding what a shell and remotes may share.
+
+## Do
+
+- share contracts, not ownership
+- block domain services from shared libraries
+
+## Do Not
+
+- leak remote-private state into shared packages
+- introduce hidden singleton coupling
+
+## Review Checklist
+
+- [ ] Safe shared libraries are identified.
+- [ ] Blocked shared libraries are explicit.
+- [ ] Dependency drift risks are described.
+- [ ] The sharing policy is minimal.
 
 ## Avoid
 

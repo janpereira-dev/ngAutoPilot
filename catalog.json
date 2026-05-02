@@ -724,6 +724,65 @@
       ]
     },
     {
+      "id": "angular.docs.angular-adr-for-architecture-decisions",
+      "name": "Angular ADR for Architecture Decisions",
+      "path": "skills/angular/docs/angular-adr-for-architecture-decisions/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "docs",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "adr",
+        "architecture decision",
+        "decision record"
+      ]
+    },
+    {
+      "id": "angular.docs.angular-review-packet",
+      "name": "Angular Review Packet",
+      "path": "skills/angular/docs/angular-review-packet/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "docs",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "review packet",
+        "PR summary",
+        "agent review"
+      ]
+    },
+    {
+      "id": "angular.docs.angular-upgrade-report-template",
+      "name": "Angular Upgrade Report Template",
+      "path": "skills/angular/docs/angular-upgrade-report-template/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "docs",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "upgrade report",
+        "migration report",
+        "hop summary"
+      ]
+    },
+    {
+      "id": "angular.forms.angular-cva-patterns",
+      "name": "Angular CVA Patterns",
+      "path": "skills/angular/forms/angular-cva-patterns/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "forms",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
       "id": "angular.forms.angular-number-input-min-max-validation-v12",
       "name": "Angular Number Input Min Max Validation v12",
       "path": "skills/angular/forms/angular-number-input-min-max-validation-v12/SKILL.md",
@@ -738,6 +797,28 @@
         "number input min max",
         "form validity"
       ]
+    },
+    {
+      "id": "angular.forms.angular-signal-forms-readiness",
+      "name": "Angular Signal Forms Readiness",
+      "path": "skills/angular/forms/angular-signal-forms-readiness/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "forms",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.forms.angular-typed-forms-governance",
+      "name": "Angular Typed Forms Governance",
+      "path": "skills/angular/forms/angular-typed-forms-governance/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "forms",
+      "status": "stable",
+      "version": "0.1.0"
     },
     {
       "id": "angular.forms.angular-typed-forms-migration",
@@ -838,6 +919,61 @@
       ]
     },
     {
+      "id": "angular.governance.angular-change-type-classifier",
+      "name": "Angular Change Type Classifier",
+      "path": "skills/angular/governance/angular-change-type-classifier/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "governance",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.governance.angular-compatibility-evidence",
+      "name": "Angular Compatibility Evidence",
+      "path": "skills/angular/governance/angular-compatibility-evidence/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "governance",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.governance.angular-migration-vs-modernization-boundary",
+      "name": "Angular Migration Vs Modernization Boundary",
+      "path": "skills/angular/governance/angular-migration-vs-modernization-boundary/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "governance",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.governance.angular-project-classifier",
+      "name": "Angular Project Classifier",
+      "path": "skills/angular/governance/angular-project-classifier/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "governance",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.governance.angular-validation-contract",
+      "name": "Angular Validation Contract",
+      "path": "skills/angular/governance/angular-validation-contract/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "governance",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
       "id": "angular.i18n.angular-localize-v9-migration",
       "name": "Angular Localize v9 Migration",
       "path": "skills/angular/i18n/angular-localize-v9-migration/SKILL.md",
@@ -889,23 +1025,144 @@
       ]
     },
     {
+      "id": "angular.material.angular-aria-headless-patterns",
+      "name": "Angular Aria Headless Patterns",
+      "path": "skills/angular/material/angular-aria-headless-patterns/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "material",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.material.angular-cdk-a11y-patterns",
+      "name": "Angular CDK A11y Patterns",
+      "path": "skills/angular/material/angular-cdk-a11y-patterns/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "material",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.material.angular-material-theming-system",
+      "name": "Angular Material Theming System",
+      "path": "skills/angular/material/angular-material-theming-system/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "material",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.microfrontends.micro-frontends-architecture",
+      "name": "Micro-frontends Architecture",
+      "path": "skills/angular/microfrontends/micro-frontends-architecture/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "Module Federation"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "micro frontends",
+        "micro-frontends",
+        "microfrontend architecture"
+      ]
+    },
+    {
+      "id": "angular.microfrontends.micro-frontends-dependency-sharing-policy",
+      "name": "Micro-frontends Dependency Sharing Policy",
+      "path": "skills/angular/microfrontends/micro-frontends-dependency-sharing-policy/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "Module Federation"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "dependency sharing",
+        "shared libraries",
+        "domain leakage"
+      ]
+    },
+    {
+      "id": "angular.microfrontends.micro-frontends-fallback-and-rollback",
+      "name": "Micro-frontends Fallback and Rollback",
+      "path": "skills/angular/microfrontends/micro-frontends-fallback-and-rollback/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "Module Federation"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "fallback",
+        "rollback",
+        "remote failure"
+      ]
+    },
+    {
+      "id": "angular.microfrontends.micro-frontends-shell-container-contract",
+      "name": "Micro-frontends Shell Container Contract",
+      "path": "skills/angular/microfrontends/micro-frontends-shell-container-contract/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "Module Federation"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "shell container",
+        "host app",
+        "remote loading"
+      ]
+    },
+    {
+      "id": "angular.microfrontends.micro-frontends-version-compatibility-gate",
+      "name": "Micro-frontends Version Compatibility Gate",
+      "path": "skills/angular/microfrontends/micro-frontends-version-compatibility-gate/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Nx",
+        "Module Federation"
+      ],
+      "category": "architecture",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "compatibility gate",
+        "version compatibility",
+        "remote version drift"
+      ]
+    },
+    {
       "id": "angular.migration.angularjs-decommission",
       "name": "AngularJS Decommission",
       "path": "skills/angular/migration/angularjs-decommission/SKILL.md",
       "stack": [
         "AngularJS",
-        "Angular",
-        "TypeScript"
+        "Angular"
       ],
       "category": "migration",
-      "status": "draft",
-      "version": "0.1.0",
-      "triggers": [
-        "remove AngularJS",
-        "decommission hybrid runtime",
-        "legacy cleanup",
-        "AngularJS shutdown"
-      ]
+      "status": "stable",
+      "version": "0.1.0"
     },
     {
       "id": "angular.migration.angularjs-hybrid-ngupgrade",
@@ -913,19 +1170,11 @@
       "path": "skills/angular/migration/angularjs-hybrid-ngupgrade/SKILL.md",
       "stack": [
         "AngularJS",
-        "Angular",
-        "TypeScript"
+        "Angular"
       ],
       "category": "migration",
-      "status": "draft",
-      "version": "0.1.0",
-      "triggers": [
-        "ngUpgrade",
-        "hybrid AngularJS Angular",
-        "coexistence runtime",
-        "downgrade component",
-        "upgrade module"
-      ]
+      "status": "stable",
+      "version": "0.1.0"
     },
     {
       "id": "angular.migration.angularjs-legacy-inventory",
@@ -933,18 +1182,11 @@
       "path": "skills/angular/migration/angularjs-legacy-inventory/SKILL.md",
       "stack": [
         "AngularJS",
-        "Angular",
-        "TypeScript"
+        "Angular"
       ],
       "category": "migration",
-      "status": "draft",
-      "version": "0.1.0",
-      "triggers": [
-        "AngularJS inventory",
-        "legacy scan",
-        "ngUpgrade preparation",
-        "AngularJS modernization inventory"
-      ]
+      "status": "stable",
+      "version": "0.1.0"
     },
     {
       "id": "angular.migration.angularjs-routing-migration",
@@ -952,19 +1194,11 @@
       "path": "skills/angular/migration/angularjs-routing-migration/SKILL.md",
       "stack": [
         "AngularJS",
-        "Angular",
-        "TypeScript"
+        "Angular"
       ],
       "category": "migration",
-      "status": "draft",
-      "version": "0.1.0",
-      "triggers": [
-        "AngularJS routing",
-        "ngRoute migration",
-        "ui-router migration",
-        "route ownership",
-        "navigation migration"
-      ]
+      "status": "stable",
+      "version": "0.1.0"
     },
     {
       "id": "angular.migration.angularjs-service-migration",
@@ -972,20 +1206,11 @@
       "path": "skills/angular/migration/angularjs-service-migration/SKILL.md",
       "stack": [
         "AngularJS",
-        "Angular",
-        "TypeScript",
-        "RxJS"
+        "Angular"
       ],
       "category": "migration",
-      "status": "draft",
-      "version": "0.1.0",
-      "triggers": [
-        "AngularJS services",
-        "factory to injectable",
-        "provider migration",
-        "$http migration",
-        "$q migration"
-      ]
+      "status": "stable",
+      "version": "0.1.0"
     },
     {
       "id": "angular.migration.angularjs-strategy-selector",
@@ -993,19 +1218,11 @@
       "path": "skills/angular/migration/angularjs-strategy-selector/SKILL.md",
       "stack": [
         "AngularJS",
-        "Angular",
-        "TypeScript"
+        "Angular"
       ],
       "category": "migration",
-      "status": "draft",
-      "version": "0.1.0",
-      "triggers": [
-        "migration strategy",
-        "rewrite by feature",
-        "strangler route",
-        "hybrid ngUpgrade",
-        "AngularJS modernization plan"
-      ]
+      "status": "stable",
+      "version": "0.1.0"
     },
     {
       "id": "angular.migration.angularjs-template-syntax-migration",
@@ -1013,20 +1230,11 @@
       "path": "skills/angular/migration/angularjs-template-syntax-migration/SKILL.md",
       "stack": [
         "AngularJS",
-        "Angular",
-        "TypeScript"
+        "Angular"
       ],
       "category": "migration",
-      "status": "draft",
-      "version": "0.1.0",
-      "triggers": [
-        "AngularJS templates",
-        "template migration",
-        "ng-repeat",
-        "ng-if",
-        "ng-click",
-        "AngularJS to Angular HTML"
-      ]
+      "status": "stable",
+      "version": "0.1.0"
     },
     {
       "id": "angular.migration.angularjs-to-angular-modernization-orchestrator",
@@ -1396,6 +1604,39 @@
       ]
     },
     {
+      "id": "angular.performance.angular-bundle-budget-governance",
+      "name": "Angular Bundle Budget Governance",
+      "path": "skills/angular/performance/angular-bundle-budget-governance/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "performance",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.performance.angular-core-web-vitals-audit",
+      "name": "Angular Core Web Vitals Audit",
+      "path": "skills/angular/performance/angular-core-web-vitals-audit/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "performance",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.performance.angular-zoneless-performance-readiness",
+      "name": "Angular Zoneless Performance Readiness",
+      "path": "skills/angular/performance/angular-zoneless-performance-readiness/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "performance",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
       "id": "angular.performance.avoid-template-functions",
       "name": "Avoid Template Functions",
       "path": "skills/angular/performance/avoid-template-functions/SKILL.md",
@@ -1649,6 +1890,50 @@
       ]
     },
     {
+      "id": "angular.router.angular-functional-guards-resolvers",
+      "name": "Angular Functional Guards Resolvers",
+      "path": "skills/angular/router/angular-functional-guards-resolvers/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "router",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.router.angular-lazy-loading-routes",
+      "name": "Angular Lazy Loading Routes",
+      "path": "skills/angular/router/angular-lazy-loading-routes/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "router",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.router.angular-route-configuration-patterns",
+      "name": "Angular Route Configuration Patterns",
+      "path": "skills/angular/router/angular-route-configuration-patterns/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "router",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.router.angular-router-testing-patterns",
+      "name": "Angular Router Testing Patterns",
+      "path": "skills/angular/router/angular-router-testing-patterns/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "router",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
       "id": "angular.rxjs.avoid-nested-subscriptions",
       "name": "Avoid Nested Subscriptions",
       "path": "skills/angular/rxjs/avoid-nested-subscriptions/SKILL.md",
@@ -1691,6 +1976,61 @@
       ]
     },
     {
+      "id": "angular.security.angular-dependency-vulnerability-triage",
+      "name": "Angular Dependency Vulnerability Triage",
+      "path": "skills/angular/security/angular-dependency-vulnerability-triage/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "security",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.security.angular-domsanitizer-governance",
+      "name": "Angular DomSanitizer Governance",
+      "path": "skills/angular/security/angular-domsanitizer-governance/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "security",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.security.angular-ssr-security-risk-gate",
+      "name": "Angular SSR Security Risk Gate",
+      "path": "skills/angular/security/angular-ssr-security-risk-gate/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "security",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.security.angular-token-storage-policy",
+      "name": "Angular Token Storage Policy",
+      "path": "skills/angular/security/angular-token-storage-policy/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "security",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.security.angular-xss-template-safety",
+      "name": "Angular XSS Template Safety",
+      "path": "skills/angular/security/angular-xss-template-safety/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "security",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
       "id": "angular.service-worker.angular-swupdate-v13-migration",
       "name": "Angular SwUpdate v13 Migration",
       "path": "skills/angular/service-worker/angular-swupdate-v13-migration/SKILL.md",
@@ -1726,6 +2066,40 @@
         "UtilsService",
         "ManagerService"
       ]
+    },
+    {
+      "id": "angular.signals.angular-rxjs-signals-interop",
+      "name": "Angular RxJS Signals Interop",
+      "path": "skills/angular/signals/angular-rxjs-signals-interop/SKILL.md",
+      "stack": [
+        "Angular",
+        "RxJS"
+      ],
+      "category": "signals",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.signals.angular-signal-state-pattern",
+      "name": "Angular Signal State Pattern",
+      "path": "skills/angular/signals/angular-signal-state-pattern/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "signals",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.signals.angular-signals-fundamentals",
+      "name": "Angular Signals Fundamentals",
+      "path": "skills/angular/signals/angular-signals-fundamentals/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "signals",
+      "status": "stable",
+      "version": "0.1.0"
     },
     {
       "id": "angular.signals.signals-rxjs-interop",
@@ -1792,6 +2166,17 @@
       ]
     },
     {
+      "id": "angular.ssr.angular-hydration-risk-gate",
+      "name": "Angular Hydration Risk Gate",
+      "path": "skills/angular/ssr/angular-hydration-risk-gate/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "ssr",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
       "id": "angular.ssr.angular-render-module-v13-migration",
       "name": "Angular Render Module v13 Migration",
       "path": "skills/angular/ssr/angular-render-module-v13-migration/SKILL.md",
@@ -1807,6 +2192,28 @@
         "renderModule",
         "SSR migration"
       ]
+    },
+    {
+      "id": "angular.ssr.angular-ssr-browser-api-safety",
+      "name": "Angular SSR Browser API Safety",
+      "path": "skills/angular/ssr/angular-ssr-browser-api-safety/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "ssr",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.ssr.angular-ssr-readiness-audit",
+      "name": "Angular SSR Readiness Audit",
+      "path": "skills/angular/ssr/angular-ssr-readiness-audit/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "ssr",
+      "status": "stable",
+      "version": "0.1.0"
     },
     {
       "id": "angular.state.signals-vs-rxjs",
@@ -1828,6 +2235,28 @@
         "toSignal",
         "toObservable"
       ]
+    },
+    {
+      "id": "angular.templates.angular-extended-diagnostics-governance",
+      "name": "Angular Extended Diagnostics Governance",
+      "path": "skills/angular/templates/angular-extended-diagnostics-governance/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "templates",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.templates.angular-strict-templates-gate",
+      "name": "Angular Strict Templates Gate",
+      "path": "skills/angular/templates/angular-strict-templates-gate/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "templates",
+      "status": "stable",
+      "version": "0.1.0"
     },
     {
       "id": "angular.templates.extended-diagnostics-governance",
@@ -1944,6 +2373,17 @@
         "template interaction tests",
         "component contract testing"
       ]
+    },
+    {
+      "id": "angular.testing.angular-test-strategy-router",
+      "name": "Angular Test Strategy Router",
+      "path": "skills/angular/testing/angular-test-strategy-router/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "testing",
+      "status": "stable",
+      "version": "0.1.0"
     },
     {
       "id": "angular.testing.angular-testbed-inject-v9-migration",
@@ -3855,6 +4295,41 @@
         "template upgrade blocker",
         "diagnostics after upgrade"
       ]
+    },
+    {
+      "id": "angular.versioning.angular-cli-builder-compatibility",
+      "name": "Angular CLI Builder Compatibility",
+      "path": "skills/angular/versioning/angular-cli-builder-compatibility/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "versioning",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.versioning.angular-node-typescript-rxjs-matrix",
+      "name": "Angular Node TypeScript RxJS Matrix",
+      "path": "skills/angular/versioning/angular-node-typescript-rxjs-matrix/SKILL.md",
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "RxJS"
+      ],
+      "category": "versioning",
+      "status": "stable",
+      "version": "0.1.0"
+    },
+    {
+      "id": "angular.versioning.angular-peer-dependency-audit",
+      "name": "Angular Peer Dependency Audit",
+      "path": "skills/angular/versioning/angular-peer-dependency-audit/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "versioning",
+      "status": "stable",
+      "version": "0.1.0"
     },
     {
       "id": "angular.versioning.angular-version-compatibility-gate",

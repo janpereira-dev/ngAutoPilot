@@ -41,6 +41,8 @@
     "claude:validate": "node -e \"const fs=require('fs'); JSON.parse(fs.readFileSync('.claude-plugin/marketplace.json','utf8')); console.log('Claude marketplace OK');\"",
     "codex:validate": "node -e \"const fs=require('fs'); JSON.parse(fs.readFileSync('.agents/plugins/marketplace.json','utf8')); console.log('Codex marketplace OK');\"",
     "marketplaces:validate": "npm run claude:validate && npm run codex:validate",
+    "consistency:validate": "node scripts/validate-consistency.mjs",
+    "release:validate": "npm run skills:validate && npm run skills:catalog && npm run marketplaces:validate && npm run consistency:validate",
     "cli": "node bin/ng-autopilot.mjs",
     "pack:dry": "npm pack --dry-run"
   },

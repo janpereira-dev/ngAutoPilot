@@ -161,6 +161,12 @@ npm run skills:create -- angular/performance/lazy-loading-routes
 npm run skills:validate
 ```
 
+### Validate consistency
+
+```bash
+npm run consistency:validate
+```
+
 ### Regenerate the catalog
 
 ```bash
