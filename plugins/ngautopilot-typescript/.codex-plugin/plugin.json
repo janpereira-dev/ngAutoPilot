@@ -1,7 +1,7 @@
 {
-  "name": "ngautopilot-core",
+  "name": "ngautopilot-typescript",
   "version": "0.1.0",
-  "description": "Core NgAutoPilot workflows for project intake, stack detection, skill routing, compatibility gates, and risk assessment.",
+  "description": "TypeScript-focused NgAutoPilot skills for strict types, DTO mapping, and safe language-level modernization.",
   "author": {
     "name": "Jan Pereira",
     "url": "https://github.com/janpereira-dev"
@@ -9,6 +9,6 @@
   "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
   "repository": "https://github.com/janpereira-dev/ngAutoPilot",
   "license": "MIT",
-  "keywords": ["ngautopilot", "codex", "skills", "ai-agents", "developer-tools"],
+  "keywords": ["typescript", "codex", "skills", "strict-types", "dto"],
   "skills": "./skills/"
 }

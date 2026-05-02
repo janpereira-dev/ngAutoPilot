@@ -50,6 +50,20 @@
       "license": "MIT",
       "category": "quality",
       "tags": ["quality", "testing", "review", "governance"]
+    },
+    {
+      "name": "ngautopilot-typescript",
+      "source": "./plugins/ngautopilot-typescript",
+      "description": "TypeScript-focused skills for strict typing, fundamentals, and safe modernization.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Jan Pereira"
+      },
+      "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+      "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+      "license": "MIT",
+      "category": "typescript",
+      "tags": ["typescript", "strict-types", "typing", "modernization"]
     }
   ]
 }
