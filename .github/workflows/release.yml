@@ -38,6 +38,12 @@ jobs:
       - name: Validate skills
         run: npm run skills:validate
 
+      - name: Validate consistency
+        run: npm run consistency:validate
+
+      - name: Validate marketplaces
+        run: npm run marketplaces:validate
+
       - name: Regenerate catalog
         run: npm run skills:catalog
 
@@ -46,6 +52,9 @@ jobs:
 
       - name: Build publish bundles
         run: npm run skills:publish:pack
+
+      - name: Validate publish bundles
+        run: npm run publish:validate
 
       - name: Publish release artifacts
         uses: softprops/action-gh-release@v2
