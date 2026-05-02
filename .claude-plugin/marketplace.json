@@ -40,7 +40,7 @@
     {
       "name": "ngautopilot-quality",
       "source": "./plugins/ngautopilot-quality",
-      "description": "Quality and review skills for testing, governance, and small safe changes.",
+      "description": "Compatibility bundle kept for existing quality workflows while lint and dead-code/sonar live in dedicated plugins.",
       "version": "0.1.0",
       "author": {
         "name": "Jan Pereira"
@@ -49,7 +49,7 @@
       "repository": "https://github.com/janpereira-dev/ngAutoPilot",
       "license": "MIT",
       "category": "quality",
-      "tags": ["quality", "testing", "review", "governance"]
+      "tags": ["quality", "compatibility", "testing", "review", "governance"]
     },
     {
       "name": "ngautopilot-quality-lint",
