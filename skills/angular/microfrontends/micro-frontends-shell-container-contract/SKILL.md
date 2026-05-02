@@ -75,3 +75,12 @@ Return:
 2. Route ownership.
 3. Fallback and retry behavior.
 4. The smallest safe shell contract.
+
+## Expected Output
+
+Return:
+
+1. A concise diagnosis.
+2. The minimal safe change or decision.
+3. Validation steps.
+4. Risks or rollback notes.

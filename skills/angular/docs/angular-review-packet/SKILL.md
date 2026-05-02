@@ -66,3 +66,12 @@ Return:
 2. The main risks.
 3. The validation performed.
 4. The rollback or follow-up path.
+
+## Expected Output
+
+Return:
+
+1. A concise diagnosis.
+2. The minimal safe change or decision.
+3. Validation steps.
+4. Risks or rollback notes.

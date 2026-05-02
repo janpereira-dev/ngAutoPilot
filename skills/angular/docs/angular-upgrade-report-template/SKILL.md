@@ -67,3 +67,12 @@ Return:
 2. The validation evidence.
 3. The remaining blockers.
 4. The next safe step.
+
+## Expected Output
+
+Return:
+
+1. A concise diagnosis.
+2. The minimal safe change or decision.
+3. Validation steps.
+4. Risks or rollback notes.

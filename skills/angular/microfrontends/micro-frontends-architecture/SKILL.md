@@ -68,3 +68,12 @@ Return:
 2. The simplest viable integration pattern.
 3. The domain boundaries that should exist.
 4. The contracts that must be written before implementation.
+
+## Expected Output
+
+Return:
+
+1. A concise diagnosis.
+2. The minimal safe change or decision.
+3. Validation steps.
+4. Risks or rollback notes.

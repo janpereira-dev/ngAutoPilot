@@ -68,3 +68,12 @@ Return:
 2. Compatibility matrix.
 3. Upgrade safety policy.
 4. CI gate that should fail incompatible combinations.
+
+## Expected Output
+
+Return:
+
+1. A concise diagnosis.
+2. The minimal safe change or decision.
+3. Validation steps.
+4. Risks or rollback notes.

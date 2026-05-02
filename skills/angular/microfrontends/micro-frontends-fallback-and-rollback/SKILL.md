@@ -67,3 +67,12 @@ Return:
 2. The fallback UX that should appear.
 3. The rollback or safe redirect strategy.
 4. The minimum smoke tests required.
+
+## Expected Output
+
+Return:
+
+1. A concise diagnosis.
+2. The minimal safe change or decision.
+3. Validation steps.
+4. Risks or rollback notes.

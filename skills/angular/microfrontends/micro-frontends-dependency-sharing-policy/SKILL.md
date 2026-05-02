@@ -74,3 +74,12 @@ Return:
 2. Shared libraries that should be blocked.
 3. Dependency drift risks.
 4. A minimal sharing policy.
+
+## Expected Output
+
+Return:
+
+1. A concise diagnosis.
+2. The minimal safe change or decision.
+3. Validation steps.
+4. Risks or rollback notes.
