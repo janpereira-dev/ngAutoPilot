@@ -398,7 +398,7 @@ Notes:
 - The installed Codex CLI exposed here supports marketplace management, not a separate `plugin install` subcommand.
 - The Codex marketplace manifest lives at `.agents/plugins/marketplace.json`.
 - The repo currently bundles `ngautopilot-core`, `ngautopilot-angular`, and `ngautopilot-quality` as Codex-ready plugin roots.
-- `ngautopilot-angular` now includes versioning, upgrade orchestration, and standalone-modernization entry points.
+- `ngautopilot-angular` now includes governance, versioning, upgrade orchestration, and standalone-modernization entry points.
 - `ngautopilot-angular` also includes targeted SSR, forms, and Material MDC entry points.
 - `ngautopilot-quality` remains the compatibility bundle for backward compatibility.
 - `ngautopilot-quality-lint` contains ESLint and lint cleanup workflows.
@@ -415,6 +415,10 @@ Use the dedicated bundles by default:
 ```
 
 Keep `ngautopilot-quality` only for older installs that still depend on the compatibility bundle.
+
+### Angular governance
+
+Angular change work now starts with governance skills that classify the project, classify the change, define the validation contract, require compatibility evidence, and keep migration separate from modernization.
 
 ## License
 
