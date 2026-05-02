@@ -41,6 +41,30 @@
       "category": "Code Quality"
     },
     {
+      "name": "ngautopilot-quality-lint",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ngautopilot-quality-lint"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Code Quality"
+    },
+    {
+      "name": "ngautopilot-quality-deadcode-sonar",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ngautopilot-quality-deadcode-sonar"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Code Quality"
+    },
+    {
       "name": "ngautopilot-typescript",
       "source": {
         "source": "local",

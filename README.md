@@ -400,7 +400,9 @@ Notes:
 - The repo currently bundles `ngautopilot-core`, `ngautopilot-angular`, and `ngautopilot-quality` as Codex-ready plugin roots.
 - `ngautopilot-angular` now includes versioning, upgrade orchestration, and standalone-modernization entry points.
 - `ngautopilot-angular` also includes targeted SSR, forms, and Material MDC entry points.
-- `ngautopilot-quality` now includes ESLint, unused exports, and SonarQube triage entry points.
+- `ngautopilot-quality` remains the compatibility bundle.
+- `ngautopilot-quality-lint` contains ESLint and lint cleanup workflows.
+- `ngautopilot-quality-deadcode-sonar` contains dead-code cleanup and SonarQube triage workflows.
 - `ngautopilot-typescript` now separates TypeScript-specific work from quality and Angular concerns.
 
 ## License

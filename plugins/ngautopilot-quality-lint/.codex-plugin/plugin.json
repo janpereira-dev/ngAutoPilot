@@ -1,0 +1,14 @@
+{
+  "name": "ngautopilot-quality-lint",
+  "version": "0.1.0",
+  "description": "NgAutoPilot lint-focused skills for ESLint baseline hardening and safe lint cleanup.",
+  "author": {
+    "name": "Jan Pereira",
+    "url": "https://github.com/janpereira-dev"
+  },
+  "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+  "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+  "license": "MIT",
+  "keywords": ["quality", "lint", "eslint", "codex", "skills"],
+  "skills": "./skills/"
+}

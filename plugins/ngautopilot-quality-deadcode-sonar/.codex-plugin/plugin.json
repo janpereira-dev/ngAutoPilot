@@ -1,0 +1,14 @@
+{
+  "name": "ngautopilot-quality-deadcode-sonar",
+  "version": "0.1.0",
+  "description": "NgAutoPilot dead-code and Sonar-focused skills for export cleanup, orphan removal, and quality gate triage.",
+  "author": {
+    "name": "Jan Pereira",
+    "url": "https://github.com/janpereira-dev"
+  },
+  "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+  "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+  "license": "MIT",
+  "keywords": ["quality", "dead-code", "sonar", "codex", "skills"],
+  "skills": "./skills/"
+}

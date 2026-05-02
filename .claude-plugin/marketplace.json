@@ -52,6 +52,34 @@
       "tags": ["quality", "testing", "review", "governance"]
     },
     {
+      "name": "ngautopilot-quality-lint",
+      "source": "./plugins/ngautopilot-quality-lint",
+      "description": "Lint-focused skills for ESLint baseline hardening and safe cleanup.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Jan Pereira"
+      },
+      "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+      "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+      "license": "MIT",
+      "category": "quality",
+      "tags": ["quality", "lint", "eslint", "baseline"]
+    },
+    {
+      "name": "ngautopilot-quality-deadcode-sonar",
+      "source": "./plugins/ngautopilot-quality-deadcode-sonar",
+      "description": "Dead-code and SonarQube skills for exports cleanup, orphan removal, and gate triage.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Jan Pereira"
+      },
+      "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+      "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+      "license": "MIT",
+      "category": "quality",
+      "tags": ["quality", "dead-code", "sonar", "cleanup"]
+    },
+    {
       "name": "ngautopilot-typescript",
       "source": "./plugins/ngautopilot-typescript",
       "description": "TypeScript-focused skills for strict typing, fundamentals, and safe modernization.",
