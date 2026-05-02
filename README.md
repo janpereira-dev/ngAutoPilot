@@ -400,6 +400,7 @@ Notes:
 - The repo currently bundles `ngautopilot-core`, `ngautopilot-angular`, and `ngautopilot-quality` as Codex-ready plugin roots.
 - `ngautopilot-angular` now includes governance, versioning, upgrade orchestration, and standalone-modernization entry points.
 - `ngautopilot-angular` also includes targeted SSR, forms, and Material MDC entry points.
+- `ngautopilot-angular` now adds hard versioning gates, strict template governance, and a test-strategy router.
 - `ngautopilot-quality` remains the compatibility bundle for backward compatibility.
 - `ngautopilot-quality-lint` contains ESLint and lint cleanup workflows.
 - `ngautopilot-quality-deadcode-sonar` contains dead-code cleanup and SonarQube triage workflows.
@@ -419,6 +420,10 @@ Keep `ngautopilot-quality` only for older installs that still depend on the comp
 ### Angular governance
 
 Angular change work now starts with governance skills that classify the project, classify the change, define the validation contract, require compatibility evidence, and keep migration separate from modernization.
+
+### Angular versioning, templates, and testing
+
+The second layer is now in place for Node/TypeScript/RxJS compatibility, builder compatibility, peer dependency audits, strict templates, extended diagnostics, and test strategy selection.
 
 ## License
 
