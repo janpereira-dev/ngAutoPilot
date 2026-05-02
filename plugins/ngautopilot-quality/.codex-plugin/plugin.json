@@ -1,0 +1,14 @@
+{
+  "name": "ngautopilot-quality",
+  "version": "0.1.0",
+  "description": "Quality-focused NgAutoPilot skills for testing, review, governance, and small safe changes.",
+  "author": {
+    "name": "Jan Pereira",
+    "url": "https://github.com/janpereira-dev"
+  },
+  "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+  "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+  "license": "MIT",
+  "keywords": ["quality", "testing", "review", "governance", "skills"],
+  "skills": "./skills/"
+}

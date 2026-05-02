@@ -1,0 +1,44 @@
+{
+  "name": "ngautopilot",
+  "interface": {
+    "displayName": "NgAutoPilot Skills"
+  },
+  "plugins": [
+    {
+      "name": "ngautopilot-core",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ngautopilot-core"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    },
+    {
+      "name": "ngautopilot-angular",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ngautopilot-angular"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Frontend"
+    },
+    {
+      "name": "ngautopilot-quality",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ngautopilot-quality"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Code Quality"
+    }
+  ]
+}

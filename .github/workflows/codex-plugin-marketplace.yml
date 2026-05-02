@@ -1,0 +1,38 @@
+name: Codex Plugin Marketplace
+
+on:
+  pull_request:
+    paths:
+      - ".agents/plugins/**"
+      - "plugins/**"
+      - ".github/workflows/codex-plugin-marketplace.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - ".agents/plugins/**"
+      - "plugins/**"
+      - ".github/workflows/codex-plugin-marketplace.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate marketplace JSON
+        run: |
+          python -m json.tool .agents/plugins/marketplace.json > /dev/null
+          python -m json.tool plugins/ngautopilot-core/.codex-plugin/plugin.json > /dev/null
+          python -m json.tool plugins/ngautopilot-angular/.codex-plugin/plugin.json > /dev/null
+          python -m json.tool plugins/ngautopilot-quality/.codex-plugin/plugin.json > /dev/null
+
+      - name: Validate required files
+        run: |
+          test -f .agents/plugins/marketplace.json
+          test -f plugins/ngautopilot-core/.codex-plugin/plugin.json
+          test -f plugins/ngautopilot-core/skills/autopilot/SKILL.md
+          test -f plugins/ngautopilot-angular/.codex-plugin/plugin.json
+          test -f plugins/ngautopilot-angular/skills/angular-upgrade/SKILL.md
+          test -f plugins/ngautopilot-quality/.codex-plugin/plugin.json

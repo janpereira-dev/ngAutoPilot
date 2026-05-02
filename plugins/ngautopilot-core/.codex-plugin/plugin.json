@@ -1,0 +1,14 @@
+{
+  "name": "ngautopilot-core",
+  "version": "0.1.0",
+  "description": "Core NgAutoPilot workflows for project intake, stack detection, routing, compatibility gates, and risk assessment.",
+  "author": {
+    "name": "Jan Pereira",
+    "url": "https://github.com/janpereira-dev"
+  },
+  "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+  "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+  "license": "MIT",
+  "keywords": ["ngautopilot", "codex", "skills", "ai-agents", "developer-tools"],
+  "skills": "./skills/"
+}

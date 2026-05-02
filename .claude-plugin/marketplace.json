@@ -1,0 +1,55 @@
+{
+  "name": "ngautopilot",
+  "description": "NgAutoPilot Claude Code plugin marketplace for core workflow, Angular upgrades, and quality guidance.",
+  "metadata": {
+    "description": "NgAutoPilot Claude Code plugin marketplace for core workflow, Angular upgrades, and quality guidance."
+  },
+  "version": "0.1.0",
+  "owner": {
+    "name": "Jan Pereira"
+  },
+  "plugins": [
+    {
+      "name": "ngautopilot-core",
+      "source": "./plugins/ngautopilot-core",
+      "description": "Core orchestration skills for intake, stack detection, routing, compatibility, and risk assessment.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Jan Pereira"
+      },
+      "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+      "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+      "license": "MIT",
+      "category": "development-workflow",
+      "tags": ["ai-agents", "skills", "orchestration", "developer-tools"]
+    },
+    {
+      "name": "ngautopilot-angular",
+      "source": "./plugins/ngautopilot-angular",
+      "description": "Angular-focused skills for version-aware upgrades, modernization, and validation.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Jan Pereira"
+      },
+      "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+      "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+      "license": "MIT",
+      "category": "frontend",
+      "tags": ["angular", "typescript", "rxjs", "upgrade", "frontend"]
+    },
+    {
+      "name": "ngautopilot-quality",
+      "source": "./plugins/ngautopilot-quality",
+      "description": "Quality and review skills for testing, governance, and small safe changes.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Jan Pereira"
+      },
+      "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+      "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+      "license": "MIT",
+      "category": "quality",
+      "tags": ["quality", "testing", "review", "governance"]
+    }
+  ]
+}

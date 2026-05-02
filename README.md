@@ -348,6 +348,57 @@ For the release flow, use:
 
 - `docs/release-checklist.md`
 
+## Claude Code and Codex Plugin Marketplaces
+
+NgAutoPilot can be added as a Claude Code marketplace and as a Codex plugin marketplace.
+
+### Claude Code
+
+Add the marketplace:
+
+```txt
+/plugin marketplace add janpereira-dev/ngAutoPilot
+```
+
+Install plugins:
+
+```txt
+/plugin install ngautopilot-core@ngautopilot
+/plugin install ngautopilot-angular@ngautopilot
+/plugin install ngautopilot-quality@ngautopilot
+/reload-plugins
+```
+
+Use installed skills:
+
+```txt
+/ngautopilot-core:autopilot
+/ngautopilot-angular:angular-upgrade
+```
+
+### Codex
+
+Add the marketplace:
+
+```txt
+/plugin marketplace add janpereira-dev/ngAutoPilot
+```
+
+Install plugins:
+
+```txt
+ngautopilot-core
+ngautopilot-angular
+ngautopilot-quality
+```
+
+Use installed skills:
+
+```txt
+$autopilot
+$angular-upgrade
+```
+
 ## License
 
 NgAutoPilot is released under the MIT license.

@@ -38,6 +38,9 @@
     "skills:export": "node scripts/export-adapter.mjs",
     "skills:publish:pack": "node scripts/build-publish-bundles.mjs",
     "review:sage:pack": "node scripts/build-sage-review-packet.mjs",
+    "claude:validate": "node -e \"const fs=require('fs'); JSON.parse(fs.readFileSync('.claude-plugin/marketplace.json','utf8')); console.log('Claude marketplace OK');\"",
+    "codex:validate": "node -e \"const fs=require('fs'); JSON.parse(fs.readFileSync('.agents/plugins/marketplace.json','utf8')); console.log('Codex marketplace OK');\"",
+    "marketplaces:validate": "npm run claude:validate && npm run codex:validate",
     "cli": "node bin/ng-autopilot.mjs",
     "pack:dry": "npm pack --dry-run"
   },

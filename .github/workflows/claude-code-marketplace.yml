@@ -1,0 +1,39 @@
+name: Claude Code Marketplace
+
+on:
+  pull_request:
+    paths:
+      - ".claude-plugin/**"
+      - "plugins/**"
+      - ".github/workflows/claude-code-marketplace.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - ".claude-plugin/**"
+      - "plugins/**"
+      - ".github/workflows/claude-code-marketplace.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate marketplace JSON
+        run: |
+          python -m json.tool .claude-plugin/marketplace.json > /dev/null
+          python -m json.tool plugins/ngautopilot-core/.codex-plugin/plugin.json > /dev/null
+          python -m json.tool plugins/ngautopilot-angular/.codex-plugin/plugin.json > /dev/null
+          python -m json.tool plugins/ngautopilot-quality/.codex-plugin/plugin.json > /dev/null
+
+      - name: Validate required files
+        run: |
+          test -f .claude-plugin/marketplace.json
+          test -f .agents/plugins/marketplace.json
+          test -f plugins/ngautopilot-core/.codex-plugin/plugin.json
+          test -f plugins/ngautopilot-core/skills/autopilot/SKILL.md
+          test -f plugins/ngautopilot-angular/.codex-plugin/plugin.json
+          test -f plugins/ngautopilot-angular/skills/angular-upgrade/SKILL.md
+          test -f plugins/ngautopilot-quality/.codex-plugin/plugin.json
