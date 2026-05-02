@@ -106,6 +106,20 @@
       "license": "MIT",
       "category": "frontend",
       "tags": ["angular", "microfrontends", "module-federation", "nx", "architecture"]
+    },
+    {
+      "name": "ngautopilot-css",
+      "source": "./plugins/ngautopilot-css",
+      "description": "CSS-focused skills for host custom properties and content-aware layouts.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Jan Pereira"
+      },
+      "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+      "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+      "license": "MIT",
+      "category": "styles",
+      "tags": ["css", "selectors", "layout", "custom-properties", "styles"]
     }
   ]
 }

@@ -87,6 +87,18 @@
         "authentication": "ON_INSTALL"
       },
       "category": "Frontend"
+    },
+    {
+      "name": "ngautopilot-css",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ngautopilot-css"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Styles"
     }
   ]
 }

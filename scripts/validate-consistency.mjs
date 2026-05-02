@@ -55,6 +55,7 @@ validateMarketplace(claudeMarketplace, 'Claude Code', errors, {
     'ngautopilot-quality-deadcode-sonar',
     'ngautopilot-typescript',
     'ngautopilot-angular-microfrontends',
+    'ngautopilot-css',
   ],
   localPathShape: (source) => source.startsWith('./plugins/'),
 });
@@ -68,6 +69,7 @@ validateMarketplace(codexMarketplace, 'Codex', errors, {
     'ngautopilot-quality-deadcode-sonar',
     'ngautopilot-typescript',
     'ngautopilot-angular-microfrontends',
+    'ngautopilot-css',
   ],
   localPathShape: (source) => source.source === 'local' && typeof source.path === 'string' && source.path.startsWith('./plugins/'),
 });

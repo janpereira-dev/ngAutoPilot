@@ -83,6 +83,7 @@ skills/
     architecture/
     components/
     dependency-injection/
+    styles/
     performance/
     rxjs/
     state/
@@ -95,13 +96,14 @@ skills/
       versioning/
   typescript/
   javascript/
+  css/
   quality/
   git/
 ```
 
 ## Catalog Snapshot
 
-Current catalog size: **283 skills**
+Current catalog size: **285 skills**
 
 | Category | Skills |
 | --- | ---: |
@@ -118,7 +120,8 @@ Current catalog size: **283 skills**
 | Angular services | 1 |
 | Angular state | 1 |
 | Angular testing | 4 |
-| Angular HTTP / SSR / router / forms / Material / templates / microfrontends / docs | 40+ |
+| Angular HTTP / SSR / router / forms / Material / templates / microfrontends / docs / styles | 40+ |
+| CSS selectors / layout / custom properties | 2 |
 | TypeScript strict types | 2+ |
 | JavaScript fundamentals | 5+ |
 | Quality governance | 10+ |
@@ -136,6 +139,8 @@ If you are consuming this repo, these are the skill families that matter most:
 | `skills/angular/architecture/` | higher-level Angular design guidance | when the task is architectural |
 | `skills/angular/microfrontends/` | shell, remote, compatibility, sharing and rollback gates | when the repo needs distributed frontend boundaries |
 | `skills/angular/docs/` | ADRs, upgrade reports, and review packets | when the change needs governance or packaging |
+| `skills/angular/styles/` | Angular-hosted CSS custom property patterns | when Angular needs to expose style-only state |
+| `skills/css/` | selector-driven layout and modern CSS patterns | when CSS can solve the problem without JS |
 | `skills/angular/components/`, `skills/angular/forms/`, `skills/angular/router/`, `skills/angular/testing/`, `skills/angular/ssr/`, `skills/angular/material/`, `skills/angular/zone/`, `skills/angular/resources/`, `skills/angular/templates/`, `skills/angular/di/` | focused Angular skills for specific risk areas | when the repo has a concrete issue there |
 | `skills/typescript/`, `skills/javascript/`, `skills/quality/` | cross-cutting code quality and workflow skills | when the task is not Angular-specific |
 

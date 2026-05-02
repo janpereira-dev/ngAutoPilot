@@ -28,6 +28,7 @@ jobs:
           python -m json.tool plugins/ngautopilot-angular/.codex-plugin/plugin.json > /dev/null
           python -m json.tool plugins/ngautopilot-quality/.codex-plugin/plugin.json > /dev/null
           python -m json.tool plugins/ngautopilot-angular-microfrontends/.codex-plugin/plugin.json > /dev/null
+          python -m json.tool plugins/ngautopilot-css/.codex-plugin/plugin.json > /dev/null
 
       - name: Validate required files
         run: |
@@ -39,3 +40,5 @@ jobs:
           test -f plugins/ngautopilot-quality/.codex-plugin/plugin.json
           test -f plugins/ngautopilot-angular-microfrontends/.codex-plugin/plugin.json
           test -f plugins/ngautopilot-angular-microfrontends/skills/micro-frontends-architecture/SKILL.md
+          test -f plugins/ngautopilot-css/.codex-plugin/plugin.json
+          test -f plugins/ngautopilot-css/skills/host-css-custom-properties/SKILL.md

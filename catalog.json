@@ -2417,6 +2417,22 @@
       ]
     },
     {
+      "id": "angular.styles.host-css-custom-properties",
+      "name": "Angular Host CSS Custom Properties",
+      "path": "skills/angular/styles/host-css-custom-properties/SKILL.md",
+      "stack": [
+        "Angular"
+      ],
+      "category": "styles",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "host css custom properties",
+        "css variables",
+        "style-only state"
+      ]
+    },
+    {
       "id": "angular.templates.angular-extended-diagnostics-governance",
       "name": "Angular Extended Diagnostics Governance",
       "path": "skills/angular/templates/angular-extended-diagnostics-governance/SKILL.md",
@@ -4727,6 +4743,22 @@
         "Node version",
         "RxJS version",
         "package manager detection"
+      ]
+    },
+    {
+      "id": "css.selectors.has-content-aware-layout",
+      "name": "CSS Has Content Aware Layout",
+      "path": "skills/css/selectors/has-content-aware-layout/SKILL.md",
+      "stack": [
+        "CSS"
+      ],
+      "category": "selectors",
+      "status": "stable",
+      "version": "0.1.0",
+      "triggers": [
+        "css has",
+        "content aware layout",
+        "quantity query"
       ]
     },
     {
