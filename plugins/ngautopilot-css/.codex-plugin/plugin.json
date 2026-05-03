@@ -1,6 +1,6 @@
 {
   "name": "ngautopilot-css",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "CSS-focused skills for host custom properties, selector-driven layouts, and modern styling gates.",
   "author": {
     "name": "Jan Pereira"

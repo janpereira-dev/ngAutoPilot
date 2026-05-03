@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: rxjs
 status: draft
-version: 0.3.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - RxJS 5 to 6

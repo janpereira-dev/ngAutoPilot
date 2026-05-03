@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: deprecations
 status: draft
-version: 0.3.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - deprecation cleanup

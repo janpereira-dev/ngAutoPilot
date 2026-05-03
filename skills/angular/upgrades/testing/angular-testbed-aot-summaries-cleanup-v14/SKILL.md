@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: testing
 status: draft
-version: 0.3.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - TestBed AOT summaries

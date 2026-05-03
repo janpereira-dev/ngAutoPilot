@@ -8,7 +8,7 @@ stack:
   - Browser
 category: dto-mappers
 status: stable
-version: 0.3.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - browser dto mapping

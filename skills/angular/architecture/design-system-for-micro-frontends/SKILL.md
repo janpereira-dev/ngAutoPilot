@@ -10,7 +10,7 @@ stack:
   - Design System
 category: architecture
 status: stable
-version: 0.3.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - design system for micro frontends

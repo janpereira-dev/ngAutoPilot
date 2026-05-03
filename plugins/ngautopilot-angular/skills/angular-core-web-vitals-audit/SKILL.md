@@ -6,7 +6,7 @@ stack:
   - Angular
 category: performance
 status: stable
-version: 0.3.0
+version: 0.3.1
 owner: NgAutoPilot
 ---
 
