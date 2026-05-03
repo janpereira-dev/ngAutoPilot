@@ -6,7 +6,7 @@ stack:
   - Angular
 category: router
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - lazy loading routes
@@ -17,7 +17,6 @@ triggers:
 # Angular Lazy Loading Routes
 
 Use this skill when route-level lazy loading is the right boundary.
-
 
 ## Expected Output
 

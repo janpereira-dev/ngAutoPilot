@@ -6,11 +6,10 @@ stack:
   - Angular
 category: signals
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 ---
 
 # Angular Signal State Pattern
 
 Use this skill to structure local or feature state with signals.
-

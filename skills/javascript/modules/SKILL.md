@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: javascript
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - javascript modules
@@ -70,7 +70,7 @@ Detect the active module system and keep module style consistent.
 Prefer ES Modules in modern frontend and TypeScript code:
 
 ```js
-import { formatUser } from './format-user.js';
+import { formatUser } from "./format-user.js";
 
 export function getDisplayName(user) {
   return formatUser(user);
@@ -80,7 +80,7 @@ export function getDisplayName(user) {
 Use CommonJS only when required by runtime or package contract:
 
 ```js
-const { formatUser } = require('./format-user');
+const { formatUser } = require("./format-user");
 
 module.exports = {
   getDisplayName,
@@ -137,4 +137,3 @@ When this skill is used, the agent should:
 3. Make exports explicit.
 4. Remove circular dependencies or side-effect ambiguity.
 5. Keep the refactor focused.
-

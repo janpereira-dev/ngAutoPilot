@@ -6,7 +6,7 @@ stack:
   - Angular
 category: templates
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - extended diagnostics
@@ -17,7 +17,6 @@ triggers:
 # Angular Extended Diagnostics Governance
 
 Use this skill to manage Angular compiler diagnostics with intent.
-
 
 ## Expected Output
 

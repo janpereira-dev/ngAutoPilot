@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: javascript
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - async error handling
@@ -89,7 +89,7 @@ async function loadUser(userId) {
   try {
     return await userApi.getUser(userId);
   } catch (error) {
-    throw new Error('Unable to load user', { cause: error });
+    throw new Error("Unable to load user", { cause: error });
   }
 }
 ```
@@ -100,7 +100,7 @@ Never swallow errors silently:
 try {
   await saveData(data);
 } catch (error) {
-  logger.warn('Save failed', error);
+  logger.warn("Save failed", error);
   throw error;
 }
 ```
@@ -118,7 +118,7 @@ Avoid floating promises unless intentionally fire-and-forget:
 
 ```js
 void saveAuditLog(payload).catch((error) => {
-  logger.warn('Audit log failed', error);
+  logger.warn("Audit log failed", error);
 });
 ```
 
@@ -167,4 +167,3 @@ When this skill is used, the agent should:
 3. Preserve stack and context.
 4. Avoid swallowed or floating failures.
 5. Add or update tests for success and failure paths.
-

@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - facade pattern
@@ -61,12 +61,13 @@ export class UserFacade {
   loadUsers(): void {
     this.userState.setLoading(true);
 
-    this.userApi.getUsers().pipe(
-      finalize(() => this.userState.setLoading(false)),
-    ).subscribe({
-      next: (users) => this.userState.setUsers(users),
-      error: (error) => this.userState.setError(error),
-    });
+    this.userApi
+      .getUsers()
+      .pipe(finalize(() => this.userState.setLoading(false)))
+      .subscribe({
+        next: (users) => this.userState.setUsers(users),
+        error: (error) => this.userState.setError(error),
+      });
   }
 }
 ```

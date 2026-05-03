@@ -1,7 +1,7 @@
 {
   "name": "NgAutoPilot",
   "description": "Agnostic micro-skills for Angular, TypeScript and JavaScript development.",
-  "version": "0.1.0",
+  "version": "0.3.1",
   "skills": [
     {
       "id": "angular.architecture.angular-enterprise-onboarding-plan",
@@ -15,7 +15,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "angular onboarding plan",
         "enterprise onboarding",
@@ -40,7 +40,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "angular enterprise primitives",
         "forms signals testing",
@@ -64,7 +64,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "angular training assessment",
         "angular enterprise assessment",
@@ -89,7 +89,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "angular enterprise training",
         "angular training roadmap",
@@ -114,7 +114,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular architecture review",
         "senior Angular patterns",
@@ -136,7 +136,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "angular version aware training",
         "version aware matrix",
@@ -159,7 +159,7 @@
       ],
       "category": "architecture",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "control flow",
         "@if",
@@ -178,7 +178,7 @@
       ],
       "category": "architecture",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "defer blocks",
         "lazy loading modernization",
@@ -198,7 +198,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "design system for micro frontends",
         "design system for micro-frontends",
@@ -221,7 +221,7 @@
       ],
       "category": "architecture",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "directive composition",
         "composition API",
@@ -239,7 +239,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "facade pattern",
         "Angular facade",
@@ -259,7 +259,7 @@
       ],
       "category": "architecture",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "host directives",
         "hostDirectives",
@@ -279,7 +279,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "micro frontends",
         "micro-frontends",
@@ -309,7 +309,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "micro frontends communication",
         "micro-frontends communication",
@@ -335,7 +335,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "micro fronts dependency sharing",
         "micro-frontends dependency sharing",
@@ -360,7 +360,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "micro fronts fallback",
         "micro-frontends fallback",
@@ -385,7 +385,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "micro fronts observability",
         "micro-frontends observability",
@@ -410,7 +410,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "micro frontends ownership",
         "micro-frontends ownership",
@@ -435,7 +435,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "micro frontends release governance",
         "micro-frontends release governance",
@@ -460,7 +460,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "shell container",
         "container app",
@@ -487,7 +487,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "micro fronts version compatibility",
         "micro-frontends version compatibility",
@@ -512,7 +512,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "module federation runtime",
         "federation contract",
@@ -538,7 +538,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "nx bounded context",
         "bounded context contract",
@@ -564,7 +564,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "shared data access",
         "shared data-access",
@@ -593,7 +593,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "shared domain",
         "shared-domain",
@@ -618,7 +618,7 @@
       ],
       "category": "architecture",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "signals",
         "signal state",
@@ -636,7 +636,7 @@
       ],
       "category": "architecture",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "standalone components",
         "standalone adoption",
@@ -653,7 +653,7 @@
       ],
       "category": "components",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "container presentational",
         "smart dumb components",
@@ -674,7 +674,7 @@
       ],
       "category": "components",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "shared ui library",
         "shared/ui",
@@ -710,7 +710,7 @@
       ],
       "category": "dependency-injection",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "dependency injection",
         "Angular DI",
@@ -732,7 +732,7 @@
       ],
       "category": "docs",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "adr",
         "architecture decision",
@@ -748,7 +748,7 @@
       ],
       "category": "docs",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "review packet",
         "PR summary",
@@ -764,7 +764,7 @@
       ],
       "category": "docs",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "upgrade report",
         "migration report",
@@ -780,7 +780,7 @@
       ],
       "category": "forms",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "cva",
         "control value accessor",
@@ -797,7 +797,7 @@
       ],
       "category": "forms",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "number input min max",
         "form validity"
@@ -812,7 +812,7 @@
       ],
       "category": "forms",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "signal forms",
         "forms readiness",
@@ -828,7 +828,7 @@
       ],
       "category": "forms",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "typed forms",
         "forms governance",
@@ -845,7 +845,7 @@
       ],
       "category": "forms",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "typed forms",
         "FormControl",
@@ -863,7 +863,7 @@
       ],
       "category": "forms",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "UntypedFormGroup",
         "UntypedFormControl",
@@ -880,7 +880,7 @@
       ],
       "category": "forms",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "form validation",
         "angular validation",
@@ -902,7 +902,7 @@
       ],
       "category": "forms",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "reactive forms",
         "angular forms",
@@ -924,7 +924,7 @@
       ],
       "category": "forms",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "reactive forms v14",
         "typed forms v14",
@@ -942,7 +942,7 @@
       ],
       "category": "governance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "change type",
         "classify change",
@@ -958,7 +958,7 @@
       ],
       "category": "governance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "compatibility evidence",
         "version proof",
@@ -974,7 +974,7 @@
       ],
       "category": "governance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "migration vs modernization",
         "upgrade boundary",
@@ -990,7 +990,7 @@
       ],
       "category": "governance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "project classifier",
         "app type",
@@ -1006,7 +1006,7 @@
       ],
       "category": "governance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "validation contract",
         "build test lint",
@@ -1023,7 +1023,7 @@
       ],
       "category": "i18n",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "@angular/localize",
         "$localize",
@@ -1040,7 +1040,7 @@
       ],
       "category": "ivy",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Ivy only",
         "View Engine",
@@ -1057,7 +1057,7 @@
       ],
       "category": "libraries",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "View Engine libraries",
         "ngcc audit",
@@ -1073,7 +1073,7 @@
       ],
       "category": "material",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "aria",
         "headless",
@@ -1089,7 +1089,7 @@
       ],
       "category": "material",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "cdk a11y",
         "accessibility",
@@ -1105,7 +1105,7 @@
       ],
       "category": "material",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "material theming",
         "theme system",
@@ -1124,7 +1124,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "micro frontends",
         "micro-frontends",
@@ -1143,7 +1143,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "dependency sharing",
         "shared libraries",
@@ -1162,7 +1162,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "fallback",
         "rollback",
@@ -1181,7 +1181,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "shell container",
         "host app",
@@ -1200,7 +1200,7 @@
       ],
       "category": "architecture",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "compatibility gate",
         "version compatibility",
@@ -1217,7 +1217,7 @@
       ],
       "category": "migration",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "angularjs decommission",
         "legacy cleanup",
@@ -1234,7 +1234,7 @@
       ],
       "category": "migration",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "ngupgrade",
         "hybrid angularjs",
@@ -1251,7 +1251,7 @@
       ],
       "category": "migration",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "legacy inventory",
         "angularjs inventory",
@@ -1268,7 +1268,7 @@
       ],
       "category": "migration",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "routing migration",
         "angularjs routes",
@@ -1285,7 +1285,7 @@
       ],
       "category": "migration",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "service migration",
         "angularjs services",
@@ -1302,7 +1302,7 @@
       ],
       "category": "migration",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "strategy selector",
         "migration strategy",
@@ -1319,7 +1319,7 @@
       ],
       "category": "migration",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "template syntax migration",
         "angularjs templates",
@@ -1337,7 +1337,7 @@
       ],
       "category": "migration",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "AngularJS migration",
         "AngularJS modernization",
@@ -1356,7 +1356,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "control flow migration",
         "@if",
@@ -1375,7 +1375,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "control flow migration",
         "@if",
@@ -1394,7 +1394,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "control flow migration",
         "@if",
@@ -1413,7 +1413,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "control flow migration",
         "@if",
@@ -1432,7 +1432,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "control flow migration",
         "@if",
@@ -1451,7 +1451,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "defer views",
         "@defer",
@@ -1469,7 +1469,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "defer views",
         "@defer",
@@ -1487,7 +1487,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "defer views",
         "@defer",
@@ -1505,7 +1505,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "defer views",
         "@defer",
@@ -1523,7 +1523,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "defer views",
         "@defer",
@@ -1541,7 +1541,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "standalone adoption",
         "standalone components",
@@ -1559,7 +1559,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "standalone adoption",
         "standalone components",
@@ -1577,7 +1577,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "standalone adoption",
         "standalone components",
@@ -1595,7 +1595,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "standalone adoption",
         "standalone components",
@@ -1613,7 +1613,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "zoneless readiness",
         "Zone.js reduction",
@@ -1631,7 +1631,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "zoneless readiness",
         "Zone.js reduction",
@@ -1649,7 +1649,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "zoneless readiness",
         "Zone.js reduction",
@@ -1667,7 +1667,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "zoneless readiness",
         "Zone.js reduction",
@@ -1685,7 +1685,7 @@
       ],
       "category": "modernization",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "zoneless readiness",
         "Zone.js reduction",
@@ -1702,7 +1702,7 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "bundle budget",
         "performance budget",
@@ -1718,7 +1718,7 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "core web vitals",
         "web vitals audit",
@@ -1734,7 +1734,7 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "zoneless readiness",
         "zonejs performance",
@@ -1751,7 +1751,7 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "template function",
         "method call in template",
@@ -1770,7 +1770,7 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "change detection optimization",
         "OnPush",
@@ -1789,7 +1789,7 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "lazy loading",
         "initial bundle",
@@ -1809,7 +1809,7 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "list rendering",
         "trackBy",
@@ -1830,7 +1830,7 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "measure before optimizing",
         "performance evidence",
@@ -1850,7 +1850,7 @@
       ],
       "category": "performance",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "NgOptimizedImage",
         "image performance",
@@ -1867,7 +1867,7 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "OnPush",
         "ChangeDetectionStrategy",
@@ -1886,7 +1886,7 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular performance audit",
         "performance checklist",
@@ -1905,7 +1905,7 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular performance",
         "performance diagnosis",
@@ -1924,7 +1924,7 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "pure pipe",
         "impure pipe",
@@ -1945,7 +1945,7 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "RxJS performance",
         "duplicated HTTP requests",
@@ -1965,7 +1965,7 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "heavy template logic",
         "compute in template",
@@ -1984,7 +1984,7 @@
       ],
       "category": "performance",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "ngFor",
         "@for",
@@ -2003,7 +2003,7 @@
       ],
       "category": "router",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "functional guards",
         "resolvers",
@@ -2019,7 +2019,7 @@
       ],
       "category": "router",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "lazy loading routes",
         "route splitting",
@@ -2035,7 +2035,7 @@
       ],
       "category": "router",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "route configuration",
         "router config",
@@ -2051,7 +2051,7 @@
       ],
       "category": "router",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "router testing",
         "route tests",
@@ -2069,7 +2069,7 @@
       ],
       "category": "rxjs",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "nested subscribe",
         "subscription inside subscription",
@@ -2090,7 +2090,7 @@
       ],
       "category": "rxjs",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Observable as contract",
         "expose streams",
@@ -2109,7 +2109,7 @@
       ],
       "category": "security",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "dependency vulnerability",
         "security triage",
@@ -2125,7 +2125,7 @@
       ],
       "category": "security",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "domsanitizer",
         "sanitization",
@@ -2141,7 +2141,7 @@
       ],
       "category": "security",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "ssr security",
         "security risk gate",
@@ -2157,7 +2157,7 @@
       ],
       "category": "security",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "token storage",
         "auth token policy",
@@ -2173,7 +2173,7 @@
       ],
       "category": "security",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "xss safety",
         "template safety",
@@ -2190,7 +2190,7 @@
       ],
       "category": "service-worker",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "SwUpdate",
         "service worker updates",
@@ -2207,7 +2207,7 @@
       ],
       "category": "services",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "god service",
         "single responsibility service",
@@ -2227,7 +2227,7 @@
       ],
       "category": "signals",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "rxjs signals interop",
         "signals bridge",
@@ -2243,7 +2243,7 @@
       ],
       "category": "signals",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "signal state",
         "state pattern",
@@ -2259,7 +2259,7 @@
       ],
       "category": "signals",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "signals fundamentals",
         "computed effect",
@@ -2277,7 +2277,7 @@
       ],
       "category": "signals",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "signals rxjs interop",
         "toSignal",
@@ -2299,7 +2299,7 @@
       ],
       "category": "signals",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "signals state",
         "signal patterns",
@@ -2321,7 +2321,7 @@
       ],
       "category": "signals",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "signals v16",
         "angular 16 signals",
@@ -2339,7 +2339,7 @@
       ],
       "category": "ssr",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "hydration risk",
         "hydration gate",
@@ -2356,7 +2356,7 @@
       ],
       "category": "ssr",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "renderModuleFactory",
         "renderModule",
@@ -2372,7 +2372,7 @@
       ],
       "category": "ssr",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "browser api safety",
         "ssr browser safety",
@@ -2388,7 +2388,7 @@
       ],
       "category": "ssr",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "ssr readiness",
         "ssr audit",
@@ -2406,7 +2406,7 @@
       ],
       "category": "state",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Signals vs RxJS",
         "should this use signals",
@@ -2425,7 +2425,7 @@
       ],
       "category": "styles",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "host css custom properties",
         "css variables",
@@ -2441,7 +2441,7 @@
       ],
       "category": "templates",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "extended diagnostics",
         "template diagnostics",
@@ -2457,7 +2457,7 @@
       ],
       "category": "templates",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "strict templates",
         "template gate",
@@ -2474,7 +2474,7 @@
       ],
       "category": "templates",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "extended diagnostics governance",
         "angular extended diagnostics",
@@ -2493,7 +2493,7 @@
       ],
       "category": "templates",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "extended diagnostics remediation",
         "angular diagnostic fix",
@@ -2512,7 +2512,7 @@
       ],
       "category": "templates",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "strictTemplates adoption",
         "strict templates adoption",
@@ -2531,7 +2531,7 @@
       ],
       "category": "templates",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "template diagnostics matrix",
         "ng81xx matrix",
@@ -2550,7 +2550,7 @@
       ],
       "category": "testing",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "angular component testing",
         "component test patterns",
@@ -2571,7 +2571,7 @@
       ],
       "category": "testing",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "component testing v17",
         "angular 17 component tests",
@@ -2589,7 +2589,7 @@
       ],
       "category": "testing",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "test strategy",
         "vitest jest karma",
@@ -2606,7 +2606,7 @@
       ],
       "category": "testing",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "TestBed.get",
         "TestBed.inject",
@@ -2624,7 +2624,7 @@
       ],
       "category": "testing",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "jest angular testing",
         "angular jest unit testing",
@@ -2648,7 +2648,7 @@
       ],
       "category": "testing",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "micro frontends e2e",
         "micro-frontends e2e",
@@ -2672,7 +2672,7 @@
       ],
       "category": "upgrades",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "major hop executor",
         "single Angular hop",
@@ -2691,7 +2691,7 @@
       ],
       "category": "upgrades",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular upgrade",
         "major version hop",
@@ -2711,7 +2711,7 @@
       ],
       "category": "upgrades",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular upgrade route",
         "major-by-major plan",
@@ -2730,7 +2730,7 @@
       ],
       "category": "upgrades",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "upgrade validation",
         "validation gate",
@@ -2749,7 +2749,7 @@
       ],
       "category": "upgrades",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular version detection",
         "package version scan",
@@ -2767,7 +2767,7 @@
       ],
       "category": "angularjs",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "AngularJS controller migration",
         "controller to component",
@@ -2784,7 +2784,7 @@
       ],
       "category": "angularjs",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "AngularJS decommission",
         "hybrid removal gate",
@@ -2801,7 +2801,7 @@
       ],
       "category": "angularjs",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "AngularJS directive migration",
         "directive to component",
@@ -2818,7 +2818,7 @@
       ],
       "category": "angularjs",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "downgradeComponent",
         "downgradeInjectable",
@@ -2836,7 +2836,7 @@
       ],
       "category": "angularjs",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "AngularJS filter migration",
         "filter to pipe",
@@ -2853,7 +2853,7 @@
       ],
       "category": "angularjs",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "ngUpgrade bootstrap",
         "hybrid AngularJS and Angular",
@@ -2871,7 +2871,7 @@
       ],
       "category": "angularjs",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "AngularJS routing migration",
         "hybrid routing",
@@ -2889,7 +2889,7 @@
       ],
       "category": "angularjs",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "AngularJS service migration",
         "service to injectable",
@@ -2906,7 +2906,7 @@
       ],
       "category": "angularjs",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "AngularJS template syntax",
         "ng-repeat",
@@ -2925,7 +2925,7 @@
       ],
       "category": "angularjs",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "AngularJS inventory",
         "ngUpgrade inventory",
@@ -2943,7 +2943,7 @@
       ],
       "category": "browser-support",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "IE11 support",
         "browser policy",
@@ -2962,7 +2962,7 @@
       ],
       "category": "build",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "moduleResolution bundler",
         "secondary entry points",
@@ -2980,7 +2980,7 @@
       ],
       "category": "change-detection",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "OnPush",
         "host bindings",
@@ -2998,7 +2998,7 @@
       ],
       "category": "changelog",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular changelog review",
         "patch baseline review",
@@ -3016,7 +3016,7 @@
       ],
       "category": "components",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "createComponent",
         "projectable nodes",
@@ -3034,7 +3034,7 @@
       ],
       "category": "components",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "dynamic components",
         "ngDoCheck",
@@ -3052,7 +3052,7 @@
       ],
       "category": "components",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "custom elements",
         "signal inputs",
@@ -3070,7 +3070,7 @@
       ],
       "category": "debug",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "ng-reflect cleanup",
         "debug attributes",
@@ -3088,7 +3088,7 @@
       ],
       "category": "deprecations",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "deprecation cleanup",
         "routerlinkwithhref",
@@ -3105,7 +3105,7 @@
       ],
       "category": "di",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "constructor DI",
         "inheritance",
@@ -3123,7 +3123,7 @@
       ],
       "category": "di",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "InjectFlags",
         "TestBed.get",
@@ -3141,7 +3141,7 @@
       ],
       "category": "forms",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "ControlValueAccessor",
         "setDisabledState",
@@ -3158,7 +3158,7 @@
       ],
       "category": "forms",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "ngModel cleanup",
         "template write expressions",
@@ -3175,7 +3175,7 @@
       ],
       "category": "forms",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "typed forms",
         "untyped forms bridge",
@@ -3193,7 +3193,7 @@
       ],
       "category": "forms",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "UntypedFormGroup",
         "UntypedFormControl",
@@ -3210,7 +3210,7 @@
       ],
       "category": "forms",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "FormArray conflict",
         "formArray directive",
@@ -3228,7 +3228,7 @@
       ],
       "category": "upgrades",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 10 to 11",
         "major hop upgrade",
@@ -3247,7 +3247,7 @@
       ],
       "category": "upgrades",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 11 to 12",
         "major hop upgrade",
@@ -3266,7 +3266,7 @@
       ],
       "category": "upgrades",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 12 to 13",
         "major hop upgrade",
@@ -3285,7 +3285,7 @@
       ],
       "category": "upgrades",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 13 to 14",
         "major hop upgrade",
@@ -3304,7 +3304,7 @@
       ],
       "category": "upgrades",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 14 to 15",
         "major hop upgrade",
@@ -3322,7 +3322,7 @@
       ],
       "category": "upgrade",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 15 to 16",
         "Angular 16 upgrade",
@@ -3340,7 +3340,7 @@
       ],
       "category": "upgrade",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 16 to 17",
         "Angular 17 upgrade",
@@ -3358,7 +3358,7 @@
       ],
       "category": "upgrade",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 17 to 18",
         "Angular 18 upgrade",
@@ -3376,7 +3376,7 @@
       ],
       "category": "upgrade",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 18 to 19",
         "Angular 19 upgrade",
@@ -3394,7 +3394,7 @@
       ],
       "category": "upgrade",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 19 to 20",
         "Angular 20 upgrade",
@@ -3413,7 +3413,7 @@
       ],
       "category": "upgrades",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 2 to 4",
         "major hop upgrade",
@@ -3431,7 +3431,7 @@
       ],
       "category": "upgrade",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 20 to 21",
         "Angular 21 upgrade",
@@ -3450,7 +3450,7 @@
       ],
       "category": "upgrades",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 4 to 5",
         "Angular 5.2 upgrade",
@@ -3469,7 +3469,7 @@
       ],
       "category": "upgrades",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 5 to 6",
         "Angular 6.1 upgrade",
@@ -3488,7 +3488,7 @@
       ],
       "category": "upgrades",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 6 to 7",
         "Angular 7.2 upgrade",
@@ -3507,7 +3507,7 @@
       ],
       "category": "upgrades",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 7 to 8",
         "Angular 8.2 upgrade",
@@ -3526,7 +3526,7 @@
       ],
       "category": "upgrades",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 8 to 9",
         "Angular 9.1 upgrade",
@@ -3545,7 +3545,7 @@
       ],
       "category": "upgrades",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 9 to 10",
         "Angular 10.2 upgrade",
@@ -3563,7 +3563,7 @@
       ],
       "category": "http",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "HTTP transfer cache",
         "authenticated HTTP requests",
@@ -3581,7 +3581,7 @@
       ],
       "category": "http",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "HttpClient migration",
         "HttpModule",
@@ -3598,7 +3598,7 @@
       ],
       "category": "hybrid",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "UpgradeAdapter",
         "AngularJS hybrid",
@@ -3616,7 +3616,7 @@
       ],
       "category": "hydration",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "hydration risk gate",
         "SSR hydration",
@@ -3634,7 +3634,7 @@
       ],
       "category": "i18n",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "angular localize",
         "$localize",
@@ -3651,7 +3651,7 @@
       ],
       "category": "ivy",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Ivy default",
         "entryComponents",
@@ -3668,7 +3668,7 @@
       ],
       "category": "ivy",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Ivy only gate",
         "View Engine dependency",
@@ -3685,7 +3685,7 @@
       ],
       "category": "libraries",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "ngcc audit",
         "View Engine libraries",
@@ -3703,7 +3703,7 @@
       ],
       "category": "libraries",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "View Engine library audit",
         "ngcc audit",
@@ -3720,7 +3720,7 @@
       ],
       "category": "localize",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "localize builder",
         "@angular/localize",
@@ -3738,7 +3738,7 @@
       ],
       "category": "modules",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "NgModuleFactory",
         "dynamic module loading",
@@ -3756,7 +3756,7 @@
       ],
       "category": "resources",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "resource API",
         "rxResource",
@@ -3774,7 +3774,7 @@
       ],
       "category": "router",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "lazy routes",
         "loadChildren string",
@@ -3791,7 +3791,7 @@
       ],
       "category": "router",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Router.errorHandler",
         "navigation error handling",
@@ -3809,7 +3809,7 @@
       ],
       "category": "router",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "RedirectCommand",
         "router redirects",
@@ -3827,7 +3827,7 @@
       ],
       "category": "router",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "router behavior",
         "route timing",
@@ -3845,7 +3845,7 @@
       ],
       "category": "router",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "router public API migration",
         "malformedUriErrorHandler",
@@ -3863,7 +3863,7 @@
       ],
       "category": "router",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular 13 router",
         "lazy route cleanup",
@@ -3880,7 +3880,7 @@
       ],
       "category": "router",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "resolver first emission",
         "router resolver",
@@ -3897,7 +3897,7 @@
       ],
       "category": "router",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "router guards",
         "redirects",
@@ -3915,7 +3915,7 @@
       ],
       "category": "rxjs",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "RxJS 5 to 6",
         "rxjs-compat",
@@ -3932,7 +3932,7 @@
       ],
       "category": "security",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "iframe binding",
         "iframe security",
@@ -3950,7 +3950,7 @@
       ],
       "category": "service-worker",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "SwUpdate migration",
         "service worker update flow",
@@ -3967,7 +3967,7 @@
       ],
       "category": "signals",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "signals mutate",
         "signals update",
@@ -3984,7 +3984,7 @@
       ],
       "category": "ssr",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "platform-server migration",
         "SSR migration",
@@ -4002,7 +4002,7 @@
       ],
       "category": "ssr",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "renderModuleFactory",
         "SSR migration",
@@ -4019,7 +4019,7 @@
       ],
       "category": "ssr",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "allowedHosts",
         "SSR security",
@@ -4037,7 +4037,7 @@
       ],
       "category": "standalone",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "standalone default",
         "standalone false",
@@ -4055,7 +4055,7 @@
       ],
       "category": "styles",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "keyframes scope",
         "animation-name",
@@ -4073,7 +4073,7 @@
       ],
       "category": "styles",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "remove styles on destroy",
         "component style cleanup",
@@ -4090,7 +4090,7 @@
       ],
       "category": "templates",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "template operator compatibility",
         "in operator",
@@ -4108,7 +4108,7 @@
       ],
       "category": "templates",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "host binding typecheck",
         "HostBinding",
@@ -4126,7 +4126,7 @@
       ],
       "category": "testing",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "TestBed AOT summaries",
         "aotSummaries",
@@ -4143,7 +4143,7 @@
       ],
       "category": "testing",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "TestBed.get",
         "TestBed.inject",
@@ -4160,7 +4160,7 @@
       ],
       "category": "testing",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "test stability",
         "change detection timing",
@@ -4178,7 +4178,7 @@
       ],
       "category": "testing",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "effects timing",
         "fakeAsync scheduler",
@@ -4196,7 +4196,7 @@
       ],
       "category": "testing",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "effects timing",
         "fakeAsync",
@@ -4214,7 +4214,7 @@
       ],
       "category": "testing",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "router tests",
         "Zone.js timing",
@@ -4232,7 +4232,7 @@
       ],
       "category": "workspace",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "angular.json migration",
         "angular-cli workspace",
@@ -4249,7 +4249,7 @@
       ],
       "category": "zone",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "provideZoneChangeDetection",
         "Zone.js",
@@ -4267,7 +4267,7 @@
       ],
       "category": "zone",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Zone.js imports",
         "zone.js/testing",
@@ -4284,7 +4284,7 @@
       ],
       "category": "zoneless",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "zoneless API rename",
         "provideExperimentalZonelessChangeDetection",
@@ -4301,7 +4301,7 @@
       ],
       "category": "material",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Material chips migration",
         "Material slider migration",
@@ -4319,7 +4319,7 @@
       ],
       "category": "material",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Material table",
         "Material list",
@@ -4337,7 +4337,7 @@
       ],
       "category": "material",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Material form controls",
         "form-field migration",
@@ -4355,7 +4355,7 @@
       ],
       "category": "material",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular Material inventory",
         "MDC inventory",
@@ -4373,7 +4373,7 @@
       ],
       "category": "material",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular Material v15",
         "MDC migration",
@@ -4391,7 +4391,7 @@
       ],
       "category": "material",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular Material v15",
         "MDC migration",
@@ -4409,7 +4409,7 @@
       ],
       "category": "material",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Material dialogs",
         "Material menus",
@@ -4428,7 +4428,7 @@
       ],
       "category": "material",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Material harnesses",
         "DOM-based Material tests",
@@ -4446,7 +4446,7 @@
       ],
       "category": "material",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Material theming",
         "Material density",
@@ -4464,7 +4464,7 @@
       ],
       "category": "material",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Material visual regression",
         "screenshot review",
@@ -4481,7 +4481,7 @@
       ],
       "category": "material",
       "status": "draft",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Material v14",
         "stepper cleanup",
@@ -4499,7 +4499,7 @@
       ],
       "category": "templates",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "extended diagnostics upgrade gate",
         "angular upgrade diagnostics",
@@ -4516,7 +4516,7 @@
       ],
       "category": "versioning",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "cli builder compatibility",
         "builder compatibility",
@@ -4534,7 +4534,7 @@
       ],
       "category": "versioning",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "node typescript rxjs matrix",
         "compatibility matrix",
@@ -4550,7 +4550,7 @@
       ],
       "category": "versioning",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "peer dependency audit",
         "peer deps",
@@ -4568,7 +4568,7 @@
       ],
       "category": "versioning",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "angular version",
         "angular compatibility",
@@ -4592,7 +4592,7 @@
       ],
       "category": "versioning",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular version compatibility",
         "version gates",
@@ -4613,7 +4613,7 @@
       ],
       "category": "versioning",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "Angular versioning index",
         "Angular upgrade roadmap",
@@ -4633,7 +4633,7 @@
       ],
       "category": "core",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "autopilot workflow",
         "start task",
@@ -4653,7 +4653,7 @@
       ],
       "category": "core",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "compatibility router",
         "version compatibility",
@@ -4674,7 +4674,7 @@
       ],
       "category": "core",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "project intake",
         "inspect repository",
@@ -4694,7 +4694,7 @@
       ],
       "category": "core",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "assess risk",
         "change risk",
@@ -4715,7 +4715,7 @@
       ],
       "category": "core",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "route skill",
         "select skill",
@@ -4735,7 +4735,7 @@
       ],
       "category": "core",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "detect stack version",
         "Angular version",
@@ -4754,7 +4754,7 @@
       ],
       "category": "selectors",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "css has",
         "content aware layout",
@@ -4771,7 +4771,7 @@
       ],
       "category": "javascript",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "async error handling",
         "promise errors",
@@ -4794,7 +4794,7 @@
       ],
       "category": "javascript",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "browser async error handling",
         "web async handling",
@@ -4815,7 +4815,7 @@
       ],
       "category": "javascript",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "browser async error handling v20",
         "web async handling v20",
@@ -4836,7 +4836,7 @@
       ],
       "category": "javascript",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "node async error handling",
         "nodejs async handling",
@@ -4857,7 +4857,7 @@
       ],
       "category": "javascript",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "node async error handling v20",
         "nodejs async handling v20",
@@ -4877,7 +4877,7 @@
       ],
       "category": "javascript",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "javascript fundamentals",
         "javascript learning path",
@@ -4897,7 +4897,7 @@
       ],
       "category": "javascript",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "javascript modules",
         "import export",
@@ -4919,7 +4919,7 @@
       ],
       "category": "javascript",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "pure functions",
         "pure function",
@@ -4941,7 +4941,7 @@
       ],
       "category": "eslint",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "eslint autofix",
         "safe cleanup",
@@ -4960,7 +4960,7 @@
       ],
       "category": "eslint",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "eslint autofix browser",
         "browser lint fix",
@@ -4978,7 +4978,7 @@
       ],
       "category": "eslint",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "eslint autofix node",
         "node lint fix",
@@ -4996,7 +4996,7 @@
       ],
       "category": "eslint",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "eslint baseline hardening",
         "lint baseline",
@@ -5016,7 +5016,7 @@
       ],
       "category": "eslint",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "eslint baseline hardening monorepo",
         "nx lint baseline",
@@ -5034,7 +5034,7 @@
       ],
       "category": "eslint",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "eslint disable governance",
         "eslint-disable",
@@ -5054,7 +5054,7 @@
       ],
       "category": "quality",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "quality fundamentals",
         "quality learning path",
@@ -5074,7 +5074,7 @@
       ],
       "category": "quality",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "quality decision matrix",
         "choose quality tool",
@@ -5093,7 +5093,7 @@
       ],
       "category": "no-dead-code",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "dead branches",
         "unreachable code",
@@ -5112,7 +5112,7 @@
       ],
       "category": "no-dead-code",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "orphan files",
         "dead files",
@@ -5131,7 +5131,7 @@
       ],
       "category": "no-dead-code",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "orphan files monorepo",
         "nx orphan files",
@@ -5150,7 +5150,7 @@
       ],
       "category": "no-dead-code",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "unused exports",
         "export cleanup",
@@ -5169,7 +5169,7 @@
       ],
       "category": "sonarqube",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "cognitive complexity",
         "sonar complexity",
@@ -5188,7 +5188,7 @@
       ],
       "category": "sonarqube",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "duplication coverage",
         "sonar coverage",
@@ -5207,7 +5207,7 @@
       ],
       "category": "sonarqube",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "sonar triage",
         "sonarqube quality gate",
@@ -5226,7 +5226,7 @@
       ],
       "category": "sonarqube",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "sonar monorepo triage",
         "quality gate monorepo",
@@ -5244,7 +5244,7 @@
       ],
       "category": "technical-debt",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "debt ledger",
         "technical debt cleanup",
@@ -5264,7 +5264,7 @@
       ],
       "category": "dto-mappers",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "browser dto mapping",
         "browser dto mappers",
@@ -5283,7 +5283,7 @@
       ],
       "category": "dto-mappers",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "node dto mapping",
         "node dto mappers",
@@ -5301,7 +5301,7 @@
       ],
       "category": "fundamentals",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "typescript fundamentals",
         "typescript learning path",
@@ -5320,7 +5320,7 @@
       ],
       "category": "strict-types",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "typescript strict types",
         "strict typing",
@@ -5340,7 +5340,7 @@
       ],
       "category": "strict-types",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "any",
         "unknown",
@@ -5359,7 +5359,7 @@
       ],
       "category": "strict-types",
       "status": "stable",
-      "version": "0.1.0",
+      "version": "0.3.1",
       "triggers": [
         "strict mode typescript",
         "strict true",

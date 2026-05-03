@@ -6,11 +6,10 @@ stack:
   - Angular
 category: forms
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 ---
 
 # Reactive Forms Patterns
 
 Use this skill when the task involves Angular reactive forms design or review.
-

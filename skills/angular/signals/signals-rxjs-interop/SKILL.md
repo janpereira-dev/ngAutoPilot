@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: signals
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - signals rxjs interop
@@ -97,4 +97,3 @@ When this skill is used, the agent should:
 3. Preserve RxJS for async workflows.
 4. Preserve Signals for local synchronous state.
 5. Explain why the conversion belongs where it does.
-

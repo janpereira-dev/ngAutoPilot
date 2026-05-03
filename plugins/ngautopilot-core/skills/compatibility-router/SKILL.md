@@ -8,11 +8,10 @@ stack:
   - Angular
 category: core
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 ---
 
 # Compatibility Router
 
 Use this skill to decide which workflow is safe for the current stack.
-

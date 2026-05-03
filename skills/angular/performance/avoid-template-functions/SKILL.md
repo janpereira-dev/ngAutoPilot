@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - template function
@@ -49,7 +49,7 @@ readonly itemsViewModel = this.items.map((item) => ({
 
 ```html
 @for (item of itemsViewModel; track item.id) {
-  <span>{{ item.displayLabel }}</span>
+<span>{{ item.displayLabel }}</span>
 }
 ```
 
@@ -84,9 +84,7 @@ Avoid expensive method calls in templates:
 Avoid repeated work inside loops:
 
 ```html
-<li *ngFor="let item of items">
-  {{ buildDisplayLabel(item) }}
-</li>
+<li *ngFor="let item of items">{{ buildDisplayLabel(item) }}</li>
 ```
 
 Avoid methods that allocate new arrays or objects during change detection:

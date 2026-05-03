@@ -7,7 +7,7 @@ stack:
   - Angular
 category: migration
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - legacy inventory
@@ -18,7 +18,6 @@ triggers:
 # AngularJS Legacy Inventory
 
 Use this skill to understand what legacy AngularJS surface must be migrated or decommissioned.
-
 
 ## Expected Output
 

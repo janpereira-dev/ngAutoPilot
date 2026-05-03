@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: no-dead-code
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - unused exports
@@ -80,4 +80,3 @@ When this skill is used, the agent should:
 3. Remove only dead exports.
 4. Keep contract stability in mind.
 5. Validate imports and builds.
-

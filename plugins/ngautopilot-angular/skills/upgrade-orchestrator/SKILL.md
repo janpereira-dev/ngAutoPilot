@@ -8,7 +8,7 @@ stack:
   - RxJS
 category: upgrades
 status: draft
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 ---
 
@@ -17,4 +17,3 @@ owner: NgAutoPilot
 Use this skill to coordinate an Angular upgrade path by detecting the current major, choosing the next valid hop, and routing the work to a bounded hop skill.
 
 This skill does not perform the full upgrade itself. It plans the path one major at a time and stops after selecting the next hop.
-

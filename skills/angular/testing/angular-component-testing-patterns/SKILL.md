@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: testing
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - angular component testing
@@ -53,7 +53,7 @@ Use this skill when:
 Assert the rendered DOM and event emission:
 
 ```ts
-it('emits save when clicked', () => {
+it("emits save when clicked", () => {
   component.save.emit();
   expect(spy).toHaveBeenCalled();
 });
@@ -92,4 +92,3 @@ When this skill is used, the agent should:
 3. Verify input, output, and template behavior.
 4. Recommend host or harness patterns where appropriate.
 5. Keep the test focused on public behavior.
-

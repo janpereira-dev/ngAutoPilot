@@ -6,7 +6,7 @@ stack:
   - Angular
 category: governance
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - project classifier
@@ -17,7 +17,6 @@ triggers:
 # Angular Project Classifier
 
 Use this skill before editing Angular code to identify the project shape and the likely risk surface.
-
 
 ## Expected Output
 

@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: rxjs
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - nested subscribe
@@ -75,9 +75,9 @@ forkJoin({
 Use `concatMap` when operations must run sequentially and order matters:
 
 ```ts
-saveClicks.pipe(
-  concatMap((payload) => this.ordersService.save(payload)),
-).subscribe();
+saveClicks
+  .pipe(concatMap((payload) => this.ordersService.save(payload)))
+  .subscribe();
 ```
 
 In Angular components, prefer `async` in templates or use `takeUntilDestroyed` for imperative subscriptions:
@@ -94,12 +94,14 @@ Avoid nested subscriptions:
 
 ```ts
 this.route.paramMap.subscribe((params) => {
-  const id = params.get('id');
+  const id = params.get("id");
 
   this.usersService.getUserDetails(id).subscribe((user) => {
-    this.permissionsService.getPermissions(user.role).subscribe((permissions) => {
-      this.viewModel = { user, permissions };
-    });
+    this.permissionsService
+      .getPermissions(user.role)
+      .subscribe((permissions) => {
+        this.viewModel = { user, permissions };
+      });
   });
 });
 ```

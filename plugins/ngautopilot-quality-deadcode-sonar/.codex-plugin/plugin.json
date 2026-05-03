@@ -1,6 +1,6 @@
 {
   "name": "ngautopilot-quality-deadcode-sonar",
-  "version": "0.1.0",
+  "version": "0.3.1",
   "description": "NgAutoPilot dead-code and Sonar-focused skills for export cleanup, orphan removal, and quality gate triage.",
   "author": {
     "name": "Jan Pereira",

@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: i18n
 status: draft
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - @angular/localize

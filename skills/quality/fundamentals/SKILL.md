@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: quality
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - quality fundamentals
@@ -90,4 +90,3 @@ When this skill is used, the agent should:
 3. Keep the scope at architecture and cleanup-path level.
 4. Preserve the debt ledger.
 5. Summarize the quality improvement plan.
-

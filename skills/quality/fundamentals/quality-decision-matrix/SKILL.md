@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: quality
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - quality decision matrix
@@ -89,4 +89,3 @@ When this skill is used, the agent should:
 3. Explain why the other options were rejected.
 4. Keep the cleanup bounded.
 5. Point to the next specialized skill if needed.
-

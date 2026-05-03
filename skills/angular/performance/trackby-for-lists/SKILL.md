@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - ngFor
@@ -42,9 +42,7 @@ Use this skill when:
 For `*ngFor`, use a stable `trackBy` function:
 
 ```html
-<li *ngFor="let item of items; trackBy: trackByItemId">
-  {{ item.name }}
-</li>
+<li *ngFor="let item of items; trackBy: trackByItemId">{{ item.name }}</li>
 ```
 
 ```ts
@@ -57,7 +55,7 @@ For Angular control flow with `@for`, use a stable `track` expression:
 
 ```html
 @for (item of items(); track item.id) {
-  <li>{{ item.name }}</li>
+<li>{{ item.name }}</li>
 }
 ```
 
@@ -69,16 +67,14 @@ When the project uses `@for`, prefer `track item.id` or an equivalent stable key
 Avoid rendering lists without a stable identity:
 
 ```html
-<li *ngFor="let item of items">
-  {{ item.name }}
-</li>
+<li *ngFor="let item of items">{{ item.name }}</li>
 ```
 
 Avoid unstable tracking values:
 
 ```html
 @for (item of items; track buildRandomKey(item)) {
-  <li>{{ item.name }}</li>
+<li>{{ item.name }}</li>
 }
 ```
 

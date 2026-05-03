@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - lazy loading
@@ -77,9 +77,9 @@ Use `@defer` for non-critical visual content in Angular 17+:
 
 ```html
 @defer (on viewport) {
-  <app-heavy-widget />
+<app-heavy-widget />
 } @placeholder {
-  <app-heavy-widget-skeleton />
+<app-heavy-widget-skeleton />
 }
 ```
 
@@ -91,7 +91,7 @@ Prefer route boundaries first, then component-level lazy loading, then visual de
 Avoid eager feature imports:
 
 ```ts
-import { AdminModule } from './admin/admin.module';
+import { AdminModule } from "./admin/admin.module";
 ```
 
 Avoid placing large feature dependencies in a global shared module.

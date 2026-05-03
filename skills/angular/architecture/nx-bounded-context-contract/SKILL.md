@@ -9,7 +9,7 @@ stack:
   - Nx
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - nx bounded context
@@ -167,4 +167,3 @@ When this skill is used, the agent should:
 3. Recommend a bounded-context taxonomy.
 4. Align shared UI, domain, and data-access policies.
 5. Produce the smallest safe set of changes needed to enforce the contract.
-

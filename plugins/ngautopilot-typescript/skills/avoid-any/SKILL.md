@@ -6,11 +6,10 @@ stack:
   - TypeScript
 category: strict-types
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 ---
 
 # Avoid Any
 
 Use this skill when unsafe `any` types need to be removed.
-

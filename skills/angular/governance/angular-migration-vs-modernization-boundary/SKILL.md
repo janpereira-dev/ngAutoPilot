@@ -6,7 +6,7 @@ stack:
   - Angular
 category: governance
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - migration vs modernization
@@ -17,7 +17,6 @@ triggers:
 # Angular Migration Vs Modernization Boundary
 
 Use this skill to keep upgrade hops and post-upgrade modernization separate.
-
 
 ## Expected Output
 

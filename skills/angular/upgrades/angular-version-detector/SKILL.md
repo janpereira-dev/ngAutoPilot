@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: upgrades
 status: draft
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - Angular version detection
@@ -61,12 +61,12 @@ Do not use this skill when:
 
 ## Compatibility by Version
 
-| Evidence area | Strategy recommended | Observations |
-|---|---|---|
-| Angular packages | Read installed versions from project files | Use the exact major from the repository, not memory. |
-| TypeScript | Record the installed version and compare against the target hop | Do not guess the supported range. |
-| RxJS | Record the installed version and compare against the target hop | Upgrades may require compatible operator usage. |
-| zone.js | Record the installed version if present | Some major hops require matching runtime expectations. |
+| Evidence area    | Strategy recommended                                            | Observations                                           |
+| ---------------- | --------------------------------------------------------------- | ------------------------------------------------------ |
+| Angular packages | Read installed versions from project files                      | Use the exact major from the repository, not memory.   |
+| TypeScript       | Record the installed version and compare against the target hop | Do not guess the supported range.                      |
+| RxJS             | Record the installed version and compare against the target hop | Upgrades may require compatible operator usage.        |
+| zone.js          | Record the installed version if present                         | Some major hops require matching runtime expectations. |
 
 If a version cannot be confirmed from the project files, mark it as `verify in project`.
 
@@ -92,12 +92,12 @@ If a version cannot be confirmed from the project files, mark it as `verify in p
 
 Return a compact evidence table:
 
-| Package | Version | Status |
-|---|---|---|
-| `@angular/core` | `x.y.z` | confirmed |
-| `typescript` | `x.y.z` | confirmed |
-| `rxjs` | `x.y.z` | confirmed |
-| `zone.js` | `x.y.z` | confirmed or verify in project |
+| Package         | Version | Status                         |
+| --------------- | ------- | ------------------------------ |
+| `@angular/core` | `x.y.z` | confirmed                      |
+| `typescript`    | `x.y.z` | confirmed                      |
+| `rxjs`          | `x.y.z` | confirmed                      |
+| `zone.js`       | `x.y.z` | confirmed or verify in project |
 
 Add a compatibility note:
 
@@ -166,4 +166,3 @@ This skill is complete only when:
 - The source Angular major is identified or marked verify in project.
 - Compatibility versions are recorded.
 - No dependency or code changes have been made.
-

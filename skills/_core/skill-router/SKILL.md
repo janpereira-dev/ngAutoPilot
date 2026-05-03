@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: core
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - route skill
@@ -138,6 +138,7 @@ Use this format:
 
 ```md
 ## Skill Routing
+
 - Primary skill:
 - Secondary skill:
 - Reason:

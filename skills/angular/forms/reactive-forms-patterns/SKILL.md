@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: forms
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - reactive forms
@@ -114,4 +114,3 @@ When this skill is used, the agent should:
 3. Separate validation, mapping, and orchestration concerns.
 4. Provide typed form examples when possible.
 5. Suggest tests for validation and submission behavior.
-

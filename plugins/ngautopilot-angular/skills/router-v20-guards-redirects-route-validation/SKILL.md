@@ -6,11 +6,10 @@ stack:
   - Angular
 category: upgrades
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 ---
 
 # Angular V20 Guards Redirects Route Validation
 
 Use this skill when router guards, redirects, or route validation are part of the Angular 20 upgrade path.
-

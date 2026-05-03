@@ -6,7 +6,7 @@ stack:
   - Angular
 category: router
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - route configuration
@@ -17,7 +17,6 @@ triggers:
 # Angular Route Configuration Patterns
 
 Use this skill to keep Angular route configuration maintainable.
-
 
 ## Expected Output
 

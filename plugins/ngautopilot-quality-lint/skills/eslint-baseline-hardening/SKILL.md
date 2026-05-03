@@ -7,11 +7,10 @@ stack:
   - TypeScript
 category: eslint
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 ---
 
 # ESLint Baseline Hardening
 
 Use this skill to harden ESLint in small, safe steps.
-

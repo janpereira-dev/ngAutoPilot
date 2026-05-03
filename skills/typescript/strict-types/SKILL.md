@@ -7,7 +7,7 @@ stack:
   - TypeScript
 category: strict-types
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - typescript strict types
@@ -91,4 +91,3 @@ When this skill is used, the agent should:
 3. Consider strict-mode variants when needed.
 4. Keep the scope at architecture and learning-path level.
 5. Summarize the TypeScript strict-types adoption plan.
-

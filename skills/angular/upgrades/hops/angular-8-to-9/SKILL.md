@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: upgrades
 status: draft
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - Angular 8 to 9

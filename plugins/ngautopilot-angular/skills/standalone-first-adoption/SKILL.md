@@ -7,7 +7,7 @@ stack:
   - TypeScript
 category: modernization
 status: draft
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 ---
 
@@ -18,4 +18,3 @@ Adopt standalone components and bootstrap APIs in bounded modernization slices a
 ## Purpose
 
 Use this skill to reduce `NgModule` usage incrementally.
-

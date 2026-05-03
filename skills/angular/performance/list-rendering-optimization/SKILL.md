@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - list rendering
@@ -53,9 +53,7 @@ Use this skill when:
 For Angular 2-16 or legacy templates, use `trackBy`:
 
 ```html
-<div *ngFor="let item of items; trackBy: trackById">
-  {{ item.name }}
-</div>
+<div *ngFor="let item of items; trackBy: trackById">{{ item.name }}</div>
 ```
 
 ```ts
@@ -68,7 +66,7 @@ For Angular 17+ new templates, use `@for` with `track`:
 
 ```html
 @for (item of items; track item.id) {
-  <div>{{ item.name }}</div>
+<div>{{ item.name }}</div>
 }
 ```
 
@@ -79,16 +77,14 @@ For very large lists, evaluate virtual scrolling after identity tracking is corr
 Avoid missing identity tracking:
 
 ```html
-<div *ngFor="let item of items">
-  {{ item.name }}
-</div>
+<div *ngFor="let item of items">{{ item.name }}</div>
 ```
 
 Avoid unstable keys:
 
 ```html
 @for (item of items; track createRandomId(item)) {
-  <div>{{ item.name }}</div>
+<div>{{ item.name }}</div>
 }
 ```
 

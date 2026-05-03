@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: sonarqube
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - duplication coverage
@@ -77,4 +77,3 @@ When this skill is used, the agent should:
 3. Avoid bad abstractions.
 4. Keep tests behavior-focused.
 5. Produce a pragmatic hardening plan.
-

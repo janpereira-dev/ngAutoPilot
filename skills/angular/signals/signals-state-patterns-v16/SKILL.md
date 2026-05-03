@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: signals
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - signals v16
@@ -69,4 +69,3 @@ When this skill is used, the agent should:
 3. Separate derivation from side effects.
 4. Preserve RxJS for async work.
 5. Produce 16+ guidance only.
-

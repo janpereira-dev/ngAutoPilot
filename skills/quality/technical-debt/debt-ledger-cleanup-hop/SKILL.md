@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: technical-debt
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - debt ledger
@@ -84,4 +84,3 @@ When this skill is used, the agent should:
 3. Defer and explain the rest.
 4. Validate the hop.
 5. Keep the PR small and traceable.
-

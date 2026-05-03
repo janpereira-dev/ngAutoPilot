@@ -6,11 +6,10 @@ stack:
   - Angular
 category: material
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 ---
 
 # Angular Material Theming System
 
 Use this skill when theme and density changes need to stay coherent.
-

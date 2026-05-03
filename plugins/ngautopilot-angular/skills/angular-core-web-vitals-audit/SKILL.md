@@ -6,11 +6,10 @@ stack:
   - Angular
 category: performance
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 ---
 
 # Angular Core Web Vitals Audit
 
 Use this skill before performance work so the change starts with evidence.
-

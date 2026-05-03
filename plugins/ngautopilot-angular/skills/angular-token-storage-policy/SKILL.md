@@ -6,11 +6,10 @@ stack:
   - Angular
 category: security
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 ---
 
 # Angular Token Storage Policy
 
 Use this skill when auth tokens need a storage strategy.
-

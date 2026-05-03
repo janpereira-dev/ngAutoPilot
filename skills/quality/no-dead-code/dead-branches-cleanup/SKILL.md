@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: no-dead-code
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - dead branches
@@ -75,4 +75,3 @@ When this skill is used, the agent should:
 3. Keep compatibility in view.
 4. Validate behavior.
 5. Keep the cleanup bounded.
-

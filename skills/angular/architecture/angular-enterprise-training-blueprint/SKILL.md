@@ -10,7 +10,7 @@ stack:
   - Nx
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - angular enterprise training
@@ -114,26 +114,26 @@ refactoring checkpoints
 
 Structure the plan as a capability matrix:
 
-| Area | Expected capability | Minimum output |
-|---|---|---|
-| TypeScript | Understand Angular-oriented TypeScript patterns | Typed models, discriminated unions, safe null handling |
-| Angular CLI | Create and inspect Angular projects | Project generated and structure explained |
-| Components | Build maintainable UI blocks | Smart/presentational split where needed |
-| Templates | Use binding safely | No heavy logic in templates |
-| Services | Extract reusable business/application logic | Services with clear responsibility |
-| Dependency Injection | Understand providers, tokens, scopes and hierarchy | Provider decisions justified |
-| HTTP | Fetch data with error handling | Typed API service |
-| RxJS | Model async flows correctly | No nested subscriptions |
-| Signals | Use `signal`, `computed` and `effect` appropriately | Local reactive state without overengineering |
-| RxJS interop | Bridge Observable and Signal worlds safely | Clear boundary between streams and signals |
-| Forms | Build template-driven and reactive forms | Validators and error handling |
-| Typed forms | Use typed reactive forms where version allows | Strongly typed form model |
-| Routing | Configure navigation and params | Lazy loaded route |
-| Testing | Test class, template and service behavior | Unit tests with mocks/spies |
-| E2E | Validate critical user flows | Cypress or Playwright scenario |
-| Performance | Detect avoidable rendering and bundle issues | Lazy loading, trackBy/@for track, OnPush/signals review |
-| Security | Avoid unsafe binding and weak auth assumptions | Security risk checklist |
-| Architecture | Explain trade-offs | ADR or architecture note |
+| Area                 | Expected capability                                 | Minimum output                                          |
+| -------------------- | --------------------------------------------------- | ------------------------------------------------------- |
+| TypeScript           | Understand Angular-oriented TypeScript patterns     | Typed models, discriminated unions, safe null handling  |
+| Angular CLI          | Create and inspect Angular projects                 | Project generated and structure explained               |
+| Components           | Build maintainable UI blocks                        | Smart/presentational split where needed                 |
+| Templates            | Use binding safely                                  | No heavy logic in templates                             |
+| Services             | Extract reusable business/application logic         | Services with clear responsibility                      |
+| Dependency Injection | Understand providers, tokens, scopes and hierarchy  | Provider decisions justified                            |
+| HTTP                 | Fetch data with error handling                      | Typed API service                                       |
+| RxJS                 | Model async flows correctly                         | No nested subscriptions                                 |
+| Signals              | Use `signal`, `computed` and `effect` appropriately | Local reactive state without overengineering            |
+| RxJS interop         | Bridge Observable and Signal worlds safely          | Clear boundary between streams and signals              |
+| Forms                | Build template-driven and reactive forms            | Validators and error handling                           |
+| Typed forms          | Use typed reactive forms where version allows       | Strongly typed form model                               |
+| Routing              | Configure navigation and params                     | Lazy loaded route                                       |
+| Testing              | Test class, template and service behavior           | Unit tests with mocks/spies                             |
+| E2E                  | Validate critical user flows                        | Cypress or Playwright scenario                          |
+| Performance          | Detect avoidable rendering and bundle issues        | Lazy loading, trackBy/@for track, OnPush/signals review |
+| Security             | Avoid unsafe binding and weak auth assumptions      | Security risk checklist                                 |
+| Architecture         | Explain trade-offs                                  | ADR or architecture note                                |
 
 Make the plan version-aware:
 
@@ -203,4 +203,3 @@ When this skill is used, the agent should:
 3. Design a continuous enterprise case study.
 4. Produce a version-aware module plan with exercises and validation.
 5. Call out risks, anti-patterns, and follow-up skills.
-

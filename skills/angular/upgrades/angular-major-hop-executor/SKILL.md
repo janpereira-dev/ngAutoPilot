@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: upgrades
 status: draft
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - major hop executor
@@ -59,11 +59,11 @@ Do not use this skill when:
 
 ## Compatibility by Version
 
-| Hop | Strategy recommended | Observations |
-|---|---|---|
-| Any Angular major hop | Upgrade one major at a time | Validate after the hop and stop. |
-| Angular 2-4 | Use the dedicated early-hop rules | Preserve older compatibility constraints. |
-| Angular 5+ | Continue with the next matching hop executor | Do not batch majors. |
+| Hop                   | Strategy recommended                         | Observations                              |
+| --------------------- | -------------------------------------------- | ----------------------------------------- |
+| Any Angular major hop | Upgrade one major at a time                  | Validate after the hop and stop.          |
+| Angular 2-4           | Use the dedicated early-hop rules            | Preserve older compatibility constraints. |
+| Angular 5+            | Continue with the next matching hop executor | Do not batch majors.                      |
 
 If a version cannot be confirmed from the project files, mark it as `verify in project`.
 
@@ -164,4 +164,3 @@ This skill is complete only when:
 - One hop has been executed.
 - Validation has been run or explicitly blocked.
 - The next hop has not been started.
-

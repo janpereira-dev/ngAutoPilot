@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: core
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - project intake
@@ -137,6 +137,7 @@ Use this format:
 
 ```md
 ## Project Intake
+
 - Project type:
 - Frameworks:
 - Package manager:

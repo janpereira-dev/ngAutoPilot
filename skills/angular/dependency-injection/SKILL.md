@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: dependency-injection
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - dependency injection
@@ -185,8 +185,8 @@ Use DI instead of manual construction:
 
 ```ts
 @Component({
-  selector: 'app-user-panel',
-  templateUrl: './user-panel.component.html',
+  selector: "app-user-panel",
+  templateUrl: "./user-panel.component.html",
 })
 export class UserPanelComponent {
   constructor(private readonly userService: UserService) {}
@@ -196,7 +196,7 @@ export class UserPanelComponent {
 Use modern `inject()` only in supported contexts:
 
 ```ts
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class UserFacade {
   private readonly userApi = inject(UserApiService);
   private readonly userState = inject(UserStateService);
@@ -207,7 +207,7 @@ Use root providers for true app-wide services:
 
 ```ts
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class UserApiService {}
 ```
@@ -216,8 +216,8 @@ Use component providers for isolated component state:
 
 ```ts
 @Component({
-  selector: 'app-user-panel',
-  templateUrl: './user-panel.component.html',
+  selector: "app-user-panel",
+  templateUrl: "./user-panel.component.html",
   providers: [UserPanelStateService],
 })
 export class UserPanelComponent {
@@ -232,7 +232,7 @@ export interface AppConfig {
   apiUrl: string;
 }
 
-export const APP_CONFIG = new InjectionToken<AppConfig>('APP_CONFIG');
+export const APP_CONFIG = new InjectionToken<AppConfig>("APP_CONFIG");
 ```
 
 ```ts
@@ -241,7 +241,7 @@ export const appConfig: ApplicationConfig = {
     {
       provide: APP_CONFIG,
       useValue: {
-        apiUrl: 'https://api.example.com',
+        apiUrl: "https://api.example.com",
       },
     },
   ],
@@ -253,16 +253,18 @@ Use provider variants intentionally:
 ```ts
 [
   { provide: LoggerPort, useClass: ConsoleLoggerService },
-  { provide: API_URL, useValue: 'https://api.example.com' },
+  { provide: API_URL, useValue: "https://api.example.com" },
   { provide: LoggerPort, useExisting: AppLoggerService },
   {
     provide: AuthStrategy,
     useFactory: () => {
       const config = inject(APP_CONFIG);
-      return config.useMockAuth ? new MockAuthStrategy() : new RealAuthStrategy();
+      return config.useMockAuth
+        ? new MockAuthStrategy()
+        : new RealAuthStrategy();
     },
   },
-]
+];
 ```
 
 Use multi providers for extension points:
@@ -310,7 +312,7 @@ export class UserComponent {
 Avoid placing every service in root:
 
 ```ts
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class WizardStepStateService {}
 ```
 
@@ -350,24 +352,30 @@ Use this format when reviewing DI:
 
 ```md
 ## DI Diagnosis
+
 - Angular version:
 - Architecture style:
 - Provider scope:
 - Current issue:
 
 ## Recommended Pattern
+
 - ...
 
 ## Code Proposal
+
 - Provide the smallest compatible code change.
 
 ## Testing Impact
+
 - ...
 
 ## Risks
+
 - ...
 
 ## Validation Checklist
+
 - ...
 ```
 

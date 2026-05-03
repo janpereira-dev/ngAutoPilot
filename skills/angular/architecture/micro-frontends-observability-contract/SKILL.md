@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - micro fronts observability
@@ -111,4 +111,3 @@ When this skill is used, the agent should:
 3. Flag blind spots in failure visibility.
 4. Recommend minimal but useful metrics and logs.
 5. Produce an operational visibility contract.
-

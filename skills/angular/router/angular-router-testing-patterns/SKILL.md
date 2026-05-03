@@ -6,7 +6,7 @@ stack:
   - Angular
 category: router
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - router testing
@@ -17,7 +17,6 @@ triggers:
 # Angular Router Testing Patterns
 
 Use this skill when route behavior needs test coverage.
-
 
 ## Expected Output
 

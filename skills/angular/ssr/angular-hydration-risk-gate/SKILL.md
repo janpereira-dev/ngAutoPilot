@@ -6,7 +6,7 @@ stack:
   - Angular
 category: ssr
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - hydration risk
@@ -17,7 +17,6 @@ triggers:
 # Angular Hydration Risk Gate
 
 Use this skill to gate hydration changes with a bounded risk check.
-
 
 ## Expected Output
 

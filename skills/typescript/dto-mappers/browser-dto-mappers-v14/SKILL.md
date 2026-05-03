@@ -8,7 +8,7 @@ stack:
   - Browser
 category: dto-mappers
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - browser dto mapping
@@ -66,4 +66,3 @@ When this skill is used, the agent should:
 3. Keep mapping pure.
 4. Avoid raw DTO leakage into UI code.
 5. Produce browser-safe mapping guidance.
-

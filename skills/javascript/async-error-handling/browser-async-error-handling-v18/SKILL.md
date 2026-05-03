@@ -9,7 +9,7 @@ stack:
   - Browser
 category: javascript
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - browser async error handling
@@ -74,4 +74,3 @@ When this skill is used, the agent should:
 3. Preserve error context for telemetry.
 4. Keep UX recoverable.
 5. Produce browser-specific guidance.
-

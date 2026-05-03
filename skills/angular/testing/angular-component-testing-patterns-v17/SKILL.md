@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: testing
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - component testing v17
@@ -69,4 +69,3 @@ When this skill is used, the agent should:
 3. Keep markup coupling low.
 4. Use host tests when needed.
 5. Produce modern Angular testing guidance.
-

@@ -7,7 +7,7 @@ stack:
   - TypeScript
 category: strict-types
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - strict mode typescript
@@ -67,4 +67,3 @@ When this skill is used, the agent should:
 3. Flag broad assertions and unsafe `any`.
 4. Keep contracts explicit at boundaries.
 5. Produce strict-mode-specific guidance.
-

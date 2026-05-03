@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: eslint
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - eslint disable governance
@@ -88,4 +88,3 @@ When this skill is used, the agent should:
 3. Remove unnecessary disables.
 4. Preserve behavior.
 5. Record remaining suppressions clearly.
-

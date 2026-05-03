@@ -6,11 +6,10 @@ stack:
   - Angular
 category: performance
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 ---
 
 # Angular Bundle Budget Governance
 
 Use this skill to keep bundle growth under control.
-

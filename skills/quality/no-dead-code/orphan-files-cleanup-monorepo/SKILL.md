@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: no-dead-code
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - orphan files monorepo
@@ -72,4 +72,3 @@ When this skill is used, the agent should:
 3. Remove dead files safely.
 4. Validate the repo.
 5. Keep the cleanup bounded.
-

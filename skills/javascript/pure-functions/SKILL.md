@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: javascript
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - pure functions
@@ -114,4 +114,3 @@ When this skill is used, the agent should:
 3. Keep computation separate from effects.
 4. Preserve error behavior.
 5. Add deterministic tests.
-

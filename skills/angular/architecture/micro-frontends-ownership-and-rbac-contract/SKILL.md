@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - micro frontends ownership
@@ -113,4 +113,3 @@ When this skill is used, the agent should:
 3. Flag unclear or overly broad permissions.
 4. Define boundary checks at shell and remote levels.
 5. Recommend a least-privilege governance model.
-

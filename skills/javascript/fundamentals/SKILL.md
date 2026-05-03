@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: javascript
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - javascript fundamentals
@@ -97,4 +97,3 @@ When this skill is used, the agent should:
 3. Consider runtime-specific variants when needed.
 4. Keep the scope at architecture and learning-path level.
 5. Summarize the JavaScript fundamentals adoption plan.
-

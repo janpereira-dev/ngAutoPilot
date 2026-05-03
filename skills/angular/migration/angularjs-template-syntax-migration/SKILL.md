@@ -7,7 +7,7 @@ stack:
   - Angular
 category: migration
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - template syntax migration
@@ -18,7 +18,6 @@ triggers:
 # AngularJS Template Syntax Migration
 
 Use this skill when legacy templates must be migrated incrementally.
-
 
 ## Expected Output
 

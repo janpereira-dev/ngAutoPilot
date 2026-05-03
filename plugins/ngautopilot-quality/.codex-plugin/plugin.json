@@ -1,6 +1,6 @@
 {
   "name": "ngautopilot-quality",
-  "version": "0.1.0",
+  "version": "0.3.1",
   "description": "Quality-focused NgAutoPilot skills for testing, review, governance, and small safe changes.",
   "author": {
     "name": "Jan Pereira",

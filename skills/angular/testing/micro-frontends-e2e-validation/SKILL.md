@@ -10,7 +10,7 @@ stack:
   - Testing
 category: testing
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - micro frontends e2e
@@ -125,4 +125,3 @@ When this skill is used, the agent should:
 3. Include failure-path validation.
 4. Keep tests focused on runtime composition risks.
 5. Recommend release gating for remote changes.
-

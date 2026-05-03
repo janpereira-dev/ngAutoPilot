@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: templates
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - extended diagnostics upgrade gate

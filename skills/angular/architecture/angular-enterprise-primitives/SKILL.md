@@ -10,7 +10,7 @@ stack:
   - Testing
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - angular enterprise primitives
@@ -102,4 +102,3 @@ When this skill is used, the agent should:
 3. Keep the scope at architecture and learning-path level.
 4. Route detailed implementation to the specialized skills.
 5. Summarize the enterprise primitive adoption plan.
-

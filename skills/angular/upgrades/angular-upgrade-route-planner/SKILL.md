@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: upgrades
 status: draft
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - Angular upgrade route
@@ -61,12 +61,12 @@ Do not use this skill when:
 
 ## Compatibility by Version
 
-| Source major | Strategy recommended | Observations |
-|---|---|---|
-| Angular 2+ | Plan one hop at a time | Do not skip majors. |
-| Angular 2-4 | Route to `angular-2-to-4` if needed | Use the matching hop executor. |
-| Angular 5+ | Build the remaining chain major by major | Validate after each hop. |
-| Angular 17+ | Check whether modern syntax or tooling can be used in later hops | Verify support before planning. |
+| Source major | Strategy recommended                                             | Observations                    |
+| ------------ | ---------------------------------------------------------------- | ------------------------------- |
+| Angular 2+   | Plan one hop at a time                                           | Do not skip majors.             |
+| Angular 2-4  | Route to `angular-2-to-4` if needed                              | Use the matching hop executor.  |
+| Angular 5+   | Build the remaining chain major by major                         | Validate after each hop.        |
+| Angular 17+  | Check whether modern syntax or tooling can be used in later hops | Verify support before planning. |
 
 If a version cannot be confirmed from the project files, mark it as `verify in project`.
 

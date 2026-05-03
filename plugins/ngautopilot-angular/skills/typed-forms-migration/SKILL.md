@@ -6,11 +6,10 @@ stack:
   - Angular
 category: upgrades
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 ---
 
 # Angular Typed Forms Migration
 
 Use this skill when moving Angular forms toward typed forms.
-

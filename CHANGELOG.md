@@ -2,7 +2,7 @@
 
 All notable changes to NgAutoPilot will be documented in this file.
 
-## 0.3.0 - 2026-05-03
+## 0.3.1 - 2026-05-03
 
 Release focused on public DX, naming consistency, and cleaner release communication.
 

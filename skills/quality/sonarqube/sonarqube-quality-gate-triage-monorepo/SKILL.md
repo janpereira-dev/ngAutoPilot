@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: sonarqube
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - sonar monorepo triage
@@ -70,4 +70,3 @@ When this skill is used, the agent should:
 3. Prioritize the gate impact.
 4. Keep the response actionable.
 5. Avoid noisy over-reporting.
-

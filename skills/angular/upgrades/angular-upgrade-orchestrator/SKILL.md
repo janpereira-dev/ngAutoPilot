@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: upgrades
 status: draft
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - Angular upgrade
@@ -78,12 +78,12 @@ skills/angular/upgrades/hops/angular-2-to-4/SKILL.md
 
 ## Compatibility by Version
 
-| Angular source | Strategy recommended | Observations |
-|---|---|---|
-| Angular 2+ | Upgrade one major hop at a time | Do not skip validation between hops. |
-| Angular 2-4 | Use the matching hop skill | Route to `angular-2-to-4` first if needed. |
-| Angular 5+ | Continue with the next major hop skill | Do not batch multiple majors in one execution. |
-| Angular 17+ | Modern APIs may be available depending on the project | Verify before recommending them. |
+| Angular source | Strategy recommended                                  | Observations                                   |
+| -------------- | ----------------------------------------------------- | ---------------------------------------------- |
+| Angular 2+     | Upgrade one major hop at a time                       | Do not skip validation between hops.           |
+| Angular 2-4    | Use the matching hop skill                            | Route to `angular-2-to-4` first if needed.     |
+| Angular 5+     | Continue with the next major hop skill                | Do not batch multiple majors in one execution. |
+| Angular 17+    | Modern APIs may be available depending on the project | Verify before recommending them.               |
 
 If a version cannot be confirmed from the project files, mark it as `verify in project`.
 

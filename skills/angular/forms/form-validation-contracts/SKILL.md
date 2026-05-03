@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: forms
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - form validation
@@ -66,7 +66,9 @@ server-side error mapping
 Keep reusable validators pure where possible:
 
 ```ts
-export function postalCodeValidator(control: AbstractControl): ValidationErrors | null {
+export function postalCodeValidator(
+  control: AbstractControl,
+): ValidationErrors | null {
   return /^\d{5}$/.test(control.value) ? null : { postalCode: true };
 }
 ```
@@ -108,4 +110,3 @@ When this skill is used, the agent should:
 3. Define field, cross-field, and server error handling.
 4. Clarify when async validation is appropriate.
 5. Suggest validation tests and UI error behavior.
-

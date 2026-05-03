@@ -9,7 +9,7 @@ stack:
   - Node.js
 category: javascript
 status: stable
-version: 0.1.0
+version: 0.3.1
 owner: NgAutoPilot
 triggers:
   - node async error handling v20
@@ -72,4 +72,3 @@ When this skill is used, the agent should:
 3. Keep rejection behavior explicit.
 4. Preserve error context.
 5. Produce Node 20+ guidance.
-
