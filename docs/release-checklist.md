@@ -41,7 +41,7 @@ Use this checklist when preparing a public NgAutoPilot release.
    - title: `NgAutoPilot vX.Y.Z`
    - add release notes
    - link the npm package
-   - document breaking CLI or generated-path changes explicitly
+   - document any breaking CLI or generated-path changes explicitly
 
 ## Post-release
 
