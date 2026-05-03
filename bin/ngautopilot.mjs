@@ -39,18 +39,18 @@ function help() {
 NgAutoPilot
 
 Usage:
-  ng-autopilot help
-  ng-autopilot list
-  ng-autopilot init
-  ng-autopilot add <skill-id>
-  ng-autopilot adapter <codex|copilot|claude|cursor|gemini|generic>
-  ng-autopilot doctor
+  ngautopilot help
+  ngautopilot list
+  ngautopilot init
+  ngautopilot add <skill-id>
+  ngautopilot adapter <codex|copilot|claude|cursor|gemini|generic>
+  ngautopilot doctor
 
 Examples:
-  ng-autopilot list
-  ng-autopilot init
-  ng-autopilot add angular.performance.onpush-change-detection
-  ng-autopilot adapter codex
+  ngautopilot list
+  ngautopilot init
+  ngautopilot add angular.performance.onpush-change-detection
+  ngautopilot adapter codex
 `);
 }
 
@@ -62,7 +62,7 @@ function listSkills() {
 }
 
 function initProject() {
-  const targetRoot = path.join(process.cwd(), '.ng-autopilot');
+  const targetRoot = path.join(process.cwd(), '.ngautopilot');
   copyRecursive(skillsPath, path.join(targetRoot, 'skills'));
   copyRecursive(adaptersPath, path.join(targetRoot, 'adapters'));
   copyRecursive(catalogPath, path.join(targetRoot, 'catalog.json'));
@@ -71,7 +71,7 @@ function initProject() {
 
 function addSkill(skillId) {
   if (!skillId) {
-    throw new Error('Missing skill id. Example: ng-autopilot add angular.performance.onpush-change-detection');
+    throw new Error('Missing skill id. Example: ngautopilot add angular.performance.onpush-change-detection');
   }
 
   const catalog = readJson(catalogPath);
@@ -82,14 +82,14 @@ function addSkill(skillId) {
   }
 
   const source = path.join(packageRoot, skill.path);
-  const target = path.join(process.cwd(), '.ng-autopilot', skill.path);
+  const target = path.join(process.cwd(), '.ngautopilot', skill.path);
   copyRecursive(source, target);
   console.log(`Installed skill: ${skill.id}`);
 }
 
 function addAdapter(adapterName) {
   if (!adapterName) {
-    throw new Error('Missing adapter name. Example: ng-autopilot adapter codex');
+    throw new Error('Missing adapter name. Example: ngautopilot adapter codex');
   }
 
   const allowed = new Set(['codex', 'copilot', 'claude', 'cursor', 'gemini', 'generic']);
@@ -98,7 +98,7 @@ function addAdapter(adapterName) {
   }
 
   const source = path.join(adaptersPath, adapterName);
-  const target = path.join(process.cwd(), '.ng-autopilot', 'adapters', adapterName);
+  const target = path.join(process.cwd(), '.ngautopilot', 'adapters', adapterName);
   copyRecursive(source, target);
   console.log(`Installed adapter: ${adapterName}`);
 }

@@ -15,7 +15,7 @@ Use this checklist when preparing a public NgAutoPilot release.
    - `npm run publish:validate`
    - `npm pack --dry-run`
 4. Confirm the tarball includes:
-   - `bin/ng-autopilot.mjs`
+   - `bin/ngautopilot.mjs`
    - `skills/`
    - `adapters/`
    - `catalog.json`
@@ -35,18 +35,20 @@ Use this checklist when preparing a public NgAutoPilot release.
 ## GitHub Release
 
 8. Create the release tag:
-   - `git tag v0.2.1`
-   - `git push origin v0.2.1`
+   - `git tag vX.Y.Z`
+   - `git push origin vX.Y.Z`
 9. Create the GitHub Release:
-   - title: `NgAutoPilot v0.2.1`
+   - title: `NgAutoPilot vX.Y.Z`
    - add release notes
    - link the npm package
+   - document any breaking CLI or generated-path changes explicitly
 
 ## Post-release
 
 10. Verify the public package:
     - `npm view ngautopilot`
-    - `npx ng-autopilot help`
+    - `npm exec --package=ngautopilot -- ngautopilot help`
+    - `npm exec --package=ngautopilot -- ngautopilot init`
 11. If you want automation:
     - keep `.github/workflows/release.yml` for `release` published events
     - keep `workflow_dispatch` as a manual fallback

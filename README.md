@@ -1,134 +1,107 @@
 # NgAutoPilot
 
+[![npm version](https://img.shields.io/npm/v/ngautopilot?style=flat-square&logo=npm&label=npm)](https://www.npmjs.com/package/ngautopilot)
+[![npm downloads](https://img.shields.io/npm/dw/ngautopilot?style=flat-square&logo=npm&label=downloads)](https://www.npmjs.com/package/ngautopilot)
+[![CI](https://img.shields.io/github/actions/workflow/status/janpereira-dev/ngAutoPilot/ci.yml?branch=main&style=flat-square&logo=githubactions&label=CI)](https://github.com/janpereira-dev/ngAutoPilot/actions/workflows/ci.yml)
+[![Release Gates](https://img.shields.io/github/actions/workflow/status/janpereira-dev/ngAutoPilot/release-gates.yml?branch=main&style=flat-square&logo=githubactions&label=release%20gates)](https://github.com/janpereira-dev/ngAutoPilot/actions/workflows/release-gates.yml)
+[![License](https://img.shields.io/npm/l/ngautopilot?style=flat-square&label=license)](https://github.com/janpereira-dev/ngAutoPilot/blob/main/LICENSE)
+[![Node](https://img.shields.io/node/v/ngautopilot?style=flat-square&logo=nodedotjs&label=node)](https://github.com/janpereira-dev/ngAutoPilot/blob/main/package.json)
+
 <p align="left">
   <img src="assets/ngautopilot-hero.svg" alt="NgAutoPilot hero banner" />
 </p>
 
-NgAutoPilot is a public, agent-agnostic catalog of micro-skills for Angular, TypeScript, JavaScript, RxJS, testing, code quality, architecture, versioning, and quality governance workflows.
+NgAutoPilot is an installable catalog of micro-skills that helps AI coding agents work safely in Angular, TypeScript, JavaScript, RxJS, testing, code quality, architecture, versioning, and governance workflows.
 
-It helps AI agents make better technical decisions with small, reusable instructions instead of one giant prompt.
+It keeps agents on a small, repeatable loop: inspect the repo, detect stack and versions, route to the smallest skill, apply compatibility and risk gates, make the smallest reversible change, and validate the result.
 
-> ## Documentation Index
-> Fetch the complete documentation index at: https://code.claude.com/docs/llms.txt
-> Use this file to discover all available pages before exploring further.
+## Quick Start
 
-## What NgAutoPilot Is
+```bash
+npm exec --package=ngautopilot -- ngautopilot help
+npm exec --package=ngautopilot -- ngautopilot list
+npm exec --package=ngautopilot -- ngautopilot init
+npm exec --package=ngautopilot -- ngautopilot doctor
+```
 
-NgAutoPilot is a skill system for real projects.
+After `init`, NgAutoPilot creates a local `.ngautopilot/` workspace with skills, adapters, and `catalog.json`.
 
-- 🧠 `skills/_core/` is the operating layer that decides how to think about a task.
-- 🏗️ `skills/angular/` holds Angular-specific skills for architecture, templates, DI, performance, RxJS, state, migrations, versioning, and upgrade hops.
-- 🧪 `skills/typescript/`, `skills/javascript/`, and `skills/quality/` cover cross-cutting concerns.
-- 🔌 `adapters/` contains templates for different agent ecosystems.
-- 📚 `docs/` contains extra guidance such as the Sage review packet.
-- 📦 `schemas/`, `templates/`, and `scripts/` keep the catalog structured and maintainable.
+## Naming
 
-## What It Is Not
-
-NgAutoPilot is not:
-
-- a giant prompt dump
-- a private internal playbook
-- a framework
-- a replacement for project architecture
-- a provider-locked skill pack
-
-NgAutoPilot includes a small CLI for installing, inspecting, and exporting reusable micro-skills. The CLI is a distribution channel, not the core product.
+| Concept | Value |
+| --- | --- |
+| npm package | `ngautopilot` |
+| CLI command | `ngautopilot` |
+| generated folder | `.ngautopilot/` |
+| GitHub repo | `janpereira-dev/ngAutoPilot` |
 
 ## Why It Exists
 
-Modern frontend work gets messy fast:
+AI coding agents often:
 
-- architecture decisions get mixed with local fixes
-- performance advice becomes repetitive
-- version compatibility is guessed instead of detected
-- broad prompts hide the smallest safe change
-- test guidance gets lost in long discussions
+- over-refactor instead of making the smallest safe change
+- guess Angular compatibility instead of detecting it
+- mix upgrade hops with modernization work
+- skip validation or release gates
+- apply generic advice to version-sensitive repositories
 
-NgAutoPilot turns that into a catalog of micro-skills that are:
+NgAutoPilot answers that with small, reusable, public skills that can be routed deterministically.
 
-- small
-- reusable
-- version-aware
-- easy to validate
-- safe to share publicly
+## What NgAutoPilot Is
+
+- A public catalog of micro-skills.
+- A routing layer for AI coding agents.
+- A safety layer for Angular and frontend change work.
+- A distribution package with a small CLI.
+- A repo with validation, catalog generation, publish bundles, and marketplace manifests.
+
+## What It Is Not
+
+- Not a framework.
+- Not an Angular runtime library.
+- Not an autopatcher.
+- Not a replacement for tests or review.
+- Not tied to a single AI vendor.
+
+## Main Use Cases
+
+| Use case | What NgAutoPilot helps with |
+| --- | --- |
+| Angular upgrades | major-by-major routing, compatibility gates, upgrade satellites |
+| Modernization after upgrades | standalone, control flow, `@defer`, zoneless readiness |
+| Performance audits | template functions, change detection, trackBy, Core Web Vitals |
+| Testing | Angular TestBed, Jest, strategy selection, validation contracts |
+| Quality workflows | lint cleanup, dead code, SonarQube triage, consistency checks |
+| Agent adapters | Codex, Claude Code, Copilot, Cursor, Gemini, generic exports |
 
 ## How It Works
+
+1. Inspect the repository and detect the stack.
+2. Select the smallest relevant skill.
+3. Apply compatibility and risk gates.
+4. Make the smallest reversible change.
+5. Validate the result.
+6. Package docs, bundles, or review artifacts when needed.
 
 <p align="left">
   <img src="assets/ngautopilot-flow.svg" alt="NgAutoPilot workflow diagram" />
 </p>
 
-1. Detect the project stack.
-2. Select the smallest skill that matches the task.
-3. Apply compatibility and risk gates.
-4. Make the smallest reversible change.
-5. Validate the result.
-6. Prepare the publish bundle or review packet when needed.
-
-The `_core` layer is the brain. It tells the agent how to inspect the repo, choose a skill, gate by compatibility, and keep the change small.
-
-## Skill Layers
-
-```txt
-skills/
-  _core/
-    autopilot-orchestrator/
-    project-intake/
-    stack-version-detection/
-    skill-router/
-    compatibility-router/
-    risk-assessment/
-  angular/
-    architecture/
-    components/
-    dependency-injection/
-    styles/
-    performance/
-    rxjs/
-    state/
-    services/
-      migration/
-      modernization/
-      docs/
-      upgrades/
-      microfrontends/
-      versioning/
-  typescript/
-  javascript/
-  css/
-  quality/
-  git/
-```
-
 ## Catalog Snapshot
 
 Current catalog size: **285 skills**
 
-| Category | Skills |
-| --- | ---: |
-| Core | 6 |
-| Angular architecture | 20+ |
-| Angular migration | 8 |
-| Angular modernization | 18 |
-| Angular performance | 13 |
-| Angular upgrades | 60+ |
-| Angular versioning | 3 |
-| Angular components | 5 |
-| Angular dependency injection | 2 |
-| Angular RxJS | 2 |
-| Angular services | 1 |
-| Angular state | 1 |
-| Angular testing | 4 |
-| Angular HTTP / SSR / router / forms / Material / templates / microfrontends / docs / styles | 40+ |
-| CSS selectors / layout / custom properties | 2 |
-| TypeScript strict types | 2+ |
-| JavaScript fundamentals | 5+ |
-| Quality governance | 10+ |
+| Area | Coverage |
+| --- | --- |
+| Core routing | intake, stack detection, compatibility, risk control |
+| Angular | upgrades, modernization, architecture, forms, router, SSR, Material, security, migration |
+| TypeScript and JavaScript | strict typing, fundamentals, safer code patterns |
+| Quality | lint, dead code, SonarQube, governance |
+| CSS | custom properties, `:has()`-driven layout patterns |
 
-## What Skills We Have
+## Skill Families
 
-If you are consuming this repo, these are the skill families that matter most:
+These are the families that matter most when consuming the catalog:
 
 | Skill family | What it covers | When to use |
 | --- | --- | --- |
@@ -141,339 +114,79 @@ If you are consuming this repo, these are the skill families that matter most:
 | `skills/angular/docs/` | ADRs, upgrade reports, and review packets | when the change needs governance or packaging |
 | `skills/angular/styles/` | Angular-hosted CSS custom property patterns | when Angular needs to expose style-only state |
 | `skills/css/` | selector-driven layout and modern CSS patterns | when CSS can solve the problem without JS |
-| `skills/angular/components/`, `skills/angular/forms/`, `skills/angular/router/`, `skills/angular/testing/`, `skills/angular/ssr/`, `skills/angular/material/`, `skills/angular/zone/`, `skills/angular/resources/`, `skills/angular/templates/`, `skills/angular/di/` | focused Angular skills for specific risk areas | when the repo has a concrete issue there |
 | `skills/typescript/`, `skills/javascript/`, `skills/quality/` | cross-cutting code quality and workflow skills | when the task is not Angular-specific |
 
-### What You Get
+## Documentation
 
-- smaller changes
-- version-aware guidance
-- compatibility checks before risky hops
-- focused satellites for known breakpoints
-- a catalog that can be routed by agents without a giant prompt
+Public usage docs:
 
-## Quick Start
+- [docs/getting-started.md](docs/getting-started.md)
+- [docs/cli-reference.md](docs/cli-reference.md)
+- [docs/angular-roadmap-guide.md](docs/angular-roadmap-guide.md)
+- [docs/sage-review.md](docs/sage-review.md)
+- [docs/release-checklist.md](docs/release-checklist.md)
 
-### Create a skill
+Maintainer and repository docs:
 
-```bash
-npm run skills:create -- angular/performance/lazy-loading-routes
-```
+- [docs/maintainer-guide.md](docs/maintainer-guide.md)
+- [CONTRIBUTING.md](CONTRIBUTING.md)
+- [SECURITY.md](SECURITY.md)
+- [CHANGELOG.md](CHANGELOG.md)
 
-### Validate skills
+## Built For Agent Workflows
+
+![agent agnostic](https://img.shields.io/badge/agent--agnostic-yes-success?style=flat-square)
+![Angular](https://img.shields.io/badge/angular-ready-DD0031?style=flat-square&logo=angular)
+![TypeScript](https://img.shields.io/badge/typescript-ready-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![AI agents](https://img.shields.io/badge/AI%20agents-Codex%20%7C%20Claude%20%7C%20Copilot%20%7C%20Cursor%20%7C%20Gemini-4B5563?style=flat-square)
+
+The repository includes adapters and marketplace manifests for multiple agent ecosystems while keeping the skills themselves public and agent-agnostic.
+
+## Project Health
+
+[![last commit](https://img.shields.io/github/last-commit/janpereira-dev/ngAutoPilot?style=flat-square&logo=github&label=last%20commit)](https://github.com/janpereira-dev/ngAutoPilot/commits/main)
+[![repo size](https://img.shields.io/github/repo-size/janpereira-dev/ngAutoPilot?style=flat-square&logo=github&label=repo%20size)](https://github.com/janpereira-dev/ngAutoPilot)
+[![package size](https://img.shields.io/npm/unpacked-size/ngautopilot?style=flat-square&logo=npm&label=package%20size)](https://www.npmjs.com/package/ngautopilot)
+[![issues](https://img.shields.io/github/issues/janpereira-dev/ngAutoPilot?style=flat-square&logo=github&label=issues)](https://github.com/janpereira-dev/ngAutoPilot/issues)
+[![pull requests](https://img.shields.io/github/issues-pr/janpereira-dev/ngAutoPilot?style=flat-square&logo=github&label=PRs)](https://github.com/janpereira-dev/ngAutoPilot/pulls)
+
+## Validation And Release
+
+Use these commands before publishing:
 
 ```bash
 npm run skills:validate
-```
-
-### Validate consistency
-
-```bash
-npm run consistency:validate
-```
-
-### Install git hooks
-
-```bash
-npm run hooks:install
-```
-
-### Regenerate the catalog
-
-```bash
 npm run skills:catalog
-```
-
-### Build publish bundles
-
-```bash
+npm run consistency:validate
+npm run marketplaces:validate
 npm run skills:publish:pack
+npm run publish:validate
+npm run pack:dry
 ```
 
-### Build the Sage review packet
+The CI and release-gate workflows stay focused on deterministic validation. The release workflow can build release artifacts and, when explicitly dispatched with publish enabled, publish the npm package.
 
-```bash
-npm run review:sage:pack
-```
+## Plugin Marketplaces
 
-### Try the CLI
+NgAutoPilot ships marketplace manifests for Claude Code and Codex:
 
-```bash
-npm run cli -- help
-npm run cli -- list
-npm run cli -- doctor
-```
+- Claude manifest: `.claude-plugin/marketplace.json`
+- Codex manifest: `.agents/plugins/marketplace.json`
 
-Or use it through `npx` after publishing:
-
-```bash
-npx ng-autopilot help
-npx ng-autopilot list
-npx ng-autopilot init
-```
-
-## Recommended Workflow
-
-### For Angular tasks
-
-Start with:
-
-- `skills/_core/project-intake/SKILL.md`
-- `skills/_core/stack-version-detection/SKILL.md`
-- `skills/_core/skill-router/SKILL.md`
-- `skills/_core/compatibility-router/SKILL.md`
-- `skills/_core/risk-assessment/SKILL.md`
-- `skills/angular/versioning/angular-versioning-index/SKILL.md`
-- `skills/angular/versioning/angular-version-compatibility-gate/SKILL.md`
-- `skills/angular/versioning/angular-version-gates/SKILL.md`
-
-Then route into the relevant Angular micro-skill.
-
-For a fast overview of the Angular roadmap, read:
-
-- `docs/angular-roadmap-guide.md`
-
-### For agent code reviews
-
-Use the Sage review packet to inspect:
-
-- `skills/**/SKILL.md`
-- `adapters/**`
-- `.github/workflows/**`
-- `scripts/*.mjs`
-- `catalog.json`
-
-This gives Sage a focused scope for reviewing agent behavior, publish automation, and safety risks.
-
-## Sage Review Layer
-
-NgAutoPilot supports a Sage-oriented review flow for agent code and automation.
-
-Sage is an Agent Detection & Response layer from Gen Digital that checks high-risk actions such as shell commands, file writes, URL fetches, and package installs before they execute.
-
-Use it here when you want to review:
-
-- unsafe shell commands in workflows or scripts
-- hidden provider lock-in inside skills
-- publish automation that copies files too broadly
-- prompt or adapter content that leaks private data
-- agent instructions that are too permissive
-
-### Install Sage
-
-Follow the official Sage docs:
-
-- https://ai.gendigital.com/sage
-- https://github.com/gendigitalinc/sage
-
-### Review packet
-
-Generate a focused packet first:
-
-```bash
-npm run review:sage:pack
-```
-
-Then point Sage at `dist/review/sage/` and review the packet contents.
-
-## Public Distribution
-
-NgAutoPilot is prepared to be shared on multiple public skill catalogs.
-
-| Target | URL | Output |
-| --- | --- | --- |
-| AutoSkills | `https://www.autoskills.sh/` | `dist/publish/autoskills-sh/` |
-| SkillsMP | `https://skillsmp.com/es` | `dist/publish/skillsmp-es/` |
-| SkillsLLM | `https://skillsllm.com/` | `dist/publish/skillsllm/` |
-| LobeHub Skills | `https://lobehub.com/skills` | `dist/publish/lobehub-skills/` |
-| MCPMarket | `https://mcpmarket.com/es/tools/skills` | `dist/publish/mcpmarket-skills/` |
-
-The publish workflow generates per-site manifests and listing files. Direct submission still depends on each platform’s schema and authentication, so the repo stays honest about what is automated and what is prepared for manual upload.
-
-## GitHub Actions
-
-The repository ships with workflows for:
-
-- validation on pull requests and pushes
-- catalog regeneration checks
-- publish bundle generation
-- release artifact preparation
-- Sage review packet preparation
-
-If a workflow is missing for a platform, add the schema once the target platform’s requirements are confirmed. The repository favors deterministic prep artifacts over fake direct integrations.
+Current plugin bundles include `ngautopilot-core`, `ngautopilot-angular`, `ngautopilot-quality`, `ngautopilot-quality-lint`, `ngautopilot-quality-deadcode-sonar`, `ngautopilot-typescript`, `ngautopilot-angular-microfrontends`, and `ngautopilot-css`.
 
 ## Repository Map
 
 ```txt
-NgAutoPilot/
-├── README.md
-├── CONTRIBUTING.md
-├── CODE_OF_CONDUCT.md
-├── SECURITY.md
-├── CHANGELOG.md
-├── LICENSE
-├── catalog.json
-├── assets/
-├── docs/
-├── adapters/
-├── schemas/
-├── skills/
-│   ├── _core/
-│   ├── angular/
-│   │   ├── architecture/
-│   │   ├── migration/
-│   │   ├── modernization/
-│   │   ├── upgrades/
-│   │   └── versioning/
-└── scripts/
+ngAutoPilot/
+  adapters/
+  assets/
+  docs/
+  plugins/
+  schemas/
+  scripts/
+  skills/
 ```
-
-## Angular Upgrade System
-
-Angular upgrade work is organized into three layers:
-
-- `versioning/` for stack detection, routing, the compatibility gate, and the master index.
-- `upgrades/` for major-hop execution and version-specific risk satellites.
-- `modernization/` for post-upgrade adoption of newer Angular features such as control flow, `@defer`, standalone-first, and zoneless readiness.
-
-The recommended flow is:
-
-1. Detect the stack.
-2. Run the compatibility gate.
-3. Select the next hop.
-4. Run hop-specific satellites when required.
-5. Validate build, tests, and SSR or Material behavior when relevant.
-6. Keep modernization separate from the hop itself.
-
-## Contributing
-
-Contributions should be:
-
-- public
-- reusable
-- agent-agnostic
-- narrow in scope
-- version-aware when relevant
-
-Do not add private company instructions, secret routes, or vendor-specific lock-in inside skills.
-
-Read `CONTRIBUTING.md` before opening a PR.
-
-## Safety And Support
-
-If you discover a security issue, follow `SECURITY.md` instead of opening a public issue with details.
-
-## Release Checklist
-
-For the release flow, use:
-
-- `npm run skills:validate`
-- `npm run consistency:validate`
-- `npm run marketplaces:validate`
-- `npm run skills:publish:pack`
-- `npm run publish:validate`
-- `npm pack --dry-run`
-
-See `docs/release-checklist.md` for the full release checklist.
-
-## Claude Code and Codex Plugin Marketplaces
-
-NgAutoPilot can be added as a Claude Code marketplace and as a Codex plugin marketplace.
-
-### Claude Code
-
-Add the marketplace:
-
-```txt
-/plugin marketplace add janpereira-dev/ngAutoPilot
-```
-
-Install plugins:
-
-```txt
-/plugin install ngautopilot-core@ngautopilot
-/plugin install ngautopilot-angular@ngautopilot
-/plugin install ngautopilot-quality@ngautopilot
-/plugin install ngautopilot-css@ngautopilot
-/reload-plugins
-```
-
-Use installed skills:
-
-```txt
-/ngautopilot-core:autopilot
-/ngautopilot-angular:angular-upgrade
-```
-
-### Codex
-
-Add the marketplace:
-
-```txt
-/plugin marketplace add janpereira-dev/ngAutoPilot
-```
-
-Current Codex CLI support in this repo:
-
-```txt
-codex plugin marketplace add janpereira-dev/ngAutoPilot
-codex plugin marketplace add .
-codex plugin marketplace upgrade ngautopilot
-codex plugin marketplace remove ngautopilot
-```
-
-Notes:
-
-- The installed Codex CLI exposed here supports marketplace management, not a separate `plugin install` subcommand.
-- The Codex marketplace manifest lives at `.agents/plugins/marketplace.json`.
-- The repo currently bundles `ngautopilot-core`, `ngautopilot-angular`, `ngautopilot-quality`, `ngautopilot-angular-microfrontends`, and `ngautopilot-css` as Codex-ready plugin roots.
-- `ngautopilot-angular` now includes governance, versioning, upgrade orchestration, and standalone-modernization entry points.
-- `ngautopilot-angular` also includes targeted SSR, forms, and Material MDC entry points.
-- `ngautopilot-angular` now adds hard versioning gates, strict template governance, and a test-strategy router.
-- `ngautopilot-angular` now also covers forms, SSR/hydration, and router control in dedicated skills.
-- `ngautopilot-angular` now also covers signals, Core Web Vitals, bundle budgets, zoneless readiness, and a11y-first Material/CDK/Aria patterns.
-- `ngautopilot-angular` now also closes AngularJS migration and legacy decommission paths.
-- `ngautopilot-angular` now also starts the security layer with XSS, sanitizer, SSR risk, token storage, and dependency triage.
-- `ngautopilot-css` covers Angular host custom properties and CSS `:has()` content-aware layouts.
-- `ngautopilot-quality` remains the compatibility bundle for backward compatibility.
-- `ngautopilot-quality-lint` contains ESLint and lint cleanup workflows.
-- `ngautopilot-quality-deadcode-sonar` contains dead-code cleanup and SonarQube triage workflows.
-- `ngautopilot-typescript` now separates TypeScript-specific work from quality and Angular concerns.
-
-### Quality split
-
-Use the dedicated bundles by default:
-
-```txt
-/plugin install ngautopilot-quality-lint@ngautopilot
-/plugin install ngautopilot-quality-deadcode-sonar@ngautopilot
-```
-
-Keep `ngautopilot-quality` only for older installs that still depend on the compatibility bundle.
-
-### Angular governance
-
-Angular change work now starts with governance skills that classify the project, classify the change, define the validation contract, require compatibility evidence, and keep migration separate from modernization.
-
-### Angular versioning, templates, and testing
-
-The second layer is now in place for Node/TypeScript/RxJS compatibility, builder compatibility, peer dependency audits, strict templates, extended diagnostics, and test strategy selection.
-
-### Angular forms, SSR, and router
-
-The third layer adds typed forms governance, CVA patterns, signal forms readiness, SSR readiness and browser API safety, hydration risk gates, and route configuration/lazy loading/guards/testing patterns.
-
-### Angular signals, performance, and UI
-
-The fourth layer adds signal fundamentals and interop, Core Web Vitals auditing, bundle budget governance, zoneless performance readiness, and Material/CDK/Aria patterns for accessible stable UI.
-
-### Angular migration and legacy
-
-The final migration layer closes AngularJS inventory, strategy selection, hybrid ngUpgrade, routing/template/service migration, and safe decommission work.
-
-### Angular security
-
-The security layer starts with the highest-probability risks: template XSS, DomSanitizer governance, SSR security risk, token storage policy, and dependency vulnerability triage.
 
 ## License
 
