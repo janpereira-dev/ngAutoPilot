@@ -2,6 +2,24 @@
 
 All notable changes to NgAutoPilot will be documented in this file.
 
+## 0.3.0 - 2026-05-03
+
+Release focused on public DX, naming consistency, and cleaner release communication.
+
+### Changed
+
+- Renamed the public CLI command from `ng-autopilot` to `ngautopilot`.
+- Renamed the generated local workspace from `.ng-autopilot/` to `.ngautopilot/`.
+- Renamed the packaged CLI entry file from `bin/ng-autopilot.mjs` to `bin/ngautopilot.mjs`.
+- Reworked the root README into a shorter public landing page with quick start, naming guidance, and high-signal badges.
+- Split public usage and maintainer guidance into dedicated docs pages.
+- Expanded npm keywords for better package discoverability.
+
+### Breaking Changes
+
+- `ng-autopilot` no longer exists as the supported CLI command. Use `ngautopilot`.
+- Existing examples, shell aliases, or scripts that target `.ng-autopilot/` must be updated to `.ngautopilot/`.
+
 ## 0.2.4 - 2026-05-03
 
 Release built from the accumulated changes after the unpublished 0.2.3 snapshot.

@@ -34,6 +34,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          registry-url: https://registry.npmjs.org
+          always-auth: true
 
       - name: Validate skills
         run: npm run skills:validate
@@ -63,6 +65,12 @@ jobs:
             name="${dir%/}"
             tar -czf "${name}.tar.gz" "${name}"
           done
+
+      - name: Publish to npm
+        if: github.event_name == 'workflow_dispatch' && inputs.publish == true
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish release artifacts
         uses: softprops/action-gh-release@v2

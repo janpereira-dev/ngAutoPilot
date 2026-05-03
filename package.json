@@ -1,10 +1,10 @@
 {
   "name": "ngautopilot",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Agnostic micro-skills for Angular, TypeScript and JavaScript development with AI agents.",
   "type": "module",
   "bin": {
-    "ng-autopilot": "./bin/ng-autopilot.mjs"
+    "ngautopilot": "./bin/ngautopilot.mjs"
   },
   "files": [
     "bin",
@@ -45,17 +45,20 @@
     "consistency:validate": "node scripts/validate-consistency.mjs",
     "release:validate": "npm run skills:validate && npm run skills:catalog && npm run marketplaces:validate && npm run consistency:validate",
     "hooks:install": "node scripts/install-git-hooks.mjs",
-    "cli": "node bin/ng-autopilot.mjs",
+    "cli": "node bin/ngautopilot.mjs",
     "pack:dry": "npm pack --dry-run"
   },
   "keywords": [
     "angular",
+    "ngautopilot",
     "typescript",
     "javascript",
     "rxjs",
     "ai-agents",
     "skills",
-    "frontend"
+    "frontend",
+    "agent-agnostic",
+    "angular-upgrade"
   ],
   "license": "MIT",
   "publishConfig": {
