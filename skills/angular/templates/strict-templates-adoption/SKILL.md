@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: templates
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - strictTemplates adoption
@@ -96,4 +96,3 @@ When this skill is used, the agent should:
 3. Record the baseline diagnostics.
 4. Keep the adoption bounded.
 5. Produce a safe adoption plan.
-

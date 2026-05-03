@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: forms
 status: draft
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - typed forms
@@ -60,11 +60,11 @@ Do not use this skill when:
 
 ## Compatibility by Version
 
-| Angular | Strategy recommended | Observations |
-|---|---|---|
-| Angular 14+ | Typed forms available | Use typed forms or an untyped bridge explicitly. |
-| Angular 14+ large legacy app | Untyped bridge | Safer when coverage is low or forms are complex. |
-| Angular 14+ small well-tested form | Typed forms | Prefer typed migration when the diff is small and stable. |
+| Angular                            | Strategy recommended  | Observations                                              |
+| ---------------------------------- | --------------------- | --------------------------------------------------------- |
+| Angular 14+                        | Typed forms available | Use typed forms or an untyped bridge explicitly.          |
+| Angular 14+ large legacy app       | Untyped bridge        | Safer when coverage is low or forms are complex.          |
+| Angular 14+ small well-tested form | Typed forms           | Prefer typed migration when the diff is small and stable. |
 
 If a version cannot be confirmed from the project files, mark it as `verify in project`.
 
@@ -92,7 +92,7 @@ Typed example:
 
 ```ts
 const form = new FormGroup({
-  name: new FormControl<string>('', { nonNullable: true }),
+  name: new FormControl<string>("", { nonNullable: true }),
   age: new FormControl<number | null>(null),
 });
 ```
@@ -101,7 +101,7 @@ Untyped bridge example:
 
 ```ts
 const form = new UntypedFormGroup({
-  name: new UntypedFormControl(''),
+  name: new UntypedFormControl(""),
   age: new UntypedFormControl(null),
 });
 ```
@@ -110,7 +110,9 @@ Custom validator example:
 
 ```ts
 const validator: ValidatorFn = (control: AbstractControl) => {
-  return typeof control.value === 'string' && control.value.length > 0 ? null : { required: true };
+  return typeof control.value === "string" && control.value.length > 0
+    ? null
+    : { required: true };
 };
 ```
 
@@ -179,4 +181,3 @@ This skill is complete only when:
 - Runtime validation behavior is preserved.
 - Remaining debt is documented.
 - No Angular version upgrade was performed in this skill.
-

@@ -6,7 +6,7 @@ stack:
   - Angular
 category: router
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - functional guards
@@ -17,7 +17,6 @@ triggers:
 # Angular Functional Guards Resolvers
 
 Use this skill when route protection or data resolution needs a modern Angular contract.
-
 
 ## Expected Output
 

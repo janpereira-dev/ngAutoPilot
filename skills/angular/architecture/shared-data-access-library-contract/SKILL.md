@@ -10,7 +10,7 @@ stack:
   - RxJS
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - shared data access
@@ -73,7 +73,7 @@ export interface ProductRepository {
   list(): Observable<readonly ProductRecord[]>;
 }
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class HttpProductRepository implements ProductRepository {
   constructor(private readonly http: HttpClient) {}
 
@@ -82,7 +82,7 @@ export class HttpProductRepository implements ProductRepository {
   }
 
   list(): Observable<readonly ProductRecord[]> {
-    return this.http.get<readonly ProductRecord[]>('/api/products');
+    return this.http.get<readonly ProductRecord[]>("/api/products");
   }
 }
 ```
@@ -117,7 +117,9 @@ export class ProductsFacade {
   constructor(private readonly productsRepository: ProductRepository) {}
 
   loadProducts(): void {
-    this.productsRepository.list().subscribe((products) => this.products.set(products));
+    this.productsRepository
+      .list()
+      .subscribe((products) => this.products.set(products));
   }
 }
 ```

@@ -8,11 +8,10 @@ stack:
   - Angular
 category: core
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 ---
 
 # Risk Assessment
 
 Use this skill to determine whether a change is safe to attempt and how to validate it.
-

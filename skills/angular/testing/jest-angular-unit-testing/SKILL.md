@@ -9,7 +9,7 @@ stack:
   - Jest
 category: testing
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - jest angular testing
@@ -95,4 +95,3 @@ When this skill is used, the agent should:
 3. Define a minimal mocking approach.
 4. Flag brittle or overspecified tests.
 5. Produce focused test examples or refactors.
-

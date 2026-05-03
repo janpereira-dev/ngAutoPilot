@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: rxjs
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - Observable as contract
@@ -50,7 +50,8 @@ Expose readonly Observable contracts:
 export class UserStateService {
   private readonly usersSubject = new BehaviorSubject<readonly User[]>([]);
 
-  readonly users$: Observable<readonly User[]> = this.usersSubject.asObservable();
+  readonly users$: Observable<readonly User[]> =
+    this.usersSubject.asObservable();
 
   setUsers(users: readonly User[]): void {
     this.usersSubject.next(users);

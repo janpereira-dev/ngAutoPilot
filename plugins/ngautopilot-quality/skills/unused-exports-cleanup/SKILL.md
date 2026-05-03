@@ -7,11 +7,10 @@ stack:
   - TypeScript
 category: no-dead-code
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 ---
 
 # Unused Exports Cleanup
 
 Use this skill to remove unused public exports without breaking real consumers.
-

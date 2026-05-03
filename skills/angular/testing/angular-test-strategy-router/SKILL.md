@@ -6,7 +6,7 @@ stack:
   - Angular
 category: testing
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - test strategy
@@ -17,7 +17,6 @@ triggers:
 # Angular Test Strategy Router
 
 Use this skill to choose the correct Angular test stack before editing tests.
-
 
 ## Expected Output
 

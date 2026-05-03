@@ -10,7 +10,7 @@ stack:
   - Nx
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - angular onboarding plan
@@ -116,4 +116,3 @@ When this skill is used, the agent should:
 3. Include architecture and testing milestones.
 4. Recommend the first safe contributor task.
 5. Produce a practical ramp-up plan.
-

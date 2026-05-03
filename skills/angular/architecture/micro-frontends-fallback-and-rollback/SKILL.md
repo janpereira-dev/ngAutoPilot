@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - micro fronts fallback
@@ -111,4 +111,3 @@ When this skill is used, the agent should:
 3. Specify rollback readiness requirements.
 4. Recommend UX that preserves shell usability.
 5. Produce a safe recovery plan.
-

@@ -6,7 +6,7 @@ stack:
   - Angular
 category: governance
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - compatibility evidence
@@ -17,7 +17,6 @@ triggers:
 # Angular Compatibility Evidence
 
 Use this skill to ground Angular decisions in observed version and dependency evidence.
-
 
 ## Expected Output
 

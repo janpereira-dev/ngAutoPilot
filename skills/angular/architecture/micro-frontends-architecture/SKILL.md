@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - micro frontends
@@ -215,4 +215,3 @@ When this skill is used, the agent should:
 3. Recommend the simplest viable integration pattern.
 4. Define shell, remote, and shared library contracts.
 5. Call out operational risks, testing gaps, and fallback requirements.
-

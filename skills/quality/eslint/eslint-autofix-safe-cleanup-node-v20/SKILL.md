@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: eslint
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - eslint autofix node
@@ -66,4 +66,3 @@ When this skill is used, the agent should:
 3. Preserve process behavior.
 4. Validate relevant tests or scripts.
 5. Keep the cleanup bounded.
-

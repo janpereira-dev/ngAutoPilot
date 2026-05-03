@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: templates
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - extended diagnostics remediation
@@ -93,4 +93,3 @@ When this skill is used, the agent should:
 3. Preserve behavior.
 4. Validate the result.
 5. Report remaining diagnostics.
-

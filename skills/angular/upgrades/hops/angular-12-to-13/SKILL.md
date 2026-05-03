@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: upgrades
 status: draft
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - Angular 12 to 13
@@ -188,7 +188,7 @@ Treat the IE11 governance decision as a blocker, not a suggestion.
 - Disabling Ivy.
 - Treating View Engine fallback as valid in Angular 13.
 - Ignoring third-party Angular library compatibility.
-- Leaving string lazy routes because “ng update will probably handle it later”.
+- Leaving string lazy routes because â€œng update will probably handle it laterâ€.
 - Rewriting router architecture during this hop.
 - Changing PWA update behavior without smoke tests.
 - Rewriting SSR architecture instead of migrating `renderModuleFactory`.

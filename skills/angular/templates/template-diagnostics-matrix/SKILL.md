@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: templates
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - template diagnostics matrix
@@ -79,4 +79,3 @@ When this skill is used, the agent should:
 3. Keep the triage actionable.
 4. Avoid code-number-only thinking.
 5. Produce a diagnostic matrix.
-

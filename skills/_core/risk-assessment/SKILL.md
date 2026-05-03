@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: core
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - assess risk
@@ -151,6 +151,7 @@ Use this format:
 
 ```md
 ## Risk Assessment
+
 - Risk level:
 - Scope:
 - Behavior impact:
@@ -159,12 +160,15 @@ Use this format:
 - Rollback path:
 
 ## Safe Plan
+
 1. ...
 
 ## Validation
+
 - ...
 
 ## Residual Risks
+
 - ...
 ```
 

@@ -7,11 +7,10 @@ stack:
   - Angular
 category: migration
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 ---
 
 # AngularJS Routing Migration
 
 Use this skill when the routing layer needs a safe migration path.
-

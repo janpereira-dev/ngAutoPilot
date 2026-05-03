@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: templates
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - extended diagnostics governance
@@ -94,4 +94,3 @@ When this skill is used, the agent should:
 3. Recommend a safe severity strategy.
 4. Avoid broad suppressions.
 5. Summarize the configuration decisions.
-

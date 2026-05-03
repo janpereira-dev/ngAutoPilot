@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - pure pipe
@@ -55,7 +55,7 @@ Use a pure pipe for deterministic reusable formatting:
 
 ```ts
 @Pipe({
-  name: 'totalPrice',
+  name: "totalPrice",
   pure: true,
 })
 export class TotalPricePipe implements PipeTransform {
@@ -88,7 +88,7 @@ Avoid impure pipes without strong reason:
 
 ```ts
 @Pipe({
-  name: 'expensiveFilter',
+  name: "expensiveFilter",
   pure: false,
 })
 export class ExpensiveFilterPipe implements PipeTransform {}

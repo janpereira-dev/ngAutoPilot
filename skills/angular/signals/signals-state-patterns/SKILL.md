@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: signals
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - signals state
@@ -68,7 +68,7 @@ Use `effect` for controlled side effects only:
 
 ```ts
 effect(() => {
-  console.log('count changed', this.count());
+  console.log("count changed", this.count());
 });
 ```
 
@@ -101,4 +101,3 @@ When this skill is used, the agent should:
 3. Separate derivation from mutation.
 4. Flag misuse of `effect` for orchestration.
 5. Explain when RxJS remains the better fit.
-

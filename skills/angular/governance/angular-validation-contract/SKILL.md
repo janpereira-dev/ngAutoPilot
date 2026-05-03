@@ -6,7 +6,7 @@ stack:
   - Angular
 category: governance
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - validation contract
@@ -17,7 +17,6 @@ triggers:
 # Angular Validation Contract
 
 Use this skill to define the smallest validation set that proves the change is safe.
-
 
 ## Expected Output
 

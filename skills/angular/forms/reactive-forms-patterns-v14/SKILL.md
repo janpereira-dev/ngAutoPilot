@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: forms
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - reactive forms v14
@@ -69,4 +69,3 @@ When this skill is used, the agent should:
 3. Keep mapping and validation explicit.
 4. Flag old untyped patterns when they are avoidable.
 5. Produce version-aware form guidance.
-

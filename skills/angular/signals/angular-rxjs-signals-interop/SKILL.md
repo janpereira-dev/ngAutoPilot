@@ -7,7 +7,7 @@ stack:
   - RxJS
 category: signals
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - rxjs signals interop
@@ -18,7 +18,6 @@ triggers:
 # Angular RxJS Signals Interop
 
 Use this skill when existing RxJS code needs to coexist with signals.
-
 
 ## Expected Output
 

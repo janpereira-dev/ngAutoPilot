@@ -7,11 +7,10 @@ stack:
   - Angular
 category: migration
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 ---
 
 # AngularJS Decommission
 
 Use this skill when AngularJS can be retired safely.
-

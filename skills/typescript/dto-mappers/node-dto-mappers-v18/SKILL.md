@@ -8,7 +8,7 @@ stack:
   - Node.js
 category: dto-mappers
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - node dto mapping
@@ -67,4 +67,3 @@ When this skill is used, the agent should:
 3. Keep contracts separate from internal models.
 4. Avoid raw payload leakage.
 5. Produce backend-safe mapping guidance.
-

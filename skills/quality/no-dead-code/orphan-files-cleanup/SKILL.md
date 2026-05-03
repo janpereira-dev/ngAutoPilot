@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: no-dead-code
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - orphan files

@@ -10,7 +10,7 @@ stack:
   - Design System
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - design system for micro frontends
@@ -74,7 +74,7 @@ Keep the library domain-agnostic:
 
 ```ts
 @Component({
-  selector: 'ds-button',
+  selector: "ds-button",
   template: `<button class="ds-button"><ng-content /></button>`,
 })
 export class ButtonComponent {}
@@ -125,4 +125,3 @@ When this skill is used, the agent should:
 3. Recommend reusable patterns for remotes and shell.
 4. Flag visual fragmentation or local overrides.
 5. Suggest versioning and migration guidance for UI changes.
-

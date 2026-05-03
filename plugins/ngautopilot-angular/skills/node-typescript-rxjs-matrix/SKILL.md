@@ -8,11 +8,10 @@ stack:
   - RxJS
 category: versioning
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 ---
 
 # Angular Node TypeScript RxJS Matrix
 
 Use this skill before an Angular upgrade or compatibility-sensitive change.
-

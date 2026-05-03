@@ -6,11 +6,10 @@ stack:
   - Angular
 category: router
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 ---
 
 # Angular Route Configuration Patterns
 
 Use this skill to keep Angular route configuration maintainable.
-

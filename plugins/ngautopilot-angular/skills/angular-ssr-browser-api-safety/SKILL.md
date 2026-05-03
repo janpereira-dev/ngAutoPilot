@@ -6,11 +6,10 @@ stack:
   - Angular
 category: ssr
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 ---
 
 # Angular SSR Browser API Safety
 
 Use this skill when code may run on both server and browser.
-

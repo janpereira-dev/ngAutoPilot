@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - module federation runtime
@@ -122,4 +122,3 @@ When this skill is used, the agent should:
 3. Flag unsafe exposure or hidden coupling.
 4. Define fallback and rollout behavior.
 5. Recommend the smallest safe runtime contract.
-

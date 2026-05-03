@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - micro fronts version compatibility
@@ -104,4 +104,3 @@ When this skill is used, the agent should:
 3. Flag dependency drift or exposed contract mismatch.
 4. Recommend a compatibility matrix or gate.
 5. Produce a safe upgrade policy.
-

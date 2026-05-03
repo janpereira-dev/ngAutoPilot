@@ -6,11 +6,10 @@ stack:
   - TypeScript
 category: strict-types
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 ---
 
 # TypeScript Strict Types
 
 Use this skill when TypeScript needs safer, stricter typing.
-

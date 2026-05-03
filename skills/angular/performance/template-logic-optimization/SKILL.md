@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - heavy template logic
@@ -87,9 +87,7 @@ Avoid expensive template calls:
 ```html
 {{ computeTotal(items) }}
 
-<div *ngIf="checkUserPermissions(user)">
-  ...
-</div>
+<div *ngIf="checkUserPermissions(user)">...</div>
 ```
 
 Avoid collection work in templates:

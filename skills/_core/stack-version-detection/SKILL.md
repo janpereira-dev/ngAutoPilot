@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: core
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - detect stack version
@@ -155,6 +155,7 @@ Use this format:
 
 ```md
 ## Stack Detected
+
 - Angular:
 - Angular CLI:
 - TypeScript:

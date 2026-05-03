@@ -10,7 +10,7 @@ stack:
   - Nx
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - angular version aware training
@@ -113,4 +113,3 @@ When this skill is used, the agent should:
 3. Identify version-related migration risks.
 4. Align the matrix with project constraints.
 5. Produce a clear version-aware training artifact.
-

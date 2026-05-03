@@ -6,7 +6,7 @@ stack:
   - Angular
 category: material
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - cdk a11y
@@ -17,7 +17,6 @@ triggers:
 # Angular CDK A11y Patterns
 
 Use this skill when a UI needs accessible interaction patterns beyond raw Material components.
-
 
 ## Expected Output
 

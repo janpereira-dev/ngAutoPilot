@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - micro fronts dependency sharing
@@ -101,4 +101,3 @@ When this skill is used, the agent should:
 3. Recommend a minimal shared set.
 4. Separate transversal libraries from domain libraries.
 5. Produce a dependency sharing policy.
-

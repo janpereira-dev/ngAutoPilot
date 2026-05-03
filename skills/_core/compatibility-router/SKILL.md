@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: core
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - compatibility router
@@ -186,6 +186,7 @@ Use this format:
 
 ```md
 ## Compatibility Profile
+
 - Angular:
 - TypeScript:
 - RxJS:
@@ -193,15 +194,19 @@ Use this format:
 - Profile:
 
 ## Safe APIs
+
 - ...
 
 ## APIs To Avoid
+
 - ...
 
 ## Compatible Recommendation
+
 - ...
 
 ## Future Migration Path
+
 - ...
 ```
 

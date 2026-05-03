@@ -6,11 +6,10 @@ stack:
   - Angular
 category: upgrades
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 ---
 
 # Angular Material MDC V15 Orchestrator
 
 Use this skill to coordinate Angular Material MDC migration slices.
-

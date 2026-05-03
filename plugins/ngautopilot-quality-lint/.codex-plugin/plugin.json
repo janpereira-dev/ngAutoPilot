@@ -1,6 +1,6 @@
 {
   "name": "ngautopilot-quality-lint",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "NgAutoPilot lint-focused skills for ESLint baseline hardening and safe lint cleanup.",
   "author": {
     "name": "Jan Pereira",

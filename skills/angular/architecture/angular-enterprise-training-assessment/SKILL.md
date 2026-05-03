@@ -10,7 +10,7 @@ stack:
   - Nx
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - angular training assessment
@@ -120,4 +120,3 @@ When this skill is used, the agent should:
 3. Recommend follow-up skills and training priorities.
 4. Summarize evidence-based readiness.
 5. Produce a concise assessment report.
-

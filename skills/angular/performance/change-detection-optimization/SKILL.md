@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - change detection optimization
@@ -54,8 +54,8 @@ Apply `OnPush` when data flow is explicit:
 
 ```ts
 @Component({
-  selector: 'app-orders-summary',
-  templateUrl: './orders-summary.component.html',
+  selector: "app-orders-summary",
+  templateUrl: "./orders-summary.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OrdersSummaryComponent {

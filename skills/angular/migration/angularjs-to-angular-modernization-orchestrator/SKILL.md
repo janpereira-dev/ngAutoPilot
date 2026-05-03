@@ -9,7 +9,7 @@ stack:
   - TypeScript
 category: migration
 status: draft
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - AngularJS migration
@@ -68,12 +68,12 @@ For Angular 2+ version upgrades, use the upgrade planning family instead of this
 
 ## Compatibility by Version
 
-| Framework | Strategy recommended | Observations |
-|---|---|---|
-| AngularJS 1.x | Legacy inventory and migration planning | Do not treat this as `ng update`. It is an architectural modernization. |
-| Angular 2+ | Incremental modernization only if AngularJS remains in the repo | Prefer a bounded slice and stop after one hop or one route migration. |
-| Angular 17+ | Modern Angular APIs may be available, but only if the target project supports them | Do not force standalone, signals, or modern control flow without version evidence. |
-| Angular 21 target | Use only as the final modernization target when the project and constraints allow it | Do not skip validation between slices. |
+| Framework         | Strategy recommended                                                                 | Observations                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| AngularJS 1.x     | Legacy inventory and migration planning                                              | Do not treat this as `ng update`. It is an architectural modernization.            |
+| Angular 2+        | Incremental modernization only if AngularJS remains in the repo                      | Prefer a bounded slice and stop after one hop or one route migration.              |
+| Angular 17+       | Modern Angular APIs may be available, but only if the target project supports them   | Do not force standalone, signals, or modern control flow without version evidence. |
+| Angular 21 target | Use only as the final modernization target when the project and constraints allow it | Do not skip validation between slices.                                             |
 
 If an API or version cannot be confirmed from the project files, mark it as `verify in project`.
 

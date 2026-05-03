@@ -1,6 +1,6 @@
 {
   "name": "ngautopilot-angular",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Angular-focused NgAutoPilot skills for upgrades, compatibility gates, architecture, testing, RxJS, performance, and modernization.",
   "author": {
     "name": "Jan Pereira",

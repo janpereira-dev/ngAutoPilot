@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: eslint
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - eslint baseline hardening
@@ -83,4 +83,3 @@ When this skill is used, the agent should:
 3. Propose phased hardening.
 4. Keep the change bounded.
 5. Validate with the project checks.
-

@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - OnPush
@@ -42,8 +42,8 @@ Prefer `OnPush` when the component has explicit data flow and immutable updates:
 
 ```ts
 @Component({
-  selector: 'app-user-card',
-  templateUrl: './user-card.component.html',
+  selector: "app-user-card",
+  templateUrl: "./user-card.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserCardComponent {
@@ -81,8 +81,8 @@ Avoid applying `OnPush` blindly:
 
 ```ts
 @Component({
-  selector: 'app-user-editor',
-  templateUrl: './user-editor.component.html',
+  selector: "app-user-editor",
+  templateUrl: "./user-editor.component.html",
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserEditorComponent {

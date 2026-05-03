@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: upgrades
 status: draft
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - upgrade validation
@@ -59,12 +59,12 @@ Do not use this skill when:
 
 ## Compatibility by Version
 
-| Angular hop | Strategy recommended | Observations |
-|---|---|---|
-| Any major hop | Validate immediately after the hop | Do not batch multiple hops before validation. |
-| Angular 2+ | Use the repository's actual build/test/lint commands | Do not invent commands. |
-| Angular 17+ | Include any modern checks the repository already supports | Verify they exist before using them. |
-| Angular 5 -> 6 | Treat CLI workspace and RxJS bridge status as gate conditions | Fail closed if either is incomplete. |
+| Angular hop    | Strategy recommended                                          | Observations                                  |
+| -------------- | ------------------------------------------------------------- | --------------------------------------------- |
+| Any major hop  | Validate immediately after the hop                            | Do not batch multiple hops before validation. |
+| Angular 2+     | Use the repository's actual build/test/lint commands          | Do not invent commands.                       |
+| Angular 17+    | Include any modern checks the repository already supports     | Verify they exist before using them.          |
+| Angular 5 -> 6 | Treat CLI workspace and RxJS bridge status as gate conditions | Fail closed if either is incomplete.          |
 
 If a version cannot be confirmed from the project files, mark it as `verify in project`.
 
@@ -90,11 +90,11 @@ If a version cannot be confirmed from the project files, mark it as `verify in p
 
 Use a simple gate output:
 
-| Command | Result | Notes |
-|---|---|---|
-| build | pass/fail | include first failure if any |
-| test | pass/fail | include failing suite if any |
-| lint | pass/fail | include file or rule if any |
+| Command | Result    | Notes                        |
+| ------- | --------- | ---------------------------- |
+| build   | pass/fail | include first failure if any |
+| test    | pass/fail | include failing suite if any |
+| lint    | pass/fail | include file or rule if any  |
 
 Gate decision:
 

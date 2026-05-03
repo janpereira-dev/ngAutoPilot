@@ -7,7 +7,7 @@ stack:
   - TypeScript
 category: strict-types
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - any
@@ -59,11 +59,11 @@ Use `unknown` for untrusted input, then narrow it:
 ```ts
 function isUserDto(value: unknown): value is UserDto {
   return (
-    typeof value === 'object' &&
+    typeof value === "object" &&
     value !== null &&
-    'id' in value &&
-    'name' in value &&
-    'enabled' in value
+    "id" in value &&
+    "name" in value &&
+    "enabled" in value
   );
 }
 ```

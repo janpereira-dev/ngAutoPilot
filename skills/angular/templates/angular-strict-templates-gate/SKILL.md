@@ -6,7 +6,7 @@ stack:
   - Angular
 category: templates
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - strict templates
@@ -17,7 +17,6 @@ triggers:
 # Angular Strict Templates Gate
 
 Use this skill to make sure template type checking is enabled and trusted.
-
 
 ## Expected Output
 

@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: upgrades
 status: draft
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - Angular 6 to 7
@@ -99,13 +99,13 @@ skills/angular/upgrades/hops/angular-7-to-8/SKILL.md
 
 ## Compatibility by Version
 
-| Area | Recommended strategy | Observations |
-|---|---|---|
-| Angular 6.x source | Upgrade to Angular 7.2.x only | Do not jump to a later major in this skill. |
-| Angular CLI | Upgrade to CLI 7 | Keep workspace validation explicit. |
-| TypeScript | Align to Angular 7-compatible TypeScript 3.1 | Verify against project evidence. |
-| RxJS | Clean up RxJS 5 legacy imports and remove `rxjs-compat` when safe | Treat `rxjs-compat` as temporary if retained. |
-| Angular Material | Upgrade to Material 7 only if used | Do not go beyond Angular 7 in this hop. |
+| Area               | Recommended strategy                                              | Observations                                  |
+| ------------------ | ----------------------------------------------------------------- | --------------------------------------------- |
+| Angular 6.x source | Upgrade to Angular 7.2.x only                                     | Do not jump to a later major in this skill.   |
+| Angular CLI        | Upgrade to CLI 7                                                  | Keep workspace validation explicit.           |
+| TypeScript         | Align to Angular 7-compatible TypeScript 3.1                      | Verify against project evidence.              |
+| RxJS               | Clean up RxJS 5 legacy imports and remove `rxjs-compat` when safe | Treat `rxjs-compat` as temporary if retained. |
+| Angular Material   | Upgrade to Material 7 only if used                                | Do not go beyond Angular 7 in this hop.       |
 
 If a version cannot be confirmed from the project files, mark it as `verify in project`.
 
@@ -138,14 +138,14 @@ Use `ng update` or the repository-supported equivalent for Angular CLI 7 and Ang
 Remove mixed template-driven/reactive form usage on the same control:
 
 ```html
-<input formControlName="email">
+<input formControlName="email" />
 ```
 
 Clean up RxJS legacy imports:
 
 ```ts
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 ```
 
 Keep `rxjs-compat` only as a temporary bridge when needed.
@@ -270,4 +270,3 @@ This skill is complete only when:
 - Validation ran or blockers were reported.
 - Validation gate result is explicit.
 - The next hop remains unexecuted.
-

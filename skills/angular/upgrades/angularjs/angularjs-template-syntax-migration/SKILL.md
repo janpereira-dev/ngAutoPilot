@@ -8,7 +8,7 @@ stack:
   - AngularJS
 category: angularjs
 status: draft
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - AngularJS template syntax

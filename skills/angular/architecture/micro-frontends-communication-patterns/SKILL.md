@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - micro frontends communication
@@ -134,4 +134,3 @@ When this skill is used, the agent should:
 3. Define event or URL contracts explicitly.
 4. Flag hidden coupling or shared-state overreach.
 5. Suggest fallback and test coverage for the communication path.
-

@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - micro frontends release governance
@@ -111,4 +111,3 @@ When this skill is used, the agent should:
 3. Flag compatibility risks.
 4. Recommend rollout and rollback controls.
 5. Define the smallest safe release governance model.
-

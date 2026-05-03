@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: core
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - autopilot workflow
@@ -134,18 +134,23 @@ Use this format for non-trivial tasks:
 
 ```md
 ## Diagnosis
+
 - ...
 
 ## Selected Skill
+
 - ...
 
 ## Change Plan
+
 1. ...
 
 ## Validation
+
 - ...
 
 ## Risks
+
 - ...
 ```
 

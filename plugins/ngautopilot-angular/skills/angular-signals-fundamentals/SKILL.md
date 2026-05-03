@@ -6,11 +6,10 @@ stack:
   - Angular
 category: signals
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 ---
 
 # Angular Signals Fundamentals
 
 Use this skill when a feature needs a correct signal-based mental model.
-

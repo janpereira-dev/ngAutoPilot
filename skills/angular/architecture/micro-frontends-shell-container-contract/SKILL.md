@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - shell container
@@ -121,4 +121,3 @@ When this skill is used, the agent should:
 3. Define route and remote ownership clearly.
 4. Add fallback and retry behavior where needed.
 5. Recommend the smallest safe shell contract.
-

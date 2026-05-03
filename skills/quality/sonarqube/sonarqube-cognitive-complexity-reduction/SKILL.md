@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: sonarqube
 status: stable
-version: 0.1.0
+version: 0.3.0
 owner: NgAutoPilot
 triggers:
   - cognitive complexity
@@ -75,4 +75,3 @@ When this skill is used, the agent should:
 3. Keep behavior covered.
 4. Avoid ornamental abstraction.
 5. Produce a readable refactor.
-
