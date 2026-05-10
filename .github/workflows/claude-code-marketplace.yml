@@ -4,15 +4,27 @@ on:
   pull_request:
     paths:
       - ".claude-plugin/**"
+      - ".agents/plugins/**"
       - "plugins/**"
+      - "catalog.json"
+      - "scripts/**"
       - ".github/workflows/claude-code-marketplace.yml"
   push:
     branches:
       - main
     paths:
       - ".claude-plugin/**"
+      - ".agents/plugins/**"
       - "plugins/**"
+      - "catalog.json"
+      - "scripts/**"
       - ".github/workflows/claude-code-marketplace.yml"
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   validate:
@@ -21,12 +33,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
       - name: Validate marketplace JSON
         run: |
           python -m json.tool .claude-plugin/marketplace.json > /dev/null
+          python -m json.tool .agents/plugins/marketplace.json > /dev/null
           python -m json.tool plugins/ngautopilot-core/.codex-plugin/plugin.json > /dev/null
           python -m json.tool plugins/ngautopilot-angular/.codex-plugin/plugin.json > /dev/null
+          python -m json.tool plugins/ngautopilot-javascript/.codex-plugin/plugin.json > /dev/null
+          python -m json.tool plugins/ngautopilot-typescript/.codex-plugin/plugin.json > /dev/null
           python -m json.tool plugins/ngautopilot-quality/.codex-plugin/plugin.json > /dev/null
+          python -m json.tool plugins/ngautopilot-quality-lint/.codex-plugin/plugin.json > /dev/null
+          python -m json.tool plugins/ngautopilot-quality-deadcode-sonar/.codex-plugin/plugin.json > /dev/null
           python -m json.tool plugins/ngautopilot-angular-microfrontends/.codex-plugin/plugin.json > /dev/null
           python -m json.tool plugins/ngautopilot-css/.codex-plugin/plugin.json > /dev/null
 
@@ -34,12 +56,11 @@ jobs:
         run: |
           test -f .claude-plugin/marketplace.json
           test -f .agents/plugins/marketplace.json
-          test -f plugins/ngautopilot-core/.codex-plugin/plugin.json
-          test -f plugins/ngautopilot-core/skills/autopilot/SKILL.md
-          test -f plugins/ngautopilot-angular/.codex-plugin/plugin.json
-          test -f plugins/ngautopilot-angular/skills/angular-upgrade/SKILL.md
-          test -f plugins/ngautopilot-quality/.codex-plugin/plugin.json
-          test -f plugins/ngautopilot-angular-microfrontends/.codex-plugin/plugin.json
-          test -f plugins/ngautopilot-angular-microfrontends/skills/micro-frontends-architecture/SKILL.md
-          test -f plugins/ngautopilot-css/.codex-plugin/plugin.json
-          test -f plugins/ngautopilot-css/skills/host-css-custom-properties/SKILL.md
+          for manifest in plugins/*/.codex-plugin/plugin.json; do
+            plugin_dir="$(dirname "$(dirname "$manifest")")"
+            test -d "$plugin_dir/skills"
+            find "$plugin_dir/skills" -name SKILL.md -type f | grep -q .
+          done
+
+      - name: Validate marketplace consistency
+        run: npm run consistency:validate
