@@ -1,13 +1,20 @@
 {
   "name": "ngautopilot-css",
-  "version": "0.3.1",
-  "description": "CSS-focused skills for host custom properties, selector-driven layouts, and modern styling gates.",
+  "version": "0.4.0",
+  "description": "CSS and Angular style-boundary skills for content-aware layouts, selectors, and host custom properties.",
   "author": {
-    "name": "Jan Pereira"
+    "name": "Jan Pereira",
+    "url": "https://github.com/janpereira-dev"
   },
   "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
   "repository": "https://github.com/janpereira-dev/ngAutoPilot",
   "license": "MIT",
-  "keywords": ["css", "selectors", "layout", "custom-properties", "styles"],
+  "keywords": [
+    "css",
+    "selectors",
+    "layout",
+    "custom-properties",
+    "styles"
+  ],
   "skills": "./skills/"
 }

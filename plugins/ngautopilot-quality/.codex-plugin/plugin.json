@@ -1,7 +1,7 @@
 {
   "name": "ngautopilot-quality",
-  "version": "0.3.1",
-  "description": "Quality-focused NgAutoPilot skills for testing, review, governance, and small safe changes.",
+  "version": "0.4.0",
+  "description": "Complete quality skills for ESLint, SonarQube, dead code, technical debt, and quality decision workflows.",
   "author": {
     "name": "Jan Pereira",
     "url": "https://github.com/janpereira-dev"
@@ -9,6 +9,12 @@
   "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
   "repository": "https://github.com/janpereira-dev/ngAutoPilot",
   "license": "MIT",
-  "keywords": ["quality", "testing", "review", "governance", "skills"],
+  "keywords": [
+    "quality",
+    "eslint",
+    "sonarqube",
+    "dead-code",
+    "technical-debt"
+  ],
   "skills": "./skills/"
 }

@@ -2,6 +2,24 @@
 
 All notable changes to NgAutoPilot will be documented in this file.
 
+## 0.4.0 - 2026-05-10
+
+Release focused on closing the catalog for final publication.
+
+### Added
+
+- Added generated plugin bundle synchronization from the source `skills/` catalog.
+- Added complete plugin coverage validation so every source skill is included in at least one distributable bundle.
+- Added the `ngautopilot-javascript` plugin bundle.
+- Added Angular Signals responsibility-boundary guidance for `signal`, `computed`, `linkedSignal`, `resource`, templates, `effect`, and `afterRenderEffect`.
+
+### Changed
+
+- Rebuilt plugin bundles by usage area: core, Angular, Angular micro-frontends, CSS, JavaScript, quality, lint, dead-code/SonarQube, and TypeScript.
+- Completed scaffolded Angular skills that still had placeholder bodies.
+- Hardened release validation to catch draft skills, scaffold placeholders, missing plugin coverage, and generated artifact drift.
+- Included plugin bundles, marketplace manifests, and scripts in the npm package.
+
 ## 0.3.1 - 2026-05-03
 
 Release focused on public DX, naming consistency, and cleaner release communication.

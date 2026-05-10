@@ -1,7 +1,7 @@
 {
   "name": "ngautopilot-typescript",
-  "version": "0.3.1",
-  "description": "TypeScript-focused NgAutoPilot skills for strict types, DTO mapping, and safe language-level modernization.",
+  "version": "0.4.0",
+  "description": "TypeScript-focused skills for strict typing, DTO mappers, fundamentals, and safe modernization.",
   "author": {
     "name": "Jan Pereira",
     "url": "https://github.com/janpereira-dev"
@@ -9,6 +9,12 @@
   "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
   "repository": "https://github.com/janpereira-dev/ngAutoPilot",
   "license": "MIT",
-  "keywords": ["typescript", "codex", "skills", "strict-types", "dto"],
+  "keywords": [
+    "typescript",
+    "strict-types",
+    "typing",
+    "dto",
+    "modernization"
+  ],
   "skills": "./skills/"
 }

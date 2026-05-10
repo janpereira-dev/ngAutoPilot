@@ -15,10 +15,66 @@ const readme = fs.readFileSync(readmePath, 'utf8');
 const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
 const claudeMarketplace = JSON.parse(fs.readFileSync(claudeMarketplacePath, 'utf8'));
 const codexMarketplace = JSON.parse(fs.readFileSync(codexMarketplacePath, 'utf8'));
+const sourceSkillIds = new Set();
+const pluginSkillIds = new Set();
+const placeholderPatterns = [
+  /\bDraft skill\b/i,
+  /Describe the exact problem this skill solves\./i,
+  /Use this skill when this specific Angular workflow is needed\./i,
+  /Explain the exact problem this skill solves\./i,
+  /Condition 1\./i,
+  /trigger example/i,
+];
 
 const catalogCount = Array.isArray(catalog.skills) ? catalog.skills.length : 0;
 if (catalogCount !== skillCount) {
   errors.push(`catalog.json skill count ${catalogCount} does not match skills/ SKILL.md count ${skillCount}`);
+}
+
+for (const file of skillFiles) {
+  const content = fs.readFileSync(file, 'utf8');
+  const frontmatter = parseFrontmatter(content);
+
+  if (!frontmatter?.id) {
+    errors.push(`${toPosixPath(file)} is missing a skill id`);
+    continue;
+  }
+
+  sourceSkillIds.add(frontmatter.id);
+
+  if (frontmatter.status === 'draft') {
+    errors.push(`${toPosixPath(file)} still has draft status`);
+  }
+
+  if (placeholderPatterns.some((pattern) => pattern.test(content))) {
+    errors.push(`${toPosixPath(file)} still contains scaffold placeholder text`);
+  }
+}
+
+for (const pluginFile of findSkillFiles(path.join(root, 'plugins'))) {
+  const content = fs.readFileSync(pluginFile, 'utf8');
+  const frontmatter = parseFrontmatter(content);
+
+  if (!frontmatter?.id) {
+    errors.push(`${toPosixPath(pluginFile)} is missing a skill id`);
+    continue;
+  }
+
+  pluginSkillIds.add(frontmatter.id);
+
+  if (frontmatter.status === 'draft') {
+    errors.push(`${toPosixPath(pluginFile)} still has draft status`);
+  }
+
+  if (placeholderPatterns.some((pattern) => pattern.test(content))) {
+    errors.push(`${toPosixPath(pluginFile)} still contains scaffold placeholder text`);
+  }
+}
+
+for (const skillId of sourceSkillIds) {
+  if (!pluginSkillIds.has(skillId)) {
+    errors.push(`skill ${skillId} is not included in any plugin bundle`);
+  }
 }
 
 const readmeCount = readme.match(/Current catalog size:\s+\*\*(\d+)\s+skills\*\*/i);
@@ -47,30 +103,12 @@ for (const family of requiredFamilies) {
 }
 
 validateMarketplace(claudeMarketplace, 'Claude Code', errors, {
-  expectedEntries: [
-    'ngautopilot-core',
-    'ngautopilot-angular',
-    'ngautopilot-quality',
-    'ngautopilot-quality-lint',
-    'ngautopilot-quality-deadcode-sonar',
-    'ngautopilot-typescript',
-    'ngautopilot-angular-microfrontends',
-    'ngautopilot-css',
-  ],
+  expectedEntries: expectedPluginEntries(),
   localPathShape: (source) => source.startsWith('./plugins/'),
 });
 
 validateMarketplace(codexMarketplace, 'Codex', errors, {
-  expectedEntries: [
-    'ngautopilot-core',
-    'ngautopilot-angular',
-    'ngautopilot-quality',
-    'ngautopilot-quality-lint',
-    'ngautopilot-quality-deadcode-sonar',
-    'ngautopilot-typescript',
-    'ngautopilot-angular-microfrontends',
-    'ngautopilot-css',
-  ],
+  expectedEntries: expectedPluginEntries(),
   localPathShape: (source) => source.source === 'local' && typeof source.path === 'string' && source.path.startsWith('./plugins/'),
 });
 
@@ -146,6 +184,81 @@ function validateMarketplace(marketplace, label, errorsOut, options) {
       errorsOut.push(`${label} marketplace is missing expected plugin entry: ${expected}`);
     }
   }
+}
+
+function expectedPluginEntries() {
+  if (!fs.existsSync(path.join(root, 'plugins'))) {
+    return [];
+  }
+
+  return fs
+    .readdirSync(path.join(root, 'plugins'), { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name)
+    .sort((left, right) => left.localeCompare(right));
+}
+
+function parseFrontmatter(content) {
+  const match = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+
+  if (!match) {
+    return null;
+  }
+
+  return parseYamlSubset(match[1]);
+}
+
+function parseYamlSubset(source) {
+  const result = {};
+  const lines = source.split(/\r?\n/);
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+    const match = line.match(/^([A-Za-z][A-Za-z0-9_-]*):(?:\s*(.*))?$/);
+
+    if (!match) {
+      continue;
+    }
+
+    const [, key, rawValue = ''] = match;
+    const value = rawValue.trim();
+
+    if (value === '>' || value === '|') {
+      const parts = [];
+
+      while (index + 1 < lines.length && !isTopLevelKey(lines[index + 1])) {
+        index += 1;
+        const foldedLine = lines[index].replace(/^\s+/, '');
+
+        if (foldedLine) {
+          parts.push(foldedLine);
+        }
+      }
+
+      result[key] = parts.join(' ');
+      continue;
+    }
+
+    if (value === '') {
+      const items = [];
+
+      while (index + 1 < lines.length && /^\s*-\s+/.test(lines[index + 1])) {
+        index += 1;
+        items.push(lines[index].replace(/^\s*-\s+/, '').trim());
+      }
+
+      result[key] = items.length > 0 ? items : '';
+      continue;
+    }
+
+    result[key] = value.replace(/^['"]|['"]$/g, '');
+  }
+
+  return result;
+}
+
+function isTopLevelKey(line) {
+  return /^[A-Za-z][A-Za-z0-9_-]*:/.test(line);
 }
 
 function toPosixPath(value) {

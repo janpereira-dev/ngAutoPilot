@@ -27,8 +27,11 @@ jobs:
       - name: Regenerate catalog
         run: npm run skills:catalog
 
-      - name: Check catalog drift
-        run: git diff --exit-code -- catalog.json
+      - name: Sync plugin bundles
+        run: npm run plugins:sync
+
+      - name: Check generated drift
+        run: git diff --exit-code -- catalog.json plugins .agents/plugins/marketplace.json .claude-plugin/marketplace.json
 
       - name: Build publish bundles
         run: npm run skills:publish:pack

@@ -8,8 +8,9 @@ Use this checklist when preparing a public NgAutoPilot release.
 2. Confirm `package.json` has the intended release version.
 3. Run:
    - `npm run skills:validate`
-   - `npm run consistency:validate`
    - `npm run skills:catalog`
+   - `npm run plugins:sync`
+   - `npm run consistency:validate`
    - `npm run marketplaces:validate`
    - `npm run skills:publish:pack`
    - `npm run publish:validate`
@@ -60,6 +61,8 @@ Use this order before publishing:
 
 ```bash
 npm run skills:validate
+npm run skills:catalog
+npm run plugins:sync
 npm run consistency:validate
 npm run marketplaces:validate
 npm run skills:publish:pack
@@ -67,5 +70,5 @@ npm run publish:validate
 npm pack --dry-run
 ```
 
-`skills:validate` stays strict. `consistency:validate` is the main release gate.
+`skills:validate` stays strict. `plugins:sync` rebuilds marketplace bundles from `skills/`. `consistency:validate` is the main release gate and checks that every source skill is bundled, no skill remains in draft, and scaffold placeholders are gone.
 

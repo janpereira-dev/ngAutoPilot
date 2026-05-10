@@ -1,10 +1,10 @@
 {
   "name": "ngautopilot",
-  "description": "NgAutoPilot Claude Code plugin marketplace for core workflow, Angular upgrades, and quality guidance.",
+  "description": "NgAutoPilot Claude Code plugin marketplace for core workflow, Angular, JavaScript, TypeScript, CSS, and quality guidance.",
   "metadata": {
-    "description": "NgAutoPilot Claude Code plugin marketplace for core workflow, Angular upgrades, and quality guidance."
+    "description": "NgAutoPilot Claude Code plugin marketplace for core workflow, Angular, JavaScript, TypeScript, CSS, and quality guidance."
   },
-  "version": "0.3.1",
+  "version": "0.4.0",
   "owner": {
     "name": "Jan Pereira"
   },
@@ -12,8 +12,8 @@
     {
       "name": "ngautopilot-core",
       "source": "./plugins/ngautopilot-core",
-      "description": "Core orchestration skills for intake, stack detection, routing, compatibility, and risk assessment.",
-      "version": "0.3.1",
+      "description": "Core NgAutoPilot workflows for project intake, stack detection, skill routing, compatibility gates, and risk assessment.",
+      "version": "0.4.0",
       "author": {
         "name": "Jan Pereira"
       },
@@ -21,13 +21,18 @@
       "repository": "https://github.com/janpereira-dev/ngAutoPilot",
       "license": "MIT",
       "category": "development-workflow",
-      "tags": ["ai-agents", "skills", "orchestration", "developer-tools"]
+      "tags": [
+        "ai-agents",
+        "skills",
+        "orchestration",
+        "developer-tools"
+      ]
     },
     {
       "name": "ngautopilot-angular",
       "source": "./plugins/ngautopilot-angular",
-      "description": "Angular-focused skills for version-aware upgrades, modernization, and validation.",
-      "version": "0.3.1",
+      "description": "Complete Angular-focused NgAutoPilot skills for upgrades, compatibility, architecture, testing, RxJS, performance, security, signals, and modernization.",
+      "version": "0.4.0",
       "author": {
         "name": "Jan Pereira"
       },
@@ -35,69 +40,19 @@
       "repository": "https://github.com/janpereira-dev/ngAutoPilot",
       "license": "MIT",
       "category": "frontend",
-      "tags": ["angular", "typescript", "rxjs", "upgrade", "frontend"]
-    },
-    {
-      "name": "ngautopilot-quality",
-      "source": "./plugins/ngautopilot-quality",
-      "description": "Compatibility bundle kept for existing quality workflows while lint and dead-code/sonar live in dedicated plugins.",
-      "version": "0.3.1",
-      "author": {
-        "name": "Jan Pereira"
-      },
-      "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
-      "repository": "https://github.com/janpereira-dev/ngAutoPilot",
-      "license": "MIT",
-      "category": "quality",
-      "tags": ["quality", "compatibility", "testing", "review", "governance"]
-    },
-    {
-      "name": "ngautopilot-quality-lint",
-      "source": "./plugins/ngautopilot-quality-lint",
-      "description": "Lint-focused skills for ESLint baseline hardening and safe cleanup.",
-      "version": "0.3.1",
-      "author": {
-        "name": "Jan Pereira"
-      },
-      "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
-      "repository": "https://github.com/janpereira-dev/ngAutoPilot",
-      "license": "MIT",
-      "category": "quality",
-      "tags": ["quality", "lint", "eslint", "baseline"]
-    },
-    {
-      "name": "ngautopilot-quality-deadcode-sonar",
-      "source": "./plugins/ngautopilot-quality-deadcode-sonar",
-      "description": "Dead-code and SonarQube skills for exports cleanup, orphan removal, and gate triage.",
-      "version": "0.3.1",
-      "author": {
-        "name": "Jan Pereira"
-      },
-      "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
-      "repository": "https://github.com/janpereira-dev/ngAutoPilot",
-      "license": "MIT",
-      "category": "quality",
-      "tags": ["quality", "dead-code", "sonar", "cleanup"]
-    },
-    {
-      "name": "ngautopilot-typescript",
-      "source": "./plugins/ngautopilot-typescript",
-      "description": "TypeScript-focused skills for strict typing, fundamentals, and safe modernization.",
-      "version": "0.3.1",
-      "author": {
-        "name": "Jan Pereira"
-      },
-      "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
-      "repository": "https://github.com/janpereira-dev/ngAutoPilot",
-      "license": "MIT",
-      "category": "typescript",
-      "tags": ["typescript", "strict-types", "typing", "modernization"]
+      "tags": [
+        "angular",
+        "typescript",
+        "rxjs",
+        "upgrade",
+        "frontend"
+      ]
     },
     {
       "name": "ngautopilot-angular-microfrontends",
       "source": "./plugins/ngautopilot-angular-microfrontends",
-      "description": "Micro-frontends skills for Angular shell contracts, compatibility gates, dependency sharing, and rollback safety.",
-      "version": "0.3.1",
+      "description": "Focused Angular micro-frontends skills for shell contracts, compatibility gates, dependency sharing, ownership, observability, release governance, and rollback safety.",
+      "version": "0.4.0",
       "author": {
         "name": "Jan Pereira"
       },
@@ -105,13 +60,19 @@
       "repository": "https://github.com/janpereira-dev/ngAutoPilot",
       "license": "MIT",
       "category": "frontend",
-      "tags": ["angular", "microfrontends", "module-federation", "nx", "architecture"]
+      "tags": [
+        "angular",
+        "microfrontends",
+        "module-federation",
+        "nx",
+        "architecture"
+      ]
     },
     {
       "name": "ngautopilot-css",
       "source": "./plugins/ngautopilot-css",
-      "description": "CSS-focused skills for host custom properties and content-aware layouts.",
-      "version": "0.3.1",
+      "description": "CSS and Angular style-boundary skills for content-aware layouts, selectors, and host custom properties.",
+      "version": "0.4.0",
       "author": {
         "name": "Jan Pereira"
       },
@@ -119,7 +80,111 @@
       "repository": "https://github.com/janpereira-dev/ngAutoPilot",
       "license": "MIT",
       "category": "styles",
-      "tags": ["css", "selectors", "layout", "custom-properties", "styles"]
+      "tags": [
+        "css",
+        "selectors",
+        "layout",
+        "custom-properties",
+        "styles"
+      ]
+    },
+    {
+      "name": "ngautopilot-javascript",
+      "source": "./plugins/ngautopilot-javascript",
+      "description": "JavaScript-focused NgAutoPilot skills for fundamentals, modules, pure functions, and async error handling.",
+      "version": "0.4.0",
+      "author": {
+        "name": "Jan Pereira"
+      },
+      "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+      "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+      "license": "MIT",
+      "category": "javascript",
+      "tags": [
+        "javascript",
+        "async",
+        "modules",
+        "browser",
+        "nodejs"
+      ]
+    },
+    {
+      "name": "ngautopilot-quality",
+      "source": "./plugins/ngautopilot-quality",
+      "description": "Complete quality skills for ESLint, SonarQube, dead code, technical debt, and quality decision workflows.",
+      "version": "0.4.0",
+      "author": {
+        "name": "Jan Pereira"
+      },
+      "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+      "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+      "license": "MIT",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "eslint",
+        "sonar",
+        "dead-code",
+        "governance"
+      ]
+    },
+    {
+      "name": "ngautopilot-quality-lint",
+      "source": "./plugins/ngautopilot-quality-lint",
+      "description": "Lint-focused quality skills for ESLint baseline hardening, disable governance, and safe autofix cleanup.",
+      "version": "0.4.0",
+      "author": {
+        "name": "Jan Pereira"
+      },
+      "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+      "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+      "license": "MIT",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "lint",
+        "eslint",
+        "baseline"
+      ]
+    },
+    {
+      "name": "ngautopilot-quality-deadcode-sonar",
+      "source": "./plugins/ngautopilot-quality-deadcode-sonar",
+      "description": "Dead-code and SonarQube skills for orphan files, unused exports, dead branches, complexity, duplication, coverage, and gate triage.",
+      "version": "0.4.0",
+      "author": {
+        "name": "Jan Pereira"
+      },
+      "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+      "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+      "license": "MIT",
+      "category": "quality",
+      "tags": [
+        "quality",
+        "dead-code",
+        "sonar",
+        "cleanup"
+      ]
+    },
+    {
+      "name": "ngautopilot-typescript",
+      "source": "./plugins/ngautopilot-typescript",
+      "description": "TypeScript-focused skills for strict typing, DTO mappers, fundamentals, and safe modernization.",
+      "version": "0.4.0",
+      "author": {
+        "name": "Jan Pereira"
+      },
+      "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+      "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+      "license": "MIT",
+      "category": "typescript",
+      "tags": [
+        "typescript",
+        "strict-types",
+        "typing",
+        "dto",
+        "modernization"
+      ]
     }
   ]
 }
