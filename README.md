@@ -89,7 +89,7 @@ NgAutoPilot answers that with small, reusable, public skills that can be routed 
 
 ## Catalog Snapshot
 
-Current catalog size: **285 skills**
+Current catalog size: **287 skills**
 
 | Area | Coverage |
 | --- | --- |
@@ -157,6 +157,7 @@ Use these commands before publishing:
 ```bash
 npm run skills:validate
 npm run skills:catalog
+npm run plugins:sync
 npm run consistency:validate
 npm run marketplaces:validate
 npm run skills:publish:pack
@@ -173,7 +174,21 @@ NgAutoPilot ships marketplace manifests for Claude Code and Codex:
 - Claude manifest: `.claude-plugin/marketplace.json`
 - Codex manifest: `.agents/plugins/marketplace.json`
 
-Current plugin bundles include `ngautopilot-core`, `ngautopilot-angular`, `ngautopilot-quality`, `ngautopilot-quality-lint`, `ngautopilot-quality-deadcode-sonar`, `ngautopilot-typescript`, `ngautopilot-angular-microfrontends`, and `ngautopilot-css`.
+Current plugin bundles are split by use:
+
+| Bundle | Use |
+| --- | --- |
+| `ngautopilot-core` | orchestration, intake, routing, compatibility, and risk gates |
+| `ngautopilot-angular` | complete Angular catalog |
+| `ngautopilot-angular-microfrontends` | focused Angular micro-frontends subset |
+| `ngautopilot-css` | CSS and Angular style-boundary subset |
+| `ngautopilot-javascript` | JavaScript fundamentals, modules, pure functions, and async error handling |
+| `ngautopilot-quality` | complete quality catalog |
+| `ngautopilot-quality-lint` | ESLint and lint governance subset |
+| `ngautopilot-quality-deadcode-sonar` | dead-code and SonarQube subset |
+| `ngautopilot-typescript` | complete TypeScript catalog |
+
+`npm run plugins:sync` rebuilds plugin bundles from `skills/` and the consistency validator checks that every source skill is included in at least one plugin bundle.
 
 ## Repository Map
 

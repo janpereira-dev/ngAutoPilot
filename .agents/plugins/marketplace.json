@@ -29,6 +29,42 @@
       "category": "Frontend"
     },
     {
+      "name": "ngautopilot-angular-microfrontends",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ngautopilot-angular-microfrontends"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Frontend"
+    },
+    {
+      "name": "ngautopilot-css",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ngautopilot-css"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Styles"
+    },
+    {
+      "name": "ngautopilot-javascript",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ngautopilot-javascript"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "JavaScript"
+    },
+    {
       "name": "ngautopilot-quality",
       "source": {
         "source": "local",
@@ -75,30 +111,6 @@
         "authentication": "ON_INSTALL"
       },
       "category": "TypeScript"
-    },
-    {
-      "name": "ngautopilot-angular-microfrontends",
-      "source": {
-        "source": "local",
-        "path": "./plugins/ngautopilot-angular-microfrontends"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Frontend"
-    },
-    {
-      "name": "ngautopilot-css",
-      "source": {
-        "source": "local",
-        "path": "./plugins/ngautopilot-css"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Styles"
     }
   ]
 }

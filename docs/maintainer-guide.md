@@ -25,6 +25,7 @@ This document is for repository maintenance, catalog governance, packaging, and 
 ```bash
 npm run skills:validate
 npm run skills:catalog
+npm run plugins:sync
 npm run consistency:validate
 npm run marketplaces:validate
 npm run skills:publish:pack
@@ -34,8 +35,8 @@ npm run pack:dry
 
 ## Workflow Intent
 
-- `ci.yml` regenerates the catalog, checks drift, builds publish bundles, and validates those bundles.
-- `release-gates.yml` validates skills, consistency, marketplaces, and package dry runs.
+- `ci.yml` regenerates the catalog and plugin bundles, checks drift, builds publish bundles, and validates those bundles.
+- `release-gates.yml` validates skills, plugin coverage, consistency, marketplaces, and package dry runs.
 - `release.yml` prepares release artifacts and only publishes to npm when manually dispatched with publish enabled.
 - Marketplace workflows validate the Claude Code and Codex manifests and the packaged plugin roots.
 
@@ -49,6 +50,7 @@ npm run pack:dry
 ## Marketplace Notes
 
 - Keep the public docs aligned with the CLI behavior that is actually available.
+- Keep `plugins/` generated from `skills/` with `npm run plugins:sync`; every source skill must be present in at least one marketplace bundle.
 - Validate marketplace manifest structure directly for Codex.
 - Use `claude plugin validate .` when validating Claude marketplace behavior locally.
 - Do not claim direct publication to external marketplaces when the repo only prepares deterministic artifacts for upload.

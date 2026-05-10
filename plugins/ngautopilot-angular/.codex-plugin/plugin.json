@@ -1,7 +1,7 @@
 {
   "name": "ngautopilot-angular",
-  "version": "0.3.1",
-  "description": "Angular-focused NgAutoPilot skills for upgrades, compatibility gates, architecture, testing, RxJS, performance, and modernization.",
+  "version": "0.4.0",
+  "description": "Complete Angular-focused NgAutoPilot skills for upgrades, compatibility, architecture, testing, RxJS, performance, security, signals, and modernization.",
   "author": {
     "name": "Jan Pereira",
     "url": "https://github.com/janpereira-dev"
@@ -9,6 +9,13 @@
   "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
   "repository": "https://github.com/janpereira-dev/ngAutoPilot",
   "license": "MIT",
-  "keywords": ["angular", "typescript", "rxjs", "codex", "skills", "frontend"],
+  "keywords": [
+    "angular",
+    "typescript",
+    "rxjs",
+    "codex",
+    "skills",
+    "frontend"
+  ],
   "skills": "./skills/"
 }

@@ -1,13 +1,20 @@
 {
   "name": "ngautopilot-angular-microfrontends",
-  "version": "0.3.1",
-  "description": "Angular micro-frontends skills for architecture, shell contracts, version gates, dependency sharing, and rollback safety.",
+  "version": "0.4.0",
+  "description": "Focused Angular micro-frontends skills for shell contracts, compatibility gates, dependency sharing, ownership, observability, release governance, and rollback safety.",
   "author": {
-    "name": "Jan Pereira"
+    "name": "Jan Pereira",
+    "url": "https://github.com/janpereira-dev"
   },
   "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
   "repository": "https://github.com/janpereira-dev/ngAutoPilot",
   "license": "MIT",
-  "keywords": ["angular", "microfrontends", "module-federation", "nx", "architecture"],
+  "keywords": [
+    "angular",
+    "microfrontends",
+    "module-federation",
+    "nx",
+    "frontend"
+  ],
   "skills": "./skills/"
 }
