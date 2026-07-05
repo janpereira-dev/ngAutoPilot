@@ -12,7 +12,7 @@ version: 0.4.0
 owner: NgAutoPilot
 triggers:
   - localize builder
-  - @angular/localize
+  - "@angular/localize"
   - translation build
   - builder project option
 compatibility:

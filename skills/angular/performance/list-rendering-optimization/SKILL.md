@@ -13,7 +13,7 @@ owner: NgAutoPilot
 triggers:
   - list rendering
   - trackBy
-  - @for track
+  - "@for track"
   - large list
   - DOM recreation
   - virtual scroll

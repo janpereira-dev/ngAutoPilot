@@ -88,6 +88,8 @@ large or risky change -> core.risk-assessment
 Angular rendering performance -> angular.performance.performance-orchestrator
 Angular architecture -> angular.architecture.angular-patterns-senior
 Angular dependency injection, providers, tokens, injectors -> angular.dependency-injection
+Angular 21 -> 22 upgrade -> skills/angular/upgrades/21-to-22/angular-21-to-22-upgrade-orchestrator/SKILL.md
+Angular 22 domain risk -> select the narrow `angular-v22-*` satellite for that domain
 TypeScript unsafe typing -> typescript.strict-types.avoid-any
 RxJS nested subscriptions -> angular.rxjs.avoid-nested-subscriptions
 Observable public contract -> angular.rxjs.observable-contracts

@@ -1,0 +1,5294 @@
+{
+  "section": "Update",
+  "source": "https://www.angular.courses/caniuse?tab=update",
+  "expected_count": 112,
+  "actual_count": 112,
+  "headers": [
+    "section",
+    "name",
+    "package",
+    "description",
+    "status",
+    "introduced_in",
+    "removed_in",
+    "v22",
+    "v21",
+    "v20",
+    "v19",
+    "v18",
+    "v17",
+    "v16",
+    "v15",
+    "v14",
+    "angular_courses_url",
+    "angular_dev_url",
+    "notes"
+  ],
+  "items": [
+    {
+      "section": "Update",
+      "name": "add-istanbul-instrumenter",
+      "package": "angular-cli",
+      "description": "Add 'istanbul-lib-instrument' to 'devDependencies' if Karma unit testing is used.",
+      "status": "",
+      "introduced_in": "22.0.0",
+      "removed_in": "",
+      "v22": "available",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-istanbul-instrumenter",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 0,
+        "links": [
+          {
+            "text": "add-istanbul-instrumenter",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-istanbul-instrumenter"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-istanbul-instrumenter"
+          },
+          {
+            "text": "Add 'istanbul-lib-instrument' to 'devDependencies' if Karma unit testing is used.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-istanbul-instrumenter"
+          },
+          {
+            "text": "22.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-istanbul-instrumenter"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-istanbul-instrumenter"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "can-match-snapshot-required",
+      "package": "angular",
+      "description": "Adds the required third argument to canMatch callsites.",
+      "status": "",
+      "introduced_in": "22.0.0",
+      "removed_in": "",
+      "v22": "available",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/can-match-snapshot-required",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 1,
+        "links": [
+          {
+            "text": "can-match-snapshot-required",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/can-match-snapshot-required"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/can-match-snapshot-required"
+          },
+          {
+            "text": "Adds the required third argument to canMatch callsites.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/can-match-snapshot-required"
+          },
+          {
+            "text": "22.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/can-match-snapshot-required"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/can-match-snapshot-required"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "change-detection-eager",
+      "package": "angular",
+      "description": "Adds `ChangeDetectionStrategy.Eager` to all components.",
+      "status": "",
+      "introduced_in": "22.0.0",
+      "removed_in": "",
+      "v22": "available",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/change-detection-eager",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 2,
+        "links": [
+          {
+            "text": "change-detection-eager",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/change-detection-eager"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/change-detection-eager"
+          },
+          {
+            "text": "Adds `ChangeDetectionStrategy.Eager` to all components.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/change-detection-eager"
+          },
+          {
+            "text": "22.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/change-detection-eager"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/change-detection-eager"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "http-xhr-backend",
+      "package": "angular",
+      "description": "Adds 'withXhr' to 'provideHttpClient' function calls when the 'HttpXhrBackend' is used. For more information see: https://angular.dev/api/common/http/withXhr",
+      "status": "",
+      "introduced_in": "22.0.0",
+      "removed_in": "",
+      "v22": "available",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/http-xhr-backend",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 3,
+        "links": [
+          {
+            "text": "http-xhr-backend",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/http-xhr-backend"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/http-xhr-backend"
+          },
+          {
+            "text": "Adds 'withXhr' to 'provideHttpClient' function calls when the 'HttpXhrBackend' is used. For more information see: https://angular.dev/api/common/http/withXhr",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/http-xhr-backend"
+          },
+          {
+            "text": "22.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/http-xhr-backend"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/http-xhr-backend"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "incremental-hydration",
+      "package": "angular",
+      "description": "Adds withNoIncrementalHydration() opt out to provideClientHydration() when incremental hydration is not enabled to retain pre-v22 behavior-.",
+      "status": "",
+      "introduced_in": "22.0.0",
+      "removed_in": "",
+      "v22": "available",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/incremental-hydration",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 4,
+        "links": [
+          {
+            "text": "incremental-hydration",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/incremental-hydration"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/incremental-hydration"
+          },
+          {
+            "text": "Adds withNoIncrementalHydration() opt out to provideClientHydration() when incremental hydration is not enabled to retain pre-v22 behavior-.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/incremental-hydration"
+          },
+          {
+            "text": "22.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/incremental-hydration"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/incremental-hydration"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "migrate-karma-to-vitest",
+      "package": "angular-cli",
+      "description": "Migrate projects using legacy Karma unit-test builder to the new unit-test builder with Vitest.",
+      "status": "optional",
+      "introduced_in": "22.0.0",
+      "removed_in": "",
+      "v22": "optional",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/migrate-karma-to-vitest",
+      "angular_dev_url": "",
+      "notes": "optional migration",
+      "raw": {
+        "index": 5,
+        "links": [
+          {
+            "text": "migrate-karma-to-vitest",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/migrate-karma-to-vitest"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/migrate-karma-to-vitest"
+          },
+          {
+            "text": "Migrate projects using legacy Karma unit-test builder to the new unit-test builder with Vitest.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/migrate-karma-to-vitest"
+          },
+          {
+            "text": "22.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/migrate-karma-to-vitest"
+          },
+          {
+            "text": "Yes",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/migrate-karma-to-vitest"
+          }
+        ],
+        "optional": "Yes"
+      }
+    },
+    {
+      "section": "Update",
+      "name": "model-output",
+      "package": "angular",
+      "description": "Migrate broken duplicate outputs",
+      "status": "",
+      "introduced_in": "22.0.0",
+      "removed_in": "",
+      "v22": "available",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/model-output",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 6,
+        "links": [
+          {
+            "text": "model-output",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/model-output"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/model-output"
+          },
+          {
+            "text": "Migrate broken duplicate outputs",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/model-output"
+          },
+          {
+            "text": "22.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/model-output"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/model-output"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "safe-optional-chaining",
+      "package": "angular",
+      "description": "Wraps optional chaining expressions in $safeNavigationMigration().",
+      "status": "",
+      "introduced_in": "22.0.0",
+      "removed_in": "",
+      "v22": "available",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/safe-optional-chaining",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 7,
+        "links": [
+          {
+            "text": "safe-optional-chaining",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/safe-optional-chaining"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/safe-optional-chaining"
+          },
+          {
+            "text": "Wraps optional chaining expressions in $safeNavigationMigration().",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/safe-optional-chaining"
+          },
+          {
+            "text": "22.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/safe-optional-chaining"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/safe-optional-chaining"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "strict-safe-navigation-narrow",
+      "package": "angular",
+      "description": "Disables the 'nullishCoalescingNotNullable & optionalChainNotNullable extended diagnostics.",
+      "status": "",
+      "introduced_in": "22.0.0",
+      "removed_in": "",
+      "v22": "available",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/strict-safe-navigation-narrow",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 8,
+        "links": [
+          {
+            "text": "strict-safe-navigation-narrow",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/strict-safe-navigation-narrow"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/strict-safe-navigation-narrow"
+          },
+          {
+            "text": "Disables the 'nullishCoalescingNotNullable & optionalChainNotNullable extended diagnostics.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/strict-safe-navigation-narrow"
+          },
+          {
+            "text": "22.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/strict-safe-navigation-narrow"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/strict-safe-navigation-narrow"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "strict-templates-default",
+      "package": "angular",
+      "description": "Adds 'strictTemplates: false' in tsconfig.json when not set.",
+      "status": "",
+      "introduced_in": "22.0.0",
+      "removed_in": "",
+      "v22": "available",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/strict-templates-default",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 9,
+        "links": [
+          {
+            "text": "strict-templates-default",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/strict-templates-default"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/strict-templates-default"
+          },
+          {
+            "text": "Adds 'strictTemplates: false' in tsconfig.json when not set.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/strict-templates-default"
+          },
+          {
+            "text": "22.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/strict-templates-default"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/strict-templates-default"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "trust-proxy-headers",
+      "package": "angular-cli",
+      "description": "Add 'trustProxyHeaders' configuration to 'AngularNodeAppEngine' or 'AngularAppEngine'. For more information see: https://angular.dev/best-practices/security#configuring-trusted-proxy-headers",
+      "status": "",
+      "introduced_in": "22.0.0",
+      "removed_in": "",
+      "v22": "available",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/trust-proxy-headers",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 10,
+        "links": [
+          {
+            "text": "trust-proxy-headers",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/trust-proxy-headers"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/trust-proxy-headers"
+          },
+          {
+            "text": "Add 'trustProxyHeaders' configuration to 'AngularNodeAppEngine' or 'AngularAppEngine'. For more information see: https://angular.dev/best-practices/security#configuring-trusted-proxy-headers",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/trust-proxy-headers"
+          },
+          {
+            "text": "22.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/trust-proxy-headers"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/trust-proxy-headers"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "application-config-core",
+      "package": "angular",
+      "description": "Moves imports of `ApplicationConfig` from `@angular/platform-browser` to `@angular/core`",
+      "status": "",
+      "introduced_in": "21.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "available",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/application-config-core",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 11,
+        "links": [
+          {
+            "text": "application-config-core",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/application-config-core"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/application-config-core"
+          },
+          {
+            "text": "Moves imports of `ApplicationConfig` from `@angular/platform-browser` to `@angular/core`",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/application-config-core"
+          },
+          {
+            "text": "21.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/application-config-core"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/application-config-core"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "bootstrap-options-migration",
+      "package": "angular",
+      "description": "Migrates deprecated bootstrap options to providers.",
+      "status": "",
+      "introduced_in": "21.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "available",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/bootstrap-options-migration",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 12,
+        "links": [
+          {
+            "text": "bootstrap-options-migration",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/bootstrap-options-migration"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/bootstrap-options-migration"
+          },
+          {
+            "text": "Migrates deprecated bootstrap options to providers.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/bootstrap-options-migration"
+          },
+          {
+            "text": "21.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/bootstrap-options-migration"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/bootstrap-options-migration"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "router-last-successful-navigation",
+      "package": "angular",
+      "description": "Ensures that the Router.lastSuccessfulNavigation signal is now invoked",
+      "status": "",
+      "introduced_in": "21.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "available",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/router-last-successful-navigation",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 13,
+        "links": [
+          {
+            "text": "router-last-successful-navigation",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-last-successful-navigation"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-last-successful-navigation"
+          },
+          {
+            "text": "Ensures that the Router.lastSuccessfulNavigation signal is now invoked",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-last-successful-navigation"
+          },
+          {
+            "text": "21.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-last-successful-navigation"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-last-successful-navigation"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-typescript-lib",
+      "package": "angular-cli",
+      "description": "Updates the 'lib' property in tsconfig files to use 'es2022' or a more modern version.",
+      "status": "",
+      "introduced_in": "21.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "available",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-typescript-lib",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 14,
+        "links": [
+          {
+            "text": "update-typescript-lib",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-typescript-lib"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-typescript-lib"
+          },
+          {
+            "text": "Updates the 'lib' property in tsconfig files to use 'es2022' or a more modern version.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-typescript-lib"
+          },
+          {
+            "text": "21.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-typescript-lib"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-typescript-lib"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "add-bootstrap-context-to-server-main",
+      "package": "angular",
+      "description": "Adds `BootstrapContext` to `bootstrapApplication` calls in `main.server.ts` to support server rendering.",
+      "status": "",
+      "introduced_in": "20.3.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "available",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/add-bootstrap-context-to-server-main",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 15,
+        "links": [
+          {
+            "text": "add-bootstrap-context-to-server-main",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/add-bootstrap-context-to-server-main"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/add-bootstrap-context-to-server-main"
+          },
+          {
+            "text": "Adds `BootstrapContext` to `bootstrapApplication` calls in `main.server.ts` to support server rendering.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/add-bootstrap-context-to-server-main"
+          },
+          {
+            "text": "20.3.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/add-bootstrap-context-to-server-main"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/add-bootstrap-context-to-server-main"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "remove-default-karma-config",
+      "package": "angular-cli",
+      "description": "Remove any karma configuration files that only contain the default content. The default configuration is automatically available without a specific project file.",
+      "status": "",
+      "introduced_in": "20.2.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "available",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-default-karma-config",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 16,
+        "links": [
+          {
+            "text": "remove-default-karma-config",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-default-karma-config"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-default-karma-config"
+          },
+          {
+            "text": "Remove any karma configuration files that only contain the default content. The default configuration is automatically available without a specific project file.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-default-karma-config"
+          },
+          {
+            "text": "20.2.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-default-karma-config"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-default-karma-config"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "router-current-navigation",
+      "package": "angular",
+      "description": "Replaces usages of the deprecated Router.getCurrentNavigation method with the Router.currentNavigation signal",
+      "status": "optional",
+      "introduced_in": "20.2.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "optional",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/router-current-navigation",
+      "angular_dev_url": "",
+      "notes": "optional migration",
+      "raw": {
+        "index": 17,
+        "links": [
+          {
+            "text": "router-current-navigation",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-current-navigation"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-current-navigation"
+          },
+          {
+            "text": "Replaces usages of the deprecated Router.getCurrentNavigation method with the Router.currentNavigation signal",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-current-navigation"
+          },
+          {
+            "text": "20.2.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-current-navigation"
+          },
+          {
+            "text": "Yes",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-current-navigation"
+          }
+        ],
+        "optional": "Yes"
+      }
+    },
+    {
+      "section": "Update",
+      "name": "control-flow-migration",
+      "package": "angular",
+      "description": "Converts the entire application to block control flow syntax",
+      "status": "optional",
+      "introduced_in": "20.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "optional",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/control-flow-migration",
+      "angular_dev_url": "",
+      "notes": "optional migration",
+      "raw": {
+        "index": 18,
+        "links": [
+          {
+            "text": "control-flow-migration",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/control-flow-migration"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/control-flow-migration"
+          },
+          {
+            "text": "Converts the entire application to block control flow syntax",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/control-flow-migration"
+          },
+          {
+            "text": "20.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/control-flow-migration"
+          },
+          {
+            "text": "Yes",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/control-flow-migration"
+          }
+        ],
+        "optional": "Yes"
+      }
+    },
+    {
+      "section": "Update",
+      "name": "document-core",
+      "package": "angular",
+      "description": "Moves imports of `DOCUMENT` from `@angular/common` to `@angular/core`",
+      "status": "",
+      "introduced_in": "20.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "available",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/document-core",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 19,
+        "links": [
+          {
+            "text": "document-core",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/document-core"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/document-core"
+          },
+          {
+            "text": "Moves imports of `DOCUMENT` from `@angular/common` to `@angular/core`",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/document-core"
+          },
+          {
+            "text": "20.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/document-core"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/document-core"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "inject-flags",
+      "package": "angular",
+      "description": "Replaces usages of the deprecated InjectFlags enum",
+      "status": "",
+      "introduced_in": "20.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "available",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/inject-flags",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 20,
+        "links": [
+          {
+            "text": "inject-flags",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/inject-flags"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/inject-flags"
+          },
+          {
+            "text": "Replaces usages of the deprecated InjectFlags enum",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/inject-flags"
+          },
+          {
+            "text": "20.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/inject-flags"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/inject-flags"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "previous-style-guide",
+      "package": "angular-cli",
+      "description": "Update workspace generation defaults to maintain previous style guide behavior.",
+      "status": "",
+      "introduced_in": "20.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "available",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/previous-style-guide",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 21,
+        "links": [
+          {
+            "text": "previous-style-guide",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/previous-style-guide"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/previous-style-guide"
+          },
+          {
+            "text": "Update workspace generation defaults to maintain previous style guide behavior.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/previous-style-guide"
+          },
+          {
+            "text": "20.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/previous-style-guide"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/previous-style-guide"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "replace-provide-server-rendering-import",
+      "package": "angular-cli",
+      "description": "Migrate imports of 'provideServerRendering' from '@angular/platform-server' to '@angular/ssr'.",
+      "status": "",
+      "introduced_in": "20.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "available",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-provide-server-rendering-import",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 22,
+        "links": [
+          {
+            "text": "replace-provide-server-rendering-import",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-provide-server-rendering-import"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-provide-server-rendering-import"
+          },
+          {
+            "text": "Migrate imports of 'provideServerRendering' from '@angular/platform-server' to '@angular/ssr'.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-provide-server-rendering-import"
+          },
+          {
+            "text": "20.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-provide-server-rendering-import"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-provide-server-rendering-import"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "replace-provide-server-routing",
+      "package": "angular-cli",
+      "description": "Migrate 'provideServerRendering' to use 'withRoutes', and remove 'provideServerRouting' and 'provideServerRoutesConfig' from '@angular/ssr'.",
+      "status": "",
+      "introduced_in": "20.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "available",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-provide-server-routing",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 23,
+        "links": [
+          {
+            "text": "replace-provide-server-routing",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-provide-server-routing"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-provide-server-routing"
+          },
+          {
+            "text": "Migrate 'provideServerRendering' to use 'withRoutes', and remove 'provideServerRouting' and 'provideServerRoutesConfig' from '@angular/ssr'.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-provide-server-routing"
+          },
+          {
+            "text": "20.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-provide-server-routing"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-provide-server-routing"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "test-bed-get",
+      "package": "angular",
+      "description": "Replaces usages of the deprecated TestBed.get method with TestBed.inject",
+      "status": "",
+      "introduced_in": "20.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "available",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/test-bed-get",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 24,
+        "links": [
+          {
+            "text": "test-bed-get",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/test-bed-get"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/test-bed-get"
+          },
+          {
+            "text": "Replaces usages of the deprecated TestBed.get method with TestBed.inject",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/test-bed-get"
+          },
+          {
+            "text": "20.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/test-bed-get"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/test-bed-get"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-module-resolution",
+      "package": "angular-cli",
+      "description": "Update 'moduleResolution' to 'bundler' in TypeScript configurations. You can read more about this, here: https://www.typescriptlang.org/tsconfig/#moduleResolution",
+      "status": "",
+      "introduced_in": "20.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "available",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-module-resolution",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 25,
+        "links": [
+          {
+            "text": "update-module-resolution",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-module-resolution"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-module-resolution"
+          },
+          {
+            "text": "Update 'moduleResolution' to 'bundler' in TypeScript configurations. You can read more about this, here: https://www.typescriptlang.org/tsconfig/#moduleResolution",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-module-resolution"
+          },
+          {
+            "text": "20.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-module-resolution"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-module-resolution"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "explicit-standalone-flag",
+      "package": "angular",
+      "description": "Updates non-standalone Directives, Component and Pipes to 'standalone:false' and removes 'standalone:true' from those who are standalone",
+      "status": "",
+      "introduced_in": "19.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "available",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/explicit-standalone-flag",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 26,
+        "links": [
+          {
+            "text": "explicit-standalone-flag",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/explicit-standalone-flag"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/explicit-standalone-flag"
+          },
+          {
+            "text": "Updates non-standalone Directives, Component and Pipes to 'standalone:false' and removes 'standalone:true' from those who are standalone",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/explicit-standalone-flag"
+          },
+          {
+            "text": "19.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/explicit-standalone-flag"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/explicit-standalone-flag"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "pending-tasks",
+      "package": "angular",
+      "description": "Updates ExperimentalPendingTasks to PendingTasks",
+      "status": "",
+      "introduced_in": "19.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "available",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/pending-tasks",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 27,
+        "links": [
+          {
+            "text": "pending-tasks",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/pending-tasks"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/pending-tasks"
+          },
+          {
+            "text": "Updates ExperimentalPendingTasks to PendingTasks",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/pending-tasks"
+          },
+          {
+            "text": "19.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/pending-tasks"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/pending-tasks"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "provide-initializer",
+      "package": "angular",
+      "description": "Replaces `APP_INITIALIZER`, `ENVIRONMENT_INITIALIZER` & `PLATFORM_INITIALIZER` respectively with `provideAppInitializer`, `provideEnvironmentInitializer` & `providePlatformInitializer`.",
+      "status": "optional",
+      "introduced_in": "19.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "optional",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/provide-initializer",
+      "angular_dev_url": "",
+      "notes": "optional migration",
+      "raw": {
+        "index": 28,
+        "links": [
+          {
+            "text": "provide-initializer",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/provide-initializer"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/provide-initializer"
+          },
+          {
+            "text": "Replaces `APP_INITIALIZER`, `ENVIRONMENT_INITIALIZER` & `PLATFORM_INITIALIZER` respectively with `provideAppInitializer`, `provideEnvironmentInitializer` & `providePlatformInitializer`.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/provide-initializer"
+          },
+          {
+            "text": "19.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/provide-initializer"
+          },
+          {
+            "text": "Yes",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/provide-initializer"
+          }
+        ],
+        "optional": "Yes"
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-ssr-imports",
+      "package": "angular-cli",
+      "description": "Update '@angular/ssr' import paths to use the new '/node' entry point when 'CommonEngine' is detected.",
+      "status": "",
+      "introduced_in": "19.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "available",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-ssr-imports",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 29,
+        "links": [
+          {
+            "text": "update-ssr-imports",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-ssr-imports"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-ssr-imports"
+          },
+          {
+            "text": "Update '@angular/ssr' import paths to use the new '/node' entry point when 'CommonEngine' is detected.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-ssr-imports"
+          },
+          {
+            "text": "19.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-ssr-imports"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-ssr-imports"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "after-render-phase",
+      "package": "angular",
+      "description": "Updates calls to afterRender with an explicit phase to the new API",
+      "status": "",
+      "introduced_in": "18.1.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "available",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/after-render-phase",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 30,
+        "links": [
+          {
+            "text": "after-render-phase",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/after-render-phase"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/after-render-phase"
+          },
+          {
+            "text": "Updates calls to afterRender with an explicit phase to the new API",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/after-render-phase"
+          },
+          {
+            "text": "18.1.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/after-render-phase"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/after-render-phase"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "http-providers",
+      "package": "angular",
+      "description": "Replace deprecated HTTP related modules with provider functions",
+      "status": "",
+      "introduced_in": "18.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "available",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/http-providers",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 31,
+        "links": [
+          {
+            "text": "http-providers",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/http-providers"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/http-providers"
+          },
+          {
+            "text": "Replace deprecated HTTP related modules with provider functions",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/http-providers"
+          },
+          {
+            "text": "18.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/http-providers"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/http-providers"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "use-application-builder",
+      "package": "angular-cli",
+      "description": "Migrate application projects using '@angular-devkit/build-angular:browser' and '@angular-devkit/build-angular:browser-esbuild' to use the '@angular-devkit/build-angular:application' builder. Read more about this here: https://angular.dev/tools/cli/esbuild#using-the-application-builder",
+      "status": "optional",
+      "introduced_in": "18.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "optional",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/use-application-builder",
+      "angular_dev_url": "",
+      "notes": "optional migration",
+      "raw": {
+        "index": 32,
+        "links": [
+          {
+            "text": "use-application-builder",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/use-application-builder"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/use-application-builder"
+          },
+          {
+            "text": "Migrate application projects using '@angular-devkit/build-angular:browser' and '@angular-devkit/build-angular:browser-esbuild' to use the '@angular-devkit/build-angular:application' builder. Read more about this here: https://angular.dev/tools/cli/esbuild#using-the-application-builder",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/use-application-builder"
+          },
+          {
+            "text": "18.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/use-application-builder"
+          },
+          {
+            "text": "Yes",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/use-application-builder"
+          }
+        ],
+        "optional": "Yes"
+      }
+    },
+    {
+      "section": "Update",
+      "name": "invalid-two-way-bindings",
+      "package": "angular",
+      "description": "Updates two-way bindings that have an invalid expression to use the longform expression instead.",
+      "status": "",
+      "introduced_in": "17.3.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "available",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/invalid-two-way-bindings",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 33,
+        "links": [
+          {
+            "text": "invalid-two-way-bindings",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/invalid-two-way-bindings"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/invalid-two-way-bindings"
+          },
+          {
+            "text": "Updates two-way bindings that have an invalid expression to use the longform expression instead.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/invalid-two-way-bindings"
+          },
+          {
+            "text": "17.3.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/invalid-two-way-bindings"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/invalid-two-way-bindings"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "add-browser-sync-dependency",
+      "package": "angular-cli",
+      "description": "Add 'browser-sync' as dev dependency when '@angular-devkit/build-angular:ssr-dev-server' is used, as it is no longer a direct dependency of '@angular-devkit/build-angular'.",
+      "status": "",
+      "introduced_in": "17.1.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "available",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-browser-sync-dependency",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 34,
+        "links": [
+          {
+            "text": "add-browser-sync-dependency",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-browser-sync-dependency"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-browser-sync-dependency"
+          },
+          {
+            "text": "Add 'browser-sync' as dev dependency when '@angular-devkit/build-angular:ssr-dev-server' is used, as it is no longer a direct dependency of '@angular-devkit/build-angular'.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-browser-sync-dependency"
+          },
+          {
+            "text": "17.1.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-browser-sync-dependency"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-browser-sync-dependency"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "block-template-entities",
+      "package": "angular",
+      "description": "Angular v17 introduces a new control flow syntax that uses the @ and } characters. This migration replaces the existing usages with their corresponding HTML entities.",
+      "status": "",
+      "introduced_in": "17.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "available",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/block-template-entities",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 35,
+        "links": [
+          {
+            "text": "block-template-entities",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/block-template-entities"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/block-template-entities"
+          },
+          {
+            "text": "Angular v17 introduces a new control flow syntax that uses the @ and } characters. This migration replaces the existing usages with their corresponding HTML entities.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/block-template-entities"
+          },
+          {
+            "text": "17.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/block-template-entities"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/block-template-entities"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "compiler-options",
+      "package": "angular",
+      "description": "CompilerOption.useJit and CompilerOption.missingTranslation are unused under Ivy. This migration removes their usage",
+      "status": "",
+      "introduced_in": "17.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "available",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/compiler-options",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 36,
+        "links": [
+          {
+            "text": "compiler-options",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/compiler-options"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/compiler-options"
+          },
+          {
+            "text": "CompilerOption.useJit and CompilerOption.missingTranslation are unused under Ivy. This migration removes their usage",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/compiler-options"
+          },
+          {
+            "text": "17.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/compiler-options"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/compiler-options"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "replace-nguniversal-builders",
+      "package": "angular-cli",
+      "description": "Replace usages of '@nguniversal/builders' with '@angular-devkit/build-angular'.",
+      "status": "",
+      "introduced_in": "17.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "available",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-nguniversal-builders",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 37,
+        "links": [
+          {
+            "text": "replace-nguniversal-builders",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-nguniversal-builders"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-nguniversal-builders"
+          },
+          {
+            "text": "Replace usages of '@nguniversal/builders' with '@angular-devkit/build-angular'.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-nguniversal-builders"
+          },
+          {
+            "text": "17.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-nguniversal-builders"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-nguniversal-builders"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "replace-nguniversal-engines",
+      "package": "angular-cli",
+      "description": "Replace usages of '@nguniversal/' packages with '@angular/ssr'.",
+      "status": "",
+      "introduced_in": "17.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "available",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-nguniversal-engines",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 38,
+        "links": [
+          {
+            "text": "replace-nguniversal-engines",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-nguniversal-engines"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-nguniversal-engines"
+          },
+          {
+            "text": "Replace usages of '@nguniversal/' packages with '@angular/ssr'.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-nguniversal-engines"
+          },
+          {
+            "text": "17.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-nguniversal-engines"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-nguniversal-engines"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "transfer-state",
+      "package": "angular",
+      "description": "Updates `TransferState`, `makeStateKey`, `StateKey` imports from `@angular/platform-browser` to `@angular/core`.",
+      "status": "",
+      "introduced_in": "17.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "available",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/transfer-state",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 39,
+        "links": [
+          {
+            "text": "transfer-state",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/transfer-state"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/transfer-state"
+          },
+          {
+            "text": "Updates `TransferState`, `makeStateKey`, `StateKey` imports from `@angular/platform-browser` to `@angular/core`.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/transfer-state"
+          },
+          {
+            "text": "17.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/transfer-state"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/transfer-state"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "guard-and-resolve-interfaces",
+      "package": "angular",
+      "description": "In Angular version 15.2, the guard and resolver interfaces (CanActivate, Resolve, etc) were deprecated. This migration removes imports and 'implements' clauses that contain them.",
+      "status": "",
+      "introduced_in": "16.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "available",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/guard-and-resolve-interfaces",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 40,
+        "links": [
+          {
+            "text": "guard-and-resolve-interfaces",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/guard-and-resolve-interfaces"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/guard-and-resolve-interfaces"
+          },
+          {
+            "text": "In Angular version 15.2, the guard and resolver interfaces (CanActivate, Resolve, etc) were deprecated. This migration removes imports and 'implements' clauses that contain them.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/guard-and-resolve-interfaces"
+          },
+          {
+            "text": "16.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/guard-and-resolve-interfaces"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/guard-and-resolve-interfaces"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "remove-module-id",
+      "package": "angular",
+      "description": "As of Angular v16, the `moduleId` property of `@Component` is deprecated as it no longer has any effect.",
+      "status": "",
+      "introduced_in": "16.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "available",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/remove-module-id",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 41,
+        "links": [
+          {
+            "text": "remove-module-id",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/remove-module-id"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/remove-module-id"
+          },
+          {
+            "text": "As of Angular v16, the `moduleId` property of `@Component` is deprecated as it no longer has any effect.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/remove-module-id"
+          },
+          {
+            "text": "16.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/remove-module-id"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/remove-module-id"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-server-builder-config",
+      "package": "angular-cli",
+      "description": "Update the '@angular-devkit/build-angular:server' builder configuration to disable 'buildOptimizer' for non optimized builds.",
+      "status": "",
+      "introduced_in": "16.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "available",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-server-builder-config",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 42,
+        "links": [
+          {
+            "text": "update-server-builder-config",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-server-builder-config"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-server-builder-config"
+          },
+          {
+            "text": "Update the '@angular-devkit/build-angular:server' builder configuration to disable 'buildOptimizer' for non optimized builds.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-server-builder-config"
+          },
+          {
+            "text": "16.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-server-builder-config"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-server-builder-config"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "relative-link-resolution",
+      "package": "angular",
+      "description": "In Angular version 15, the deprecated `relativeLinkResolution` config parameter of the Router is removed. This migration removes all `relativeLinkResolution` fields from the Router config objects.",
+      "status": "",
+      "introduced_in": "15.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "available",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/relative-link-resolution",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 43,
+        "links": [
+          {
+            "text": "relative-link-resolution",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/relative-link-resolution"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/relative-link-resolution"
+          },
+          {
+            "text": "In Angular version 15, the deprecated `relativeLinkResolution` config parameter of the Router is removed. This migration removes all `relativeLinkResolution` fields from the Router config objects.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/relative-link-resolution"
+          },
+          {
+            "text": "15.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/relative-link-resolution"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/relative-link-resolution"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "remove-browserslist-config",
+      "package": "angular-cli",
+      "description": "Remove Browserslist configuration files that matches the Angular CLI default configuration.",
+      "status": "",
+      "introduced_in": "15.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "available",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-browserslist-config",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 44,
+        "links": [
+          {
+            "text": "remove-browserslist-config",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-browserslist-config"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-browserslist-config"
+          },
+          {
+            "text": "Remove Browserslist configuration files that matches the Angular CLI default configuration.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-browserslist-config"
+          },
+          {
+            "text": "15.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-browserslist-config"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-browserslist-config"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "remove-platform-server-exports",
+      "package": "angular-cli",
+      "description": "Remove exported `@angular/platform-server` `renderModule` method. The `renderModule` method is now exported by the Angular CLI.",
+      "status": "",
+      "introduced_in": "15.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "available",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-platform-server-exports",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 45,
+        "links": [
+          {
+            "text": "remove-platform-server-exports",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-platform-server-exports"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-platform-server-exports"
+          },
+          {
+            "text": "Remove exported `@angular/platform-server` `renderModule` method. The `renderModule` method is now exported by the Angular CLI.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-platform-server-exports"
+          },
+          {
+            "text": "15.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-platform-server-exports"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-platform-server-exports"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "router-link-with-href",
+      "package": "angular",
+      "description": "Since Angular v15, the `RouterLink` contains the logic of the `RouterLinkWithHref` directive. This migration replaces all `RouterLinkWithHref` references with `RouterLink`.",
+      "status": "",
+      "introduced_in": "15.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "available",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/router-link-with-href",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 46,
+        "links": [
+          {
+            "text": "router-link-with-href",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-link-with-href"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-link-with-href"
+          },
+          {
+            "text": "Since Angular v15, the `RouterLink` contains the logic of the `RouterLinkWithHref` directive. This migration replaces all `RouterLinkWithHref` references with `RouterLink`.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-link-with-href"
+          },
+          {
+            "text": "15.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-link-with-href"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-link-with-href"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-karma-main-file",
+      "package": "angular-cli",
+      "description": "Remove no longer needed require calls in Karma builder main file.",
+      "status": "",
+      "introduced_in": "15.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "available",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-karma-main-file",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 47,
+        "links": [
+          {
+            "text": "update-karma-main-file",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-karma-main-file"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-karma-main-file"
+          },
+          {
+            "text": "Remove no longer needed require calls in Karma builder main file.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-karma-main-file"
+          },
+          {
+            "text": "15.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-karma-main-file"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-karma-main-file"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-typescript-target",
+      "package": "angular-cli",
+      "description": "Update TypeScript compiler `target` and set `useDefineForClassFields`. These changes are for IDE purposes as TypeScript compiler options `target` and `useDefineForClassFields` are set to `ES2022` and `false` respectively by the Angular CLI. To control ECMA version and features use the Browerslist configuration.",
+      "status": "",
+      "introduced_in": "15.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "available",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-typescript-target",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 48,
+        "links": [
+          {
+            "text": "update-typescript-target",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-typescript-target"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-typescript-target"
+          },
+          {
+            "text": "Update TypeScript compiler `target` and set `useDefineForClassFields`. These changes are for IDE purposes as TypeScript compiler options `target` and `useDefineForClassFields` are set to `ES2022` and `false` respectively by the Angular CLI. To control ECMA version and features use the Browerslist configuration.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-typescript-target"
+          },
+          {
+            "text": "15.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-typescript-target"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-typescript-target"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-workspace-config",
+      "package": "angular-cli",
+      "description": "Remove options from 'angular.json' that are no longer supported by the official builders.",
+      "status": "",
+      "introduced_in": "15.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "available",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-config",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 49,
+        "links": [
+          {
+            "text": "update-workspace-config",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-config"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-config"
+          },
+          {
+            "text": "Remove options from 'angular.json' that are no longer supported by the official builders.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-config"
+          },
+          {
+            "text": "15.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-config"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-config"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "path-match-type",
+      "package": "angular",
+      "description": "In Angular version 14, the `pathMatch` property of `Routes` was updated to be a strict union of the two valid options: `'full'|'prefix'`. `Routes` and `Route` variables need an explicit type so TypeScript does not infer the property as the looser `string`.",
+      "status": "",
+      "introduced_in": "14.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "available",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/path-match-type",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 50,
+        "links": [
+          {
+            "text": "path-match-type",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/path-match-type"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/path-match-type"
+          },
+          {
+            "text": "In Angular version 14, the `pathMatch` property of `Routes` was updated to be a strict union of the two valid options: `'full'|'prefix'`. `Routes` and `Route` variables need an explicit type so TypeScript does not infer the property as the looser `string`.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/path-match-type"
+          },
+          {
+            "text": "14.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/path-match-type"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/path-match-type"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "remove-default-project-option",
+      "package": "angular-cli",
+      "description": "Remove 'defaultProject' option from workspace configuration. The project to use will be determined from the current working directory.",
+      "status": "",
+      "introduced_in": "14.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "available",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-default-project-option",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 51,
+        "links": [
+          {
+            "text": "remove-default-project-option",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-default-project-option"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-default-project-option"
+          },
+          {
+            "text": "Remove 'defaultProject' option from workspace configuration. The project to use will be determined from the current working directory.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-default-project-option"
+          },
+          {
+            "text": "14.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-default-project-option"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-default-project-option"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "remove-show-circular-dependencies-option",
+      "package": "angular-cli",
+      "description": "Remove 'showCircularDependencies' option from browser and server builders.",
+      "status": "",
+      "introduced_in": "14.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "available",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-show-circular-dependencies-option",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 52,
+        "links": [
+          {
+            "text": "remove-show-circular-dependencies-option",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-show-circular-dependencies-option"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-show-circular-dependencies-option"
+          },
+          {
+            "text": "Remove 'showCircularDependencies' option from browser and server builders.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-show-circular-dependencies-option"
+          },
+          {
+            "text": "14.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-show-circular-dependencies-option"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-show-circular-dependencies-option"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "replace-default-collection-option",
+      "package": "angular-cli",
+      "description": "Replace 'defaultCollection' option in workspace configuration with 'schematicCollections'.",
+      "status": "",
+      "introduced_in": "14.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "available",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-default-collection-option",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 53,
+        "links": [
+          {
+            "text": "replace-default-collection-option",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-default-collection-option"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-default-collection-option"
+          },
+          {
+            "text": "Replace 'defaultCollection' option in workspace configuration with 'schematicCollections'.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-default-collection-option"
+          },
+          {
+            "text": "14.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-default-collection-option"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-default-collection-option"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "typed-forms",
+      "package": "angular",
+      "description": "As of Angular version 14, Forms model classes accept a type parameter, and existing usages must be opted out to preserve backwards-compatibility.",
+      "status": "",
+      "introduced_in": "14.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "available",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/typed-forms",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 54,
+        "links": [
+          {
+            "text": "typed-forms",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/typed-forms"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/typed-forms"
+          },
+          {
+            "text": "As of Angular version 14, Forms model classes accept a type parameter, and existing usages must be opted out to preserve backwards-compatibility.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/typed-forms"
+          },
+          {
+            "text": "14.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/typed-forms"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/typed-forms"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-angular-packages-version-prefix",
+      "package": "angular-cli",
+      "description": "Update Angular packages 'dependencies' and 'devDependencies' version prefix to '^' instead of '~'.",
+      "status": "",
+      "introduced_in": "14.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "available",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-packages-version-prefix",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 55,
+        "links": [
+          {
+            "text": "update-angular-packages-version-prefix",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-packages-version-prefix"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-packages-version-prefix"
+          },
+          {
+            "text": "Update Angular packages 'dependencies' and 'devDependencies' version prefix to '^' instead of '~'.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-packages-version-prefix"
+          },
+          {
+            "text": "14.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-packages-version-prefix"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-packages-version-prefix"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-libraries-secondary-entrypoints",
+      "package": "angular-cli",
+      "description": "Remove 'package.json' files from library projects secondary entrypoints.",
+      "status": "",
+      "introduced_in": "14.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "available",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-secondary-entrypoints",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 56,
+        "links": [
+          {
+            "text": "update-libraries-secondary-entrypoints",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-secondary-entrypoints"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-secondary-entrypoints"
+          },
+          {
+            "text": "Remove 'package.json' files from library projects secondary entrypoints.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-secondary-entrypoints"
+          },
+          {
+            "text": "14.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-secondary-entrypoints"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-secondary-entrypoints"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-tsconfig-target",
+      "package": "angular-cli",
+      "description": "Update TypeScript compilation target to 'ES2020'.",
+      "status": "",
+      "introduced_in": "14.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "available",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-tsconfig-target",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 57,
+        "links": [
+          {
+            "text": "update-tsconfig-target",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-tsconfig-target"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-tsconfig-target"
+          },
+          {
+            "text": "Update TypeScript compilation target to 'ES2020'.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-tsconfig-target"
+          },
+          {
+            "text": "14.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-tsconfig-target"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-tsconfig-target"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "entry-components",
+      "package": "angular",
+      "description": "As of Angular version 13, `entryComponents` are no longer necessary.",
+      "status": "",
+      "introduced_in": "13.1.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/entry-components",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 58,
+        "links": [
+          {
+            "text": "entry-components",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/entry-components"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/entry-components"
+          },
+          {
+            "text": "As of Angular version 13, `entryComponents` are no longer necessary.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/entry-components"
+          },
+          {
+            "text": "13.1.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/entry-components"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/entry-components"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "drop-ie-polyfills",
+      "package": "angular-cli",
+      "description": "Remove polyfills required only for Internet Explorer which is no longer supported.",
+      "status": "",
+      "introduced_in": "13.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/drop-ie-polyfills",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 59,
+        "links": [
+          {
+            "text": "drop-ie-polyfills",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/drop-ie-polyfills"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/drop-ie-polyfills"
+          },
+          {
+            "text": "Remove polyfills required only for Internet Explorer which is no longer supported.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/drop-ie-polyfills"
+          },
+          {
+            "text": "13.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/drop-ie-polyfills"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/drop-ie-polyfills"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "router-link-empty-expression",
+      "package": "angular",
+      "description": "Migrates `[routerLink]=\"\"` in templates to `[routerLink]=\"[]\"` because these links are likely intended to route to the current page with updated fragment/query params.",
+      "status": "",
+      "introduced_in": "13.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/router-link-empty-expression",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 60,
+        "links": [
+          {
+            "text": "router-link-empty-expression",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-link-empty-expression"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-link-empty-expression"
+          },
+          {
+            "text": "Migrates `[routerLink]=\"\"` in templates to `[routerLink]=\"[]\"` because these links are likely intended to route to the current page with updated fragment/query params.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-link-empty-expression"
+          },
+          {
+            "text": "13.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-link-empty-expression"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-link-empty-expression"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "schematic-options-13",
+      "package": "angular-cli",
+      "description": "Remove no longer valid Angular schematic options from `angular.json`.",
+      "status": "",
+      "introduced_in": "13.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-13",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 61,
+        "links": [
+          {
+            "text": "schematic-options-13",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-13"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-13"
+          },
+          {
+            "text": "Remove no longer valid Angular schematic options from `angular.json`.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-13"
+          },
+          {
+            "text": "13.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-13"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-13"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "testbed-teardown",
+      "package": "angular",
+      "description": "In Angular version 13, the `teardown` flag in `TestBed` will be enabled by default. This migration automatically opts out existing apps from the new teardown behavior.",
+      "status": "",
+      "introduced_in": "13.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/testbed-teardown",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 62,
+        "links": [
+          {
+            "text": "testbed-teardown",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/testbed-teardown"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/testbed-teardown"
+          },
+          {
+            "text": "In Angular version 13, the `teardown` flag in `TestBed` will be enabled by default. This migration automatically opts out existing apps from the new teardown behavior.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/testbed-teardown"
+          },
+          {
+            "text": "13.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/testbed-teardown"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/testbed-teardown"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-angular-config-v13",
+      "package": "angular-cli",
+      "description": "Remove deprecated options from 'angular.json' that are no longer present in v13.",
+      "status": "",
+      "introduced_in": "13.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v13",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 63,
+        "links": [
+          {
+            "text": "update-angular-config-v13",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v13"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v13"
+          },
+          {
+            "text": "Remove deprecated options from 'angular.json' that are no longer present in v13.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v13"
+          },
+          {
+            "text": "13.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v13"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v13"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-gitignore",
+      "package": "angular-cli",
+      "description": "Updating '.gitignore' to include '.angular/cache'.",
+      "status": "",
+      "introduced_in": "13.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-gitignore",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 64,
+        "links": [
+          {
+            "text": "update-gitignore",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-gitignore"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-gitignore"
+          },
+          {
+            "text": "Updating '.gitignore' to include '.angular/cache'.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-gitignore"
+          },
+          {
+            "text": "13.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-gitignore"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-gitignore"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-libraries-v13",
+      "package": "angular-cli",
+      "description": "Update library projects to be published in partial mode and removed deprecated options from ng-packagr configuration.",
+      "status": "",
+      "introduced_in": "13.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-v13",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 65,
+        "links": [
+          {
+            "text": "update-libraries-v13",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-v13"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-v13"
+          },
+          {
+            "text": "Update library projects to be published in partial mode and removed deprecated options from ng-packagr configuration.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-v13"
+          },
+          {
+            "text": "13.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-v13"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-v13"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "replace-deprecated-prod-flag",
+      "package": "angular-cli",
+      "description": "Replace the deprecated '--prod' in package.json scripts.",
+      "status": "",
+      "introduced_in": "12.1.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-deprecated-prod-flag",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 66,
+        "links": [
+          {
+            "text": "replace-deprecated-prod-flag",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-deprecated-prod-flag"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-deprecated-prod-flag"
+          },
+          {
+            "text": "Replace the deprecated '--prod' in package.json scripts.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-deprecated-prod-flag"
+          },
+          {
+            "text": "12.1.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-deprecated-prod-flag"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-deprecated-prod-flag"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "deep-shadow-piercing-selector",
+      "package": "angular",
+      "description": "Automatically migrates shadow-piercing selector from `/deep/` to the recommanded alternative `::ng-deep`.",
+      "status": "",
+      "introduced_in": "12.0.2",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/deep-shadow-piercing-selector",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 67,
+        "links": [
+          {
+            "text": "deep-shadow-piercing-selector",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/deep-shadow-piercing-selector"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/deep-shadow-piercing-selector"
+          },
+          {
+            "text": "Automatically migrates shadow-piercing selector from `/deep/` to the recommanded alternative `::ng-deep`.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/deep-shadow-piercing-selector"
+          },
+          {
+            "text": "12.0.2",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/deep-shadow-piercing-selector"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/deep-shadow-piercing-selector"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "schematic-options-12",
+      "package": "angular-cli",
+      "description": "Remove invalid 'skipTests' option in '@schematics/angular:module' Angular schematic options.",
+      "status": "",
+      "introduced_in": "12.0.1",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-12",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 68,
+        "links": [
+          {
+            "text": "schematic-options-12",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-12"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-12"
+          },
+          {
+            "text": "Remove invalid 'skipTests' option in '@schematics/angular:module' Angular schematic options.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-12"
+          },
+          {
+            "text": "12.0.1",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-12"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-12"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "activated-route-snapshot-fragment",
+      "package": "angular",
+      "description": "In Angular version 12, the type of ActivatedRouteSnapshot.fragment is nullable. This migration automatically adds non-null assertions to it.",
+      "status": "",
+      "introduced_in": "12.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/activated-route-snapshot-fragment",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 69,
+        "links": [
+          {
+            "text": "activated-route-snapshot-fragment",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/activated-route-snapshot-fragment"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/activated-route-snapshot-fragment"
+          },
+          {
+            "text": "In Angular version 12, the type of ActivatedRouteSnapshot.fragment is nullable. This migration automatically adds non-null assertions to it.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/activated-route-snapshot-fragment"
+          },
+          {
+            "text": "12.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/activated-route-snapshot-fragment"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/activated-route-snapshot-fragment"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "lazy-loading-string-syntax",
+      "package": "angular-cli",
+      "description": "Lazy loading syntax migration. Update lazy loading string syntax to use dynamic imports.",
+      "status": "",
+      "introduced_in": "12.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/lazy-loading-string-syntax",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 70,
+        "links": [
+          {
+            "text": "lazy-loading-string-syntax",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/lazy-loading-string-syntax"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/lazy-loading-string-syntax"
+          },
+          {
+            "text": "Lazy loading syntax migration. Update lazy loading string syntax to use dynamic imports.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/lazy-loading-string-syntax"
+          },
+          {
+            "text": "12.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/lazy-loading-string-syntax"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/lazy-loading-string-syntax"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "remove-deprecated-i18n-options",
+      "package": "angular-cli",
+      "description": "Remove deprecated ViewEngine-based i18n build and extract options. Options present in the configuration will be converted to use non-deprecated options.",
+      "status": "",
+      "introduced_in": "12.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-deprecated-i18n-options",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 71,
+        "links": [
+          {
+            "text": "remove-deprecated-i18n-options",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-deprecated-i18n-options"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-deprecated-i18n-options"
+          },
+          {
+            "text": "Remove deprecated ViewEngine-based i18n build and extract options. Options present in the configuration will be converted to use non-deprecated options.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-deprecated-i18n-options"
+          },
+          {
+            "text": "12.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-deprecated-i18n-options"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-deprecated-i18n-options"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "remove-emit-decorator-metadata",
+      "package": "angular-cli",
+      "description": "Remove 'emitDecoratorMetadata' TypeScript compiler option. Decorator metadata is no longer needed by Angular. Read more about this here: https://www.typescriptlang.org/docs/handbook/decorators.html#metadata",
+      "status": "",
+      "introduced_in": "12.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-emit-decorator-metadata",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 72,
+        "links": [
+          {
+            "text": "remove-emit-decorator-metadata",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-emit-decorator-metadata"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-emit-decorator-metadata"
+          },
+          {
+            "text": "Remove 'emitDecoratorMetadata' TypeScript compiler option. Decorator metadata is no longer needed by Angular. Read more about this here: https://www.typescriptlang.org/docs/handbook/decorators.html#metadata",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-emit-decorator-metadata"
+          },
+          {
+            "text": "12.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-emit-decorator-metadata"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-emit-decorator-metadata"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-angular-config-v12",
+      "package": "angular-cli",
+      "description": "Remove deprecated options from 'angular.json' that are no longer present in v12.",
+      "status": "",
+      "introduced_in": "12.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v12",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 73,
+        "links": [
+          {
+            "text": "update-angular-config-v12",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v12"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v12"
+          },
+          {
+            "text": "Remove deprecated options from 'angular.json' that are no longer present in v12.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v12"
+          },
+          {
+            "text": "12.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v12"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v12"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-web-workers-webpack-5",
+      "package": "angular-cli",
+      "description": "Updates Web Worker consumer usage to use the new syntax supported directly by Webpack 5.",
+      "status": "",
+      "introduced_in": "12.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-web-workers-webpack-5",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 74,
+        "links": [
+          {
+            "text": "update-web-workers-webpack-5",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-web-workers-webpack-5"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-web-workers-webpack-5"
+          },
+          {
+            "text": "Updates Web Worker consumer usage to use the new syntax supported directly by Webpack 5.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-web-workers-webpack-5"
+          },
+          {
+            "text": "12.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-web-workers-webpack-5"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-web-workers-webpack-5"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-zonejs",
+      "package": "angular-cli",
+      "description": "Update 'zone.js' to version 0.11.x. Read more about this here: https://github.com/angular/angular/blob/master/packages/zone.js/CHANGELOG.md#breaking-changes-since-zonejs-v0111",
+      "status": "",
+      "introduced_in": "12.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-zonejs",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 75,
+        "links": [
+          {
+            "text": "update-zonejs",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-zonejs"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-zonejs"
+          },
+          {
+            "text": "Update 'zone.js' to version 0.11.x. Read more about this here: https://github.com/angular/angular/blob/master/packages/zone.js/CHANGELOG.md#breaking-changes-since-zonejs-v0111",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-zonejs"
+          },
+          {
+            "text": "12.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-zonejs"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-zonejs"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "xhr-factory",
+      "package": "angular",
+      "description": "`XhrFactory` has been moved from `@angular/common/http` to `@angular/common`.",
+      "status": "",
+      "introduced_in": "12.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/xhr-factory",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 76,
+        "links": [
+          {
+            "text": "xhr-factory",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/xhr-factory"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/xhr-factory"
+          },
+          {
+            "text": "`XhrFactory` has been moved from `@angular/common/http` to `@angular/common`.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/xhr-factory"
+          },
+          {
+            "text": "12.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/xhr-factory"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/xhr-factory"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "can-activate-with-redirect-to",
+      "package": "angular",
+      "description": "Removes `canActivate` from a `Route` config when `redirectTo` is also present",
+      "status": "",
+      "introduced_in": "11.1.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/can-activate-with-redirect-to",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 77,
+        "links": [
+          {
+            "text": "can-activate-with-redirect-to",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/can-activate-with-redirect-to"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/can-activate-with-redirect-to"
+          },
+          {
+            "text": "Removes `canActivate` from a `Route` config when `redirectTo` is also present",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/can-activate-with-redirect-to"
+          },
+          {
+            "text": "11.1.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/can-activate-with-redirect-to"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/can-activate-with-redirect-to"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "abstract-control-parent",
+      "package": "angular",
+      "description": "In Angular version 11, the type of `AbstractControl.parent` can be `null` to reflect the runtime value more accurately. This migration automatically adds non-null assertions to existing accesses of the `parent` property on types like `FormControl`, `FormArray` and `FormGroup`.",
+      "status": "",
+      "introduced_in": "11.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/abstract-control-parent",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 78,
+        "links": [
+          {
+            "text": "abstract-control-parent",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/abstract-control-parent"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/abstract-control-parent"
+          },
+          {
+            "text": "In Angular version 11, the type of `AbstractControl.parent` can be `null` to reflect the runtime value more accurately. This migration automatically adds non-null assertions to existing accesses of the `parent` property on types like `FormControl`, `FormArray` and `FormGroup`.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/abstract-control-parent"
+          },
+          {
+            "text": "11.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/abstract-control-parent"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/abstract-control-parent"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "add-declaration-map-compiler-option",
+      "package": "angular-cli",
+      "description": "Add 'declarationMap' compiler options for non production library builds.",
+      "status": "",
+      "introduced_in": "11.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-declaration-map-compiler-option",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 79,
+        "links": [
+          {
+            "text": "add-declaration-map-compiler-option",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-declaration-map-compiler-option"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-declaration-map-compiler-option"
+          },
+          {
+            "text": "Add 'declarationMap' compiler options for non production library builds.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-declaration-map-compiler-option"
+          },
+          {
+            "text": "11.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-declaration-map-compiler-option"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/add-declaration-map-compiler-option"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "native-view-encapsulation",
+      "package": "angular",
+      "description": "ViewEncapsulation.Native has been removed as of Angular version 11. This migration replaces any usages with ViewEncapsulation.ShadowDom.",
+      "status": "",
+      "introduced_in": "11.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/native-view-encapsulation",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 80,
+        "links": [
+          {
+            "text": "native-view-encapsulation",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/native-view-encapsulation"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/native-view-encapsulation"
+          },
+          {
+            "text": "ViewEncapsulation.Native has been removed as of Angular version 11. This migration replaces any usages with ViewEncapsulation.ShadowDom.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/native-view-encapsulation"
+          },
+          {
+            "text": "11.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/native-view-encapsulation"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/native-view-encapsulation"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "navigation-extras-omissions",
+      "package": "angular",
+      "description": "NavigationExtras omissions migration. In version 11, some unsupported properties were omitted from the `extras` parameter of the `Router.navigateByUrl` and `Router.createUrlTree` methods.",
+      "status": "",
+      "introduced_in": "11.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/navigation-extras-omissions",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 81,
+        "links": [
+          {
+            "text": "navigation-extras-omissions",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/navigation-extras-omissions"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/navigation-extras-omissions"
+          },
+          {
+            "text": "NavigationExtras omissions migration. In version 11, some unsupported properties were omitted from the `extras` parameter of the `Router.navigateByUrl` and `Router.createUrlTree` methods.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/navigation-extras-omissions"
+          },
+          {
+            "text": "11.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/navigation-extras-omissions"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/navigation-extras-omissions"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "replace-ng-packagr-builder",
+      "package": "angular-cli",
+      "description": "Replace deprecated library builder '@angular-devkit/build-ng-packagr'.",
+      "status": "",
+      "introduced_in": "11.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-ng-packagr-builder",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 82,
+        "links": [
+          {
+            "text": "replace-ng-packagr-builder",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-ng-packagr-builder"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-ng-packagr-builder"
+          },
+          {
+            "text": "Replace deprecated library builder '@angular-devkit/build-ng-packagr'.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-ng-packagr-builder"
+          },
+          {
+            "text": "11.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-ng-packagr-builder"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/replace-ng-packagr-builder"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "router-initial-navigation-options",
+      "package": "angular",
+      "description": "Updates the `initialNavigation` property for `RouterModule.forRoot`.",
+      "status": "",
+      "introduced_in": "11.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/router-initial-navigation-options",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 83,
+        "links": [
+          {
+            "text": "router-initial-navigation-options",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-initial-navigation-options"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-initial-navigation-options"
+          },
+          {
+            "text": "Updates the `initialNavigation` property for `RouterModule.forRoot`.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-initial-navigation-options"
+          },
+          {
+            "text": "11.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-initial-navigation-options"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-initial-navigation-options"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "router-preserve-query-params",
+      "package": "angular",
+      "description": "NavigationExtras.preserveQueryParams has been removed as of Angular version 11. This migration replaces any usages with the appropriate assignment of the queryParamsHandler key.",
+      "status": "",
+      "introduced_in": "11.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/router-preserve-query-params",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 84,
+        "links": [
+          {
+            "text": "router-preserve-query-params",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-preserve-query-params"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-preserve-query-params"
+          },
+          {
+            "text": "NavigationExtras.preserveQueryParams has been removed as of Angular version 11. This migration replaces any usages with the appropriate assignment of the queryParamsHandler key.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-preserve-query-params"
+          },
+          {
+            "text": "11.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-preserve-query-params"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-preserve-query-params"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "router-relative-link-resolution-default",
+      "package": "angular",
+      "description": "The default value for `relativeLinkResolution` is changing from 'legacy' to 'corrected'. This migration updates `RouterModule` configurations that use the default value to now specifically use 'legacy' to prevent breakages when updating.",
+      "status": "",
+      "introduced_in": "11.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/router-relative-link-resolution-default",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 85,
+        "links": [
+          {
+            "text": "router-relative-link-resolution-default",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-relative-link-resolution-default"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-relative-link-resolution-default"
+          },
+          {
+            "text": "The default value for `relativeLinkResolution` is changing from 'legacy' to 'corrected'. This migration updates `RouterModule` configurations that use the default value to now specifically use 'legacy' to prevent breakages when updating.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-relative-link-resolution-default"
+          },
+          {
+            "text": "11.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-relative-link-resolution-default"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/router-relative-link-resolution-default"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-angular-config-v11",
+      "package": "angular-cli",
+      "description": "Remove deprecated options from 'angular.json' that are no longer present in v11.",
+      "status": "",
+      "introduced_in": "11.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v11",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 86,
+        "links": [
+          {
+            "text": "update-angular-config-v11",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v11"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v11"
+          },
+          {
+            "text": "Remove deprecated options from 'angular.json' that are no longer present in v11.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v11"
+          },
+          {
+            "text": "11.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v11"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config-v11"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-workspace-dependencies-v11",
+      "package": "angular-cli",
+      "description": "Update workspace dependencies to match a new v11 project.",
+      "status": "",
+      "introduced_in": "11.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-dependencies-v11",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 87,
+        "links": [
+          {
+            "text": "update-workspace-dependencies-v11",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-dependencies-v11"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-dependencies-v11"
+          },
+          {
+            "text": "Update workspace dependencies to match a new v11 project.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-dependencies-v11"
+          },
+          {
+            "text": "11.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-dependencies-v11"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-dependencies-v11"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "wait-for-async",
+      "package": "angular",
+      "description": "`async` to `waitForAsync` migration. The `async` testing function has been renamed to `waitForAsync` to avoid confusion with the native `async` keyword.",
+      "status": "",
+      "introduced_in": "11.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/wait-for-async",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 88,
+        "links": [
+          {
+            "text": "wait-for-async",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/wait-for-async"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/wait-for-async"
+          },
+          {
+            "text": "`async` to `waitForAsync` migration. The `async` testing function has been renamed to `waitForAsync` to avoid confusion with the native `async` keyword.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/wait-for-async"
+          },
+          {
+            "text": "11.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/wait-for-async"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/wait-for-async"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "remove-solution-style-tsconfig",
+      "package": "angular-cli",
+      "description": "Removing \"Solution Style\" TypeScript configuration file support.",
+      "status": "",
+      "introduced_in": "10.1.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-solution-style-tsconfig",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 89,
+        "links": [
+          {
+            "text": "remove-solution-style-tsconfig",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-solution-style-tsconfig"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-solution-style-tsconfig"
+          },
+          {
+            "text": "Removing \"Solution Style\" TypeScript configuration file support.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-solution-style-tsconfig"
+          },
+          {
+            "text": "10.1.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-solution-style-tsconfig"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-solution-style-tsconfig"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-module-and-target-compiler-options",
+      "package": "angular-cli",
+      "description": "Update 'module' and 'target' TypeScript compiler options. Read more about this here: https://v10.angular.io/guide/migration-update-module-and-target-compiler-options",
+      "status": "",
+      "introduced_in": "10.0.1",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-module-and-target-compiler-options",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 90,
+        "links": [
+          {
+            "text": "update-module-and-target-compiler-options",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-module-and-target-compiler-options"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-module-and-target-compiler-options"
+          },
+          {
+            "text": "Update 'module' and 'target' TypeScript compiler options. Read more about this here: https://v10.angular.io/guide/migration-update-module-and-target-compiler-options",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-module-and-target-compiler-options"
+          },
+          {
+            "text": "10.0.1",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-module-and-target-compiler-options"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-module-and-target-compiler-options"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "remove-es5-browser-support-option",
+      "package": "angular-cli",
+      "description": "Remove deprecated 'es5BrowserSupport' browser builder option. The inclusion for ES5 polyfills will be determined from the browsers listed in the browserslist configuration.",
+      "status": "",
+      "introduced_in": "10.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-es5-browser-support-option",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 91,
+        "links": [
+          {
+            "text": "remove-es5-browser-support-option",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-es5-browser-support-option"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-es5-browser-support-option"
+          },
+          {
+            "text": "Remove deprecated 'es5BrowserSupport' browser builder option. The inclusion for ES5 polyfills will be determined from the browsers listed in the browserslist configuration.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-es5-browser-support-option"
+          },
+          {
+            "text": "10.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-es5-browser-support-option"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/remove-es5-browser-support-option"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "rename-browserslist-config",
+      "package": "angular-cli",
+      "description": "Update Browserslist configuration file name to '.browserslistrc' from deprecated 'browserslist'.",
+      "status": "",
+      "introduced_in": "10.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/rename-browserslist-config",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 92,
+        "links": [
+          {
+            "text": "rename-browserslist-config",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/rename-browserslist-config"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/rename-browserslist-config"
+          },
+          {
+            "text": "Update Browserslist configuration file name to '.browserslistrc' from deprecated 'browserslist'.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/rename-browserslist-config"
+          },
+          {
+            "text": "10.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/rename-browserslist-config"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/rename-browserslist-config"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "schematic-options-10",
+      "package": "angular-cli",
+      "description": "Replace deprecated and removed 'styleext' and 'spec' Angular schematic options with 'style' and 'skipTests', respectively.",
+      "status": "",
+      "introduced_in": "10.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-10",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 93,
+        "links": [
+          {
+            "text": "schematic-options-10",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-10"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-10"
+          },
+          {
+            "text": "Replace deprecated and removed 'styleext' and 'spec' Angular schematic options with 'style' and 'skipTests', respectively.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-10"
+          },
+          {
+            "text": "10.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-10"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-10"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "tslint-add-deprecation-rule",
+      "package": "angular-cli",
+      "description": "Add the tslint deprecation rule to tslint JSON configuration files.",
+      "status": "",
+      "introduced_in": "10.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/tslint-add-deprecation-rule",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 94,
+        "links": [
+          {
+            "text": "tslint-add-deprecation-rule",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/tslint-add-deprecation-rule"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/tslint-add-deprecation-rule"
+          },
+          {
+            "text": "Add the tslint deprecation rule to tslint JSON configuration files.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/tslint-add-deprecation-rule"
+          },
+          {
+            "text": "10.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/tslint-add-deprecation-rule"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/tslint-add-deprecation-rule"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "tslint-version-6",
+      "package": "angular-cli",
+      "description": "Update tslint to version 6 and adjust rules to maintain existing behavior.",
+      "status": "",
+      "introduced_in": "10.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/tslint-version-6",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 95,
+        "links": [
+          {
+            "text": "tslint-version-6",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/tslint-version-6"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/tslint-version-6"
+          },
+          {
+            "text": "Update tslint to version 6 and adjust rules to maintain existing behavior.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/tslint-version-6"
+          },
+          {
+            "text": "10.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/tslint-version-6"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/tslint-version-6"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-angular-config",
+      "package": "angular-cli",
+      "description": "Remove deprecated options from 'angular.json' that are no longer present in v10.",
+      "status": "",
+      "introduced_in": "10.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 96,
+        "links": [
+          {
+            "text": "update-angular-config",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config"
+          },
+          {
+            "text": "Remove deprecated options from 'angular.json' that are no longer present in v10.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config"
+          },
+          {
+            "text": "10.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-angular-config"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-libraries-tslib",
+      "package": "angular-cli",
+      "description": "Update library projects to use tslib version 2 as a direct dependency. Read more about this here: https://v10.angular.io/guide/migration-update-libraries-tslib",
+      "status": "",
+      "introduced_in": "10.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-tslib",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 97,
+        "links": [
+          {
+            "text": "update-libraries-tslib",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-tslib"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-tslib"
+          },
+          {
+            "text": "Update library projects to use tslib version 2 as a direct dependency. Read more about this here: https://v10.angular.io/guide/migration-update-libraries-tslib",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-tslib"
+          },
+          {
+            "text": "10.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-tslib"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-libraries-tslib"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "update-workspace-dependencies",
+      "package": "angular-cli",
+      "description": "Update workspace dependencies to match a new v10 project.",
+      "status": "",
+      "introduced_in": "10.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-dependencies",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 98,
+        "links": [
+          {
+            "text": "update-workspace-dependencies",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-dependencies"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-dependencies"
+          },
+          {
+            "text": "Update workspace dependencies to match a new v10 project.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-dependencies"
+          },
+          {
+            "text": "10.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-dependencies"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/update-workspace-dependencies"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "schematic-options-9",
+      "package": "angular-cli",
+      "description": "Replace deprecated 'styleext' and 'spec' Angular schematic options.",
+      "status": "",
+      "introduced_in": "9.0.2",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-9",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 99,
+        "links": [
+          {
+            "text": "schematic-options-9",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-9"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-9"
+          },
+          {
+            "text": "Replace deprecated 'styleext' and 'spec' Angular schematic options.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-9"
+          },
+          {
+            "text": "9.0.2",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-9"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/schematic-options-9"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "dynamic-queries",
+      "package": "angular",
+      "description": "Static flag migration. Removes the `static` flag from dynamic queries. As of Angular 9, the \"static\" flag defaults to false and is no longer required for your view and content queries. Read more about this here: https://v9.angular.io/guide/migration-dynamic-flag",
+      "status": "",
+      "introduced_in": "9.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/dynamic-queries",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 100,
+        "links": [
+          {
+            "text": "dynamic-queries",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/dynamic-queries"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/dynamic-queries"
+          },
+          {
+            "text": "Static flag migration. Removes the `static` flag from dynamic queries. As of Angular 9, the \"static\" flag defaults to false and is no longer required for your view and content queries. Read more about this here: https://v9.angular.io/guide/migration-dynamic-flag",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/dynamic-queries"
+          },
+          {
+            "text": "9.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/dynamic-queries"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/dynamic-queries"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "lazy-loading-syntax",
+      "package": "angular-cli",
+      "description": "Lazy loading syntax migration. Update lazy loading syntax to use dynamic imports.",
+      "status": "",
+      "introduced_in": "9.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/lazy-loading-syntax",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 101,
+        "links": [
+          {
+            "text": "lazy-loading-syntax",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/lazy-loading-syntax"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/lazy-loading-syntax"
+          },
+          {
+            "text": "Lazy loading syntax migration. Update lazy loading syntax to use dynamic imports.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/lazy-loading-syntax"
+          },
+          {
+            "text": "9.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/lazy-loading-syntax"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/lazy-loading-syntax"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "missing-injectable",
+      "package": "angular",
+      "description": "Missing @Injectable and incomplete provider definition migration. In Angular 9, enforcement of @Injectable decorators for DI is a bit stricter and incomplete provider definitions behave differently. Read more about this here: https://v9.angular.io/guide/migration-injectable",
+      "status": "",
+      "introduced_in": "9.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/missing-injectable",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 102,
+        "links": [
+          {
+            "text": "missing-injectable",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/missing-injectable"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/missing-injectable"
+          },
+          {
+            "text": "Missing @Injectable and incomplete provider definition migration. In Angular 9, enforcement of @Injectable decorators for DI is a bit stricter and incomplete provider definitions behave differently. Read more about this here: https://v9.angular.io/guide/migration-injectable",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/missing-injectable"
+          },
+          {
+            "text": "9.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/missing-injectable"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/missing-injectable"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "module-with-providers",
+      "package": "angular",
+      "description": "ModuleWithProviders migration. In Angular 9, the ModuleWithProviders type without a generic has been deprecated. This migration adds the generic where it is missing. Read more about this here: https://v9.angular.io/guide/migration-module-with-providers",
+      "status": "",
+      "introduced_in": "9.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/module-with-providers",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 103,
+        "links": [
+          {
+            "text": "module-with-providers",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/module-with-providers"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/module-with-providers"
+          },
+          {
+            "text": "ModuleWithProviders migration. In Angular 9, the ModuleWithProviders type without a generic has been deprecated. This migration adds the generic where it is missing. Read more about this here: https://v9.angular.io/guide/migration-module-with-providers",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/module-with-providers"
+          },
+          {
+            "text": "9.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/module-with-providers"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/module-with-providers"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "renderer-to-renderer2",
+      "package": "angular",
+      "description": "Migrates usages of Renderer to Renderer2",
+      "status": "",
+      "introduced_in": "9.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/renderer-to-renderer2",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 104,
+        "links": [
+          {
+            "text": "renderer-to-renderer2",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/renderer-to-renderer2"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/renderer-to-renderer2"
+          },
+          {
+            "text": "Migrates usages of Renderer to Renderer2",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/renderer-to-renderer2"
+          },
+          {
+            "text": "9.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/renderer-to-renderer2"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/renderer-to-renderer2"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "undecorated-classes-with-decorated-fields",
+      "package": "angular",
+      "description": "Undecorated classes with decorated fields migration. As of Angular 9, it is no longer supported to have Angular field decorators on a class that does not have an Angular decorator. Read more about this here: https://v9.angular.io/guide/migration-undecorated-classes",
+      "status": "",
+      "introduced_in": "9.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/undecorated-classes-with-decorated-fields",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 105,
+        "links": [
+          {
+            "text": "undecorated-classes-with-decorated-fields",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/undecorated-classes-with-decorated-fields"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/undecorated-classes-with-decorated-fields"
+          },
+          {
+            "text": "Undecorated classes with decorated fields migration. As of Angular 9, it is no longer supported to have Angular field decorators on a class that does not have an Angular decorator. Read more about this here: https://v9.angular.io/guide/migration-undecorated-classes",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/undecorated-classes-with-decorated-fields"
+          },
+          {
+            "text": "9.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/undecorated-classes-with-decorated-fields"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/undecorated-classes-with-decorated-fields"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "undecorated-classes-with-di",
+      "package": "angular",
+      "description": "Undecorated classes with DI migration. As of Angular 9, it is no longer supported to use Angular DI on a class that does not have an Angular decorator. Read more about this here: https://v9.angular.io/guide/migration-undecorated-classes",
+      "status": "",
+      "introduced_in": "9.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/undecorated-classes-with-di",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 106,
+        "links": [
+          {
+            "text": "undecorated-classes-with-di",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/undecorated-classes-with-di"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/undecorated-classes-with-di"
+          },
+          {
+            "text": "Undecorated classes with DI migration. As of Angular 9, it is no longer supported to use Angular DI on a class that does not have an Angular decorator. Read more about this here: https://v9.angular.io/guide/migration-undecorated-classes",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/undecorated-classes-with-di"
+          },
+          {
+            "text": "9.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/undecorated-classes-with-di"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/undecorated-classes-with-di"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "workspace-version-9",
+      "package": "angular-cli",
+      "description": "Angular Workspace migration. Update an Angular CLI workspace to version 9.",
+      "status": "",
+      "introduced_in": "9.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/workspace-version-9",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 107,
+        "links": [
+          {
+            "text": "workspace-version-9",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/workspace-version-9"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/workspace-version-9"
+          },
+          {
+            "text": "Angular Workspace migration. Update an Angular CLI workspace to version 9.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/workspace-version-9"
+          },
+          {
+            "text": "9.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/workspace-version-9"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/workspace-version-9"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "move-document",
+      "package": "angular",
+      "description": "Migrates DOCUMENT Injection token from platform-browser imports to common import",
+      "status": "",
+      "introduced_in": "8.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/move-document",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 108,
+        "links": [
+          {
+            "text": "move-document",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/move-document"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/move-document"
+          },
+          {
+            "text": "Migrates DOCUMENT Injection token from platform-browser imports to common import",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/move-document"
+          },
+          {
+            "text": "8.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/move-document"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/move-document"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "static-queries",
+      "package": "angular",
+      "description": "Migrates ViewChild and ContentChild to explicit query timing",
+      "status": "",
+      "introduced_in": "8.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/static-queries",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 109,
+        "links": [
+          {
+            "text": "static-queries",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/static-queries"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/static-queries"
+          },
+          {
+            "text": "Migrates ViewChild and ContentChild to explicit query timing",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/static-queries"
+          },
+          {
+            "text": "8.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/static-queries"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/static-queries"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "template-local-variables",
+      "package": "angular",
+      "description": "Warns developers if values are assigned to template variables",
+      "status": "",
+      "introduced_in": "8.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular/template-local-variables",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 110,
+        "links": [
+          {
+            "text": "template-local-variables",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/template-local-variables"
+          },
+          {
+            "text": "angular",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/template-local-variables"
+          },
+          {
+            "text": "Warns developers if values are assigned to template variables",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/template-local-variables"
+          },
+          {
+            "text": "8.0.0",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/template-local-variables"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular/template-local-variables"
+          }
+        ],
+        "optional": ""
+      }
+    },
+    {
+      "section": "Update",
+      "name": "production-by-default",
+      "package": "angular-cli",
+      "description": "Optional migration to update Angular CLI workspace configurations to 'production' mode by default.",
+      "status": "",
+      "introduced_in": "",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse/update/migrations/angular-cli/production-by-default",
+      "angular_dev_url": "",
+      "notes": "",
+      "raw": {
+        "index": 111,
+        "links": [
+          {
+            "text": "production-by-default",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/production-by-default"
+          },
+          {
+            "text": "angular-cli",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/production-by-default"
+          },
+          {
+            "text": "Optional migration to update Angular CLI workspace configurations to 'production' mode by default.",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/production-by-default"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/production-by-default"
+          },
+          {
+            "text": "",
+            "href": "https://www.angular.courses/caniuse/update/migrations/angular-cli/production-by-default"
+          }
+        ],
+        "optional": ""
+      }
+    }
+  ],
+  "extracted_at": "2026-07-05T19:48:27.830Z"
+}

@@ -12,9 +12,9 @@ version: 0.4.0
 owner: NgAutoPilot
 triggers:
   - control flow
-  - @if
-  - @for
-  - @switch
+  - "@if"
+  - "@for"
+  - "@switch"
   - structural directives modernization
 compatibility:
   angular:

@@ -12,7 +12,7 @@ version: 0.4.0
 owner: NgAutoPilot
 triggers:
   - defer views
-  - @defer
+  - "@defer"
   - deferrable views
   - lazy rendering modernization
 compatibility:

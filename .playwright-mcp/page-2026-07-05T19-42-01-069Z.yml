@@ -1,0 +1,196 @@
+- generic [active] [ref=f11e1]:
+  - banner [ref=f11e2]:
+    - generic [ref=f11e3]:
+      - link "angular.courses" [ref=f11e4] [cursor=pointer]:
+        - /url: /
+      - navigation "Main" [ref=f11e6]:
+        - list [ref=f11e8]:
+          - listitem [ref=f11e9]:
+            - button "Courses" [ref=f11e10]:
+              - text: Courses
+              - img [ref=f11e11]
+          - listitem [ref=f11e13]:
+            - link "Can I Use" [ref=f11e14] [cursor=pointer]:
+              - /url: /caniuse?tab=features
+          - listitem [ref=f11e15]:
+            - button "Tools" [ref=f11e16]:
+              - text: Tools
+              - img [ref=f11e17]
+          - listitem [ref=f11e19]:
+            - link "Release Insights" [ref=f11e20] [cursor=pointer]:
+              - /url: /releases/insights/22
+          - listitem [ref=f11e21]:
+            - button "AI" [ref=f11e22]:
+              - img [ref=f11e23]
+              - text: AI
+              - img [ref=f11e26]
+          - listitem [ref=f11e28]:
+            - link "Blog" [ref=f11e29] [cursor=pointer]:
+              - /url: /blog
+          - listitem [ref=f11e30]:
+            - link "Newsletter" [ref=f11e31] [cursor=pointer]:
+              - /url: https://www.linkedin.com/newsletters/angular-digest-newsletter-7439414841141854208/
+  - main [ref=f11e32]:
+    - generic [ref=f11e33]:
+      - heading "Angular Can I Use" [level=1] [ref=f11e34]
+      - paragraph [ref=f11e35]: Explore Angular features, CLI migrations, ng update migrations, MCP server features, and ESLint rules — all in one place.
+    - generic [ref=f11e36]:
+      - textbox "Search across all lists..." [ref=f11e39]
+      - generic [ref=f11e40]:
+        - tablist [ref=f11e41]:
+          - tab "Features 0" [selected] [ref=f11e42] [cursor=pointer]:
+            - text: Features
+            - generic [ref=f11e43]: "0"
+          - tab "Diff 0" [ref=f11e44] [cursor=pointer]:
+            - text: Diff
+            - generic [ref=f11e45]: "0"
+          - tab "Migrations 13" [ref=f11e46] [cursor=pointer]:
+            - text: Migrations
+            - generic [ref=f11e47]: "13"
+          - tab "Update 112" [ref=f11e48] [cursor=pointer]:
+            - text: Update
+            - generic [ref=f11e49]: "112"
+          - tab "MCP 0" [ref=f11e50] [cursor=pointer]:
+            - text: MCP
+            - generic [ref=f11e51]: "0"
+          - tab "ESLint 88" [ref=f11e52] [cursor=pointer]:
+            - text: ESLint
+            - generic [ref=f11e53]: "88"
+        - tabpanel "Features 0" [ref=f11e54]:
+          - generic [ref=f11e55]:
+            - generic [ref=f11e56]:
+              - img [ref=f11e58]
+              - generic [ref=f11e60]:
+                - generic [ref=f11e61]: Experimental
+                - generic [ref=f11e62]: Might not become stable at all or have significant changes
+            - generic [ref=f11e63]:
+              - img [ref=f11e65]
+              - generic [ref=f11e68]:
+                - generic [ref=f11e69]: Developer Preview
+                - generic [ref=f11e70]: Fully functional but not ready to stabilize
+            - generic [ref=f11e71]:
+              - img [ref=f11e73]
+              - generic [ref=f11e76]:
+                - generic [ref=f11e77]: Stable
+                - generic [ref=f11e78]: Production ready with full support
+            - generic [ref=f11e79]:
+              - img [ref=f11e81]
+              - generic [ref=f11e84]:
+                - generic [ref=f11e85]: Deprecated
+                - generic [ref=f11e86]: Obsolete API, should be replaced
+            - generic [ref=f11e87]:
+              - img [ref=f11e89]
+              - generic [ref=f11e92]:
+                - generic [ref=f11e93]: Removed
+                - generic [ref=f11e94]: Feature has been completely removed
+          - generic [ref=f11e96]:
+            - combobox [ref=f11e97]:
+              - img
+            - combobox [ref=f11e98]
+            - combobox [ref=f11e99]:
+              - img
+            - combobox [ref=f11e100]
+          - table [ref=f11e103]:
+            - rowgroup [ref=f11e104]:
+              - row "Feature 22 21 20 19 18 17 16 15 14" [ref=f11e105]:
+                - columnheader "Feature" [ref=f11e106]
+                - columnheader "22" [ref=f11e107]
+                - columnheader "21" [ref=f11e108]
+                - columnheader "20" [ref=f11e109]
+                - columnheader "19" [ref=f11e110]
+                - columnheader "18" [ref=f11e111]
+                - columnheader "17" [ref=f11e112]
+                - columnheader "16" [ref=f11e113]
+                - columnheader "15" [ref=f11e114]
+                - columnheader "14" [ref=f11e115]
+            - rowgroup [ref=f11e116]:
+              - row [ref=f11e117]:
+                - cell [ref=f11e118]
+                - cell [ref=f11e121]
+                - cell [ref=f11e124]
+                - cell [ref=f11e127]
+                - cell [ref=f11e130]
+                - cell [ref=f11e133]
+                - cell [ref=f11e136]
+                - cell [ref=f11e139]
+                - cell [ref=f11e142]
+                - cell [ref=f11e145]
+              - row [ref=f11e148]:
+                - cell [ref=f11e149]
+                - cell [ref=f11e152]
+                - cell [ref=f11e155]
+                - cell [ref=f11e158]
+                - cell [ref=f11e161]
+                - cell [ref=f11e164]
+                - cell [ref=f11e167]
+                - cell [ref=f11e170]
+                - cell [ref=f11e173]
+                - cell [ref=f11e176]
+              - row [ref=f11e179]:
+                - cell [ref=f11e180]
+                - cell [ref=f11e183]
+                - cell [ref=f11e186]
+                - cell [ref=f11e189]
+                - cell [ref=f11e192]
+                - cell [ref=f11e195]
+                - cell [ref=f11e198]
+                - cell [ref=f11e201]
+                - cell [ref=f11e204]
+                - cell [ref=f11e207]
+              - row [ref=f11e210]:
+                - cell [ref=f11e211]
+                - cell [ref=f11e214]
+                - cell [ref=f11e217]
+                - cell [ref=f11e220]
+                - cell [ref=f11e223]
+                - cell [ref=f11e226]
+                - cell [ref=f11e229]
+                - cell [ref=f11e232]
+                - cell [ref=f11e235]
+                - cell [ref=f11e238]
+              - row [ref=f11e241]:
+                - cell [ref=f11e242]
+                - cell [ref=f11e245]
+                - cell [ref=f11e248]
+                - cell [ref=f11e251]
+                - cell [ref=f11e254]
+                - cell [ref=f11e257]
+                - cell [ref=f11e260]
+                - cell [ref=f11e263]
+                - cell [ref=f11e266]
+                - cell [ref=f11e269]
+              - row [ref=f11e272]:
+                - cell [ref=f11e273]
+                - cell [ref=f11e276]
+                - cell [ref=f11e279]
+                - cell [ref=f11e282]
+                - cell [ref=f11e285]
+                - cell [ref=f11e288]
+                - cell [ref=f11e291]
+                - cell [ref=f11e294]
+                - cell [ref=f11e297]
+                - cell [ref=f11e300]
+              - row [ref=f11e303]:
+                - cell [ref=f11e304]
+                - cell [ref=f11e307]
+                - cell [ref=f11e310]
+                - cell [ref=f11e313]
+                - cell [ref=f11e316]
+                - cell [ref=f11e319]
+                - cell [ref=f11e322]
+                - cell [ref=f11e325]
+                - cell [ref=f11e328]
+                - cell [ref=f11e331]
+              - row [ref=f11e334]:
+                - cell [ref=f11e335]
+                - cell [ref=f11e338]
+                - cell [ref=f11e341]
+                - cell [ref=f11e344]
+                - cell [ref=f11e347]
+                - cell [ref=f11e350]
+                - cell [ref=f11e353]
+                - cell [ref=f11e356]
+                - cell [ref=f11e359]
+                - cell [ref=f11e362]
+  - region "Notifications alt+T"
+  - alert [ref=f11e365]

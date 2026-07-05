@@ -66,6 +66,12 @@ Do not use this skill for:
 
 For those cases, route to a specific upgrade satellite or modernization skill.
 
+Angular 22 specific routing:
+
+- Route Angular 21 -> 22 upgrade work to `skills/angular/upgrades/21-to-22/angular-21-to-22-upgrade-orchestrator/SKILL.md`.
+- Route post-hop Angular 22 concerns to the narrow `angular-v22-*` satellite by domain.
+- Verify production-ready vs experimental status from official Angular sources before recommending Signal Forms, Angular Aria, resources, MCP, or WebMCP.
+
 ## Required Inputs
 
 The agent must collect these inputs before making a compatibility decision:

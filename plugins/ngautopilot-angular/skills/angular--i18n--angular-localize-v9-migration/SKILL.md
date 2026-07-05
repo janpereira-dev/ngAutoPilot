@@ -11,7 +11,7 @@ status: stable
 version: 0.4.0
 owner: NgAutoPilot
 triggers:
-  - @angular/localize
+  - "@angular/localize"
   - $localize
   - Angular i18n
 compatibility:

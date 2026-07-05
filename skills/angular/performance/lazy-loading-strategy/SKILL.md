@@ -15,7 +15,7 @@ triggers:
   - initial bundle
   - loadChildren
   - loadComponent
-  - @defer
+  - "@defer"
   - route splitting
 compatibility:
   angular:

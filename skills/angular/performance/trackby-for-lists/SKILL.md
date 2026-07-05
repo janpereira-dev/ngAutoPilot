@@ -12,7 +12,7 @@ version: 0.4.0
 owner: NgAutoPilot
 triggers:
   - ngFor
-  - @for
+  - "@for"
   - trackBy
   - track expression
   - large list

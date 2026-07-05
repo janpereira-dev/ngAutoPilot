@@ -241,7 +241,7 @@ Gate behavior:
 
 Route to:
 
-`skills/angular/upgrades/components/angular-dynamic-component-creation-v16/SKILL.md`
+`skills/angular/upgrades/components/angular-create-component-projectable-nodes-v19/SKILL.md`
 
 ### 10. TransferState migration
 

@@ -1,7 +1,7 @@
 ---
 id: angular.governance.angular-project-classifier
 name: Angular Project Classifier
-description: Classify the Angular project shape before any change: app, library, monorepo, SSR, hybrid, microfrontend, or legacy migration.
+description: "Classify the Angular project shape before any change: app, library, monorepo, SSR, hybrid, microfrontend, or legacy migration."
 stack:
   - Angular
 category: governance

@@ -1,7 +1,7 @@
 ---
 id: css.selectors.has-content-aware-layout
 name: CSS Has Content Aware Layout
-description: Use CSS :has() and :not(:has()) to adapt layout to child content without JavaScript, Angular bindings, or class toggles.
+description: "Use CSS :has() and :not(:has()) to adapt layout to child content without JavaScript, Angular bindings, or class toggles."
 stack:
   - CSS
 category: selectors

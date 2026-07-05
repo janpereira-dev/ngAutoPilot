@@ -41,6 +41,7 @@
     "release:bump-version": "node scripts/bump-release-version.mjs",
     "release:check-version": "node scripts/check-release-version.mjs",
     "skills:validate": "node scripts/validate-skills.mjs",
+    "skills:validate:frontmatter": "python scripts/validate-skill-frontmatter.py",
     "skills:catalog": "node scripts/generate-catalog.mjs",
     "skills:export": "node scripts/export-adapter.mjs",
     "plugins:sync": "node scripts/sync-plugin-bundles.mjs",
@@ -51,7 +52,7 @@
     "codex:validate": "node -e \"const fs=require('fs'); JSON.parse(fs.readFileSync('.agents/plugins/marketplace.json','utf8')); console.log('Codex marketplace OK');\"",
     "marketplaces:validate": "npm run claude:validate && npm run codex:validate",
     "consistency:validate": "node scripts/validate-consistency.mjs",
-    "release:validate": "npm run skills:validate && npm run skills:catalog && npm run plugins:sync && npm run marketplaces:validate && npm run consistency:validate && npm run release:check-version",
+    "release:validate": "npm run skills:validate:frontmatter && npm run skills:validate && npm run skills:catalog && npm run plugins:sync && npm run marketplaces:validate && npm run consistency:validate && npm run release:check-version",
     "hooks:install": "node scripts/install-git-hooks.mjs",
     "cli": "node bin/ngautopilot.mjs",
     "pack:dry": "npm pack --dry-run"
