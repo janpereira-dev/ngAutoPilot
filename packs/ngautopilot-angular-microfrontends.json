@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-angular-microfrontends",
   "name": "NgAutoPilot Angular Micro Frontends",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "status": "stable",
   "description": "Micro-frontend architecture, Hopkins module federation, MFE testing, and multi-app workspace governance.",
   "audience": "Teams building micro-frontend architectures with Angular",

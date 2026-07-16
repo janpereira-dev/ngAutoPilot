@@ -38586,7 +38586,7 @@
       "package": "angular-eslint/eslint-plugin",
       "description": "Use `host` metadata property instead of `@HostBinding` and `HostListener`.",
       "status": "",
-      "introduced_in": "20.5.0",
+      "introduced_in": "20.5.1",
       "removed_in": "",
       "v22": "",
       "v21": "",
@@ -38605,7 +38605,7 @@
         "description": "Use `host` metadata property instead of `@HostBinding` and `HostListener`.",
         "type": "eslint-plugin",
         "url": "https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin/docs/rules/prefer-host-metadata-property.md",
-        "version": "20.5.0"
+        "version": "20.5.1"
       }
     },
     {
@@ -39678,7 +39678,7 @@
       "package": "angular-eslint/eslint-plugin-template",
       "description": "Prefer using @else instead of a second @if with the opposite condition to reduce code and make it easier to read.",
       "status": "",
-      "introduced_in": "20.5.0",
+      "introduced_in": "20.5.1",
       "removed_in": "",
       "v22": "",
       "v21": "",
@@ -39697,7 +39697,7 @@
         "description": "Prefer using @else instead of a second @if with the opposite condition to reduce code and make it easier to read.",
         "type": "eslint-plugin-template",
         "url": "https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin-template/docs/rules/prefer-at-else.md",
-        "version": "20.5.0"
+        "version": "20.5.1"
       }
     },
     {
@@ -39734,7 +39734,7 @@
       "package": "angular-eslint/eslint-plugin-template",
       "description": "Encourages the use of Angular built-in pipes (e.g. lowercase, uppercase, titlecase) instead of certain JavaScript methods in Angular templates.",
       "status": "",
-      "introduced_in": "20.5.0",
+      "introduced_in": "20.5.1",
       "removed_in": "",
       "v22": "",
       "v21": "",
@@ -39753,7 +39753,7 @@
         "description": "Encourages the use of Angular built-in pipes (e.g. lowercase, uppercase, titlecase) instead of certain JavaScript methods in Angular templates.",
         "type": "eslint-plugin-template",
         "url": "https://github.com/angular-eslint/angular-eslint/blob/main/packages/eslint-plugin-template/docs/rules/prefer-built-in-pipes.md",
-        "version": "20.5.0"
+        "version": "20.5.1"
       }
     },
     {

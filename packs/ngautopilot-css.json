@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-css",
   "name": "NgAutoPilot CSS",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "status": "stable",
   "description": "Cross-framework CSS skills: selectors, modern layout, accessibility-aware styling.",
   "audience": "Developers working on CSS architecture",

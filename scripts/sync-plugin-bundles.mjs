@@ -161,7 +161,7 @@ for (const bundle of bundleDefinitions) {
 
   const pluginManifest = {
     name: bundle.name,
-    version: '0.5.0',
+    version: '0.5.1',
     description: bundle.description,
     author,
     homepage: repository,
@@ -227,7 +227,7 @@ function writeMarketplaceFiles(bundles) {
       description:
         'NgAutoPilot Claude Code plugin marketplace for core workflow, Angular, JavaScript, TypeScript, CSS, and quality guidance.',
     },
-    version: '0.5.0',
+    version: '0.5.1',
     owner: {
       name: author.name,
     },
@@ -235,7 +235,7 @@ function writeMarketplaceFiles(bundles) {
       name: bundle.name,
       source: `./plugins/${bundle.name}`,
       description: bundle.description,
-      version: '0.5.0',
+      version: '0.5.1',
       author: {
         name: author.name,
       },

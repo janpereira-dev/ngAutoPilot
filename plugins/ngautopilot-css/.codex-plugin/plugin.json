@@ -1,6 +1,6 @@
 {
   "name": "ngautopilot-css",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "CSS and Angular style-boundary skills for content-aware layouts, selectors, and host custom properties.",
   "author": {
     "name": "Jan Pereira",

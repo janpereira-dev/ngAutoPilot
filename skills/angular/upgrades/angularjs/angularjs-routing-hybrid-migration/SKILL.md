@@ -8,7 +8,7 @@ stack:
   - AngularJS
 category: angularjs
 status: stable
-version: 0.5.0
+version: 0.5.1
 owner: NgAutoPilot
 triggers:
   - AngularJS routing migration

@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: versioning
 status: stable
-version: 0.5.0
+version: 0.5.1
 owner: NgAutoPilot
 triggers:
   - Angular 21 to 22 index

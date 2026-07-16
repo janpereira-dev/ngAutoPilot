@@ -1,6 +1,6 @@
 {
   "name": "ngautopilot",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Agnostic micro-skills for Angular, TypeScript and JavaScript development with AI agents.",
   "type": "module",
   "bin": {
@@ -65,6 +65,7 @@
     "pack:dry": "npm pack --dry-run"
   },
   "keywords": [
+    "pi-package",
     "angular",
     "ngautopilot",
     "typescript",
@@ -76,6 +77,14 @@
     "agent-agnostic",
     "angular-upgrade"
   ],
+  "pi": {
+    "skills": [
+      "./skills"
+    ],
+    "prompts": [
+      "./agents/ngautopilot/prompts"
+    ]
+  },
   "license": "MIT",
   "publishConfig": {
     "access": "public"

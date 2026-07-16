@@ -9,7 +9,7 @@ stack:
   - Browser
 category: javascript
 status: stable
-version: 0.5.0
+version: 0.5.1
 owner: NgAutoPilot
 triggers:
   - browser async error handling
