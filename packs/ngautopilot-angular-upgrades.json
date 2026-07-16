@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-angular-upgrades",
   "name": "NgAutoPilot Angular Upgrades",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "status": "stable",
   "description": "Major-by-major upgrade hops, version gates, changelog risk review, and upgrade-only satellites. Excludes modernization to keep upgrade work focused.",
   "audience": "Teams executing Angular version hops",

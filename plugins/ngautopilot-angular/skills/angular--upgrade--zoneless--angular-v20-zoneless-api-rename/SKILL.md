@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: zoneless
 status: stable
-version: 0.5.0
+version: 0.5.1
 owner: NgAutoPilot
 triggers:
   - zoneless API rename

@@ -2,7 +2,14 @@
 
 All notable changes to NgAutoPilot will be documented in this file.
 
-## 0.5.0 - 2026-07-16
+## 0.5.1 - 2026-07-16
+
+### Added
+
+- Added Pi package metadata for the canonical `skills/` and NgAutoPilot prompt resources.
+- Added the `pi-package` keyword so Pi Gallery can discover the npm package.
+
+## 0.5.1 - 2026-07-16
 
 Release focused on a single active distribution contract, release integrity, and agent-agnostic portability.
 

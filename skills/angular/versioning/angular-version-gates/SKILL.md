@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: versioning
 status: stable
-version: 0.5.0
+version: 0.5.1
 owner: NgAutoPilot
 triggers:
   - Angular version compatibility

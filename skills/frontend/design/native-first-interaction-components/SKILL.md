@@ -8,7 +8,7 @@ stack:
   - Accessibility
 category: accessibility
 status: stable
-version: 0.5.0
+version: 0.5.1
 owner: NgAutoPilot
 triggers:
   - native HTML component

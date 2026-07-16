@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.5.0
+version: 0.5.1
 owner: NgAutoPilot
 triggers:
   - micro frontends release governance
