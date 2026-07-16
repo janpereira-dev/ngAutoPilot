@@ -1,0 +1,17 @@
+{
+  "id": "gemini",
+  "name": "Gemini CLI",
+  "status": "adapter",
+  "scope": ["project", "user"],
+  "paths": {
+    "project": ".gemini",
+    "user": ".gemini"
+  },
+  "formats": {
+    "skills": "markdown-directory",
+    "instructions": "GEMINI.md",
+    "agents": "markdown-directory"
+  },
+  "requirements": ["Gemini CLI"],
+  "notes": "Project-scope writes GEMINI.md."
+}

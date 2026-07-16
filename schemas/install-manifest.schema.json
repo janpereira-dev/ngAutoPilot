@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ngautopilot.dev/schemas/install-manifest.schema.json",
+  "title": "NgAutoPilot Installation Manifest",
+  "description": "Record of files NgAutoPilot manages for one installation (one agent, one scope, one pack). Used for idempotency, non-destructive update, and uninstall.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "installationId", "agent", "scope", "pack", "createdAt", "files"],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "const": 1
+    },
+    "installationId": {
+      "type": "string",
+      "minLength": 8,
+      "description": "Stable id for this installation record (uuid or hash)."
+    },
+    "agent": {
+      "type": "string",
+      "description": "Adapter id this manifest belongs to."
+    },
+    "scope": {
+      "type": "string",
+      "enum": ["project", "user"]
+    },
+    "pack": {
+      "type": "string",
+      "description": "Pack id that produced this installation."
+    },
+    "ngautopilotVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "checksum", "owner"],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Path relative to the install root."
+          },
+          "checksum": {
+            "type": "string",
+            "description": "SHA-256 of original content."
+          },
+          "owner": {
+            "type": "string",
+            "const": "ngautopilot"
+          },
+          "managedSections": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["startMarker", "endMarker"],
+              "properties": {
+                "startMarker": { "type": "string" },
+                "endMarker": { "type": "string" }
+              }
+            },
+            "description": "Section markers for files shared with user content."
+          }
+        }
+      }
+    }
+  }
+}

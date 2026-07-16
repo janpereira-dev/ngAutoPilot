@@ -1,0 +1,2096 @@
+- generic [active] [ref=f8e1]:
+  - banner [ref=f8e2]:
+    - generic [ref=f8e3]:
+      - link "angular.courses" [ref=f8e4] [cursor=pointer]:
+        - /url: /
+      - navigation "Main" [ref=f8e6]:
+        - list [ref=f8e8]:
+          - listitem [ref=f8e9]:
+            - button "Courses" [ref=f8e10]:
+              - text: Courses
+              - img [ref=f8e11]
+          - listitem [ref=f8e13]:
+            - link "Can I Use" [ref=f8e14] [cursor=pointer]:
+              - /url: /caniuse?tab=features
+          - listitem [ref=f8e15]:
+            - button "Tools" [ref=f8e16]:
+              - text: Tools
+              - img [ref=f8e17]
+          - listitem [ref=f8e19]:
+            - link "Release Insights" [ref=f8e20] [cursor=pointer]:
+              - /url: /releases/insights/22
+          - listitem [ref=f8e21]:
+            - button "AI" [ref=f8e22]:
+              - img [ref=f8e23]
+              - text: AI
+              - img [ref=f8e26]
+          - listitem [ref=f8e28]:
+            - link "Blog" [ref=f8e29] [cursor=pointer]:
+              - /url: /blog
+          - listitem [ref=f8e30]:
+            - link "Newsletter" [ref=f8e31] [cursor=pointer]:
+              - /url: https://www.linkedin.com/newsletters/angular-digest-newsletter-7439414841141854208/
+  - main [ref=f8e32]:
+    - generic [ref=f8e33]:
+      - heading "Angular Can I Use" [level=1] [ref=f8e34]
+      - paragraph [ref=f8e35]: Explore Angular features, CLI migrations, ng update migrations, MCP server features, and ESLint rules — all in one place.
+    - generic [ref=f8e36]:
+      - textbox "Search across all lists..." [ref=f8e39]
+      - generic [ref=f8e40]:
+        - tablist [ref=f8e41]:
+          - tab "Features 0" [ref=f8e42] [cursor=pointer]:
+            - text: Features
+            - generic [ref=f8e43]: "0"
+          - tab "Diff 0" [ref=f8e44] [cursor=pointer]:
+            - text: Diff
+            - generic [ref=f8e45]: "0"
+          - tab "Migrations 13" [ref=f8e46] [cursor=pointer]:
+            - text: Migrations
+            - generic [ref=f8e47]: "13"
+          - tab "Update 112" [selected] [ref=f8e48] [cursor=pointer]:
+            - text: Update
+            - generic [ref=f8e49]: "112"
+          - tab "MCP 0" [ref=f8e50] [cursor=pointer]:
+            - text: MCP
+            - generic [ref=f8e51]: "0"
+          - tab "ESLint 88" [ref=f8e52] [cursor=pointer]:
+            - text: ESLint
+            - generic [ref=f8e53]: "88"
+        - tabpanel "Update 112" [ref=f8e54]:
+          - generic [ref=f8e55]:
+            - generic [ref=f8e56]: Available in version
+            - combobox "Available in version" [ref=f8e57]:
+              - img
+            - combobox [ref=f8e58]
+          - table [ref=f8e61]:
+            - rowgroup [ref=f8e62]:
+              - row "Migration Repository Description Introduced Optional" [ref=f8e63]:
+                - columnheader "Migration" [ref=f8e64]
+                - columnheader "Repository" [ref=f8e65]
+                - columnheader "Description" [ref=f8e66]
+                - columnheader "Introduced" [ref=f8e67]
+                - columnheader "Optional" [ref=f8e68]
+            - rowgroup [ref=f8e69]:
+              - row "add-istanbul-instrumenter angular-cli Add 'istanbul-lib-instrument' to 'devDependencies' if Karma unit testing is used. 22.0.0" [ref=f8e70]:
+                - cell "add-istanbul-instrumenter" [ref=f8e71]:
+                  - link "add-istanbul-instrumenter" [ref=f8e72] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/add-istanbul-instrumenter
+                - cell "angular-cli" [ref=f8e73]:
+                  - link "angular-cli" [ref=f8e74] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/add-istanbul-instrumenter
+                    - generic [ref=f8e75]: angular-cli
+                - cell "Add 'istanbul-lib-instrument' to 'devDependencies' if Karma unit testing is used." [ref=f8e76]:
+                  - link "Add 'istanbul-lib-instrument' to 'devDependencies' if Karma unit testing is used." [ref=f8e77] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/add-istanbul-instrumenter
+                    - generic [ref=f8e78]: Add 'istanbul-lib-instrument' to 'devDependencies' if Karma unit testing is used.
+                - cell "22.0.0" [ref=f8e79]:
+                  - link "22.0.0" [ref=f8e80] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/add-istanbul-instrumenter
+                - cell [ref=f8e81]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/add-istanbul-instrumenter
+              - row "can-match-snapshot-required angular Adds the required third argument to canMatch callsites. 22.0.0" [ref=f8e82]:
+                - cell "can-match-snapshot-required" [ref=f8e83]:
+                  - link "can-match-snapshot-required" [ref=f8e84] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/can-match-snapshot-required
+                - cell "angular" [ref=f8e85]:
+                  - link "angular" [ref=f8e86] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/can-match-snapshot-required
+                    - generic [ref=f8e87]: angular
+                - cell "Adds the required third argument to canMatch callsites." [ref=f8e88]:
+                  - link "Adds the required third argument to canMatch callsites." [ref=f8e89] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/can-match-snapshot-required
+                    - generic [ref=f8e90]: Adds the required third argument to canMatch callsites.
+                - cell "22.0.0" [ref=f8e91]:
+                  - link "22.0.0" [ref=f8e92] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/can-match-snapshot-required
+                - cell [ref=f8e93]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/can-match-snapshot-required
+              - 'row "change-detection-eager angular Adds `ChangeDetectionStrategy.Eager` to all components. 22.0.0" [ref=f8e94]':
+                - cell "change-detection-eager" [ref=f8e95]:
+                  - link "change-detection-eager" [ref=f8e96] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/change-detection-eager
+                - cell "angular" [ref=f8e97]:
+                  - link "angular" [ref=f8e98] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/change-detection-eager
+                    - generic [ref=f8e99]: angular
+                - 'cell "Adds `ChangeDetectionStrategy.Eager` to all components." [ref=f8e100]':
+                  - 'link "Adds `ChangeDetectionStrategy.Eager` to all components." [ref=f8e101] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/change-detection-eager
+                    - generic [ref=f8e102]: "Adds `ChangeDetectionStrategy.Eager` to all components."
+                - cell "22.0.0" [ref=f8e103]:
+                  - link "22.0.0" [ref=f8e104] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/change-detection-eager
+                - cell [ref=f8e105]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/change-detection-eager
+              - 'row "http-xhr-backend angular Adds ''withXhr'' to ''provideHttpClient'' function calls when the ''HttpXhrBackend'' is used. For more information see: https://angular.dev/api/common/http/withXhr 22.0.0" [ref=f8e106]':
+                - cell "http-xhr-backend" [ref=f8e107]:
+                  - link "http-xhr-backend" [ref=f8e108] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/http-xhr-backend
+                - cell "angular" [ref=f8e109]:
+                  - link "angular" [ref=f8e110] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/http-xhr-backend
+                    - generic [ref=f8e111]: angular
+                - 'cell "Adds ''withXhr'' to ''provideHttpClient'' function calls when the ''HttpXhrBackend'' is used. For more information see: https://angular.dev/api/common/http/withXhr" [ref=f8e112]':
+                  - 'link "Adds ''withXhr'' to ''provideHttpClient'' function calls when the ''HttpXhrBackend'' is used. For more information see: https://angular.dev/api/common/http/withXhr" [ref=f8e113] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/http-xhr-backend
+                    - generic [ref=f8e114]: "Adds 'withXhr' to 'provideHttpClient' function calls when the 'HttpXhrBackend' is used. For more information see: https://angular.dev/api/common/http/withXhr"
+                - cell "22.0.0" [ref=f8e115]:
+                  - link "22.0.0" [ref=f8e116] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/http-xhr-backend
+                - cell [ref=f8e117]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/http-xhr-backend
+              - row "incremental-hydration angular Adds withNoIncrementalHydration() opt out to provideClientHydration() when incremental hydration is not enabled to retain pre-v22 behavior-. 22.0.0" [ref=f8e118]:
+                - cell "incremental-hydration" [ref=f8e119]:
+                  - link "incremental-hydration" [ref=f8e120] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/incremental-hydration
+                - cell "angular" [ref=f8e121]:
+                  - link "angular" [ref=f8e122] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/incremental-hydration
+                    - generic [ref=f8e123]: angular
+                - cell "Adds withNoIncrementalHydration() opt out to provideClientHydration() when incremental hydration is not enabled to retain pre-v22 behavior-." [ref=f8e124]:
+                  - link "Adds withNoIncrementalHydration() opt out to provideClientHydration() when incremental hydration is not enabled to retain pre-v22 behavior-." [ref=f8e125] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/incremental-hydration
+                    - generic [ref=f8e126]: Adds withNoIncrementalHydration() opt out to provideClientHydration() when incremental hydration is not enabled to retain pre-v22 behavior-.
+                - cell "22.0.0" [ref=f8e127]:
+                  - link "22.0.0" [ref=f8e128] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/incremental-hydration
+                - cell [ref=f8e129]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/incremental-hydration
+              - row "migrate-karma-to-vitest angular-cli Migrate projects using legacy Karma unit-test builder to the new unit-test builder with Vitest. 22.0.0 Yes" [ref=f8e130]:
+                - cell "migrate-karma-to-vitest" [ref=f8e131]:
+                  - link "migrate-karma-to-vitest" [ref=f8e132] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/migrate-karma-to-vitest
+                - cell "angular-cli" [ref=f8e133]:
+                  - link "angular-cli" [ref=f8e134] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/migrate-karma-to-vitest
+                    - generic [ref=f8e135]: angular-cli
+                - cell "Migrate projects using legacy Karma unit-test builder to the new unit-test builder with Vitest." [ref=f8e136]:
+                  - link "Migrate projects using legacy Karma unit-test builder to the new unit-test builder with Vitest." [ref=f8e137] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/migrate-karma-to-vitest
+                    - generic [ref=f8e138]: Migrate projects using legacy Karma unit-test builder to the new unit-test builder with Vitest.
+                - cell "22.0.0" [ref=f8e139]:
+                  - link "22.0.0" [ref=f8e140] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/migrate-karma-to-vitest
+                - cell "Yes" [ref=f8e141]:
+                  - link "Yes" [ref=f8e142] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/migrate-karma-to-vitest
+                    - generic [ref=f8e143]: "Yes"
+              - row "model-output angular Migrate broken duplicate outputs 22.0.0" [ref=f8e144]:
+                - cell "model-output" [ref=f8e145]:
+                  - link "model-output" [ref=f8e146] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/model-output
+                - cell "angular" [ref=f8e147]:
+                  - link "angular" [ref=f8e148] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/model-output
+                    - generic [ref=f8e149]: angular
+                - cell "Migrate broken duplicate outputs" [ref=f8e150]:
+                  - link "Migrate broken duplicate outputs" [ref=f8e151] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/model-output
+                    - generic [ref=f8e152]: Migrate broken duplicate outputs
+                - cell "22.0.0" [ref=f8e153]:
+                  - link "22.0.0" [ref=f8e154] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/model-output
+                - cell [ref=f8e155]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/model-output
+              - row "safe-optional-chaining angular Wraps optional chaining expressions in $safeNavigationMigration(). 22.0.0" [ref=f8e156]:
+                - cell "safe-optional-chaining" [ref=f8e157]:
+                  - link "safe-optional-chaining" [ref=f8e158] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/safe-optional-chaining
+                - cell "angular" [ref=f8e159]:
+                  - link "angular" [ref=f8e160] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/safe-optional-chaining
+                    - generic [ref=f8e161]: angular
+                - cell "Wraps optional chaining expressions in $safeNavigationMigration()." [ref=f8e162]:
+                  - link "Wraps optional chaining expressions in $safeNavigationMigration()." [ref=f8e163] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/safe-optional-chaining
+                    - generic [ref=f8e164]: Wraps optional chaining expressions in $safeNavigationMigration().
+                - cell "22.0.0" [ref=f8e165]:
+                  - link "22.0.0" [ref=f8e166] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/safe-optional-chaining
+                - cell [ref=f8e167]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/safe-optional-chaining
+              - row "strict-safe-navigation-narrow angular Disables the 'nullishCoalescingNotNullable & optionalChainNotNullable extended diagnostics. 22.0.0" [ref=f8e168]:
+                - cell "strict-safe-navigation-narrow" [ref=f8e169]:
+                  - link "strict-safe-navigation-narrow" [ref=f8e170] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/strict-safe-navigation-narrow
+                - cell "angular" [ref=f8e171]:
+                  - link "angular" [ref=f8e172] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/strict-safe-navigation-narrow
+                    - generic [ref=f8e173]: angular
+                - cell "Disables the 'nullishCoalescingNotNullable & optionalChainNotNullable extended diagnostics." [ref=f8e174]:
+                  - link "Disables the 'nullishCoalescingNotNullable & optionalChainNotNullable extended diagnostics." [ref=f8e175] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/strict-safe-navigation-narrow
+                    - generic [ref=f8e176]: Disables the 'nullishCoalescingNotNullable & optionalChainNotNullable extended diagnostics.
+                - cell "22.0.0" [ref=f8e177]:
+                  - link "22.0.0" [ref=f8e178] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/strict-safe-navigation-narrow
+                - cell [ref=f8e179]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/strict-safe-navigation-narrow
+              - 'row "strict-templates-default angular Adds ''strictTemplates: false'' in tsconfig.json when not set. 22.0.0" [ref=f8e180]':
+                - cell "strict-templates-default" [ref=f8e181]:
+                  - link "strict-templates-default" [ref=f8e182] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/strict-templates-default
+                - cell "angular" [ref=f8e183]:
+                  - link "angular" [ref=f8e184] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/strict-templates-default
+                    - generic [ref=f8e185]: angular
+                - 'cell "Adds ''strictTemplates: false'' in tsconfig.json when not set." [ref=f8e186]':
+                  - 'link "Adds ''strictTemplates: false'' in tsconfig.json when not set." [ref=f8e187] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/strict-templates-default
+                    - generic [ref=f8e188]: "Adds 'strictTemplates: false' in tsconfig.json when not set."
+                - cell "22.0.0" [ref=f8e189]:
+                  - link "22.0.0" [ref=f8e190] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/strict-templates-default
+                - cell [ref=f8e191]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/strict-templates-default
+              - 'row "trust-proxy-headers angular-cli Add ''trustProxyHeaders'' configuration to ''AngularNodeAppEngine'' or ''AngularAppEngine''. For more information see: https://angular.dev/best-practices/security#configuring-trusted-proxy-headers 22.0.0" [ref=f8e192]':
+                - cell "trust-proxy-headers" [ref=f8e193]:
+                  - link "trust-proxy-headers" [ref=f8e194] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/trust-proxy-headers
+                - cell "angular-cli" [ref=f8e195]:
+                  - link "angular-cli" [ref=f8e196] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/trust-proxy-headers
+                    - generic [ref=f8e197]: angular-cli
+                - 'cell "Add ''trustProxyHeaders'' configuration to ''AngularNodeAppEngine'' or ''AngularAppEngine''. For more information see: https://angular.dev/best-practices/security#configuring-trusted-proxy-headers" [ref=f8e198]':
+                  - 'link "Add ''trustProxyHeaders'' configuration to ''AngularNodeAppEngine'' or ''AngularAppEngine''. For more information see: https://angular.dev/best-practices/security#configuring-trusted-proxy-headers" [ref=f8e199] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular-cli/trust-proxy-headers
+                    - generic [ref=f8e200]: "Add 'trustProxyHeaders' configuration to 'AngularNodeAppEngine' or 'AngularAppEngine'. For more information see: https://angular.dev/best-practices/security#configuring-trusted-proxy-headers"
+                - cell "22.0.0" [ref=f8e201]:
+                  - link "22.0.0" [ref=f8e202] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/trust-proxy-headers
+                - cell [ref=f8e203]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/trust-proxy-headers
+              - 'row "application-config-core angular Moves imports of `ApplicationConfig` from `@angular/platform-browser` to `@angular/core` 21.0.0" [ref=f8e204]':
+                - cell "application-config-core" [ref=f8e205]:
+                  - link "application-config-core" [ref=f8e206] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/application-config-core
+                - cell "angular" [ref=f8e207]:
+                  - link "angular" [ref=f8e208] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/application-config-core
+                    - generic [ref=f8e209]: angular
+                - 'cell "Moves imports of `ApplicationConfig` from `@angular/platform-browser` to `@angular/core`" [ref=f8e210]':
+                  - 'link "Moves imports of `ApplicationConfig` from `@angular/platform-browser` to `@angular/core`" [ref=f8e211] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/application-config-core
+                    - generic [ref=f8e212]: "Moves imports of `ApplicationConfig` from `@angular/platform-browser` to `@angular/core`"
+                - cell "21.0.0" [ref=f8e213]:
+                  - link "21.0.0" [ref=f8e214] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/application-config-core
+                - cell [ref=f8e215]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/application-config-core
+              - row "bootstrap-options-migration angular Migrates deprecated bootstrap options to providers. 21.0.0" [ref=f8e216]:
+                - cell "bootstrap-options-migration" [ref=f8e217]:
+                  - link "bootstrap-options-migration" [ref=f8e218] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/bootstrap-options-migration
+                - cell "angular" [ref=f8e219]:
+                  - link "angular" [ref=f8e220] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/bootstrap-options-migration
+                    - generic [ref=f8e221]: angular
+                - cell "Migrates deprecated bootstrap options to providers." [ref=f8e222]:
+                  - link "Migrates deprecated bootstrap options to providers." [ref=f8e223] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/bootstrap-options-migration
+                    - generic [ref=f8e224]: Migrates deprecated bootstrap options to providers.
+                - cell "21.0.0" [ref=f8e225]:
+                  - link "21.0.0" [ref=f8e226] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/bootstrap-options-migration
+                - cell [ref=f8e227]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/bootstrap-options-migration
+              - row "router-last-successful-navigation angular Ensures that the Router.lastSuccessfulNavigation signal is now invoked 21.0.0" [ref=f8e228]:
+                - cell "router-last-successful-navigation" [ref=f8e229]:
+                  - link "router-last-successful-navigation" [ref=f8e230] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-last-successful-navigation
+                - cell "angular" [ref=f8e231]:
+                  - link "angular" [ref=f8e232] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-last-successful-navigation
+                    - generic [ref=f8e233]: angular
+                - cell "Ensures that the Router.lastSuccessfulNavigation signal is now invoked" [ref=f8e234]:
+                  - link "Ensures that the Router.lastSuccessfulNavigation signal is now invoked" [ref=f8e235] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-last-successful-navigation
+                    - generic [ref=f8e236]: Ensures that the Router.lastSuccessfulNavigation signal is now invoked
+                - cell "21.0.0" [ref=f8e237]:
+                  - link "21.0.0" [ref=f8e238] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-last-successful-navigation
+                - cell [ref=f8e239]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/router-last-successful-navigation
+              - row "update-typescript-lib angular-cli Updates the 'lib' property in tsconfig files to use 'es2022' or a more modern version. 21.0.0" [ref=f8e240]:
+                - cell "update-typescript-lib" [ref=f8e241]:
+                  - link "update-typescript-lib" [ref=f8e242] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-typescript-lib
+                - cell "angular-cli" [ref=f8e243]:
+                  - link "angular-cli" [ref=f8e244] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-typescript-lib
+                    - generic [ref=f8e245]: angular-cli
+                - cell "Updates the 'lib' property in tsconfig files to use 'es2022' or a more modern version." [ref=f8e246]:
+                  - link "Updates the 'lib' property in tsconfig files to use 'es2022' or a more modern version." [ref=f8e247] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-typescript-lib
+                    - generic [ref=f8e248]: Updates the 'lib' property in tsconfig files to use 'es2022' or a more modern version.
+                - cell "21.0.0" [ref=f8e249]:
+                  - link "21.0.0" [ref=f8e250] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-typescript-lib
+                - cell [ref=f8e251]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-typescript-lib
+              - 'row "add-bootstrap-context-to-server-main angular Adds `BootstrapContext` to `bootstrapApplication` calls in `main.server.ts` to support server rendering. 20.3.0" [ref=f8e252]':
+                - cell "add-bootstrap-context-to-server-main" [ref=f8e253]:
+                  - link "add-bootstrap-context-to-server-main" [ref=f8e254] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/add-bootstrap-context-to-server-main
+                - cell "angular" [ref=f8e255]:
+                  - link "angular" [ref=f8e256] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/add-bootstrap-context-to-server-main
+                    - generic [ref=f8e257]: angular
+                - 'cell "Adds `BootstrapContext` to `bootstrapApplication` calls in `main.server.ts` to support server rendering." [ref=f8e258]':
+                  - 'link "Adds `BootstrapContext` to `bootstrapApplication` calls in `main.server.ts` to support server rendering." [ref=f8e259] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/add-bootstrap-context-to-server-main
+                    - generic [ref=f8e260]: "Adds `BootstrapContext` to `bootstrapApplication` calls in `main.server.ts` to support server rendering."
+                - cell "20.3.0" [ref=f8e261]:
+                  - link "20.3.0" [ref=f8e262] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/add-bootstrap-context-to-server-main
+                - cell [ref=f8e263]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/add-bootstrap-context-to-server-main
+              - row "remove-default-karma-config angular-cli Remove any karma configuration files that only contain the default content. The default configuration is automatically available without a specific project file. 20.2.0" [ref=f8e264]:
+                - cell "remove-default-karma-config" [ref=f8e265]:
+                  - link "remove-default-karma-config" [ref=f8e266] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-default-karma-config
+                - cell "angular-cli" [ref=f8e267]:
+                  - link "angular-cli" [ref=f8e268] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-default-karma-config
+                    - generic [ref=f8e269]: angular-cli
+                - cell "Remove any karma configuration files that only contain the default content. The default configuration is automatically available without a specific project file." [ref=f8e270]:
+                  - link "Remove any karma configuration files that only contain the default content. The default configuration is automatically available without a specific project file." [ref=f8e271] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-default-karma-config
+                    - generic [ref=f8e272]: Remove any karma configuration files that only contain the default content. The default configuration is automatically available without a specific project file.
+                - cell "20.2.0" [ref=f8e273]:
+                  - link "20.2.0" [ref=f8e274] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-default-karma-config
+                - cell [ref=f8e275]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-default-karma-config
+              - row "router-current-navigation angular Replaces usages of the deprecated Router.getCurrentNavigation method with the Router.currentNavigation signal 20.2.0 Yes" [ref=f8e276]:
+                - cell "router-current-navigation" [ref=f8e277]:
+                  - link "router-current-navigation" [ref=f8e278] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-current-navigation
+                - cell "angular" [ref=f8e279]:
+                  - link "angular" [ref=f8e280] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-current-navigation
+                    - generic [ref=f8e281]: angular
+                - cell "Replaces usages of the deprecated Router.getCurrentNavigation method with the Router.currentNavigation signal" [ref=f8e282]:
+                  - link "Replaces usages of the deprecated Router.getCurrentNavigation method with the Router.currentNavigation signal" [ref=f8e283] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-current-navigation
+                    - generic [ref=f8e284]: Replaces usages of the deprecated Router.getCurrentNavigation method with the Router.currentNavigation signal
+                - cell "20.2.0" [ref=f8e285]:
+                  - link "20.2.0" [ref=f8e286] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-current-navigation
+                - cell "Yes" [ref=f8e287]:
+                  - link "Yes" [ref=f8e288] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-current-navigation
+                    - generic [ref=f8e289]: "Yes"
+              - row "control-flow-migration angular Converts the entire application to block control flow syntax 20.0.0 Yes" [ref=f8e290]:
+                - cell "control-flow-migration" [ref=f8e291]:
+                  - link "control-flow-migration" [ref=f8e292] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/control-flow-migration
+                - cell "angular" [ref=f8e293]:
+                  - link "angular" [ref=f8e294] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/control-flow-migration
+                    - generic [ref=f8e295]: angular
+                - cell "Converts the entire application to block control flow syntax" [ref=f8e296]:
+                  - link "Converts the entire application to block control flow syntax" [ref=f8e297] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/control-flow-migration
+                    - generic [ref=f8e298]: Converts the entire application to block control flow syntax
+                - cell "20.0.0" [ref=f8e299]:
+                  - link "20.0.0" [ref=f8e300] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/control-flow-migration
+                - cell "Yes" [ref=f8e301]:
+                  - link "Yes" [ref=f8e302] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/control-flow-migration
+                    - generic [ref=f8e303]: "Yes"
+              - 'row "document-core angular Moves imports of `DOCUMENT` from `@angular/common` to `@angular/core` 20.0.0" [ref=f8e304]':
+                - cell "document-core" [ref=f8e305]:
+                  - link "document-core" [ref=f8e306] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/document-core
+                - cell "angular" [ref=f8e307]:
+                  - link "angular" [ref=f8e308] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/document-core
+                    - generic [ref=f8e309]: angular
+                - 'cell "Moves imports of `DOCUMENT` from `@angular/common` to `@angular/core`" [ref=f8e310]':
+                  - 'link "Moves imports of `DOCUMENT` from `@angular/common` to `@angular/core`" [ref=f8e311] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/document-core
+                    - generic [ref=f8e312]: "Moves imports of `DOCUMENT` from `@angular/common` to `@angular/core`"
+                - cell "20.0.0" [ref=f8e313]:
+                  - link "20.0.0" [ref=f8e314] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/document-core
+                - cell [ref=f8e315]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/document-core
+              - row "inject-flags angular Replaces usages of the deprecated InjectFlags enum 20.0.0" [ref=f8e316]:
+                - cell "inject-flags" [ref=f8e317]:
+                  - link "inject-flags" [ref=f8e318] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/inject-flags
+                - cell "angular" [ref=f8e319]:
+                  - link "angular" [ref=f8e320] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/inject-flags
+                    - generic [ref=f8e321]: angular
+                - cell "Replaces usages of the deprecated InjectFlags enum" [ref=f8e322]:
+                  - link "Replaces usages of the deprecated InjectFlags enum" [ref=f8e323] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/inject-flags
+                    - generic [ref=f8e324]: Replaces usages of the deprecated InjectFlags enum
+                - cell "20.0.0" [ref=f8e325]:
+                  - link "20.0.0" [ref=f8e326] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/inject-flags
+                - cell [ref=f8e327]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/inject-flags
+              - row "previous-style-guide angular-cli Update workspace generation defaults to maintain previous style guide behavior. 20.0.0" [ref=f8e328]:
+                - cell "previous-style-guide" [ref=f8e329]:
+                  - link "previous-style-guide" [ref=f8e330] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/previous-style-guide
+                - cell "angular-cli" [ref=f8e331]:
+                  - link "angular-cli" [ref=f8e332] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/previous-style-guide
+                    - generic [ref=f8e333]: angular-cli
+                - cell "Update workspace generation defaults to maintain previous style guide behavior." [ref=f8e334]:
+                  - link "Update workspace generation defaults to maintain previous style guide behavior." [ref=f8e335] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/previous-style-guide
+                    - generic [ref=f8e336]: Update workspace generation defaults to maintain previous style guide behavior.
+                - cell "20.0.0" [ref=f8e337]:
+                  - link "20.0.0" [ref=f8e338] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/previous-style-guide
+                - cell [ref=f8e339]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/previous-style-guide
+              - row "replace-provide-server-rendering-import angular-cli Migrate imports of 'provideServerRendering' from '@angular/platform-server' to '@angular/ssr'. 20.0.0" [ref=f8e340]:
+                - cell "replace-provide-server-rendering-import" [ref=f8e341]:
+                  - link "replace-provide-server-rendering-import" [ref=f8e342] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-provide-server-rendering-import
+                - cell "angular-cli" [ref=f8e343]:
+                  - link "angular-cli" [ref=f8e344] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-provide-server-rendering-import
+                    - generic [ref=f8e345]: angular-cli
+                - cell "Migrate imports of 'provideServerRendering' from '@angular/platform-server' to '@angular/ssr'." [ref=f8e346]:
+                  - link "Migrate imports of 'provideServerRendering' from '@angular/platform-server' to '@angular/ssr'." [ref=f8e347] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-provide-server-rendering-import
+                    - generic [ref=f8e348]: Migrate imports of 'provideServerRendering' from '@angular/platform-server' to '@angular/ssr'.
+                - cell "20.0.0" [ref=f8e349]:
+                  - link "20.0.0" [ref=f8e350] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-provide-server-rendering-import
+                - cell [ref=f8e351]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-provide-server-rendering-import
+              - row "replace-provide-server-routing angular-cli Migrate 'provideServerRendering' to use 'withRoutes', and remove 'provideServerRouting' and 'provideServerRoutesConfig' from '@angular/ssr'. 20.0.0" [ref=f8e352]:
+                - cell "replace-provide-server-routing" [ref=f8e353]:
+                  - link "replace-provide-server-routing" [ref=f8e354] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-provide-server-routing
+                - cell "angular-cli" [ref=f8e355]:
+                  - link "angular-cli" [ref=f8e356] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-provide-server-routing
+                    - generic [ref=f8e357]: angular-cli
+                - cell "Migrate 'provideServerRendering' to use 'withRoutes', and remove 'provideServerRouting' and 'provideServerRoutesConfig' from '@angular/ssr'." [ref=f8e358]:
+                  - link "Migrate 'provideServerRendering' to use 'withRoutes', and remove 'provideServerRouting' and 'provideServerRoutesConfig' from '@angular/ssr'." [ref=f8e359] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-provide-server-routing
+                    - generic [ref=f8e360]: Migrate 'provideServerRendering' to use 'withRoutes', and remove 'provideServerRouting' and 'provideServerRoutesConfig' from '@angular/ssr'.
+                - cell "20.0.0" [ref=f8e361]:
+                  - link "20.0.0" [ref=f8e362] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-provide-server-routing
+                - cell [ref=f8e363]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-provide-server-routing
+              - row "test-bed-get angular Replaces usages of the deprecated TestBed.get method with TestBed.inject 20.0.0" [ref=f8e364]:
+                - cell "test-bed-get" [ref=f8e365]:
+                  - link "test-bed-get" [ref=f8e366] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/test-bed-get
+                - cell "angular" [ref=f8e367]:
+                  - link "angular" [ref=f8e368] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/test-bed-get
+                    - generic [ref=f8e369]: angular
+                - cell "Replaces usages of the deprecated TestBed.get method with TestBed.inject" [ref=f8e370]:
+                  - link "Replaces usages of the deprecated TestBed.get method with TestBed.inject" [ref=f8e371] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/test-bed-get
+                    - generic [ref=f8e372]: Replaces usages of the deprecated TestBed.get method with TestBed.inject
+                - cell "20.0.0" [ref=f8e373]:
+                  - link "20.0.0" [ref=f8e374] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/test-bed-get
+                - cell [ref=f8e375]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/test-bed-get
+              - 'row "update-module-resolution angular-cli Update ''moduleResolution'' to ''bundler'' in TypeScript configurations. You can read more about this, here: https://www.typescriptlang.org/tsconfig/#moduleResolution 20.0.0" [ref=f8e376]':
+                - cell "update-module-resolution" [ref=f8e377]:
+                  - link "update-module-resolution" [ref=f8e378] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-module-resolution
+                - cell "angular-cli" [ref=f8e379]:
+                  - link "angular-cli" [ref=f8e380] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-module-resolution
+                    - generic [ref=f8e381]: angular-cli
+                - 'cell "Update ''moduleResolution'' to ''bundler'' in TypeScript configurations. You can read more about this, here: https://www.typescriptlang.org/tsconfig/#moduleResolution" [ref=f8e382]':
+                  - 'link "Update ''moduleResolution'' to ''bundler'' in TypeScript configurations. You can read more about this, here: https://www.typescriptlang.org/tsconfig/#moduleResolution" [ref=f8e383] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular-cli/update-module-resolution
+                    - generic [ref=f8e384]: "Update 'moduleResolution' to 'bundler' in TypeScript configurations. You can read more about this, here: https://www.typescriptlang.org/tsconfig/#moduleResolution"
+                - cell "20.0.0" [ref=f8e385]:
+                  - link "20.0.0" [ref=f8e386] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-module-resolution
+                - cell [ref=f8e387]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-module-resolution
+              - row "explicit-standalone-flag angular Updates non-standalone Directives, Component and Pipes to 'standalone:false' and removes 'standalone:true' from those who are standalone 19.0.0" [ref=f8e388]:
+                - cell "explicit-standalone-flag" [ref=f8e389]:
+                  - link "explicit-standalone-flag" [ref=f8e390] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/explicit-standalone-flag
+                - cell "angular" [ref=f8e391]:
+                  - link "angular" [ref=f8e392] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/explicit-standalone-flag
+                    - generic [ref=f8e393]: angular
+                - cell "Updates non-standalone Directives, Component and Pipes to 'standalone:false' and removes 'standalone:true' from those who are standalone" [ref=f8e394]:
+                  - link "Updates non-standalone Directives, Component and Pipes to 'standalone:false' and removes 'standalone:true' from those who are standalone" [ref=f8e395] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/explicit-standalone-flag
+                    - generic [ref=f8e396]: Updates non-standalone Directives, Component and Pipes to 'standalone:false' and removes 'standalone:true' from those who are standalone
+                - cell "19.0.0" [ref=f8e397]:
+                  - link "19.0.0" [ref=f8e398] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/explicit-standalone-flag
+                - cell [ref=f8e399]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/explicit-standalone-flag
+              - row "pending-tasks angular Updates ExperimentalPendingTasks to PendingTasks 19.0.0" [ref=f8e400]:
+                - cell "pending-tasks" [ref=f8e401]:
+                  - link "pending-tasks" [ref=f8e402] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/pending-tasks
+                - cell "angular" [ref=f8e403]:
+                  - link "angular" [ref=f8e404] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/pending-tasks
+                    - generic [ref=f8e405]: angular
+                - cell "Updates ExperimentalPendingTasks to PendingTasks" [ref=f8e406]:
+                  - link "Updates ExperimentalPendingTasks to PendingTasks" [ref=f8e407] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/pending-tasks
+                    - generic [ref=f8e408]: Updates ExperimentalPendingTasks to PendingTasks
+                - cell "19.0.0" [ref=f8e409]:
+                  - link "19.0.0" [ref=f8e410] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/pending-tasks
+                - cell [ref=f8e411]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/pending-tasks
+              - 'row "provide-initializer angular Replaces `APP_INITIALIZER`, `ENVIRONMENT_INITIALIZER` & `PLATFORM_INITIALIZER` respectively with `provideAppInitializer`, `provideEnvironmentInitializer` & `providePlatformInitializer`. 19.0.0 Yes" [ref=f8e412]':
+                - cell "provide-initializer" [ref=f8e413]:
+                  - link "provide-initializer" [ref=f8e414] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/provide-initializer
+                - cell "angular" [ref=f8e415]:
+                  - link "angular" [ref=f8e416] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/provide-initializer
+                    - generic [ref=f8e417]: angular
+                - 'cell "Replaces `APP_INITIALIZER`, `ENVIRONMENT_INITIALIZER` & `PLATFORM_INITIALIZER` respectively with `provideAppInitializer`, `provideEnvironmentInitializer` & `providePlatformInitializer`." [ref=f8e418]':
+                  - 'link "Replaces `APP_INITIALIZER`, `ENVIRONMENT_INITIALIZER` & `PLATFORM_INITIALIZER` respectively with `provideAppInitializer`, `provideEnvironmentInitializer` & `providePlatformInitializer`." [ref=f8e419] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/provide-initializer
+                    - generic [ref=f8e420]: "Replaces `APP_INITIALIZER`, `ENVIRONMENT_INITIALIZER` & `PLATFORM_INITIALIZER` respectively with `provideAppInitializer`, `provideEnvironmentInitializer` & `providePlatformInitializer`."
+                - cell "19.0.0" [ref=f8e421]:
+                  - link "19.0.0" [ref=f8e422] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/provide-initializer
+                - cell "Yes" [ref=f8e423]:
+                  - link "Yes" [ref=f8e424] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/provide-initializer
+                    - generic [ref=f8e425]: "Yes"
+              - row "update-ssr-imports angular-cli Update '@angular/ssr' import paths to use the new '/node' entry point when 'CommonEngine' is detected. 19.0.0" [ref=f8e426]:
+                - cell "update-ssr-imports" [ref=f8e427]:
+                  - link "update-ssr-imports" [ref=f8e428] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-ssr-imports
+                - cell "angular-cli" [ref=f8e429]:
+                  - link "angular-cli" [ref=f8e430] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-ssr-imports
+                    - generic [ref=f8e431]: angular-cli
+                - cell "Update '@angular/ssr' import paths to use the new '/node' entry point when 'CommonEngine' is detected." [ref=f8e432]:
+                  - link "Update '@angular/ssr' import paths to use the new '/node' entry point when 'CommonEngine' is detected." [ref=f8e433] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-ssr-imports
+                    - generic [ref=f8e434]: Update '@angular/ssr' import paths to use the new '/node' entry point when 'CommonEngine' is detected.
+                - cell "19.0.0" [ref=f8e435]:
+                  - link "19.0.0" [ref=f8e436] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-ssr-imports
+                - cell [ref=f8e437]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-ssr-imports
+              - row "after-render-phase angular Updates calls to afterRender with an explicit phase to the new API 18.1.0" [ref=f8e438]:
+                - cell "after-render-phase" [ref=f8e439]:
+                  - link "after-render-phase" [ref=f8e440] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/after-render-phase
+                - cell "angular" [ref=f8e441]:
+                  - link "angular" [ref=f8e442] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/after-render-phase
+                    - generic [ref=f8e443]: angular
+                - cell "Updates calls to afterRender with an explicit phase to the new API" [ref=f8e444]:
+                  - link "Updates calls to afterRender with an explicit phase to the new API" [ref=f8e445] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/after-render-phase
+                    - generic [ref=f8e446]: Updates calls to afterRender with an explicit phase to the new API
+                - cell "18.1.0" [ref=f8e447]:
+                  - link "18.1.0" [ref=f8e448] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/after-render-phase
+                - cell [ref=f8e449]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/after-render-phase
+              - row "http-providers angular Replace deprecated HTTP related modules with provider functions 18.0.0" [ref=f8e450]:
+                - cell "http-providers" [ref=f8e451]:
+                  - link "http-providers" [ref=f8e452] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/http-providers
+                - cell "angular" [ref=f8e453]:
+                  - link "angular" [ref=f8e454] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/http-providers
+                    - generic [ref=f8e455]: angular
+                - cell "Replace deprecated HTTP related modules with provider functions" [ref=f8e456]:
+                  - link "Replace deprecated HTTP related modules with provider functions" [ref=f8e457] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/http-providers
+                    - generic [ref=f8e458]: Replace deprecated HTTP related modules with provider functions
+                - cell "18.0.0" [ref=f8e459]:
+                  - link "18.0.0" [ref=f8e460] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/http-providers
+                - cell [ref=f8e461]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/http-providers
+              - 'row "use-application-builder angular-cli Migrate application projects using ''@angular-devkit/build-angular:browser'' and ''@angular-devkit/build-angular:browser-esbuild'' to use the ''@angular-devkit/build-angular:application'' builder. Read more about this here: https://angular.dev/tools/cli/esbuild#using-the-application-builder 18.0.0 Yes" [ref=f8e462]':
+                - cell "use-application-builder" [ref=f8e463]:
+                  - link "use-application-builder" [ref=f8e464] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/use-application-builder
+                - cell "angular-cli" [ref=f8e465]:
+                  - link "angular-cli" [ref=f8e466] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/use-application-builder
+                    - generic [ref=f8e467]: angular-cli
+                - 'cell "Migrate application projects using ''@angular-devkit/build-angular:browser'' and ''@angular-devkit/build-angular:browser-esbuild'' to use the ''@angular-devkit/build-angular:application'' builder. Read more about this here: https://angular.dev/tools/cli/esbuild#using-the-application-builder" [ref=f8e468]':
+                  - 'link "Migrate application projects using ''@angular-devkit/build-angular:browser'' and ''@angular-devkit/build-angular:browser-esbuild'' to use the ''@angular-devkit/build-angular:application'' builder. Read more about this here: https://angular.dev/tools/cli/esbuild#using-the-application-builder" [ref=f8e469] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular-cli/use-application-builder
+                    - generic [ref=f8e470]: "Migrate application projects using '@angular-devkit/build-angular:browser' and '@angular-devkit/build-angular:browser-esbuild' to use the '@angular-devkit/build-angular:application' builder. Read more about this here: https://angular.dev/tools/cli/esbuild#using-the-application-builder"
+                - cell "18.0.0" [ref=f8e471]:
+                  - link "18.0.0" [ref=f8e472] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/use-application-builder
+                - cell "Yes" [ref=f8e473]:
+                  - link "Yes" [ref=f8e474] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/use-application-builder
+                    - generic [ref=f8e475]: "Yes"
+              - row "invalid-two-way-bindings angular Updates two-way bindings that have an invalid expression to use the longform expression instead. 17.3.0" [ref=f8e476]:
+                - cell "invalid-two-way-bindings" [ref=f8e477]:
+                  - link "invalid-two-way-bindings" [ref=f8e478] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/invalid-two-way-bindings
+                - cell "angular" [ref=f8e479]:
+                  - link "angular" [ref=f8e480] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/invalid-two-way-bindings
+                    - generic [ref=f8e481]: angular
+                - cell "Updates two-way bindings that have an invalid expression to use the longform expression instead." [ref=f8e482]:
+                  - link "Updates two-way bindings that have an invalid expression to use the longform expression instead." [ref=f8e483] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/invalid-two-way-bindings
+                    - generic [ref=f8e484]: Updates two-way bindings that have an invalid expression to use the longform expression instead.
+                - cell "17.3.0" [ref=f8e485]:
+                  - link "17.3.0" [ref=f8e486] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/invalid-two-way-bindings
+                - cell [ref=f8e487]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/invalid-two-way-bindings
+              - row "add-browser-sync-dependency angular-cli Add 'browser-sync' as dev dependency when '@angular-devkit/build-angular:ssr-dev-server' is used, as it is no longer a direct dependency of '@angular-devkit/build-angular'. 17.1.0" [ref=f8e488]:
+                - cell "add-browser-sync-dependency" [ref=f8e489]:
+                  - link "add-browser-sync-dependency" [ref=f8e490] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/add-browser-sync-dependency
+                - cell "angular-cli" [ref=f8e491]:
+                  - link "angular-cli" [ref=f8e492] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/add-browser-sync-dependency
+                    - generic [ref=f8e493]: angular-cli
+                - cell "Add 'browser-sync' as dev dependency when '@angular-devkit/build-angular:ssr-dev-server' is used, as it is no longer a direct dependency of '@angular-devkit/build-angular'." [ref=f8e494]:
+                  - link "Add 'browser-sync' as dev dependency when '@angular-devkit/build-angular:ssr-dev-server' is used, as it is no longer a direct dependency of '@angular-devkit/build-angular'." [ref=f8e495] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/add-browser-sync-dependency
+                    - generic [ref=f8e496]: Add 'browser-sync' as dev dependency when '@angular-devkit/build-angular:ssr-dev-server' is used, as it is no longer a direct dependency of '@angular-devkit/build-angular'.
+                - cell "17.1.0" [ref=f8e497]:
+                  - link "17.1.0" [ref=f8e498] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/add-browser-sync-dependency
+                - cell [ref=f8e499]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/add-browser-sync-dependency
+              - 'row "block-template-entities angular Angular v17 introduces a new control flow syntax that uses the @ and } characters. This migration replaces the existing usages with their corresponding HTML entities. 17.0.0" [ref=f8e500]':
+                - cell "block-template-entities" [ref=f8e501]:
+                  - link "block-template-entities" [ref=f8e502] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/block-template-entities
+                - cell "angular" [ref=f8e503]:
+                  - link "angular" [ref=f8e504] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/block-template-entities
+                    - generic [ref=f8e505]: angular
+                - 'cell "Angular v17 introduces a new control flow syntax that uses the @ and } characters. This migration replaces the existing usages with their corresponding HTML entities." [ref=f8e506]':
+                  - 'link "Angular v17 introduces a new control flow syntax that uses the @ and } characters. This migration replaces the existing usages with their corresponding HTML entities." [ref=f8e507] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/block-template-entities
+                    - generic [ref=f8e508]: "Angular v17 introduces a new control flow syntax that uses the @ and } characters. This migration replaces the existing usages with their corresponding HTML entities."
+                - cell "17.0.0" [ref=f8e509]:
+                  - link "17.0.0" [ref=f8e510] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/block-template-entities
+                - cell [ref=f8e511]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/block-template-entities
+              - row "compiler-options angular CompilerOption.useJit and CompilerOption.missingTranslation are unused under Ivy. This migration removes their usage 17.0.0" [ref=f8e512]:
+                - cell "compiler-options" [ref=f8e513]:
+                  - link "compiler-options" [ref=f8e514] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/compiler-options
+                - cell "angular" [ref=f8e515]:
+                  - link "angular" [ref=f8e516] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/compiler-options
+                    - generic [ref=f8e517]: angular
+                - cell "CompilerOption.useJit and CompilerOption.missingTranslation are unused under Ivy. This migration removes their usage" [ref=f8e518]:
+                  - link "CompilerOption.useJit and CompilerOption.missingTranslation are unused under Ivy. This migration removes their usage" [ref=f8e519] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/compiler-options
+                    - generic [ref=f8e520]: CompilerOption.useJit and CompilerOption.missingTranslation are unused under Ivy. This migration removes their usage
+                - cell "17.0.0" [ref=f8e521]:
+                  - link "17.0.0" [ref=f8e522] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/compiler-options
+                - cell [ref=f8e523]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/compiler-options
+              - row "replace-nguniversal-builders angular-cli Replace usages of '@nguniversal/builders' with '@angular-devkit/build-angular'. 17.0.0" [ref=f8e524]:
+                - cell "replace-nguniversal-builders" [ref=f8e525]:
+                  - link "replace-nguniversal-builders" [ref=f8e526] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-nguniversal-builders
+                - cell "angular-cli" [ref=f8e527]:
+                  - link "angular-cli" [ref=f8e528] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-nguniversal-builders
+                    - generic [ref=f8e529]: angular-cli
+                - cell "Replace usages of '@nguniversal/builders' with '@angular-devkit/build-angular'." [ref=f8e530]:
+                  - link "Replace usages of '@nguniversal/builders' with '@angular-devkit/build-angular'." [ref=f8e531] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-nguniversal-builders
+                    - generic [ref=f8e532]: Replace usages of '@nguniversal/builders' with '@angular-devkit/build-angular'.
+                - cell "17.0.0" [ref=f8e533]:
+                  - link "17.0.0" [ref=f8e534] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-nguniversal-builders
+                - cell [ref=f8e535]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-nguniversal-builders
+              - row "replace-nguniversal-engines angular-cli Replace usages of '@nguniversal/' packages with '@angular/ssr'. 17.0.0" [ref=f8e536]:
+                - cell "replace-nguniversal-engines" [ref=f8e537]:
+                  - link "replace-nguniversal-engines" [ref=f8e538] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-nguniversal-engines
+                - cell "angular-cli" [ref=f8e539]:
+                  - link "angular-cli" [ref=f8e540] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-nguniversal-engines
+                    - generic [ref=f8e541]: angular-cli
+                - cell "Replace usages of '@nguniversal/' packages with '@angular/ssr'." [ref=f8e542]:
+                  - link "Replace usages of '@nguniversal/' packages with '@angular/ssr'." [ref=f8e543] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-nguniversal-engines
+                    - generic [ref=f8e544]: Replace usages of '@nguniversal/' packages with '@angular/ssr'.
+                - cell "17.0.0" [ref=f8e545]:
+                  - link "17.0.0" [ref=f8e546] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-nguniversal-engines
+                - cell [ref=f8e547]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-nguniversal-engines
+              - 'row "transfer-state angular Updates `TransferState`, `makeStateKey`, `StateKey` imports from `@angular/platform-browser` to `@angular/core`. 17.0.0" [ref=f8e548]':
+                - cell "transfer-state" [ref=f8e549]:
+                  - link "transfer-state" [ref=f8e550] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/transfer-state
+                - cell "angular" [ref=f8e551]:
+                  - link "angular" [ref=f8e552] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/transfer-state
+                    - generic [ref=f8e553]: angular
+                - 'cell "Updates `TransferState`, `makeStateKey`, `StateKey` imports from `@angular/platform-browser` to `@angular/core`." [ref=f8e554]':
+                  - 'link "Updates `TransferState`, `makeStateKey`, `StateKey` imports from `@angular/platform-browser` to `@angular/core`." [ref=f8e555] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/transfer-state
+                    - generic [ref=f8e556]: "Updates `TransferState`, `makeStateKey`, `StateKey` imports from `@angular/platform-browser` to `@angular/core`."
+                - cell "17.0.0" [ref=f8e557]:
+                  - link "17.0.0" [ref=f8e558] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/transfer-state
+                - cell [ref=f8e559]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/transfer-state
+              - row "guard-and-resolve-interfaces angular In Angular version 15.2, the guard and resolver interfaces (CanActivate, Resolve, etc) were deprecated. This migration removes imports and 'implements' clauses that contain them. 16.0.0" [ref=f8e560]:
+                - cell "guard-and-resolve-interfaces" [ref=f8e561]:
+                  - link "guard-and-resolve-interfaces" [ref=f8e562] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/guard-and-resolve-interfaces
+                - cell "angular" [ref=f8e563]:
+                  - link "angular" [ref=f8e564] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/guard-and-resolve-interfaces
+                    - generic [ref=f8e565]: angular
+                - cell "In Angular version 15.2, the guard and resolver interfaces (CanActivate, Resolve, etc) were deprecated. This migration removes imports and 'implements' clauses that contain them." [ref=f8e566]:
+                  - link "In Angular version 15.2, the guard and resolver interfaces (CanActivate, Resolve, etc) were deprecated. This migration removes imports and 'implements' clauses that contain them." [ref=f8e567] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/guard-and-resolve-interfaces
+                    - generic [ref=f8e568]: In Angular version 15.2, the guard and resolver interfaces (CanActivate, Resolve, etc) were deprecated. This migration removes imports and 'implements' clauses that contain them.
+                - cell "16.0.0" [ref=f8e569]:
+                  - link "16.0.0" [ref=f8e570] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/guard-and-resolve-interfaces
+                - cell [ref=f8e571]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/guard-and-resolve-interfaces
+              - 'row "remove-module-id angular As of Angular v16, the `moduleId` property of `@Component` is deprecated as it no longer has any effect. 16.0.0" [ref=f8e572]':
+                - cell "remove-module-id" [ref=f8e573]:
+                  - link "remove-module-id" [ref=f8e574] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/remove-module-id
+                - cell "angular" [ref=f8e575]:
+                  - link "angular" [ref=f8e576] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/remove-module-id
+                    - generic [ref=f8e577]: angular
+                - 'cell "As of Angular v16, the `moduleId` property of `@Component` is deprecated as it no longer has any effect." [ref=f8e578]':
+                  - 'link "As of Angular v16, the `moduleId` property of `@Component` is deprecated as it no longer has any effect." [ref=f8e579] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/remove-module-id
+                    - generic [ref=f8e580]: "As of Angular v16, the `moduleId` property of `@Component` is deprecated as it no longer has any effect."
+                - cell "16.0.0" [ref=f8e581]:
+                  - link "16.0.0" [ref=f8e582] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/remove-module-id
+                - cell [ref=f8e583]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/remove-module-id
+              - row "update-server-builder-config angular-cli Update the '@angular-devkit/build-angular:server' builder configuration to disable 'buildOptimizer' for non optimized builds. 16.0.0" [ref=f8e584]:
+                - cell "update-server-builder-config" [ref=f8e585]:
+                  - link "update-server-builder-config" [ref=f8e586] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-server-builder-config
+                - cell "angular-cli" [ref=f8e587]:
+                  - link "angular-cli" [ref=f8e588] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-server-builder-config
+                    - generic [ref=f8e589]: angular-cli
+                - cell "Update the '@angular-devkit/build-angular:server' builder configuration to disable 'buildOptimizer' for non optimized builds." [ref=f8e590]:
+                  - link "Update the '@angular-devkit/build-angular:server' builder configuration to disable 'buildOptimizer' for non optimized builds." [ref=f8e591] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-server-builder-config
+                    - generic [ref=f8e592]: Update the '@angular-devkit/build-angular:server' builder configuration to disable 'buildOptimizer' for non optimized builds.
+                - cell "16.0.0" [ref=f8e593]:
+                  - link "16.0.0" [ref=f8e594] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-server-builder-config
+                - cell [ref=f8e595]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-server-builder-config
+              - 'row "relative-link-resolution angular In Angular version 15, the deprecated `relativeLinkResolution` config parameter of the Router is removed. This migration removes all `relativeLinkResolution` fields from the Router config objects. 15.0.0" [ref=f8e596]':
+                - cell "relative-link-resolution" [ref=f8e597]:
+                  - link "relative-link-resolution" [ref=f8e598] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/relative-link-resolution
+                - cell "angular" [ref=f8e599]:
+                  - link "angular" [ref=f8e600] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/relative-link-resolution
+                    - generic [ref=f8e601]: angular
+                - 'cell "In Angular version 15, the deprecated `relativeLinkResolution` config parameter of the Router is removed. This migration removes all `relativeLinkResolution` fields from the Router config objects." [ref=f8e602]':
+                  - 'link "In Angular version 15, the deprecated `relativeLinkResolution` config parameter of the Router is removed. This migration removes all `relativeLinkResolution` fields from the Router config objects." [ref=f8e603] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/relative-link-resolution
+                    - generic [ref=f8e604]: "In Angular version 15, the deprecated `relativeLinkResolution` config parameter of the Router is removed. This migration removes all `relativeLinkResolution` fields from the Router config objects."
+                - cell "15.0.0" [ref=f8e605]:
+                  - link "15.0.0" [ref=f8e606] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/relative-link-resolution
+                - cell [ref=f8e607]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/relative-link-resolution
+              - row "remove-browserslist-config angular-cli Remove Browserslist configuration files that matches the Angular CLI default configuration. 15.0.0" [ref=f8e608]:
+                - cell "remove-browserslist-config" [ref=f8e609]:
+                  - link "remove-browserslist-config" [ref=f8e610] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-browserslist-config
+                - cell "angular-cli" [ref=f8e611]:
+                  - link "angular-cli" [ref=f8e612] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-browserslist-config
+                    - generic [ref=f8e613]: angular-cli
+                - cell "Remove Browserslist configuration files that matches the Angular CLI default configuration." [ref=f8e614]:
+                  - link "Remove Browserslist configuration files that matches the Angular CLI default configuration." [ref=f8e615] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-browserslist-config
+                    - generic [ref=f8e616]: Remove Browserslist configuration files that matches the Angular CLI default configuration.
+                - cell "15.0.0" [ref=f8e617]:
+                  - link "15.0.0" [ref=f8e618] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-browserslist-config
+                - cell [ref=f8e619]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-browserslist-config
+              - 'row "remove-platform-server-exports angular-cli Remove exported `@angular/platform-server` `renderModule` method. The `renderModule` method is now exported by the Angular CLI. 15.0.0" [ref=f8e620]':
+                - cell "remove-platform-server-exports" [ref=f8e621]:
+                  - link "remove-platform-server-exports" [ref=f8e622] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-platform-server-exports
+                - cell "angular-cli" [ref=f8e623]:
+                  - link "angular-cli" [ref=f8e624] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-platform-server-exports
+                    - generic [ref=f8e625]: angular-cli
+                - 'cell "Remove exported `@angular/platform-server` `renderModule` method. The `renderModule` method is now exported by the Angular CLI." [ref=f8e626]':
+                  - 'link "Remove exported `@angular/platform-server` `renderModule` method. The `renderModule` method is now exported by the Angular CLI." [ref=f8e627] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular-cli/remove-platform-server-exports
+                    - generic [ref=f8e628]: "Remove exported `@angular/platform-server` `renderModule` method. The `renderModule` method is now exported by the Angular CLI."
+                - cell "15.0.0" [ref=f8e629]:
+                  - link "15.0.0" [ref=f8e630] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-platform-server-exports
+                - cell [ref=f8e631]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-platform-server-exports
+              - 'row "router-link-with-href angular Since Angular v15, the `RouterLink` contains the logic of the `RouterLinkWithHref` directive. This migration replaces all `RouterLinkWithHref` references with `RouterLink`. 15.0.0" [ref=f8e632]':
+                - cell "router-link-with-href" [ref=f8e633]:
+                  - link "router-link-with-href" [ref=f8e634] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-link-with-href
+                - cell "angular" [ref=f8e635]:
+                  - link "angular" [ref=f8e636] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-link-with-href
+                    - generic [ref=f8e637]: angular
+                - 'cell "Since Angular v15, the `RouterLink` contains the logic of the `RouterLinkWithHref` directive. This migration replaces all `RouterLinkWithHref` references with `RouterLink`." [ref=f8e638]':
+                  - 'link "Since Angular v15, the `RouterLink` contains the logic of the `RouterLinkWithHref` directive. This migration replaces all `RouterLinkWithHref` references with `RouterLink`." [ref=f8e639] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/router-link-with-href
+                    - generic [ref=f8e640]: "Since Angular v15, the `RouterLink` contains the logic of the `RouterLinkWithHref` directive. This migration replaces all `RouterLinkWithHref` references with `RouterLink`."
+                - cell "15.0.0" [ref=f8e641]:
+                  - link "15.0.0" [ref=f8e642] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-link-with-href
+                - cell [ref=f8e643]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/router-link-with-href
+              - row "update-karma-main-file angular-cli Remove no longer needed require calls in Karma builder main file. 15.0.0" [ref=f8e644]:
+                - cell "update-karma-main-file" [ref=f8e645]:
+                  - link "update-karma-main-file" [ref=f8e646] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-karma-main-file
+                - cell "angular-cli" [ref=f8e647]:
+                  - link "angular-cli" [ref=f8e648] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-karma-main-file
+                    - generic [ref=f8e649]: angular-cli
+                - cell "Remove no longer needed require calls in Karma builder main file." [ref=f8e650]:
+                  - link "Remove no longer needed require calls in Karma builder main file." [ref=f8e651] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-karma-main-file
+                    - generic [ref=f8e652]: Remove no longer needed require calls in Karma builder main file.
+                - cell "15.0.0" [ref=f8e653]:
+                  - link "15.0.0" [ref=f8e654] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-karma-main-file
+                - cell [ref=f8e655]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-karma-main-file
+              - 'row "update-typescript-target angular-cli Update TypeScript compiler `target` and set `useDefineForClassFields`. These changes are for IDE purposes as TypeScript compiler options `target` and `useDefineForClassFields` are set to `ES2022` and `false` respectively by the Angular CLI. To control ECMA version and features use the Browerslist configuration. 15.0.0" [ref=f8e656]':
+                - cell "update-typescript-target" [ref=f8e657]:
+                  - link "update-typescript-target" [ref=f8e658] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-typescript-target
+                - cell "angular-cli" [ref=f8e659]:
+                  - link "angular-cli" [ref=f8e660] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-typescript-target
+                    - generic [ref=f8e661]: angular-cli
+                - 'cell "Update TypeScript compiler `target` and set `useDefineForClassFields`. These changes are for IDE purposes as TypeScript compiler options `target` and `useDefineForClassFields` are set to `ES2022` and `false` respectively by the Angular CLI. To control ECMA version and features use the Browerslist configuration." [ref=f8e662]':
+                  - 'link "Update TypeScript compiler `target` and set `useDefineForClassFields`. These changes are for IDE purposes as TypeScript compiler options `target` and `useDefineForClassFields` are set to `ES2022` and `false` respectively by the Angular CLI. To control ECMA version and features use the Browerslist configuration." [ref=f8e663] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular-cli/update-typescript-target
+                    - generic [ref=f8e664]: "Update TypeScript compiler `target` and set `useDefineForClassFields`. These changes are for IDE purposes as TypeScript compiler options `target` and `useDefineForClassFields` are set to `ES2022` and `false` respectively by the Angular CLI. To control ECMA version and features use the Browerslist configuration."
+                - cell "15.0.0" [ref=f8e665]:
+                  - link "15.0.0" [ref=f8e666] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-typescript-target
+                - cell [ref=f8e667]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-typescript-target
+              - row "update-workspace-config angular-cli Remove options from 'angular.json' that are no longer supported by the official builders. 15.0.0" [ref=f8e668]:
+                - cell "update-workspace-config" [ref=f8e669]:
+                  - link "update-workspace-config" [ref=f8e670] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-workspace-config
+                - cell "angular-cli" [ref=f8e671]:
+                  - link "angular-cli" [ref=f8e672] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-workspace-config
+                    - generic [ref=f8e673]: angular-cli
+                - cell "Remove options from 'angular.json' that are no longer supported by the official builders." [ref=f8e674]:
+                  - link "Remove options from 'angular.json' that are no longer supported by the official builders." [ref=f8e675] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-workspace-config
+                    - generic [ref=f8e676]: Remove options from 'angular.json' that are no longer supported by the official builders.
+                - cell "15.0.0" [ref=f8e677]:
+                  - link "15.0.0" [ref=f8e678] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-workspace-config
+                - cell [ref=f8e679]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-workspace-config
+              - 'row "path-match-type angular In Angular version 14, the `pathMatch` property of `Routes` was updated to be a strict union of the two valid options: `''full''|''prefix''`. `Routes` and `Route` variables need an explicit type so TypeScript does not infer the property as the looser `string`. 14.0.0" [ref=f8e680]':
+                - cell "path-match-type" [ref=f8e681]:
+                  - link "path-match-type" [ref=f8e682] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/path-match-type
+                - cell "angular" [ref=f8e683]:
+                  - link "angular" [ref=f8e684] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/path-match-type
+                    - generic [ref=f8e685]: angular
+                - 'cell "In Angular version 14, the `pathMatch` property of `Routes` was updated to be a strict union of the two valid options: `''full''|''prefix''`. `Routes` and `Route` variables need an explicit type so TypeScript does not infer the property as the looser `string`." [ref=f8e686]':
+                  - 'link "In Angular version 14, the `pathMatch` property of `Routes` was updated to be a strict union of the two valid options: `''full''|''prefix''`. `Routes` and `Route` variables need an explicit type so TypeScript does not infer the property as the looser `string`." [ref=f8e687] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/path-match-type
+                    - generic [ref=f8e688]: "In Angular version 14, the `pathMatch` property of `Routes` was updated to be a strict union of the two valid options: `'full'|'prefix'`. `Routes` and `Route` variables need an explicit type so TypeScript does not infer the property as the looser `string`."
+                - cell "14.0.0" [ref=f8e689]:
+                  - link "14.0.0" [ref=f8e690] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/path-match-type
+                - cell [ref=f8e691]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/path-match-type
+              - row "remove-default-project-option angular-cli Remove 'defaultProject' option from workspace configuration. The project to use will be determined from the current working directory. 14.0.0" [ref=f8e692]:
+                - cell "remove-default-project-option" [ref=f8e693]:
+                  - link "remove-default-project-option" [ref=f8e694] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-default-project-option
+                - cell "angular-cli" [ref=f8e695]:
+                  - link "angular-cli" [ref=f8e696] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-default-project-option
+                    - generic [ref=f8e697]: angular-cli
+                - cell "Remove 'defaultProject' option from workspace configuration. The project to use will be determined from the current working directory." [ref=f8e698]:
+                  - link "Remove 'defaultProject' option from workspace configuration. The project to use will be determined from the current working directory." [ref=f8e699] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-default-project-option
+                    - generic [ref=f8e700]: Remove 'defaultProject' option from workspace configuration. The project to use will be determined from the current working directory.
+                - cell "14.0.0" [ref=f8e701]:
+                  - link "14.0.0" [ref=f8e702] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-default-project-option
+                - cell [ref=f8e703]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-default-project-option
+              - row "remove-show-circular-dependencies-option angular-cli Remove 'showCircularDependencies' option from browser and server builders. 14.0.0" [ref=f8e704]:
+                - cell "remove-show-circular-dependencies-option" [ref=f8e705]:
+                  - link "remove-show-circular-dependencies-option" [ref=f8e706] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-show-circular-dependencies-option
+                - cell "angular-cli" [ref=f8e707]:
+                  - link "angular-cli" [ref=f8e708] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-show-circular-dependencies-option
+                    - generic [ref=f8e709]: angular-cli
+                - cell "Remove 'showCircularDependencies' option from browser and server builders." [ref=f8e710]:
+                  - link "Remove 'showCircularDependencies' option from browser and server builders." [ref=f8e711] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-show-circular-dependencies-option
+                    - generic [ref=f8e712]: Remove 'showCircularDependencies' option from browser and server builders.
+                - cell "14.0.0" [ref=f8e713]:
+                  - link "14.0.0" [ref=f8e714] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-show-circular-dependencies-option
+                - cell [ref=f8e715]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-show-circular-dependencies-option
+              - row "replace-default-collection-option angular-cli Replace 'defaultCollection' option in workspace configuration with 'schematicCollections'. 14.0.0" [ref=f8e716]:
+                - cell "replace-default-collection-option" [ref=f8e717]:
+                  - link "replace-default-collection-option" [ref=f8e718] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-default-collection-option
+                - cell "angular-cli" [ref=f8e719]:
+                  - link "angular-cli" [ref=f8e720] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-default-collection-option
+                    - generic [ref=f8e721]: angular-cli
+                - cell "Replace 'defaultCollection' option in workspace configuration with 'schematicCollections'." [ref=f8e722]:
+                  - link "Replace 'defaultCollection' option in workspace configuration with 'schematicCollections'." [ref=f8e723] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-default-collection-option
+                    - generic [ref=f8e724]: Replace 'defaultCollection' option in workspace configuration with 'schematicCollections'.
+                - cell "14.0.0" [ref=f8e725]:
+                  - link "14.0.0" [ref=f8e726] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-default-collection-option
+                - cell [ref=f8e727]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-default-collection-option
+              - row "typed-forms angular As of Angular version 14, Forms model classes accept a type parameter, and existing usages must be opted out to preserve backwards-compatibility. 14.0.0" [ref=f8e728]:
+                - cell "typed-forms" [ref=f8e729]:
+                  - link "typed-forms" [ref=f8e730] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/typed-forms
+                - cell "angular" [ref=f8e731]:
+                  - link "angular" [ref=f8e732] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/typed-forms
+                    - generic [ref=f8e733]: angular
+                - cell "As of Angular version 14, Forms model classes accept a type parameter, and existing usages must be opted out to preserve backwards-compatibility." [ref=f8e734]:
+                  - link "As of Angular version 14, Forms model classes accept a type parameter, and existing usages must be opted out to preserve backwards-compatibility." [ref=f8e735] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/typed-forms
+                    - generic [ref=f8e736]: As of Angular version 14, Forms model classes accept a type parameter, and existing usages must be opted out to preserve backwards-compatibility.
+                - cell "14.0.0" [ref=f8e737]:
+                  - link "14.0.0" [ref=f8e738] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/typed-forms
+                - cell [ref=f8e739]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/typed-forms
+              - row "update-angular-packages-version-prefix angular-cli Update Angular packages 'dependencies' and 'devDependencies' version prefix to '^' instead of '~'. 14.0.0" [ref=f8e740]:
+                - cell "update-angular-packages-version-prefix" [ref=f8e741]:
+                  - link "update-angular-packages-version-prefix" [ref=f8e742] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-packages-version-prefix
+                - cell "angular-cli" [ref=f8e743]:
+                  - link "angular-cli" [ref=f8e744] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-packages-version-prefix
+                    - generic [ref=f8e745]: angular-cli
+                - cell "Update Angular packages 'dependencies' and 'devDependencies' version prefix to '^' instead of '~'." [ref=f8e746]:
+                  - link "Update Angular packages 'dependencies' and 'devDependencies' version prefix to '^' instead of '~'." [ref=f8e747] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-packages-version-prefix
+                    - generic [ref=f8e748]: Update Angular packages 'dependencies' and 'devDependencies' version prefix to '^' instead of '~'.
+                - cell "14.0.0" [ref=f8e749]:
+                  - link "14.0.0" [ref=f8e750] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-packages-version-prefix
+                - cell [ref=f8e751]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-packages-version-prefix
+              - row "update-libraries-secondary-entrypoints angular-cli Remove 'package.json' files from library projects secondary entrypoints. 14.0.0" [ref=f8e752]:
+                - cell "update-libraries-secondary-entrypoints" [ref=f8e753]:
+                  - link "update-libraries-secondary-entrypoints" [ref=f8e754] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-libraries-secondary-entrypoints
+                - cell "angular-cli" [ref=f8e755]:
+                  - link "angular-cli" [ref=f8e756] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-libraries-secondary-entrypoints
+                    - generic [ref=f8e757]: angular-cli
+                - cell "Remove 'package.json' files from library projects secondary entrypoints." [ref=f8e758]:
+                  - link "Remove 'package.json' files from library projects secondary entrypoints." [ref=f8e759] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-libraries-secondary-entrypoints
+                    - generic [ref=f8e760]: Remove 'package.json' files from library projects secondary entrypoints.
+                - cell "14.0.0" [ref=f8e761]:
+                  - link "14.0.0" [ref=f8e762] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-libraries-secondary-entrypoints
+                - cell [ref=f8e763]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-libraries-secondary-entrypoints
+              - row "update-tsconfig-target angular-cli Update TypeScript compilation target to 'ES2020'. 14.0.0" [ref=f8e764]:
+                - cell "update-tsconfig-target" [ref=f8e765]:
+                  - link "update-tsconfig-target" [ref=f8e766] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-tsconfig-target
+                - cell "angular-cli" [ref=f8e767]:
+                  - link "angular-cli" [ref=f8e768] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-tsconfig-target
+                    - generic [ref=f8e769]: angular-cli
+                - cell "Update TypeScript compilation target to 'ES2020'." [ref=f8e770]:
+                  - link "Update TypeScript compilation target to 'ES2020'." [ref=f8e771] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-tsconfig-target
+                    - generic [ref=f8e772]: Update TypeScript compilation target to 'ES2020'.
+                - cell "14.0.0" [ref=f8e773]:
+                  - link "14.0.0" [ref=f8e774] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-tsconfig-target
+                - cell [ref=f8e775]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-tsconfig-target
+              - 'row "entry-components angular As of Angular version 13, `entryComponents` are no longer necessary. 13.1.0" [ref=f8e776]':
+                - cell "entry-components" [ref=f8e777]:
+                  - link "entry-components" [ref=f8e778] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/entry-components
+                - cell "angular" [ref=f8e779]:
+                  - link "angular" [ref=f8e780] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/entry-components
+                    - generic [ref=f8e781]: angular
+                - 'cell "As of Angular version 13, `entryComponents` are no longer necessary." [ref=f8e782]':
+                  - 'link "As of Angular version 13, `entryComponents` are no longer necessary." [ref=f8e783] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/entry-components
+                    - generic [ref=f8e784]: "As of Angular version 13, `entryComponents` are no longer necessary."
+                - cell "13.1.0" [ref=f8e785]:
+                  - link "13.1.0" [ref=f8e786] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/entry-components
+                - cell [ref=f8e787]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/entry-components
+              - row "drop-ie-polyfills angular-cli Remove polyfills required only for Internet Explorer which is no longer supported. 13.0.0" [ref=f8e788]:
+                - cell "drop-ie-polyfills" [ref=f8e789]:
+                  - link "drop-ie-polyfills" [ref=f8e790] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/drop-ie-polyfills
+                - cell "angular-cli" [ref=f8e791]:
+                  - link "angular-cli" [ref=f8e792] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/drop-ie-polyfills
+                    - generic [ref=f8e793]: angular-cli
+                - cell "Remove polyfills required only for Internet Explorer which is no longer supported." [ref=f8e794]:
+                  - link "Remove polyfills required only for Internet Explorer which is no longer supported." [ref=f8e795] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/drop-ie-polyfills
+                    - generic [ref=f8e796]: Remove polyfills required only for Internet Explorer which is no longer supported.
+                - cell "13.0.0" [ref=f8e797]:
+                  - link "13.0.0" [ref=f8e798] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/drop-ie-polyfills
+                - cell [ref=f8e799]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/drop-ie-polyfills
+              - 'row "router-link-empty-expression angular Migrates `[routerLink]=\"\"` in templates to `[routerLink]=\"[]\"` because these links are likely intended to route to the current page with updated fragment/query params. 13.0.0" [ref=f8e800]':
+                - cell "router-link-empty-expression" [ref=f8e801]:
+                  - link "router-link-empty-expression" [ref=f8e802] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-link-empty-expression
+                - cell "angular" [ref=f8e803]:
+                  - link "angular" [ref=f8e804] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-link-empty-expression
+                    - generic [ref=f8e805]: angular
+                - 'cell "Migrates `[routerLink]=\"\"` in templates to `[routerLink]=\"[]\"` because these links are likely intended to route to the current page with updated fragment/query params." [ref=f8e806]':
+                  - 'link "Migrates `[routerLink]=\"\"` in templates to `[routerLink]=\"[]\"` because these links are likely intended to route to the current page with updated fragment/query params." [ref=f8e807] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/router-link-empty-expression
+                    - generic [ref=f8e808]: "Migrates `[routerLink]=\"\"` in templates to `[routerLink]=\"[]\"` because these links are likely intended to route to the current page with updated fragment/query params."
+                - cell "13.0.0" [ref=f8e809]:
+                  - link "13.0.0" [ref=f8e810] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-link-empty-expression
+                - cell [ref=f8e811]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/router-link-empty-expression
+              - 'row "schematic-options-13 angular-cli Remove no longer valid Angular schematic options from `angular.json`. 13.0.0" [ref=f8e812]':
+                - cell "schematic-options-13" [ref=f8e813]:
+                  - link "schematic-options-13" [ref=f8e814] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-13
+                - cell "angular-cli" [ref=f8e815]:
+                  - link "angular-cli" [ref=f8e816] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-13
+                    - generic [ref=f8e817]: angular-cli
+                - 'cell "Remove no longer valid Angular schematic options from `angular.json`." [ref=f8e818]':
+                  - 'link "Remove no longer valid Angular schematic options from `angular.json`." [ref=f8e819] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-13
+                    - generic [ref=f8e820]: "Remove no longer valid Angular schematic options from `angular.json`."
+                - cell "13.0.0" [ref=f8e821]:
+                  - link "13.0.0" [ref=f8e822] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-13
+                - cell [ref=f8e823]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-13
+              - 'row "testbed-teardown angular In Angular version 13, the `teardown` flag in `TestBed` will be enabled by default. This migration automatically opts out existing apps from the new teardown behavior. 13.0.0" [ref=f8e824]':
+                - cell "testbed-teardown" [ref=f8e825]:
+                  - link "testbed-teardown" [ref=f8e826] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/testbed-teardown
+                - cell "angular" [ref=f8e827]:
+                  - link "angular" [ref=f8e828] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/testbed-teardown
+                    - generic [ref=f8e829]: angular
+                - 'cell "In Angular version 13, the `teardown` flag in `TestBed` will be enabled by default. This migration automatically opts out existing apps from the new teardown behavior." [ref=f8e830]':
+                  - 'link "In Angular version 13, the `teardown` flag in `TestBed` will be enabled by default. This migration automatically opts out existing apps from the new teardown behavior." [ref=f8e831] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/testbed-teardown
+                    - generic [ref=f8e832]: "In Angular version 13, the `teardown` flag in `TestBed` will be enabled by default. This migration automatically opts out existing apps from the new teardown behavior."
+                - cell "13.0.0" [ref=f8e833]:
+                  - link "13.0.0" [ref=f8e834] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/testbed-teardown
+                - cell [ref=f8e835]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/testbed-teardown
+              - row "update-angular-config-v13 angular-cli Remove deprecated options from 'angular.json' that are no longer present in v13. 13.0.0" [ref=f8e836]:
+                - cell "update-angular-config-v13" [ref=f8e837]:
+                  - link "update-angular-config-v13" [ref=f8e838] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config-v13
+                - cell "angular-cli" [ref=f8e839]:
+                  - link "angular-cli" [ref=f8e840] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config-v13
+                    - generic [ref=f8e841]: angular-cli
+                - cell "Remove deprecated options from 'angular.json' that are no longer present in v13." [ref=f8e842]:
+                  - link "Remove deprecated options from 'angular.json' that are no longer present in v13." [ref=f8e843] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config-v13
+                    - generic [ref=f8e844]: Remove deprecated options from 'angular.json' that are no longer present in v13.
+                - cell "13.0.0" [ref=f8e845]:
+                  - link "13.0.0" [ref=f8e846] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config-v13
+                - cell [ref=f8e847]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config-v13
+              - row "update-gitignore angular-cli Updating '.gitignore' to include '.angular/cache'. 13.0.0" [ref=f8e848]:
+                - cell "update-gitignore" [ref=f8e849]:
+                  - link "update-gitignore" [ref=f8e850] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-gitignore
+                - cell "angular-cli" [ref=f8e851]:
+                  - link "angular-cli" [ref=f8e852] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-gitignore
+                    - generic [ref=f8e853]: angular-cli
+                - cell "Updating '.gitignore' to include '.angular/cache'." [ref=f8e854]:
+                  - link "Updating '.gitignore' to include '.angular/cache'." [ref=f8e855] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-gitignore
+                    - generic [ref=f8e856]: Updating '.gitignore' to include '.angular/cache'.
+                - cell "13.0.0" [ref=f8e857]:
+                  - link "13.0.0" [ref=f8e858] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-gitignore
+                - cell [ref=f8e859]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-gitignore
+              - row "update-libraries-v13 angular-cli Update library projects to be published in partial mode and removed deprecated options from ng-packagr configuration. 13.0.0" [ref=f8e860]:
+                - cell "update-libraries-v13" [ref=f8e861]:
+                  - link "update-libraries-v13" [ref=f8e862] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-libraries-v13
+                - cell "angular-cli" [ref=f8e863]:
+                  - link "angular-cli" [ref=f8e864] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-libraries-v13
+                    - generic [ref=f8e865]: angular-cli
+                - cell "Update library projects to be published in partial mode and removed deprecated options from ng-packagr configuration." [ref=f8e866]:
+                  - link "Update library projects to be published in partial mode and removed deprecated options from ng-packagr configuration." [ref=f8e867] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-libraries-v13
+                    - generic [ref=f8e868]: Update library projects to be published in partial mode and removed deprecated options from ng-packagr configuration.
+                - cell "13.0.0" [ref=f8e869]:
+                  - link "13.0.0" [ref=f8e870] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-libraries-v13
+                - cell [ref=f8e871]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-libraries-v13
+              - row "replace-deprecated-prod-flag angular-cli Replace the deprecated '--prod' in package.json scripts. 12.1.0" [ref=f8e872]:
+                - cell "replace-deprecated-prod-flag" [ref=f8e873]:
+                  - link "replace-deprecated-prod-flag" [ref=f8e874] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-deprecated-prod-flag
+                - cell "angular-cli" [ref=f8e875]:
+                  - link "angular-cli" [ref=f8e876] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-deprecated-prod-flag
+                    - generic [ref=f8e877]: angular-cli
+                - cell "Replace the deprecated '--prod' in package.json scripts." [ref=f8e878]:
+                  - link "Replace the deprecated '--prod' in package.json scripts." [ref=f8e879] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-deprecated-prod-flag
+                    - generic [ref=f8e880]: Replace the deprecated '--prod' in package.json scripts.
+                - cell "12.1.0" [ref=f8e881]:
+                  - link "12.1.0" [ref=f8e882] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-deprecated-prod-flag
+                - cell [ref=f8e883]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-deprecated-prod-flag
+              - 'row "deep-shadow-piercing-selector angular Automatically migrates shadow-piercing selector from `/deep/` to the recommanded alternative `::ng-deep`. 12.0.2" [ref=f8e884]':
+                - cell "deep-shadow-piercing-selector" [ref=f8e885]:
+                  - link "deep-shadow-piercing-selector" [ref=f8e886] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/deep-shadow-piercing-selector
+                - cell "angular" [ref=f8e887]:
+                  - link "angular" [ref=f8e888] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/deep-shadow-piercing-selector
+                    - generic [ref=f8e889]: angular
+                - 'cell "Automatically migrates shadow-piercing selector from `/deep/` to the recommanded alternative `::ng-deep`." [ref=f8e890]':
+                  - 'link "Automatically migrates shadow-piercing selector from `/deep/` to the recommanded alternative `::ng-deep`." [ref=f8e891] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/deep-shadow-piercing-selector
+                    - generic [ref=f8e892]: "Automatically migrates shadow-piercing selector from `/deep/` to the recommanded alternative `::ng-deep`."
+                - cell "12.0.2" [ref=f8e893]:
+                  - link "12.0.2" [ref=f8e894] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/deep-shadow-piercing-selector
+                - cell [ref=f8e895]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/deep-shadow-piercing-selector
+              - row "schematic-options-12 angular-cli Remove invalid 'skipTests' option in '@schematics/angular:module' Angular schematic options. 12.0.1" [ref=f8e896]:
+                - cell "schematic-options-12" [ref=f8e897]:
+                  - link "schematic-options-12" [ref=f8e898] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-12
+                - cell "angular-cli" [ref=f8e899]:
+                  - link "angular-cli" [ref=f8e900] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-12
+                    - generic [ref=f8e901]: angular-cli
+                - cell "Remove invalid 'skipTests' option in '@schematics/angular:module' Angular schematic options." [ref=f8e902]:
+                  - link "Remove invalid 'skipTests' option in '@schematics/angular:module' Angular schematic options." [ref=f8e903] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-12
+                    - generic [ref=f8e904]: Remove invalid 'skipTests' option in '@schematics/angular:module' Angular schematic options.
+                - cell "12.0.1" [ref=f8e905]:
+                  - link "12.0.1" [ref=f8e906] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-12
+                - cell [ref=f8e907]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-12
+              - row "activated-route-snapshot-fragment angular In Angular version 12, the type of ActivatedRouteSnapshot.fragment is nullable. This migration automatically adds non-null assertions to it. 12.0.0" [ref=f8e908]:
+                - cell "activated-route-snapshot-fragment" [ref=f8e909]:
+                  - link "activated-route-snapshot-fragment" [ref=f8e910] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/activated-route-snapshot-fragment
+                - cell "angular" [ref=f8e911]:
+                  - link "angular" [ref=f8e912] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/activated-route-snapshot-fragment
+                    - generic [ref=f8e913]: angular
+                - cell "In Angular version 12, the type of ActivatedRouteSnapshot.fragment is nullable. This migration automatically adds non-null assertions to it." [ref=f8e914]:
+                  - link "In Angular version 12, the type of ActivatedRouteSnapshot.fragment is nullable. This migration automatically adds non-null assertions to it." [ref=f8e915] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/activated-route-snapshot-fragment
+                    - generic [ref=f8e916]: In Angular version 12, the type of ActivatedRouteSnapshot.fragment is nullable. This migration automatically adds non-null assertions to it.
+                - cell "12.0.0" [ref=f8e917]:
+                  - link "12.0.0" [ref=f8e918] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/activated-route-snapshot-fragment
+                - cell [ref=f8e919]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/activated-route-snapshot-fragment
+              - row "lazy-loading-string-syntax angular-cli Lazy loading syntax migration. Update lazy loading string syntax to use dynamic imports. 12.0.0" [ref=f8e920]:
+                - cell "lazy-loading-string-syntax" [ref=f8e921]:
+                  - link "lazy-loading-string-syntax" [ref=f8e922] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/lazy-loading-string-syntax
+                - cell "angular-cli" [ref=f8e923]:
+                  - link "angular-cli" [ref=f8e924] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/lazy-loading-string-syntax
+                    - generic [ref=f8e925]: angular-cli
+                - cell "Lazy loading syntax migration. Update lazy loading string syntax to use dynamic imports." [ref=f8e926]:
+                  - link "Lazy loading syntax migration. Update lazy loading string syntax to use dynamic imports." [ref=f8e927] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/lazy-loading-string-syntax
+                    - generic [ref=f8e928]: Lazy loading syntax migration. Update lazy loading string syntax to use dynamic imports.
+                - cell "12.0.0" [ref=f8e929]:
+                  - link "12.0.0" [ref=f8e930] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/lazy-loading-string-syntax
+                - cell [ref=f8e931]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/lazy-loading-string-syntax
+              - row "remove-deprecated-i18n-options angular-cli Remove deprecated ViewEngine-based i18n build and extract options. Options present in the configuration will be converted to use non-deprecated options. 12.0.0" [ref=f8e932]:
+                - cell "remove-deprecated-i18n-options" [ref=f8e933]:
+                  - link "remove-deprecated-i18n-options" [ref=f8e934] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-deprecated-i18n-options
+                - cell "angular-cli" [ref=f8e935]:
+                  - link "angular-cli" [ref=f8e936] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-deprecated-i18n-options
+                    - generic [ref=f8e937]: angular-cli
+                - cell "Remove deprecated ViewEngine-based i18n build and extract options. Options present in the configuration will be converted to use non-deprecated options." [ref=f8e938]:
+                  - link "Remove deprecated ViewEngine-based i18n build and extract options. Options present in the configuration will be converted to use non-deprecated options." [ref=f8e939] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-deprecated-i18n-options
+                    - generic [ref=f8e940]: Remove deprecated ViewEngine-based i18n build and extract options. Options present in the configuration will be converted to use non-deprecated options.
+                - cell "12.0.0" [ref=f8e941]:
+                  - link "12.0.0" [ref=f8e942] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-deprecated-i18n-options
+                - cell [ref=f8e943]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-deprecated-i18n-options
+              - 'row "remove-emit-decorator-metadata angular-cli Remove ''emitDecoratorMetadata'' TypeScript compiler option. Decorator metadata is no longer needed by Angular. Read more about this here: https://www.typescriptlang.org/docs/handbook/decorators.html#metadata 12.0.0" [ref=f8e944]':
+                - cell "remove-emit-decorator-metadata" [ref=f8e945]:
+                  - link "remove-emit-decorator-metadata" [ref=f8e946] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-emit-decorator-metadata
+                - cell "angular-cli" [ref=f8e947]:
+                  - link "angular-cli" [ref=f8e948] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-emit-decorator-metadata
+                    - generic [ref=f8e949]: angular-cli
+                - 'cell "Remove ''emitDecoratorMetadata'' TypeScript compiler option. Decorator metadata is no longer needed by Angular. Read more about this here: https://www.typescriptlang.org/docs/handbook/decorators.html#metadata" [ref=f8e950]':
+                  - 'link "Remove ''emitDecoratorMetadata'' TypeScript compiler option. Decorator metadata is no longer needed by Angular. Read more about this here: https://www.typescriptlang.org/docs/handbook/decorators.html#metadata" [ref=f8e951] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular-cli/remove-emit-decorator-metadata
+                    - generic [ref=f8e952]: "Remove 'emitDecoratorMetadata' TypeScript compiler option. Decorator metadata is no longer needed by Angular. Read more about this here: https://www.typescriptlang.org/docs/handbook/decorators.html#metadata"
+                - cell "12.0.0" [ref=f8e953]:
+                  - link "12.0.0" [ref=f8e954] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-emit-decorator-metadata
+                - cell [ref=f8e955]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-emit-decorator-metadata
+              - row "update-angular-config-v12 angular-cli Remove deprecated options from 'angular.json' that are no longer present in v12. 12.0.0" [ref=f8e956]:
+                - cell "update-angular-config-v12" [ref=f8e957]:
+                  - link "update-angular-config-v12" [ref=f8e958] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config-v12
+                - cell "angular-cli" [ref=f8e959]:
+                  - link "angular-cli" [ref=f8e960] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config-v12
+                    - generic [ref=f8e961]: angular-cli
+                - cell "Remove deprecated options from 'angular.json' that are no longer present in v12." [ref=f8e962]:
+                  - link "Remove deprecated options from 'angular.json' that are no longer present in v12." [ref=f8e963] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config-v12
+                    - generic [ref=f8e964]: Remove deprecated options from 'angular.json' that are no longer present in v12.
+                - cell "12.0.0" [ref=f8e965]:
+                  - link "12.0.0" [ref=f8e966] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config-v12
+                - cell [ref=f8e967]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config-v12
+              - row "update-web-workers-webpack-5 angular-cli Updates Web Worker consumer usage to use the new syntax supported directly by Webpack 5. 12.0.0" [ref=f8e968]:
+                - cell "update-web-workers-webpack-5" [ref=f8e969]:
+                  - link "update-web-workers-webpack-5" [ref=f8e970] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-web-workers-webpack-5
+                - cell "angular-cli" [ref=f8e971]:
+                  - link "angular-cli" [ref=f8e972] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-web-workers-webpack-5
+                    - generic [ref=f8e973]: angular-cli
+                - cell "Updates Web Worker consumer usage to use the new syntax supported directly by Webpack 5." [ref=f8e974]:
+                  - link "Updates Web Worker consumer usage to use the new syntax supported directly by Webpack 5." [ref=f8e975] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-web-workers-webpack-5
+                    - generic [ref=f8e976]: Updates Web Worker consumer usage to use the new syntax supported directly by Webpack 5.
+                - cell "12.0.0" [ref=f8e977]:
+                  - link "12.0.0" [ref=f8e978] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-web-workers-webpack-5
+                - cell [ref=f8e979]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-web-workers-webpack-5
+              - 'row "update-zonejs angular-cli Update ''zone.js'' to version 0.11.x. Read more about this here: https://github.com/angular/angular/blob/master/packages/zone.js/CHANGELOG.md#breaking-changes-since-zonejs-v0111 12.0.0" [ref=f8e980]':
+                - cell "update-zonejs" [ref=f8e981]:
+                  - link "update-zonejs" [ref=f8e982] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-zonejs
+                - cell "angular-cli" [ref=f8e983]:
+                  - link "angular-cli" [ref=f8e984] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-zonejs
+                    - generic [ref=f8e985]: angular-cli
+                - 'cell "Update ''zone.js'' to version 0.11.x. Read more about this here: https://github.com/angular/angular/blob/master/packages/zone.js/CHANGELOG.md#breaking-changes-since-zonejs-v0111" [ref=f8e986]':
+                  - 'link "Update ''zone.js'' to version 0.11.x. Read more about this here: https://github.com/angular/angular/blob/master/packages/zone.js/CHANGELOG.md#breaking-changes-since-zonejs-v0111" [ref=f8e987] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular-cli/update-zonejs
+                    - generic [ref=f8e988]: "Update 'zone.js' to version 0.11.x. Read more about this here: https://github.com/angular/angular/blob/master/packages/zone.js/CHANGELOG.md#breaking-changes-since-zonejs-v0111"
+                - cell "12.0.0" [ref=f8e989]:
+                  - link "12.0.0" [ref=f8e990] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-zonejs
+                - cell [ref=f8e991]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-zonejs
+              - 'row "xhr-factory angular `XhrFactory` has been moved from `@angular/common/http` to `@angular/common`. 12.0.0" [ref=f8e992]':
+                - cell "xhr-factory" [ref=f8e993]:
+                  - link "xhr-factory" [ref=f8e994] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/xhr-factory
+                - cell "angular" [ref=f8e995]:
+                  - link "angular" [ref=f8e996] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/xhr-factory
+                    - generic [ref=f8e997]: angular
+                - 'cell "`XhrFactory` has been moved from `@angular/common/http` to `@angular/common`." [ref=f8e998]':
+                  - 'link "`XhrFactory` has been moved from `@angular/common/http` to `@angular/common`." [ref=f8e999] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/xhr-factory
+                    - generic [ref=f8e1000]: "`XhrFactory` has been moved from `@angular/common/http` to `@angular/common`."
+                - cell "12.0.0" [ref=f8e1001]:
+                  - link "12.0.0" [ref=f8e1002] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/xhr-factory
+                - cell [ref=f8e1003]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/xhr-factory
+              - 'row "can-activate-with-redirect-to angular Removes `canActivate` from a `Route` config when `redirectTo` is also present 11.1.0" [ref=f8e1004]':
+                - cell "can-activate-with-redirect-to" [ref=f8e1005]:
+                  - link "can-activate-with-redirect-to" [ref=f8e1006] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/can-activate-with-redirect-to
+                - cell "angular" [ref=f8e1007]:
+                  - link "angular" [ref=f8e1008] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/can-activate-with-redirect-to
+                    - generic [ref=f8e1009]: angular
+                - 'cell "Removes `canActivate` from a `Route` config when `redirectTo` is also present" [ref=f8e1010]':
+                  - 'link "Removes `canActivate` from a `Route` config when `redirectTo` is also present" [ref=f8e1011] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/can-activate-with-redirect-to
+                    - generic [ref=f8e1012]: "Removes `canActivate` from a `Route` config when `redirectTo` is also present"
+                - cell "11.1.0" [ref=f8e1013]:
+                  - link "11.1.0" [ref=f8e1014] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/can-activate-with-redirect-to
+                - cell [ref=f8e1015]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/can-activate-with-redirect-to
+              - 'row "abstract-control-parent angular In Angular version 11, the type of `AbstractControl.parent` can be `null` to reflect the runtime value more accurately. This migration automatically adds non-null assertions to existing accesses of the `parent` property on types like `FormControl`, `FormArray` and `FormGroup`. 11.0.0" [ref=f8e1016]':
+                - cell "abstract-control-parent" [ref=f8e1017]:
+                  - link "abstract-control-parent" [ref=f8e1018] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/abstract-control-parent
+                - cell "angular" [ref=f8e1019]:
+                  - link "angular" [ref=f8e1020] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/abstract-control-parent
+                    - generic [ref=f8e1021]: angular
+                - 'cell "In Angular version 11, the type of `AbstractControl.parent` can be `null` to reflect the runtime value more accurately. This migration automatically adds non-null assertions to existing accesses of the `parent` property on types like `FormControl`, `FormArray` and `FormGroup`." [ref=f8e1022]':
+                  - 'link "In Angular version 11, the type of `AbstractControl.parent` can be `null` to reflect the runtime value more accurately. This migration automatically adds non-null assertions to existing accesses of the `parent` property on types like `FormControl`, `FormArray` and `FormGroup`." [ref=f8e1023] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/abstract-control-parent
+                    - generic [ref=f8e1024]: "In Angular version 11, the type of `AbstractControl.parent` can be `null` to reflect the runtime value more accurately. This migration automatically adds non-null assertions to existing accesses of the `parent` property on types like `FormControl`, `FormArray` and `FormGroup`."
+                - cell "11.0.0" [ref=f8e1025]:
+                  - link "11.0.0" [ref=f8e1026] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/abstract-control-parent
+                - cell [ref=f8e1027]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/abstract-control-parent
+              - row "add-declaration-map-compiler-option angular-cli Add 'declarationMap' compiler options for non production library builds. 11.0.0" [ref=f8e1028]:
+                - cell "add-declaration-map-compiler-option" [ref=f8e1029]:
+                  - link "add-declaration-map-compiler-option" [ref=f8e1030] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/add-declaration-map-compiler-option
+                - cell "angular-cli" [ref=f8e1031]:
+                  - link "angular-cli" [ref=f8e1032] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/add-declaration-map-compiler-option
+                    - generic [ref=f8e1033]: angular-cli
+                - cell "Add 'declarationMap' compiler options for non production library builds." [ref=f8e1034]:
+                  - link "Add 'declarationMap' compiler options for non production library builds." [ref=f8e1035] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/add-declaration-map-compiler-option
+                    - generic [ref=f8e1036]: Add 'declarationMap' compiler options for non production library builds.
+                - cell "11.0.0" [ref=f8e1037]:
+                  - link "11.0.0" [ref=f8e1038] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/add-declaration-map-compiler-option
+                - cell [ref=f8e1039]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/add-declaration-map-compiler-option
+              - row "native-view-encapsulation angular ViewEncapsulation.Native has been removed as of Angular version 11. This migration replaces any usages with ViewEncapsulation.ShadowDom. 11.0.0" [ref=f8e1040]:
+                - cell "native-view-encapsulation" [ref=f8e1041]:
+                  - link "native-view-encapsulation" [ref=f8e1042] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/native-view-encapsulation
+                - cell "angular" [ref=f8e1043]:
+                  - link "angular" [ref=f8e1044] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/native-view-encapsulation
+                    - generic [ref=f8e1045]: angular
+                - cell "ViewEncapsulation.Native has been removed as of Angular version 11. This migration replaces any usages with ViewEncapsulation.ShadowDom." [ref=f8e1046]:
+                  - link "ViewEncapsulation.Native has been removed as of Angular version 11. This migration replaces any usages with ViewEncapsulation.ShadowDom." [ref=f8e1047] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/native-view-encapsulation
+                    - generic [ref=f8e1048]: ViewEncapsulation.Native has been removed as of Angular version 11. This migration replaces any usages with ViewEncapsulation.ShadowDom.
+                - cell "11.0.0" [ref=f8e1049]:
+                  - link "11.0.0" [ref=f8e1050] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/native-view-encapsulation
+                - cell [ref=f8e1051]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/native-view-encapsulation
+              - 'row "navigation-extras-omissions angular NavigationExtras omissions migration. In version 11, some unsupported properties were omitted from the `extras` parameter of the `Router.navigateByUrl` and `Router.createUrlTree` methods. 11.0.0" [ref=f8e1052]':
+                - cell "navigation-extras-omissions" [ref=f8e1053]:
+                  - link "navigation-extras-omissions" [ref=f8e1054] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/navigation-extras-omissions
+                - cell "angular" [ref=f8e1055]:
+                  - link "angular" [ref=f8e1056] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/navigation-extras-omissions
+                    - generic [ref=f8e1057]: angular
+                - 'cell "NavigationExtras omissions migration. In version 11, some unsupported properties were omitted from the `extras` parameter of the `Router.navigateByUrl` and `Router.createUrlTree` methods." [ref=f8e1058]':
+                  - 'link "NavigationExtras omissions migration. In version 11, some unsupported properties were omitted from the `extras` parameter of the `Router.navigateByUrl` and `Router.createUrlTree` methods." [ref=f8e1059] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/navigation-extras-omissions
+                    - generic [ref=f8e1060]: "NavigationExtras omissions migration. In version 11, some unsupported properties were omitted from the `extras` parameter of the `Router.navigateByUrl` and `Router.createUrlTree` methods."
+                - cell "11.0.0" [ref=f8e1061]:
+                  - link "11.0.0" [ref=f8e1062] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/navigation-extras-omissions
+                - cell [ref=f8e1063]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/navigation-extras-omissions
+              - row "replace-ng-packagr-builder angular-cli Replace deprecated library builder '@angular-devkit/build-ng-packagr'. 11.0.0" [ref=f8e1064]:
+                - cell "replace-ng-packagr-builder" [ref=f8e1065]:
+                  - link "replace-ng-packagr-builder" [ref=f8e1066] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-ng-packagr-builder
+                - cell "angular-cli" [ref=f8e1067]:
+                  - link "angular-cli" [ref=f8e1068] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-ng-packagr-builder
+                    - generic [ref=f8e1069]: angular-cli
+                - cell "Replace deprecated library builder '@angular-devkit/build-ng-packagr'." [ref=f8e1070]:
+                  - link "Replace deprecated library builder '@angular-devkit/build-ng-packagr'." [ref=f8e1071] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-ng-packagr-builder
+                    - generic [ref=f8e1072]: Replace deprecated library builder '@angular-devkit/build-ng-packagr'.
+                - cell "11.0.0" [ref=f8e1073]:
+                  - link "11.0.0" [ref=f8e1074] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-ng-packagr-builder
+                - cell [ref=f8e1075]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/replace-ng-packagr-builder
+              - 'row "router-initial-navigation-options angular Updates the `initialNavigation` property for `RouterModule.forRoot`. 11.0.0" [ref=f8e1076]':
+                - cell "router-initial-navigation-options" [ref=f8e1077]:
+                  - link "router-initial-navigation-options" [ref=f8e1078] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-initial-navigation-options
+                - cell "angular" [ref=f8e1079]:
+                  - link "angular" [ref=f8e1080] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-initial-navigation-options
+                    - generic [ref=f8e1081]: angular
+                - 'cell "Updates the `initialNavigation` property for `RouterModule.forRoot`." [ref=f8e1082]':
+                  - 'link "Updates the `initialNavigation` property for `RouterModule.forRoot`." [ref=f8e1083] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/router-initial-navigation-options
+                    - generic [ref=f8e1084]: "Updates the `initialNavigation` property for `RouterModule.forRoot`."
+                - cell "11.0.0" [ref=f8e1085]:
+                  - link "11.0.0" [ref=f8e1086] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-initial-navigation-options
+                - cell [ref=f8e1087]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/router-initial-navigation-options
+              - row "router-preserve-query-params angular NavigationExtras.preserveQueryParams has been removed as of Angular version 11. This migration replaces any usages with the appropriate assignment of the queryParamsHandler key. 11.0.0" [ref=f8e1088]:
+                - cell "router-preserve-query-params" [ref=f8e1089]:
+                  - link "router-preserve-query-params" [ref=f8e1090] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-preserve-query-params
+                - cell "angular" [ref=f8e1091]:
+                  - link "angular" [ref=f8e1092] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-preserve-query-params
+                    - generic [ref=f8e1093]: angular
+                - cell "NavigationExtras.preserveQueryParams has been removed as of Angular version 11. This migration replaces any usages with the appropriate assignment of the queryParamsHandler key." [ref=f8e1094]:
+                  - link "NavigationExtras.preserveQueryParams has been removed as of Angular version 11. This migration replaces any usages with the appropriate assignment of the queryParamsHandler key." [ref=f8e1095] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-preserve-query-params
+                    - generic [ref=f8e1096]: NavigationExtras.preserveQueryParams has been removed as of Angular version 11. This migration replaces any usages with the appropriate assignment of the queryParamsHandler key.
+                - cell "11.0.0" [ref=f8e1097]:
+                  - link "11.0.0" [ref=f8e1098] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-preserve-query-params
+                - cell [ref=f8e1099]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/router-preserve-query-params
+              - 'row "router-relative-link-resolution-default angular The default value for `relativeLinkResolution` is changing from ''legacy'' to ''corrected''. This migration updates `RouterModule` configurations that use the default value to now specifically use ''legacy'' to prevent breakages when updating. 11.0.0" [ref=f8e1100]':
+                - cell "router-relative-link-resolution-default" [ref=f8e1101]:
+                  - link "router-relative-link-resolution-default" [ref=f8e1102] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-relative-link-resolution-default
+                - cell "angular" [ref=f8e1103]:
+                  - link "angular" [ref=f8e1104] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-relative-link-resolution-default
+                    - generic [ref=f8e1105]: angular
+                - 'cell "The default value for `relativeLinkResolution` is changing from ''legacy'' to ''corrected''. This migration updates `RouterModule` configurations that use the default value to now specifically use ''legacy'' to prevent breakages when updating." [ref=f8e1106]':
+                  - 'link "The default value for `relativeLinkResolution` is changing from ''legacy'' to ''corrected''. This migration updates `RouterModule` configurations that use the default value to now specifically use ''legacy'' to prevent breakages when updating." [ref=f8e1107] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/router-relative-link-resolution-default
+                    - generic [ref=f8e1108]: "The default value for `relativeLinkResolution` is changing from 'legacy' to 'corrected'. This migration updates `RouterModule` configurations that use the default value to now specifically use 'legacy' to prevent breakages when updating."
+                - cell "11.0.0" [ref=f8e1109]:
+                  - link "11.0.0" [ref=f8e1110] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/router-relative-link-resolution-default
+                - cell [ref=f8e1111]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/router-relative-link-resolution-default
+              - row "update-angular-config-v11 angular-cli Remove deprecated options from 'angular.json' that are no longer present in v11. 11.0.0" [ref=f8e1112]:
+                - cell "update-angular-config-v11" [ref=f8e1113]:
+                  - link "update-angular-config-v11" [ref=f8e1114] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config-v11
+                - cell "angular-cli" [ref=f8e1115]:
+                  - link "angular-cli" [ref=f8e1116] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config-v11
+                    - generic [ref=f8e1117]: angular-cli
+                - cell "Remove deprecated options from 'angular.json' that are no longer present in v11." [ref=f8e1118]:
+                  - link "Remove deprecated options from 'angular.json' that are no longer present in v11." [ref=f8e1119] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config-v11
+                    - generic [ref=f8e1120]: Remove deprecated options from 'angular.json' that are no longer present in v11.
+                - cell "11.0.0" [ref=f8e1121]:
+                  - link "11.0.0" [ref=f8e1122] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config-v11
+                - cell [ref=f8e1123]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config-v11
+              - row "update-workspace-dependencies-v11 angular-cli Update workspace dependencies to match a new v11 project. 11.0.0" [ref=f8e1124]:
+                - cell "update-workspace-dependencies-v11" [ref=f8e1125]:
+                  - link "update-workspace-dependencies-v11" [ref=f8e1126] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-workspace-dependencies-v11
+                - cell "angular-cli" [ref=f8e1127]:
+                  - link "angular-cli" [ref=f8e1128] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-workspace-dependencies-v11
+                    - generic [ref=f8e1129]: angular-cli
+                - cell "Update workspace dependencies to match a new v11 project." [ref=f8e1130]:
+                  - link "Update workspace dependencies to match a new v11 project." [ref=f8e1131] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-workspace-dependencies-v11
+                    - generic [ref=f8e1132]: Update workspace dependencies to match a new v11 project.
+                - cell "11.0.0" [ref=f8e1133]:
+                  - link "11.0.0" [ref=f8e1134] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-workspace-dependencies-v11
+                - cell [ref=f8e1135]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-workspace-dependencies-v11
+              - 'row "wait-for-async angular `async` to `waitForAsync` migration. The `async` testing function has been renamed to `waitForAsync` to avoid confusion with the native `async` keyword. 11.0.0" [ref=f8e1136]':
+                - cell "wait-for-async" [ref=f8e1137]:
+                  - link "wait-for-async" [ref=f8e1138] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/wait-for-async
+                - cell "angular" [ref=f8e1139]:
+                  - link "angular" [ref=f8e1140] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/wait-for-async
+                    - generic [ref=f8e1141]: angular
+                - 'cell "`async` to `waitForAsync` migration. The `async` testing function has been renamed to `waitForAsync` to avoid confusion with the native `async` keyword." [ref=f8e1142]':
+                  - 'link "`async` to `waitForAsync` migration. The `async` testing function has been renamed to `waitForAsync` to avoid confusion with the native `async` keyword." [ref=f8e1143] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/wait-for-async
+                    - generic [ref=f8e1144]: "`async` to `waitForAsync` migration. The `async` testing function has been renamed to `waitForAsync` to avoid confusion with the native `async` keyword."
+                - cell "11.0.0" [ref=f8e1145]:
+                  - link "11.0.0" [ref=f8e1146] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/wait-for-async
+                - cell [ref=f8e1147]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/wait-for-async
+              - row "remove-solution-style-tsconfig angular-cli Removing \"Solution Style\" TypeScript configuration file support. 10.1.0" [ref=f8e1148]:
+                - cell "remove-solution-style-tsconfig" [ref=f8e1149]:
+                  - link "remove-solution-style-tsconfig" [ref=f8e1150] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-solution-style-tsconfig
+                - cell "angular-cli" [ref=f8e1151]:
+                  - link "angular-cli" [ref=f8e1152] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-solution-style-tsconfig
+                    - generic [ref=f8e1153]: angular-cli
+                - cell "Removing \"Solution Style\" TypeScript configuration file support." [ref=f8e1154]:
+                  - link "Removing \"Solution Style\" TypeScript configuration file support." [ref=f8e1155] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-solution-style-tsconfig
+                    - generic [ref=f8e1156]: Removing "Solution Style" TypeScript configuration file support.
+                - cell "10.1.0" [ref=f8e1157]:
+                  - link "10.1.0" [ref=f8e1158] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-solution-style-tsconfig
+                - cell [ref=f8e1159]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-solution-style-tsconfig
+              - 'row "update-module-and-target-compiler-options angular-cli Update ''module'' and ''target'' TypeScript compiler options. Read more about this here: https://v10.angular.io/guide/migration-update-module-and-target-compiler-options 10.0.1" [ref=f8e1160]':
+                - cell "update-module-and-target-compiler-options" [ref=f8e1161]:
+                  - link "update-module-and-target-compiler-options" [ref=f8e1162] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-module-and-target-compiler-options
+                - cell "angular-cli" [ref=f8e1163]:
+                  - link "angular-cli" [ref=f8e1164] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-module-and-target-compiler-options
+                    - generic [ref=f8e1165]: angular-cli
+                - 'cell "Update ''module'' and ''target'' TypeScript compiler options. Read more about this here: https://v10.angular.io/guide/migration-update-module-and-target-compiler-options" [ref=f8e1166]':
+                  - 'link "Update ''module'' and ''target'' TypeScript compiler options. Read more about this here: https://v10.angular.io/guide/migration-update-module-and-target-compiler-options" [ref=f8e1167] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular-cli/update-module-and-target-compiler-options
+                    - generic [ref=f8e1168]: "Update 'module' and 'target' TypeScript compiler options. Read more about this here: https://v10.angular.io/guide/migration-update-module-and-target-compiler-options"
+                - cell "10.0.1" [ref=f8e1169]:
+                  - link "10.0.1" [ref=f8e1170] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-module-and-target-compiler-options
+                - cell [ref=f8e1171]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-module-and-target-compiler-options
+              - row "remove-es5-browser-support-option angular-cli Remove deprecated 'es5BrowserSupport' browser builder option. The inclusion for ES5 polyfills will be determined from the browsers listed in the browserslist configuration. 10.0.0" [ref=f8e1172]:
+                - cell "remove-es5-browser-support-option" [ref=f8e1173]:
+                  - link "remove-es5-browser-support-option" [ref=f8e1174] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-es5-browser-support-option
+                - cell "angular-cli" [ref=f8e1175]:
+                  - link "angular-cli" [ref=f8e1176] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-es5-browser-support-option
+                    - generic [ref=f8e1177]: angular-cli
+                - cell "Remove deprecated 'es5BrowserSupport' browser builder option. The inclusion for ES5 polyfills will be determined from the browsers listed in the browserslist configuration." [ref=f8e1178]:
+                  - link "Remove deprecated 'es5BrowserSupport' browser builder option. The inclusion for ES5 polyfills will be determined from the browsers listed in the browserslist configuration." [ref=f8e1179] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-es5-browser-support-option
+                    - generic [ref=f8e1180]: Remove deprecated 'es5BrowserSupport' browser builder option. The inclusion for ES5 polyfills will be determined from the browsers listed in the browserslist configuration.
+                - cell "10.0.0" [ref=f8e1181]:
+                  - link "10.0.0" [ref=f8e1182] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-es5-browser-support-option
+                - cell [ref=f8e1183]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/remove-es5-browser-support-option
+              - row "rename-browserslist-config angular-cli Update Browserslist configuration file name to '.browserslistrc' from deprecated 'browserslist'. 10.0.0" [ref=f8e1184]:
+                - cell "rename-browserslist-config" [ref=f8e1185]:
+                  - link "rename-browserslist-config" [ref=f8e1186] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/rename-browserslist-config
+                - cell "angular-cli" [ref=f8e1187]:
+                  - link "angular-cli" [ref=f8e1188] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/rename-browserslist-config
+                    - generic [ref=f8e1189]: angular-cli
+                - cell "Update Browserslist configuration file name to '.browserslistrc' from deprecated 'browserslist'." [ref=f8e1190]:
+                  - link "Update Browserslist configuration file name to '.browserslistrc' from deprecated 'browserslist'." [ref=f8e1191] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/rename-browserslist-config
+                    - generic [ref=f8e1192]: Update Browserslist configuration file name to '.browserslistrc' from deprecated 'browserslist'.
+                - cell "10.0.0" [ref=f8e1193]:
+                  - link "10.0.0" [ref=f8e1194] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/rename-browserslist-config
+                - cell [ref=f8e1195]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/rename-browserslist-config
+              - row "schematic-options-10 angular-cli Replace deprecated and removed 'styleext' and 'spec' Angular schematic options with 'style' and 'skipTests', respectively. 10.0.0" [ref=f8e1196]:
+                - cell "schematic-options-10" [ref=f8e1197]:
+                  - link "schematic-options-10" [ref=f8e1198] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-10
+                - cell "angular-cli" [ref=f8e1199]:
+                  - link "angular-cli" [ref=f8e1200] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-10
+                    - generic [ref=f8e1201]: angular-cli
+                - cell "Replace deprecated and removed 'styleext' and 'spec' Angular schematic options with 'style' and 'skipTests', respectively." [ref=f8e1202]:
+                  - link "Replace deprecated and removed 'styleext' and 'spec' Angular schematic options with 'style' and 'skipTests', respectively." [ref=f8e1203] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-10
+                    - generic [ref=f8e1204]: Replace deprecated and removed 'styleext' and 'spec' Angular schematic options with 'style' and 'skipTests', respectively.
+                - cell "10.0.0" [ref=f8e1205]:
+                  - link "10.0.0" [ref=f8e1206] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-10
+                - cell [ref=f8e1207]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-10
+              - row "tslint-add-deprecation-rule angular-cli Add the tslint deprecation rule to tslint JSON configuration files. 10.0.0" [ref=f8e1208]:
+                - cell "tslint-add-deprecation-rule" [ref=f8e1209]:
+                  - link "tslint-add-deprecation-rule" [ref=f8e1210] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/tslint-add-deprecation-rule
+                - cell "angular-cli" [ref=f8e1211]:
+                  - link "angular-cli" [ref=f8e1212] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/tslint-add-deprecation-rule
+                    - generic [ref=f8e1213]: angular-cli
+                - cell "Add the tslint deprecation rule to tslint JSON configuration files." [ref=f8e1214]:
+                  - link "Add the tslint deprecation rule to tslint JSON configuration files." [ref=f8e1215] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/tslint-add-deprecation-rule
+                    - generic [ref=f8e1216]: Add the tslint deprecation rule to tslint JSON configuration files.
+                - cell "10.0.0" [ref=f8e1217]:
+                  - link "10.0.0" [ref=f8e1218] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/tslint-add-deprecation-rule
+                - cell [ref=f8e1219]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/tslint-add-deprecation-rule
+              - row "tslint-version-6 angular-cli Update tslint to version 6 and adjust rules to maintain existing behavior. 10.0.0" [ref=f8e1220]:
+                - cell "tslint-version-6" [ref=f8e1221]:
+                  - link "tslint-version-6" [ref=f8e1222] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/tslint-version-6
+                - cell "angular-cli" [ref=f8e1223]:
+                  - link "angular-cli" [ref=f8e1224] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/tslint-version-6
+                    - generic [ref=f8e1225]: angular-cli
+                - cell "Update tslint to version 6 and adjust rules to maintain existing behavior." [ref=f8e1226]:
+                  - link "Update tslint to version 6 and adjust rules to maintain existing behavior." [ref=f8e1227] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/tslint-version-6
+                    - generic [ref=f8e1228]: Update tslint to version 6 and adjust rules to maintain existing behavior.
+                - cell "10.0.0" [ref=f8e1229]:
+                  - link "10.0.0" [ref=f8e1230] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/tslint-version-6
+                - cell [ref=f8e1231]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/tslint-version-6
+              - row "update-angular-config angular-cli Remove deprecated options from 'angular.json' that are no longer present in v10. 10.0.0" [ref=f8e1232]:
+                - cell "update-angular-config" [ref=f8e1233]:
+                  - link "update-angular-config" [ref=f8e1234] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config
+                - cell "angular-cli" [ref=f8e1235]:
+                  - link "angular-cli" [ref=f8e1236] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config
+                    - generic [ref=f8e1237]: angular-cli
+                - cell "Remove deprecated options from 'angular.json' that are no longer present in v10." [ref=f8e1238]:
+                  - link "Remove deprecated options from 'angular.json' that are no longer present in v10." [ref=f8e1239] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config
+                    - generic [ref=f8e1240]: Remove deprecated options from 'angular.json' that are no longer present in v10.
+                - cell "10.0.0" [ref=f8e1241]:
+                  - link "10.0.0" [ref=f8e1242] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config
+                - cell [ref=f8e1243]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-angular-config
+              - 'row "update-libraries-tslib angular-cli Update library projects to use tslib version 2 as a direct dependency. Read more about this here: https://v10.angular.io/guide/migration-update-libraries-tslib 10.0.0" [ref=f8e1244]':
+                - cell "update-libraries-tslib" [ref=f8e1245]:
+                  - link "update-libraries-tslib" [ref=f8e1246] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-libraries-tslib
+                - cell "angular-cli" [ref=f8e1247]:
+                  - link "angular-cli" [ref=f8e1248] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-libraries-tslib
+                    - generic [ref=f8e1249]: angular-cli
+                - 'cell "Update library projects to use tslib version 2 as a direct dependency. Read more about this here: https://v10.angular.io/guide/migration-update-libraries-tslib" [ref=f8e1250]':
+                  - 'link "Update library projects to use tslib version 2 as a direct dependency. Read more about this here: https://v10.angular.io/guide/migration-update-libraries-tslib" [ref=f8e1251] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular-cli/update-libraries-tslib
+                    - generic [ref=f8e1252]: "Update library projects to use tslib version 2 as a direct dependency. Read more about this here: https://v10.angular.io/guide/migration-update-libraries-tslib"
+                - cell "10.0.0" [ref=f8e1253]:
+                  - link "10.0.0" [ref=f8e1254] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-libraries-tslib
+                - cell [ref=f8e1255]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-libraries-tslib
+              - row "update-workspace-dependencies angular-cli Update workspace dependencies to match a new v10 project. 10.0.0" [ref=f8e1256]:
+                - cell "update-workspace-dependencies" [ref=f8e1257]:
+                  - link "update-workspace-dependencies" [ref=f8e1258] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-workspace-dependencies
+                - cell "angular-cli" [ref=f8e1259]:
+                  - link "angular-cli" [ref=f8e1260] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-workspace-dependencies
+                    - generic [ref=f8e1261]: angular-cli
+                - cell "Update workspace dependencies to match a new v10 project." [ref=f8e1262]:
+                  - link "Update workspace dependencies to match a new v10 project." [ref=f8e1263] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-workspace-dependencies
+                    - generic [ref=f8e1264]: Update workspace dependencies to match a new v10 project.
+                - cell "10.0.0" [ref=f8e1265]:
+                  - link "10.0.0" [ref=f8e1266] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/update-workspace-dependencies
+                - cell [ref=f8e1267]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/update-workspace-dependencies
+              - row "schematic-options-9 angular-cli Replace deprecated 'styleext' and 'spec' Angular schematic options. 9.0.2" [ref=f8e1268]:
+                - cell "schematic-options-9" [ref=f8e1269]:
+                  - link "schematic-options-9" [ref=f8e1270] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-9
+                - cell "angular-cli" [ref=f8e1271]:
+                  - link "angular-cli" [ref=f8e1272] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-9
+                    - generic [ref=f8e1273]: angular-cli
+                - cell "Replace deprecated 'styleext' and 'spec' Angular schematic options." [ref=f8e1274]:
+                  - link "Replace deprecated 'styleext' and 'spec' Angular schematic options." [ref=f8e1275] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-9
+                    - generic [ref=f8e1276]: Replace deprecated 'styleext' and 'spec' Angular schematic options.
+                - cell "9.0.2" [ref=f8e1277]:
+                  - link "9.0.2" [ref=f8e1278] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-9
+                - cell [ref=f8e1279]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/schematic-options-9
+              - 'row "dynamic-queries angular Static flag migration. Removes the `static` flag from dynamic queries. As of Angular 9, the \"static\" flag defaults to false and is no longer required for your view and content queries. Read more about this here: https://v9.angular.io/guide/migration-dynamic-flag 9.0.0" [ref=f8e1280]':
+                - cell "dynamic-queries" [ref=f8e1281]:
+                  - link "dynamic-queries" [ref=f8e1282] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/dynamic-queries
+                - cell "angular" [ref=f8e1283]:
+                  - link "angular" [ref=f8e1284] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/dynamic-queries
+                    - generic [ref=f8e1285]: angular
+                - 'cell "Static flag migration. Removes the `static` flag from dynamic queries. As of Angular 9, the \"static\" flag defaults to false and is no longer required for your view and content queries. Read more about this here: https://v9.angular.io/guide/migration-dynamic-flag" [ref=f8e1286]':
+                  - 'link "Static flag migration. Removes the `static` flag from dynamic queries. As of Angular 9, the \"static\" flag defaults to false and is no longer required for your view and content queries. Read more about this here: https://v9.angular.io/guide/migration-dynamic-flag" [ref=f8e1287] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/dynamic-queries
+                    - generic [ref=f8e1288]: "Static flag migration. Removes the `static` flag from dynamic queries. As of Angular 9, the \"static\" flag defaults to false and is no longer required for your view and content queries. Read more about this here: https://v9.angular.io/guide/migration-dynamic-flag"
+                - cell "9.0.0" [ref=f8e1289]:
+                  - link "9.0.0" [ref=f8e1290] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/dynamic-queries
+                - cell [ref=f8e1291]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/dynamic-queries
+              - row "lazy-loading-syntax angular-cli Lazy loading syntax migration. Update lazy loading syntax to use dynamic imports. 9.0.0" [ref=f8e1292]:
+                - cell "lazy-loading-syntax" [ref=f8e1293]:
+                  - link "lazy-loading-syntax" [ref=f8e1294] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/lazy-loading-syntax
+                - cell "angular-cli" [ref=f8e1295]:
+                  - link "angular-cli" [ref=f8e1296] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/lazy-loading-syntax
+                    - generic [ref=f8e1297]: angular-cli
+                - cell "Lazy loading syntax migration. Update lazy loading syntax to use dynamic imports." [ref=f8e1298]:
+                  - link "Lazy loading syntax migration. Update lazy loading syntax to use dynamic imports." [ref=f8e1299] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/lazy-loading-syntax
+                    - generic [ref=f8e1300]: Lazy loading syntax migration. Update lazy loading syntax to use dynamic imports.
+                - cell "9.0.0" [ref=f8e1301]:
+                  - link "9.0.0" [ref=f8e1302] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/lazy-loading-syntax
+                - cell [ref=f8e1303]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/lazy-loading-syntax
+              - 'row "missing-injectable angular Missing @Injectable and incomplete provider definition migration. In Angular 9, enforcement of @Injectable decorators for DI is a bit stricter and incomplete provider definitions behave differently. Read more about this here: https://v9.angular.io/guide/migration-injectable 9.0.0" [ref=f8e1304]':
+                - cell "missing-injectable" [ref=f8e1305]:
+                  - link "missing-injectable" [ref=f8e1306] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/missing-injectable
+                - cell "angular" [ref=f8e1307]:
+                  - link "angular" [ref=f8e1308] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/missing-injectable
+                    - generic [ref=f8e1309]: angular
+                - 'cell "Missing @Injectable and incomplete provider definition migration. In Angular 9, enforcement of @Injectable decorators for DI is a bit stricter and incomplete provider definitions behave differently. Read more about this here: https://v9.angular.io/guide/migration-injectable" [ref=f8e1310]':
+                  - 'link "Missing @Injectable and incomplete provider definition migration. In Angular 9, enforcement of @Injectable decorators for DI is a bit stricter and incomplete provider definitions behave differently. Read more about this here: https://v9.angular.io/guide/migration-injectable" [ref=f8e1311] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/missing-injectable
+                    - generic [ref=f8e1312]: "Missing @Injectable and incomplete provider definition migration. In Angular 9, enforcement of @Injectable decorators for DI is a bit stricter and incomplete provider definitions behave differently. Read more about this here: https://v9.angular.io/guide/migration-injectable"
+                - cell "9.0.0" [ref=f8e1313]:
+                  - link "9.0.0" [ref=f8e1314] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/missing-injectable
+                - cell [ref=f8e1315]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/missing-injectable
+              - 'row "module-with-providers angular ModuleWithProviders migration. In Angular 9, the ModuleWithProviders type without a generic has been deprecated. This migration adds the generic where it is missing. Read more about this here: https://v9.angular.io/guide/migration-module-with-providers 9.0.0" [ref=f8e1316]':
+                - cell "module-with-providers" [ref=f8e1317]:
+                  - link "module-with-providers" [ref=f8e1318] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/module-with-providers
+                - cell "angular" [ref=f8e1319]:
+                  - link "angular" [ref=f8e1320] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/module-with-providers
+                    - generic [ref=f8e1321]: angular
+                - 'cell "ModuleWithProviders migration. In Angular 9, the ModuleWithProviders type without a generic has been deprecated. This migration adds the generic where it is missing. Read more about this here: https://v9.angular.io/guide/migration-module-with-providers" [ref=f8e1322]':
+                  - 'link "ModuleWithProviders migration. In Angular 9, the ModuleWithProviders type without a generic has been deprecated. This migration adds the generic where it is missing. Read more about this here: https://v9.angular.io/guide/migration-module-with-providers" [ref=f8e1323] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/module-with-providers
+                    - generic [ref=f8e1324]: "ModuleWithProviders migration. In Angular 9, the ModuleWithProviders type without a generic has been deprecated. This migration adds the generic where it is missing. Read more about this here: https://v9.angular.io/guide/migration-module-with-providers"
+                - cell "9.0.0" [ref=f8e1325]:
+                  - link "9.0.0" [ref=f8e1326] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/module-with-providers
+                - cell [ref=f8e1327]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/module-with-providers
+              - row "renderer-to-renderer2 angular Migrates usages of Renderer to Renderer2 9.0.0" [ref=f8e1328]:
+                - cell "renderer-to-renderer2" [ref=f8e1329]:
+                  - link "renderer-to-renderer2" [ref=f8e1330] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/renderer-to-renderer2
+                - cell "angular" [ref=f8e1331]:
+                  - link "angular" [ref=f8e1332] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/renderer-to-renderer2
+                    - generic [ref=f8e1333]: angular
+                - cell "Migrates usages of Renderer to Renderer2" [ref=f8e1334]:
+                  - link "Migrates usages of Renderer to Renderer2" [ref=f8e1335] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/renderer-to-renderer2
+                    - generic [ref=f8e1336]: Migrates usages of Renderer to Renderer2
+                - cell "9.0.0" [ref=f8e1337]:
+                  - link "9.0.0" [ref=f8e1338] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/renderer-to-renderer2
+                - cell [ref=f8e1339]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/renderer-to-renderer2
+              - 'row "undecorated-classes-with-decorated-fields angular Undecorated classes with decorated fields migration. As of Angular 9, it is no longer supported to have Angular field decorators on a class that does not have an Angular decorator. Read more about this here: https://v9.angular.io/guide/migration-undecorated-classes 9.0.0" [ref=f8e1340]':
+                - cell "undecorated-classes-with-decorated-fields" [ref=f8e1341]:
+                  - link "undecorated-classes-with-decorated-fields" [ref=f8e1342] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/undecorated-classes-with-decorated-fields
+                - cell "angular" [ref=f8e1343]:
+                  - link "angular" [ref=f8e1344] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/undecorated-classes-with-decorated-fields
+                    - generic [ref=f8e1345]: angular
+                - 'cell "Undecorated classes with decorated fields migration. As of Angular 9, it is no longer supported to have Angular field decorators on a class that does not have an Angular decorator. Read more about this here: https://v9.angular.io/guide/migration-undecorated-classes" [ref=f8e1346]':
+                  - 'link "Undecorated classes with decorated fields migration. As of Angular 9, it is no longer supported to have Angular field decorators on a class that does not have an Angular decorator. Read more about this here: https://v9.angular.io/guide/migration-undecorated-classes" [ref=f8e1347] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/undecorated-classes-with-decorated-fields
+                    - generic [ref=f8e1348]: "Undecorated classes with decorated fields migration. As of Angular 9, it is no longer supported to have Angular field decorators on a class that does not have an Angular decorator. Read more about this here: https://v9.angular.io/guide/migration-undecorated-classes"
+                - cell "9.0.0" [ref=f8e1349]:
+                  - link "9.0.0" [ref=f8e1350] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/undecorated-classes-with-decorated-fields
+                - cell [ref=f8e1351]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/undecorated-classes-with-decorated-fields
+              - 'row "undecorated-classes-with-di angular Undecorated classes with DI migration. As of Angular 9, it is no longer supported to use Angular DI on a class that does not have an Angular decorator. Read more about this here: https://v9.angular.io/guide/migration-undecorated-classes 9.0.0" [ref=f8e1352]':
+                - cell "undecorated-classes-with-di" [ref=f8e1353]:
+                  - link "undecorated-classes-with-di" [ref=f8e1354] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/undecorated-classes-with-di
+                - cell "angular" [ref=f8e1355]:
+                  - link "angular" [ref=f8e1356] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/undecorated-classes-with-di
+                    - generic [ref=f8e1357]: angular
+                - 'cell "Undecorated classes with DI migration. As of Angular 9, it is no longer supported to use Angular DI on a class that does not have an Angular decorator. Read more about this here: https://v9.angular.io/guide/migration-undecorated-classes" [ref=f8e1358]':
+                  - 'link "Undecorated classes with DI migration. As of Angular 9, it is no longer supported to use Angular DI on a class that does not have an Angular decorator. Read more about this here: https://v9.angular.io/guide/migration-undecorated-classes" [ref=f8e1359] [cursor=pointer]':
+                    - /url: /caniuse/update/migrations/angular/undecorated-classes-with-di
+                    - generic [ref=f8e1360]: "Undecorated classes with DI migration. As of Angular 9, it is no longer supported to use Angular DI on a class that does not have an Angular decorator. Read more about this here: https://v9.angular.io/guide/migration-undecorated-classes"
+                - cell "9.0.0" [ref=f8e1361]:
+                  - link "9.0.0" [ref=f8e1362] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/undecorated-classes-with-di
+                - cell [ref=f8e1363]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/undecorated-classes-with-di
+              - row "workspace-version-9 angular-cli Angular Workspace migration. Update an Angular CLI workspace to version 9. 9.0.0" [ref=f8e1364]:
+                - cell "workspace-version-9" [ref=f8e1365]:
+                  - link "workspace-version-9" [ref=f8e1366] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/workspace-version-9
+                - cell "angular-cli" [ref=f8e1367]:
+                  - link "angular-cli" [ref=f8e1368] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/workspace-version-9
+                    - generic [ref=f8e1369]: angular-cli
+                - cell "Angular Workspace migration. Update an Angular CLI workspace to version 9." [ref=f8e1370]:
+                  - link "Angular Workspace migration. Update an Angular CLI workspace to version 9." [ref=f8e1371] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/workspace-version-9
+                    - generic [ref=f8e1372]: Angular Workspace migration. Update an Angular CLI workspace to version 9.
+                - cell "9.0.0" [ref=f8e1373]:
+                  - link "9.0.0" [ref=f8e1374] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/workspace-version-9
+                - cell [ref=f8e1375]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/workspace-version-9
+              - row "move-document angular Migrates DOCUMENT Injection token from platform-browser imports to common import 8.0.0" [ref=f8e1376]:
+                - cell "move-document" [ref=f8e1377]:
+                  - link "move-document" [ref=f8e1378] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/move-document
+                - cell "angular" [ref=f8e1379]:
+                  - link "angular" [ref=f8e1380] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/move-document
+                    - generic [ref=f8e1381]: angular
+                - cell "Migrates DOCUMENT Injection token from platform-browser imports to common import" [ref=f8e1382]:
+                  - link "Migrates DOCUMENT Injection token from platform-browser imports to common import" [ref=f8e1383] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/move-document
+                    - generic [ref=f8e1384]: Migrates DOCUMENT Injection token from platform-browser imports to common import
+                - cell "8.0.0" [ref=f8e1385]:
+                  - link "8.0.0" [ref=f8e1386] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/move-document
+                - cell [ref=f8e1387]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/move-document
+              - row "static-queries angular Migrates ViewChild and ContentChild to explicit query timing 8.0.0" [ref=f8e1388]:
+                - cell "static-queries" [ref=f8e1389]:
+                  - link "static-queries" [ref=f8e1390] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/static-queries
+                - cell "angular" [ref=f8e1391]:
+                  - link "angular" [ref=f8e1392] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/static-queries
+                    - generic [ref=f8e1393]: angular
+                - cell "Migrates ViewChild and ContentChild to explicit query timing" [ref=f8e1394]:
+                  - link "Migrates ViewChild and ContentChild to explicit query timing" [ref=f8e1395] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/static-queries
+                    - generic [ref=f8e1396]: Migrates ViewChild and ContentChild to explicit query timing
+                - cell "8.0.0" [ref=f8e1397]:
+                  - link "8.0.0" [ref=f8e1398] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/static-queries
+                - cell [ref=f8e1399]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/static-queries
+              - row "template-local-variables angular Warns developers if values are assigned to template variables 8.0.0" [ref=f8e1400]:
+                - cell "template-local-variables" [ref=f8e1401]:
+                  - link "template-local-variables" [ref=f8e1402] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/template-local-variables
+                - cell "angular" [ref=f8e1403]:
+                  - link "angular" [ref=f8e1404] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/template-local-variables
+                    - generic [ref=f8e1405]: angular
+                - cell "Warns developers if values are assigned to template variables" [ref=f8e1406]:
+                  - link "Warns developers if values are assigned to template variables" [ref=f8e1407] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/template-local-variables
+                    - generic [ref=f8e1408]: Warns developers if values are assigned to template variables
+                - cell "8.0.0" [ref=f8e1409]:
+                  - link "8.0.0" [ref=f8e1410] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular/template-local-variables
+                - cell [ref=f8e1411]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular/template-local-variables
+              - row "production-by-default angular-cli Optional migration to update Angular CLI workspace configurations to 'production' mode by default." [ref=f8e1412]:
+                - cell "production-by-default" [ref=f8e1413]:
+                  - link "production-by-default" [ref=f8e1414] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/production-by-default
+                - cell "angular-cli" [ref=f8e1415]:
+                  - link "angular-cli" [ref=f8e1416] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/production-by-default
+                    - generic [ref=f8e1417]: angular-cli
+                - cell "Optional migration to update Angular CLI workspace configurations to 'production' mode by default." [ref=f8e1418]:
+                  - link "Optional migration to update Angular CLI workspace configurations to 'production' mode by default." [ref=f8e1419] [cursor=pointer]:
+                    - /url: /caniuse/update/migrations/angular-cli/production-by-default
+                    - generic [ref=f8e1420]: Optional migration to update Angular CLI workspace configurations to 'production' mode by default.
+                - cell [ref=f8e1421]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/production-by-default
+                - cell [ref=f8e1422]:
+                  - link:
+                    - /url: /caniuse/update/migrations/angular-cli/production-by-default
+  - region "Notifications alt+T"
+  - alert [ref=f8e1423]

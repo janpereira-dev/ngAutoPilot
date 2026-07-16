@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: core
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - compatibility router
@@ -31,7 +31,7 @@ Use this skill to prevent the agent from recommending APIs or patterns that are 
 Use this skill when:
 
 - A recommendation depends on Angular, TypeScript, RxJS, Node, browser, test runner, or build tooling version.
-- A task mentions Signals, `toSignal`, `toObservable`, `@for`, `@defer`, standalone APIs, `takeUntilDestroyed`, `resource`, or `httpResource`.
+- A task mentions Signals, `toSignal`, `toObservable`, `@for`, `@defer`, standalone APIs, `takeUntilDestroyed`, Signal Forms, Angular Aria, `resource`, `httpResource`, `injectAsync`, `@Service`, or WebMCP.
 - The project may be legacy, transitional, modern, or current.
 - A shared library may be consumed by multiple Angular versions.
 - The user asks for a migration path or modern Angular implementation.
@@ -110,6 +110,12 @@ Angular 21:
   follow current Angular compatibility tables for Node, TypeScript, and RxJS
   use current DI patterns such as providedIn, application providers, route providers, and inject() when project style supports them
   prefer current Angular patterns when the project is already current
+
+Angular 22:
+  Signal Forms, Angular Aria, resource(), and httpResource() are production-ready according to official Angular v22 sources
+  OnPush is the default for new applications and the prior default is named ChangeDetectionStrategy.Eager
+  WebMCP remains experimental and must go through a security gate
+  route upgrade work through skills/angular/upgrades/21-to-22/ before applying modernization satellites
 ```
 
 ## Required Angular Version Gate
@@ -126,7 +132,11 @@ Use it to determine:
 - whether the next hop is blocked by Node, TypeScript, RxJS or Angular CLI ranges,
 - whether routing to a satellite skill is required before planning the hop.
 
-Treat `resource`, `rxResource`, and `httpResource` as experimental unless the project explicitly opts into them.
+Treat WebMCP and future preview APIs as experimental unless official Angular sources say otherwise. In Angular 22, `resource()` and `httpResource()` are production-ready, but still require SSR/cache/security review when used for data fetching.
+
+## Subagent Review Trigger
+
+When `agents/ngautopilot/subagents/` is available and compatibility risk remains after routing, use the Compatibility Gatekeeper as a focused reviewer. Do not load unrelated subagents or replace the required Angular version gate with a subagent opinion.
 
 ## Decision Rules
 

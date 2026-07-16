@@ -8,13 +8,13 @@ stack:
   - TypeScript
 category: modernization
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - control flow migration
-  - @if
-  - @for
-  - @switch
+  - "@if"
+  - "@for"
+  - "@switch"
   - structural directives modernization
 compatibility:
   angular:

@@ -12,6 +12,9 @@ Use this order:
 4. Add satellite skills only when the hop or repo risk requires them.
 5. Keep modernization separate from upgrade hops.
 
+For a version-era map of the current folder layout, see
+[`angular-version-era-map.md`](angular-version-era-map.md).
+
 If an agent is doing the work, the best approach is:
 
 - start with `skills/_core/project-intake/SKILL.md`
@@ -216,6 +219,27 @@ What they do:
 What you get:
 - modernization after the hop is already stable
 
+## Angular 22 Route Map
+
+Angular 22 adds stable forms, accessibility, async resource APIs, and stricter
+template, build, router, SSR, and change-detection contracts.
+
+When you are already on Angular 22, route area-specific work to:
+
+- `skills/angular/build/`
+- `skills/angular/components/`
+- `skills/angular/forms/`
+- `skills/angular/modules/`
+- `skills/angular/resources/`
+- `skills/angular/router/`
+- `skills/angular/security/`
+- `skills/angular/signals/`
+- `skills/angular/ssr/`
+- `skills/angular/templates/`
+- `skills/angular/testing/`
+- `skills/angular/zone/`
+- `skills/angular/zoneless/`
+
 ## Best Agent Strategy
 
 If I were an agent using this catalog, I would do this:
@@ -229,3 +253,12 @@ If I were an agent using this catalog, I would do this:
 7. Repeat for the next hop.
 
 That gives the smallest safe change, the least cross-talk between skills, and the cleanest upgrade path.
+
+
+### Angular 21 -> 22 Hop
+
+Use `skills/angular/upgrades/21-to-22/angular-21-to-22-upgrade-orchestrator/SKILL.md` for the bounded hop. Run preflight first, then the breaking-change gate, then post-upgrade validation. Route Angular 22 feature adoption to the concern-first satellite skill instead of expanding the hop.
+
+### Angular 22 Satellite Routing
+
+Prefer narrow `angular-v22-*` satellites under the relevant domain. Use the versioning indices for feature routing, risk matrix, and roadmap alignment. Do not create a generic `skills/angular/v22/` folder.

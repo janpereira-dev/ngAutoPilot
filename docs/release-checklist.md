@@ -19,6 +19,7 @@ Use this checklist when preparing a public NgAutoPilot release.
    - `bin/ngautopilot.mjs`
    - `skills/`
    - `adapters/`
+   - `agents/`
    - `catalog.json`
    - `README.md`
    - `CHANGELOG.md`

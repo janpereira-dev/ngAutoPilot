@@ -2,31 +2,36 @@
 
 This repository can use NgAutoPilot skills when they are available in the project.
 
-## Skill Usage
+## NgAutoPilot Core Workflow
 
-- Check `catalog.json` for relevant skills before making non-trivial changes.
-- Load only the smallest matching skill.
-- Follow the selected skill's checklist.
-- Do not apply unrelated skills globally.
+1. Read `_core/project-intake` when repository context is not already clear.
+2. Detect stack and versions before recommending version-sensitive APIs.
+3. Select the smallest applicable skill from `catalog.json`.
+4. Apply `_core/compatibility-router` for Angular, TypeScript, RxJS, Node, builders, or test-runner constraints.
+5. Apply `_core/risk-assessment` for broad, risky, behavioral, SSR, security, or architecture changes.
+6. Make the smallest reversible change.
+7. Validate with commands that actually exist in the repository.
+8. Explain what changed and why.
+9. Do not invent APIs, versions, commands, dependencies, or compatibility data.
+10. Do not introduce AI-vendor lock-in into code, skills, docs, or adapters.
+
+## Subagent Invocation Policy
+
+- If `agents/ngautopilot/subagents/` exists, use it as the stable subagent registry.
+- Invoke only the smallest relevant subagent role for review, compatibility, testing, or consolidation; do not load every subagent.
+- Skills decide the technical path first; subagents provide focused oversight and handoff quality.
+
+## Angular 22 Routing
+
+- For Angular 21 -> 22 upgrades, activate `skills/angular/upgrades/21-to-22/angular-21-to-22-upgrade-orchestrator/SKILL.md` first.
+- For Angular 22 modernization or remediation, activate the narrow `angular-v22-*` satellite for the specific domain.
+- Do not use a generic `skills/angular/v22/` folder or load all Angular 22 skills for one issue.
 
 ## Default Development Rules
 
 - Use strict TypeScript.
-- Avoid `any` unless there is a narrow, temporary, and justified reason.
-- Use Jest for unit tests when tests are needed.
-- Avoid Jasmine unless the target project already requires it.
-- Keep Angular components simple and readable.
-- Avoid heavy logic in Angular templates.
-- Follow the existing project architecture.
-- Avoid unrelated refactors.
+- Avoid `any` unless narrowly justified.
+- Follow the existing project architecture and test runner.
 - Keep pull request diffs small and reviewable.
 
-## Expected Repository Placement
-
-Copy this template to:
-
-```txt
-.github/copilot-instructions.md
-```
-
-If the project stores NgAutoPilot skills elsewhere, adjust paths in this file after copying.
+Copy this template to `.github/copilot-instructions.md` and adjust paths only if NgAutoPilot is installed elsewhere.

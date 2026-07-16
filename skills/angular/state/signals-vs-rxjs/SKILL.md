@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: state
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - Signals vs RxJS

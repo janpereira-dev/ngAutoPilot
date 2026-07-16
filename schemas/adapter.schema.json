@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ngautopilot.dev/schemas/adapter.schema.json",
+  "title": "NgAutoPilot Agent Adapter Manifest",
+  "description": "Declarative descriptor for one agent adapter. The adapter code lives in adapters/<id>/, this manifest wires it to the shared installer core.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "status", "scope", "paths", "formats"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Stable adapter id."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "status": {
+      "type": "string",
+      "enum": ["native", "adapter", "plugin", "export-only", "experimental", "unsupported", "unverified"]
+    },
+    "scope": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["project", "user"] },
+      "minItems": 1,
+      "description": "Where this adapter can install (project-local or user-global)."
+    },
+    "paths": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["project", "user"],
+      "properties": {
+        "project": {
+          "type": "string",
+          "description": "Relative project install directory for skills/instructions, e.g. '.codex' or '.claude'."
+        },
+        "user": {
+          "type": "string",
+          "description": "User-scope base directory relative to home, e.g. '.codex' or 'Library/Application Support/Claude'."
+        }
+      }
+    },
+    "formats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["skills", "instructions", "agents"],
+      "properties": {
+        "skills": {
+          "type": "string",
+          "enum": ["markdown-directory", "markdown-flat", "plugin-bundle"]
+        },
+        "instructions": {
+          "type": "string",
+          "description": "Instruction file name (e.g. 'AGENTS.md', 'CLAUDE.md', '.cursorrules')."
+        },
+        "agents": {
+          "type": "string",
+          "enum": ["markdown-directory", "none"]
+        }
+      }
+    },
+    "marketplace": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional marketplace manifest path this adapter uses."
+    },
+    "requirements": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 5 },
+      "description": "Version constraints or install prerequisites."
+    },
+    "notes": {
+      "type": "string",
+      "description": "Limitations or install caveats."
+    }
+  }
+}

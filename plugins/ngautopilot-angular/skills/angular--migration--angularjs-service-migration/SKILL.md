@@ -7,7 +7,7 @@ stack:
   - Angular
 category: migration
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - service migration

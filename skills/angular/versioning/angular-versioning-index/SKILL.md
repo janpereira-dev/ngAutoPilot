@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: versioning
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - Angular versioning index
@@ -90,6 +90,14 @@ CI workflow files
 3. Select the nearest upgrade hop or modernization skill.
 4. Route framework-specific risks to the matching satellite.
 5. Keep the hop, gate, and modernization steps separate.
+
+## Angular 22 Routing
+
+- For Angular 21 -> 22 upgrades, start with `skills/angular/upgrades/21-to-22/angular-21-to-22-upgrade-orchestrator/SKILL.md`.
+- For Angular 22 feature adoption or remediation, select the narrow concern-first `angular-v22-*` satellite.
+- Use `skills/angular/upgrades/versioning/angular-21-to-22-index/SKILL.md` for the bounded hop map.
+- Use `skills/angular/versioning/angular-v22-feature-index/SKILL.md`, `angular-v22-risk-matrix`, and `angular-v22-roadmap-alignment` for post-hop routing.
+- Do not create or prefer a generic `skills/angular/v22/` folder.
 
 ## Do
 

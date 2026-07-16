@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: core
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - assess risk
@@ -66,6 +66,10 @@ user-requested scope
 Use `core.compatibility-router` when risk depends on framework or tooling version.
 
 Version-sensitive changes are at least medium risk unless they are documentation-only.
+
+## Subagent Review Triggers
+
+When `agents/ngautopilot/subagents/` is available, use subagents only as targeted reviewers for the risk that was actually detected. For example, use the Spartan Contrarian Developer for broad implementation risk, the Compatibility Gatekeeper for version or dependency risk, the Testing Hoplite for test stability risk, and the Roman Consolidator only for final delivery consolidation.
 
 ## Decision Rules
 

@@ -1,0 +1,646 @@
+{
+  "section": "MCP",
+  "source": "https://www.angular.courses/caniuse?tab=mcp",
+  "expected_count": 14,
+  "actual_count": 14,
+  "headers": [
+    "section",
+    "name",
+    "package",
+    "description",
+    "status",
+    "introduced_in",
+    "removed_in",
+    "v22",
+    "v21",
+    "v20",
+    "v19",
+    "v18",
+    "v17",
+    "v16",
+    "v15",
+    "v14",
+    "angular_courses_url",
+    "angular_dev_url",
+    "notes"
+  ],
+  "items": [
+    {
+      "section": "MCP",
+      "name": "ai_tutor",
+      "package": "tool",
+      "description": "Acts as a RAG (Retrieval-Augmented Generation) source, effectively reprogramming the assistant to become a specialized Angular tutor by providing it with a new core identity and knowledge base.",
+      "status": "stable",
+      "introduced_in": "21",
+      "removed_in": "",
+      "v22": "stable",
+      "v21": "stable",
+      "v20": "not_available",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=mcp",
+      "angular_dev_url": "",
+      "notes": "No per-item link exposed in rendered row; source tab URL recorded.",
+      "raw": {
+        "index": 0,
+        "byVersion": {
+          "v22": {
+            "status": "stable",
+            "label": "",
+            "aria": "stable feature in version 22",
+            "version": "22"
+          },
+          "v21": {
+            "status": "stable",
+            "label": "",
+            "aria": "stable feature in version 21",
+            "version": "21"
+          },
+          "v20": {
+            "status": "not_available",
+            "label": "",
+            "aria": "Feature not available in version 20",
+            "version": "20"
+          }
+        }
+      }
+    },
+    {
+      "section": "MCP",
+      "name": "get_best_practices",
+      "package": "tool",
+      "description": "Retrieves the official Angular Best Practices Guide.",
+      "status": "stable",
+      "introduced_in": "20.2",
+      "removed_in": "",
+      "v22": "stable",
+      "v21": "stable",
+      "v20": "stable",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=mcp",
+      "angular_dev_url": "",
+      "notes": "No per-item link exposed in rendered row; source tab URL recorded.",
+      "raw": {
+        "index": 1,
+        "byVersion": {
+          "v22": {
+            "status": "stable",
+            "label": "",
+            "aria": "stable feature in version 22",
+            "version": "22"
+          },
+          "v21": {
+            "status": "stable",
+            "label": "",
+            "aria": "stable feature in version 21",
+            "version": "21"
+          },
+          "v20": {
+            "status": "stable",
+            "label": "20.2",
+            "aria": "stable feature in version 20.2",
+            "version": "20.2"
+          }
+        }
+      }
+    },
+    {
+      "section": "MCP",
+      "name": "search_documentation",
+      "package": "tool",
+      "description": "concise and specific search query for the Angular documentation.",
+      "status": "stable",
+      "introduced_in": "20.2",
+      "removed_in": "",
+      "v22": "stable",
+      "v21": "stable",
+      "v20": "stable",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=mcp",
+      "angular_dev_url": "",
+      "notes": "No per-item link exposed in rendered row; source tab URL recorded.",
+      "raw": {
+        "index": 2,
+        "byVersion": {
+          "v22": {
+            "status": "stable",
+            "label": "",
+            "aria": "stable feature in version 22",
+            "version": "22"
+          },
+          "v21": {
+            "status": "stable",
+            "label": "",
+            "aria": "stable feature in version 21",
+            "version": "21"
+          },
+          "v20": {
+            "status": "stable",
+            "label": "20.2",
+            "aria": "stable feature in version 20.2",
+            "version": "20.2"
+          }
+        }
+      }
+    },
+    {
+      "section": "MCP",
+      "name": "find_examples",
+      "package": "tool",
+      "description": "Provides Angular code examples to improve the generated code quality output.",
+      "status": "stable",
+      "introduced_in": "20.2",
+      "removed_in": "",
+      "v22": "stable",
+      "v21": "stable",
+      "v20": "experimental",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=mcp",
+      "angular_dev_url": "",
+      "notes": "No per-item link exposed in rendered row; source tab URL recorded.",
+      "raw": {
+        "index": 3,
+        "byVersion": {
+          "v22": {
+            "status": "stable",
+            "label": "",
+            "aria": "stable feature in version 22",
+            "version": "22"
+          },
+          "v21": {
+            "status": "stable",
+            "label": "",
+            "aria": "stable feature in version 21",
+            "version": "21"
+          },
+          "v20": {
+            "status": "experimental",
+            "label": "20.2",
+            "aria": "experimental feature in version 20.2",
+            "version": "20.2"
+          }
+        }
+      }
+    },
+    {
+      "section": "MCP",
+      "name": "list_projects",
+      "package": "tool",
+      "description": "Provides a comprehensive overview of all Angular workspaces and projects within the repository.",
+      "status": "stable",
+      "introduced_in": "20.1",
+      "removed_in": "",
+      "v22": "stable",
+      "v21": "stable",
+      "v20": "stable",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=mcp",
+      "angular_dev_url": "",
+      "notes": "No per-item link exposed in rendered row; source tab URL recorded.",
+      "raw": {
+        "index": 4,
+        "byVersion": {
+          "v22": {
+            "status": "stable",
+            "label": "",
+            "aria": "stable feature in version 22",
+            "version": "22"
+          },
+          "v21": {
+            "status": "stable",
+            "label": "",
+            "aria": "stable feature in version 21",
+            "version": "21"
+          },
+          "v20": {
+            "status": "stable",
+            "label": "20.1",
+            "aria": "stable feature in version 20.1",
+            "version": "20.1"
+          }
+        }
+      }
+    },
+    {
+      "section": "MCP",
+      "name": "modernize",
+      "package": "tool",
+      "description": "Provides instructions and commands for modernizing Angular code to align with the latest best practices and syntax.",
+      "status": "experimental",
+      "introduced_in": "20.2",
+      "removed_in": "",
+      "v22": "experimental",
+      "v21": "experimental",
+      "v20": "experimental",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=mcp",
+      "angular_dev_url": "",
+      "notes": "No per-item link exposed in rendered row; source tab URL recorded.",
+      "raw": {
+        "index": 5,
+        "byVersion": {
+          "v22": {
+            "status": "experimental",
+            "label": "",
+            "aria": "experimental feature in version 22",
+            "version": "22"
+          },
+          "v21": {
+            "status": "experimental",
+            "label": "",
+            "aria": "experimental feature in version 21",
+            "version": "21"
+          },
+          "v20": {
+            "status": "experimental",
+            "label": "20.2",
+            "aria": "experimental feature in version 20.2",
+            "version": "20.2"
+          }
+        }
+      }
+    },
+    {
+      "section": "MCP",
+      "name": "onpush-zoneless-migration",
+      "package": "tool",
+      "description": "Analyzes Angular code and provides a step-by-step, iterative plan to migrate it to OnPush change detection, a prerequisite for a zoneless application.",
+      "status": "stable",
+      "introduced_in": "20.3",
+      "removed_in": "",
+      "v22": "stable",
+      "v21": "stable",
+      "v20": "experimental",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=mcp",
+      "angular_dev_url": "",
+      "notes": "No per-item link exposed in rendered row; source tab URL recorded.",
+      "raw": {
+        "index": 6,
+        "byVersion": {
+          "v22": {
+            "status": "stable",
+            "label": "",
+            "aria": "stable feature in version 22",
+            "version": "22"
+          },
+          "v21": {
+            "status": "stable",
+            "label": "21.1",
+            "aria": "stable feature in version 21.1",
+            "version": "21.1"
+          },
+          "v20": {
+            "status": "experimental",
+            "label": "20.3",
+            "aria": "experimental feature in version 20.3",
+            "version": "20.3"
+          }
+        }
+      }
+    },
+    {
+      "section": "MCP",
+      "name": "instructions",
+      "package": "resource",
+      "description": "Comprehensive guide detailing Angular's best practices for code generation and development.",
+      "status": "stable",
+      "introduced_in": "20.1",
+      "removed_in": "",
+      "v22": "stable",
+      "v21": "stable",
+      "v20": "stable",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=mcp",
+      "angular_dev_url": "",
+      "notes": "No per-item link exposed in rendered row; source tab URL recorded.",
+      "raw": {
+        "index": 7,
+        "byVersion": {
+          "v22": {
+            "status": "stable",
+            "label": "",
+            "aria": "stable feature in version 22",
+            "version": "22"
+          },
+          "v21": {
+            "status": "stable",
+            "label": "",
+            "aria": "stable feature in version 21",
+            "version": "21"
+          },
+          "v20": {
+            "status": "stable",
+            "label": "20.1",
+            "aria": "stable feature in version 20.1",
+            "version": "20.1"
+          }
+        }
+      }
+    },
+    {
+      "section": "MCP",
+      "name": "test",
+      "package": "tool",
+      "description": "Perform a one-off, non-watched unit test execution with ng test.",
+      "status": "experimental",
+      "introduced_in": "21.1",
+      "removed_in": "",
+      "v22": "experimental",
+      "v21": "experimental",
+      "v20": "not_available",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=mcp",
+      "angular_dev_url": "",
+      "notes": "No per-item link exposed in rendered row; source tab URL recorded.",
+      "raw": {
+        "index": 8,
+        "byVersion": {
+          "v22": {
+            "status": "experimental",
+            "label": "",
+            "aria": "experimental feature in version 22",
+            "version": "22"
+          },
+          "v21": {
+            "status": "experimental",
+            "label": "21.1",
+            "aria": "experimental feature in version 21.1",
+            "version": "21.1"
+          },
+          "v20": {
+            "status": "not_available",
+            "label": "",
+            "aria": "Feature not available in version 20",
+            "version": "20"
+          }
+        }
+      }
+    },
+    {
+      "section": "MCP",
+      "name": "e2e",
+      "package": "tool",
+      "description": "Perform an end-to-end test with ng e2e.",
+      "status": "experimental",
+      "introduced_in": "21.1",
+      "removed_in": "",
+      "v22": "experimental",
+      "v21": "experimental",
+      "v20": "not_available",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=mcp",
+      "angular_dev_url": "",
+      "notes": "No per-item link exposed in rendered row; source tab URL recorded.",
+      "raw": {
+        "index": 9,
+        "byVersion": {
+          "v22": {
+            "status": "experimental",
+            "label": "",
+            "aria": "experimental feature in version 22",
+            "version": "22"
+          },
+          "v21": {
+            "status": "experimental",
+            "label": "21.1",
+            "aria": "experimental feature in version 21.1",
+            "version": "21.1"
+          },
+          "v20": {
+            "status": "not_available",
+            "label": "",
+            "aria": "Feature not available in version 20",
+            "version": "20"
+          }
+        }
+      }
+    },
+    {
+      "section": "MCP",
+      "name": "build",
+      "package": "tool",
+      "description": "Perform a one-off, non-watched build using \"ng build\".",
+      "status": "experimental",
+      "introduced_in": "21.1",
+      "removed_in": "",
+      "v22": "experimental",
+      "v21": "experimental",
+      "v20": "not_available",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=mcp",
+      "angular_dev_url": "",
+      "notes": "No per-item link exposed in rendered row; source tab URL recorded.",
+      "raw": {
+        "index": 10,
+        "byVersion": {
+          "v22": {
+            "status": "experimental",
+            "label": "",
+            "aria": "experimental feature in version 22",
+            "version": "22"
+          },
+          "v21": {
+            "status": "experimental",
+            "label": "21.1",
+            "aria": "experimental feature in version 21.1",
+            "version": "21.1"
+          },
+          "v20": {
+            "status": "not_available",
+            "label": "",
+            "aria": "Feature not available in version 20",
+            "version": "20"
+          }
+        }
+      }
+    },
+    {
+      "section": "MCP",
+      "name": "devserver.start",
+      "package": "tool",
+      "description": "Starts the Angular development server (\"ng serve\") as a background process.",
+      "status": "experimental",
+      "introduced_in": "21.1",
+      "removed_in": "",
+      "v22": "experimental",
+      "v21": "experimental",
+      "v20": "not_available",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=mcp",
+      "angular_dev_url": "",
+      "notes": "No per-item link exposed in rendered row; source tab URL recorded.",
+      "raw": {
+        "index": 11,
+        "byVersion": {
+          "v22": {
+            "status": "experimental",
+            "label": "",
+            "aria": "experimental feature in version 22",
+            "version": "22"
+          },
+          "v21": {
+            "status": "experimental",
+            "label": "21.1",
+            "aria": "experimental feature in version 21.1",
+            "version": "21.1"
+          },
+          "v20": {
+            "status": "not_available",
+            "label": "",
+            "aria": "Feature not available in version 20",
+            "version": "20"
+          }
+        }
+      }
+    },
+    {
+      "section": "MCP",
+      "name": "devserver.stop",
+      "package": "tool",
+      "description": "Stops a running Angular development server (\"ng serve\") that was started with the \"start_devserver\" tool.",
+      "status": "experimental",
+      "introduced_in": "21.1",
+      "removed_in": "",
+      "v22": "experimental",
+      "v21": "experimental",
+      "v20": "not_available",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=mcp",
+      "angular_dev_url": "",
+      "notes": "No per-item link exposed in rendered row; source tab URL recorded.",
+      "raw": {
+        "index": 12,
+        "byVersion": {
+          "v22": {
+            "status": "experimental",
+            "label": "",
+            "aria": "experimental feature in version 22",
+            "version": "22"
+          },
+          "v21": {
+            "status": "experimental",
+            "label": "21.1",
+            "aria": "experimental feature in version 21.1",
+            "version": "21.1"
+          },
+          "v20": {
+            "status": "not_available",
+            "label": "",
+            "aria": "Feature not available in version 20",
+            "version": "20"
+          }
+        }
+      }
+    },
+    {
+      "section": "MCP",
+      "name": "devserver.wait_for_build",
+      "package": "tool",
+      "description": "Waits for a dev server that was started with the \"start_devserver\" tool to complete its build.",
+      "status": "experimental",
+      "introduced_in": "21.1",
+      "removed_in": "",
+      "v22": "experimental",
+      "v21": "experimental",
+      "v20": "not_available",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=mcp",
+      "angular_dev_url": "",
+      "notes": "No per-item link exposed in rendered row; source tab URL recorded.",
+      "raw": {
+        "index": 13,
+        "byVersion": {
+          "v22": {
+            "status": "experimental",
+            "label": "",
+            "aria": "experimental feature in version 22",
+            "version": "22"
+          },
+          "v21": {
+            "status": "experimental",
+            "label": "21.1",
+            "aria": "experimental feature in version 21.1",
+            "version": "21.1"
+          },
+          "v20": {
+            "status": "not_available",
+            "label": "",
+            "aria": "Feature not available in version 20",
+            "version": "20"
+          }
+        }
+      }
+    }
+  ],
+  "extracted_at": "2026-07-05T19:48:27.832Z"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "opencode",
+  "name": "OpenCode",
+  "status": "native",
+  "scope": ["project", "user"],
+  "paths": {
+    "project": ".opencode",
+    "user": ".config/opencode"
+  },
+  "formats": {
+    "skills": "markdown-directory",
+    "instructions": "opencode.json",
+    "agents": "markdown-directory"
+  },
+  "requirements": ["OpenCode >= 1.15"],
+  "notes": "Project-scope installs into .opencode/ and writes agent instructions into opencode.json agents blocks."
+}

@@ -1,0 +1,73 @@
+- generic [active] [ref=f9e1]:
+  - banner [ref=f9e2]:
+    - generic [ref=f9e3]:
+      - link "angular.courses" [ref=f9e4] [cursor=pointer]:
+        - /url: /
+      - navigation "Main" [ref=f9e6]:
+        - list [ref=f9e8]:
+          - listitem [ref=f9e9]:
+            - button "Courses" [ref=f9e10]:
+              - text: Courses
+              - img [ref=f9e11]
+          - listitem [ref=f9e13]:
+            - link "Can I Use" [ref=f9e14] [cursor=pointer]:
+              - /url: /caniuse?tab=features
+          - listitem [ref=f9e15]:
+            - button "Tools" [ref=f9e16]:
+              - text: Tools
+              - img [ref=f9e17]
+          - listitem [ref=f9e19]:
+            - link "Release Insights" [ref=f9e20] [cursor=pointer]:
+              - /url: /releases/insights/22
+          - listitem [ref=f9e21]:
+            - button "AI" [ref=f9e22]:
+              - img [ref=f9e23]
+              - text: AI
+              - img [ref=f9e26]
+          - listitem [ref=f9e28]:
+            - link "Blog" [ref=f9e29] [cursor=pointer]:
+              - /url: /blog
+          - listitem [ref=f9e30]:
+            - link "Newsletter" [ref=f9e31] [cursor=pointer]:
+              - /url: https://www.linkedin.com/newsletters/angular-digest-newsletter-7439414841141854208/
+  - main [ref=f9e32]:
+    - generic [ref=f9e33]:
+      - heading "Angular Can I Use" [level=1] [ref=f9e34]
+      - paragraph [ref=f9e35]: Explore Angular features, CLI migrations, ng update migrations, MCP server features, and ESLint rules — all in one place.
+    - generic [ref=f9e36]:
+      - textbox "Search across all lists..." [ref=f9e39]
+      - generic [ref=f9e40]:
+        - tablist [ref=f9e41]:
+          - tab "Features 0" [ref=f9e42] [cursor=pointer]:
+            - text: Features
+            - generic [ref=f9e43]: "0"
+          - tab "Diff 0" [ref=f9e44] [cursor=pointer]:
+            - text: Diff
+            - generic [ref=f9e45]: "0"
+          - tab "Migrations 13" [ref=f9e46] [cursor=pointer]:
+            - text: Migrations
+            - generic [ref=f9e47]: "13"
+          - tab "Update 112" [ref=f9e48] [cursor=pointer]:
+            - text: Update
+            - generic [ref=f9e49]: "112"
+          - tab "MCP 0" [selected] [ref=f9e50] [cursor=pointer]:
+            - text: MCP
+            - generic [ref=f9e51]: "0"
+          - tab "ESLint 88" [ref=f9e52] [cursor=pointer]:
+            - text: ESLint
+            - generic [ref=f9e53]: "88"
+        - tabpanel "MCP 0" [ref=f9e54]:
+          - generic [ref=f9e55]:
+            - generic [ref=f9e56]:
+              - img [ref=f9e58]
+              - generic [ref=f9e60]:
+                - generic [ref=f9e61]: Experimental
+                - generic [ref=f9e62]: Might not become stable at all or have significant changes
+            - generic [ref=f9e63]:
+              - img [ref=f9e65]
+              - generic [ref=f9e68]:
+                - generic [ref=f9e69]: Stable
+                - generic [ref=f9e70]: Production ready with full support
+          - generic [ref=f9e72]: Loading MCP server features...
+  - region "Notifications alt+T"
+  - alert [ref=f9e73]

@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: eslint
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - eslint baseline hardening

@@ -1,0 +1,21 @@
+{
+  "id": "ngautopilot-typescript",
+  "name": "NgAutoPilot TypeScript",
+  "version": "0.5.0",
+  "status": "stable",
+  "description": "TypeScript strictness, DTO/domain boundaries, pure functions, fundamentals.",
+  "audience": "TypeScript developers",
+  "useCases": [
+    "Strict type safety",
+    "DTO and domain mapping",
+    "Pure function design"
+  ],
+  "includes": {
+    "skills": ["typescript."],
+    "agents": ["stoic-typescript-guardian"],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

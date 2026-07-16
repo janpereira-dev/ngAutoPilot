@@ -1,0 +1,17 @@
+{
+  "id": "generic",
+  "name": "Generic AGENTS.md consumer",
+  "status": "export-only",
+  "scope": ["project"],
+  "paths": {
+    "project": ".ngautopilot",
+    "user": ".ngautopilot"
+  },
+  "formats": {
+    "skills": "markdown-directory",
+    "instructions": "AGENTS.md",
+    "agents": "markdown-directory"
+  },
+  "requirements": [],
+  "notes": "Used by `ngautopilot export` to produce a portable snapshot."
+}

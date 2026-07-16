@@ -42,15 +42,7 @@ jobs:
         run: |
           python -m json.tool .agents/plugins/marketplace.json > /dev/null
           python -m json.tool .claude-plugin/marketplace.json > /dev/null
-          python -m json.tool plugins/ngautopilot-core/.codex-plugin/plugin.json > /dev/null
-          python -m json.tool plugins/ngautopilot-angular/.codex-plugin/plugin.json > /dev/null
-          python -m json.tool plugins/ngautopilot-javascript/.codex-plugin/plugin.json > /dev/null
-          python -m json.tool plugins/ngautopilot-typescript/.codex-plugin/plugin.json > /dev/null
-          python -m json.tool plugins/ngautopilot-quality/.codex-plugin/plugin.json > /dev/null
-          python -m json.tool plugins/ngautopilot-quality-lint/.codex-plugin/plugin.json > /dev/null
-          python -m json.tool plugins/ngautopilot-quality-deadcode-sonar/.codex-plugin/plugin.json > /dev/null
-          python -m json.tool plugins/ngautopilot-angular-microfrontends/.codex-plugin/plugin.json > /dev/null
-          python -m json.tool plugins/ngautopilot-css/.codex-plugin/plugin.json > /dev/null
+          for manifest in plugins/*/.codex-plugin/plugin.json; do python -m json.tool "$manifest" > /dev/null; done
 
       - name: Validate required files
         run: |
@@ -62,5 +54,8 @@ jobs:
             find "$plugin_dir/skills" -name SKILL.md -type f | grep -q .
           done
 
+      - name: Sync generated plugin bundles
+        run: npm run plugins:sync
+
       - name: Validate marketplace consistency
-        run: npm run consistency:validate
+        run: npm run distribution:validate && npm run consistency:validate

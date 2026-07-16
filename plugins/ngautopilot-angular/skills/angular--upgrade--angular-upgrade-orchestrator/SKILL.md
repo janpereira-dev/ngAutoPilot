@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: upgrades
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - Angular upgrade
@@ -20,7 +20,7 @@ triggers:
 compatibility:
   angular:
     min: "2"
-    max: "21"
+    max: "22"
 ---
 
 # Angular Upgrade Orchestrator
@@ -84,6 +84,7 @@ skills/angular/upgrades/hops/angular-2-to-4/SKILL.md
 | Angular 2-4    | Use the matching hop skill                            | Route to `angular-2-to-4` first if needed.     |
 | Angular 5+     | Continue with the next major hop skill                | Do not batch multiple majors in one execution. |
 | Angular 17+    | Modern APIs may be available depending on the project | Verify before recommending them.               |
+| Angular 21     | Route to `skills/angular/upgrades/21-to-22/angular-21-to-22-upgrade-orchestrator/SKILL.md` | Keep the hop separate from Angular 22 modernization satellites. |
 
 If a version cannot be confirmed from the project files, mark it as `verify in project`.
 
@@ -125,7 +126,7 @@ source -> source+1 -> source+2 -> ... -> target
 Example:
 
 ```txt
-12 -> 13 -> 14 -> 15 -> 16 -> 17 -> 18 -> 19 -> 20 -> 21
+12 -> 13 -> 14 -> 15 -> 16 -> 17 -> 18 -> 19 -> 20 -> 21 -> 22
 ```
 
 Delegate the actual code changes to the matching hop skill.

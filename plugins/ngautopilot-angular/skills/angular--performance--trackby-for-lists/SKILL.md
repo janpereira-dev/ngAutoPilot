@@ -8,11 +8,11 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - ngFor
-  - @for
+  - "@for"
   - trackBy
   - track expression
   - large list

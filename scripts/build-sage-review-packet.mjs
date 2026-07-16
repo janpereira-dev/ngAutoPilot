@@ -15,6 +15,7 @@ const includePaths = [
   'package.json',
   'docs',
   'assets',
+  'agents',
   'adapters',
   'schemas',
   'scripts',

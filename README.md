@@ -20,11 +20,12 @@ It keeps agents on a small, repeatable loop: inspect the repo, detect stack and 
 ```bash
 npm exec --package=ngautopilot -- ngautopilot help
 npm exec --package=ngautopilot -- ngautopilot list
-npm exec --package=ngautopilot -- ngautopilot init
+npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-core --dry-run
+npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-core --yes
 npm exec --package=ngautopilot -- ngautopilot doctor
 ```
 
-After `init`, NgAutoPilot creates a local `.ngautopilot/` workspace with skills, adapters, and `catalog.json`.
+The CLI requires an agent and an explicit pack. It writes only below the selected adapter's project or user scope; `ngautopilot-full` is always explicit.
 
 ## Naming
 
@@ -68,6 +69,7 @@ NgAutoPilot answers that with small, reusable, public skills that can be routed 
 | Use case | What NgAutoPilot helps with |
 | --- | --- |
 | Angular upgrades | major-by-major routing, compatibility gates, upgrade satellites |
+| Angular 22 coverage | bounded `21-to-22` hop plus concern-first satellites for Signal Forms, resources, DI, router, templates, SSR, security, testing, AI/MCP, and education |
 | Modernization after upgrades | standalone, control flow, `@defer`, zoneless readiness |
 | Performance audits | template functions, change detection, trackBy, Core Web Vitals |
 | Testing | Angular TestBed, Jest, strategy selection, validation contracts |
@@ -89,7 +91,7 @@ NgAutoPilot answers that with small, reusable, public skills that can be routed 
 
 ## Catalog Snapshot
 
-Current catalog size: **287 skills**
+Current catalog size: **413 skills**
 
 | Area | Coverage |
 | --- | --- |
@@ -108,10 +110,14 @@ These are the families that matter most when consuming the catalog:
 | `skills/_core/` | intake, stack detection, routing, compatibility, risk control | first, for every task |
 | `skills/angular/versioning/` | version gates, compatibility decisions, master routing | before any Angular hop |
 | `skills/angular/upgrades/` | major-hop executors and version-specific satellites | during Angular upgrades |
+| `skills/angular/upgrades/21-to-22/` | bounded Angular 21 -> 22 hop orchestration, preflight, breaking-change gate, and validation | for Angular 21 to 22 upgrades only |
 | `skills/angular/modernization/` | control flow, `@defer`, standalone-first, zoneless readiness | after the hop is stable |
 | `skills/angular/architecture/` | higher-level Angular design guidance | when the task is architectural |
 | `skills/angular/microfrontends/` | shell, remote, compatibility, sharing and rollback gates | when the repo needs distributed frontend boundaries |
+| `skills/angular/signals/`, `skills/angular/performance/`, `skills/angular/security/`, `skills/angular/ssr/`, `skills/angular/testing/` | v22-friendly state, runtime, security, and test contracts | when the change spans runtime behavior |
+| `skills/angular/forms/`, `skills/angular/router/`, `skills/angular/templates/`, `skills/angular/build/`, `skills/angular/components/`, `skills/angular/modules/`, `skills/angular/resources/`, `skills/angular/zone/`, `skills/angular/zoneless/` | v22-specific API and migration contracts | when the task is area-specific |
 | `skills/angular/docs/` | ADRs, upgrade reports, and review packets | when the change needs governance or packaging |
+| `skills/frontend/` | inclusive UI, responsive CSS, product UX, design-system governance, design excellence, frontend validation, and WPO evidence | when the task is framework-neutral frontend work |
 | `skills/angular/styles/` | Angular-hosted CSS custom property patterns | when Angular needs to expose style-only state |
 | `skills/css/` | selector-driven layout and modern CSS patterns | when CSS can solve the problem without JS |
 | `skills/typescript/`, `skills/javascript/`, `skills/quality/` | cross-cutting code quality and workflow skills | when the task is not Angular-specific |
@@ -123,8 +129,13 @@ Public usage docs:
 - [docs/getting-started.md](docs/getting-started.md)
 - [docs/cli-reference.md](docs/cli-reference.md)
 - [docs/angular-roadmap-guide.md](docs/angular-roadmap-guide.md)
+- [docs/angular-version-era-map.md](docs/angular-version-era-map.md)
+- [docs/angular-22-support.md](docs/angular-22-support.md)
+- [docs/angular-caniuse/README.md](docs/angular-caniuse/README.md)
 - [docs/sage-review.md](docs/sage-review.md)
 - [docs/release-checklist.md](docs/release-checklist.md)
+- [docs/agents-and-subagents.md](docs/agents-and-subagents.md)
+- [docs/design-excellence-guide.md](docs/design-excellence-guide.md)
 
 Maintainer and repository docs:
 
@@ -182,6 +193,7 @@ Current plugin bundles are split by use:
 | `ngautopilot-angular` | complete Angular catalog |
 | `ngautopilot-angular-microfrontends` | focused Angular micro-frontends subset |
 | `ngautopilot-css` | CSS and Angular style-boundary subset |
+| `ngautopilot-frontend` | inclusive UI, UX/product, design-system, frontend testing, and performance evidence |
 | `ngautopilot-javascript` | JavaScript fundamentals, modules, pure functions, and async error handling |
 | `ngautopilot-quality` | complete quality catalog |
 | `ngautopilot-quality-lint` | ESLint and lint governance subset |

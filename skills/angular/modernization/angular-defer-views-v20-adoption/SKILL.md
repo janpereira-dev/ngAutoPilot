@@ -8,11 +8,11 @@ stack:
   - TypeScript
 category: modernization
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - defer views
-  - @defer
+  - "@defer"
   - deferrable views
   - lazy rendering modernization
 compatibility:

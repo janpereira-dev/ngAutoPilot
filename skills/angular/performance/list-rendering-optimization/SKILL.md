@@ -8,12 +8,12 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - list rendering
   - trackBy
-  - @for track
+  - "@for track"
   - large list
   - DOM recreation
   - virtual scroll

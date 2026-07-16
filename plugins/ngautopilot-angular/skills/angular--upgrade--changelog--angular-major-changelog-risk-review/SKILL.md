@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: changelog
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - Angular changelog review
@@ -241,7 +241,7 @@ Gate behavior:
 
 Route to:
 
-`skills/angular/upgrades/components/angular-dynamic-component-creation-v16/SKILL.md`
+`skills/angular/upgrades/components/angular-create-component-projectable-nodes-v19/SKILL.md`
 
 ### 10. TransferState migration
 

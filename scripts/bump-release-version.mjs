@@ -15,11 +15,12 @@ const roots = [
   '.github',
   'docs',
   'plugins',
+  'packs',
   'schemas',
   'scripts',
   'skills',
 ];
-const rootFiles = ['catalog.json', 'package.json', 'README.md'];
+const rootFiles = ['catalog.json', 'package.json', 'README.md', 'CHANGELOG.md'];
 const textExtensions = new Set(['.json', '.md', '.mjs', '.yml', '.yaml']);
 let touched = 0;
 

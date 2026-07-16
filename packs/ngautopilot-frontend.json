@@ -1,0 +1,22 @@
+{
+  "id": "ngautopilot-frontend",
+  "name": "NgAutoPilot Frontend",
+  "version": "0.5.0",
+  "status": "stable",
+  "description": "Framework-agnostic frontend UX/UI/CX/WPO: accessibility, responsive CSS, design governance, product discovery, experience validation, web performance.",
+  "audience": "Frontend generalists working on Angular or any web framework",
+  "useCases": [
+    "Accessibility reviews",
+    "Responsive layout and motion",
+    "Design-system token governance",
+    "Web performance budgets"
+  ],
+  "includes": {
+    "skills": ["frontend.", "css."],
+    "agents": [],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

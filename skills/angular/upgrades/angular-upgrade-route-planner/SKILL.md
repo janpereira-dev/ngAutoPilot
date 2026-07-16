@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: upgrades
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - Angular upgrade route
@@ -19,7 +19,7 @@ triggers:
 compatibility:
   angular:
     min: "2"
-    max: "21"
+    max: "22"
 ---
 
 # Angular Upgrade Route Planner
@@ -67,6 +67,7 @@ Do not use this skill when:
 | Angular 2-4  | Route to `angular-2-to-4` if needed                              | Use the matching hop executor.  |
 | Angular 5+   | Build the remaining chain major by major                         | Validate after each hop.        |
 | Angular 17+  | Check whether modern syntax or tooling can be used in later hops | Verify support before planning. |
+| Angular 21   | Route to `skills/angular/upgrades/21-to-22/angular-21-to-22-upgrade-orchestrator/SKILL.md` | Use the bounded Angular 21 -> 22 hop and route v22 risks to satellites. |
 
 If a version cannot be confirmed from the project files, mark it as `verify in project`.
 
@@ -107,7 +108,7 @@ source -> source+1 -> source+2 -> ... -> target
 Example:
 
 ```txt
-12 -> 13 -> 14 -> 15 -> 16 -> 17 -> 18 -> 19 -> 20 -> 21
+12 -> 13 -> 14 -> 15 -> 16 -> 17 -> 18 -> 19 -> 20 -> 21 -> 22
 ```
 
 Example output structure:

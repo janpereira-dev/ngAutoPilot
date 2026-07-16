@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: versioning
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - Angular version compatibility
@@ -44,6 +44,7 @@ Use this skill when:
 - A recommendation mentions Signals, `toSignal`, `toObservable`, signal inputs, `@for`, `@defer`, `takeUntilDestroyed`, standalone APIs, `resource`, or `httpResource`.
 - A recommendation changes DI style between constructor injection, `inject()`, NgModule providers, application providers, route providers, or component providers.
 - The project may support Angular 12-15, Angular 16, Angular 17-18, Angular 19+, or Angular 20+ differently.
+- The project may support Angular 22 differently from earlier majors.
 - A shared library is consumed by multiple Angular versions.
 - The user asks for a modern Angular refactor without stating version constraints.
 - The user needs a broad compatibility reminder and a lighter version-style profile before the dedicated gate is invoked.
@@ -93,12 +94,19 @@ Angular 19+:
 Angular 20+:
   prefer @for for new list rendering code
   avoid introducing new NgFor-based code unless maintaining legacy sections
+
+Angular 22+:
+  resource and httpResource are production-ready
+  Signal Forms and Angular Aria are production-ready
+  strictTemplates defaults to true and fullTemplateTypeCheck is removed
+  webpack builders are deprecated; prefer the supported build path
+  keep component, router, and SSR contracts explicit because several legacy APIs were removed
 ```
 
 Flag experimental APIs explicitly:
 
 ```txt
-resource and httpResource are experimental; do not use as a default production baseline unless requested.
+In Angular 22, Signal Forms, Angular Aria, resource(), and httpResource() are production-ready per official Angular sources. WebMCP and future preview APIs remain experimental and need explicit security/risk gates.
 ```
 
 ## Do Not
@@ -109,7 +117,7 @@ Avoid unsupported recommendations:
 Use @for in an Angular 12 project.
 Use Signals in an Angular 15 project.
 Use @defer without Angular 17+ support.
-Expose resource as a stable default data-access pattern.
+Use WebMCP or preview APIs as a stable default production pattern without a security gate.
 ```
 
 Avoid assuming the latest Angular version from code style alone.

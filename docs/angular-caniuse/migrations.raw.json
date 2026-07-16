@@ -1,0 +1,433 @@
+{
+  "section": "Migrations",
+  "source": "https://www.angular.courses/caniuse?tab=migrations",
+  "expected_count": 13,
+  "actual_count": 13,
+  "headers": [
+    "section",
+    "name",
+    "package",
+    "description",
+    "status",
+    "introduced_in",
+    "removed_in",
+    "v22",
+    "v21",
+    "v20",
+    "v19",
+    "v18",
+    "v17",
+    "v16",
+    "v15",
+    "v14",
+    "angular_courses_url",
+    "angular_dev_url",
+    "notes"
+  ],
+  "items": [
+    {
+      "section": "Migrations",
+      "name": "common-to-standalone",
+      "package": "@angular/core",
+      "description": "Replaces CommonModule usage with individual imports from @angular/common",
+      "status": "",
+      "introduced_in": "21.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=migrations",
+      "angular_dev_url": "https://angular.dev/reference/migrations/common-to-standalone",
+      "notes": "command: ng generate @angular/core:common-to-standalone",
+      "raw": {
+        "index": 0,
+        "links": [
+          {
+            "text": "Doc",
+            "href": "https://angular.dev/reference/migrations/common-to-standalone"
+          }
+        ],
+        "command": "ng generate @angular/core:common-to-standalone"
+      }
+    },
+    {
+      "section": "Migrations",
+      "name": "router-testing-module",
+      "package": "@angular/core",
+      "description": "Convert deprecated RouterTestingModule usages to the recommended modern APIs.",
+      "status": "",
+      "introduced_in": "21.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=migrations",
+      "angular_dev_url": "https://angular.dev/reference/migrations/router-testing-module-migration",
+      "notes": "command: ng g @angular/core:router-testing-module-migration",
+      "raw": {
+        "index": 1,
+        "links": [
+          {
+            "text": "Doc",
+            "href": "https://angular.dev/reference/migrations/router-testing-module-migration"
+          }
+        ],
+        "command": "ng g @angular/core:router-testing-module-migration"
+      }
+    },
+    {
+      "section": "Migrations",
+      "name": "ngstyle-to-style",
+      "package": "@angular/core",
+      "description": "Convert NgStyle directive usages to style bindings .",
+      "status": "",
+      "introduced_in": "21.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=migrations",
+      "angular_dev_url": "https://angular.dev/reference/migrations/ngstyle-to-style",
+      "notes": "command: ng g @angular/core:ngstyle-to-style",
+      "raw": {
+        "index": 2,
+        "links": [
+          {
+            "text": "Doc",
+            "href": "https://angular.dev/reference/migrations/ngstyle-to-style"
+          }
+        ],
+        "command": "ng g @angular/core:ngstyle-to-style"
+      }
+    },
+    {
+      "section": "Migrations",
+      "name": "ngclass-to-class",
+      "package": "@angular/core",
+      "description": "Convert ngClass directive usages to class bindings.",
+      "status": "",
+      "introduced_in": "21.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=migrations",
+      "angular_dev_url": "https://angular.dev/reference/migrations/ngclass-to-class",
+      "notes": "command: ng g @angular/core:ngclass-to-class",
+      "raw": {
+        "index": 3,
+        "links": [
+          {
+            "text": "Doc",
+            "href": "https://angular.dev/reference/migrations/ngclass-to-class"
+          }
+        ],
+        "command": "ng g @angular/core:ngclass-to-class"
+      }
+    },
+    {
+      "section": "Migrations",
+      "name": "self-closing-tags",
+      "package": "@angular/core",
+      "description": "Convert component selectors in the templates to self-closing tags.",
+      "status": "",
+      "introduced_in": "19.2.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=migrations",
+      "angular_dev_url": "https://angular.dev/reference/migrations/self-closing-tags",
+      "notes": "command: ng g @angular/core:self-closing-tag",
+      "raw": {
+        "index": 4,
+        "links": [
+          {
+            "text": "Doc",
+            "href": "https://angular.dev/reference/migrations/self-closing-tags"
+          }
+        ],
+        "command": "ng g @angular/core:self-closing-tag"
+      }
+    },
+    {
+      "section": "Migrations",
+      "name": "cleanup-unused-imports",
+      "package": "@angular/core",
+      "description": "Removes all unused standalone imports across the entire project.",
+      "status": "",
+      "introduced_in": "19.1.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=migrations",
+      "angular_dev_url": "https://angular.dev/reference/migrations/cleanup-unused-imports",
+      "notes": "command: ng g @angular/core:cleanup-unused-imports",
+      "raw": {
+        "index": 5,
+        "links": [
+          {
+            "text": "Doc",
+            "href": "https://angular.dev/reference/migrations/cleanup-unused-imports"
+          }
+        ],
+        "command": "ng g @angular/core:cleanup-unused-imports"
+      }
+    },
+    {
+      "section": "Migrations",
+      "name": "signal-queries",
+      "package": "@angular/core",
+      "description": "Convert decorator queries to signal queries.",
+      "status": "",
+      "introduced_in": "19.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=migrations",
+      "angular_dev_url": "https://angular.dev/reference/migrations/signal-queries",
+      "notes": "command: ng g @angular/core:signal-queries-migration",
+      "raw": {
+        "index": 6,
+        "links": [
+          {
+            "text": "Doc",
+            "href": "https://angular.dev/reference/migrations/signal-queries"
+          }
+        ],
+        "command": "ng g @angular/core:signal-queries-migration"
+      }
+    },
+    {
+      "section": "Migrations",
+      "name": "output",
+      "package": "@angular/core",
+      "description": "Convert outputs from the decorator version to the output function.",
+      "status": "",
+      "introduced_in": "19.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=migrations",
+      "angular_dev_url": "https://angular.dev/reference/migrations/outputs",
+      "notes": "command: ng g @angular/core:output-migration",
+      "raw": {
+        "index": 7,
+        "links": [
+          {
+            "text": "Doc",
+            "href": "https://angular.dev/reference/migrations/outputs"
+          }
+        ],
+        "command": "ng g @angular/core:output-migration"
+      }
+    },
+    {
+      "section": "Migrations",
+      "name": "signal-input",
+      "package": "@angular/core",
+      "description": "Convert `@Input()` declarations to signal inputs.",
+      "status": "",
+      "introduced_in": "19.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=migrations",
+      "angular_dev_url": "https://angular.dev/reference/migrations/signal-inputs",
+      "notes": "command: ng g @angular/core:signal-input-migration",
+      "raw": {
+        "index": 8,
+        "links": [
+          {
+            "text": "Doc",
+            "href": "https://angular.dev/reference/migrations/signal-inputs"
+          }
+        ],
+        "command": "ng g @angular/core:signal-input-migration"
+      }
+    },
+    {
+      "section": "Migrations",
+      "name": "route-lazy-loading",
+      "package": "@angular/core",
+      "description": "Convert eagerly loaded component routes to lazy-loaded routes.",
+      "status": "",
+      "introduced_in": "18.2.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=migrations",
+      "angular_dev_url": "https://angular.dev/reference/migrations/route-lazy-loading",
+      "notes": "command: ng g @angular/core:route-lazy-loading",
+      "raw": {
+        "index": 9,
+        "links": [
+          {
+            "text": "Doc",
+            "href": "https://angular.dev/reference/migrations/route-lazy-loading"
+          }
+        ],
+        "command": "ng g @angular/core:route-lazy-loading"
+      }
+    },
+    {
+      "section": "Migrations",
+      "name": "inject",
+      "package": "@angular/core",
+      "description": "Converts classes using constructor-based injection to the inject function.",
+      "status": "",
+      "introduced_in": "18.2.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=migrations",
+      "angular_dev_url": "https://angular.dev/reference/migrations/inject-function",
+      "notes": "command: ng g @angular/core:inject",
+      "raw": {
+        "index": 10,
+        "links": [
+          {
+            "text": "Doc",
+            "href": "https://angular.dev/reference/migrations/inject-function"
+          }
+        ],
+        "command": "ng g @angular/core:inject"
+      }
+    },
+    {
+      "section": "Migrations",
+      "name": "control-flow",
+      "package": "@angular/core",
+      "description": "Replaces the existing usages of *ngIf, *ngFor, and *ngSwitch to their equivalent block syntax.",
+      "status": "",
+      "introduced_in": "17.0.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=migrations",
+      "angular_dev_url": "https://angular.dev/reference/migrations/control-flow",
+      "notes": "command: ng g @angular/core:control-flow",
+      "raw": {
+        "index": 11,
+        "links": [
+          {
+            "text": "Doc",
+            "href": "https://angular.dev/reference/migrations/control-flow"
+          }
+        ],
+        "command": "ng g @angular/core:control-flow"
+      }
+    },
+    {
+      "section": "Migrations",
+      "name": "standalone",
+      "package": "@angular/core",
+      "description": "Convert an application to standalone components, directives, and pipes.",
+      "status": "",
+      "introduced_in": "15.2.0",
+      "removed_in": "",
+      "v22": "",
+      "v21": "",
+      "v20": "",
+      "v19": "",
+      "v18": "",
+      "v17": "",
+      "v16": "",
+      "v15": "",
+      "v14": "",
+      "angular_courses_url": "https://www.angular.courses/caniuse?tab=migrations",
+      "angular_dev_url": "https://angular.dev/reference/migrations/standalone",
+      "notes": "command: ng g @angular/core:standalone",
+      "raw": {
+        "index": 12,
+        "links": [
+          {
+            "text": "Doc",
+            "href": "https://angular.dev/reference/migrations/standalone"
+          }
+        ],
+        "command": "ng g @angular/core:standalone"
+      }
+    }
+  ],
+  "extracted_at": "2026-07-05T19:48:27.829Z"
+}

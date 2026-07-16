@@ -8,10 +8,10 @@ stack:
   - TypeScript
 category: i18n
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
-  - @angular/localize
+  - "@angular/localize"
   - $localize
   - Angular i18n
 compatibility:

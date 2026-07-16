@@ -1,0 +1,17 @@
+{
+  "id": "cursor",
+  "name": "Cursor",
+  "status": "adapter",
+  "scope": ["project"],
+  "paths": {
+    "project": ".cursor",
+    "user": ".cursor"
+  },
+  "formats": {
+    "skills": "markdown-directory",
+    "instructions": ".cursorrules",
+    "agents": "none"
+  },
+  "requirements": ["Cursor"],
+  "notes": "Cursor stores project rules in .cursor/rules and root .cursorrules."
+}

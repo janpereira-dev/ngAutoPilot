@@ -1,0 +1,134 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "angular.courses" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation "Main" [ref=e6]:
+        - list [ref=e8]:
+          - listitem [ref=e9]:
+            - button "Courses" [ref=e10]:
+              - text: Courses
+              - img [ref=e11]
+          - listitem [ref=e13]:
+            - link "Can I Use" [ref=e14] [cursor=pointer]:
+              - /url: /caniuse?tab=features
+          - listitem [ref=e15]:
+            - button "Tools" [ref=e16]:
+              - text: Tools
+              - img [ref=e17]
+          - listitem [ref=e19]:
+            - link "Release Insights" [ref=e20] [cursor=pointer]:
+              - /url: /releases/insights/22
+          - listitem [ref=e21]:
+            - button "AI" [ref=e22]:
+              - img [ref=e23]
+              - text: AI
+              - img [ref=e26]
+          - listitem [ref=e28]:
+            - link "Blog" [ref=e29] [cursor=pointer]:
+              - /url: /blog
+          - listitem [ref=e30]:
+            - link "Newsletter" [ref=e31] [cursor=pointer]:
+              - /url: https://www.linkedin.com/newsletters/angular-digest-newsletter-7439414841141854208/
+  - main [ref=e32]:
+    - generic [ref=e33]:
+      - heading "Angular Can I Use" [level=1] [ref=e34]
+      - paragraph [ref=e35]: Explore Angular features, CLI migrations, ng update migrations, MCP server features, and ESLint rules — all in one place.
+    - generic [ref=e36]:
+      - textbox "Search across all lists..." [ref=e39]
+      - generic [ref=e40]:
+        - tablist [ref=e41]:
+          - tab "Features 0" [selected] [ref=e42] [cursor=pointer]:
+            - text: Features
+            - generic [ref=e43]: "0"
+          - tab "Diff 0" [ref=e44] [cursor=pointer]:
+            - text: Diff
+            - generic [ref=e45]: "0"
+          - tab "Migrations 13" [ref=e46] [cursor=pointer]:
+            - text: Migrations
+            - generic [ref=e47]: "13"
+          - tab "Update 112" [ref=e48] [cursor=pointer]:
+            - text: Update
+            - generic [ref=e49]: "112"
+          - tab "MCP 0" [ref=e50] [cursor=pointer]:
+            - text: MCP
+            - generic [ref=e51]: "0"
+          - tab "ESLint 88" [ref=e52] [cursor=pointer]:
+            - text: ESLint
+            - generic [ref=e53]: "88"
+        - tabpanel "Features 0" [ref=e54]:
+          - generic [ref=e55]:
+            - generic [ref=e56]:
+              - img [ref=e58]
+              - generic [ref=e60]:
+                - generic [ref=e61]: Experimental
+                - generic [ref=e62]: Might not become stable at all or have significant changes
+            - generic [ref=e63]:
+              - img [ref=e65]
+              - generic [ref=e68]:
+                - generic [ref=e69]: Developer Preview
+                - generic [ref=e70]: Fully functional but not ready to stabilize
+            - generic [ref=e71]:
+              - img [ref=e73]
+              - generic [ref=e76]:
+                - generic [ref=e77]: Stable
+                - generic [ref=e78]: Production ready with full support
+            - generic [ref=e79]:
+              - img [ref=e81]
+              - generic [ref=e84]:
+                - generic [ref=e85]: Deprecated
+                - generic [ref=e86]: Obsolete API, should be replaced
+            - generic [ref=e87]:
+              - img [ref=e89]
+              - generic [ref=e92]:
+                - generic [ref=e93]: Removed
+                - generic [ref=e94]: Feature has been completely removed
+          - generic [ref=e96]:
+            - combobox [ref=e97]:
+              - img
+            - combobox [ref=e98]
+            - combobox [ref=e99]:
+              - img
+            - combobox [ref=e100]
+          - generic [ref=e101]:
+            - generic [ref=e108]:
+              - generic [ref=e110]: "22"
+              - generic [ref=e113]: "21"
+              - generic [ref=e116]: "20"
+              - generic [ref=e119]: "19"
+              - generic [ref=e122]: "18"
+              - generic [ref=e125]: "17"
+              - generic [ref=e128]: "16"
+              - generic [ref=e131]: "15"
+              - generic [ref=e134]: "14"
+            - generic [ref=e142]:
+              - generic [ref=e144]: "22"
+              - generic [ref=e147]: "21"
+              - generic [ref=e150]: "20"
+              - generic [ref=e153]: "19"
+              - generic [ref=e156]: "18"
+              - generic [ref=e159]: "17"
+              - generic [ref=e162]: "16"
+              - generic [ref=e165]: "15"
+              - generic [ref=e168]: "14"
+            - generic [ref=e176]:
+              - generic [ref=e178]: "22"
+              - generic [ref=e181]: "21"
+              - generic [ref=e184]: "20"
+              - generic [ref=e187]: "19"
+              - generic [ref=e190]: "18"
+              - generic [ref=e193]: "17"
+              - generic [ref=e196]: "16"
+              - generic [ref=e199]: "15"
+              - generic [ref=e202]: "14"
+            - generic [ref=e210]:
+              - generic [ref=e212]: "22"
+              - generic [ref=e215]: "21"
+              - generic [ref=e218]: "20"
+              - generic [ref=e221]: "19"
+              - generic [ref=e224]: "18"
+              - generic [ref=e227]: "17"
+              - generic [ref=e230]: "16"
+              - generic [ref=e233]: "15"
+              - generic [ref=e236]: "14"
+  - region "Notifications alt+T"

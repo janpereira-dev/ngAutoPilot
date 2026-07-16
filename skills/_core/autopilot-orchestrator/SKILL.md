@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: core
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - autopilot workflow
@@ -94,6 +94,10 @@ Use this workflow:
 ```txt
 Task intake -> project intake -> version detection -> skill routing -> compatibility routing -> risk assessment -> implementation -> validation -> handoff
 ```
+
+## Subagent Registry
+
+When `agents/ngautopilot/subagents/` is available, treat it as the stable registry for focused reviewer and specialist roles. Invoke only the smallest relevant subagent after skill routing or at handoff; subagents provide oversight and do not replace NgAutoPilot skill selection.
 
 Before editing, state the working assumption internally:
 
