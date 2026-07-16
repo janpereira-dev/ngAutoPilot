@@ -24,6 +24,12 @@ jobs:
         with:
           node-version: 22
 
+      - name: Validate skill frontmatter
+        run: npm run skills:validate:frontmatter
+
+      - name: Validate distribution contract
+        run: npm run distribution:validate
+
       - name: Regenerate catalog
         run: npm run skills:catalog
 

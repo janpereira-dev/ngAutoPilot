@@ -1,0 +1,17 @@
+{
+  "id": "codex",
+  "name": "OpenAI Codex CLI",
+  "status": "native",
+  "scope": ["project", "user"],
+  "paths": {
+    "project": ".codex",
+    "user": ".codex"
+  },
+  "formats": {
+    "skills": "markdown-directory",
+    "instructions": "AGENTS.md",
+    "agents": "markdown-directory"
+  },
+  "requirements": ["Codex CLI"],
+  "notes": "Project-scope installs into .codex/ and writes or augments AGENTS.md."
+}

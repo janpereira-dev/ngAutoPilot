@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: changelog
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - Angular changelog review

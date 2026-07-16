@@ -13,7 +13,7 @@ Use this order:
 5. Keep modernization separate from upgrade hops.
 
 For a version-era map of the current folder layout, see
-[`docs/angular-version-era-map.md`](docs/angular-version-era-map.md).
+[`angular-version-era-map.md`](angular-version-era-map.md).
 
 If an agent is doing the work, the best approach is:
 

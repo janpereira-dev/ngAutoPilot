@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: core
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - compatibility router
@@ -133,6 +133,10 @@ Use it to determine:
 - whether routing to a satellite skill is required before planning the hop.
 
 Treat WebMCP and future preview APIs as experimental unless official Angular sources say otherwise. In Angular 22, `resource()` and `httpResource()` are production-ready, but still require SSR/cache/security review when used for data fetching.
+
+## Subagent Review Trigger
+
+When `agents/ngautopilot/subagents/` is available and compatibility risk remains after routing, use the Compatibility Gatekeeper as a focused reviewer. Do not load unrelated subagents or replace the required Angular version gate with a subagent opinion.
 
 ## Decision Rules
 

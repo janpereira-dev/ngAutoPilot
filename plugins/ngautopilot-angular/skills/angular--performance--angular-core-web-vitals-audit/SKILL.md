@@ -6,7 +6,7 @@ stack:
   - Angular
 category: performance
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - core web vitals

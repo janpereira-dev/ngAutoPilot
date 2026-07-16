@@ -3,11 +3,12 @@ import path from 'node:path';
 
 const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf8'));
 const currentVersion = packageJson.version;
-const forbiddenVersionPattern = /\b0\.(?:1|2|3)\.\d+\b/g;
+const forbiddenVersionPattern = /\b0\.(?:1|2|3|4)\.\d+\b/g;
 const roots = [
   '.agents',
   '.claude-plugin',
   '.github',
+  'agents',
   'catalog.json',
   'docs',
   'package.json',

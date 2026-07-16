@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ngautopilot.dev/schemas/agent-target.schema.json",
+  "type": "object",
+  "required": ["format", "targets"],
+  "properties": {
+    "format": { "const": 1 },
+    "targets": { "type": "array", "minItems": 1, "items": { "type": "object", "required": ["id", "mode", "adapter", "exportName", "evidence"], "properties": { "id": { "type": "string", "pattern": "^[a-z0-9-]+$" }, "mode": { "enum": ["native", "export-only"] }, "adapter": { "type": "string" }, "destination": { "type": "string" }, "exportName": { "type": "string" }, "reason": { "type": "string" }, "evidence": { "type": "object", "required": ["status", "url", "retrieved"], "properties": { "status": { "enum": ["verified", "unverified", "not-applicable"] }, "url": { "type": "string" }, "retrieved": { "type": "string" }, "claim": { "type": "string" } } } } } }
+  }
+}

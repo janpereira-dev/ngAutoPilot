@@ -6,6 +6,8 @@ echo "Running NgAutoPilot pre-commit checks..."
 npm run skills:validate:frontmatter
 npm run skills:catalog
 npm run skills:validate
+npm run distribution:validate
+npm run plugins:sync
 npm run consistency:validate
 
 echo "Pre-commit checks passed."

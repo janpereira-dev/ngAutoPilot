@@ -28,6 +28,12 @@ jobs:
       - name: Validate skills
         run: npm run skills:validate
 
+      - name: Validate skill frontmatter
+        run: npm run skills:validate:frontmatter
+
+      - name: Validate distribution contract
+        run: npm run distribution:validate
+
       - name: Regenerate catalog
         run: npm run skills:catalog
 
@@ -42,6 +48,9 @@ jobs:
 
       - name: Validate marketplaces
         run: npm run marketplaces:validate
+
+      - name: Check release version and tests
+        run: npm run release:check-version && npm test
 
       - name: Dry-run package
         run: npm run pack:dry

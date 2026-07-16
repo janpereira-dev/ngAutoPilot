@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: core
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - route skill
@@ -98,6 +98,8 @@ Observable public contract -> angular.rxjs.observable-contracts
 Prefer a micro-skill over an umbrella skill when the symptom is specific.
 
 Use umbrella skills only to triage or coordinate.
+
+If `agents/ngautopilot/subagents/` is present, use it only after selecting skills to choose the smallest relevant reviewer or specialist role for the task; do not treat subagent activation as a substitute for skill routing.
 
 ## Execution Workflow
 

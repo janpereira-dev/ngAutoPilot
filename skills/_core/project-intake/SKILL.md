@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: core
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - project intake
@@ -75,6 +75,7 @@ tooling: package manager, build system, test runner, linting
 architecture: standalone, NgModules, mixed, feature libraries
 state model: RxJS, Signals, NgRx, ComponentStore, custom service state
 quality gates: tests, lint, formatting, coverage, CI
+agent assets: agents/ngautopilot/subagents if present
 ```
 
 ## Version Compatibility

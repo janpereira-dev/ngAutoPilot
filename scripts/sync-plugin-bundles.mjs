@@ -57,6 +57,16 @@ const bundleDefinitions = [
       relativePath.startsWith('skills/angular/styles/'),
   },
   {
+    name: 'ngautopilot-frontend',
+    description:
+      'Frontend-first skills for inclusive UI, responsive CSS, product UX, design-system governance, experience validation, and web performance evidence.',
+    category: 'Frontend',
+    claudeCategory: 'frontend',
+    keywords: ['frontend', 'accessibility', 'ux', 'design-system', 'testing', 'performance'],
+    tags: ['frontend', 'accessibility', 'ux', 'testing', 'performance'],
+    include: ({ relativePath }) => relativePath.startsWith('skills/frontend/'),
+  },
+  {
     name: 'ngautopilot-javascript',
     description:
       'JavaScript-focused NgAutoPilot skills for fundamentals, modules, pure functions, and async error handling.',
@@ -151,7 +161,7 @@ for (const bundle of bundleDefinitions) {
 
   const pluginManifest = {
     name: bundle.name,
-    version: '0.4.0',
+    version: '0.5.0',
     description: bundle.description,
     author,
     homepage: repository,
@@ -217,7 +227,7 @@ function writeMarketplaceFiles(bundles) {
       description:
         'NgAutoPilot Claude Code plugin marketplace for core workflow, Angular, JavaScript, TypeScript, CSS, and quality guidance.',
     },
-    version: '0.4.0',
+    version: '0.5.0',
     owner: {
       name: author.name,
     },
@@ -225,7 +235,7 @@ function writeMarketplaceFiles(bundles) {
       name: bundle.name,
       source: `./plugins/${bundle.name}`,
       description: bundle.description,
-      version: '0.4.0',
+      version: '0.5.0',
       author: {
         name: author.name,
       },

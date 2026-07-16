@@ -26,6 +26,7 @@ ngautopilot help
 
 - `skills/`
 - `adapters/`
+- `agents/`
 - `catalog.json`
 
 This keeps the working context explicit and versionable without coupling the repo to a single AI tool.

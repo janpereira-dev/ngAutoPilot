@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: versioning
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - Angular versioning index

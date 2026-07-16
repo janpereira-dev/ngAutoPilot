@@ -21,7 +21,7 @@ const requiredSections = [
   '## Review Checklist',
   '## Expected Output',
 ];
-const allowedStatuses = new Set(['draft', 'review', 'stable', 'deprecated', 'experimental']);
+const allowedStatuses = new Set(['stable']);
 const errors = [];
 
 const skillFiles = findSkillFiles(skillsRoot);

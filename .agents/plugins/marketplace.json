@@ -53,6 +53,18 @@
       "category": "Styles"
     },
     {
+      "name": "ngautopilot-frontend",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ngautopilot-frontend"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Frontend"
+    },
+    {
       "name": "ngautopilot-javascript",
       "source": {
         "source": "local",

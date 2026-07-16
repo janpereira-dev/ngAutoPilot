@@ -15,6 +15,12 @@ This repository can use NgAutoPilot skills when they are available in the projec
 9. Do not invent APIs, versions, commands, dependencies, or compatibility data.
 10. Do not introduce AI-vendor lock-in into code, skills, docs, or adapters.
 
+## Subagent Invocation Policy
+
+- If `agents/ngautopilot/subagents/` exists, use it as the stable subagent registry.
+- Invoke only the smallest relevant subagent role for review, compatibility, testing, or consolidation; do not load every subagent.
+- Skills decide the technical path first; subagents provide focused oversight and handoff quality.
+
 ## Angular 22 Routing
 
 - For Angular 21 -> 22 upgrades, activate `skills/angular/upgrades/21-to-22/angular-21-to-22-upgrade-orchestrator/SKILL.md` first.

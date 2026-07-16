@@ -9,7 +9,7 @@ stack:
   - TypeScript
 category: migration
 status: stable
-version: 0.4.0
+version: 0.5.0
 owner: NgAutoPilot
 triggers:
   - AngularJS migration

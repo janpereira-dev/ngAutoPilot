@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ngautopilot.dev/schemas/pack.schema.json",
+  "title": "NgAutoPilot Pack Definition",
+  "description": "Declarative selection layer. A pack selects skills, agents, prompts, and guardrails from the canonical source tree for installation. It is NOT a distributable bundle; plugin bundles are generated from the source, packs are installed by the CLI/TUI.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "version", "status", "description", "audience", "includes", "excludes"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^ngautopilot-[a-z0-9-]+$",
+      "description": "Stable pack identifier matching the plugin bundle name when one exists."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["stable", "beta", "experimental", "deprecated", "blocked"]
+    },
+    "description": {
+      "type": "string",
+      "minLength": 20
+    },
+    "audience": {
+      "type": "string",
+      "minLength": 5,
+      "description": "Who this pack targets (e.g. 'Angular developers', 'Frontend generalists')."
+    },
+    "useCases": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 5 },
+      "description": "Representative scenarios where this pack is the right choice."
+    },
+    "includes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "skills": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 2 },
+          "description": "Skill id prefixes or category dots to include (e.g. 'angular.', '_core.')."
+        },
+        "agents": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 2 },
+          "description": "Agent or subagent role identifiers to include."
+        },
+        "prompts": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 2 },
+          "description": "Prompt file stems to include."
+        },
+        "guardrails": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 2 },
+          "description": "Guardrail identifiers to include."
+        }
+      }
+    },
+    "excludes": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 2 },
+      "description": "Skill id prefixes or category dots to exclude after includes are applied."
+    },
+    "dependsOn": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^ngautopilot-[a-z0-9-]+$" },
+      "description": "Other packs that must also be installed."
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional framework version constraints."
+    }
+  }
+}

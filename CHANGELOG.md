@@ -2,6 +2,29 @@
 
 All notable changes to NgAutoPilot will be documented in this file.
 
+## 0.5.0 - 2026-07-16
+
+Release focused on a single active distribution contract, release integrity, and agent-agnostic portability.
+
+### Added
+
+- Added 20 stable design-excellence skills: 18 frontend contracts and 2 Angular component-library contracts.
+- Added the Design Excellence Guide with routing and evidence references.
+- Added active-pack and adapter contract validation, including selected agent and prompt assets.
+
+### Changed
+
+- Made every source skill and pack stable; validators now reject non-stable skill statuses.
+- Made adapter instruction-template discovery independent from installed instruction-file names.
+- Made pack-declared subagent and prompt assets part of installation plans.
+- Aligned release workflows with version validation and the complete test suite.
+- Corrected CLI quick-start commands, explicit pack naming, and platform-neutral backup documentation.
+
+### Removed
+
+- Removed obsolete lifecycle-engine/config contract and its stale tests; the active CLI uses `packs/`, adapter manifests, and shared installer modules.
+- Removed unpublished transcript and local-machine audit/handoff documentation from distributable docs.
+
 ## 0.4.0 - 2026-05-10
 
 Release focused on closing the catalog for final publication.

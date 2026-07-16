@@ -1,65 +1,108 @@
-# CLI Reference
-
-NgAutoPilot ships a small distribution CLI. The product is still the catalog; the CLI is the packaging and installation surface.
-
-## Command Name
-
-- npm package: `ngautopilot`
-- CLI command: `ngautopilot`
-- generated folder: `.ngautopilot/`
+# NgAutoPilot CLI Reference
 
 ## Commands
 
 ### `ngautopilot help`
 
-Shows available commands and examples.
+Show available commands and options.
 
-### `ngautopilot list`
+### `ngautopilot list [--json]`
 
-Prints all catalog skill IDs and paths from `catalog.json`.
+List all skills in the catalog.
 
-### `ngautopilot init`
+### `ngautopilot packs [--json]`
 
-Creates `.ngautopilot/` in the current working directory and copies:
+List available packs with name, status, and audience.
 
-- `skills/`
-- `adapters/`
-- `catalog.json`
+### `ngautopilot adapters [--json]`
 
-### `ngautopilot add <skill-id>`
+List available agent adapters with status and scope.
 
-Copies a single skill from the installed package into `.ngautopilot/`.
+### `ngautopilot install`
 
-Example:
+Install a pack for an agent.
 
 ```bash
-ngautopilot add angular.performance.onpush-change-detection
+ngautopilot install \
+  --agent codex \
+  --pack ngautopilot-angular \
+  --scope project \
+  [--dry-run] [--yes] [--force] [--json]
 ```
 
-### `ngautopilot adapter <codex|copilot|claude|cursor|gemini|generic>`
+| Flag | Description |
+| --- | --- |
+| `--agent <id>` | Required. Adapter id (codex, claude, opencode, copilot, cursor, gemini, generic, pi, hermes, openclaw). |
+| `--pack <id>` | Required. Pack id (ngautopilot-core, ngautopilot-angular, ...). |
+| `--scope project\|user` | Install scope. Default: project. |
+| `--dry-run` | Show what would happen without writing. |
+| `--yes` | Skip confirmation. |
+| `--force` | Overwrite unmanaged files. |
+| `--json` | Output JSON. |
 
-Copies one adapter template into `.ngautopilot/adapters/`.
+### `ngautopilot update`
 
-Example:
+Update an existing installation with the latest skill sources.
 
 ```bash
-ngautopilot adapter codex
+ngautopilot update --agent codex --scope project [--pack <id>] [--dry-run] [--yes] [--force] [--json]
+```
+
+### `ngautopilot uninstall`
+
+Remove managed files for an agent. User-modified files are refused without `--force`.
+
+```bash
+ngautopilot uninstall --agent codex --scope project [--dry-run] [--yes] [--force] [--json]
+```
+
+### `ngautopilot verify`
+
+Verify installed files match the manifest checksums.
+
+```bash
+ngautopilot verify --agent codex --scope project [--json]
+```
+
+### `ngautopilot export`
+
+Export a pack snapshot to a directory for manual installation on unsupported agents.
+
+```bash
+ngautopilot export --agent generic --pack ngautopilot-core --output ./export-dir [--json]
 ```
 
 ### `ngautopilot doctor`
 
-Checks that every `catalog.json` entry exists inside the installed package.
+Check catalog integrity, adapter count, and pack count.
 
-## Recommended Invocation
+### `ngautopilot backup`
 
-Use `npm exec` when you want an exact package resolution:
+Backup managed files to a temporary snapshot.
 
 ```bash
-npm exec --package=ngautopilot -- ngautopilot help
+ngautopilot backup --agent codex --scope project [--json]
 ```
 
-## Notes
+### `ngautopilot restore`
 
-- The CLI intentionally stays small.
-- Validation, catalog generation, bundles, and release checks stay in npm scripts.
-- Marketplace management for Codex and Claude Code is documented separately because local CLI support differs by tool and version.
+Restore from a backup snapshot.
+
+```bash
+ngautopilot restore --backup <path> [--agent <id>] [--scope project|user] [--json]
+```
+
+## Legacy commands (deprecated)
+
+| Command | Replacement |
+| --- | --- |
+| `ngautopilot init` | `ngautopilot install --agent generic --pack ngautopilot-core` |
+| `ngautopilot add <skill-id>` | `ngautopilot install --pack <pack-id>` |
+| `ngautopilot adapter <name>` | `ngautopilot install --agent <name> --pack <pack-id>` |
+
+## Exit codes
+
+| Code | Meaning |
+| --- | --- |
+| 0 | Success |
+| 1 | Error (missing skill, verify failed, uninstall refused, unknown command) |
