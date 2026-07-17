@@ -8,7 +8,7 @@ stack:
   - Frontend
 category: design
 status: stable
-version: 0.5.1
+version: 0.5.2
 owner: NgAutoPilot
 triggers:
   - design system

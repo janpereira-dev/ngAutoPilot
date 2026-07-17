@@ -32,13 +32,15 @@ ngautopilot install \
 
 | Flag | Description |
 | --- | --- |
-| `--agent <id>` | Required. Adapter id (codex, claude, opencode, copilot, cursor, gemini, generic, pi, hermes, openclaw). |
-| `--pack <id>` | Required. Pack id (ngautopilot-core, ngautopilot-angular, ...). |
+| `--agent <id>` | Required. Adapter ID: `claude`, `codex`, `copilot`, `cursor`, `gemini`, `generic`, `hermes`, `openclaw`, `opencode`, or `pi`. Run `ngautopilot adapters` for scope and status. |
+| `--pack <id>` | Required. Focused pack ID. Run `ngautopilot packs` or read [Pack Selection](packs.md). |
 | `--scope project\|user` | Install scope. Default: project. |
 | `--dry-run` | Show what would happen without writing. |
 | `--yes` | Skip confirmation. |
 | `--force` | Overwrite unmanaged files. |
 | `--json` | Output JSON. |
+
+Dependencies are resolved automatically. Installing a different pack at same agent and scope removes prior unchanged managed files; user-modified files are preserved and reported.
 
 ### `ngautopilot update`
 

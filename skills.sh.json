@@ -1,0 +1,23 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Angular",
+      "description": "Upgrades, architecture, runtime, forms, SSR, testing, and security.",
+      "skills": [
+        "angular-versioning-index",
+        "angular-upgrade-orchestrator",
+        "angular-21-to-22-upgrade-orchestrator"
+      ]
+    },
+    {
+      "title": "Frontend Design",
+      "description": "Product UX, accessibility, responsive design, and UI quality.",
+      "skills": [
+        "design-quality-orchestrator",
+        "accessibility-interaction-gate"
+      ]
+    }
+  ]
+}

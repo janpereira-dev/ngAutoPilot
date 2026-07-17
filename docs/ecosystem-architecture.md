@@ -2,7 +2,7 @@
 
 ## Single source of truth
 
-```
+```text
 skills/          Canonical skill source (Markdown SKILL.md files)
 agents/ngautopilot/   Canonical agent/subagent source (Markdown role definitions)
 adapters/        Adapter manifests + templates + shared installer core
@@ -14,7 +14,7 @@ catalog.json      Generated catalog index (never hand-edited)
 
 ## Generation pipeline
 
-```
+```text
 skills/**/SKILL.md
        │
        ├── npm run skills:validate          → validate frontmatter + sections
@@ -33,14 +33,14 @@ skills/**/SKILL.md
 
 ## Installation pipeline
 
-```
+```text
 packs/<pack-id>.json
        │
        ▼
-  buildPlan()                        → match skills by ID prefix
+   buildPlan()                        → resolve dependencies, then match skills by ID prefix
        │
        ▼
-  applyPlan()                        → safe-fs copy + manifest write
+   applyPlan()                        → safe-fs switch, copy, and manifest write
        │
        ▼
   <install-root>/.ngautopilot-manifest.json
@@ -48,7 +48,7 @@ packs/<pack-id>.json
 
 ## Data flow
 
-```
+```text
 ┌─────────────┐      ┌──────────┐      ┌─────────────┐
 │ skills/     │─────▶│ catalog  │─────▶│ packs/      │
 │ (canonical) │      │ .json    │      │ (selection) │
@@ -73,10 +73,12 @@ packs/<pack-id>.json
 ## Adapter contract
 
 Each adapter directory contains:
+
 - `manifest.json` — declarative descriptor (id, scope, paths, formats, status)
 - Optional: `<instructions>.template.md` — instruction file template
 
 The installer core in `adapters/_shared/` provides:
+
 - `safe-fs.mjs` — path-traversal-safe, symlink-escape-safe filesystem layer
 - `adapter-core.mjs` — adapter loading and detection
 - `planner.mjs` — plan computation from pack + catalog + adapter
@@ -84,10 +86,10 @@ The installer core in `adapters/_shared/` provides:
 
 ## Key rule
 
-```
+```text
 One capability is maintained once.
 Adapters transform.
-Packs select.
+Packs select and depend.
 Plugins distribute.
 The catalog indexes.
 The installer applies.

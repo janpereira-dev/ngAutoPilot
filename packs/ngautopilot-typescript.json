@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-typescript",
   "name": "NgAutoPilot TypeScript",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "status": "stable",
   "description": "TypeScript strictness, DTO/domain boundaries, pure functions, fundamentals.",
   "audience": "TypeScript developers",

@@ -1,0 +1,17 @@
+{
+  "id": "ngautopilot-angular-17-to-18",
+  "name": "NgAutoPilot Angular 17 to 18",
+  "version": "0.5.2",
+  "status": "stable",
+  "description": "Compatibility routing and the bounded Angular 17 to 18 upgrade hop, including the Core installation baseline.",
+  "audience": "Teams upgrading an Angular 17 application to Angular 18",
+  "useCases": ["Angular 17 to 18 upgrade", "Angular compatibility review"],
+  "includes": {
+    "skills": ["angular.versioning.", "angular.upgrade.hops.angular-17-to-18"],
+    "agents": ["compatibility-gatekeeper"],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "ngautopilot-angular-6-to-7",
+  "name": "NgAutoPilot Angular 6 to 7",
+  "version": "0.5.2",
+  "status": "stable",
+  "description": "Compatibility routing and the bounded Angular 6 to 7 upgrade hop, including the Core installation baseline.",
+  "audience": "Teams upgrading an Angular 6 application to Angular 7",
+  "useCases": ["Angular 6 to 7 upgrade", "Legacy Angular compatibility review"],
+  "includes": {
+    "skills": ["angular.versioning.", "angular.upgrade.hops.angular-6-to-7"],
+    "agents": ["compatibility-gatekeeper"],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

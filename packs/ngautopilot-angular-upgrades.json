@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-angular-upgrades",
   "name": "NgAutoPilot Angular Upgrades",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "status": "stable",
   "description": "Major-by-major upgrade hops, version gates, changelog risk review, and upgrade-only satellites. Excludes modernization to keep upgrade work focused.",
   "audience": "Teams executing Angular version hops",
@@ -11,7 +11,7 @@
     "Changelog-driven risk review"
   ],
   "includes": {
-    "skills": ["angular.upgrades.", "angular.versioning."],
+    "skills": ["angular.upgrade.", "angular.upgrades.", "angular.versioning."],
     "agents": ["compatibility-gatekeeper"],
     "prompts": [],
     "guardrails": []

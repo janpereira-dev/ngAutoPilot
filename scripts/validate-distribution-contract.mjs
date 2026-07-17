@@ -8,7 +8,7 @@ const adapters = findJson('adapters').filter((file) => path.basename(file) === '
 const catalog = readJson('catalog.json');
 const skillIds = new Set(catalog.skills.map((skill) => skill.id));
 
-if (packs.length !== 10) errors.push(`expected 10 packs, found ${packs.length}`);
+if (packs.length < 10) errors.push(`expected at least 10 packs, found ${packs.length}`);
 if (adapters.length !== 10) errors.push(`expected 10 adapters, found ${adapters.length}`);
 
 for (const pack of packs) {

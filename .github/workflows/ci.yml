@@ -27,6 +27,9 @@ jobs:
       - name: Validate skill frontmatter
         run: npm run skills:validate:frontmatter
 
+      - name: Scan skill content
+        run: npm run security:scan
+
       - name: Validate distribution contract
         run: npm run distribution:validate
 

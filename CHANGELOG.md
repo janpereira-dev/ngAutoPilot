@@ -2,12 +2,22 @@
 
 All notable changes to NgAutoPilot will be documented in this file.
 
-## 0.5.1 - 2026-07-16
+## 0.5.2 - 2026-07-17
+
+Release focused on skill supply-chain controls, automated repository security analysis, and public discovery.
 
 ### Added
 
-- Added Pi package metadata for the canonical `skills/` and NgAutoPilot prompt resources.
-- Added the `pi-package` keyword so Pi Gallery can discover the npm package.
+- Added deterministic skill-content security scanning and CodeQL analysis for repository scripts.
+- Added Dependabot coverage for npm and GitHub Actions dependencies.
+- Added verified Pi and skills.sh discovery badges.
+- Added 26 focused Angular packs for foundations, state, UI, runtime, testing, modernization, migration, and every documented major upgrade hop.
+
+### Changed
+
+- Updated the package, catalog, 413 source skills, packs, plugin bundles, and marketplace metadata to version `0.5.2`.
+- Hardened release versioning so the bump script preserves prior changelog entries.
+- Made pack dependencies resolve during planning and made pack switches remove prior unchanged managed files.
 
 ## 0.5.1 - 2026-07-16
 
@@ -15,6 +25,8 @@ Release focused on a single active distribution contract, release integrity, and
 
 ### Added
 
+- Added Pi package metadata for the canonical `skills/` and NgAutoPilot prompt resources.
+- Added the `pi-package` keyword so Pi Gallery can discover the npm package.
 - Added 20 stable design-excellence skills: 18 frontend contracts and 2 Angular component-library contracts.
 - Added the Design Excellence Guide with routing and evidence references.
 - Added active-pack and adapter contract validation, including selected agent and prompt assets.

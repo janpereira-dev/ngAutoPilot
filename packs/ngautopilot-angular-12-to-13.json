@@ -1,0 +1,17 @@
+{
+  "id": "ngautopilot-angular-12-to-13",
+  "name": "NgAutoPilot Angular 12 to 13",
+  "version": "0.5.2",
+  "status": "stable",
+  "description": "Compatibility routing and the bounded Angular 12 to 13 upgrade hop, including the Core installation baseline.",
+  "audience": "Teams upgrading an Angular 12 application to Angular 13",
+  "useCases": ["Angular 12 to 13 upgrade", "Legacy Angular compatibility review"],
+  "includes": {
+    "skills": ["angular.versioning.", "angular.upgrade.hops.angular-12-to-13"],
+    "agents": ["compatibility-gatekeeper"],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

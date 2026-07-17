@@ -1,0 +1,17 @@
+{
+  "id": "ngautopilot-angular-21-to-22",
+  "name": "NgAutoPilot Angular 21 to 22",
+  "version": "0.5.2",
+  "status": "stable",
+  "description": "Bounded Angular 21 to 22 preflight, breaking changes, execution, and validation with compatibility routing.",
+  "audience": "Teams upgrading an Angular 21 application to Angular 22",
+  "useCases": ["Angular 21 to 22 upgrade", "Angular 22 compatibility review"],
+  "includes": {
+    "skills": ["angular.versioning.", "angular.upgrades.21-to-22."],
+    "agents": ["compatibility-gatekeeper"],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

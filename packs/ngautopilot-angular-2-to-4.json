@@ -1,0 +1,17 @@
+{
+  "id": "ngautopilot-angular-2-to-4",
+  "name": "NgAutoPilot Angular 2 to 4",
+  "version": "0.5.2",
+  "status": "stable",
+  "description": "Compatibility routing and the bounded Angular 2 to 4 upgrade hop, including the Core installation baseline.",
+  "audience": "Teams upgrading an Angular 2 application to Angular 4",
+  "useCases": ["Angular 2 to 4 upgrade", "Legacy Angular compatibility review"],
+  "includes": {
+    "skills": ["angular.versioning.", "angular.upgrade.hops.angular-2-to-4"],
+    "agents": ["compatibility-gatekeeper"],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

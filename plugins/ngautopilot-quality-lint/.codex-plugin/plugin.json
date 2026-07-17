@@ -1,6 +1,6 @@
 {
   "name": "ngautopilot-quality-lint",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Lint-focused quality skills for ESLint baseline hardening, disable governance, and safe autofix cleanup.",
   "author": {
     "name": "Jan Pereira",

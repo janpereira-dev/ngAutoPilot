@@ -8,8 +8,9 @@ Use `npm exec` when you want a deterministic one-off invocation without a global
 
 ```bash
 npm exec --package=ngautopilot -- ngautopilot help
-npm exec --package=ngautopilot -- ngautopilot list
-npm exec --package=ngautopilot -- ngautopilot init
+npm exec --package=ngautopilot -- ngautopilot packs
+npm exec --package=ngautopilot -- ngautopilot adapters
+npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-foundations --dry-run
 npm exec --package=ngautopilot -- ngautopilot doctor
 ```
 
@@ -20,20 +21,18 @@ npm install -g ngautopilot
 ngautopilot help
 ```
 
-## What `init` Creates
+## What `install` Creates
 
-`ngautopilot init` creates a local `.ngautopilot/` directory with:
+`ngautopilot install --agent <id> --pack <id>` writes skills and optional pack assets into the selected adapter's project or user scope. It also records managed files in `.ngautopilot-manifest.json` within that install root.
 
-- `skills/`
-- `adapters/`
-- `agents/`
-- `catalog.json`
+- Use `--dry-run` to inspect the plan without writing files.
+- Use `ngautopilot export --agent <id> --pack <id> --output <dir>` for a portable snapshot.
 
-This keeps the working context explicit and versionable without coupling the repo to a single AI tool.
+`init` remains a deprecated compatibility command; new integrations should use explicit `install` or `export` commands.
 
 ## Suggested Operating Flow
 
-1. Run `ngautopilot init` in the target repository.
+1. Choose one focused pack from [packs.md](./packs.md) and run `ngautopilot install --agent <id> --pack <pack-id> --scope project` in the target repository.
 2. Start with `skills/_core/project-intake/SKILL.md`.
 3. Continue with `skills/_core/stack-version-detection/SKILL.md`.
 4. Route into `skills/_core/skill-router/SKILL.md` and `skills/_core/compatibility-router/SKILL.md`.
@@ -71,6 +70,7 @@ quality/sonarqube
 ## Where To Go Next
 
 - CLI details: [cli-reference.md](./cli-reference.md)
+- Pack selection and Angular hop batches: [packs.md](./packs.md)
 - Angular roadmap: [angular-roadmap-guide.md](./angular-roadmap-guide.md)
 - Maintainer workflows: [maintainer-guide.md](./maintainer-guide.md)
 - Release flow: [release-checklist.md](./release-checklist.md)

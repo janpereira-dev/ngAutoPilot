@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: eslint
 status: stable
-version: 0.5.1
+version: 0.5.2
 owner: NgAutoPilot
 triggers:
   - eslint autofix node

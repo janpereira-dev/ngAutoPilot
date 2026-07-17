@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-angular",
   "name": "NgAutoPilot Angular",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "status": "stable",
   "description": "Full Angular catalog: components, signals, RxJS, router, forms, Material, SSR, testing, performance, security, AI/MCP — every Angular capability.",
   "audience": "Angular developers and teams building or maintaining Angular applications",

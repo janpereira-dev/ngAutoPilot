@@ -1,0 +1,17 @@
+{
+  "id": "ngautopilot-angular-11-to-12",
+  "name": "NgAutoPilot Angular 11 to 12",
+  "version": "0.5.2",
+  "status": "stable",
+  "description": "Compatibility routing and the bounded Angular 11 to 12 upgrade hop, including the Core installation baseline.",
+  "audience": "Teams upgrading an Angular 11 application to Angular 12",
+  "useCases": ["Angular 11 to 12 upgrade", "Legacy Angular compatibility review"],
+  "includes": {
+    "skills": ["angular.versioning.", "angular.upgrade.hops.angular-11-to-12"],
+    "agents": ["compatibility-gatekeeper"],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}
