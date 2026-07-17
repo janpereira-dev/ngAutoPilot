@@ -28,7 +28,7 @@ jobs:
     if: github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && inputs.publish == true)
     steps:
       - name: Check out repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Node
         uses: actions/setup-node@v4
