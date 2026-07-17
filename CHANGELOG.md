@@ -8,7 +8,7 @@ Release focused on skill supply-chain controls, automated repository security an
 
 ### Added
 
-- Added deterministic skill-content security scanning and CodeQL analysis for repository scripts.
+- Added deterministic skill-content security scanning for repository scripts while retaining GitHub-managed CodeQL Default Setup.
 - Added Dependabot coverage for npm and GitHub Actions dependencies.
 - Added verified Pi and skills.sh discovery badges.
 - Added 26 focused Angular packs for foundations, state, UI, runtime, testing, modernization, migration, and every documented major upgrade hop.

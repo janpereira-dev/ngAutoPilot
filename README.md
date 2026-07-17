@@ -4,7 +4,6 @@
 [![npm downloads](https://img.shields.io/npm/dw/ngautopilot?style=flat-square&logo=npm&label=downloads)](https://www.npmjs.com/package/ngautopilot)
 [![CI](https://img.shields.io/github/actions/workflow/status/janpereira-dev/ngAutoPilot/ci.yml?branch=main&style=flat-square&logo=githubactions&label=CI)](https://github.com/janpereira-dev/ngAutoPilot/actions/workflows/ci.yml)
 [![Release Gates](https://img.shields.io/github/actions/workflow/status/janpereira-dev/ngAutoPilot/release-gates.yml?branch=main&style=flat-square&logo=githubactions&label=release%20gates)](https://github.com/janpereira-dev/ngAutoPilot/actions/workflows/release-gates.yml)
-[![CodeQL](https://img.shields.io/github/actions/workflow/status/janpereira-dev/ngAutoPilot/codeql.yml?branch=main&style=flat-square&logo=githubactions&label=CodeQL)](https://github.com/janpereira-dev/ngAutoPilot/actions/workflows/codeql.yml)
 [![License](https://img.shields.io/npm/l/ngautopilot?style=flat-square&label=license)](https://github.com/janpereira-dev/ngAutoPilot/blob/main/LICENSE)
 [![Node](https://img.shields.io/node/v/ngautopilot?style=flat-square&logo=nodedotjs&label=node)](https://github.com/janpereira-dev/ngAutoPilot/blob/main/package.json)
 [![Pi package](https://img.shields.io/badge/Pi-package-5E6AD2?style=flat-square)](https://pi.dev/packages/ngautopilot?name=janpere&sort=recent)
