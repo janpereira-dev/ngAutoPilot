@@ -1,7 +1,7 @@
 {
   "name": "ngautopilot",
-  "version": "0.5.1",
-  "description": "Agnostic micro-skills for Angular, TypeScript and JavaScript development with AI agents.",
+  "version": "0.5.2",
+  "description": "Agent-agnostic CLI and catalog of skills, subagents, prompts, guardrails, and packs for safe Angular, TypeScript, and frontend engineering.",
   "type": "module",
   "bin": {
     "ngautopilot": "./bin/ngautopilot.mjs"
@@ -47,6 +47,7 @@
     "release:check-version": "node scripts/check-release-version.mjs",
     "skills:validate": "node scripts/validate-skills.mjs",
     "skills:validate:frontmatter": "python scripts/validate-skill-frontmatter.py",
+    "security:scan": "node scripts/security-scan-skills.mjs",
     "distribution:validate": "node scripts/validate-distribution-contract.mjs",
     "skills:catalog": "node scripts/generate-catalog.mjs",
     "skills:export": "node scripts/export-adapter.mjs",
@@ -59,7 +60,7 @@
     "marketplaces:validate": "npm run claude:validate && npm run codex:validate",
     "consistency:validate": "node scripts/validate-consistency.mjs",
     "test": "node --test tests/**/*.test.mjs",
-    "release:validate": "npm run skills:validate:frontmatter && npm run skills:validate && npm run distribution:validate && npm run skills:catalog && npm run plugins:sync && npm run marketplaces:validate && npm run consistency:validate && npm run release:check-version && npm test",
+    "release:validate": "npm run skills:validate:frontmatter && npm run skills:validate && npm run security:scan && npm run distribution:validate && npm run skills:catalog && npm run plugins:sync && npm run marketplaces:validate && npm run consistency:validate && npm run release:check-version && npm test",
     "hooks:install": "node scripts/install-git-hooks.mjs",
     "cli": "node bin/ngautopilot.mjs",
     "pack:dry": "npm pack --dry-run"
@@ -75,7 +76,19 @@
     "skills",
     "frontend",
     "agent-agnostic",
-    "angular-upgrade"
+    "angular-upgrade",
+    "agent-skills",
+    "ai-coding-agent",
+    "angular-migration",
+    "angular-architecture",
+    "frontend-engineering",
+    "microfrontends",
+    "ai-guardrails",
+    "codex",
+    "claude-code",
+    "github-copilot",
+    "cursor",
+    "opencode"
   ],
   "pi": {
     "skills": [

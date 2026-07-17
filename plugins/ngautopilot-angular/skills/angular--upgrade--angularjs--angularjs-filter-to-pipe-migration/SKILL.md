@@ -8,7 +8,7 @@ stack:
   - AngularJS
 category: angularjs
 status: stable
-version: 0.5.1
+version: 0.5.2
 owner: NgAutoPilot
 triggers:
   - AngularJS filter migration

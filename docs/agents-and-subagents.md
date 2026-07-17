@@ -6,7 +6,7 @@ NgAutoPilot ships 8 canonical agent roles under `agents/ngautopilot/`. These are
 
 ## Invocation policy
 
-```
+```text
 1 task → 1 orchestrator → max 3 primary subagents → helpers only under trigger
 ```
 
@@ -33,6 +33,7 @@ Do not activate all subagents for every task.
 ## Integration
 
 Each subagent file defines:
+
 - Identity and philosophical style
 - Mission
 - Activation triggers
@@ -47,7 +48,7 @@ Each subagent file defines:
 
 An AI agent (Codex, Claude Code, OpenCode) loads the subagent Markdown when a trigger matches. The agent adopts the role for the scope of that task. NgAutoPilot routes the skills; the subagent provides oversight.
 
-## Pack assignment
+## Pack Assignment
 
 | Pack | Agents included |
 | --- | --- |
@@ -56,3 +57,5 @@ An AI agent (Codex, Claude Code, OpenCode) loads the subagent Markdown when a tr
 | `ngautopilot-typescript` | `stoic-typescript-guardian` |
 | `ngautopilot-quality` | `spartan-contrarian-developer`, `roman-consolidator` |
 | `ngautopilot-full` | All 8 |
+
+Focused Angular packs include only matching specialist role: Foundations includes `athenian-angular-architect`, State includes `rxjs-oracle`, Testing includes `testing-hoplite`, and migration or upgrade-hop packs include `compatibility-gatekeeper`. All focused packs resolve Core automatically.

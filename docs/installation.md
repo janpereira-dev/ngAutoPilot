@@ -3,34 +3,51 @@
 ## Prerequisites
 
 - Node.js >= 18.18.0
-- An AI agent that reads Markdown instructions (Codex, Claude Code, OpenCode, Copilot, Cursor, Gemini, or any AGENTS.md consumer)
+- An AI agent with a matching adapter: Claude, Codex, Copilot, Cursor, Gemini, Hermes, OpenClaw, OpenCode, Pi, or generic Markdown export
 
-## Quick install (project scope)
+## Choose Installation Path
+
+Use the NgAutoPilot CLI for bounded installation across supported adapters. `npx skills add janpereira-dev/ngAutoPilot` exposes the entire repository because the third-party `skills` CLI has no pack-selection contract; `skills.sh.json` affects only the web page.
+
+Start by listing exact adapters and packs:
 
 ```bash
-# Install Core pack for Codex
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-core --scope project
-
-# Install Angular pack for Claude Code
-npm exec --package=ngautopilot -- ngautopilot install --agent claude --pack ngautopilot-angular --scope project
+npm exec --package=ngautopilot -- ngautopilot adapters
+npm exec --package=ngautopilot -- ngautopilot packs
 ```
 
-## Quick install (user scope)
+Read [Pack Selection](packs.md) before choosing an Angular version hop or domain pack.
+
+## Quick Install: Project Scope
 
 ```bash
-# Install Core for OpenCode globally
-npm exec --package=ngautopilot -- ngautopilot install --agent opencode --pack ngautopilot-core --scope user
+# Inspect Angular 21 to 22 plan for Codex
+npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-21-to-22 --scope project --dry-run
+
+# Apply the inspected plan
+npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-21-to-22 --scope project --yes
+```
+
+## Quick Install: User Scope
+
+```bash
+# Install Signals and RxJS guidance for OpenCode globally
+npm exec --package=ngautopilot -- ngautopilot install --agent opencode --pack ngautopilot-angular-state --scope user --yes
 ```
 
 ## What happens
 
-1. NgAutoPilot reads the pack definition from `packs/<pack-id>.json`.
+1. NgAutoPilot resolves selected pack and its dependencies from `packs/<pack-id>.json`.
 2. It matches skills from `catalog.json` by ID prefix.
-3. It computes the install root for the selected agent and scope.
-4. It creates a backup if one does not exist.
-5. It copies skill files into the install root.
-6. It writes an instruction file (e.g. `AGENTS.md`, `CLAUDE.md`) if the adapter provides a template.
-7. It writes `.ngautopilot-manifest.json` listing every file with a SHA-256 checksum.
+3. It computes the install root for selected adapter and scope.
+4. It removes unchanged files owned by prior selected pack at same location.
+5. It copies selected skill files into install root.
+6. It writes instruction file such as `AGENTS.md`, `CLAUDE.md`, or `PI.md` when adapter provides template.
+7. It writes `.ngautopilot-manifest.json` with SHA-256 checksum for every managed file.
+
+## Switching Packs
+
+Use one focused pack for current task. Installing a different pack for same agent and scope switches managed selection: files from prior pack are removed only when their checksum matches manifest. User-modified files are preserved and reported. Run `--dry-run` before every switch.
 
 ## Idempotency
 

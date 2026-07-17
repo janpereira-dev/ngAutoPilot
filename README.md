@@ -6,26 +6,76 @@
 [![Release Gates](https://img.shields.io/github/actions/workflow/status/janpereira-dev/ngAutoPilot/release-gates.yml?branch=main&style=flat-square&logo=githubactions&label=release%20gates)](https://github.com/janpereira-dev/ngAutoPilot/actions/workflows/release-gates.yml)
 [![License](https://img.shields.io/npm/l/ngautopilot?style=flat-square&label=license)](https://github.com/janpereira-dev/ngAutoPilot/blob/main/LICENSE)
 [![Node](https://img.shields.io/node/v/ngautopilot?style=flat-square&logo=nodedotjs&label=node)](https://github.com/janpereira-dev/ngAutoPilot/blob/main/package.json)
+[![Pi package](https://img.shields.io/badge/Pi-package-5E6AD2?style=flat-square)](https://pi.dev/packages/ngautopilot?name=janpere&sort=recent)
+[![skills.sh](https://img.shields.io/badge/skills.sh-listed-000000?style=flat-square)](https://www.skills.sh/janpereira-dev/ngautopilot)
 
 <p align="left">
   <img src="assets/ngautopilot-hero.svg" alt="NgAutoPilot hero banner" />
 </p>
 
-NgAutoPilot is an installable catalog of micro-skills that helps AI coding agents work safely in Angular, TypeScript, JavaScript, RxJS, testing, code quality, architecture, versioning, and governance workflows.
+**Version-aware engineering skills, routing, and guardrails for AI coding agents.**
 
-It keeps agents on a small, repeatable loop: inspect the repo, detect stack and versions, route to the smallest skill, apply compatibility and risk gates, make the smallest reversible change, and validate the result.
+NgAutoPilot is an agent-agnostic engineering toolkit and CLI that packages version-aware skills, routing, subagent roles, an operational prompt, guardrails, adapters, and installable packs for safe Angular and frontend development.
 
-## Quick Start
+It keeps agents on a small, repeatable loop: inspect the repository, detect stack and versions, select the smallest relevant capability, apply compatibility and risk gates, make a reversible change, and validate the result.
+
+## What Ships With NgAutoPilot
+
+| Component | Responsibility |
+| --- | --- |
+| Skills | 413 reusable engineering procedures with compatibility and validation guidance |
+| Core routing | Intake, stack detection, capability selection, compatibility, and risk decisions |
+| Packs | Installable technology and workflow selections for core, Angular, frontend, quality, and more |
+| Adapters | Agent-specific installation layouts and instruction files for 10 supported targets |
+| Subagents | Eight focused Markdown review roles for independent specialist oversight |
+| Operational prompt | One canonical integration prompt for wiring skills and subagents into a project |
+| Guardrails | 30 frontend review contracts for product, accessibility, design-system, test, and performance risks |
+| CLI | Install, update, verify, backup, restore, export, and catalog inspection commands |
+| Plugins and gates | Marketplace bundles plus catalog, distribution, consistency, and release validation |
+
+NgAutoPilot does not autonomously rewrite repositories. It helps an agent choose evidence-backed, bounded work and prove the result.
+
+## Install A Focused Pack
+
+Do not start with `npx skills add janpereira-dev/ngAutoPilot` unless you intentionally want its flat 413-skill selector. The `skills` CLI has no pack-selection protocol; `skills.sh.json` changes only the repository page.
+
+NgAutoPilot is the bounded, agent-neutral install path. Pick one pack for current task, inspect its plan, then install it:
 
 ```bash
-npm exec --package=ngautopilot -- ngautopilot help
-npm exec --package=ngautopilot -- ngautopilot list
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-core --dry-run
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-core --yes
-npm exec --package=ngautopilot -- ngautopilot doctor
+npm exec --package=ngautopilot -- ngautopilot adapters
+npm exec --package=ngautopilot -- ngautopilot packs
+npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-21-to-22 --dry-run
+npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-21-to-22 --yes
 ```
 
-The CLI requires an agent and an explicit pack. It writes only below the selected adapter's project or user scope; `ngautopilot-full` is always explicit.
+Every focused pack includes `ngautopilot-core` automatically. Switching packs at same agent and scope removes prior unchanged managed files; modified files are preserved and reported. `ngautopilot-full` remains explicit for maintainers and offline mirrors.
+
+| Goal | Start with |
+| --- | --- |
+| Any agent, any project | `ngautopilot-core` |
+| New Angular work | `ngautopilot-angular-foundations` |
+| Signals and RxJS | `ngautopilot-angular-state` |
+| Forms, router, templates, Material | `ngautopilot-angular-ui` |
+| SSR, performance, security, runtime | `ngautopilot-angular-runtime` |
+| Angular testing | `ngautopilot-angular-testing` |
+| AngularJS migration | `ngautopilot-angular-migration` |
+| One Angular upgrade hop | `ngautopilot-angular-<from>-to-<to>` |
+| Angular 21 to 22 | `ngautopilot-angular-21-to-22` |
+
+Adapter IDs are `claude`, `codex`, `copilot`, `cursor`, `gemini`, `generic`, `hermes`, `openclaw`, `opencode`, and `pi`. Run `ngautopilot adapters` for each adapter's current scope and verification status.
+
+Read [Pack Selection](docs/packs.md) for every pack, historical Angular hops, and agent examples. Read [Installation](docs/installation.md) for switching, updates, verification, export, and offline use.
+
+## Choose Right Entry Point
+
+| Entry point | Use it for | Does it select a focused pack? |
+| --- | --- | --- |
+| `npm exec --package=ngautopilot -- ngautopilot install ...` | Official project or user-scope installation for every adapter | Yes |
+| `npx skills add janpereira-dev/ngAutoPilot` | Manual discovery of individual skills through skills.sh | No, it shows every discovered skill |
+| Claude and Codex marketplaces | Native plugin discovery and installation | No, plugin bundles distribute source skills |
+| Pi package metadata | Pi package discovery of source skills and prompts | No, use CLI for bounded installation |
+
+Packs are shared selection policy. Adapters translate one selected pack into each agent's native layout. Marketplace bundles are useful discovery channels, but they do not replace the pack installer.
 
 ## Naming
 
@@ -74,7 +124,7 @@ NgAutoPilot answers that with small, reusable, public skills that can be routed 
 | Performance audits | template functions, change detection, trackBy, Core Web Vitals |
 | Testing | Angular TestBed, Jest, strategy selection, validation contracts |
 | Quality workflows | lint cleanup, dead code, SonarQube triage, consistency checks |
-| Agent adapters | Codex, Claude Code, Copilot, Cursor, Gemini, generic exports |
+| Agent adapters | Claude, Codex, Copilot, Cursor, Gemini, Hermes, OpenClaw, OpenCode, Pi, and generic exports |
 
 ## How It Works
 
@@ -84,6 +134,44 @@ NgAutoPilot answers that with small, reusable, public skills that can be routed 
 4. Make the smallest reversible change.
 5. Validate the result.
 6. Package docs, bundles, or review artifacts when needed.
+
+## Mental Model
+
+```txt
+User task
+  -> Adapter
+  -> Core intake and version detection
+  -> Skill router
+  -> Compatibility and risk gates
+  -> Targeted skills
+  -> Optional specialist subagents
+  -> Validation and delivery
+```
+
+- A **skill** defines how to perform one technical operation.
+- A **pack** selects skills and optional specialist assets to install.
+- An **adapter** determines where and how that content is installed for an agent.
+- A **subagent** supplies independent review for a matching risk; it does not replace skill routing.
+- The operational **prompt** integrates the system into a project workflow.
+- A **guardrail** blocks unsafe or unjustified frontend decisions during review; it is not runtime enforcement.
+
+## Example Workflows
+
+### Upgrade an Angular application
+
+> Upgrade this repository from Angular 17 to Angular 18. Detect Node, TypeScript, and RxJS versions, keep modernization outside the upgrade hop, and stop on blocking compatibility risks.
+
+### Review an Angular pull request
+
+> Review this pull request with Angular architecture, TypeScript, testing, accessibility, and compatibility skills. Separate blocking findings from recommendations.
+
+### Improve an AI-generated interface
+
+> Audit this interface for generic AI patterns, accessibility, responsive behavior, interaction states, design-system consistency, and measurable performance risks.
+
+### Harden Jest tests
+
+> Review these Angular Jest tests for fragile TestBed setup, missing branches, incorrect mocks, and unstable async behavior.
 
 <p align="left">
   <img src="assets/ngautopilot-flow.svg" alt="NgAutoPilot workflow diagram" />
@@ -136,6 +224,19 @@ Public usage docs:
 - [docs/release-checklist.md](docs/release-checklist.md)
 - [docs/agents-and-subagents.md](docs/agents-and-subagents.md)
 - [docs/design-excellence-guide.md](docs/design-excellence-guide.md)
+
+## Packs, Adapters, And Review Assets
+
+Use `ngautopilot packs` to inspect the 10 installable packs and `ngautopilot adapters` to inspect the 10 agent adapters with their current support status and scopes.
+
+| Asset | Current capability |
+| --- | --- |
+| Packs | Core, Angular, Angular upgrades, micro-frontends, frontend, CSS, TypeScript, JavaScript, quality, and full catalog |
+| Subagents | Eight specialist Markdown roles: architecture, contrarian review, consolidation, TypeScript, RxJS, testing, compatibility, and repository discovery |
+| Prompt | `agents/ngautopilot/prompts/codex-integration.md` is the canonical operational integration prompt |
+| Guardrails | 30 frontend review contracts; agents apply them during review, not through runtime code enforcement |
+
+Read [docs/packs.md](docs/packs.md), [docs/agents-and-subagents.md](docs/agents-and-subagents.md), and [docs/prompts-and-guardrails.md](docs/prompts-and-guardrails.md) for details.
 
 Maintainer and repository docs:
 

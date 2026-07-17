@@ -1,0 +1,17 @@
+{
+  "id": "ngautopilot-angular-modernization",
+  "name": "NgAutoPilot Angular Modernization",
+  "version": "0.5.2",
+  "status": "stable",
+  "description": "Standalone, control flow, defer views, and zoneless modernization guidance after a stable Angular upgrade.",
+  "audience": "Teams modernizing a supported Angular application",
+  "useCases": ["Post-upgrade modernization", "Control flow and zoneless adoption"],
+  "includes": {
+    "skills": ["angular.modernization."],
+    "agents": [],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

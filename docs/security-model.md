@@ -14,11 +14,15 @@ NgAutoPilot is a catalog of Markdown guidance files plus a Node.js installer. Th
 ### 1. Skill content
 
 - All skills are Markdown. They guide agents; they do not execute.
-- Skills are reviewed via `npm run skills:validate` and `npm run skills:validate:frontmatter`.
+- Skills are reviewed via `npm run skills:validate`, `npm run skills:validate:frontmatter`, and `npm run security:scan`.
 - No skill should instruct the agent to execute `curl | sh`, download remote scripts, or run `npx` with untrusted packages.
 - No skill should hardcode secrets, tokens, or private URLs.
 - No skill should assume a specific OS, shell, or absolute path.
 - See `docs/trust-levels.md` for the risk classification.
+
+`security:scan` is a deterministic release gate. It scans source skills, agents, adapters, packs, scripts, published documentation, and workflow definitions. It rejects unresolved merge markers, invisible or bidirectional Unicode controls, remote shell and PowerShell execution pipelines, private-key or credential-shaped material, and broad `allowed-tools` shell permissions in skill frontmatter. It is defense in depth, not proof that prose is safe.
+
+For an independent deep scan, maintainers can run [NVIDIA SkillSpector](https://github.com/NVIDIA/skillspector) locally with `--no-llm`. Do not enable its LLM mode for unpublished or sensitive content unless the selected provider and data-egress policy have been reviewed.
 
 ### 2. Installer
 
@@ -48,7 +52,8 @@ NgAutoPilot is a catalog of Markdown guidance files plus a Node.js installer. Th
 
 If a skill is found to instruct unsafe behavior:
 
-1. Mark the skill `status: blocked` in frontmatter.
-2. `validate-skills.mjs` accepts `blocked` as a valid status (to be added).
-3. The skill is excluded from catalog generation and plugin sync.
-4. A fix is applied and the status returns to `stable` or `experimental` as appropriate.
+1. Remove the skill from source and generated bundles in the same change.
+2. Publish a fixed release after catalog and bundle validation.
+3. Record the incident and remediation in the changelog or advisory when disclosure is appropriate.
+
+The active catalog accepts only `stable` skills. It does not support a publishable `blocked` or `experimental` state.

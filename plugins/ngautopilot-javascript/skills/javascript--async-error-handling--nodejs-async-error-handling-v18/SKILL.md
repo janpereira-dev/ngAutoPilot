@@ -9,7 +9,7 @@ stack:
   - Node.js
 category: javascript
 status: stable
-version: 0.5.1
+version: 0.5.2
 owner: NgAutoPilot
 triggers:
   - node async error handling

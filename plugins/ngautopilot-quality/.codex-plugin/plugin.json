@@ -1,6 +1,6 @@
 {
   "name": "ngautopilot-quality",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Complete quality skills for ESLint, SonarQube, dead code, technical debt, and quality decision workflows.",
   "author": {
     "name": "Jan Pereira",

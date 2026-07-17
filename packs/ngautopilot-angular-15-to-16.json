@@ -1,0 +1,17 @@
+{
+  "id": "ngautopilot-angular-15-to-16",
+  "name": "NgAutoPilot Angular 15 to 16",
+  "version": "0.5.2",
+  "status": "stable",
+  "description": "Compatibility routing and the bounded Angular 15 to 16 upgrade hop, including the Core installation baseline.",
+  "audience": "Teams upgrading an Angular 15 application to Angular 16",
+  "useCases": ["Angular 15 to 16 upgrade", "Legacy Angular compatibility review"],
+  "includes": {
+    "skills": ["angular.versioning.", "angular.upgrade.hops.angular-15-to-16"],
+    "agents": ["compatibility-gatekeeper"],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

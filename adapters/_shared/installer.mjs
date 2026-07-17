@@ -106,10 +106,21 @@ export function backup(plan, options = {}) {
 function computeDryRun(plan, force) {
   const existing = fs.existsSync(plan.installRoot) ? loadManifest(plan.installRoot) : null;
   const existingOwned = new Map((existing?.files || []).map((f) => [f.path, f]));
+  const desiredPaths = new Set(plan.files.map((file) => file.path));
   let wouldCreate = 0;
   let wouldUpdate = 0;
   let wouldSkip = 0;
+  let wouldRemove = 0;
   const warnings = [];
+
+  for (const entry of existing?.files || []) {
+    if (!desiredPaths.has(entry.path) && fs.existsSync(path.join(plan.installRoot, entry.path))) {
+      const currentChecksum = sha256(fs.readFileSync(path.join(plan.installRoot, entry.path), 'utf8'));
+      if (currentChecksum === entry.checksum || force) wouldRemove += 1;
+      else warnings.push(`would refuse to remove user-modified file: ${entry.path}`);
+    }
+  }
+
   for (const file of plan.files) {
     const destAbs = path.join(plan.installRoot, file.path);
     const exists = fs.existsSync(destAbs);
@@ -129,7 +140,7 @@ function computeDryRun(plan, force) {
       wouldCreate += 1;
     }
   }
-  return { ok: true, created: wouldCreate, updated: wouldUpdate, skipped: wouldSkip, manifestPath: path.join(plan.installRoot, MANIFEST_NAME), warnings };
+  return { ok: true, created: wouldCreate, updated: wouldUpdate, skipped: wouldSkip, removed: wouldRemove, manifestPath: path.join(plan.installRoot, MANIFEST_NAME), warnings };
 }
 
 export function applyPlan(plan, opts = {}) {
@@ -144,11 +155,33 @@ export function applyPlan(plan, opts = {}) {
   const guardRoot = guard(plan.installRoot);
   const existing = loadManifest(plan.installRoot);
   const existingOwned = new Map((existing?.files || []).map((f) => [f.path, f]));
+  const desiredPaths = new Set(plan.files.map((file) => file.path));
   const warnings = [];
   let created = 0;
   let updated = 0;
   let skipped = 0;
+  let removed = 0;
   const manifestFiles = [];
+
+  for (const entry of existing?.files || []) {
+    if (desiredPaths.has(entry.path)) {
+      continue;
+    }
+
+    const destAbs = path.join(plan.installRoot, entry.path);
+    if (!fs.existsSync(destAbs)) {
+      continue;
+    }
+
+    const currentChecksum = sha256(fs.readFileSync(destAbs, 'utf8'));
+    if (currentChecksum !== entry.checksum && !force) {
+      warnings.push(`refuse to remove user-modified file: ${entry.path}`);
+      continue;
+    }
+
+    safeRemoveFile(guardRoot, entry.path);
+    removed += 1;
+  }
 
   for (const file of plan.files) {
     // Compute current checksum if exists.
@@ -194,7 +227,7 @@ export function applyPlan(plan, opts = {}) {
     saveManifest(plan.installRoot, record);
   }
 
-  return { ok: true, created, updated, skipped, manifestPath: path.join(plan.installRoot, MANIFEST_NAME), warnings };
+  return { ok: true, created, updated, skipped, removed, manifestPath: path.join(plan.installRoot, MANIFEST_NAME), warnings };
 }
 
 /**

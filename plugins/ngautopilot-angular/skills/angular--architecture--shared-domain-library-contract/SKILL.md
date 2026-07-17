@@ -9,7 +9,7 @@ stack:
   - Nx
 category: architecture
 status: stable
-version: 0.5.1
+version: 0.5.2
 owner: NgAutoPilot
 triggers:
   - shared domain

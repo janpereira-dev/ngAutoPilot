@@ -27,6 +27,19 @@ function planFor(workdir, agent = 'codex', scope = 'project') {
   });
 }
 
+function planForPack(workdir, packId, agent = 'codex', scope = 'project') {
+  return buildPlan({
+    catalogPath: path.join(REPO, 'catalog.json'),
+    packPath: path.join(REPO, 'packs', `${packId}.json`),
+    adaptersRoot: path.join(REPO, 'adapters'),
+    sourceRoot: REPO,
+    agent,
+    scope,
+    cwd: workdir,
+    home: workdir,
+  });
+}
+
 test('adapter registry lists 10 adapters', () => {
   const ids = listAdapters(path.join(REPO, 'adapters'));
   assert.equal(ids.length, 10, `expected 10 adapters, got ${ids.length}: ${ids.join(', ')}`);
@@ -48,6 +61,30 @@ test('planner resolves core pack and emits only _core skills', () => {
   fs.rmSync(workdir, { recursive: true, force: true });
 });
 
+test('planner includes transitive pack dependencies', () => {
+  const workdir = makeWorkdir();
+  const plan = planForPack(workdir, 'ngautopilot-angular-microfrontends');
+  const skillFiles = plan.files.filter((file) => file.path.startsWith('skills/'));
+
+  assert.ok(skillFiles.some((file) => file.path.startsWith('skills/_core/')));
+  assert.ok(skillFiles.some((file) => file.path.includes('skills/angular/microfrontends/')));
+  fs.rmSync(workdir, { recursive: true, force: true });
+});
+
+test('every pack resolves to at least one skill', () => {
+  const workdir = makeWorkdir();
+  const packIds = fs.readdirSync(path.join(REPO, 'packs'))
+    .filter((file) => file.endsWith('.json'))
+    .map((file) => path.basename(file, '.json'));
+
+  for (const packId of packIds) {
+    const plan = planForPack(workdir, packId);
+    assert.ok(plan.files.some((file) => file.path.startsWith('skills/')), `${packId} must include skills`);
+  }
+
+  fs.rmSync(workdir, { recursive: true, force: true });
+});
+
 test('install is idempotent: re-run creates no extra writes', () => {
   const workdir = makeWorkdir();
   const plan = planFor(workdir);
@@ -59,6 +96,23 @@ test('install is idempotent: re-run creates no extra writes', () => {
   assert.equal(r2.created, 0, 'second run must not create');
   assert.equal(r2.updated, 0, 'second run must not update');
   assert.equal(r2.skipped, plan.files.length, 'second run must skip all');
+  fs.rmSync(workdir, { recursive: true, force: true });
+});
+
+test('switching packs removes prior managed files outside the new plan', () => {
+  const workdir = makeWorkdir();
+  const foundations = planForPack(workdir, 'ngautopilot-angular-foundations');
+  const state = planForPack(workdir, 'ngautopilot-angular-state');
+  applyPlan(foundations);
+
+  const foundationOnly = foundations.files.find((file) => file.path.includes('skills/angular/architecture/'));
+  assert.ok(foundationOnly, 'foundations pack must include architecture skills');
+  assert.equal(fs.existsSync(path.join(foundations.installRoot, foundationOnly.path)), true);
+
+  const result = applyPlan(state);
+  assert.ok(result.removed > 0, 'switching packs must remove prior managed files');
+  assert.equal(fs.existsSync(path.join(foundations.installRoot, foundationOnly.path)), false);
+  assert.ok(verifyInstall(state).ok, 'new pack manifest must verify');
   fs.rmSync(workdir, { recursive: true, force: true });
 });
 

@@ -6,7 +6,7 @@ stack:
   - Angular
 category: styles
 status: stable
-version: 0.5.1
+version: 0.5.2
 owner: NgAutoPilot
 triggers:
   - host css custom properties

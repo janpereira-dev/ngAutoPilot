@@ -14,7 +14,8 @@ import { loadAdapterManifest } from './adapter-core.mjs';
 
 export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, agent, scope, cwd, home }) {
   const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
-  const pack = JSON.parse(fs.readFileSync(packPath, 'utf8'));
+  const packs = resolvePacks(packPath);
+  const pack = packs.at(-1);
   const manifest = loadAdapterManifest(adaptersRoot, agent);
 
   if (!manifest.scope.includes(scope)) {
@@ -26,7 +27,7 @@ export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, age
     : path.resolve(home || safeHome(), manifest.paths.user);
   const manifestPath = path.join(installRoot, '.ngautopilot-manifest.json');
 
-  const matches = matchSkills(catalog.skills, pack);
+  const matches = uniqueById(packs.flatMap((candidate) => matchSkills(catalog.skills, candidate)));
   const files = [];
   const warnings = [];
 
@@ -58,7 +59,7 @@ export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, age
     });
   }
 
-  for (const agentId of pack.includes?.agents ?? []) {
+  for (const agentId of uniqueValues(packs.flatMap((candidate) => candidate.includes?.agents ?? []))) {
     const source = findAsset(sourceRoot, 'agents', agentId);
     if (!source) {
       warnings.push(`agent source missing: ${agentId}`);
@@ -67,7 +68,7 @@ export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, age
     files.push({ path: path.relative(sourceRoot, source), source, action: 'create', checksum: undefined });
   }
 
-  for (const promptId of pack.includes?.prompts ?? []) {
+  for (const promptId of uniqueValues(packs.flatMap((candidate) => candidate.includes?.prompts ?? []))) {
     const source = findAsset(sourceRoot, 'agents', promptId);
     if (!source) {
       warnings.push(`prompt source missing: ${promptId}`);
@@ -77,6 +78,29 @@ export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, age
   }
 
   return { agent, scope, pack: pack.id, installRoot, manifestPath, files, warnings };
+}
+
+function resolvePacks(packPath, resolving = new Set()) {
+  const pack = JSON.parse(fs.readFileSync(packPath, 'utf8'));
+
+  if (resolving.has(pack.id)) {
+    throw new Error(`pack dependency cycle: ${[...resolving, pack.id].join(' -> ')}`);
+  }
+
+  const nextResolving = new Set([...resolving, pack.id]);
+  const packs = [];
+
+  for (const dependency of pack.dependsOn ?? []) {
+    const dependencyPath = path.join(path.dirname(packPath), `${dependency}.json`);
+
+    if (!fs.existsSync(dependencyPath)) {
+      throw new Error(`pack dependency missing: ${dependency}`);
+    }
+
+    packs.push(...resolvePacks(dependencyPath, nextResolving));
+  }
+
+  return [...uniqueById(packs), pack];
 }
 
 function findInstructionTemplate(adaptersRoot, agent) {
@@ -115,6 +139,14 @@ function matchSkills(skills, pack) {
     }
   }
   return included;
+}
+
+function uniqueById(items) {
+  return [...new Map(items.map((item) => [item.id, item])).values()];
+}
+
+function uniqueValues(values) {
+  return [...new Set(values)];
 }
 
 function safeHome() {
