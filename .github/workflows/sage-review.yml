@@ -26,7 +26,7 @@ jobs:
         run: npm run review:sage:pack
 
       - name: Upload review packet
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ngautopilot-sage-review-packet
           path: dist/review/sage
