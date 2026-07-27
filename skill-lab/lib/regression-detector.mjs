@@ -26,6 +26,11 @@ export function detectRegressions(baselineResults, candidateResults) {
       continue;
     }
 
+    if (!baseline.passed && !candidate.passed && scoreValue(candidate) < scoreValue(baseline)) {
+      regressions.push({ id: candidate.id, baseline, candidate });
+      continue;
+    }
+
     if (!baseline.passed && candidate.passed) {
       improvements.push({ id: candidate.id, baseline, candidate });
       continue;
@@ -41,4 +46,9 @@ export function detectRegressions(baselineResults, candidateResults) {
   }
 
   return { regressions, criticalRegressions, improvements, unchanged, missingBaselineCases, missingCandidateCases };
+}
+
+function scoreValue(result) {
+  const softScore = typeof result.softScore === 'number' ? result.softScore : 0;
+  return (result.hardScore ?? 0) + softScore / 100;
 }

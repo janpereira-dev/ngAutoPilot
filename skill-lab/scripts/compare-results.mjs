@@ -10,6 +10,7 @@ const runRoot = assertInsideLab(path.join('skill-lab', 'runs'), path.join('skill
 const baseline = readResults(args.baseline ?? path.join(runRoot, 'baseline-results', 'validation', 'results.jsonl'));
 const candidate = readResults(args.candidate ?? path.join(runRoot, 'candidate-results', 'validation', 'results.jsonl'));
 const comparison = detectRegressions(baseline, candidate);
+const candidateAggregate = readOptionalJson(path.join(runRoot, 'candidate-results', 'validation', 'aggregate.json'), {});
 const summary = {
   regressions: comparison.regressions.length,
   criticalRegressions: comparison.criticalRegressions.length,
@@ -17,7 +18,9 @@ const summary = {
   unchanged: comparison.unchanged.length,
   missingBaselineCases: comparison.missingBaselineCases.length,
   missingCandidateCases: comparison.missingCandidateCases.length,
-  winningRuns: comparison.regressions.length === 0 && comparison.missingBaselineCases.length === 0 && comparison.missingCandidateCases.length === 0 ? 1 : 0,
+  winningRuns: comparison.regressions.length === 0 && comparison.missingBaselineCases.length === 0 && comparison.missingCandidateCases.length === 0
+    ? Number(candidateAggregate.runs ?? 1)
+    : 0,
 };
 const outputRoot = path.join(runRoot, 'comparison');
 fs.mkdirSync(outputRoot, { recursive: true });
@@ -36,6 +39,10 @@ function readResults(filePath) {
     .split(/\r?\n/)
     .filter(Boolean)
     .map((line) => JSON.parse(line));
+}
+
+function readOptionalJson(filePath, fallback) {
+  return fs.existsSync(filePath) ? JSON.parse(fs.readFileSync(filePath, 'utf8')) : fallback;
 }
 
 function parseArgs(argv) {

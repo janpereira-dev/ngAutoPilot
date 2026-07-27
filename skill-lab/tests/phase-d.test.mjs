@@ -116,10 +116,11 @@ test('run-gate rejects when promotion evidence artifacts are missing', () => {
   const result = runNode(['skill-lab/scripts/run-gate.mjs', '--run', runId]);
 
   assert.equal(result.status, 1);
-  assert.match(result.stdout, /REJECTED_TEST/);
+  assert.match(result.stdout, /REJECTED_CROSS_HARNESS_REGRESSION/);
   const report = readJson(path.join(runRoot, 'gate/gate-report.json'));
   assert.equal(report.evidence.testPassed, false);
   assert.equal(report.evidence.repositoryGatesPassed, false);
+  assert.equal(report.evidence.crossHarnessRegressionCount, 1);
 });
 
 test('evaluate-skill writes results under an explicit run id', () => {
@@ -132,6 +133,21 @@ test('evaluate-skill writes results under an explicit run id', () => {
   assert.equal(result.status, 0);
   assert.equal(fs.existsSync(path.join(runRoot, 'candidate-results/validation/results.jsonl')), true);
   assert.equal(fs.existsSync(path.join(repoRoot, 'skill-lab/runs/manual-evaluation/validation/results.jsonl')), false);
+});
+
+test('evaluate-skill writes repeated run artifacts when runs is configured', () => {
+  const runId = 'phase-d-evaluate-runs';
+  const runRoot = prepareRun(runId);
+
+  const result = runNode(['skill-lab/scripts/evaluate-skill.mjs', '--run', runId, '--splits', 'validation', '--runs', '3']);
+
+  assert.equal(result.status, 0);
+  for (const runName of ['run-1', 'run-2', 'run-3']) {
+    assert.equal(fs.existsSync(path.join(runRoot, 'candidate-results/validation', runName, 'results.jsonl')), true);
+  }
+  const aggregate = readJson(path.join(runRoot, 'candidate-results/validation/aggregate.json'));
+  assert.equal(aggregate.runs, 3);
+  assert.equal(aggregate.skillHash, sha256File(path.join(runRoot, 'optimization/candidate.SKILL.md')));
 });
 
 test('compare-results writes summary evidence for downstream gate stability checks', () => {
@@ -162,6 +178,34 @@ test('compare-results writes summary evidence for downstream gate stability chec
     missingCandidateCases: 0,
     winningRuns: 1,
   });
+});
+
+test('run-gate rejects stale evaluation aggregates from another candidate', () => {
+  const runId = 'phase-d-gate-stale-aggregate';
+  const runRoot = prepareRun(runId);
+  writeValidationEvidence(runRoot);
+  writePromotionEvidence(runRoot);
+  const aggregatePath = path.join(runRoot, 'candidate-results/validation/aggregate.json');
+  const aggregate = readJson(aggregatePath);
+  writeJson(aggregatePath, { ...aggregate, skillHash: 'not-current-candidate' });
+
+  const result = runNode(['skill-lab/scripts/run-gate.mjs', '--run', runId]);
+
+  assert.equal(result.status, 1);
+  assert.match(result.stdout, /REJECTED_STRUCTURE/);
+});
+
+test('run-gate rejects missing agentic gate report instead of treating it as parity', () => {
+  const runId = 'phase-d-gate-missing-agentic';
+  const runRoot = prepareRun(runId);
+  writeValidationEvidence(runRoot);
+  writePromotionEvidence(runRoot);
+  fs.rmSync(path.join(runRoot, 'agentic-gate'), { recursive: true, force: true });
+
+  const result = runNode(['skill-lab/scripts/run-gate.mjs', '--run', runId]);
+
+  assert.equal(result.status, 1);
+  assert.match(result.stdout, /REJECTED_CROSS_HARNESS_REGRESSION/);
 });
 
 test('agentic gate consumes safe harness evidence and feeds cross-harness gate data', () => {
@@ -263,6 +307,24 @@ test('snapshot-baseline keeps explicit run ids inside skill-lab runs', () => {
   assert.match(result.stderr, /outside skill-lab/);
 });
 
+test('snapshot-baseline uses the benchmark baseline fixture and records benchmark input hashes', () => {
+  const runId = 'phase-d-snapshot-default-baseline';
+  const runRoot = path.join(repoRoot, 'skill-lab', 'runs', runId);
+  createdRuns.push(runRoot);
+  fs.rmSync(runRoot, { recursive: true, force: true });
+
+  const result = runNode(['skill-lab/scripts/snapshot-baseline.mjs', '--run', runId]);
+
+  assert.equal(result.status, 0);
+  const baseline = fs.readFileSync(path.join(runRoot, 'baseline.SKILL.md'), 'utf8');
+  const target = fs.readFileSync(targetSkill, 'utf8');
+  assert.notEqual(baseline, target);
+  const manifest = readJson(path.join(runRoot, 'manifest.json'));
+  assert.equal(typeof manifest.benchmarkHash, 'string');
+  assert.equal(typeof manifest.rubricHash, 'string');
+  assert.equal(typeof manifest.caseSetHash, 'string');
+});
+
 function prepareRun(runId) {
   const runRoot = path.join(repoRoot, 'skill-lab', 'runs', runId);
   createdRuns.push(runRoot);
@@ -283,12 +345,15 @@ function prepareRun(runId) {
 }
 
 function writeValidationEvidence(runRoot) {
+  const baselineSkill = path.join(runRoot, 'baseline.SKILL.md');
+  const candidateSkill = path.join(runRoot, 'optimization/candidate.SKILL.md');
   writeJson(path.join(runRoot, 'baseline-results/validation/aggregate.json'), {
     totalCases: 2,
     passedCases: 1,
     criticalFailures: [],
     hardScore: 0.8,
     softMedian: 0.5,
+    skillHash: sha256File(baselineSkill),
   });
   writeJson(path.join(runRoot, 'candidate-results/validation/aggregate.json'), {
     totalCases: 2,
@@ -296,6 +361,7 @@ function writeValidationEvidence(runRoot) {
     criticalFailures: [],
     hardScore: 0.96,
     softMedian: 0.53,
+    skillHash: sha256File(candidateSkill),
   });
   writeJson(path.join(runRoot, 'comparison/improvements.json'), [{ id: 'case-a' }]);
   writeJson(path.join(runRoot, 'comparison/criticalRegressions.json'), []);

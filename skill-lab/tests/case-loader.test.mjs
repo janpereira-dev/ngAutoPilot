@@ -51,6 +51,22 @@ test('validateBenchmarkCases rejects unknown check types and missing fixtures', 
   assert.throws(() => validateBenchmarkCases(benchmark, { failFast: false }), /missing fixture/);
 });
 
+test('validateBenchmarkCases accepts documented next-hop check type', () => {
+  const directory = makeTempLab();
+  const item = makeCase('documented-next-hop');
+  item.checks = [{ type: 'must-not-recommend-next-hop', critical: true }];
+  writeBenchmark(directory, {
+    train: [item],
+    validation: [makeCase('validation-id')],
+    test: [makeCase('test-id')],
+    adversarial: [makeCase('adv-id')],
+  });
+
+  const benchmark = loadBenchmark(path.join(directory, 'benchmark.yaml'));
+
+  assert.doesNotThrow(() => validateBenchmarkCases(benchmark));
+});
+
 test('validateBenchmarkCases rejects cases missing committed schema fields', () => {
   const directory = makeTempLab();
   const broken = makeCase('broken-schema');

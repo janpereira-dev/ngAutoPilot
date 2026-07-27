@@ -7,6 +7,7 @@ export const KNOWN_CHECK_TYPES = new Set([
   'decision-equals',
   'next-hop-equals',
   'must-block',
+  'must-not-recommend-next-hop',
   'must-not-block',
   'must-report-insufficient-evidence',
   'must-mention-command',

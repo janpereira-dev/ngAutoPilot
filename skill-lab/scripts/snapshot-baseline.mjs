@@ -4,20 +4,21 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 
 import { loadBenchmark, resolveBenchmarkPath } from '../lib/benchmark-loader.mjs';
-import { sha256File } from '../lib/hash-utils.mjs';
+import { sha256, sha256File } from '../lib/hash-utils.mjs';
 import { assertInsideLab } from '../lib/sandbox.mjs';
 
 const args = parseArgs(process.argv.slice(2));
 const benchmarkId = args.benchmark ?? 'angular-upgrade-validation-gate';
 const benchmark = loadBenchmark(resolveBenchmarkPath(benchmarkId));
 const targetSkillPath = path.resolve(benchmark.targetSkill.path);
+const baselineSkillPath = path.resolve(benchmark.baselineSkill?.path ?? benchmark.targetSkill.path);
 const runId = args.run ?? `${new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19)}-${benchmark.id}`;
 const runRoot = assertInsideLab(path.join('skill-lab', 'runs'), path.join('skill-lab', 'runs', runId));
 fs.mkdirSync(runRoot, { recursive: true });
 
 const baselineTarget = path.join(runRoot, 'baseline.SKILL.md');
-fs.copyFileSync(targetSkillPath, baselineTarget);
-fs.writeFileSync(path.join(runRoot, 'baseline.sha256'), `${sha256File(targetSkillPath)}\n`, 'utf8');
+fs.copyFileSync(baselineSkillPath, baselineTarget);
+fs.writeFileSync(path.join(runRoot, 'baseline.sha256'), `${sha256File(baselineSkillPath)}\n`, 'utf8');
 
 const manifest = {
   runId,
@@ -25,9 +26,14 @@ const manifest = {
   repositoryCommit: currentGitSha(),
   targetSkillPath: benchmark.targetSkill.path,
   targetSkillHash: sha256File(targetSkillPath),
+  baselineSkillPath: path.relative(process.cwd(), baselineSkillPath).split(path.sep).join('/'),
+  baselineSkillHash: sha256File(baselineSkillPath),
   benchmarkId: benchmark.id,
   benchmarkVersion: benchmark.version,
   benchmarkPath: path.relative(process.cwd(), benchmark.path).split(path.sep).join('/'),
+  benchmarkHash: sha256File(benchmark.path),
+  rubricHash: sha256File(path.join(benchmark.root, 'rubric.json')),
+  caseSetHash: hashCaseSet(benchmark),
   createdAt: new Date().toISOString(),
 };
 
@@ -38,6 +44,14 @@ console.log(runRoot);
 function currentGitSha() {
   const result = spawnSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' });
   return result.status === 0 ? result.stdout.trim() : 'unknown';
+}
+
+function hashCaseSet(benchmark) {
+  const contents = Object.entries(benchmark.splits)
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([split, relativePath]) => `${split}\n${fs.readFileSync(path.join(benchmark.root, relativePath), 'utf8')}`)
+    .join('\n');
+  return sha256(contents);
 }
 
 function parseArgs(argv) {

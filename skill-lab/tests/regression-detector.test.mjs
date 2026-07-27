@@ -34,3 +34,16 @@ test('detectRegressions reports missing baseline and candidate cases', () => {
   assert.deepEqual(result.missingBaselineCases.map((item) => item.id), ['candidate-only']);
   assert.deepEqual(result.missingCandidateCases.map((item) => item.id), ['baseline-only']);
 });
+
+test('detectRegressions flags partial per-case degradation', () => {
+  const baseline = [
+    { id: 'partial-case', passed: false, criticalFailure: false, hardScore: 0.75, softScore: 0.8 },
+  ];
+  const candidate = [
+    { id: 'partial-case', passed: false, criticalFailure: false, hardScore: 0.5, softScore: 0.8 },
+  ];
+
+  const result = detectRegressions(baseline, candidate);
+
+  assert.deepEqual(result.regressions.map((item) => item.id), ['partial-case']);
+});

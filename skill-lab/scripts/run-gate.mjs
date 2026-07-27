@@ -23,10 +23,12 @@ const evidence = collectGateEvidence(runRoot, args.stage ?? 'validation');
 const baselineTokenCount = approximateTokens(baselineSkill);
 const candidateTokenCount = approximateTokens(candidateSkill);
 const limits = benchmark.limits ?? { maxCandidateTokens: 2200, maxChangedLinesPercent: 25, maxGrowthPercent: 20 };
+const baselineHash = sha256(baselineSkill);
+const candidateHash = sha256(candidateSkill);
 const result = runGate({
   frontmatterIsEqual: frontmatterIsByteEqual(baselineSkill, candidateSkill),
-  structureIsValid: structure.valid,
-  securityPassed: !/curl\b[^\n|]*\|\s*(?:sudo\s+)?(?:ba)?sh/i.test(candidateSkill),
+  structureIsValid: structure.valid && aggregateHashesMatch({ baselineAggregate, candidateAggregate, baselineHash, candidateHash }),
+  securityPassed: !remoteShellPattern().test(candidateSkill),
   baselineAggregate,
   candidateAggregate: {
     ...candidateAggregate,
@@ -49,7 +51,7 @@ const result = runGate({
 });
 
 fs.mkdirSync(path.join(runRoot, 'gate'), { recursive: true });
-fs.writeFileSync(path.join(runRoot, 'gate', 'gate-report.json'), `${JSON.stringify({ ...result, structure, evidence: { ...evidence, candidateHash: sha256(candidateSkill), targetSkillPath: benchmark.targetSkill.path } }, null, 2)}\n`, 'utf8');
+fs.writeFileSync(path.join(runRoot, 'gate', 'gate-report.json'), `${JSON.stringify({ ...result, structure, evidence: { ...evidence, baselineHash, candidateHash, targetSkillPath: benchmark.targetSkill.path } }, null, 2)}\n`, 'utf8');
 console.log(result.status);
 process.exit(result.accepted ? 0 : 1);
 
@@ -78,6 +80,14 @@ function approximateTokens(value) {
 function growthPercent(baselineTokenCount, candidateTokenCount) {
   if (baselineTokenCount === 0) return candidateTokenCount === 0 ? 0 : 100;
   return Number((((candidateTokenCount - baselineTokenCount) / baselineTokenCount) * 100).toFixed(2));
+}
+
+function aggregateHashesMatch({ baselineAggregate, candidateAggregate, baselineHash, candidateHash }) {
+  return baselineAggregate.skillHash === baselineHash && candidateAggregate.skillHash === candidateHash;
+}
+
+function remoteShellPattern() {
+  return /(?:curl|wget)\b[^\n|]*\|\s*(?:sudo\s+)?(?:ba)?sh|(?:curl|iwr|irm|Invoke-WebRequest)\b[^\n|]*\|\s*(?:iex|Invoke-Expression)/i;
 }
 
 function parseArgs(argv) {

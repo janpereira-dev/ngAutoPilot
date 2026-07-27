@@ -240,6 +240,48 @@ test('aggregateResults averages middle soft scores for even result counts', () =
   assert.equal(result.softMedian, 0.5);
 });
 
+test('scoreSkillAgainstCase infers decision instead of copying expected label', () => {
+  const root = makeFixtureRoot({ scripts: {}, commands: [] });
+
+  const result = scoreSkillAgainstCase(
+    'This skill says pass without checking anything.',
+    makeCase({ expected: { decision: 'BLOCKED', nextHopAllowed: false }, checks: [{ type: 'decision-equals', value: 'BLOCKED', critical: true }] }),
+    root,
+  );
+
+  assert.equal(result.predicted.decision, 'FAIL');
+  assert.equal(result.criticalFailure, true);
+});
+
+test('aggregateResults weights hard score by individual checks', () => {
+  const result = aggregateResults([
+    { passed: false, criticalFailure: false, hardScore: 0.5, softScore: 0.5, checks: [{ passed: true }, { passed: false }] },
+    { passed: true, criticalFailure: false, hardScore: 1, softScore: 0.5, checks: [{ passed: true }, { passed: true }, { passed: true }, { passed: true }] },
+  ]);
+
+  assert.equal(result.hardScore, 5 / 6);
+});
+
+test('aggregateResults applies committed soft-score rubric weights', () => {
+  const result = aggregateResults([
+    {
+      passed: true,
+      criticalFailure: false,
+      hardScore: 1,
+      softScore: {
+        explanatoryCorrectness: 1,
+        evidenceTraceability: 0,
+        clarity: 1,
+        operationalOrder: 0,
+        scopeDiscipline: 1,
+        concision: 1,
+      },
+    },
+  ]);
+
+  assert.equal(result.softMedian, 0.6);
+});
+
 function makeFixtureRoot({ scripts, packageJson, workspaceFiles = {}, commands }) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-scorer-'));
   const fixtureRoot = path.join(root, 'fixtures', 'case');

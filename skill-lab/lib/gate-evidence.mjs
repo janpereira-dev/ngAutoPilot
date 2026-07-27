@@ -17,7 +17,9 @@ export function collectGateEvidence(runRoot, stage = 'validation') {
     testPassed: aggregatePassed(testAggregate),
     adversarialPassed: aggregatePassed(adversarialAggregate),
     repositoryGatesPassed: Boolean(repositoryGate?.passed),
-    crossHarnessRegressionCount: Number(agenticGate?.crossHarnessRegressionCount ?? comparisonSummary?.crossHarnessRegressionCount ?? 0),
+    crossHarnessRegressionCount: agenticGate?.passed === true
+      ? Number(agenticGate.crossHarnessRegressionCount ?? comparisonSummary?.crossHarnessRegressionCount ?? 0)
+      : 1,
     winningRuns: Number(comparisonSummary?.winningRuns ?? 0),
     artifacts: {
       testAggregate: toRelative(safeRunRoot, path.join(safeRunRoot, 'candidate-results', 'test', 'aggregate.json')),
