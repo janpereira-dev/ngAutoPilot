@@ -20,7 +20,7 @@ const skillPath = args.skill
 const splits = (args.splits ?? 'validation').split(',').map((item) => item.trim());
 const runs = Number(args.runs ?? 1);
 const outputRoot = args.output
-  ? path.resolve(args.output)
+  ? assertInsideLab(path.resolve('skill-lab'), path.resolve(args.output))
   : args.run
     ? path.join(runRoot, 'candidate-results')
     : path.join('skill-lab', 'runs', 'manual-evaluation');

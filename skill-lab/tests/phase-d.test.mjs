@@ -10,10 +10,14 @@ import { sha256File } from '../lib/hash-utils.mjs';
 const repoRoot = process.cwd();
 const targetSkill = path.join(repoRoot, 'skills/angular/upgrades/angular-upgrade-validation-gate/SKILL.md');
 const createdRuns = [];
+const createdPaths = [];
 
 after(() => {
   for (const runRoot of createdRuns) {
     fs.rmSync(runRoot, { recursive: true, force: true });
+  }
+  for (const itemPath of createdPaths) {
+    fs.rmSync(itemPath, { recursive: true, force: true });
   }
 });
 
@@ -77,6 +81,42 @@ test('SkillOpt bridge reports unsupported installed API without writing a candid
   assert.match(result.stderr, /SkillOpt 0\.2\.0 does not expose a direct optimize API/);
   assert.match(result.stderr, /NgAutoPilot bridge needs a SkillOpt EnvAdapter integration/);
   assert.equal(fs.existsSync(path.join(runRoot, 'optimization/candidate.SKILL.md')), false);
+});
+
+test('SkillOpt bridge removes stale candidates before unsupported optimization runs', () => {
+  const runRoot = prepareRun('phase-d-stale-skillopt-candidate');
+  const fakeModuleRoot = path.join(runRoot, 'fake-python');
+  const fakeSkillOptRoot = path.join(fakeModuleRoot, 'skillopt');
+  fs.mkdirSync(fakeSkillOptRoot, { recursive: true });
+  fs.writeFileSync(path.join(fakeSkillOptRoot, '__init__.py'), '__version__ = "0.2.0"\n', 'utf8');
+  const staleCandidate = path.join(runRoot, 'optimization/candidate.SKILL.md');
+  fs.writeFileSync(staleCandidate, 'stale candidate', 'utf8');
+  const contractPath = path.join(runRoot, 'optimization/skillopt-contract.json');
+  writeJson(contractPath, {
+    outputDirectory: path.join(runRoot, 'optimization'),
+    splits: {
+      train: 'skill-lab/benchmarks/angular-upgrade-validation-gate/datasets/train.jsonl',
+      validation: 'skill-lab/benchmarks/angular-upgrade-validation-gate/datasets/validation.jsonl',
+    },
+  });
+
+  const result = spawnSync(
+    process.env.PYTHON ?? (process.platform === 'win32' ? 'python' : 'python3'),
+    ['-m', 'ngautopilot_skillopt.bridge', contractPath],
+    {
+      cwd: repoRoot,
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PYTHONPATH: [fakeModuleRoot, path.join(repoRoot, 'skill-lab/python'), process.env.PYTHONPATH]
+          .filter(Boolean)
+          .join(path.delimiter),
+      },
+    },
+  );
+
+  assert.equal(result.status, 2);
+  assert.equal(fs.existsSync(staleCandidate), false);
 });
 
 test('optimize-skill omits dependency install guidance when SkillOpt API is unsupported', () => {
@@ -148,6 +188,17 @@ test('evaluate-skill writes repeated run artifacts when runs is configured', () 
   const aggregate = readJson(path.join(runRoot, 'candidate-results/validation/aggregate.json'));
   assert.equal(aggregate.runs, 3);
   assert.equal(aggregate.skillHash, sha256File(path.join(runRoot, 'optimization/candidate.SKILL.md')));
+});
+
+test('evaluate-skill keeps explicit output paths inside skill-lab', () => {
+  const outside = path.join(repoRoot, 'outside-evaluation-results');
+  fs.rmSync(outside, { recursive: true, force: true });
+
+  const result = runNode(['skill-lab/scripts/evaluate-skill.mjs', '--output', outside, '--splits', 'validation']);
+
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /outside skill-lab/);
+  assert.equal(fs.existsSync(outside), false);
 });
 
 test('compare-results writes summary evidence for downstream gate stability checks', () => {
@@ -323,6 +374,50 @@ test('snapshot-baseline uses the benchmark baseline fixture and records benchmar
   assert.equal(typeof manifest.benchmarkHash, 'string');
   assert.equal(typeof manifest.rubricHash, 'string');
   assert.equal(typeof manifest.caseSetHash, 'string');
+});
+
+test('validate-lab rejects benchmark targets outside canonical source skills', () => {
+  const benchmarkRoot = path.join(repoRoot, 'skill-lab/benchmarks/phase-d-plugin-target');
+  createdPaths.push(benchmarkRoot);
+  fs.rmSync(benchmarkRoot, { recursive: true, force: true });
+  fs.mkdirSync(path.join(benchmarkRoot, 'datasets'), { recursive: true });
+  const item = JSON.stringify({
+    schemaVersion: '1.0.0',
+    id: 'case-a',
+    title: 'Case A',
+    taskType: 'upgrade-validation',
+    criticality: 'critical',
+    input: { request: 'Validate.', packageJsonFixture: 'fixtures/package.json', commandOutputsFixture: 'fixtures/results.json' },
+    expected: { decision: 'PASS', nextHopAllowed: true },
+    checks: [{ type: 'decision-equals', value: 'PASS', critical: true }],
+  });
+  for (const split of ['train', 'validation', 'test', 'adversarial']) {
+    fs.writeFileSync(path.join(benchmarkRoot, 'datasets', `${split}.jsonl`), `${item.replace('case-a', `case-${split}`)}\n`, 'utf8');
+  }
+  fs.mkdirSync(path.join(benchmarkRoot, 'fixtures'), { recursive: true });
+  fs.writeFileSync(path.join(benchmarkRoot, 'fixtures/package.json'), '{"scripts":{"build":"ng build"}}\n', 'utf8');
+  fs.writeFileSync(path.join(benchmarkRoot, 'fixtures/results.json'), '{"commands":[]}\n', 'utf8');
+  fs.writeFileSync(
+    path.join(benchmarkRoot, 'benchmark.yaml'),
+    [
+      'id: phase-d-plugin-target',
+      'version: 1.0.0',
+      'targetSkill:',
+      '  path: plugins/ngautopilot-angular/skills/angular/upgrades/angular-upgrade-validation-gate/SKILL.md',
+      'splits:',
+      '  train: datasets/train.jsonl',
+      '  validation: datasets/validation.jsonl',
+      '  test: datasets/test.jsonl',
+      '  adversarial: datasets/adversarial.jsonl',
+      '',
+    ].join('\n'),
+    'utf8',
+  );
+
+  const result = runNode(['skill-lab/scripts/validate-lab.mjs']);
+
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /target skill must be under skills\//);
 });
 
 function prepareRun(runId) {

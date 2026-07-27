@@ -38,6 +38,7 @@ def run_bridge(contract: dict[str, Any]) -> pathlib.Path:
     output_directory.mkdir(parents=True, exist_ok=True)
     assert_output_boundary(candidate_path)
     assert_allowed_splits(contract)
+    candidate_path.unlink(missing_ok=True)
 
     try:
         skillopt = importlib.import_module("skillopt")

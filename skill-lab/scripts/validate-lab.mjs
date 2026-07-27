@@ -14,6 +14,12 @@ for (const id of benchmarkIds) {
     const benchmark = loadBenchmark(resolveBenchmarkPath(id, repoRoot));
     validateBenchmarkCases(benchmark, { failFast: false });
 
+    const targetSkillPath = benchmark.targetSkill.path.split(path.sep).join('/');
+    if (!targetSkillPath.startsWith('skills/') || path.basename(targetSkillPath) !== 'SKILL.md') {
+      errors.push(`${id}: target skill must be under skills/**/SKILL.md: ${benchmark.targetSkill.path}`);
+      continue;
+    }
+
     const targetSkill = path.join(repoRoot, benchmark.targetSkill.path);
     if (!fs.existsSync(targetSkill)) {
       errors.push(`${id}: target skill does not exist: ${benchmark.targetSkill.path}`);
