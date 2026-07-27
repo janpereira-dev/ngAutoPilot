@@ -5,13 +5,14 @@ import { spawnSync } from 'node:child_process';
 
 import { loadBenchmark, resolveBenchmarkPath } from '../lib/benchmark-loader.mjs';
 import { sha256File } from '../lib/hash-utils.mjs';
+import { assertInsideLab } from '../lib/sandbox.mjs';
 
 const args = parseArgs(process.argv.slice(2));
 const benchmarkId = args.benchmark ?? 'angular-upgrade-validation-gate';
 const benchmark = loadBenchmark(resolveBenchmarkPath(benchmarkId));
 const targetSkillPath = path.resolve(benchmark.targetSkill.path);
 const runId = args.run ?? `${new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19)}-${benchmark.id}`;
-const runRoot = path.join('skill-lab', 'runs', runId);
+const runRoot = assertInsideLab(path.join('skill-lab', 'runs'), path.join('skill-lab', 'runs', runId));
 fs.mkdirSync(runRoot, { recursive: true });
 
 const baselineTarget = path.join(runRoot, 'baseline.SKILL.md');

@@ -5,7 +5,7 @@ const root = process.cwd();
 const scanRoots = ['skills', 'agents', 'adapters', 'packs', 'scripts', 'docs', '.github/workflows', 'skill-lab'];
 const rootFiles = ['SKILL.md', 'README.md', 'SECURITY.md', 'package.json'];
 const allowedExtensions = new Set(['.json', '.md', '.mjs', '.py', '.toml', '.yml', '.yaml']);
-const excludedDirectories = new Set(['.cache', '.venv', 'runs']);
+const excludedSkillLabDirectories = new Set(['skill-lab/.cache', 'skill-lab/.venv', 'skill-lab/runs']);
 const findings = [];
 
 for (const relativeRoot of scanRoots) {
@@ -57,7 +57,7 @@ function scanDirectory(directory) {
 
 function isExcludedDirectory(directory, name) {
   const relative = toPosixPath(path.relative(root, path.join(directory, name)));
-  return relative.startsWith('skill-lab/') && excludedDirectories.has(name);
+  return excludedSkillLabDirectories.has(relative);
 }
 
 function scanFile(file) {

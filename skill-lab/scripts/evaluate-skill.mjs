@@ -6,12 +6,17 @@ import { loadBenchmark, resolveBenchmarkPath } from '../lib/benchmark-loader.mjs
 import { loadBenchmarkCases } from '../lib/case-loader.mjs';
 import { aggregateResults, scoreSkillAgainstCase } from '../lib/deterministic-scorer.mjs';
 import { generateEvaluationReport } from '../lib/report-generator.mjs';
+import { assertInsideLab } from '../lib/sandbox.mjs';
 
 const args = parseArgs(process.argv.slice(2));
 const benchmark = loadBenchmark(resolveBenchmarkPath(args.benchmark ?? 'angular-upgrade-validation-gate'));
 const skillPath = args.skill ? path.resolve(args.skill) : path.resolve(benchmark.targetSkill.path);
 const splits = (args.splits ?? 'validation').split(',').map((item) => item.trim());
-const outputRoot = args.output ? path.resolve(args.output) : path.join('skill-lab', 'runs', 'manual-evaluation');
+const outputRoot = args.output
+  ? path.resolve(args.output)
+  : args.run
+    ? assertInsideLab(path.join('skill-lab', 'runs'), path.join('skill-lab', 'runs', args.run, 'candidate-results'))
+    : path.join('skill-lab', 'runs', 'manual-evaluation');
 const skillContent = fs.readFileSync(skillPath, 'utf8');
 const casesBySplit = loadBenchmarkCases(benchmark);
 

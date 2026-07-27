@@ -8,15 +8,22 @@ export function runGate(input) {
 }
 
 function firstFailure(input) {
+  const gate = input.gate ?? {};
+  const minimumHardScore = gate.minimumHardScore ?? input.baselineAggregate.hardScore;
+  const minimumSoftDelta = gate.minimumSoftDelta ?? 0.02;
+  const requiredWinningRuns = gate.requiredWinningRuns ?? 2;
+
   if (!input.frontmatterIsEqual) return 'REJECTED_STRUCTURE';
   if (!input.structureIsValid) return 'REJECTED_STRUCTURE';
   if (!input.securityPassed) return 'REJECTED_SECURITY';
   if ((input.criticalFailures?.length ?? 0) > 0) return 'REJECTED_CRITICAL_FAILURE';
   if ((input.criticalRegressions?.length ?? 0) > 0) return 'REJECTED_CRITICAL_REGRESSION';
+  if (((input.missingBaselineCases?.length ?? 0) + (input.missingCandidateCases?.length ?? 0)) > 0) return 'REJECTED_STRUCTURE';
+  if (input.candidateAggregate.hardScore < minimumHardScore) return 'REJECTED_NO_IMPROVEMENT';
   if (input.candidateAggregate.hardScore < input.baselineAggregate.hardScore) return 'REJECTED_NO_IMPROVEMENT';
-  if (input.candidateAggregate.softMedian < input.baselineAggregate.softMedian + 0.02) return 'REJECTED_NO_IMPROVEMENT';
+  if (input.candidateAggregate.softMedian < input.baselineAggregate.softMedian + minimumSoftDelta) return 'REJECTED_NO_IMPROVEMENT';
   if ((input.improvedCases?.length ?? 0) < 1) return 'REJECTED_NO_IMPROVEMENT';
-  if ((input.winningRuns ?? 0) < 2) return 'REJECTED_UNSTABLE';
+  if ((input.winningRuns ?? 0) < requiredWinningRuns) return 'REJECTED_UNSTABLE';
   if (input.candidateAggregate.tokenCount > input.limits.maxCandidateTokens) return 'REJECTED_SIZE';
   if (input.candidateAggregate.changedLinesPercent > input.limits.maxChangedLinesPercent) return 'REJECTED_SIZE';
   if ((input.crossHarnessRegressionCount ?? 0) > 0) return 'REJECTED_CROSS_HARNESS_REGRESSION';

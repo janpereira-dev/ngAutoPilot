@@ -44,3 +44,25 @@ test('runGate accepts only when all blocking conditions are satisfied', () => {
 
   assert.equal(result.status, 'ACCEPTED_FOR_TEST');
 });
+
+test('runGate rejects candidates below configured minimum hard score', () => {
+  const result = runGate({
+    frontmatterIsEqual: true,
+    structureIsValid: true,
+    securityPassed: true,
+    baselineAggregate: { hardScore: 0.8, softMedian: 0.5 },
+    candidateAggregate: { hardScore: 0.9, softMedian: 0.7, tokenCount: 1000, changedLinesPercent: 10 },
+    improvedCases: ['case-a'],
+    criticalFailures: [],
+    criticalRegressions: [],
+    winningRuns: 2,
+    crossHarnessRegressionCount: 0,
+    testPassed: true,
+    adversarialPassed: true,
+    repositoryGatesPassed: true,
+    limits: { maxCandidateTokens: 2200, maxChangedLinesPercent: 25 },
+    gate: { minimumHardScore: 0.95, minimumSoftDelta: 0.02, requiredWinningRuns: 2 },
+  });
+
+  assert.equal(result.status, 'REJECTED_NO_IMPROVEMENT');
+});

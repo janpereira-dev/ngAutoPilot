@@ -18,3 +18,19 @@ test('detectRegressions flags critical pass to fail even when aggregate improves
   assert.deepEqual(result.criticalRegressions.map((item) => item.id), ['critical-case']);
   assert.deepEqual(result.improvements.map((item) => item.id), ['ordinary-case']);
 });
+
+test('detectRegressions reports missing baseline and candidate cases', () => {
+  const baseline = [
+    { id: 'shared-case', passed: true, criticalFailure: false, hardScore: 1, softScore: 0.8 },
+    { id: 'baseline-only', passed: true, criticalFailure: false, hardScore: 1, softScore: 0.7 },
+  ];
+  const candidate = [
+    { id: 'shared-case', passed: true, criticalFailure: false, hardScore: 1, softScore: 0.9 },
+    { id: 'candidate-only', passed: true, criticalFailure: false, hardScore: 1, softScore: 0.6 },
+  ];
+
+  const result = detectRegressions(baseline, candidate);
+
+  assert.deepEqual(result.missingBaselineCases.map((item) => item.id), ['candidate-only']);
+  assert.deepEqual(result.missingCandidateCases.map((item) => item.id), ['baseline-only']);
+});

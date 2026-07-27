@@ -51,6 +51,30 @@ test('validateBenchmarkCases rejects unknown check types and missing fixtures', 
   assert.throws(() => validateBenchmarkCases(benchmark, { failFast: false }), /missing fixture/);
 });
 
+test('validateBenchmarkCases rejects cases missing committed schema fields', () => {
+  const directory = makeTempLab();
+  const broken = makeCase('broken-schema');
+  delete broken.schemaVersion;
+  delete broken.title;
+  delete broken.taskType;
+  delete broken.criticality;
+  delete broken.input.request;
+  delete broken.expected.nextHopAllowed;
+  writeBenchmark(directory, {
+    train: [broken],
+    validation: [makeCase('validation-id')],
+    test: [makeCase('test-id')],
+    adversarial: [makeCase('adv-id')],
+  });
+
+  const benchmark = loadBenchmark(path.join(directory, 'benchmark.yaml'));
+
+  assert.throws(
+    () => validateBenchmarkCases(benchmark, { failFast: false }),
+    /missing schemaVersion[\s\S]*missing title[\s\S]*missing taskType[\s\S]*missing criticality[\s\S]*missing input.request[\s\S]*missing expected.nextHopAllowed/,
+  );
+});
+
 function makeTempLab() {
   return fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-skill-lab-'));
 }

@@ -97,8 +97,14 @@ function parseCaseLine(filePath, line, lineNumber) {
 }
 
 function validateCaseShape(split, item, errors) {
+  if (!item.schemaVersion) errors.push(`${split}:${item.id ?? '<unknown>'}: missing schemaVersion`);
   if (!item.id) errors.push(`${split}: case missing id`);
+  if (!item.title) errors.push(`${split}:${item.id}: missing title`);
+  if (!item.taskType) errors.push(`${split}:${item.id}: missing taskType`);
+  if (!item.criticality) errors.push(`${split}:${item.id}: missing criticality`);
+  if (!item.input?.request) errors.push(`${split}:${item.id}: missing input.request`);
   if (!item.expected?.decision) errors.push(`${split}:${item.id}: missing expected.decision`);
+  if (typeof item.expected?.nextHopAllowed !== 'boolean') errors.push(`${split}:${item.id}: missing expected.nextHopAllowed`);
   if (!Array.isArray(item.checks) || item.checks.length === 0) errors.push(`${split}:${item.id}: missing checks`);
 
   for (const check of item.checks ?? []) {

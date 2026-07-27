@@ -121,6 +121,48 @@ test('run-gate rejects when promotion evidence artifacts are missing', () => {
   assert.equal(report.evidence.repositoryGatesPassed, false);
 });
 
+test('evaluate-skill writes results under an explicit run id', () => {
+  const runId = 'phase-d-evaluate-run';
+  const runRoot = prepareRun(runId);
+  fs.rmSync(path.join(repoRoot, 'skill-lab/runs/manual-evaluation'), { recursive: true, force: true });
+
+  const result = runNode(['skill-lab/scripts/evaluate-skill.mjs', '--run', runId, '--splits', 'validation']);
+
+  assert.equal(result.status, 0);
+  assert.equal(fs.existsSync(path.join(runRoot, 'candidate-results/validation/results.jsonl')), true);
+  assert.equal(fs.existsSync(path.join(repoRoot, 'skill-lab/runs/manual-evaluation/validation/results.jsonl')), false);
+});
+
+test('compare-results writes summary evidence for downstream gate stability checks', () => {
+  const runId = 'phase-d-comparison-summary';
+  const runRoot = prepareRun(runId);
+  fs.mkdirSync(path.join(runRoot, 'baseline-results/validation'), { recursive: true });
+  fs.mkdirSync(path.join(runRoot, 'candidate-results/validation'), { recursive: true });
+  fs.writeFileSync(
+    path.join(runRoot, 'baseline-results/validation/results.jsonl'),
+    `${JSON.stringify({ id: 'case-a', passed: false, criticalFailure: false })}\n`,
+    'utf8',
+  );
+  fs.writeFileSync(
+    path.join(runRoot, 'candidate-results/validation/results.jsonl'),
+    `${JSON.stringify({ id: 'case-a', passed: true, criticalFailure: false })}\n`,
+    'utf8',
+  );
+
+  const result = runNode(['skill-lab/scripts/compare-results.mjs', '--run', runId]);
+
+  assert.equal(result.status, 0);
+  assert.deepEqual(readJson(path.join(runRoot, 'comparison/summary.json')), {
+    regressions: 0,
+    criticalRegressions: 0,
+    improvements: 1,
+    unchanged: 0,
+    missingBaselineCases: 0,
+    missingCandidateCases: 0,
+    winningRuns: 1,
+  });
+});
+
 test('agentic gate consumes safe harness evidence and feeds cross-harness gate data', () => {
   const runId = 'phase-d-agentic';
   const runRoot = prepareRun(runId);
@@ -172,6 +214,29 @@ test('prepare-promotion writes complete review packet without touching canonical
   assert.match(fs.readFileSync(path.join(promotionRoot, 'pr-body.md'), 'utf8'), /Manual promotion only/);
 });
 
+test('prepare-promotion rejects candidates whose hash differs from accepted gate report', () => {
+  const runId = 'phase-d-promotion-hash-mismatch';
+  const runRoot = prepareRun(runId);
+  writeValidationEvidence(runRoot);
+  writePromotionEvidence(runRoot);
+
+  const gate = runNode(['skill-lab/scripts/run-gate.mjs', '--run', runId]);
+  assert.equal(gate.status, 0);
+  fs.appendFileSync(path.join(runRoot, 'optimization/candidate.SKILL.md'), '\nChanged after gate.\n', 'utf8');
+
+  const result = runNode(['skill-lab/scripts/generate-promotion-packet.mjs', '--run', runId]);
+
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /candidate hash does not match accepted gate report/);
+});
+
+test('snapshot-baseline keeps explicit run ids inside skill-lab runs', () => {
+  const result = runNode(['skill-lab/scripts/snapshot-baseline.mjs', '--run', '../outside']);
+
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /outside skill-lab/);
+});
+
 function prepareRun(runId) {
   const runRoot = path.join(repoRoot, 'skill-lab', 'runs', runId);
   createdRuns.push(runRoot);
@@ -202,7 +267,7 @@ function writeValidationEvidence(runRoot) {
     totalCases: 2,
     passedCases: 2,
     criticalFailures: [],
-    hardScore: 0.9,
+    hardScore: 0.96,
     softMedian: 0.53,
   });
   writeJson(path.join(runRoot, 'comparison/improvements.json'), [{ id: 'case-a' }]);

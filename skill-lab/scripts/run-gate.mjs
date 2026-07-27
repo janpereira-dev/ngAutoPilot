@@ -4,11 +4,14 @@ import path from 'node:path';
 
 import { runGate } from '../lib/gate-engine.mjs';
 import { changedLinesPercent, collectGateEvidence } from '../lib/gate-evidence.mjs';
+import { sha256 } from '../lib/hash-utils.mjs';
+import { loadBenchmark, resolveBenchmarkPath } from '../lib/benchmark-loader.mjs';
 import { frontmatterIsByteEqual } from '../lib/protected-metadata.mjs';
 import { assertInsideLab } from '../lib/sandbox.mjs';
 import { validateSkillStructure } from '../lib/skill-parser.mjs';
 
 const args = parseArgs(process.argv.slice(2));
+const benchmark = loadBenchmark(resolveBenchmarkPath(args.benchmark ?? 'angular-upgrade-validation-gate'));
 const runRoot = assertInsideLab(path.resolve('skill-lab'), path.resolve('skill-lab', 'runs', args.run ?? 'manual-evaluation'));
 const baselineSkill = fs.readFileSync(args.baseline ?? path.join(runRoot, 'baseline.SKILL.md'), 'utf8');
 const candidateSkill = fs.readFileSync(args.candidate ?? path.join(runRoot, 'optimization', 'candidate.SKILL.md'), 'utf8');
@@ -31,16 +34,19 @@ const result = runGate({
   improvedCases: comparison.improvements?.map((item) => item.id) ?? [],
   criticalFailures: candidateAggregate.criticalFailures ?? [],
   criticalRegressions: comparison.criticalRegressions?.map((item) => item.id) ?? [],
+  missingBaselineCases: comparison.missingBaselineCases?.map((item) => item.id) ?? [],
+  missingCandidateCases: comparison.missingCandidateCases?.map((item) => item.id) ?? [],
   winningRuns: evidence.winningRuns,
   crossHarnessRegressionCount: evidence.crossHarnessRegressionCount,
   testPassed: evidence.testPassed,
   adversarialPassed: evidence.adversarialPassed,
   repositoryGatesPassed: evidence.repositoryGatesPassed,
   limits,
+  gate: benchmark.gate ?? {},
 });
 
 fs.mkdirSync(path.join(runRoot, 'gate'), { recursive: true });
-fs.writeFileSync(path.join(runRoot, 'gate', 'gate-report.json'), `${JSON.stringify({ ...result, structure, evidence }, null, 2)}\n`, 'utf8');
+fs.writeFileSync(path.join(runRoot, 'gate', 'gate-report.json'), `${JSON.stringify({ ...result, structure, evidence: { ...evidence, candidateHash: sha256(candidateSkill) } }, null, 2)}\n`, 'utf8');
 console.log(result.status);
 process.exit(result.accepted ? 0 : 1);
 
@@ -53,6 +59,8 @@ function readComparison(root) {
   return {
     improvements: readOptionalJson(path.join(comparisonRoot, 'improvements.json'), []),
     criticalRegressions: readOptionalJson(path.join(comparisonRoot, 'criticalRegressions.json'), []),
+    missingBaselineCases: readOptionalJson(path.join(comparisonRoot, 'missingBaselineCases.json'), []),
+    missingCandidateCases: readOptionalJson(path.join(comparisonRoot, 'missingCandidateCases.json'), []),
   };
 }
 

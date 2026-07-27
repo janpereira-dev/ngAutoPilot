@@ -54,20 +54,30 @@ jobs:
 
       - name: Snapshot baseline
         id: baseline
+        env:
+          BENCHMARK: ${{ inputs.benchmark }}
         run: |
-          RUN_ID="manual-${{ github.run_id }}-${{ inputs.benchmark }}"
+          SAFE_BENCHMARK="${BENCHMARK//[^A-Za-z0-9_.-]/-}"
+          RUN_ID="manual-${{ github.run_id }}-$SAFE_BENCHMARK"
           echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
-          npm run skill-lab:baseline -- --benchmark "${{ inputs.benchmark }}" --run "$RUN_ID"
+          npm run skill-lab:baseline -- --benchmark "$BENCHMARK" --run "$RUN_ID"
 
       - name: Optimize candidate artifact
+        env:
+          BENCHMARK: ${{ inputs.benchmark }}
+          EPOCHS: ${{ inputs.epochs }}
+          OPTIMIZER_MODEL: ${{ inputs.optimizer_model }}
+          TARGET_MODEL: ${{ inputs.target_model }}
+          SEED: ${{ inputs.seed }}
+          RUN_ID: ${{ steps.baseline.outputs.run_id }}
         run: |
           npm run skill-lab:optimize -- \
-            --benchmark "${{ inputs.benchmark }}" \
-            --run "${{ steps.baseline.outputs.run_id }}" \
-            --epochs "${{ inputs.epochs }}" \
-            --optimizerModel "${{ inputs.optimizer_model }}" \
-            --targetModel "${{ inputs.target_model }}" \
-            --seed "${{ inputs.seed }}"
+            --benchmark "$BENCHMARK" \
+            --run "$RUN_ID" \
+            --epochs "$EPOCHS" \
+            --optimizerModel "$OPTIMIZER_MODEL" \
+            --targetModel "$TARGET_MODEL" \
+            --seed "$SEED"
 
       - name: Upload optimization artifacts
         uses: actions/upload-artifact@v4

@@ -129,6 +129,29 @@ test('discovers workspace validation scripts when root package delegates to work
   assert.deepEqual(result.predicted.commandsMentioned, ['npm run web:build', 'npm run web:test']);
 });
 
+test('reports only validation commands explicitly supported by candidate skill text', () => {
+  const root = makeFixtureRoot({
+    scripts: {
+      build: 'ng build',
+      test: 'ng test',
+      lint: 'ng lint',
+    },
+    commands: [
+      { command: 'npm run build', result: 'pass' },
+      { command: 'npm run test', result: 'pass' },
+      { command: 'npm run lint', result: 'pass' },
+    ],
+  });
+
+  const result = scoreSkillAgainstCase(
+    'Run `npm run build` and `npm run test` before allowing the next hop. Gate decision must cite evidence.',
+    makeCase(),
+    root,
+  );
+
+  assert.deepEqual(result.predicted.commandsMentioned, ['npm run build', 'npm run test']);
+});
+
 test('blocks when user asks to skip an available validation script', () => {
   const root = makeFixtureRoot({
     scripts: {

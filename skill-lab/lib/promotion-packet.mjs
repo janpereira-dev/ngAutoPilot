@@ -22,10 +22,16 @@ export function generatePromotionPacket({ runRoot }) {
   fs.mkdirSync(promotionRoot, { recursive: true });
   const candidate = fs.readFileSync(candidatePath, 'utf8');
   const gateReport = JSON.parse(fs.readFileSync(gatePath, 'utf8'));
+  const candidateHash = sha256(candidate);
+
+  if (gateReport.accepted && gateReport.evidence?.candidateHash !== candidateHash) {
+    throw new Error('candidate hash does not match accepted gate report');
+  }
+
   const evidenceSummary = buildEvidenceSummary(safeRunRoot, gateReport);
   const hashes = {
     baseline: sha256File(baselinePath),
-    candidate: sha256(candidate),
+    candidate: candidateHash,
     gateReport: sha256File(gatePath),
     generatedAt: new Date().toISOString(),
   };

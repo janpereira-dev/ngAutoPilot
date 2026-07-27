@@ -40,6 +40,7 @@ export function aggregateResults(results) {
 function inferResponse(skillContent, item, benchmarkRoot) {
   const content = skillContent.toLowerCase();
   const commandOutputs = readJsonFixture(benchmarkRoot, item.input?.commandOutputsFixture) ?? {};
+  const executedCommands = new Set((commandOutputs.commands ?? []).map((command) => command.command));
   const packageJson = readJsonFixture(benchmarkRoot, item.input?.packageJsonFixture) ?? {};
   const scripts = packageJson.scripts ?? {};
   const failedCommand = (commandOutputs.commands ?? []).find((command) => command.result === 'fail');
@@ -66,7 +67,7 @@ function inferResponse(skillContent, item, benchmarkRoot) {
   return {
     decision,
     nextHopAllowed: decision === 'PASS',
-    commandsMentioned: commandNames(scripts),
+    commandsMentioned: commandNames(scripts).filter((command) => mentionsValidationCommand(skillContent, command, executedCommands)),
     evidenceMentioned: /evidence|command output|result|logs?|failures?/i.test(skillContent),
     unavailableScriptMentioned: /unavailable|does not exist|missing|skip/i.test(skillContent),
     modifiesCode: /change code|modify code|edit files|update package\.json/i.test(skillContent) && !/do not change code|do not modify code/i.test(skillContent),
@@ -210,6 +211,15 @@ function average(values) {
 
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function mentionsValidationCommand(skillContent, command, executedCommands) {
+  if (mentionsExactCommand(skillContent, command)) return true;
+  const script = command.replace(/^npm run\s+/, '');
+  if (/^(?:ci|preflight)$/i.test(script) && executedCommands.has(command)) return true;
+  return script
+    .split(/[:-]/)
+    .some((word) => /^(?:build|test|lint|check|verify|validate|ci|preflight)$/i.test(word) && new RegExp(`\\b${escapeRegExp(word)}\\b`, 'i').test(skillContent));
 }
 
 function mentionsExactCommand(skillContent, command) {
