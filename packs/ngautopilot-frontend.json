@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-frontend",
   "name": "NgAutoPilot Frontend",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "status": "stable",
   "description": "Framework-agnostic frontend UX/UI/CX/WPO: accessibility, responsive CSS, design governance, product discovery, experience validation, web performance.",
   "audience": "Frontend generalists working on Angular or any web framework",

@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-angular-21-to-22",
   "name": "NgAutoPilot Angular 21 to 22",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "status": "stable",
   "description": "Bounded Angular 21 to 22 preflight, breaking changes, execution, and validation with compatibility routing.",
   "audience": "Teams upgrading an Angular 21 application to Angular 22",

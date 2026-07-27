@@ -4,3 +4,24 @@ node_modules/
 
 .atl/
 .codegraph/
+
+# Skill optimization laboratory
+skill-lab/.venv/
+skill-lab/.cache/*
+!skill-lab/.cache/.gitkeep
+skill-lab/python/**/__pycache__/
+skill-lab/python/**/*.pyc
+skill-lab/python/*.egg-info/
+
+skill-lab/runs/*
+!skill-lab/runs/.gitkeep
+
+skill-lab/**/*.local.yaml
+skill-lab/**/*.private.json
+skill-lab/**/evidence.jsonl
+skill-lab/**/raw-prompts/
+skill-lab/**/raw-responses/
+
+.env
+.env.*
+!.env.example

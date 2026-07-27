@@ -1,0 +1,1 @@
+{"commands":[{"command":"npm run build","result":"fail","summary":"TypeScript compilation failed."},{"command":"npm run test","result":"not-run"},{"command":"npm run lint","result":"not-run"}]}

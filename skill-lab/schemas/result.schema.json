@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ngautopilot.dev/schemas/skill-lab/result.schema.json",
+  "type": "object",
+  "required": ["id", "passed", "hardScore", "softScore", "criticalFailure"],
+  "properties": {
+    "id": { "type": "string" },
+    "passed": { "type": "boolean" },
+    "hardScore": { "type": "number" },
+    "softScore": { "type": "number" },
+    "criticalFailure": { "type": "boolean" }
+  }
+}

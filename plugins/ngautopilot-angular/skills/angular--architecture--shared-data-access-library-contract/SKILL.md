@@ -10,7 +10,7 @@ stack:
   - RxJS
 category: architecture
 status: stable
-version: 0.5.2
+version: 0.5.3
 owner: NgAutoPilot
 triggers:
   - shared data access

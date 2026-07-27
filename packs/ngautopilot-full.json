@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-full",
   "name": "NgAutoPilot Full",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "status": "stable",
   "description": "Entire catalog. Intended for maintainers and offline mirror builders. NOT the recommended default install — the default is Core plus the targeted stack.",
   "audience": "NgAutoPilot maintainers",

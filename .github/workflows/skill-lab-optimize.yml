@@ -1,0 +1,88 @@
+name: Skill Lab Optimize
+
+on:
+  workflow_dispatch:
+    inputs:
+      benchmark:
+        description: Skill Lab benchmark id
+        required: true
+        default: angular-upgrade-validation-gate
+      optimizer_model:
+        description: Optimizer model identifier
+        required: true
+      target_model:
+        description: Target model identifier
+        required: true
+      epochs:
+        description: Maximum optimization epochs
+        required: true
+        default: '3'
+      seed:
+        description: Reproducible seed
+        required: true
+        default: '42'
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    environment: skillopt-lab
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Skill Lab Python bridge
+        run: python -m pip install -e skill-lab/python
+
+      - name: Validate Skill Lab
+        run: npm run skill-lab:ci
+
+      - name: Snapshot baseline
+        id: baseline
+        env:
+          BENCHMARK: ${{ inputs.benchmark }}
+        run: |
+          SAFE_BENCHMARK="${BENCHMARK//[^A-Za-z0-9_.-]/-}"
+          RUN_ID="manual-${{ github.run_id }}-$SAFE_BENCHMARK"
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+          npm run skill-lab:baseline -- --benchmark "$BENCHMARK" --run "$RUN_ID"
+
+      - name: Optimize candidate artifact
+        env:
+          BENCHMARK: ${{ inputs.benchmark }}
+          EPOCHS: ${{ inputs.epochs }}
+          OPTIMIZER_MODEL: ${{ inputs.optimizer_model }}
+          TARGET_MODEL: ${{ inputs.target_model }}
+          SEED: ${{ inputs.seed }}
+          RUN_ID: ${{ steps.baseline.outputs.run_id }}
+        run: |
+          npm run skill-lab:optimize -- \
+            --benchmark "$BENCHMARK" \
+            --run "$RUN_ID" \
+            --epochs "$EPOCHS" \
+            --optimizerModel "$OPTIMIZER_MODEL" \
+            --targetModel "$TARGET_MODEL" \
+            --seed "$SEED"
+
+      - name: Upload optimization artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: skill-lab-${{ steps.baseline.outputs.run_id }}
+          path: skill-lab/runs/${{ steps.baseline.outputs.run_id }}
+          if-no-files-found: warn

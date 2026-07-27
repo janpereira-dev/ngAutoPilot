@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: upgrades
 status: stable
-version: 0.5.2
+version: 0.5.3
 owner: NgAutoPilot
 triggers:
   - upgrade validation
@@ -29,6 +29,8 @@ compatibility:
 Use this skill to validate a single Angular upgrade hop and decide whether the next hop may proceed.
 
 This skill does not plan hops or change code. It checks the repository using the commands that actually exist and reports whether the hop is safe to continue.
+
+Validate exactly one Angular major hop per gate. If the request combines multiple major hops, return `BLOCKED` and ask for a separate validation after each hop.
 
 ## When to Use This Skill
 
@@ -53,7 +55,7 @@ Do not use this skill when:
 
 - Current hop result
 - `package.json`
-- Available build/test/lint scripts
+- Available validation scripts from `package.json`, including repository-specific names such as `verify:build`, `verify:test`, `check`, or `ci`
 - Failure logs if a command already failed
 - Rollback expectations
 
@@ -62,7 +64,7 @@ Do not use this skill when:
 | Angular hop    | Strategy recommended                                          | Observations                                  |
 | -------------- | ------------------------------------------------------------- | --------------------------------------------- |
 | Any major hop  | Validate immediately after the hop                            | Do not batch multiple hops before validation. |
-| Angular 2+     | Use the repository's actual build/test/lint commands          | Do not invent commands.                       |
+| Angular 2+     | Use the repository's actual validation commands               | Do not invent commands.                       |
 | Angular 17+    | Include any modern checks the repository already supports     | Verify they exist before using them.          |
 | Angular 5 -> 6 | Treat CLI workspace and RxJS bridge status as gate conditions | Fail closed if either is incomplete.          |
 
@@ -72,7 +74,7 @@ If a version cannot be confirmed from the project files, mark it as `verify in p
 
 1. Read `package.json`.
 2. Identify available validation scripts.
-3. Run build, test, and lint only if they exist.
+3. Run repository-specific build, test, lint, check, verify, or CI scripts only if they exist.
 4. Record failures with their likely cause.
 5. Decide whether the next hop may proceed.
 6. Stop if the gate fails.
@@ -82,7 +84,7 @@ If a version cannot be confirmed from the project files, mark it as `verify in p
 - Validate immediately after each bounded hop.
 - Block the next hop when validation fails.
 - Report the exact command outcome.
-- Prefer repository scripts over ad hoc commands.
+- Prefer repository scripts over ad hoc commands, even when script names are custom.
 - Keep the gate decision explicit.
 - For Angular 5 -> 6, include CLI workspace and RxJS bridge results in the gate decision.
 
@@ -133,9 +135,9 @@ FAIL -> stop and fix before continuing
 
 Prefer the actual repository scripts in this order when they exist:
 
-- build
-- test
-- lint
+- build-like scripts, for example `build` or `verify:build`
+- test-like scripts, for example `test` or `verify:test`
+- lint-like scripts, for example `lint` or `check:lint`
 
 If a script does not exist, skip it and report that it was unavailable.
 

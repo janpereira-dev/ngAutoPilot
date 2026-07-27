@@ -7,7 +7,7 @@ stack:
   - TypeScript
 category: strict-types
 status: stable
-version: 0.5.2
+version: 0.5.3
 owner: NgAutoPilot
 triggers:
   - typescript strict types

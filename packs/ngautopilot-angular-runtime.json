@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-angular-runtime",
   "name": "NgAutoPilot Angular Runtime",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "status": "stable",
   "description": "Build, SSR, resources, performance, security, zones, and zoneless runtime guidance for Angular applications.",
   "audience": "Angular teams responsible for runtime behavior and production safety",

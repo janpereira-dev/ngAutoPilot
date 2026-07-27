@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-angular-migration",
   "name": "NgAutoPilot Angular Migration",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "status": "stable",
   "description": "AngularJS inventory, hybrid migration, decommissioning, and compatibility guidance kept separate from modern Angular hops.",
   "audience": "Teams migrating AngularJS applications to supported Angular",

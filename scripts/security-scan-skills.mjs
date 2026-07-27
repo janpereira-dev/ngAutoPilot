@@ -2,9 +2,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
-const scanRoots = ['skills', 'agents', 'adapters', 'packs', 'scripts', 'docs', '.github/workflows'];
-const rootFiles = ['README.md', 'SECURITY.md', 'package.json'];
-const allowedExtensions = new Set(['.json', '.md', '.mjs', '.yml', '.yaml']);
+const scanRoots = ['skills', 'agents', 'adapters', 'packs', 'scripts', 'docs', '.github/workflows', 'skill-lab'];
+const rootFiles = ['SKILL.md', 'README.md', 'SECURITY.md', 'package.json'];
+const allowedExtensions = new Set(['.json', '.md', '.mjs', '.py', '.toml', '.yml', '.yaml']);
+const excludedSkillLabDirectories = new Set(['skill-lab/.cache', 'skill-lab/.venv', 'skill-lab/runs']);
 const findings = [];
 
 for (const relativeRoot of scanRoots) {
@@ -40,6 +41,10 @@ function scanDirectory(directory) {
     const target = path.join(directory, entry.name);
 
     if (entry.isDirectory()) {
+      if (isExcludedDirectory(directory, entry.name)) {
+        continue;
+      }
+
       scanDirectory(target);
       continue;
     }
@@ -48,6 +53,11 @@ function scanDirectory(directory) {
       scanFile(target);
     }
   }
+}
+
+function isExcludedDirectory(directory, name) {
+  const relative = toPosixPath(path.relative(root, path.join(directory, name)));
+  return excludedSkillLabDirectories.has(relative);
 }
 
 function scanFile(file) {

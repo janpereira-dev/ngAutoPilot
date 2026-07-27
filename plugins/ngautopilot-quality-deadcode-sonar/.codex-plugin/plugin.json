@@ -1,6 +1,6 @@
 {
   "name": "ngautopilot-quality-deadcode-sonar",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Dead-code and SonarQube skills for orphan files, unused exports, dead branches, complexity, duplication, coverage, and gate triage.",
   "author": {
     "name": "Jan Pereira",

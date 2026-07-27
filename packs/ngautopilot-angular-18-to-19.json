@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-angular-18-to-19",
   "name": "NgAutoPilot Angular 18 to 19",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "status": "stable",
   "description": "Compatibility routing and the bounded Angular 18 to 19 upgrade hop, including the Core installation baseline.",
   "audience": "Teams upgrading an Angular 18 application to Angular 19",

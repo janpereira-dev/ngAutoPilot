@@ -1,0 +1,1 @@
+{"scripts":{"build":"ng build","test":"ng test --watch=false"},"dependencies":{"@angular/core":"14.0.0"}}

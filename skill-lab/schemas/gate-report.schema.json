@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ngautopilot.dev/schemas/skill-lab/gate-report.schema.json",
+  "type": "object",
+  "required": ["status", "accepted"],
+  "properties": {
+    "status": { "type": "string" },
+    "accepted": { "type": "boolean" }
+  }
+}

@@ -1,0 +1,1 @@
+{"commands":[{"command":"npm run build","result":"pass","warning":"TypeScript version outside Angular target compatibility range"},{"command":"npm run test","result":"pass"}]}

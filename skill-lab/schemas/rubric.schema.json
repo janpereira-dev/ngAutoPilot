@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ngautopilot.dev/schemas/skill-lab/rubric.schema.json",
+  "type": "object",
+  "required": ["id", "version", "softScore"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "softScore": { "type": "object" }
+  }
+}

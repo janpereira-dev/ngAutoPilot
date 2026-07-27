@@ -8,7 +8,7 @@ stack:
   - Content Design
 category: design
 status: stable
-version: 0.5.2
+version: 0.5.3
 owner: NgAutoPilot
 triggers:
   - typography hierarchy

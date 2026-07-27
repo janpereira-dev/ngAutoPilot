@@ -1,0 +1,1 @@
+{"commands":[{"command":"npm run build","result":"pass"},{"command":"npm run test","result":"pass"}],"compatibility":[{"type":"rxjs","result":"fail"}]}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ngautopilot.dev/schemas/skill-lab/benchmark.schema.json",
+  "type": "object",
+  "required": ["id", "version", "targetSkill", "splits"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "targetSkill": { "type": "object" },
+    "splits": { "type": "object" }
+  }
+}

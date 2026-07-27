@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: debug
 status: stable
-version: 0.5.2
+version: 0.5.3
 owner: NgAutoPilot
 triggers:
   - ng-reflect cleanup

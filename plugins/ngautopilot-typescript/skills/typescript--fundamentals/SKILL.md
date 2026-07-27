@@ -7,7 +7,7 @@ stack:
   - TypeScript
 category: fundamentals
 status: stable
-version: 0.5.2
+version: 0.5.3
 owner: NgAutoPilot
 triggers:
   - typescript fundamentals

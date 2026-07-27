@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-core",
   "name": "NgAutoPilot Core",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "status": "stable",
   "description": "Routing, intake, compatibility, risk gates, and skill router — the minimum foundation every NgAutoPilot installation needs.",
   "audience": "Every user, every agent",
