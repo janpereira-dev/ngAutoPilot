@@ -1,0 +1,3 @@
+# Copy to local.yaml for local-only settings. Do not commit local.yaml.
+defaultBenchmark: angular-upgrade-validation-gate
+defaultRuns: 3

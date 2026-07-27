@@ -1,0 +1,1 @@
+{"commands":[{"command":"npm run build","result":"pass"},{"command":"npm run test","result":"pass"},{"command":"npm run lint","result":"fail","summary":"ESLint rule failed."}]}

@@ -1,0 +1,13 @@
+{
+  "id": "angular-upgrade-validation-gate",
+  "version": "1.0.0",
+  "hardChecks": "Closed-list deterministic checks defined by each JSONL case.",
+  "softScore": {
+    "explanatoryCorrectness": 0.3,
+    "evidenceTraceability": 0.25,
+    "clarity": 0.15,
+    "operationalOrder": 0.15,
+    "scopeDiscipline": 0.1,
+    "concision": 0.05
+  }
+}

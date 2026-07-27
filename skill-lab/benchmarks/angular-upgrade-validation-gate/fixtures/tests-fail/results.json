@@ -1,0 +1,1 @@
+{"commands":[{"command":"npm run build","result":"pass"},{"command":"npm run test","result":"fail","summary":"Component spec failed."},{"command":"npm run lint","result":"not-run"}]}

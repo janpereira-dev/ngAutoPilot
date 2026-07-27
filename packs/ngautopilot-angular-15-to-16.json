@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-angular-15-to-16",
   "name": "NgAutoPilot Angular 15 to 16",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "status": "stable",
   "description": "Compatibility routing and the bounded Angular 15 to 16 upgrade hop, including the Core installation baseline.",
   "audience": "Teams upgrading an Angular 15 application to Angular 16",

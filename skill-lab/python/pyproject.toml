@@ -1,0 +1,17 @@
+[project]
+name = "ngautopilot-skill-lab"
+version = "0.5.2"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "skillopt==0.2.*",
+  "pyyaml>=6.0,<7",
+  "jsonschema>=4.0,<5"
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["ngautopilot_skillopt*"]

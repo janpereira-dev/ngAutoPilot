@@ -1,0 +1,1 @@
+{"commands":[{"command":"npm run build","result":"fail","summary":"masked token [REDACTED_SECRET] appeared in source log"}],"containsRedactedSecret":true}

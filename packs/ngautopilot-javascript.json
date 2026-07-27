@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-javascript",
   "name": "NgAutoPilot JavaScript",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "status": "stable",
   "description": "JavaScript fundamentals, modules, async error handling, pure functions, ECMAScript compatibility.",
   "audience": "JavaScript developers",

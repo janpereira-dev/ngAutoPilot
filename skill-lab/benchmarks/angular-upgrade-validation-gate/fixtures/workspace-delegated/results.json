@@ -1,0 +1,1 @@
+{"commands":[{"command":"npm run web:build","result":"pass"},{"command":"npm run web:test","result":"pass"}]}

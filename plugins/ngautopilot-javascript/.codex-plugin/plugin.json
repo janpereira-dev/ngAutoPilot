@@ -1,6 +1,6 @@
 {
   "name": "ngautopilot-javascript",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "JavaScript-focused NgAutoPilot skills for fundamentals, modules, pure functions, and async error handling.",
   "author": {
     "name": "Jan Pereira",

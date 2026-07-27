@@ -1,0 +1,8 @@
+# Copy to providers.local.yaml when the SkillOpt bridge is implemented.
+models:
+  optimizer:
+    backend: openai_chat
+    model: ${SKILLOPT_OPTIMIZER_MODEL}
+  target:
+    backend: openai_chat
+    model: ${SKILLOPT_TARGET_MODEL}

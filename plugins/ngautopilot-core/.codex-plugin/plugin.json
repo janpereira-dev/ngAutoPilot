@@ -1,6 +1,6 @@
 {
   "name": "ngautopilot-core",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Core NgAutoPilot workflows for project intake, stack detection, skill routing, compatibility gates, and risk assessment.",
   "author": {
     "name": "Jan Pereira",

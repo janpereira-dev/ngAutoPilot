@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ngautopilot.dev/schemas/skill-lab/run-manifest.schema.json",
+  "type": "object",
+  "required": ["runId", "repositoryCommit", "targetSkillPath", "targetSkillHash", "benchmarkId", "benchmarkVersion", "createdAt"],
+  "properties": {
+    "runId": { "type": "string" },
+    "repositoryCommit": { "type": "string" },
+    "targetSkillPath": { "type": "string" },
+    "targetSkillHash": { "type": "string" },
+    "benchmarkId": { "type": "string" },
+    "benchmarkVersion": { "type": "string" },
+    "createdAt": { "type": "string" }
+  }
+}

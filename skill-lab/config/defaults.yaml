@@ -1,0 +1,15 @@
+seed: 42
+
+limits:
+  maxEpochs: 3
+  maxEditsPerEpoch: 4
+  maxCandidateTokens: 2200
+  maxGrowthPercent: 20
+  maxChangedLinesPercent: 25
+
+gate:
+  rejectAnyCriticalRegression: true
+  minimumHardScore: 0.95
+  minimumSoftDelta: 0.02
+  requiredWinningRuns: 2
+  totalRepeatedRuns: 3

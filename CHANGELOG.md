@@ -2,6 +2,24 @@
 
 All notable changes to NgAutoPilot will be documented in this file.
 
+## 0.5.3 - 2026-07-27
+
+Release focused on the governed Skill Lab optimization workflow, root skill distribution, and harder Angular upgrade validation evidence.
+
+### Added
+
+- Added the governed `skill-lab/` workflow for benchmarked skill evaluation, candidate gating, and promotion packet generation.
+- Added Skill Lab CI workflows for static validation and protected optimization runs.
+- Added the root `SKILL.md` so NgAutoPilot can be installed and discovered as a top-level agent skill.
+- Added Phase E hard benchmark cases for compound validation scripts, workspaces, skip requests, partial warnings, and injected logs.
+
+### Changed
+
+- Updated the package, catalog, source skills, plugin bundles, and marketplace metadata to version `0.5.3`.
+- Hardened the Angular upgrade validation gate benchmark scorer for `ci` and `preflight` scripts.
+- Blocked validation approval when an available check is explicitly skipped instead of executed.
+- Expanded security scanning coverage for root skills, Skill Lab assets, Python bridge files, and TOML metadata.
+
 ## 0.5.2 - 2026-07-17
 
 Release focused on skill supply-chain controls, automated repository security analysis, and public discovery.

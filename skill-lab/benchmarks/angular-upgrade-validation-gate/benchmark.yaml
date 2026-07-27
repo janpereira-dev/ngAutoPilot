@@ -1,0 +1,33 @@
+id: angular-upgrade-validation-gate
+version: 1.1.0
+
+targetSkill:
+  path: skills/angular/upgrades/angular-upgrade-validation-gate/SKILL.md
+  protectFrontmatter: true
+
+splits:
+  train: datasets/train.jsonl
+  validation: datasets/validation.jsonl
+  test: datasets/test.jsonl
+  adversarial: datasets/adversarial.jsonl
+
+modes:
+  - text
+  - sandbox
+
+limits:
+  maxEpochs: 3
+  maxEditsPerEpoch: 4
+  maxCandidateTokens: 2200
+  maxGrowthPercent: 20
+  maxChangedLinesPercent: 25
+
+gate:
+  requireCriticalPass: true
+  rejectAnyCriticalRegression: true
+  minimumHardScore: 0.95
+  minimumSoftDelta: 0.02
+  requiredWinningRuns: 2
+  totalRepeatedRuns: 3
+  requireImprovedCase: true
+  requireCrossHarnessParity: true
