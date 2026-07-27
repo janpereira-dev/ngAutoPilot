@@ -1,1 +1,1 @@
-{"workspaces":["apps/web"],"scripts":{"web:build":"npm --workspace apps/web run build","web:test":"npm --workspace apps/web run test"},"dependencies":{"@angular/core":"19.0.0"}}
+{"workspaces":["apps/web"],"scripts":{"web:build":"npm --workspace apps/web run build","web:test":"npm --workspace apps/web run test"},"dependencies":{"@angular/core":"20.3.25"}}
