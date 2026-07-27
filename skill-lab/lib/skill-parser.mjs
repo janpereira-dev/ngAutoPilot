@@ -17,7 +17,7 @@ export function validateSkillStructure(content) {
   if (/\bTODO\b/i.test(content)) errors.push('contains TODO marker');
 
   for (const section of REQUIRED_SKILL_SECTIONS) {
-    if (!content.includes(section)) {
+    if (!hasRequiredHeading(content, section)) {
       errors.push(`missing section "${section}"`);
     }
   }
@@ -26,4 +26,16 @@ export function validateSkillStructure(content) {
     valid: errors.length === 0,
     errors,
   };
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function hasRequiredHeading(content, section) {
+  if (section === '## When to Use' || section === '## Do Not') {
+    return new RegExp(`^${escapeRegExp(section)}(?:\\s+This Skill)?\\s*$`, 'm').test(content);
+  }
+
+  return new RegExp(`^${escapeRegExp(section)}\\s*$`, 'm').test(content);
 }

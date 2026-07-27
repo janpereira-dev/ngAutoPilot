@@ -38,7 +38,7 @@ export function generatePromotionPacket({ runRoot }) {
 
   fs.copyFileSync(candidatePath, path.join(promotionRoot, 'candidate.SKILL.md'));
   fs.copyFileSync(gatePath, path.join(promotionRoot, 'gate-report.json'));
-  fs.writeFileSync(path.join(promotionRoot, 'canonical.diff'), canonicalDiff(baselinePath, candidatePath), 'utf8');
+  fs.writeFileSync(path.join(promotionRoot, 'canonical.diff'), canonicalDiff(baselinePath, candidatePath, gateReport.evidence?.targetSkillPath), 'utf8');
   fs.writeFileSync(path.join(promotionRoot, 'evidence-summary.json'), `${JSON.stringify(evidenceSummary, null, 2)}\n`, 'utf8');
   fs.writeFileSync(path.join(promotionRoot, 'hashes.json'), `${JSON.stringify(hashes, null, 2)}\n`, 'utf8');
   fs.writeFileSync(path.join(promotionRoot, 'report.md'), reportMarkdown({ gateReport, evidenceSummary, hashes }), 'utf8');
@@ -61,9 +61,17 @@ function buildEvidenceSummary(runRoot, gateReport) {
   };
 }
 
-function canonicalDiff(baselinePath, candidatePath) {
+function canonicalDiff(baselinePath, candidatePath, targetSkillPath) {
   const result = spawnSync('git', ['diff', '--no-index', '--', baselinePath, candidatePath], { encoding: 'utf8' });
-  return result.stdout || result.stderr || '';
+  const diff = result.stdout || result.stderr || '';
+  const target = (targetSkillPath ?? '').split(path.sep).join('/');
+
+  if (!target || !diff) return diff;
+
+  return diff
+    .replace(/^diff --git .+$/m, `diff --git a/${target} b/${target}`)
+    .replace(/^--- .+$/m, `--- a/${target}`)
+    .replace(/^\+\+\+ .+$/m, `+++ b/${target}`);
 }
 
 function reportMarkdown({ gateReport, evidenceSummary, hashes }) {

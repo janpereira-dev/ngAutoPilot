@@ -41,13 +41,27 @@ export function changedLinesPercent(baselineSkill, candidateSkill) {
   const baseline = baselineSkill.split(/\r?\n/);
   const candidate = candidateSkill.split(/\r?\n/);
   const maxLines = Math.max(baseline.length, candidate.length, 1);
-  let changed = Math.abs(baseline.length - candidate.length);
-
-  for (let index = 0; index < Math.min(baseline.length, candidate.length); index += 1) {
-    if (baseline[index] !== candidate[index]) changed += 1;
-  }
+  const changed = maxLines - longestCommonSubsequenceLength(baseline, candidate);
 
   return Number(((changed / maxLines) * 100).toFixed(2));
+}
+
+function longestCommonSubsequenceLength(left, right) {
+  let previous = Array(right.length + 1).fill(0);
+
+  for (let leftIndex = 0; leftIndex < left.length; leftIndex += 1) {
+    const current = Array(right.length + 1).fill(0);
+
+    for (let rightIndex = 0; rightIndex < right.length; rightIndex += 1) {
+      current[rightIndex + 1] = left[leftIndex] === right[rightIndex]
+        ? previous[rightIndex] + 1
+        : Math.max(previous[rightIndex + 1], current[rightIndex]);
+    }
+
+    previous = current;
+  }
+
+  return previous[right.length];
 }
 
 function aggregatePassed(aggregate) {

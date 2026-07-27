@@ -25,6 +25,7 @@ function firstFailure(input) {
   if ((input.improvedCases?.length ?? 0) < 1) return 'REJECTED_NO_IMPROVEMENT';
   if ((input.winningRuns ?? 0) < requiredWinningRuns) return 'REJECTED_UNSTABLE';
   if (input.candidateAggregate.tokenCount > input.limits.maxCandidateTokens) return 'REJECTED_SIZE';
+  if (input.candidateAggregate.growthPercent > input.limits.maxGrowthPercent) return 'REJECTED_SIZE';
   if (input.candidateAggregate.changedLinesPercent > input.limits.maxChangedLinesPercent) return 'REJECTED_SIZE';
   if ((input.crossHarnessRegressionCount ?? 0) > 0) return 'REJECTED_CROSS_HARNESS_REGRESSION';
   if (!input.testPassed) return 'REJECTED_TEST';

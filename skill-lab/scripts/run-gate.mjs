@@ -20,7 +20,9 @@ const candidateAggregate = readJson(args.candidateAggregate ?? path.join(runRoot
 const comparison = readComparison(runRoot);
 const structure = validateSkillStructure(candidateSkill);
 const evidence = collectGateEvidence(runRoot, args.stage ?? 'validation');
-const limits = { maxCandidateTokens: 2200, maxChangedLinesPercent: 25 };
+const baselineTokenCount = approximateTokens(baselineSkill);
+const candidateTokenCount = approximateTokens(candidateSkill);
+const limits = benchmark.limits ?? { maxCandidateTokens: 2200, maxChangedLinesPercent: 25, maxGrowthPercent: 20 };
 const result = runGate({
   frontmatterIsEqual: frontmatterIsByteEqual(baselineSkill, candidateSkill),
   structureIsValid: structure.valid,
@@ -28,7 +30,8 @@ const result = runGate({
   baselineAggregate,
   candidateAggregate: {
     ...candidateAggregate,
-    tokenCount: approximateTokens(candidateSkill),
+    tokenCount: candidateTokenCount,
+    growthPercent: growthPercent(baselineTokenCount, candidateTokenCount),
     changedLinesPercent: changedLinesPercent(baselineSkill, candidateSkill),
   },
   improvedCases: comparison.improvements?.map((item) => item.id) ?? [],
@@ -46,7 +49,7 @@ const result = runGate({
 });
 
 fs.mkdirSync(path.join(runRoot, 'gate'), { recursive: true });
-fs.writeFileSync(path.join(runRoot, 'gate', 'gate-report.json'), `${JSON.stringify({ ...result, structure, evidence: { ...evidence, candidateHash: sha256(candidateSkill) } }, null, 2)}\n`, 'utf8');
+fs.writeFileSync(path.join(runRoot, 'gate', 'gate-report.json'), `${JSON.stringify({ ...result, structure, evidence: { ...evidence, candidateHash: sha256(candidateSkill), targetSkillPath: benchmark.targetSkill.path } }, null, 2)}\n`, 'utf8');
 console.log(result.status);
 process.exit(result.accepted ? 0 : 1);
 
@@ -70,6 +73,11 @@ function readOptionalJson(filePath, fallback) {
 
 function approximateTokens(value) {
   return Math.ceil(value.split(/\s+/).filter(Boolean).length * 1.3);
+}
+
+function growthPercent(baselineTokenCount, candidateTokenCount) {
+  if (baselineTokenCount === 0) return candidateTokenCount === 0 ? 0 : 100;
+  return Number((((candidateTokenCount - baselineTokenCount) / baselineTokenCount) * 100).toFixed(2));
 }
 
 function parseArgs(argv) {

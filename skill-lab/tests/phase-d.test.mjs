@@ -5,6 +5,7 @@ import path from 'node:path';
 import test, { after } from 'node:test';
 
 import { buildSkillOptContract } from '../lib/skillopt-contract.mjs';
+import { sha256File } from '../lib/hash-utils.mjs';
 
 const repoRoot = process.cwd();
 const targetSkill = path.join(repoRoot, 'skills/angular/upgrades/angular-upgrade-validation-gate/SKILL.md');
@@ -171,6 +172,7 @@ test('agentic gate consumes safe harness evidence and feeds cross-harness gate d
   writeJson(evidencePath, {
     harness: 'codex',
     candidate: 'skill-lab/runs/phase-d-agentic/optimization/candidate.SKILL.md',
+    candidateHash: sha256File(path.join(runRoot, 'optimization/candidate.SKILL.md')),
     passed: true,
     regressions: [],
     summary: 'Synthetic harness evidence passed.',
@@ -185,9 +187,30 @@ test('agentic gate consumes safe harness evidence and feeds cross-harness gate d
   assert.equal(report.crossHarnessRegressionCount, 0);
 });
 
+test('agentic gate rejects evidence from another candidate', () => {
+  const runId = 'phase-d-agentic-hash-mismatch';
+  const runRoot = prepareRun(runId);
+  const evidencePath = path.join(runRoot, 'agentic', 'codex', 'evidence.json');
+  fs.mkdirSync(path.dirname(evidencePath), { recursive: true });
+  writeJson(evidencePath, {
+    harness: 'codex',
+    candidate: 'skill-lab/runs/other-run/optimization/candidate.SKILL.md',
+    candidateHash: 'not-this-candidate',
+    passed: true,
+    regressions: [],
+    summary: 'Wrong candidate evidence.',
+  });
+
+  const result = runNode(['skill-lab/scripts/run-agentic-gate.mjs', '--run', runId, '--harness', 'codex']);
+
+  assert.equal(result.status, 1);
+  assert.match(result.stdout, /AGENTIC_GATE_FAILED/);
+});
+
 test('prepare-promotion writes complete review packet without touching canonical skills', () => {
   const runId = 'phase-d-promotion';
   const runRoot = prepareRun(runId);
+  fs.appendFileSync(path.join(runRoot, 'optimization/candidate.SKILL.md'), '\nAdditional validated guidance.\n', 'utf8');
   writeValidationEvidence(runRoot);
   writePromotionEvidence(runRoot);
 
@@ -212,6 +235,9 @@ test('prepare-promotion writes complete review packet without touching canonical
 
   assert.equal(fs.readFileSync(path.join(promotionRoot, 'candidate.SKILL.md'), 'utf8'), fs.readFileSync(path.join(runRoot, 'optimization/candidate.SKILL.md'), 'utf8'));
   assert.match(fs.readFileSync(path.join(promotionRoot, 'pr-body.md'), 'utf8'), /Manual promotion only/);
+  const canonicalDiff = fs.readFileSync(path.join(promotionRoot, 'canonical.diff'), 'utf8');
+  assert.match(canonicalDiff, /--- a\/skills\/angular\/upgrades\/angular-upgrade-validation-gate\/SKILL\.md/);
+  assert.match(canonicalDiff, /\+\+\+ b\/skills\/angular\/upgrades\/angular-upgrade-validation-gate\/SKILL\.md/);
 });
 
 test('prepare-promotion rejects candidates whose hash differs from accepted gate report', () => {
@@ -249,6 +275,7 @@ function prepareRun(runId) {
     repository: 'janpereira-dev/ngAutoPilot',
     repositoryCommit: 'test-commit',
     targetSkillPath: 'skills/angular/upgrades/angular-upgrade-validation-gate/SKILL.md',
+    targetSkillHash: 'placeholder-hash',
     benchmarkId: 'angular-upgrade-validation-gate',
     benchmarkVersion: '1.0.0',
   });

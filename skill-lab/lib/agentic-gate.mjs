@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { assertInsideLab } from './sandbox.mjs';
+import { sha256File } from './hash-utils.mjs';
 
 const ALLOWED_HARNESSES = new Set(['codex', 'claude', 'opencode', 'direct-chat']);
 
@@ -13,6 +14,7 @@ export function runAgenticGate({ runRoot, harness, evidencePath }) {
   const labRoot = path.resolve('skill-lab');
   const safeRunRoot = assertInsideLab(labRoot, runRoot);
   const evidenceFile = assertInsideLab(labRoot, evidencePath ?? path.join(safeRunRoot, 'agentic', harness, 'evidence.json'));
+  const candidatePath = path.join(safeRunRoot, 'optimization', 'candidate.SKILL.md');
 
   if (!fs.existsSync(evidenceFile)) {
     return rejection(`Missing harness evidence: ${path.relative(process.cwd(), evidenceFile).split(path.sep).join('/')}`);
@@ -20,7 +22,10 @@ export function runAgenticGate({ runRoot, harness, evidencePath }) {
 
   const evidence = JSON.parse(fs.readFileSync(evidenceFile, 'utf8'));
   const regressions = evidence.regressions ?? [];
-  const passed = evidence.harness === harness && evidence.passed === true && regressions.length === 0;
+  const expectedCandidate = path.relative(process.cwd(), candidatePath).split(path.sep).join('/');
+  const expectedCandidateHash = fs.existsSync(candidatePath) ? sha256File(candidatePath) : null;
+  const candidateMatches = evidence.candidate === expectedCandidate && evidence.candidateHash === expectedCandidateHash;
+  const passed = evidence.harness === harness && candidateMatches && evidence.passed === true && regressions.length === 0;
 
   return {
     status: passed ? 'AGENTIC_GATE_PASSED' : 'AGENTIC_GATE_FAILED',
@@ -31,6 +36,7 @@ export function runAgenticGate({ runRoot, harness, evidencePath }) {
       summary: evidence.summary ?? '',
       file: path.relative(safeRunRoot, evidenceFile).split(path.sep).join('/'),
       candidate: evidence.candidate ?? null,
+      candidateHash: evidence.candidateHash ?? null,
     },
     regressions,
   };
