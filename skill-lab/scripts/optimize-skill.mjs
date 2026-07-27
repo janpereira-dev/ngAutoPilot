@@ -38,12 +38,19 @@ if (result.stderr) process.stderr.write(result.stderr);
 
 const candidatePath = path.join(outputDirectory, 'candidate.SKILL.md');
 if (result.status !== 0 || !fs.existsSync(candidatePath)) {
-  console.error([
+  const guidance = [
     'SkillOpt bridge did not produce candidate.SKILL.md.',
     `Contract: ${path.relative(process.cwd(), contractPath).split(path.sep).join('/')}`,
-    'Install the local bridge dependencies with: python -m pip install -e skill-lab/python',
-    'If SkillOpt changed its Python API, update only skill-lab/python/ngautopilot_skillopt/bridge.py.',
-  ].join('\n'));
+  ];
+
+  if (/does not expose a direct optimize API/.test(result.stderr ?? '')) {
+    guidance.push('Implement the NgAutoPilot SkillOpt EnvAdapter in skill-lab/python/ngautopilot_skillopt/bridge.py.');
+  } else {
+    guidance.push('Install the local bridge dependencies with: python -m pip install -e skill-lab/python');
+    guidance.push('If SkillOpt changed its Python API, update only skill-lab/python/ngautopilot_skillopt/bridge.py.');
+  }
+
+  console.error(guidance.join('\n'));
   process.exit(result.status === 0 ? 2 : result.status ?? 2);
 }
 

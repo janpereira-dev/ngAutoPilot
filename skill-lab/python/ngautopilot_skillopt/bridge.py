@@ -66,10 +66,13 @@ def call_known_skillopt_api(skillopt: Any, contract: dict[str, Any]) -> Any:
         return skillopt.optimize_skill(contract)
     if hasattr(skillopt, "optimize"):
         return skillopt.optimize(contract)
+    version = getattr(skillopt, "__version__", "unknown")
     raise BridgeError(
-        "Installed SkillOpt package does not expose a supported optimize API. "
+        f"SkillOpt {version} does not expose a direct optimize API. "
         "Expected skillopt.optimize_skill(contract) or skillopt.optimize(contract). "
-        "Update only skill-lab/python/ngautopilot_skillopt/bridge.py after verifying the local API."
+        "NgAutoPilot bridge needs a SkillOpt EnvAdapter integration before it can "
+        "produce candidate.SKILL.md with this installed API. Update only "
+        "skill-lab/python/ngautopilot_skillopt/bridge.py after implementing that adapter."
     )
 
 

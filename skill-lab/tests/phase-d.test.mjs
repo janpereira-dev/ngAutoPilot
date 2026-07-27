@@ -41,6 +41,72 @@ test('buildSkillOptContract keeps candidate output inside skill-lab and hides pr
   );
 });
 
+test('SkillOpt bridge reports unsupported installed API without writing a candidate', () => {
+  const runRoot = prepareRun('phase-d-unsupported-skillopt-api');
+  const fakeModuleRoot = path.join(runRoot, 'fake-python');
+  const fakeSkillOptRoot = path.join(fakeModuleRoot, 'skillopt');
+  fs.mkdirSync(fakeSkillOptRoot, { recursive: true });
+  fs.writeFileSync(path.join(fakeSkillOptRoot, '__init__.py'), '__version__ = "0.2.0"\n', 'utf8');
+  fs.rmSync(path.join(runRoot, 'optimization/candidate.SKILL.md'), { force: true });
+  const contractPath = path.join(runRoot, 'optimization/skillopt-contract.json');
+  writeJson(contractPath, {
+    outputDirectory: path.join(runRoot, 'optimization'),
+    splits: {
+      train: 'skill-lab/benchmarks/angular-upgrade-validation-gate/datasets/train.jsonl',
+      validation: 'skill-lab/benchmarks/angular-upgrade-validation-gate/datasets/validation.jsonl',
+    },
+  });
+
+  const result = spawnSync(
+    process.env.PYTHON ?? (process.platform === 'win32' ? 'python' : 'python3'),
+    ['-m', 'ngautopilot_skillopt.bridge', contractPath],
+    {
+      cwd: repoRoot,
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PYTHONPATH: [fakeModuleRoot, path.join(repoRoot, 'skill-lab/python'), process.env.PYTHONPATH]
+          .filter(Boolean)
+          .join(path.delimiter),
+      },
+    },
+  );
+
+  assert.equal(result.status, 2);
+  assert.match(result.stderr, /SkillOpt 0\.2\.0 does not expose a direct optimize API/);
+  assert.match(result.stderr, /NgAutoPilot bridge needs a SkillOpt EnvAdapter integration/);
+  assert.equal(fs.existsSync(path.join(runRoot, 'optimization/candidate.SKILL.md')), false);
+});
+
+test('optimize-skill omits dependency install guidance when SkillOpt API is unsupported', () => {
+  const runId = 'phase-d-optimize-unsupported-api';
+  const runRoot = prepareRun(runId);
+  const fakeModuleRoot = path.join(runRoot, 'fake-python');
+  const fakeSkillOptRoot = path.join(fakeModuleRoot, 'skillopt');
+  fs.mkdirSync(fakeSkillOptRoot, { recursive: true });
+  fs.writeFileSync(path.join(fakeSkillOptRoot, '__init__.py'), '__version__ = "0.2.0"\n', 'utf8');
+  fs.rmSync(path.join(runRoot, 'optimization/candidate.SKILL.md'), { force: true });
+
+  const result = spawnSync(
+    process.execPath,
+    ['skill-lab/scripts/optimize-skill.mjs', '--run', runId],
+    {
+      cwd: repoRoot,
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PYTHONPATH: [fakeModuleRoot, path.join(repoRoot, 'skill-lab/python'), process.env.PYTHONPATH]
+          .filter(Boolean)
+          .join(path.delimiter),
+      },
+    },
+  );
+
+  assert.equal(result.status, 2);
+  assert.match(result.stderr, /SkillOpt 0\.2\.0 does not expose a direct optimize API/);
+  assert.doesNotMatch(result.stderr, /Install the local bridge dependencies/);
+});
+
 test('run-gate rejects when promotion evidence artifacts are missing', () => {
   const runId = 'phase-d-missing-evidence';
   const runRoot = prepareRun(runId);
