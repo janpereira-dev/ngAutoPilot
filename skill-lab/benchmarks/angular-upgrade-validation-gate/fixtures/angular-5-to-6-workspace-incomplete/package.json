@@ -1,1 +1,1 @@
-{"scripts":{"build":"ng build","test":"ng test"},"dependencies":{"@angular/core":"6.0.0","rxjs":"6.0.0"},"ngAutoPilotFixture":{"workspaceMigrated":false,"rxjsBridgeComplete":true}}
+{"scripts":{"build":"ng build","test":"ng test"},"dependencies":{"@angular/core":"20.3.25","rxjs":"6.0.0"},"ngAutoPilotFixture":{"workspaceMigrated":false,"rxjsBridgeComplete":true}}
