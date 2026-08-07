@@ -9,10 +9,12 @@ on:
         default: angular-upgrade-validation-gate
       optimizer_model:
         description: Optimizer model identifier
-        required: true
+        required: false
+        default: gpt-4.1-mini
       target_model:
         description: Target model identifier
-        required: true
+        required: false
+        default: gpt-4.1-mini
       epochs:
         description: Maximum optimization epochs
         required: true

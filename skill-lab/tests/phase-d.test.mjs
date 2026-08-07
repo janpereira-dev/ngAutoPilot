@@ -46,6 +46,23 @@ test('buildSkillOptContract keeps candidate output inside skill-lab and hides pr
   );
 });
 
+test('buildSkillOptContract uses documented default SkillOpt models', () => {
+  const runRoot = prepareRun('phase-d-default-models');
+  const previousOptimizer = process.env.SKILL_LAB_OPTIMIZER_MODEL;
+  const previousTarget = process.env.SKILL_LAB_TARGET_MODEL;
+  process.env.SKILL_LAB_OPTIMIZER_MODEL = '';
+  process.env.SKILL_LAB_TARGET_MODEL = '';
+
+  try {
+    const contract = buildSkillOptContract({ benchmarkId: 'angular-upgrade-validation-gate', runRoot });
+    assert.equal(contract.optimizerModel, 'gpt-4.1-mini');
+    assert.equal(contract.targetModel, 'gpt-4.1-mini');
+  } finally {
+    restoreEnv('SKILL_LAB_OPTIMIZER_MODEL', previousOptimizer);
+    restoreEnv('SKILL_LAB_TARGET_MODEL', previousTarget);
+  }
+});
+
 test('SkillOpt bridge reports unsupported installed API without writing a candidate', () => {
   const runRoot = prepareRun('phase-d-unsupported-skillopt-api');
   const fakeModuleRoot = path.join(runRoot, 'fake-python');
@@ -81,6 +98,47 @@ test('SkillOpt bridge reports unsupported installed API without writing a candid
   assert.match(result.stderr, /SkillOpt 0\.2\.0 does not expose a direct optimize API/);
   assert.match(result.stderr, /NgAutoPilot bridge needs a SkillOpt EnvAdapter integration/);
   assert.equal(fs.existsSync(path.join(runRoot, 'optimization/candidate.SKILL.md')), false);
+});
+
+test('SkillOpt bridge can drive the installed EnvAdapter trainer path', () => {
+  const runRoot = prepareRun('phase-d-skillopt-env-adapter');
+  const fakeModuleRoot = path.join(runRoot, 'fake-python');
+  writeFakeSkillOptTrainer(fakeModuleRoot);
+  fs.rmSync(path.join(runRoot, 'optimization/candidate.SKILL.md'), { force: true });
+  const contractPath = path.join(runRoot, 'optimization/skillopt-contract.json');
+  writeJson(contractPath, {
+    benchmark: 'angular-upgrade-validation-gate',
+    outputDirectory: path.join(runRoot, 'optimization'),
+    baselineSkill: path.join(runRoot, 'baseline.SKILL.md'),
+    targetSkill: 'skills/angular/upgrades/angular-upgrade-validation-gate/SKILL.md',
+    epochs: 1,
+    editBudget: 1,
+    seed: 7,
+    optimizerModel: 'optimizer-test',
+    targetModel: 'target-test',
+    splits: {
+      train: 'skill-lab/benchmarks/angular-upgrade-validation-gate/datasets/train.jsonl',
+      validation: 'skill-lab/benchmarks/angular-upgrade-validation-gate/datasets/validation.jsonl',
+    },
+  });
+
+  const result = spawnSync(
+    process.env.PYTHON ?? (process.platform === 'win32' ? 'python' : 'python3'),
+    ['-m', 'ngautopilot_skillopt.bridge', contractPath],
+    {
+      cwd: repoRoot,
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PYTHONPATH: [fakeModuleRoot, path.join(repoRoot, 'skill-lab/python'), process.env.PYTHONPATH]
+          .filter(Boolean)
+          .join(path.delimiter),
+      },
+    },
+  );
+
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(fs.readFileSync(path.join(runRoot, 'optimization/candidate.SKILL.md'), 'utf8'), /SkillOpt Candidate/);
 });
 
 test('SkillOpt bridge removes stale candidates before unsupported optimization runs', () => {
@@ -145,6 +203,99 @@ test('optimize-skill omits dependency install guidance when SkillOpt API is unsu
 
   assert.equal(result.status, 2);
   assert.match(result.stderr, /SkillOpt 0\.2\.0 does not expose a direct optimize API/);
+  assert.doesNotMatch(result.stderr, /Install the local bridge dependencies/);
+});
+
+test('optimize-skill reports missing SkillOpt model config without dependency install guidance', () => {
+  const runId = 'phase-d-optimize-missing-model-config';
+  const runRoot = prepareRun(runId);
+  const contractPath = path.join(runRoot, 'optimization/skillopt-contract.json');
+  writeJson(contractPath, {
+    outputDirectory: path.join(runRoot, 'optimization'),
+    baselineSkill: path.join(runRoot, 'baseline.SKILL.md'),
+    optimizerModel: '',
+    targetModel: '',
+    splits: {
+      train: 'skill-lab/benchmarks/angular-upgrade-validation-gate/datasets/train.jsonl',
+      validation: 'skill-lab/benchmarks/angular-upgrade-validation-gate/datasets/validation.jsonl',
+    },
+  });
+
+  const result = spawnSync(
+    process.env.PYTHON ?? (process.platform === 'win32' ? 'python' : 'python3'),
+    ['-m', 'ngautopilot_skillopt.bridge', contractPath],
+    {
+      cwd: repoRoot,
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PYTHONPATH: [path.join(repoRoot, 'skill-lab/python'), process.env.PYTHONPATH]
+          .filter(Boolean)
+          .join(path.delimiter),
+      },
+    },
+  );
+
+  assert.equal(result.status, 2);
+  assert.match(result.stderr, /requires optimizerModel and targetModel/);
+  assert.doesNotMatch(result.stderr, /Install the local bridge dependencies/);
+});
+
+test('Skill Lab README documents default models and complete workflow', () => {
+  const readme = fs.readFileSync(path.join(repoRoot, 'skill-lab/README.md'), 'utf8');
+
+  assert.match(readme, /Default Models/);
+  assert.match(readme, /gpt-4\.1-mini/);
+  assert.match(readme, /OPENAI_API_KEY/);
+  assert.match(readme, /skill-lab:prepare-promotion/);
+});
+
+test('optimize-skill uses default models when no model flags are provided', () => {
+  const runId = 'phase-d-optimize-default-models';
+  const runRoot = prepareRun(runId);
+  const fakeModuleRoot = path.join(runRoot, 'fake-python');
+  writeFakeSkillOptTrainer(fakeModuleRoot, {
+    optimizerModel: 'gpt-4.1-mini',
+    targetModel: 'gpt-4.1-mini',
+  });
+  fs.rmSync(path.join(runRoot, 'optimization/candidate.SKILL.md'), { force: true });
+
+  const result = spawnSync(
+    process.execPath,
+    ['skill-lab/scripts/optimize-skill.mjs', '--run', runId, '--epochs', '1', '--editBudget', '1'],
+    {
+      cwd: repoRoot,
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PYTHONPATH: [fakeModuleRoot, path.join(repoRoot, 'skill-lab/python'), process.env.PYTHONPATH]
+          .filter(Boolean)
+          .join(path.delimiter),
+        SKILL_LAB_OPTIMIZER_MODEL: '',
+        SKILL_LAB_TARGET_MODEL: '',
+      },
+    },
+  );
+
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(result.stdout, /candidate\.SKILL\.md/);
+  assert.match(fs.readFileSync(path.join(runRoot, 'optimization/candidate.SKILL.md'), 'utf8'), /SkillOpt Candidate/);
+});
+
+test('optimize-skill tells users to snapshot a baseline before optimizing', () => {
+  const runId = 'phase-d-optimize-missing-baseline';
+  const runRoot = prepareRun(runId);
+  fs.rmSync(path.join(runRoot, 'baseline.SKILL.md'), { force: true });
+
+  const result = spawnSync(
+    process.execPath,
+    ['skill-lab/scripts/optimize-skill.mjs', '--run', runId],
+    { cwd: repoRoot, encoding: 'utf8' },
+  );
+
+  assert.equal(result.status, 2);
+  assert.match(result.stderr, /baseline skill not found/i);
+  assert.match(result.stderr, /skill-lab:baseline/);
   assert.doesNotMatch(result.stderr, /Install the local bridge dependencies/);
 });
 
@@ -437,6 +588,64 @@ function prepareRun(runId) {
     benchmarkVersion: '1.0.0',
   });
   return runRoot;
+}
+
+function writeFakeSkillOptTrainer(fakeModuleRoot, options = {}) {
+  const optimizerModel = options.optimizerModel ?? 'optimizer-test';
+  const targetModel = options.targetModel ?? 'target-test';
+  fs.mkdirSync(path.join(fakeModuleRoot, 'skillopt/envs'), { recursive: true });
+  fs.mkdirSync(path.join(fakeModuleRoot, 'skillopt/engine'), { recursive: true });
+  fs.writeFileSync(path.join(fakeModuleRoot, 'skillopt/__init__.py'), '__version__ = "0.2.0"\n', 'utf8');
+  fs.writeFileSync(path.join(fakeModuleRoot, 'skillopt/envs/__init__.py'), '', 'utf8');
+  fs.writeFileSync(path.join(fakeModuleRoot, 'skillopt/engine/__init__.py'), '', 'utf8');
+  fs.writeFileSync(
+    path.join(fakeModuleRoot, 'skillopt/envs/base.py'),
+    [
+      'class EnvAdapter:',
+      '    def setup(self, cfg):',
+      '        self._cfg = dict(cfg)',
+      '    def get_dataloader(self):',
+      '        return None',
+      '',
+    ].join('\n'),
+    'utf8',
+  );
+  fs.writeFileSync(
+    path.join(fakeModuleRoot, 'skillopt/engine/trainer.py'),
+    [
+      'import pathlib',
+      '',
+      'class ReflACTTrainer:',
+      '    def __init__(self, cfg, adapter):',
+      '        self.cfg = cfg',
+      '        self.adapter = adapter',
+      '    def train(self):',
+      `        assert self.cfg["optimizer_model"] == "${optimizerModel}"`,
+      `        assert self.cfg["target_model"] == "${targetModel}"`,
+      '        assert self.cfg["num_epochs"] == 1',
+      '        assert self.cfg["edit_budget"] == 1',
+      '        assert self.cfg["train_size"] > 0',
+      '        self.adapter.setup(self.cfg)',
+      '        assert self.adapter.get_task_types() == ["upgrade-validation"]',
+      '        env = self.adapter.build_train_env(batch_size=1, seed=7, out_root=self.cfg["out_root"])',
+      '        results = self.adapter.rollout(env, pathlib.Path(self.cfg["skill_init"]).read_text(encoding="utf-8"), self.cfg["out_root"])',
+      '        assert results and "hard" in results[0] and "soft" in results[0]',
+      '        candidate = pathlib.Path(self.cfg["skill_init"]).read_text(encoding="utf-8").rstrip() + "\\n\\n## SkillOpt Candidate\\n"',
+      '        pathlib.Path(self.cfg["out_root"]).mkdir(parents=True, exist_ok=True)',
+      '        pathlib.Path(self.cfg["out_root"], "best_skill.md").write_text(candidate, encoding="utf-8")',
+      '        return {"best_selection_hard": 1}',
+      '',
+    ].join('\n'),
+    'utf8',
+  );
+}
+
+function restoreEnv(name, value) {
+  if (value === undefined) {
+    delete process.env[name];
+  } else {
+    process.env[name] = value;
+  }
 }
 
 function writeValidationEvidence(runRoot) {

@@ -11,11 +11,13 @@ Is this skill actually better, and did it regress anything critical?
 ## Quick Path
 
 ```bash
+python -m pip install -e skill-lab/python
 npm run skill-lab:validate
 npm run skill-lab:test
 
 npm run skill-lab:baseline -- \
-  --benchmark angular-upgrade-validation-gate
+  --benchmark angular-upgrade-validation-gate \
+  --run manual-evaluation
 
 npm run skill-lab:evaluate -- \
   --benchmark angular-upgrade-validation-gate \
@@ -26,6 +28,92 @@ npm run skill-lab:optimize -- \
   --benchmark angular-upgrade-validation-gate \
   --run <run-id>
 ```
+
+## Default Models
+
+Skill Lab defaults to OpenAI API model id `gpt-4.1-mini` for both roles:
+
+| Role | Default | Why |
+|------|---------|-----|
+| Optimizer | `gpt-4.1-mini` | Low-cost instruction and code-oriented edits for small skill benchmarks. |
+| Target | `gpt-4.1-mini` | Keeps evaluation behavior aligned with the optimizer during early lab runs. |
+
+Use `gpt-4.1` for `optimizerModel` only when `gpt-4.1-mini` produces weak or noisy edits. Keep `targetModel` stable while comparing candidates; changing both models changes the experiment.
+
+Credential setup depends on the SkillOpt backend. For the default OpenAI-compatible path, set:
+
+```bash
+set OPENAI_API_KEY=<your-key>
+```
+
+Override models when needed:
+
+```bash
+npm run skill-lab:optimize -- \
+  --benchmark angular-upgrade-validation-gate \
+  --run manual-evaluation \
+  --optimizerModel gpt-4.1 \
+  --targetModel gpt-4.1-mini \
+  --epochs 3 \
+  --editBudget 4 \
+  --seed 42
+```
+
+Equivalent environment variables:
+
+```bash
+set SKILL_LAB_OPTIMIZER_MODEL=gpt-4.1-mini
+set SKILL_LAB_TARGET_MODEL=gpt-4.1-mini
+```
+
+## Complete Local Workflow
+
+```bash
+python -m pip install -e skill-lab/python
+npm run skill-lab:ci
+
+npm run skill-lab:baseline -- \
+  --benchmark angular-upgrade-validation-gate \
+  --run manual-evaluation
+
+npm run skill-lab:evaluate -- \
+  --benchmark angular-upgrade-validation-gate \
+  --run manual-evaluation \
+  --skill skill-lab/runs/manual-evaluation/baseline.SKILL.md \
+  --splits validation \
+  --runs 3 \
+  --output skill-lab/runs/manual-evaluation/baseline-results
+
+npm run skill-lab:optimize -- \
+  --benchmark angular-upgrade-validation-gate \
+  --run manual-evaluation \
+  --epochs 3 \
+  --editBudget 4 \
+  --seed 42
+
+npm run skill-lab:evaluate -- \
+  --benchmark angular-upgrade-validation-gate \
+  --run manual-evaluation \
+  --splits validation \
+  --runs 3
+
+npm run skill-lab:compare -- \
+  --run manual-evaluation
+
+npm run skill-lab:gate -- \
+  --run manual-evaluation \
+  --stage validation
+
+npm run skill-lab:evaluate -- \
+  --benchmark angular-upgrade-validation-gate \
+  --run manual-evaluation \
+  --splits test,adversarial
+
+npm run skill-lab:prepare-promotion -- \
+  --run manual-evaluation
+```
+
+Review `skill-lab/runs/<run-id>/promotion/canonical.diff` before applying anything to `skills/**`.
 
 ## Rules
 
