@@ -1493,6 +1493,10 @@ function prepareRun(runId) {
   fs.mkdirSync(path.join(runRoot, 'optimization'), { recursive: true });
   fs.copyFileSync(targetSkill, path.join(runRoot, 'baseline.SKILL.md'));
   fs.copyFileSync(targetSkill, path.join(runRoot, 'optimization/candidate.SKILL.md'));
+  fs.copyFileSync(
+    path.join(repoRoot, 'skill-lab/benchmarks/angular-upgrade-validation-gate/rubric.json'),
+    path.join(runRoot, 'rubric.json'),
+  );
   writeJson(path.join(runRoot, 'manifest.json'), {
     runId,
     repository: 'janpereira-dev/ngAutoPilot',
