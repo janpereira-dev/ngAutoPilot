@@ -1,0 +1,21 @@
+{
+  "id": "ngautopilot-angular-microfrontends",
+  "name": "NgAutoPilot Angular Micro Frontends",
+  "version": "0.6.0",
+  "status": "stable",
+  "description": "Micro-frontend architecture, Hopkins module federation, MFE testing, and multi-app workspace governance.",
+  "audience": "Teams building micro-frontend architectures with Angular",
+  "useCases": [
+    "Native Federation",
+    "Multi-app Nx workspaces",
+    "MFE E2E and isolation"
+  ],
+  "includes": {
+    "skills": ["angular.microfrontends."],
+    "agents": [],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

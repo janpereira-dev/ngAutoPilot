@@ -37,8 +37,8 @@ For an independent deep scan, maintainers can run [NVIDIA SkillSpector](https://
 
 ### 3. Dependencies
 
-- NgAutoPilot has **zero runtime dependencies**. It uses only Node.js built-in modules (`node:fs`, `node:path`, `node:crypto`, `node:os`, `node:process`).
-- `devDependencies` are limited to the test runner (`node:test`, built-in since Node 18).
+- The CLI and installer use Node.js built-ins. The optional bundled MCP plugin adds runtime dependencies `@modelcontextprotocol/server` and `zod`.
+- Development tooling adds `@modelcontextprotocol/client`, `esbuild`, and `yazl` for MCP integration tests and reproducible Agent Plugin archives.
 - No `postinstall`, no `preinstall`, no `prepare` scripts.
 
 ### 4. Distribution

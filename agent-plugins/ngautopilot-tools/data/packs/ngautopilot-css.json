@@ -1,0 +1,20 @@
+{
+  "id": "ngautopilot-css",
+  "name": "NgAutoPilot CSS",
+  "version": "0.6.0",
+  "status": "stable",
+  "description": "Cross-framework CSS skills: selectors, modern layout, accessibility-aware styling.",
+  "audience": "Developers working on CSS architecture",
+  "useCases": [
+    "CSS refactor and scoping",
+    "Selector strategy"
+  ],
+  "includes": {
+    "skills": ["css."],
+    "agents": [],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

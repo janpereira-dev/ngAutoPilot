@@ -1,0 +1,17 @@
+{
+  "id": "ngautopilot-angular-19-to-20",
+  "name": "NgAutoPilot Angular 19 to 20",
+  "version": "0.6.0",
+  "status": "stable",
+  "description": "Compatibility routing and the bounded Angular 19 to 20 upgrade hop, including the Core installation baseline.",
+  "audience": "Teams upgrading an Angular 19 application to Angular 20",
+  "useCases": ["Angular 19 to 20 upgrade", "Angular compatibility review"],
+  "includes": {
+    "skills": ["angular.versioning.", "angular.upgrade.hops.angular-19-to-20"],
+    "agents": ["compatibility-gatekeeper"],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

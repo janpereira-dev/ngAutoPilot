@@ -1,0 +1,17 @@
+{
+  "id": "ngautopilot-angular-9-to-10",
+  "name": "NgAutoPilot Angular 9 to 10",
+  "version": "0.6.0",
+  "status": "stable",
+  "description": "Compatibility routing and the bounded Angular 9 to 10 upgrade hop, including the Core installation baseline.",
+  "audience": "Teams upgrading an Angular 9 application to Angular 10",
+  "useCases": ["Angular 9 to 10 upgrade", "Legacy Angular compatibility review"],
+  "includes": {
+    "skills": ["angular.versioning.", "angular.upgrade.hops.angular-9-to-10"],
+    "agents": ["compatibility-gatekeeper"],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

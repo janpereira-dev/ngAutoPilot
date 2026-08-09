@@ -1,0 +1,17 @@
+{
+  "id": "ngautopilot-angular-20-to-21",
+  "name": "NgAutoPilot Angular 20 to 21",
+  "version": "0.6.0",
+  "status": "stable",
+  "description": "Compatibility routing and the bounded Angular 20 to 21 upgrade hop, including the Core installation baseline.",
+  "audience": "Teams upgrading an Angular 20 application to Angular 21",
+  "useCases": ["Angular 20 to 21 upgrade", "Angular compatibility review"],
+  "includes": {
+    "skills": ["angular.versioning.", "angular.upgrade.hops.angular-20-to-21"],
+    "agents": ["compatibility-gatekeeper"],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

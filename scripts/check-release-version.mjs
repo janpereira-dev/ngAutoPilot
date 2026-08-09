@@ -55,6 +55,14 @@ for (const manifestPath of findTextFiles('plugins').filter((file) => file.endsWi
   }
 }
 
+for (const manifestPath of findTextFiles('agent-plugins').filter((file) => file.endsWith('plugin.json'))) {
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+
+  if (manifest.version !== currentVersion) {
+    errors.push(`${toPosixPath(manifestPath)} version ${manifest.version} does not match ${currentVersion}`);
+  }
+}
+
 for (const marketplacePath of ['.agents/plugins/marketplace.json', '.claude-plugin/marketplace.json']) {
   const marketplace = JSON.parse(fs.readFileSync(marketplacePath, 'utf8'));
 

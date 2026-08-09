@@ -3,7 +3,7 @@ import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
-import { resolvePackSkills } from '../../lib/agent-plugins/pack-resolver.mjs';
+import { resolvePackSkills, resolvePacks } from '../../lib/agent-plugins/pack-resolver.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -19,4 +19,8 @@ test('resolves transitive Core skills and source descriptions from a focused pac
   assert.ok(skills.some(({ id }) => id === 'angular.testing.angular-component-testing-patterns'));
   assert.equal(typeof skills.find(({ id }) => id === 'core.project-intake').description, 'string');
   assert.ok(skills.every(({ description }) => description.length > 0));
+});
+
+test('rejects pack identifiers that escape the packs directory', () => {
+  assert.throws(() => resolvePacks(path.join(root, 'packs'), '../package'), /invalid pack ID/);
 });

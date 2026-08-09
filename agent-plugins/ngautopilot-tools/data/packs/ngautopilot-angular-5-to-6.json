@@ -1,0 +1,17 @@
+{
+  "id": "ngautopilot-angular-5-to-6",
+  "name": "NgAutoPilot Angular 5 to 6",
+  "version": "0.6.0",
+  "status": "stable",
+  "description": "Compatibility routing and the bounded Angular 5 to 6 upgrade hop, including the Core installation baseline.",
+  "audience": "Teams upgrading an Angular 5 application to Angular 6",
+  "useCases": ["Angular 5 to 6 upgrade", "Legacy Angular compatibility review"],
+  "includes": {
+    "skills": ["angular.versioning.", "angular.upgrade.hops.angular-5-to-6"],
+    "agents": ["compatibility-gatekeeper"],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

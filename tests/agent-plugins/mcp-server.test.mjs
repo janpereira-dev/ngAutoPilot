@@ -12,7 +12,7 @@ test('exposes exactly nine read-only MCP tools', async (t) => {
   const client = new Client({ name: 'ngautopilot-test', version: '0.6.0' });
   const transport = new StdioClientTransport({
     command: process.execPath,
-    args: [path.join(root, 'mcp', 'server-entry.mjs')],
+    args: [path.join(root, 'agent-plugins', 'ngautopilot-tools', 'bin', 'server.mjs')],
     cwd: root,
   });
   t.after(async () => client.close());
@@ -27,4 +27,7 @@ test('exposes exactly nine read-only MCP tools', async (t) => {
 
   const invalid = await client.callTool({ name: 'pack.resolve', arguments: { packId: 'missing' } });
   assert.equal(invalid.isError, true);
+
+  const catalog = await client.callTool({ name: 'catalog.search', arguments: { query: 'typed forms' } });
+  assert.equal(catalog.isError, undefined);
 });

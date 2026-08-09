@@ -1,0 +1,17 @@
+{
+  "id": "ngautopilot-angular-runtime",
+  "name": "NgAutoPilot Angular Runtime",
+  "version": "0.6.0",
+  "status": "stable",
+  "description": "Build, SSR, resources, performance, security, zones, and zoneless runtime guidance for Angular applications.",
+  "audience": "Angular teams responsible for runtime behavior and production safety",
+  "useCases": ["SSR and hydration", "Runtime performance and security"],
+  "includes": {
+    "skills": ["angular.build.", "angular.performance.", "angular.security.", "angular.ssr.", "angular.resources.", "angular.zone.", "angular.zoneless."],
+    "agents": [],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

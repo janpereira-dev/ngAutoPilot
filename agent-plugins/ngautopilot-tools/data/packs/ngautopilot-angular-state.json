@@ -1,0 +1,17 @@
+{
+  "id": "ngautopilot-angular-state",
+  "name": "NgAutoPilot Angular State",
+  "version": "0.6.0",
+  "status": "stable",
+  "description": "Signals, RxJS interoperability, and state-management guidance without unrelated Angular runtime concerns.",
+  "audience": "Angular teams designing state and reactive data flow",
+  "useCases": ["Signals adoption", "RxJS and state boundaries"],
+  "includes": {
+    "skills": ["angular.signals.", "angular.rxjs.", "angular.state."],
+    "agents": ["rxjs-oracle"],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

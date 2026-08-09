@@ -31,7 +31,9 @@ export function validateAgentPlugins({ root = process.cwd() } = {}) {
     }
 
     const mcpPath = path.join(pluginDir, 'mcp.json');
-    if (fs.existsSync(mcpPath)) {
+    if (definition.kind === 'mcp' && !fs.existsSync(mcpPath)) {
+      errors.push(`${definition.name}: missing mcp.json`);
+    } else if (fs.existsSync(mcpPath)) {
       for (const error of validateMcpConfig(readJson(mcpPath))) errors.push(`${definition.name}: ${error}`);
     }
     plugins.push(definition.name);
@@ -42,11 +44,13 @@ export function validateAgentPlugins({ root = process.cwd() } = {}) {
 
 function validateSkills(skillsDir, pluginName, errors) {
   const names = new Set();
+  let skillCount = 0;
   for (const entry of fs.readdirSync(skillsDir, { withFileTypes: true })) {
     if (!entry.isDirectory()) {
       errors.push(`${pluginName}: skill must be a directory: ${entry.name}`);
       continue;
     }
+    skillCount += 1;
     const skillPath = path.join(skillsDir, entry.name, 'SKILL.md');
     if (!fs.existsSync(skillPath)) {
       errors.push(`${pluginName}: missing SKILL.md: ${entry.name}`);
@@ -59,6 +63,7 @@ function validateSkills(skillsDir, pluginName, errors) {
     if (names.has(entry.name)) errors.push(`${pluginName}: duplicate skill: ${entry.name}`);
     names.add(entry.name);
   }
+  if (skillCount === 0) errors.push(`${pluginName}: skills plugin must contain at least one skill`);
 }
 
 function readJson(filePath) {

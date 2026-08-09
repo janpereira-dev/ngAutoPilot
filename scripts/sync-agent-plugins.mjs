@@ -65,11 +65,17 @@ export function syncAgentPlugins({ root = process.cwd() } = {}) {
 
 function syncMcpPlugin({ root, pluginDir, version }) {
   const binDir = path.join(pluginDir, 'bin');
+  const dataDir = path.join(pluginDir, 'data');
   const skillDir = path.join(pluginDir, 'skills', 'ngautopilot-tooling');
   fs.rmSync(binDir, { recursive: true, force: true });
   fs.rmSync(path.join(pluginDir, 'skills'), { recursive: true, force: true });
+  fs.rmSync(dataDir, { recursive: true, force: true });
   fs.mkdirSync(binDir, { recursive: true });
   fs.mkdirSync(skillDir, { recursive: true });
+  fs.mkdirSync(dataDir, { recursive: true });
+  fs.copyFileSync(path.join(root, 'catalog.json'), path.join(dataDir, 'catalog.json'));
+  fs.copyFileSync(path.join(root, 'package.json'), path.join(dataDir, 'package.json'));
+  fs.cpSync(path.join(root, 'packs'), path.join(dataDir, 'packs'), { recursive: true, dereference: false });
   buildSync({
     absWorkingDir: root,
     entryPoints: ['mcp/server-entry.mjs'],

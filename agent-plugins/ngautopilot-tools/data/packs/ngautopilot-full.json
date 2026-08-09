@@ -1,0 +1,20 @@
+{
+  "id": "ngautopilot-full",
+  "name": "NgAutoPilot Full",
+  "version": "0.6.0",
+  "status": "stable",
+  "description": "Entire catalog. Intended for maintainers and offline mirror builders. NOT the recommended default install — the default is Core plus the targeted stack.",
+  "audience": "NgAutoPilot maintainers",
+  "useCases": [
+    "Build package snapshots",
+    "Offline/mirrored installations"
+  ],
+  "includes": {
+    "skills": ["core.", "angular.", "css.", "frontend.", "javascript.", "quality.", "typescript."],
+    "agents": ["spartan-contrarian-developer", "athenian-angular-architect", "roman-consolidator", "stoic-typescript-guardian", "rxjs-oracle", "testing-hoplite", "compatibility-gatekeeper", "repo-cartographer"],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": []
+}

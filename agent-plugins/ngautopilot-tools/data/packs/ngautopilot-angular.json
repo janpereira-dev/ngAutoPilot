@@ -1,0 +1,21 @@
+{
+  "id": "ngautopilot-angular",
+  "name": "NgAutoPilot Angular",
+  "version": "0.6.0",
+  "status": "stable",
+  "description": "Full Angular catalog: components, signals, RxJS, router, forms, Material, SSR, testing, performance, security, AI/MCP — every Angular capability.",
+  "audience": "Angular developers and teams building or maintaining Angular applications",
+  "useCases": [
+    "Modern Angular development",
+    "Angular 22 satellites by concern",
+    "Performance, testing, accessibility, SSR"
+  ],
+  "includes": {
+    "skills": ["angular.", "typescript."],
+    "agents": ["athenian-angular-architect"],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": ["ngautopilot-core"]
+}

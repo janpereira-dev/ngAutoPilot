@@ -21,5 +21,7 @@ test('derives stack, route, compatibility, and upgrade data from repository file
   assert.equal(tools.stackDetect().node.minimum, '>=24.0.0 <25');
   assert.ok(tools.skillRoute({ request: 'Angular typed forms' }).matches.length > 0);
   assert.equal(tools.compatibilityCheck({ target: 'angular-21-to-22' }).supported, true);
+  assert.throws(() => tools.compatibilityCheck({ target: 'x/../../package' }), /invalid compatibility target/);
   assert.deepEqual(tools.upgradePlan({ from: 20, to: 22 }).hops, ['20-to-21', '21-to-22']);
+  assert.throws(() => tools.upgradePlan({ from: 2, to: 3 }), /Angular 3/);
 });

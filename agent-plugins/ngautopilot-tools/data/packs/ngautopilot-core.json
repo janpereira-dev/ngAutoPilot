@@ -1,0 +1,20 @@
+{
+  "id": "ngautopilot-core",
+  "name": "NgAutoPilot Core",
+  "version": "0.6.0",
+  "status": "stable",
+  "description": "Routing, intake, compatibility, risk gates, and skill router — the minimum foundation every NgAutoPilot installation needs.",
+  "audience": "Every user, every agent",
+  "useCases": [
+    "Bootstrap a new project on any agent",
+    "Establish the inspect-detect-route-validate loop"
+  ],
+  "includes": {
+    "skills": ["core."],
+    "agents": [],
+    "prompts": [],
+    "guardrails": []
+  },
+  "excludes": [],
+  "dependsOn": []
+}
