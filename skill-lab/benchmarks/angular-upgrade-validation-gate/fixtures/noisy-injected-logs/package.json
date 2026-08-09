@@ -1,1 +1,1 @@
-{"scripts":{"verify":"ng build && ng test --watch=false"},"dependencies":{"@angular/core":"21.0.0"}}
+{"scripts":{"verify":"ng build && ng test --watch=false"},"dependencies":{"@angular/core":"21.2.19"}}
