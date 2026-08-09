@@ -20,10 +20,17 @@ const descriptions = {
 export function syncAgentPlugins({ root = process.cwd() } = {}) {
   const config = loadPluginConfig(path.join(root, 'agent-plugins.config.json')).filter(({ enabled }) => enabled);
   const version = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8')).version;
+  const pluginsRoot = path.join(root, 'agent-plugins');
   const reports = [];
 
+  for (const entry of fs.readdirSync(pluginsRoot, { withFileTypes: true })) {
+    if (entry.isDirectory() && !config.some(({ name }) => name === entry.name)) {
+      fs.rmSync(path.join(pluginsRoot, entry.name), { recursive: true, force: true });
+    }
+  }
+
   for (const plugin of config) {
-    const pluginDir = path.join(root, 'agent-plugins', plugin.name);
+    const pluginDir = path.join(pluginsRoot, plugin.name);
     fs.mkdirSync(pluginDir, { recursive: true });
     fs.copyFileSync(path.join(root, 'LICENSE'), path.join(pluginDir, 'LICENSE'));
     fs.writeFileSync(path.join(pluginDir, 'plugin.json'), `${JSON.stringify(buildPluginManifest({
@@ -75,6 +82,7 @@ function syncMcpPlugin({ root, pluginDir, version }) {
   fs.mkdirSync(dataDir, { recursive: true });
   fs.copyFileSync(path.join(root, 'catalog.json'), path.join(dataDir, 'catalog.json'));
   fs.copyFileSync(path.join(root, 'package.json'), path.join(dataDir, 'package.json'));
+  fs.copyFileSync(path.join(root, 'package-lock.json'), path.join(dataDir, 'package-lock.json'));
   fs.cpSync(path.join(root, 'packs'), path.join(dataDir, 'packs'), { recursive: true, dereference: false });
   buildSync({
     absWorkingDir: root,

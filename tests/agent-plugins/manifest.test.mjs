@@ -24,6 +24,7 @@ test('requires executable stdio MCP server definitions', () => {
   };
 
   assert.deepEqual(validateMcpConfig(valid), []);
+  assert.match(validateMcpConfig({ ...valid, mcpServers: {} }).join('\n'), /must contain at least one server/);
   assert.match(validateMcpConfig({ ...valid, mcpServers: { ngautopilot: null } }).join('\n'), /must be an object/);
   assert.match(validateMcpConfig({ ...valid, mcpServers: { ngautopilot: { type: 'stdio' } } }).join('\n'), /command must be a non-empty string/);
   assert.match(validateMcpConfig({ ...valid, mcpServers: { ngautopilot: { type: 'http', command: 'node', args: [] } } }).join('\n'), /type must be stdio/);

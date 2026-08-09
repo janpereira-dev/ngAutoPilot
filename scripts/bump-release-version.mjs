@@ -22,7 +22,14 @@ const roots = [
   'scripts',
   'skills',
 ];
-const rootFiles = ['agent-plugins.config.json', 'catalog.json', 'package.json', 'README.md'];
+const rootFiles = [
+  'agent-plugins.config.json',
+  'catalog.json',
+  'package.json',
+  'README.md',
+  'skill-lab/python/pyproject.toml',
+  'skill-lab/python/ngautopilot_skillopt/__init__.py',
+];
 const textExtensions = new Set(['.json', '.md', '.mjs', '.yml', '.yaml']);
 let touched = 0;
 

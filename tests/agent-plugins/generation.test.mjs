@@ -18,3 +18,16 @@ test('generates pack-driven portable skill plugins without native manifest field
   assert.match(manifest.$schema, /plugin\.schema\.json$/);
   assert.equal(validateAgentPlugins({ root }).errors.length, 0);
 });
+
+test('removes stale generated plugins and snapshots package manager metadata', () => {
+  const stalePlugin = path.join(root, 'agent-plugins', 'ngautopilot-stale');
+  fs.mkdirSync(stalePlugin, { recursive: true });
+
+  try {
+    syncAgentPlugins({ root });
+    assert.equal(fs.existsSync(stalePlugin), false);
+    assert.equal(fs.existsSync(path.join(root, 'agent-plugins', 'ngautopilot-tools', 'data', 'package-lock.json')), true);
+  } finally {
+    fs.rmSync(stalePlugin, { recursive: true, force: true });
+  }
+});
