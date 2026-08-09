@@ -399,7 +399,7 @@ test('SkillOpt EnvAdapter rollout rejects a conversation symlink escaping its tr
   );
 
   assert.equal(result.status, 2, result.stderr);
-  assert.match(result.stderr, /conversation file must not be a symlink/);
+  assert.match(result.stderr, /conversation artifact already exists/);
   assert.equal(fs.readFileSync(outsideConversation, 'utf8'), 'must remain unchanged');
 });
 

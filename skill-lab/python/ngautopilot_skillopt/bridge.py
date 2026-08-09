@@ -16,6 +16,9 @@ import re
 import sys
 from typing import Any
 
+_OPEN_SUPPORTS_DIR_FD = os.open in os.supports_dir_fd
+_MKDIR_SUPPORTS_DIR_FD = os.mkdir in os.supports_dir_fd
+
 
 def main(argv: list[str] | None = None) -> int:
     args = list(sys.argv[1:] if argv is None else argv)
@@ -324,8 +327,8 @@ def require_linux_descriptor_apis() -> None:
     if (
         sys.platform != "linux"
         or not all(hasattr(os, flag) for flag in required_flags)
-        or os.open not in os.supports_dir_fd
-        or os.mkdir not in os.supports_dir_fd
+        or not _OPEN_SUPPORTS_DIR_FD
+        or not _MKDIR_SUPPORTS_DIR_FD
     ):
         raise BridgeError("SkillOpt rollout requires Linux descriptor-relative filesystem APIs.")
 
