@@ -14,16 +14,7 @@ for (const id of benchmarkIds) {
     const benchmark = loadBenchmark(resolveBenchmarkPath(id, repoRoot));
     validateBenchmarkCases(benchmark, { failFast: false });
 
-    const targetSkillPath = benchmark.targetSkill.path.split(path.sep).join('/');
-    if (!targetSkillPath.startsWith('skills/') || path.basename(targetSkillPath) !== 'SKILL.md') {
-      errors.push(`${id}: target skill must be under skills/**/SKILL.md: ${benchmark.targetSkill.path}`);
-      continue;
-    }
-
-    const targetSkill = path.join(repoRoot, benchmark.targetSkill.path);
-    if (!fs.existsSync(targetSkill)) {
-      errors.push(`${id}: target skill does not exist: ${benchmark.targetSkill.path}`);
-    }
+    resolveTargetSkill(benchmark.targetSkill.path);
   } catch (error) {
     errors.push(`${id}: ${error.message}`);
   }
@@ -45,4 +36,20 @@ function findBenchmarks(root) {
     .filter((entry) => entry.isDirectory() && fs.existsSync(path.join(benchmarksRoot, entry.name, 'benchmark.yaml')))
     .map((entry) => entry.name)
     .sort();
+}
+
+function resolveTargetSkill(targetSkillPath) {
+  const skillsRoot = fs.realpathSync(path.join(repoRoot, 'skills'));
+  const resolvedTarget = path.resolve(repoRoot, targetSkillPath);
+  const relativeTarget = path.relative(skillsRoot, resolvedTarget);
+  const isInsideSkills = relativeTarget && !relativeTarget.startsWith(`..${path.sep}`) && !path.isAbsolute(relativeTarget);
+  if (!isInsideSkills || path.basename(resolvedTarget) !== 'SKILL.md' || !fs.existsSync(resolvedTarget)) {
+    throw new Error(`target skill must be under skills/**/SKILL.md: ${targetSkillPath}`);
+  }
+  const realTarget = fs.realpathSync(resolvedTarget);
+  const realRelativeTarget = path.relative(skillsRoot, realTarget);
+  if (!realRelativeTarget || realRelativeTarget.startsWith(`..${path.sep}`) || path.isAbsolute(realRelativeTarget)) {
+    throw new Error(`target skill must be under skills/**/SKILL.md: ${targetSkillPath}`);
+  }
+  return realTarget;
 }

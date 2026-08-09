@@ -7,7 +7,7 @@ export function scoreSkillAgainstCase(skillContent, item, benchmarkRoot) {
   const passedChecks = checkResults.filter((check) => check.passed).length;
   const criticalFailure = checkResults.some((check) => check.critical && !check.passed);
   const hardScore = checkResults.length === 0 ? 0 : passedChecks / checkResults.length;
-  const softScore = estimateSoftScore(skillContent, predicted);
+  const softDimensions = estimateSoftDimensions(skillContent, predicted);
 
   return {
     id: item.id,
@@ -17,18 +17,27 @@ export function scoreSkillAgainstCase(skillContent, item, benchmarkRoot) {
     predicted,
     checks: checkResults,
     hardScore,
-    softScore,
+    softScore: weightedSoftScore(softDimensions, defaultRubricWeights()),
+    softDimensions,
     criticalFailure,
     passed: !criticalFailure && hardScore === 1,
   };
 }
 
-export function aggregateResults(results) {
+export function aggregateResults(results, rubricWeights = defaultRubricWeights()) {
   const checks = results.flatMap((item) => item.checks ?? []);
   const hardScore = checks.length === 0
     ? average(results.map((item) => item.hardScore))
     : checks.filter((check) => check.passed).length / checks.length;
-  const softScores = results.map((item) => weightedSoftScore(item.softScore)).sort((left, right) => left - right);
+  const softDimensions = Object.fromEntries(
+    Object.keys(rubricWeights).map((dimension) => [
+      dimension,
+      median(results.map((item) => softDimensionValue(item.softDimensions ?? item.softScore, dimension)).sort((left, right) => left - right)),
+    ]),
+  );
+  const softScores = results
+    .map((item) => weightedSoftScore(item.softDimensions ?? item.softScore, rubricWeights))
+    .sort((left, right) => left - right);
   const softMedian = median(softScores);
 
   return {
@@ -36,6 +45,7 @@ export function aggregateResults(results) {
     passedCases: results.filter((item) => item.passed).length,
     criticalFailures: results.filter((item) => item.criticalFailure).map((item) => item.id),
     hardScore,
+    softDimensions,
     softMedian,
   };
 }
@@ -203,15 +213,15 @@ function readJsonFixture(root, relativePath) {
   return JSON.parse(fs.readFileSync(target, 'utf8'));
 }
 
-function estimateSoftScore(skillContent, predicted) {
-  const dimensions = [
-    /fail|pass|blocked|gate decision/i.test(skillContent),
-    predicted.evidenceMentioned,
-    /commands?|scripts?|package\.json/i.test(skillContent),
-    /do not|block|stop/i.test(skillContent),
-    skillContent.length < 12000,
-  ];
-  return dimensions.filter(Boolean).length / dimensions.length;
+function estimateSoftDimensions(skillContent, predicted) {
+  return {
+    explanatoryCorrectness: Number(/fail|pass|blocked|gate decision/i.test(skillContent)),
+    evidenceTraceability: Number(predicted.evidenceMentioned),
+    clarity: Number(/commands?|scripts?|package\.json/i.test(skillContent)),
+    operationalOrder: Number(/do not|block|stop/i.test(skillContent)),
+    scopeDiscipline: Number(/single angular upgrade hop|single angular major hop|do not batch multiple hops/i.test(skillContent)),
+    concision: Number(skillContent.length < 12000),
+  };
 }
 
 function average(values) {
@@ -251,10 +261,20 @@ function mentionsExactCommand(skillContent, command) {
   return new RegExp(`(?:^|[^\\w:-])${escapeRegExp(command)}(?:$|[^\\w:-])`, 'i').test(skillContent);
 }
 
-function weightedSoftScore(value) {
+function softDimensionValue(value, dimension) {
+  if (typeof value === 'number') return value;
+  return Number(value?.[dimension] ?? 0);
+}
+
+function weightedSoftScore(value, weights) {
   if (typeof value === 'number') return value;
   if (!value || typeof value !== 'object') return 0;
-  const weights = {
+
+  return Object.entries(weights).reduce((sum, [key, weight]) => sum + softDimensionValue(value, key) * weight, 0);
+}
+
+function defaultRubricWeights() {
+  return {
     explanatoryCorrectness: 0.3,
     evidenceTraceability: 0.25,
     clarity: 0.15,
@@ -262,5 +282,4 @@ function weightedSoftScore(value) {
     scopeDiscipline: 0.1,
     concision: 0.05,
   };
-  return Object.entries(weights).reduce((sum, [key, weight]) => sum + Number(value[key] ?? 0) * weight, 0);
 }

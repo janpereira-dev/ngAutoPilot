@@ -66,6 +66,7 @@ jobs:
 
       - name: Optimize candidate artifact
         env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           BENCHMARK: ${{ inputs.benchmark }}
           EPOCHS: ${{ inputs.epochs }}
           OPTIMIZER_MODEL: ${{ inputs.optimizer_model }}

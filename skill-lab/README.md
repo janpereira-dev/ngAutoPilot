@@ -43,7 +43,7 @@ Use `gpt-4.1` for `optimizerModel` only when `gpt-4.1-mini` produces weak or noi
 Credential setup depends on the SkillOpt backend. For the default OpenAI-compatible path, set:
 
 ```bash
-set OPENAI_API_KEY=<your-key>
+export OPENAI_API_KEY=<your-key>
 ```
 
 Override models when needed:
@@ -62,8 +62,8 @@ npm run skill-lab:optimize -- \
 Equivalent environment variables:
 
 ```bash
-set SKILL_LAB_OPTIMIZER_MODEL=gpt-4.1-mini
-set SKILL_LAB_TARGET_MODEL=gpt-4.1-mini
+export SKILL_LAB_OPTIMIZER_MODEL=gpt-4.1-mini
+export SKILL_LAB_TARGET_MODEL=gpt-4.1-mini
 ```
 
 ## Complete Local Workflow
@@ -78,10 +78,10 @@ npm run skill-lab:baseline -- \
 
 npm run skill-lab:evaluate -- \
   --benchmark angular-upgrade-validation-gate \
-  --run manual-evaluation \
-  --skill skill-lab/runs/manual-evaluation/baseline.SKILL.md \
-  --splits validation \
-  --runs 3 \
+   --run manual-evaluation \
+   --skill skill-lab/runs/manual-evaluation/baseline.SKILL.md \
+   --splits validation \
+   --runs 1 \
   --output skill-lab/runs/manual-evaluation/baseline-results
 
 npm run skill-lab:optimize -- \
@@ -92,22 +92,44 @@ npm run skill-lab:optimize -- \
   --seed 42
 
 npm run skill-lab:evaluate -- \
-  --benchmark angular-upgrade-validation-gate \
-  --run manual-evaluation \
-  --splits validation \
-  --runs 3
+   --benchmark angular-upgrade-validation-gate \
+   --run manual-evaluation \
+   --splits validation \
+   --runs 1
 
 npm run skill-lab:compare -- \
   --run manual-evaluation
 
-npm run skill-lab:gate -- \
+```
+
+## Repository Gate Evidence
+
+Run repository validation against a temporary promoted copy of the candidate and record the result in `skill-lab/runs/<run-id>/repository-gates/report.json` before requesting final promotion evaluation:
+
+```bash
+npm run release:validate
+```
+
+## Agentic Gate Evidence
+
+Collect harness evidence for the candidate, then write the gate report before promotion splits:
+
+```bash
+npm run skill-lab:agentic-gate -- \
   --run manual-evaluation \
-  --stage validation
+  --harness <harness>
+```
+
+```bash
 
 npm run skill-lab:evaluate -- \
   --benchmark angular-upgrade-validation-gate \
   --run manual-evaluation \
   --splits test,adversarial
+
+npm run skill-lab:gate -- \
+  --run manual-evaluation \
+  --stage final
 
 npm run skill-lab:prepare-promotion -- \
   --run manual-evaluation

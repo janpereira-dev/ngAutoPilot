@@ -34,6 +34,7 @@ const manifest = {
   benchmarkHash: sha256File(benchmark.path),
   rubricHash: sha256File(path.join(benchmark.root, 'rubric.json')),
   caseSetHash: hashCaseSet(benchmark),
+  fixtureHash: hashReferencedFixtures(benchmark),
   createdAt: new Date().toISOString(),
 };
 
@@ -52,6 +53,27 @@ function hashCaseSet(benchmark) {
     .map(([split, relativePath]) => `${split}\n${fs.readFileSync(path.join(benchmark.root, relativePath), 'utf8')}`)
     .join('\n');
   return sha256(contents);
+}
+
+function hashReferencedFixtures(benchmark) {
+  const fixturePaths = new Set();
+
+  for (const relativePath of Object.values(benchmark.splits)) {
+    const cases = fs.readFileSync(path.join(benchmark.root, relativePath), 'utf8')
+      .split(/\r?\n/)
+      .filter(Boolean)
+      .map((line) => JSON.parse(line));
+    for (const item of cases) {
+      for (const key of ['packageJsonFixture', 'commandOutputsFixture']) {
+        if (item.input?.[key]) fixturePaths.add(item.input[key]);
+      }
+    }
+  }
+
+  return sha256([...fixturePaths]
+    .sort((left, right) => left.localeCompare(right))
+    .map((relativePath) => `${relativePath}\n${fs.readFileSync(path.join(benchmark.root, relativePath), 'utf8')}`)
+    .join('\n'));
 }
 
 function parseArgs(argv) {
