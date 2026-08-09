@@ -6,7 +6,7 @@
 
 **Architecture:** Source skills remain NgAutoPilot-specific and are rendered into portable Agent Skills only during generation. A shared portable-plugin library resolves packs, enforces containment, renders artifacts, validates them, and feeds archive generation. A separate MCP plugin uses current MCP SDK v2 server/client packages and only read-only catalog and repository analysis.
 
-**Tech Stack:** Node.js 18.18+, ESM, Node test runner, `@modelcontextprotocol/server`, `@modelcontextprotocol/client`, Zod, esbuild, `yazl`, Agent Plugins 1.0, Agent Skills.
+**Tech Stack:** Node.js 24.x, ESM, Node test runner, `@modelcontextprotocol/server`, `@modelcontextprotocol/client`, Zod, esbuild, `yazl`, Agent Plugins 1.0, Agent Skills.
 
 ## Global Constraints
 
@@ -16,6 +16,7 @@
 - Preserve existing `plugins/`, adapters, marketplaces, and CLI behavior.
 - Use Agent Plugins schema `https://agent-plugins.org/schemas/1.0.0/plugin.schema.json` and Agent Skills naming rules.
 - Use current split MCP SDK v2 packages, not retired monolithic `@modelcontextprotocol/sdk`.
+- Require Node.js `>=24.0.0 <25` locally, in package metadata, and in CI.
 - MCP tools may read only; no Git, dependency, filesystem, package, or upgrade mutation.
 - Release target is `0.6.0`; version synchronization includes source skills, catalog, packs, native bundles, marketplaces, portable plugins, docs, and release validation.
 - Do not add client-by-client installation validation to this change.
@@ -27,6 +28,7 @@
 | Path | Responsibility |
 | --- | --- |
 | `agent-plugins.config.json` | Declares portable outputs and source packs; never lists skills manually. |
+| `lib/agent-plugins/config.mjs` | Loads and validates portable output definitions. |
 | `lib/agent-plugins/pack-resolver.mjs` | Resolves pack dependencies and catalog skill prefixes deterministically. |
 | `lib/agent-plugins/portable-skill.mjs` | Creates portable names, transforms frontmatter, copies skill trees, validates references. |
 | `lib/agent-plugins/path-safety.mjs` | Resolves paths and rejects symlink/junction/reparse-point escapes. |
@@ -46,6 +48,7 @@
 
 **Files:**
 - Create: `agent-plugins.config.json`
+- Create: `lib/agent-plugins/config.mjs`
 - Modify: `package.json`
 - Modify: `scripts/check-release-version.mjs`
 - Modify: `scripts/security-scan-skills.mjs`
@@ -104,7 +107,7 @@ Expected: PASS.
 - [ ] **Step 5: Commit**
 
 ```bash
-git add package.json package-lock.json agent-plugins.config.json scripts/check-release-version.mjs scripts/security-scan-skills.mjs tests/agent-plugins/config.test.mjs
+git add package.json package-lock.json agent-plugins.config.json lib/agent-plugins/config.mjs scripts/check-release-version.mjs scripts/security-scan-skills.mjs tests/agent-plugins/config.test.mjs
 git commit -m "feat: configure agent plugins release"
 ```
 

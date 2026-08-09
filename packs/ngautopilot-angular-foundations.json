@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-angular-foundations",
   "name": "NgAutoPilot Angular Foundations",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "status": "stable",
   "description": "Angular architecture, components, dependency boundaries, and service design for a focused daily-development baseline.",
   "audience": "Angular teams starting a focused NgAutoPilot installation",

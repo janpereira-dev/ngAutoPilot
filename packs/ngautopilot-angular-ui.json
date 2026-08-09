@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-angular-ui",
   "name": "NgAutoPilot Angular UI",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "status": "stable",
   "description": "Forms, router, templates, Material, and styles for Angular user-interface work in one bounded pack.",
   "audience": "Angular developers building forms, navigation, and component interfaces",

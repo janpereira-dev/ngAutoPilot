@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.testing.angular-visual-accessibility-e2e-validation"
   ngautopilot-source: "skills/angular/testing/angular-visual-accessibility-e2e-validation/SKILL.md"
-  ngautopilot-version: "0.5.3"
+  ngautopilot-version: "0.6.0"
 ---
 
 

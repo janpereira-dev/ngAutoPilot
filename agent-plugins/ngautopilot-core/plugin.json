@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ngautopilot-core",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "description": "Core NgAutoPilot workflows for project intake, stack detection, routing, compatibility gates, and risk assessment.",
   "author": {
     "name": "Jan Pereira",

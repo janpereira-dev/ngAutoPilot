@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-angular-7-to-8",
   "name": "NgAutoPilot Angular 7 to 8",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "status": "stable",
   "description": "Compatibility routing and the bounded Angular 7 to 8 upgrade hop, including the Core installation baseline.",
   "audience": "Teams upgrading an Angular 7 application to Angular 8",

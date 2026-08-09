@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.standalone-components-adoption"
   ngautopilot-source: "skills/angular/architecture/standalone-components-adoption/SKILL.md"
-  ngautopilot-version: "0.5.3"
+  ngautopilot-version: "0.6.0"
 ---
 
 

@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.design-system-for-micro-frontends"
   ngautopilot-source: "skills/angular/architecture/design-system-for-micro-frontends/SKILL.md"
-  ngautopilot-version: "0.5.3"
+  ngautopilot-version: "0.6.0"
 ---
 
 

@@ -1,9 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildSync } from 'esbuild';
 
 import { loadPluginConfig } from '../lib/agent-plugins/config.mjs';
 import { buildPluginManifest } from '../lib/agent-plugins/manifest.mjs';
+import { MCP_SCHEMA } from '../lib/agent-plugins/manifest.mjs';
 import { resolvePackSkills } from '../lib/agent-plugins/pack-resolver.mjs';
 import { ensureUniquePortableNames, renderPortableSkill } from '../lib/agent-plugins/portable-skill.mjs';
 
@@ -32,6 +34,7 @@ export function syncAgentPlugins({ root = process.cwd() } = {}) {
     }), null, 2)}\n`, 'utf8');
 
     if (plugin.kind === 'mcp') {
+      syncMcpPlugin({ root, pluginDir, version });
       reports.push({ name: plugin.name, kind: plugin.kind, skills: 0 });
       continue;
     }
@@ -58,6 +61,40 @@ export function syncAgentPlugins({ root = process.cwd() } = {}) {
   }
 
   return reports;
+}
+
+function syncMcpPlugin({ root, pluginDir, version }) {
+  const binDir = path.join(pluginDir, 'bin');
+  const skillDir = path.join(pluginDir, 'skills', 'ngautopilot-tooling');
+  fs.rmSync(binDir, { recursive: true, force: true });
+  fs.rmSync(path.join(pluginDir, 'skills'), { recursive: true, force: true });
+  fs.mkdirSync(binDir, { recursive: true });
+  fs.mkdirSync(skillDir, { recursive: true });
+  buildSync({
+    absWorkingDir: root,
+    entryPoints: ['mcp/server-entry.mjs'],
+    outfile: path.join(binDir, 'server.mjs'),
+    bundle: true,
+    platform: 'node',
+    format: 'esm',
+    target: 'node24',
+    minifyWhitespace: true,
+    define: { 'process.env.NGAUTOPILOT_VERSION': JSON.stringify(version) },
+  });
+  const bundlePath = path.join(binDir, 'server.mjs');
+  fs.writeFileSync(bundlePath, fs.readFileSync(bundlePath, 'utf8').replace(/[ \t]+\r?\n/g, '\n'), 'utf8');
+  fs.writeFileSync(path.join(pluginDir, 'mcp.json'), `${JSON.stringify({
+    $schema: MCP_SCHEMA,
+    mcpServers: {
+      ngautopilot: {
+        type: 'stdio',
+        command: 'node',
+        args: ['\${PLUGIN_ROOT}/bin/server.mjs'],
+        cwd: '\${PLUGIN_ROOT}',
+      },
+    },
+  }, null, 2)}\n`, 'utf8');
+  fs.writeFileSync(path.join(skillDir, 'SKILL.md'), `---\nname: ngautopilot-tooling\ndescription: Uses read-only NgAutoPilot MCP tools to inspect catalog skills, packs, stack metadata, compatibility, upgrade hops, and repository consistency. Use when a task needs deterministic NgAutoPilot repository evidence.\nlicense: MIT\nmetadata:\n  ngautopilot-id: "tools.read-only-mcp"\n  ngautopilot-version: "${version}"\n---\n\nUse the ngautopilot MCP server for repository inspection. Tools do not modify repository files, dependencies, or Git state.\n`, 'utf8');
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

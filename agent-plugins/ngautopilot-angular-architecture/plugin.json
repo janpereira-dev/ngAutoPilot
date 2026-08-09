@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ngautopilot-angular-architecture",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "description": "Focused Angular architecture, component, dependency-boundary, and service-design guidance.",
   "author": {
     "name": "Jan Pereira",

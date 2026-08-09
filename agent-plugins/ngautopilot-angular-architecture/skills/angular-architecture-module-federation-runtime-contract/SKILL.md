@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.module-federation-runtime-contract"
   ngautopilot-source: "skills/angular/architecture/module-federation-runtime-contract/SKILL.md"
-  ngautopilot-version: "0.5.3"
+  ngautopilot-version: "0.6.0"
 ---
 
 

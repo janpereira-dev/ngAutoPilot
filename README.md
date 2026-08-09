@@ -32,6 +32,7 @@ It keeps agents on a small, repeatable loop: inspect the repository, detect stac
 | Guardrails | 30 frontend review contracts for product, accessibility, design-system, test, and performance risks |
 | CLI | Install, update, verify, backup, restore, export, and catalog inspection commands |
 | Plugins and gates | Marketplace bundles plus catalog, distribution, consistency, and release validation |
+| Agent Plugins Preview | Four portable skill plugins, one read-only MCP plugin, deterministic ZIPs, and SHA-256 checksums |
 
 NgAutoPilot does not autonomously rewrite repositories. It helps an agent choose evidence-backed, bounded work and prove the result.
 
@@ -224,6 +225,8 @@ Public usage docs:
 - [docs/release-checklist.md](docs/release-checklist.md)
 - [docs/agents-and-subagents.md](docs/agents-and-subagents.md)
 - [docs/design-excellence-guide.md](docs/design-excellence-guide.md)
+- [docs/agent-plugins/overview.md](docs/agent-plugins/overview.md)
+- [docs/agent-plugins/compatibility.md](docs/agent-plugins/compatibility.md)
 
 ## Packs, Adapters, And Review Assets
 
@@ -270,6 +273,10 @@ Use these commands before publishing:
 npm run skills:validate
 npm run skills:catalog
 npm run plugins:sync
+npm run agent-plugins:sync
+npm run agent-plugins:validate
+npm run agent-plugins:smoke
+npm run agent-plugins:pack
 npm run consistency:validate
 npm run marketplaces:validate
 npm run skills:publish:pack

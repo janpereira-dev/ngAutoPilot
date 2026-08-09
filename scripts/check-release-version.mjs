@@ -13,6 +13,7 @@ const roots = [
   'agents',
   'catalog.json',
   'docs',
+  'mcp',
   'package.json',
   'plugins',
   'README.md',

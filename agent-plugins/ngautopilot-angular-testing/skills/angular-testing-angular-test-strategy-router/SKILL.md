@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.testing.angular-test-strategy-router"
   ngautopilot-source: "skills/angular/testing/angular-test-strategy-router/SKILL.md"
-  ngautopilot-version: "0.5.3"
+  ngautopilot-version: "0.6.0"
 ---
 
 

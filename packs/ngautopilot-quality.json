@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-quality",
   "name": "NgAutoPilot Quality",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "status": "stable",
   "description": "Quality and audit skills: ESLint, SonarQube, no-dead-code, technical debt triage, pull request review.",
   "audience": "Quality owners, leads, and reviewers",

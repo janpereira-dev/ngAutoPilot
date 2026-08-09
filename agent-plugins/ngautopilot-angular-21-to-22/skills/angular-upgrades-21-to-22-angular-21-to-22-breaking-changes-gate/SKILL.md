@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.upgrades.21-to-22.angular-21-to-22-breaking-changes-gate"
   ngautopilot-source: "skills/angular/upgrades/21-to-22/angular-21-to-22-breaking-changes-gate/SKILL.md"
-  ngautopilot-version: "0.5.3"
+  ngautopilot-version: "0.6.0"
 ---
 
 

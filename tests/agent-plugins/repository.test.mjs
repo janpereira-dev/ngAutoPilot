@@ -18,7 +18,7 @@ test('searches catalog and resolves packs without writes', () => {
 test('derives stack, route, compatibility, and upgrade data from repository files', () => {
   const tools = createRepositoryTools({ root });
 
-  assert.equal(tools.stackDetect().node.minimum, '>=18.18.0');
+  assert.equal(tools.stackDetect().node.minimum, '>=24.0.0 <25');
   assert.ok(tools.skillRoute({ request: 'Angular typed forms' }).matches.length > 0);
   assert.equal(tools.compatibilityCheck({ target: 'angular-21-to-22' }).supported, true);
   assert.deepEqual(tools.upgradePlan({ from: 20, to: 22 }).hops, ['20-to-21', '21-to-22']);

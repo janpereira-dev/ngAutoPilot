@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.defer-lazy-loading-modernization"
   ngautopilot-source: "skills/angular/architecture/defer-lazy-loading-modernization/SKILL.md"
-  ngautopilot-version: "0.5.3"
+  ngautopilot-version: "0.6.0"
 ---
 
 

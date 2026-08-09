@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.testing.jest-angular-unit-testing"
   ngautopilot-source: "skills/angular/testing/jest-angular-unit-testing/SKILL.md"
-  ngautopilot-version: "0.5.3"
+  ngautopilot-version: "0.6.0"
 ---
 
 

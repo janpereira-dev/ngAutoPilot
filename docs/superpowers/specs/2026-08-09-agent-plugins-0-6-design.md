@@ -50,7 +50,7 @@ The renderer copies the complete source-skill directory, then replaces only `SKI
 
 ## MCP Plugin
 
-`ngautopilot-tools` is a separate portable plugin with root `plugin.json`, root `mcp.json`, a self-contained bundled `bin/server.mjs`, and an operational skill. Source uses current MCP SDK v2 packages (`@modelcontextprotocol/server` and `@modelcontextprotocol/client`) plus Zod on Node 18+; the distributable server bundle includes runtime dependencies.
+`ngautopilot-tools` is a separate portable plugin with root `plugin.json`, root `mcp.json`, a self-contained bundled `bin/server.mjs`, and an operational skill. Source uses current MCP SDK v2 packages (`@modelcontextprotocol/server` and `@modelcontextprotocol/client`) plus Zod on Node 24; the distributable server bundle includes runtime dependencies.
 
 It exposes only these deterministic read-only tools:
 

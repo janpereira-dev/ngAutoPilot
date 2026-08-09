@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.angular-enterprise-training-blueprint"
   ngautopilot-source: "skills/angular/architecture/angular-enterprise-training-blueprint/SKILL.md"
-  ngautopilot-version: "0.5.3"
+  ngautopilot-version: "0.6.0"
 ---
 
 

@@ -2,6 +2,19 @@
 
 All notable changes to NgAutoPilot will be documented in this file.
 
+## 0.6.0 - 2026-08-09
+
+### Added
+
+- Added Agent Plugins 1.0 Preview generation for core, Angular architecture, Angular testing, and Angular 21-to-22 packs.
+- Added `ngautopilot-tools`, a bundled stdio MCP plugin with nine schema-validated read-only inspection tools.
+- Added portable artifact validation, deterministic ZIP distribution, and SHA-256 checksums.
+
+### Changed
+
+- Moved repository and CI runtime baseline to Node.js 24.x for current MCP SDK v2 support.
+- Extended release gates with Agent Plugin sync, validation, and smoke checks while preserving native bundles and marketplaces.
+
 ## 0.5.3 - 2026-07-27
 
 Release focused on the governed Skill Lab optimization workflow, root skill distribution, and harder Angular upgrade validation evidence.

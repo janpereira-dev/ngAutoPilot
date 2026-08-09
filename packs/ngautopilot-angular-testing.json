@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-angular-testing",
   "name": "NgAutoPilot Angular Testing",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "status": "stable",
   "description": "Angular TestBed, component tests, visual validation, and upgrade test-stability guidance without full catalog installation.",
   "audience": "Angular developers improving test reliability and coverage",

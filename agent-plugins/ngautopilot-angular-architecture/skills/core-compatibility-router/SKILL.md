@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "core.compatibility-router"
   ngautopilot-source: "skills/_core/compatibility-router/SKILL.md"
-  ngautopilot-version: "0.5.3"
+  ngautopilot-version: "0.6.0"
 ---
 
 

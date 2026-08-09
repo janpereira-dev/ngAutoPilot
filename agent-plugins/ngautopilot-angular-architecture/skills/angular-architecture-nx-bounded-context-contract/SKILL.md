@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.nx-bounded-context-contract"
   ngautopilot-source: "skills/angular/architecture/nx-bounded-context-contract/SKILL.md"
-  ngautopilot-version: "0.5.3"
+  ngautopilot-version: "0.6.0"
 ---
 
 

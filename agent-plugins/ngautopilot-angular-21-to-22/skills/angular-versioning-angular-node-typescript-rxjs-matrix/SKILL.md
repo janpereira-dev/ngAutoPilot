@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.versioning.angular-node-typescript-rxjs-matrix"
   ngautopilot-source: "skills/angular/versioning/angular-node-typescript-rxjs-matrix/SKILL.md"
-  ngautopilot-version: "0.5.3"
+  ngautopilot-version: "0.6.0"
 ---
 
 

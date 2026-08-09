@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.components.angular-v22-component-contracts"
   ngautopilot-source: "skills/angular/components/angular-v22-component-contracts/SKILL.md"
-  ngautopilot-version: "0.5.3"
+  ngautopilot-version: "0.6.0"
 ---
 
 

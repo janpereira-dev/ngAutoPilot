@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.angular-version-aware-training-matrix"
   ngautopilot-source: "skills/angular/architecture/angular-version-aware-training-matrix/SKILL.md"
-  ngautopilot-version: "0.5.3"
+  ngautopilot-version: "0.6.0"
 ---
 
 

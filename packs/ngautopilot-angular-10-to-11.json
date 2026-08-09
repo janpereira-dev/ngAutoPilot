@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-angular-10-to-11",
   "name": "NgAutoPilot Angular 10 to 11",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "status": "stable",
   "description": "Compatibility routing and the bounded Angular 10 to 11 upgrade hop, including the Core installation baseline.",
   "audience": "Teams upgrading an Angular 10 application to Angular 11",

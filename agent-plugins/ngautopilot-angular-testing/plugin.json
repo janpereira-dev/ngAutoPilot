@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ngautopilot-angular-testing",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "description": "Focused Angular TestBed, component test, visual validation, and test-stability guidance.",
   "author": {
     "name": "Jan Pereira",
