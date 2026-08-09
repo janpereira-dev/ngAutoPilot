@@ -7,6 +7,8 @@ const forbiddenVersionPattern = /\b0\.(?:1|2|3|4)\.\d+\b/g;
 const roots = [
   '.agents',
   '.claude-plugin',
+  'agent-plugins',
+  'agent-plugins.config.json',
   '.github',
   'agents',
   'catalog.json',
