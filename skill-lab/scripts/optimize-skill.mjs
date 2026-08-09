@@ -17,8 +17,8 @@ const contract = buildSkillOptContract({
   editBudget: args.editBudget,
   seed: args.seed,
 });
-if (args.optimizerModel) contract.optimizerModel = args.optimizerModel;
-if (args.targetModel) contract.targetModel = args.targetModel;
+if (hasValue(args.optimizerModel)) contract.optimizerModel = args.optimizerModel.trim();
+if (hasValue(args.targetModel)) contract.targetModel = args.targetModel.trim();
 const contractPath = path.join(outputDirectory, 'skillopt-contract.json');
 
 fs.mkdirSync(outputDirectory, { recursive: true });
@@ -43,7 +43,11 @@ if (result.status !== 0 || !fs.existsSync(candidatePath)) {
     `Contract: ${path.relative(process.cwd(), contractPath).split(path.sep).join('/')}`,
   ];
 
-  if (/does not expose a direct optimize API/.test(result.stderr ?? '')) {
+  if (/baseline skill not found/i.test(result.stderr ?? '')) {
+    guidance.push(`Run: npm run skill-lab:baseline -- --benchmark ${contract.benchmark} --run ${runId}`);
+  } else if (/requires optimizerModel and targetModel/.test(result.stderr ?? '')) {
+    guidance.push('Set SKILL_LAB_OPTIMIZER_MODEL and SKILL_LAB_TARGET_MODEL, or pass --optimizerModel and --targetModel.');
+  } else if (/does not expose a direct optimize API/.test(result.stderr ?? '')) {
     guidance.push('Implement the NgAutoPilot SkillOpt EnvAdapter in skill-lab/python/ngautopilot_skillopt/bridge.py.');
   } else {
     guidance.push('Install the local bridge dependencies with: python -m pip install -e skill-lab/python');
@@ -66,4 +70,8 @@ function parseArgs(argv) {
     if (argv[index].startsWith('--')) result[argv[index].slice(2)] = argv[index + 1];
   }
   return result;
+}
+
+function hasValue(value) {
+  return typeof value === 'string' && value.trim() !== '';
 }

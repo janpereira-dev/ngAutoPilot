@@ -554,7 +554,9 @@ npm run skill-lab:evaluate -- \
 
 npm run skill-lab:optimize -- \
   --benchmark angular-upgrade-validation-gate \
-  --run <run-id>
+  --run <run-id> \
+  --optimizerModel gpt-4.1-mini \
+  --targetModel gpt-4.1-mini
 
 npm run skill-lab:evaluate -- \
   --benchmark angular-upgrade-validation-gate \
@@ -588,6 +590,8 @@ npm run skill-lab:prepare-promotion -- \
 ```
 
 Manual promotion comes after these commands and requires a branch, applying the reviewed diff, regenerating catalog/plugins, running `npm run release:validate`, and opening a draft pull request.
+
+Default local model identifiers are `gpt-4.1-mini` for both optimizer and target roles. Use `gpt-4.1` for the optimizer only when the mini model produces low-quality edits, and keep the target model stable while comparing candidate runs.
 
 ## Security
 

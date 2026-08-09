@@ -17,8 +17,8 @@ export function buildSkillOptContract({ benchmarkId, runRoot, epochs, editBudget
     epochs: clampInteger(epochs, benchmark.limits?.maxEpochs ?? 3),
     editBudget: clampInteger(editBudget, benchmark.limits?.maxEditsPerEpoch ?? 4),
     seed: Number.isInteger(Number(seed)) ? Number(seed) : 42,
-    optimizerModel: process.env.SKILL_LAB_OPTIMIZER_MODEL ?? null,
-    targetModel: process.env.SKILL_LAB_TARGET_MODEL ?? null,
+    optimizerModel: modelOrDefault(process.env.SKILL_LAB_OPTIMIZER_MODEL),
+    targetModel: modelOrDefault(process.env.SKILL_LAB_TARGET_MODEL),
     targetSkill: benchmark.targetSkill.path,
     protectFrontmatter: Boolean(benchmark.targetSkill.protectFrontmatter),
     splits: {
@@ -33,6 +33,10 @@ function clampInteger(value, fallback) {
   const parsed = Number(value);
   if (!Number.isInteger(parsed) || parsed < 1) return fallback;
   return Math.min(parsed, fallback);
+}
+
+function modelOrDefault(value) {
+  return typeof value === 'string' && value.trim() ? value.trim() : 'gpt-4.1-mini';
 }
 
 function toPosixPath(value) {

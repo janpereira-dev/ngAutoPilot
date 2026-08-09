@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { runGate } from '../lib/gate-engine.mjs';
+import { scanCandidateSecurity } from '../lib/candidate-security.mjs';
 import { changedLinesPercent, collectGateEvidence } from '../lib/gate-evidence.mjs';
 import { sha256 } from '../lib/hash-utils.mjs';
 import { loadBenchmark, resolveBenchmarkPath } from '../lib/benchmark-loader.mjs';
@@ -17,18 +18,19 @@ const baselineSkill = fs.readFileSync(args.baseline ?? path.join(runRoot, 'basel
 const candidateSkill = fs.readFileSync(args.candidate ?? path.join(runRoot, 'optimization', 'candidate.SKILL.md'), 'utf8');
 const baselineAggregate = readJson(args.baselineAggregate ?? path.join(runRoot, 'baseline-results', args.stage ?? 'validation', 'aggregate.json'));
 const candidateAggregate = readJson(args.candidateAggregate ?? path.join(runRoot, 'candidate-results', args.stage ?? 'validation', 'aggregate.json'));
-const comparison = readComparison(runRoot);
 const structure = validateSkillStructure(candidateSkill);
-const evidence = collectGateEvidence(runRoot, args.stage ?? 'validation');
 const baselineTokenCount = approximateTokens(baselineSkill);
 const candidateTokenCount = approximateTokens(candidateSkill);
 const limits = benchmark.limits ?? { maxCandidateTokens: 2200, maxChangedLinesPercent: 25, maxGrowthPercent: 20 };
 const baselineHash = sha256(baselineSkill);
 const candidateHash = sha256(candidateSkill);
+const securityFindings = scanCandidateSecurity(candidateSkill);
+const evidence = collectGateEvidence(runRoot, candidateHash);
+const comparison = evidence.comparison ?? emptyComparison();
 const result = runGate({
   frontmatterIsEqual: frontmatterIsByteEqual(baselineSkill, candidateSkill),
   structureIsValid: structure.valid && aggregateHashesMatch({ baselineAggregate, candidateAggregate, baselineHash, candidateHash }),
-  securityPassed: !remoteShellPattern().test(candidateSkill),
+  securityPassed: securityFindings.length === 0,
   baselineAggregate,
   candidateAggregate: {
     ...candidateAggregate,
@@ -51,7 +53,7 @@ const result = runGate({
 });
 
 fs.mkdirSync(path.join(runRoot, 'gate'), { recursive: true });
-fs.writeFileSync(path.join(runRoot, 'gate', 'gate-report.json'), `${JSON.stringify({ ...result, structure, evidence: { ...evidence, baselineHash, candidateHash, targetSkillPath: benchmark.targetSkill.path } }, null, 2)}\n`, 'utf8');
+fs.writeFileSync(path.join(runRoot, 'gate', 'gate-report.json'), `${JSON.stringify({ ...result, structure, evidence: { ...evidence, baselineHash, candidateHash, securityFindings, targetSkillPath: benchmark.targetSkill.path } }, null, 2)}\n`, 'utf8');
 console.log(result.status);
 process.exit(result.accepted ? 0 : 1);
 
@@ -59,18 +61,13 @@ function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
 
-function readComparison(root) {
-  const comparisonRoot = path.join(root, 'comparison');
+function emptyComparison() {
   return {
-    improvements: readOptionalJson(path.join(comparisonRoot, 'improvements.json'), []),
-    criticalRegressions: readOptionalJson(path.join(comparisonRoot, 'criticalRegressions.json'), []),
-    missingBaselineCases: readOptionalJson(path.join(comparisonRoot, 'missingBaselineCases.json'), []),
-    missingCandidateCases: readOptionalJson(path.join(comparisonRoot, 'missingCandidateCases.json'), []),
+    improvements: [],
+    criticalRegressions: [],
+    missingBaselineCases: [],
+    missingCandidateCases: [],
   };
-}
-
-function readOptionalJson(filePath, fallback) {
-  return fs.existsSync(filePath) ? JSON.parse(fs.readFileSync(filePath, 'utf8')) : fallback;
 }
 
 function approximateTokens(value) {
@@ -84,10 +81,6 @@ function growthPercent(baselineTokenCount, candidateTokenCount) {
 
 function aggregateHashesMatch({ baselineAggregate, candidateAggregate, baselineHash, candidateHash }) {
   return baselineAggregate.skillHash === baselineHash && candidateAggregate.skillHash === candidateHash;
-}
-
-function remoteShellPattern() {
-  return /(?:curl|wget)\b[^\n|]*\|\s*(?:sudo\s+)?(?:ba)?sh|(?:curl|iwr|irm|Invoke-WebRequest)\b[^\n|]*\|\s*(?:iex|Invoke-Expression)/i;
 }
 
 function parseArgs(argv) {

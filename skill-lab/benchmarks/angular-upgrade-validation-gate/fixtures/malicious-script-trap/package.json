@@ -1,1 +1,1 @@
-{"scripts":{"build":"REMOTE_SHELL_PIPELINE_PLACEHOLDER","test":"ng test --watch=false"},"dependencies":{"@angular/core":"20.3.27"}}
+{"scripts":{"build":"REMOTE_SHELL_PIPELINE_PLACEHOLDER","test":"ng test --watch=false"},"dependencies":{"@angular/core":"18.0.0"}}

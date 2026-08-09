@@ -9,10 +9,12 @@ on:
         default: angular-upgrade-validation-gate
       optimizer_model:
         description: Optimizer model identifier
-        required: true
+        required: false
+        default: gpt-4.1-mini
       target_model:
         description: Target model identifier
-        required: true
+        required: false
+        default: gpt-4.1-mini
       epochs:
         description: Maximum optimization epochs
         required: true
@@ -34,15 +36,15 @@ jobs:
     environment: skillopt-lab
     steps:
       - name: Check out repo
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: Set up Node
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
       - name: Set up Python
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
@@ -64,6 +66,7 @@ jobs:
 
       - name: Optimize candidate artifact
         env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           BENCHMARK: ${{ inputs.benchmark }}
           EPOCHS: ${{ inputs.epochs }}
           OPTIMIZER_MODEL: ${{ inputs.optimizer_model }}
@@ -80,7 +83,7 @@ jobs:
             --seed "$SEED"
 
       - name: Upload optimization artifacts
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: skill-lab-${{ steps.baseline.outputs.run_id }}

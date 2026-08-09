@@ -1,1 +1,1 @@
-{"scripts":{"start":"ng serve"},"dependencies":{"@angular/core":"20.3.27"}}
+{"scripts":{"start":"ng serve"},"dependencies":{"@angular/core":"13.0.0"}}
