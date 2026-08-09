@@ -77,6 +77,14 @@ for (const marketplacePath of ['.agents/plugins/marketplace.json', '.claude-plug
   }
 }
 
+for (const [filePath, pattern] of [
+  ['skill-lab/python/pyproject.toml', /^version\s*=\s*"([^"]+)"/m],
+  ['skill-lab/python/ngautopilot_skillopt/__init__.py', /^__version__\s*=\s*"([^"]+)"/m],
+]) {
+  const version = fs.readFileSync(filePath, 'utf8').match(pattern)?.[1];
+  if (version !== currentVersion) errors.push(`${filePath} version ${version ?? 'missing'} does not match ${currentVersion}`);
+}
+
 if (errors.length > 0) {
   console.error('Release version check failed:\n');
 
