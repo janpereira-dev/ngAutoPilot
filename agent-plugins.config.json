@@ -23,6 +23,9 @@
       "name": "ngautopilot-angular-21-to-22",
       "kind": "skills",
       "pack": "ngautopilot-angular-21-to-22",
+      "portableNames": {
+        "angular.upgrades.21-to-22.angular-21-to-22-post-upgrade-validation-gate": "angular-21-to-22-post-upgrade-validation"
+      },
       "enabled": true
     },
     {

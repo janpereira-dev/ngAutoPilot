@@ -1,0 +1,65 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+import { loadPluginConfig } from '../lib/agent-plugins/config.mjs';
+import { buildPluginManifest } from '../lib/agent-plugins/manifest.mjs';
+import { resolvePackSkills } from '../lib/agent-plugins/pack-resolver.mjs';
+import { ensureUniquePortableNames, renderPortableSkill } from '../lib/agent-plugins/portable-skill.mjs';
+
+const descriptions = {
+  'ngautopilot-core': 'Core NgAutoPilot workflows for project intake, stack detection, routing, compatibility gates, and risk assessment.',
+  'ngautopilot-angular-architecture': 'Focused Angular architecture, component, dependency-boundary, and service-design guidance.',
+  'ngautopilot-angular-testing': 'Focused Angular TestBed, component test, visual validation, and test-stability guidance.',
+  'ngautopilot-angular-21-to-22': 'Bounded Angular 21 to 22 upgrade preflight, execution, compatibility, and validation guidance.',
+  'ngautopilot-tools': 'Read-only NgAutoPilot MCP tools for catalog, pack, compatibility, upgrade, and repository inspection.',
+};
+
+export function syncAgentPlugins({ root = process.cwd() } = {}) {
+  const config = loadPluginConfig(path.join(root, 'agent-plugins.config.json')).filter(({ enabled }) => enabled);
+  const version = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8')).version;
+  const reports = [];
+
+  for (const plugin of config) {
+    const pluginDir = path.join(root, 'agent-plugins', plugin.name);
+    fs.mkdirSync(pluginDir, { recursive: true });
+    fs.copyFileSync(path.join(root, 'LICENSE'), path.join(pluginDir, 'LICENSE'));
+    fs.writeFileSync(path.join(pluginDir, 'plugin.json'), `${JSON.stringify(buildPluginManifest({
+      name: plugin.name,
+      version,
+      description: descriptions[plugin.name],
+      keywords: ['angular', 'agent-skills', 'developer-tools', 'ngautopilot'],
+    }), null, 2)}\n`, 'utf8');
+
+    if (plugin.kind === 'mcp') {
+      reports.push({ name: plugin.name, kind: plugin.kind, skills: 0 });
+      continue;
+    }
+
+    const skills = resolvePackSkills({
+      catalogPath: path.join(root, 'catalog.json'),
+      packsRoot: path.join(root, 'packs'),
+      sourceRoot: root,
+      packId: plugin.pack,
+    });
+    const names = ensureUniquePortableNames(skills.map(({ id }) => id), plugin.portableNames);
+    const skillsDir = path.join(pluginDir, 'skills');
+    fs.rmSync(skillsDir, { recursive: true, force: true });
+    fs.mkdirSync(skillsDir, { recursive: true });
+
+    for (const skill of skills) {
+      renderPortableSkill({
+        sourceDir: path.join(root, path.dirname(skill.path)),
+        targetDir: path.join(skillsDir, names.get(skill.id)),
+        skill: { ...skill, portableName: names.get(skill.id) },
+      });
+    }
+    reports.push({ name: plugin.name, kind: plugin.kind, skills: skills.length });
+  }
+
+  return reports;
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  for (const report of syncAgentPlugins()) console.log(`${report.name}: synced ${report.skills} skills`);
+}
