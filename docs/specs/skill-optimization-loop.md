@@ -492,7 +492,7 @@ The lab Python package pins SkillOpt:
 ```toml
 [project]
 name = "ngautopilot-skill-lab"
-version = "0.5.3"
+version = "0.6.0"
 requires-python = ">=3.10,<3.13"
 
 dependencies = [
@@ -734,7 +734,7 @@ Static workflow:
 
 Triggers: `pull_request`, `push` to `main`.
 
-Steps: checkout, Node 22, Python 3.11, `npm run skill-lab:validate`, `npm run skill-lab:test`, `npm run release:validate`.
+Steps: checkout, Node 24, Python 3.11, `npm run skill-lab:validate`, `npm run skill-lab:test`, `npm run release:validate`.
 
 Manual optimization workflow:
 

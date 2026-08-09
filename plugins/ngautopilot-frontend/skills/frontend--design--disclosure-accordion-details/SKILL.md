@@ -9,7 +9,7 @@ stack:
   - Accessibility
 category: components
 status: stable
-version: 0.5.3
+version: 0.6.0
 owner: NgAutoPilot
 triggers:
   - details summary

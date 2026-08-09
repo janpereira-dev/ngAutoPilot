@@ -4,7 +4,7 @@ import path from 'node:path';
 import { scanCandidateSecurity } from '../skill-lab/lib/candidate-security.mjs';
 
 const root = process.cwd();
-const scanRoots = ['skills', 'agents', 'adapters', 'packs', 'scripts', 'docs', '.github/workflows', 'skill-lab'];
+const scanRoots = ['skills', 'agents', 'adapters', 'agent-plugins', 'mcp', 'packs', 'scripts', 'docs', '.github/workflows', 'skill-lab'];
 const rootFiles = ['SKILL.md', 'README.md', 'SECURITY.md', 'package.json'];
 const allowedExtensions = new Set(['.json', '.md', '.mjs', '.py', '.toml', '.yml', '.yaml']);
 const excludedSkillLabDirectories = new Set(['skill-lab/.cache', 'skill-lab/.venv', 'skill-lab/runs']);

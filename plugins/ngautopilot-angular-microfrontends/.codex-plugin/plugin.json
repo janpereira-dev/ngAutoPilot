@@ -1,6 +1,6 @@
 {
   "name": "ngautopilot-angular-microfrontends",
-  "version": "0.5.3",
+  "version": "0.6.0",
   "description": "Focused Angular micro-frontends skills for shell contracts, compatibility gates, dependency sharing, ownership, observability, release governance, and rollback safety.",
   "author": {
     "name": "Jan Pereira",

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ngautopilot-tools",
+  "version": "0.6.0",
+  "description": "Read-only NgAutoPilot MCP tools for catalog, pack, compatibility, upgrade, and repository inspection.",
+  "author": {
+    "name": "Jan Pereira",
+    "url": "https://github.com/janpereira-dev"
+  },
+  "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+  "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "agent-skills",
+    "developer-tools",
+    "ngautopilot"
+  ]
+}

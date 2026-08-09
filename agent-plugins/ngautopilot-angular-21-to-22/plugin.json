@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ngautopilot-angular-21-to-22",
+  "version": "0.6.0",
+  "description": "Bounded Angular 21 to 22 upgrade preflight, execution, compatibility, and validation guidance.",
+  "author": {
+    "name": "Jan Pereira",
+    "url": "https://github.com/janpereira-dev"
+  },
+  "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+  "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "agent-skills",
+    "developer-tools",
+    "ngautopilot"
+  ]
+}

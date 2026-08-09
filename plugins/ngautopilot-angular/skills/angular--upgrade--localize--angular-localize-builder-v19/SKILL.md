@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: localize
 status: stable
-version: 0.5.3
+version: 0.6.0
 owner: NgAutoPilot
 triggers:
   - localize builder

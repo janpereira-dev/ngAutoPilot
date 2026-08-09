@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- Node.js >= 18.18.0
+- Node.js >= 24.0.0 and < 25
 - An AI agent with a matching adapter: Claude, Codex, Copilot, Cursor, Gemini, Hermes, OpenClaw, OpenCode, Pi, or generic Markdown export
 
 ## Choose Installation Path

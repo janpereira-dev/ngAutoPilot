@@ -16,6 +16,8 @@ test('updates versioned assets without rewriting changelog history', () => {
     write(directory, 'catalog.json', '{"version":"0.5.1"}\n');
     write(directory, 'skills/example/SKILL.md', 'version: 0.5.1\n');
     write(directory, 'packs/example.json', '{"version":"0.5.1"}\n');
+    write(directory, 'agent-plugins/example/plugin.json', '{"version":"0.5.1"}\n');
+    write(directory, 'mcp/server-entry.mjs', "const version = '0.5.1';\n");
     write(directory, 'CHANGELOG.md', '# Changelog\n\n## 0.5.1 - 2026-07-16\n');
 
     const result = spawnSync(process.execPath, [scriptPath, '0.5.2'], {
@@ -27,6 +29,8 @@ test('updates versioned assets without rewriting changelog history', () => {
     assert.match(fs.readFileSync(path.join(directory, 'package.json'), 'utf8'), /0\.5\.2/);
     assert.match(fs.readFileSync(path.join(directory, 'skills/example/SKILL.md'), 'utf8'), /0\.5\.2/);
     assert.match(fs.readFileSync(path.join(directory, 'packs/example.json'), 'utf8'), /0\.5\.2/);
+    assert.match(fs.readFileSync(path.join(directory, 'agent-plugins/example/plugin.json'), 'utf8'), /0\.5\.2/);
+    assert.match(fs.readFileSync(path.join(directory, 'mcp/server-entry.mjs'), 'utf8'), /0\.5\.2/);
     assert.match(fs.readFileSync(path.join(directory, 'CHANGELOG.md'), 'utf8'), /0\.5\.1/);
   } finally {
     fs.rmSync(directory, { recursive: true, force: true });

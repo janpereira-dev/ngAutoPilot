@@ -12,15 +12,24 @@ const previousVersion = JSON.parse(fs.readFileSync('package.json', 'utf8')).vers
 const roots = [
   '.agents',
   '.claude-plugin',
+  'agent-plugins',
   '.github',
   'docs',
+  'mcp',
   'plugins',
   'packs',
   'schemas',
   'scripts',
   'skills',
 ];
-const rootFiles = ['catalog.json', 'package.json', 'README.md'];
+const rootFiles = [
+  'agent-plugins.config.json',
+  'catalog.json',
+  'package.json',
+  'README.md',
+  'skill-lab/python/pyproject.toml',
+  'skill-lab/python/ngautopilot_skillopt/__init__.py',
+];
 const textExtensions = new Set(['.json', '.md', '.mjs', '.yml', '.yaml']);
 let touched = 0;
 

@@ -7,10 +7,13 @@ const forbiddenVersionPattern = /\b0\.(?:1|2|3|4)\.\d+\b/g;
 const roots = [
   '.agents',
   '.claude-plugin',
+  'agent-plugins',
+  'agent-plugins.config.json',
   '.github',
   'agents',
   'catalog.json',
   'docs',
+  'mcp',
   'package.json',
   'plugins',
   'README.md',
@@ -52,6 +55,14 @@ for (const manifestPath of findTextFiles('plugins').filter((file) => file.endsWi
   }
 }
 
+for (const manifestPath of findTextFiles('agent-plugins').filter((file) => file.endsWith('plugin.json'))) {
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+
+  if (manifest.version !== currentVersion) {
+    errors.push(`${toPosixPath(manifestPath)} version ${manifest.version} does not match ${currentVersion}`);
+  }
+}
+
 for (const marketplacePath of ['.agents/plugins/marketplace.json', '.claude-plugin/marketplace.json']) {
   const marketplace = JSON.parse(fs.readFileSync(marketplacePath, 'utf8'));
 
@@ -64,6 +75,14 @@ for (const marketplacePath of ['.agents/plugins/marketplace.json', '.claude-plug
       errors.push(`${marketplacePath} plugin ${plugin.name} version ${plugin.version} does not match ${currentVersion}`);
     }
   }
+}
+
+for (const [filePath, pattern] of [
+  ['skill-lab/python/pyproject.toml', /^version\s*=\s*"([^"]+)"/m],
+  ['skill-lab/python/ngautopilot_skillopt/__init__.py', /^__version__\s*=\s*"([^"]+)"/m],
+]) {
+  const version = fs.readFileSync(filePath, 'utf8').match(pattern)?.[1];
+  if (version !== currentVersion) errors.push(`${filePath} version ${version ?? 'missing'} does not match ${currentVersion}`);
 }
 
 if (errors.length > 0) {
