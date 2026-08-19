@@ -7,11 +7,23 @@
     "project": ".codex",
     "user": ".codex"
   },
+  "outputPaths": {
+    "project": {
+      "skills": ".agents/skills",
+      "instructions": "AGENTS.md",
+      "agents": ".agents/agents"
+    },
+    "user": {
+      "skills": ".agents/skills",
+      "instructions": ".codex/AGENTS.md",
+      "agents": ".agents/agents"
+    }
+  },
   "formats": {
     "skills": "markdown-directory",
     "instructions": "AGENTS.md",
     "agents": "markdown-directory"
   },
   "requirements": ["Codex CLI"],
-  "notes": "Project-scope installs into .codex/ and writes or augments AGENTS.md."
+  "notes": "Skills use Codex's .agents/skills discovery path. Project instructions are AGENTS.md at the repository root; user instructions are ~/.codex/AGENTS.md."
 }

@@ -29,6 +29,7 @@ import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
 import { buildPlan } from '../adapters/_shared/planner.mjs';
+import { resolveProjectRoot } from '../adapters/_shared/install-roots.mjs';
 import { applyPlan, verifyInstall, uninstall, backup, restore, loadManifest, saveManifest } from '../adapters/_shared/installer.mjs';
 import { listAdapters, loadAdapterManifest, createRootGuard, safeWriteFile, safeCopyDirInto, resolveUserRoot, SafeFsError } from '../adapters/_shared/adapter-core.mjs';
 
@@ -51,8 +52,21 @@ function resolveScopeRoot(agent, scope, cwd) {
   if (!manifest.scope.includes(scope)) {
     throw new Error(`Adapter "${agent}" does not support scope "${scope}". Allowed: ${manifest.scope.join(', ')}`);
   }
+  if (manifest.outputPaths?.[scope]) {
+    return scope === 'project'
+      ? resolveProjectRoot(cwd || process.cwd())
+      : path.resolve(safeHome());
+  }
   if (scope === 'project') return path.resolve(cwd || process.cwd(), manifest.paths.project);
   return resolveUserRoot(manifest.paths.user);
+}
+
+function loadInstallationManifest(agent, installRoot) {
+  const manifest = loadManifest(installRoot);
+  if (manifest || agent !== 'codex') return manifest;
+  const legacyRoot = path.join(installRoot, '.codex');
+  if (fs.existsSync(legacyRoot) && fs.lstatSync(legacyRoot).isSymbolicLink()) return null;
+  return loadManifest(legacyRoot);
 }
 
 function findPack(packId) {
@@ -181,7 +195,7 @@ function updateCmd(args) {
   if (!agent) throw new Error('--agent is required');
 
   const installRoot = resolveScopeRoot(agent, scope, process.cwd());
-  const manifest = loadManifest(installRoot);
+  const manifest = loadInstallationManifest(agent, installRoot);
   if (!manifest) { console.error(`No NgAutoPilot installation found for ${agent} (${scope}) at ${installRoot}`); process.exitCode = 1; return; }
 
   const plan = buildPlan({ catalogPath, packPath: findPack(manifest.pack || args.pack), adaptersRoot, sourceRoot: packageRoot, agent, scope, cwd: process.cwd(), home: safeHome() });
@@ -255,7 +269,7 @@ This directory contains ${count} files exported from NgAutoPilot pack \`${packId
 ## Install
 
 Copy the contents of this directory into your project's agent configuration directory:
-- Codex: \`.codex/\`
+- Codex: \`.agents/skills/\` for skills and the project-root \`AGENTS.md\` for instructions
 - Claude Code: \`.claude/\`
 - OpenCode: \`.opencode/\`
 - Generic: copy \`skills/\` and the instruction file into your project root.
@@ -298,7 +312,7 @@ function backupCmd(args) {
   const scope = args.scope || 'project';
   if (!agent) throw new Error('--agent is required');
   const installRoot = resolveScopeRoot(agent, scope, process.cwd());
-  const manifest = loadManifest(installRoot);
+  const manifest = loadInstallationManifest(agent, installRoot);
   if (!manifest) { console.error(`No installation found for ${agent} (${scope})`); process.exitCode = 1; return; }
   const plan = { installRoot, agent, scope, files: manifest.files.map(f => ({ path: f.path })) };
   const result = backup(plan);

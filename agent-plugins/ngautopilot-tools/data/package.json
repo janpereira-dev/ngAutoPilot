@@ -16,6 +16,7 @@
     "packs",
     "config",
     "lib",
+    "mcp",
     "schemas",
     "scripts",
     "templates",

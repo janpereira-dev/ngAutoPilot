@@ -6,6 +6,7 @@ import os from 'node:os';
 import { buildPlan } from '../../adapters/_shared/planner.mjs';
 import { applyPlan, verifyInstall, uninstall, backup, restore, loadManifest } from '../../adapters/_shared/installer.mjs';
 import { listAdapters } from '../../adapters/_shared/adapter-core.mjs';
+import { sha256 } from '../../adapters/_shared/safe-fs.mjs';
 
 const REPO = path.resolve(path.join(import.meta.dirname, '..', '..'));
 
@@ -55,19 +56,21 @@ test('planner resolves core pack and emits only _core skills', () => {
   assert.equal(plan.scope, 'project');
   assert.equal(plan.pack, 'ngautopilot-core');
   assert.ok(plan.files.length > 0, 'plan must have files');
-  const skillFiles = plan.files.filter((f) => f.path.startsWith('skills/'));
+  const skillFiles = plan.files.filter((f) => f.path.startsWith('.agents/skills/'));
   assert.ok(skillFiles.length > 0, 'plan must include skill files');
   assert.ok(skillFiles.every((f) => f.path.includes('_core')), 'core pack must only include _core skills');
+  assert.equal(plan.installRoot, workdir);
+  assert.ok(plan.files.some((file) => file.path === 'AGENTS.md'), 'Codex project instructions belong at the project root');
   fs.rmSync(workdir, { recursive: true, force: true });
 });
 
 test('planner includes transitive pack dependencies', () => {
   const workdir = makeWorkdir();
   const plan = planForPack(workdir, 'ngautopilot-angular-microfrontends');
-  const skillFiles = plan.files.filter((file) => file.path.startsWith('skills/'));
+  const skillFiles = plan.files.filter((file) => file.path.startsWith('.agents/skills/'));
 
-  assert.ok(skillFiles.some((file) => file.path.startsWith('skills/_core/')));
-  assert.ok(skillFiles.some((file) => file.path.includes('skills/angular/microfrontends/')));
+  assert.ok(skillFiles.some((file) => file.path.startsWith('.agents/skills/_core/')));
+  assert.ok(skillFiles.some((file) => file.path.includes('.agents/skills/angular/microfrontends/')));
   fs.rmSync(workdir, { recursive: true, force: true });
 });
 
@@ -79,7 +82,7 @@ test('every pack resolves to at least one skill', () => {
 
   for (const packId of packIds) {
     const plan = planForPack(workdir, packId);
-    assert.ok(plan.files.some((file) => file.path.startsWith('skills/')), `${packId} must include skills`);
+    assert.ok(plan.files.some((file) => file.path.startsWith('.agents/skills/')), `${packId} must include skills`);
   }
 
   fs.rmSync(workdir, { recursive: true, force: true });
@@ -179,12 +182,147 @@ test('dry-run writes no files', () => {
   assert.ok(r.ok);
   const manifestExists = fs.existsSync(path.join(plan.installRoot, '.ngautopilot-manifest.json'));
   assert.equal(manifestExists, false, 'dry-run must not write manifest');
-  assert.equal(fs.existsSync(plan.installRoot), false, 'dry-run must not create install root');
+  assert.equal(fs.existsSync(path.join(plan.installRoot, '.agents')), false, 'dry-run must not write discoverable Codex paths');
   fs.rmSync(workdir, { recursive: true, force: true });
 });
 
 test('planner refuses scope not declared by adapter', () => {
   const workdir = makeWorkdir();
   assert.throws(() => planFor(workdir, 'copilot', 'user'), /does not support scope "user"/);
+  fs.rmSync(workdir, { recursive: true, force: true });
+});
+
+test('Codex user scope keeps skills and instructions in their separate discovery roots', () => {
+  const home = makeWorkdir();
+  const plan = planFor(home, 'codex', 'user');
+
+  assert.equal(plan.installRoot, home);
+  assert.ok(plan.files.some((file) => file.path.startsWith('.agents/skills/')));
+  assert.ok(plan.files.some((file) => file.path === '.codex/AGENTS.md'));
+
+  const result = applyPlan(plan);
+  assert.ok(result.ok);
+  assert.ok(fs.existsSync(path.join(home, '.agents', 'skills')));
+  assert.ok(fs.existsSync(path.join(home, '.codex', 'AGENTS.md')));
+  assert.ok(verifyInstall(plan).ok);
+  fs.rmSync(home, { recursive: true, force: true });
+});
+
+test('Codex project scope writes discoverable files at the Git root when run from a subdirectory', () => {
+  const repository = makeWorkdir();
+  const nestedDirectory = path.join(repository, 'packages', 'app');
+  fs.mkdirSync(path.join(repository, '.git'));
+  fs.mkdirSync(nestedDirectory, { recursive: true });
+
+  const plan = planFor(nestedDirectory);
+  assert.equal(plan.installRoot, repository);
+  applyPlan(plan);
+  assert.ok(fs.existsSync(path.join(repository, '.agents', 'skills')));
+  assert.ok(fs.existsSync(path.join(repository, 'AGENTS.md')));
+  assert.equal(fs.existsSync(path.join(nestedDirectory, 'AGENTS.md')), false);
+  fs.rmSync(repository, { recursive: true, force: true });
+});
+
+test('Codex project install rejects a symlinked .agents parent without writing outside the project', () => {
+  const workdir = makeWorkdir();
+  const outside = makeWorkdir();
+  fs.symlinkSync(outside, path.join(workdir, '.agents'), process.platform === 'win32' ? 'junction' : 'dir');
+
+  assert.throws(() => applyPlan(planFor(workdir)), /symlink_parent/);
+  assert.equal(fs.existsSync(path.join(outside, 'skills')), false, 'installer must not follow the symlinked parent');
+
+  fs.rmSync(workdir, { recursive: true, force: true });
+  fs.rmSync(outside, { recursive: true, force: true });
+});
+
+test('Codex merges a bounded managed section into an existing AGENTS.md and preserves user content', () => {
+  const workdir = makeWorkdir();
+  fs.writeFileSync(path.join(workdir, 'AGENTS.md'), 'User-owned project instructions\n', 'utf8');
+  const plan = planFor(workdir);
+
+  const installed = applyPlan(plan);
+  assert.ok(installed.ok, installed.warnings.join('\n'));
+  const afterInstall = fs.readFileSync(path.join(workdir, 'AGENTS.md'), 'utf8');
+  assert.match(afterInstall, /^User-owned project instructions/m);
+  assert.match(afterInstall, /<!-- ngautopilot:instructions:start -->/);
+  assert.ok(verifyInstall(plan).ok, 'managed section checksum must verify independently of user content');
+
+  const rerun = applyPlan(plan);
+  assert.ok(rerun.ok, rerun.warnings.join('\n'));
+  assert.equal(fs.readFileSync(path.join(workdir, 'AGENTS.md'), 'utf8'), afterInstall, 'managed section install must be idempotent');
+
+  const removed = uninstall(plan);
+  assert.ok(removed.ok, JSON.stringify(removed.refused));
+  assert.equal(fs.readFileSync(path.join(workdir, 'AGENTS.md'), 'utf8').trim(), 'User-owned project instructions');
+  fs.rmSync(workdir, { recursive: true, force: true });
+});
+
+test('Codex refuses malformed managed instruction markers without overwriting AGENTS.md', () => {
+  const workdir = makeWorkdir();
+  const malformed = 'User instructions\n<!-- ngautopilot:instructions:start -->\n';
+  fs.writeFileSync(path.join(workdir, 'AGENTS.md'), malformed, 'utf8');
+
+  const result = applyPlan(planFor(workdir));
+  assert.equal(result.ok, false);
+  assert.match(result.warnings.join('\n'), /managed_section_invalid/);
+  assert.equal(fs.readFileSync(path.join(workdir, 'AGENTS.md'), 'utf8'), malformed);
+  fs.rmSync(workdir, { recursive: true, force: true });
+});
+
+test('Codex migrates a legacy .codex manifest and backs it up from its original root', () => {
+  const workdir = makeWorkdir();
+  const plan = planFor(workdir);
+  const skill = plan.files.find((file) => file.path.startsWith('.agents/skills/'));
+  assert.ok(skill, 'Codex plan must include a discoverable skill');
+  const legacyRoot = path.join(workdir, '.codex');
+  const legacyPath = path.join('skills', skill.path.slice('.agents/skills/'.length));
+  const legacyContent = fs.readFileSync(skill.source, 'utf8');
+  fs.mkdirSync(path.dirname(path.join(legacyRoot, legacyPath)), { recursive: true });
+  fs.writeFileSync(path.join(legacyRoot, legacyPath), legacyContent, 'utf8');
+  fs.writeFileSync(path.join(legacyRoot, '.ngautopilot-manifest.json'), JSON.stringify({
+    version: 1,
+    installationId: 'legacy-installation',
+    agent: 'codex',
+    scope: 'project',
+    pack: 'ngautopilot-core',
+    createdAt: '2026-01-01T00:00:00.000Z',
+    files: [{ path: legacyPath, checksum: sha256(legacyContent), owner: 'ngautopilot' }],
+  }), 'utf8');
+
+  const backupResult = backup({ installRoot: workdir, agent: 'codex', scope: 'project', files: [] }, { backupDir: path.join(workdir, '.backups') });
+  assert.ok(backupResult.backedUp.includes(legacyPath), 'backup must read legacy files from .codex');
+
+  const result = applyPlan(plan);
+  assert.ok(result.ok, result.warnings.join('\n'));
+  const migrated = loadManifest(workdir);
+  assert.equal(migrated.installationId, 'legacy-installation');
+  assert.equal(fs.existsSync(path.join(legacyRoot, '.ngautopilot-manifest.json')), false, 'legacy manifest must be removed after a complete migration');
+  assert.equal(fs.existsSync(path.join(legacyRoot, legacyPath)), false, 'legacy owned skill must be removed after migration');
+  assert.ok(fs.existsSync(path.join(workdir, skill.path)), 'new discoverable destination must be installed');
+  assert.ok(verifyInstall(plan).ok);
+  fs.rmSync(workdir, { recursive: true, force: true });
+});
+
+test('Codex preserves legacy files when an unmanaged destination blocks migration', () => {
+  const workdir = makeWorkdir();
+  const plan = planFor(workdir);
+  const skill = plan.files.find((file) => file.path.startsWith('.agents/skills/'));
+  const legacyRoot = path.join(workdir, '.codex');
+  const legacyPath = path.join('skills', skill.path.slice('.agents/skills/'.length));
+  const legacyContent = fs.readFileSync(skill.source, 'utf8');
+  fs.mkdirSync(path.dirname(path.join(legacyRoot, legacyPath)), { recursive: true });
+  fs.writeFileSync(path.join(legacyRoot, legacyPath), legacyContent, 'utf8');
+  fs.writeFileSync(path.join(legacyRoot, '.ngautopilot-manifest.json'), JSON.stringify({
+    version: 1, installationId: 'legacy-conflict', agent: 'codex', scope: 'project', pack: 'ngautopilot-core', files: [{ path: legacyPath, checksum: sha256(legacyContent), owner: 'ngautopilot' }],
+  }), 'utf8');
+  fs.mkdirSync(path.dirname(path.join(workdir, skill.path)), { recursive: true });
+  fs.writeFileSync(path.join(workdir, skill.path), 'User-owned conflicting skill\n', 'utf8');
+
+  const result = applyPlan(plan);
+  assert.equal(result.ok, false);
+  assert.match(result.warnings.join('\n'), /legacy Codex file was preserved because its new destination was not installed/);
+  assert.equal(fs.readFileSync(path.join(workdir, skill.path), 'utf8'), 'User-owned conflicting skill\n');
+  assert.equal(fs.existsSync(path.join(legacyRoot, legacyPath)), true, 'legacy file must remain until the destination can be installed');
+  assert.equal(fs.existsSync(path.join(legacyRoot, '.ngautopilot-manifest.json')), true, 'legacy manifest must remain for a partial migration');
   fs.rmSync(workdir, { recursive: true, force: true });
 });

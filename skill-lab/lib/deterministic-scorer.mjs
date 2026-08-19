@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import path from 'node:path';
+import { resolveFixturePath } from './case-loader.mjs';
 
 export function scoreSkillAgainstCase(skillContent, item, benchmarkRoot) {
   const predicted = inferResponse(skillContent, item, benchmarkRoot);
@@ -207,9 +207,7 @@ function skippedAvailableValidationScript(request, scripts, commands) {
 
 function readJsonFixture(root, relativePath) {
   if (!relativePath) return null;
-  const target = path.join(root, relativePath);
-
-  if (!fs.existsSync(target)) return null;
+  const target = resolveFixturePath(root, relativePath);
   return JSON.parse(fs.readFileSync(target, 'utf8'));
 }
 

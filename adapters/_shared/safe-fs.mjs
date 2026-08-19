@@ -114,6 +114,7 @@ export function safeStat(guard, rel) {
  */
 export function safeReadFile(guard, rel) {
   const absPath = guard.resolve(rel);
+  assertNoSymlinkParents(guard, absPath);
   if (isSymlink(absPath)) {
     resolveSymlinkInside(guard, absPath);
   }
@@ -130,6 +131,7 @@ export function safeReadFile(guard, rel) {
  */
 export function safeWriteFile(guard, rel, content) {
   const absPath = guard.resolve(rel);
+  assertNoSymlinkParents(guard, absPath);
   // Symlink target check: if the file is a symlink, ensure contained before overwrite.
   if (isSymlink(absPath)) {
     resolveSymlinkInside(guard, absPath);
@@ -151,6 +153,7 @@ export function safeWriteFile(guard, rel, content) {
  */
 export function safeRemoveFile(guard, rel) {
   const absPath = guard.resolve(rel);
+  assertNoSymlinkParents(guard, absPath);
   if (isSymlink(absPath)) {
     resolveSymlinkInside(guard, absPath);
   }
@@ -311,9 +314,32 @@ export class SafeFsError extends Error {
 export function safeExists(guard, rel) {
   try {
     const absPath = guard.resolve(rel);
+    assertNoSymlinkParents(guard, absPath);
+    if (isSymlink(absPath)) {
+      resolveSymlinkInside(guard, absPath);
+    }
     return fs.existsSync(absPath);
   } catch {
     return false;
+  }
+}
+
+/**
+ * Refuse to traverse a symlinked parent while operating inside an install root.
+ * A contained symlink is still unsafe for writes because its target can change
+ * between validation and mutation; install destinations must use real parents.
+ */
+export function assertNoSymlinkParents(guard, absPath) {
+  let current = path.dirname(absPath);
+  while (current !== guard.root) {
+    if (fs.existsSync(current) && isSymlink(current)) {
+      throw new SafeFsError('symlink_parent', `path has symlinked parent: ${absPath}`);
+    }
+    const parent = path.dirname(current);
+    if (parent === current) {
+      throw new SafeFsError('path_traversal', `path escapes root: ${absPath}`);
+    }
+    current = parent;
   }
 }
 

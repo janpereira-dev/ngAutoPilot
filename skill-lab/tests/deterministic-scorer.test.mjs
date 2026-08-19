@@ -109,7 +109,7 @@ test('discovers workspace validation scripts when root package delegates to work
       },
     },
     workspaceFiles: {
-      'apps/web/package.json': {
+      'apps/web/package.fixture.json': {
         scripts: {
           build: 'ng build',
           test: 'ng test',
@@ -286,7 +286,7 @@ function makeFixtureRoot({ scripts, packageJson, workspaceFiles = {}, commands }
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-scorer-'));
   const fixtureRoot = path.join(root, 'fixtures', 'case');
   fs.mkdirSync(fixtureRoot, { recursive: true });
-  fs.writeFileSync(path.join(fixtureRoot, 'package.json'), `${JSON.stringify(packageJson ?? { scripts })}\n`, 'utf8');
+  fs.writeFileSync(path.join(fixtureRoot, 'package.fixture.json'), `${JSON.stringify(packageJson ?? { scripts })}\n`, 'utf8');
   fs.writeFileSync(path.join(fixtureRoot, 'results.json'), `${JSON.stringify({ commands })}\n`, 'utf8');
 
   for (const [relativePath, content] of Object.entries(workspaceFiles)) {
@@ -306,7 +306,7 @@ function makeCase(overrides = {}) {
     input: {
       angularFrom: '16',
       angularTo: '17',
-      packageJsonFixture: 'fixtures/case/package.json',
+      packageJsonFixture: 'fixtures/case/package.fixture.json',
       commandOutputsFixture: 'fixtures/case/results.json',
       request: 'Validate this hop.',
       ...overrides.input,

@@ -50,6 +50,12 @@ Files listed in the manifest were deleted after install. Re-run `install` to res
 
 Files were modified after install. Re-run `install` to update them, or `update` to refresh.
 
+## Codex does not discover installed skills
+
+For a project-scoped Codex install, skills must be under `.agents/skills/` and the managed instruction file is `AGENTS.md` at the repository root. For a user install, skills are under `~/.agents/skills/` and instructions are in `~/.codex/AGENTS.md`. Re-run the current installer if an older release placed skills under `.codex/skills/`.
+
+MCP registration is independent of skill installation. Register the bundled stdio server with `codex mcp add`; see [MCP and ChatGPT Integration](mcp-and-chatgpt.md#codex-cli-registration).
+
 ## No namespace conflicts
 
 If `npm run consistency:validate` fails, a skill exists in the catalog but not in any plugin bundle, or vice versa. Run:

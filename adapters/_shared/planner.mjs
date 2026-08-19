@@ -11,6 +11,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { loadAdapterManifest } from './adapter-core.mjs';
+import { resolveProjectRoot } from './install-roots.mjs';
 
 export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, agent, scope, cwd, home }) {
   const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
@@ -22,10 +23,17 @@ export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, age
     throw new Error(`Adapter ${agent} does not support scope "${scope}"`);
   }
 
-  const installRoot = scope === 'project'
-    ? path.resolve(cwd || process.cwd(), manifest.paths.project)
-    : path.resolve(home || safeHome(), manifest.paths.user);
+  const outputPaths = manifest.outputPaths?.[scope];
+  const scopeRoot = scope === 'project'
+    ? resolveProjectRoot(cwd || process.cwd())
+    : path.resolve(home || safeHome());
+  const installRoot = outputPaths
+    ? scopeRoot
+    : path.resolve(scopeRoot, manifest.paths[scope]);
   const manifestPath = path.join(installRoot, '.ngautopilot-manifest.json');
+  const legacyInstallRoot = outputPaths && manifest.paths?.[scope]
+    ? path.resolve(scopeRoot, manifest.paths[scope])
+    : undefined;
 
   const matches = uniqueById(packs.flatMap((candidate) => matchSkills(catalog.skills, candidate)));
   const files = [];
@@ -37,9 +45,9 @@ export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, age
       warnings.push(`source missing: ${skill.path}`);
       continue;
     }
-    // Destination layout: skills/<relative under skills/>
-    // skill.path is already "skills/_core/.../SKILL.md" — use it as-is.
-    const destRel = skill.path;
+    const destRel = outputPaths
+      ? path.posix.join(outputPaths.skills, path.posix.relative('skills', skill.path))
+      : skill.path;
     files.push({
       path: destRel,
       source: sourcePath,
@@ -51,10 +59,12 @@ export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, age
   // Adapter templates are named independently from their installed instruction file.
   const templateRel = findInstructionTemplate(adaptersRoot, agent);
   if (fs.existsSync(templateRel)) {
+    const instructionPath = outputPaths?.instructions ?? manifest.formats.instructions;
     files.push({
-      path: manifest.formats.instructions,
+      path: instructionPath,
       source: templateRel,
-      action: fs.existsSync(path.join(installRoot, manifest.formats.instructions)) ? 'managed-section' : 'create',
+      action: fs.existsSync(path.join(installRoot, instructionPath)) ? 'managed-section' : 'create',
+      managedSection: true,
       checksum: undefined,
     });
   }
@@ -65,7 +75,14 @@ export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, age
       warnings.push(`agent source missing: ${agentId}`);
       continue;
     }
-    files.push({ path: path.relative(sourceRoot, source), source, action: 'create', checksum: undefined });
+    files.push({
+      path: outputPaths
+        ? path.posix.join(outputPaths.agents, path.posix.relative('agents', toPosixPath(path.relative(sourceRoot, source))))
+        : path.relative(sourceRoot, source),
+      source,
+      action: 'create',
+      checksum: undefined,
+    });
   }
 
   for (const promptId of uniqueValues(packs.flatMap((candidate) => candidate.includes?.prompts ?? []))) {
@@ -74,10 +91,17 @@ export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, age
       warnings.push(`prompt source missing: ${promptId}`);
       continue;
     }
-    files.push({ path: path.relative(sourceRoot, source), source, action: 'create', checksum: undefined });
+    files.push({
+      path: outputPaths
+        ? path.posix.join(outputPaths.agents, path.posix.relative('agents', toPosixPath(path.relative(sourceRoot, source))))
+        : path.relative(sourceRoot, source),
+      source,
+      action: 'create',
+      checksum: undefined,
+    });
   }
 
-  return { agent, scope, pack: pack.id, installRoot, manifestPath, files, warnings };
+  return { agent, scope, pack: pack.id, installRoot, manifestPath, legacyInstallRoot, files, warnings };
 }
 
 function resolvePacks(packPath, resolving = new Set()) {
@@ -151,4 +175,8 @@ function uniqueValues(values) {
 
 function safeHome() {
   return process.env.USERPROFILE || process.env.HOME || '/';
+}
+
+function toPosixPath(value) {
+  return value.split(path.sep).join('/');
 }

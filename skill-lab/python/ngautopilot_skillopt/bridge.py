@@ -501,9 +501,14 @@ def score_check(check: dict[str, Any], predicted: dict[str, Any], prediction: st
 def read_json_fixture(root: pathlib.Path, relative_path: str | None) -> dict[str, Any] | None:
     if not relative_path:
         return None
-    target = root / relative_path
-    if not target.exists():
-        return None
+    if not isinstance(relative_path, str):
+        raise BridgeError("SkillOpt fixture path must be a non-empty relative path.")
+    try:
+        resolved_root = root.resolve(strict=True)
+        target = (resolved_root / relative_path).resolve(strict=True)
+        target.relative_to(resolved_root)
+    except (FileNotFoundError, RuntimeError, ValueError) as exc:
+        raise BridgeError(f"SkillOpt fixture path is missing or escapes the benchmark: {relative_path}") from exc
     return json.loads(target.read_text(encoding="utf-8"))
 
 

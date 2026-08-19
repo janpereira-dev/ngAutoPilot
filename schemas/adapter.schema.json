@@ -41,6 +41,15 @@
         }
       }
     },
+    "outputPaths": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Optional per-scope output layout for adapters whose skills, instructions, and agents have different roots.",
+      "properties": {
+        "project": { "$ref": "#/$defs/outputPathSet" },
+        "user": { "$ref": "#/$defs/outputPathSet" }
+      }
+    },
     "formats": {
       "type": "object",
       "additionalProperties": false,
@@ -73,6 +82,18 @@
     "notes": {
       "type": "string",
       "description": "Limitations or install caveats."
+    }
+  },
+  "$defs": {
+    "outputPathSet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["skills", "instructions", "agents"],
+      "properties": {
+        "skills": { "type": "string", "minLength": 1 },
+        "instructions": { "type": "string", "minLength": 1 },
+        "agents": { "type": "string", "minLength": 1 }
+      }
     }
   }
 }

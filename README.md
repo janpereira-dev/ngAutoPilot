@@ -216,6 +216,9 @@ These are the families that matter most when consuming the catalog:
 Public usage docs:
 
 - [docs/getting-started.md](docs/getting-started.md)
+- [docs/agent-installation-matrix.md](docs/agent-installation-matrix.md)
+- [docs/npm-package-guide.md](docs/npm-package-guide.md)
+- [docs/mcp-and-chatgpt.md](docs/mcp-and-chatgpt.md)
 - [docs/cli-reference.md](docs/cli-reference.md)
 - [docs/angular-roadmap-guide.md](docs/angular-roadmap-guide.md)
 - [docs/angular-version-era-map.md](docs/angular-version-era-map.md)
