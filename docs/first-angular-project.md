@@ -10,7 +10,7 @@ A new developer installs NgAutoPilot, selects an agent and pack, and runs a firs
 npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-core --scope project
 ```
 
-This creates `.codex/` with the Core skills and writes `AGENTS.md`.
+This creates `.agents/skills/` with the Core skills and writes `AGENTS.md` at the repository root.
 
 ## Step 2: Install Angular pack
 

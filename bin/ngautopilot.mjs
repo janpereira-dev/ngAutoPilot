@@ -61,6 +61,14 @@ function resolveScopeRoot(agent, scope, cwd) {
   return resolveUserRoot(manifest.paths.user);
 }
 
+function loadInstallationManifest(agent, installRoot) {
+  const manifest = loadManifest(installRoot);
+  if (manifest || agent !== 'codex') return manifest;
+  const legacyRoot = path.join(installRoot, '.codex');
+  if (fs.existsSync(legacyRoot) && fs.lstatSync(legacyRoot).isSymbolicLink()) return null;
+  return loadManifest(legacyRoot);
+}
+
 function findPack(packId) {
   const file = path.join(packsRoot, `${packId}.json`);
   if (!fs.existsSync(file)) throw new Error(`Pack not found: ${packId}`);
@@ -187,7 +195,7 @@ function updateCmd(args) {
   if (!agent) throw new Error('--agent is required');
 
   const installRoot = resolveScopeRoot(agent, scope, process.cwd());
-  const manifest = loadManifest(installRoot);
+  const manifest = loadInstallationManifest(agent, installRoot);
   if (!manifest) { console.error(`No NgAutoPilot installation found for ${agent} (${scope}) at ${installRoot}`); process.exitCode = 1; return; }
 
   const plan = buildPlan({ catalogPath, packPath: findPack(manifest.pack || args.pack), adaptersRoot, sourceRoot: packageRoot, agent, scope, cwd: process.cwd(), home: safeHome() });
@@ -304,7 +312,7 @@ function backupCmd(args) {
   const scope = args.scope || 'project';
   if (!agent) throw new Error('--agent is required');
   const installRoot = resolveScopeRoot(agent, scope, process.cwd());
-  const manifest = loadManifest(installRoot);
+  const manifest = loadInstallationManifest(agent, installRoot);
   if (!manifest) { console.error(`No installation found for ${agent} (${scope})`); process.exitCode = 1; return; }
   const plan = { installRoot, agent, scope, files: manifest.files.map(f => ({ path: f.path })) };
   const result = backup(plan);

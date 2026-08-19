@@ -31,6 +31,9 @@ export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, age
     ? scopeRoot
     : path.resolve(scopeRoot, manifest.paths[scope]);
   const manifestPath = path.join(installRoot, '.ngautopilot-manifest.json');
+  const legacyInstallRoot = outputPaths && manifest.paths?.[scope]
+    ? path.resolve(scopeRoot, manifest.paths[scope])
+    : undefined;
 
   const matches = uniqueById(packs.flatMap((candidate) => matchSkills(catalog.skills, candidate)));
   const files = [];
@@ -61,6 +64,7 @@ export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, age
       path: instructionPath,
       source: templateRel,
       action: fs.existsSync(path.join(installRoot, instructionPath)) ? 'managed-section' : 'create',
+      managedSection: true,
       checksum: undefined,
     });
   }
@@ -97,7 +101,7 @@ export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, age
     });
   }
 
-  return { agent, scope, pack: pack.id, installRoot, manifestPath, files, warnings };
+  return { agent, scope, pack: pack.id, installRoot, manifestPath, legacyInstallRoot, files, warnings };
 }
 
 function resolvePacks(packPath, resolving = new Set()) {
