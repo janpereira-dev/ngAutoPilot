@@ -4,6 +4,7 @@ import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 
 import { loadBenchmark, resolveBenchmarkPath } from '../lib/benchmark-loader.mjs';
+import { resolveFixturePath } from '../lib/case-loader.mjs';
 import { sha256, sha256File } from '../lib/hash-utils.mjs';
 import { assertInsideLab } from '../lib/sandbox.mjs';
 
@@ -72,7 +73,7 @@ function hashReferencedFixtures(benchmark) {
 
   return sha256([...fixturePaths]
     .sort((left, right) => left.localeCompare(right))
-    .map((relativePath) => `${relativePath}\n${fs.readFileSync(path.join(benchmark.root, relativePath), 'utf8')}`)
+    .map((relativePath) => `${relativePath}\n${fs.readFileSync(resolveFixturePath(benchmark.root, relativePath), 'utf8')}`)
     .join('\n'));
 }
 

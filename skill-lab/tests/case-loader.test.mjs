@@ -37,7 +37,7 @@ test('validateBenchmarkCases rejects unknown check types and missing fixtures', 
   const directory = makeTempLab();
   const broken = makeCase('broken-id');
   broken.checks.push({ type: 'model-defined-javascript', critical: true });
-  broken.input.packageJsonFixture = 'fixtures/missing/package.json';
+  broken.input.packageJsonFixture = 'fixtures/missing/package.fixture.json';
   writeBenchmark(directory, {
     train: [broken],
     validation: [makeCase('validation-id')],
@@ -100,7 +100,7 @@ function writeBenchmark(directory, splits) {
   const fixtureRoot = path.join(directory, 'fixtures', 'default');
   fs.mkdirSync(datasetRoot, { recursive: true });
   fs.mkdirSync(fixtureRoot, { recursive: true });
-  fs.writeFileSync(path.join(fixtureRoot, 'package.json'), '{"scripts":{"build":"ng build"}}\n', 'utf8');
+  fs.writeFileSync(path.join(fixtureRoot, 'package.fixture.json'), '{"scripts":{"build":"ng build"}}\n', 'utf8');
   fs.writeFileSync(path.join(fixtureRoot, 'results.json'), '{"commands":[]}\n', 'utf8');
 
   for (const [split, cases] of Object.entries(splits)) {
@@ -135,7 +135,7 @@ function makeCase(id) {
     criticality: 'critical',
     tags: ['build'],
     input: {
-      packageJsonFixture: 'fixtures/default/package.json',
+      packageJsonFixture: 'fixtures/default/package.fixture.json',
       commandOutputsFixture: 'fixtures/default/results.json',
       request: 'Validate this hop.',
     },

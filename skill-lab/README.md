@@ -145,6 +145,16 @@ Review `skill-lab/runs/<run-id>/promotion/canonical.diff` before applying anythi
 - Test and adversarial splits are promotion gates, not optimization inputs.
 - No private data, personal sessions, or corporate code is allowed.
 
+## Fixture dependency manifests
+
+Benchmark package manifests are stored as `package.fixture.json`. They are inert
+JSON test data, not installable npm projects.
+
+Do not rename them to `package.json`, run a package manager inside fixture
+directories, or generate lockfiles. Real `package.json` filenames cause
+dependency scanners to treat historical benchmark versions as production
+dependencies.
+
 Read `POLICY.md` before running any model-backed experiment.
 
 ## Current Scope

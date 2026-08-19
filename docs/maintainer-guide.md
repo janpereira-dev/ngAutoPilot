@@ -47,6 +47,17 @@ npm run pack:dry
 - `docs/release-checklist.md` is the operational release checklist.
 - Keep deep maintainer detail out of the root README unless it directly helps first-time adoption.
 
+## Skill Lab fixture manifests
+
+Skill Lab fixtures are historical test data, not npm projects. Store simulated
+package manifests as `package.fixture.json`, never `package.json`, and do not
+run a package manager or create lockfiles inside fixture directories. This
+preserves historical dependency versions without allowing dependency scanners
+to mistake fixtures for product dependencies.
+
+Before publishing, inspect `npm pack --dry-run --json` and confirm that
+`skill-lab/` is absent from the package tarball.
+
 ## Marketplace Notes
 
 - Keep the public docs aligned with the CLI behavior that is actually available.

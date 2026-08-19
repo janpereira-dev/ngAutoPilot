@@ -119,10 +119,35 @@ function validateCaseFixtures(root, split, item, errors) {
   for (const key of ['packageJsonFixture', 'commandOutputsFixture']) {
     const relativePath = item.input?.[key];
 
-    if (relativePath && !fs.existsSync(path.join(root, relativePath))) {
-      errors.push(`${split}:${item.id}: missing fixture ${relativePath}`);
+    if (!relativePath) continue;
+
+    try {
+      resolveFixturePath(root, relativePath);
+    } catch (error) {
+      errors.push(`${split}:${item.id}: ${error.message}`);
     }
   }
+}
+
+export function resolveFixturePath(benchmarkRoot, relativePath) {
+  if (typeof relativePath !== 'string' || !relativePath) {
+    throw new Error('fixture path must be a non-empty relative path');
+  }
+
+  const root = fs.realpathSync(benchmarkRoot);
+  const target = path.resolve(root, relativePath);
+  const relative = path.relative(root, target);
+  const isInsideRoot = relative && !relative.startsWith(`..${path.sep}`) && !path.isAbsolute(relative);
+
+  if (!isInsideRoot) throw new Error(`fixture path escapes benchmark root: ${relativePath}`);
+  if (!fs.existsSync(target)) throw new Error(`missing fixture ${relativePath}`);
+
+  const realTarget = fs.realpathSync(target);
+  const realRelative = path.relative(root, realTarget);
+  const isInsideRealRoot = realRelative && !realRelative.startsWith(`..${path.sep}`) && !path.isAbsolute(realRelative);
+
+  if (!isInsideRealRoot) throw new Error(`fixture path resolves outside benchmark root: ${relativePath}`);
+  return realTarget;
 }
 
 function validateCaseSecurity(split, item, errors) {

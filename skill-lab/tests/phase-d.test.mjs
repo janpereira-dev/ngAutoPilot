@@ -1384,11 +1384,11 @@ test('snapshot-baseline fixture hash changes when referenced package and command
   fs.mkdirSync(path.join(benchmarkRoot, 'datasets'), { recursive: true });
   fs.mkdirSync(path.join(benchmarkRoot, 'fixtures'), { recursive: true });
   fs.copyFileSync(targetSkill, path.join(benchmarkRoot, 'baseline.SKILL.md'));
-  fs.writeFileSync(path.join(benchmarkRoot, 'fixtures/package.json'), '{"scripts":{"build":"ng build"}}\n', 'utf8');
+  fs.writeFileSync(path.join(benchmarkRoot, 'fixtures/package.fixture.json'), '{"scripts":{"build":"ng build"}}\n', 'utf8');
   fs.writeFileSync(path.join(benchmarkRoot, 'fixtures/results.json'), '{"commands":[]}\n', 'utf8');
   const item = JSON.stringify({
     schemaVersion: '1.0.0', id: 'case-a', title: 'Case A', taskType: 'upgrade-validation', criticality: 'critical',
-    input: { request: 'Validate.', packageJsonFixture: 'fixtures/package.json', commandOutputsFixture: 'fixtures/results.json' },
+    input: { request: 'Validate.', packageJsonFixture: 'fixtures/package.fixture.json', commandOutputsFixture: 'fixtures/results.json' },
     expected: { decision: 'PASS', nextHopAllowed: true }, checks: [{ type: 'decision-equals', value: 'PASS', critical: true }],
   });
   for (const split of ['train', 'validation', 'test', 'adversarial']) {
@@ -1421,7 +1421,7 @@ test('validate-lab rejects benchmark targets outside canonical source skills', (
     title: 'Case A',
     taskType: 'upgrade-validation',
     criticality: 'critical',
-    input: { request: 'Validate.', packageJsonFixture: 'fixtures/package.json', commandOutputsFixture: 'fixtures/results.json' },
+    input: { request: 'Validate.', packageJsonFixture: 'fixtures/package.fixture.json', commandOutputsFixture: 'fixtures/results.json' },
     expected: { decision: 'PASS', nextHopAllowed: true },
     checks: [{ type: 'decision-equals', value: 'PASS', critical: true }],
   });
@@ -1429,7 +1429,7 @@ test('validate-lab rejects benchmark targets outside canonical source skills', (
     fs.writeFileSync(path.join(benchmarkRoot, 'datasets', `${split}.jsonl`), `${item.replace('case-a', `case-${split}`)}\n`, 'utf8');
   }
   fs.mkdirSync(path.join(benchmarkRoot, 'fixtures'), { recursive: true });
-  fs.writeFileSync(path.join(benchmarkRoot, 'fixtures/package.json'), '{"scripts":{"build":"ng build"}}\n', 'utf8');
+  fs.writeFileSync(path.join(benchmarkRoot, 'fixtures/package.fixture.json'), '{"scripts":{"build":"ng build"}}\n', 'utf8');
   fs.writeFileSync(path.join(benchmarkRoot, 'fixtures/results.json'), '{"commands":[]}\n', 'utf8');
   fs.writeFileSync(
     path.join(benchmarkRoot, 'benchmark.yaml'),
