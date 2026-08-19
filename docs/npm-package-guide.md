@@ -32,4 +32,6 @@ ngautopilot install --agent codex --pack ngautopilot-angular-5-to-6 --scope proj
 ngautopilot verify --agent codex --scope project
 ```
 
+For Codex, project installs place skills in `.agents/skills/` and managed instructions in the project-root `AGENTS.md`. User installs place skills in `~/.agents/skills/` and instructions in `~/.codex/AGENTS.md`. Registering the bundled stdio MCP server is a separate step; follow [MCP and ChatGPT Integration](mcp-and-chatgpt.md#codex-cli-registration).
+
 Run `ngautopilot packs --json` before selecting a pack. The public CLI supports named packs; it does not currently accept `--angular` or upgrade-range selectors.

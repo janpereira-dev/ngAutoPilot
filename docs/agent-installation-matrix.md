@@ -18,10 +18,10 @@ For a multi-major migration, install and validate each named hop in order; the C
 
 ## Compatibility matrix
 
-| Client | Adapter ID | Status | Project destination | Instruction file |
+| Client | Adapter ID | Status | Project skills destination | Project instruction file |
 | --- | --- | --- | --- | --- |
 | Claude Code | `claude` | native | `.claude/` | `CLAUDE.md` |
-| OpenAI Codex | `codex` | native | `.codex/` | `AGENTS.md` |
+| OpenAI Codex | `codex` | native | `.agents/skills/` | `AGENTS.md` at the Git root |
 | GitHub Copilot | `copilot` | adapter | `.github/copilot/` | `copilot-instructions.md` |
 | Cursor | `cursor` | adapter | `.cursor/` | `.cursorrules` |
 | Gemini CLI | `gemini` | adapter | `.gemini/` | `GEMINI.md` |
@@ -32,6 +32,12 @@ For a multi-major migration, install and validate each named hop in order; the C
 | Generic Markdown client | `generic` | export-only | chosen export directory | `AGENTS.md` |
 
 Treat `ngautopilot adapters --json` as the machine-readable source of truth. Experimental and unverified adapters require host-specific verification before team-wide use.
+
+## Codex paths and MCP
+
+The Codex adapter intentionally uses more than one destination. A project install writes skills to `.agents/skills/` and its managed instructions to the repository-root `AGENTS.md`. A user install writes skills to `~/.agents/skills/` and instructions to `~/.codex/AGENTS.md`. `.codex/skills/` is not a Codex skill-discovery path.
+
+MCP registration is separate from installing a pack. See [MCP and ChatGPT Integration](mcp-and-chatgpt.md) for the exact `codex mcp add` command or `config.toml` block.
 
 ## Pack selection
 

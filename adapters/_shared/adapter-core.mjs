@@ -11,6 +11,7 @@ import { createRootGuard, safeReadFile, safeWriteFile, safeRemoveFile, safeCopyI
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
+import { resolveProjectRoot } from './install-roots.mjs';
 
 /**
  * @typedef {Object} DetectionContext
@@ -179,17 +180,18 @@ export class Adapter {
   detect(ctx) {
     const evidence = [];
     const instructionFile = this.manifest.formats.instructions;
+    const outputPaths = this.manifest.outputPaths?.[ctx.scope];
     if (ctx.scope === 'project') {
       const cwd = ctx.cwd || process.cwd();
-      const base = path.join(cwd, this.manifest.paths.project);
+      const base = path.join(cwd, outputPaths?.skills ?? this.manifest.paths.project);
       if (fs.existsSync(base) && fs.statSync(base).isDirectory()) evidence.push(base);
-      const inst = path.join(cwd, instructionFile);
+      const inst = path.join(cwd, outputPaths?.instructions ?? instructionFile);
       if (fs.existsSync(inst)) evidence.push(inst);
     } else {
       const home = ctx.home || process.env.USERPROFILE || process.env.HOME || '/';
-      const base = path.join(home, this.manifest.paths.user);
+      const base = path.join(home, outputPaths?.skills ?? this.manifest.paths.user);
       if (fs.existsSync(base) && fs.statSync(base).isDirectory()) evidence.push(base);
-      const inst = path.join(home, instructionFile);
+      const inst = path.join(home, outputPaths?.instructions ?? instructionFile);
       if (fs.existsSync(inst)) evidence.push(inst);
     }
     return { present: evidence.length > 0, evidence };
@@ -202,6 +204,11 @@ export class Adapter {
    * @returns {string}
    */
   resolveInstallRoot(scope, cwd) {
+    if (this.manifest.outputPaths?.[scope]) {
+      return scope === 'project'
+        ? resolveProjectRoot(cwd || process.cwd())
+        : path.resolve(process.env.USERPROFILE || process.env.HOME || '/');
+    }
     if (scope === 'project') {
       return path.resolve(cwd || process.cwd(), this.manifest.paths.project);
     }

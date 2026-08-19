@@ -1,6 +1,6 @@
 # NgAutoPilot Agent Rules
 
-This project can use NgAutoPilot micro-skills from `skills/`.
+This project can use NgAutoPilot micro-skills from `.agents/skills/`.
 
 ## NgAutoPilot Core Workflow
 
@@ -17,13 +17,13 @@ This project can use NgAutoPilot micro-skills from `skills/`.
 
 ## Subagent Invocation Policy
 
-- If `agents/ngautopilot/subagents/` exists, use it as the stable subagent registry.
+- If `.agents/agents/ngautopilot/subagents/` exists, use it as the stable subagent registry.
 - Invoke only the smallest relevant subagent role for review, compatibility, testing, or consolidation; do not load every subagent.
 - Skills decide the technical path first; subagents provide focused oversight and handoff quality.
 
 ## Angular 22 Routing
 
-- For Angular 21 -> 22 upgrades, activate `skills/angular/upgrades/21-to-22/angular-21-to-22-upgrade-orchestrator/SKILL.md` first.
+- For Angular 21 -> 22 upgrades, activate `.agents/skills/angular/upgrades/21-to-22/angular-21-to-22-upgrade-orchestrator/SKILL.md` first.
 - For Angular 22 modernization or remediation, activate the narrow `angular-v22-*` satellite for the specific domain.
 - Do not use a generic `skills/angular/v22/` folder or load all Angular 22 skills for one issue.
 

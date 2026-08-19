@@ -55,19 +55,21 @@ test('planner resolves core pack and emits only _core skills', () => {
   assert.equal(plan.scope, 'project');
   assert.equal(plan.pack, 'ngautopilot-core');
   assert.ok(plan.files.length > 0, 'plan must have files');
-  const skillFiles = plan.files.filter((f) => f.path.startsWith('skills/'));
+  const skillFiles = plan.files.filter((f) => f.path.startsWith('.agents/skills/'));
   assert.ok(skillFiles.length > 0, 'plan must include skill files');
   assert.ok(skillFiles.every((f) => f.path.includes('_core')), 'core pack must only include _core skills');
+  assert.equal(plan.installRoot, workdir);
+  assert.ok(plan.files.some((file) => file.path === 'AGENTS.md'), 'Codex project instructions belong at the project root');
   fs.rmSync(workdir, { recursive: true, force: true });
 });
 
 test('planner includes transitive pack dependencies', () => {
   const workdir = makeWorkdir();
   const plan = planForPack(workdir, 'ngautopilot-angular-microfrontends');
-  const skillFiles = plan.files.filter((file) => file.path.startsWith('skills/'));
+  const skillFiles = plan.files.filter((file) => file.path.startsWith('.agents/skills/'));
 
-  assert.ok(skillFiles.some((file) => file.path.startsWith('skills/_core/')));
-  assert.ok(skillFiles.some((file) => file.path.includes('skills/angular/microfrontends/')));
+  assert.ok(skillFiles.some((file) => file.path.startsWith('.agents/skills/_core/')));
+  assert.ok(skillFiles.some((file) => file.path.includes('.agents/skills/angular/microfrontends/')));
   fs.rmSync(workdir, { recursive: true, force: true });
 });
 
@@ -79,7 +81,7 @@ test('every pack resolves to at least one skill', () => {
 
   for (const packId of packIds) {
     const plan = planForPack(workdir, packId);
-    assert.ok(plan.files.some((file) => file.path.startsWith('skills/')), `${packId} must include skills`);
+    assert.ok(plan.files.some((file) => file.path.startsWith('.agents/skills/')), `${packId} must include skills`);
   }
 
   fs.rmSync(workdir, { recursive: true, force: true });
@@ -179,7 +181,7 @@ test('dry-run writes no files', () => {
   assert.ok(r.ok);
   const manifestExists = fs.existsSync(path.join(plan.installRoot, '.ngautopilot-manifest.json'));
   assert.equal(manifestExists, false, 'dry-run must not write manifest');
-  assert.equal(fs.existsSync(plan.installRoot), false, 'dry-run must not create install root');
+  assert.equal(fs.existsSync(path.join(plan.installRoot, '.agents')), false, 'dry-run must not write discoverable Codex paths');
   fs.rmSync(workdir, { recursive: true, force: true });
 });
 
@@ -187,4 +189,35 @@ test('planner refuses scope not declared by adapter', () => {
   const workdir = makeWorkdir();
   assert.throws(() => planFor(workdir, 'copilot', 'user'), /does not support scope "user"/);
   fs.rmSync(workdir, { recursive: true, force: true });
+});
+
+test('Codex user scope keeps skills and instructions in their separate discovery roots', () => {
+  const home = makeWorkdir();
+  const plan = planFor(home, 'codex', 'user');
+
+  assert.equal(plan.installRoot, home);
+  assert.ok(plan.files.some((file) => file.path.startsWith('.agents/skills/')));
+  assert.ok(plan.files.some((file) => file.path === '.codex/AGENTS.md'));
+
+  const result = applyPlan(plan);
+  assert.ok(result.ok);
+  assert.ok(fs.existsSync(path.join(home, '.agents', 'skills')));
+  assert.ok(fs.existsSync(path.join(home, '.codex', 'AGENTS.md')));
+  assert.ok(verifyInstall(plan).ok);
+  fs.rmSync(home, { recursive: true, force: true });
+});
+
+test('Codex project scope writes discoverable files at the Git root when run from a subdirectory', () => {
+  const repository = makeWorkdir();
+  const nestedDirectory = path.join(repository, 'packages', 'app');
+  fs.mkdirSync(path.join(repository, '.git'));
+  fs.mkdirSync(nestedDirectory, { recursive: true });
+
+  const plan = planFor(nestedDirectory);
+  assert.equal(plan.installRoot, repository);
+  applyPlan(plan);
+  assert.ok(fs.existsSync(path.join(repository, '.agents', 'skills')));
+  assert.ok(fs.existsSync(path.join(repository, 'AGENTS.md')));
+  assert.equal(fs.existsSync(path.join(nestedDirectory, 'AGENTS.md')), false);
+  fs.rmSync(repository, { recursive: true, force: true });
 });

@@ -29,6 +29,7 @@ import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 
 import { buildPlan } from '../adapters/_shared/planner.mjs';
+import { resolveProjectRoot } from '../adapters/_shared/install-roots.mjs';
 import { applyPlan, verifyInstall, uninstall, backup, restore, loadManifest, saveManifest } from '../adapters/_shared/installer.mjs';
 import { listAdapters, loadAdapterManifest, createRootGuard, safeWriteFile, safeCopyDirInto, resolveUserRoot, SafeFsError } from '../adapters/_shared/adapter-core.mjs';
 
@@ -50,6 +51,11 @@ function resolveScopeRoot(agent, scope, cwd) {
   const manifest = loadAdapterManifest(adaptersRoot, agent);
   if (!manifest.scope.includes(scope)) {
     throw new Error(`Adapter "${agent}" does not support scope "${scope}". Allowed: ${manifest.scope.join(', ')}`);
+  }
+  if (manifest.outputPaths?.[scope]) {
+    return scope === 'project'
+      ? resolveProjectRoot(cwd || process.cwd())
+      : path.resolve(safeHome());
   }
   if (scope === 'project') return path.resolve(cwd || process.cwd(), manifest.paths.project);
   return resolveUserRoot(manifest.paths.user);
@@ -255,7 +261,7 @@ This directory contains ${count} files exported from NgAutoPilot pack \`${packId
 ## Install
 
 Copy the contents of this directory into your project's agent configuration directory:
-- Codex: \`.codex/\`
+- Codex: \`.agents/skills/\` for skills and the project-root \`AGENTS.md\` for instructions
 - Claude Code: \`.claude/\`
 - OpenCode: \`.opencode/\`
 - Generic: copy \`skills/\` and the instruction file into your project root.
