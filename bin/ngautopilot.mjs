@@ -14,6 +14,8 @@
 //   ngautopilot doctor
 //   ngautopilot backup --agent <id> [--scope project|user] [--json]
 //   ngautopilot restore --backup <path> [--agent <id>] [--scope project|user] [--json]
+//   ngautopilot migrate setup --from <major> --to <major> --agent <id> [--yes] [--dry-run] [--json]
+//   ngautopilot migrador --from <major> --to <major> --agent <id> [--yes] [--dry-run] [--json]
 //
 // Legacy (kept for compat, delegates to install):
 //   ngautopilot init
@@ -33,6 +35,7 @@ import { resolveProjectRoot } from '../adapters/_shared/install-roots.mjs';
 import { applyPlan, verifyInstall, uninstall, backup, restore, loadManifest, saveManifest } from '../adapters/_shared/installer.mjs';
 import { listAdapters, loadAdapterManifest, createRootGuard, safeWriteFile, safeCopyDirInto, resolveUserRoot, SafeFsError } from '../adapters/_shared/adapter-core.mjs';
 import { resolveAngularInstallation } from '../lib/agent-plugins/repository.mjs';
+import { createMigrationPlan, writeMigrationPlan } from '../lib/migration-plan.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const packageRoot = path.resolve(path.dirname(__filename), '..');
@@ -130,6 +133,9 @@ Usage:
     --agent <id>  [--scope project|user]  [--json]
   ngautopilot restore                       Restore from backup
     --backup <path>  [--agent <id>]  [--scope project|user]  [--json]
+  ngautopilot migrate setup                 Prepare an approved Angular major-hop plan; does not migrate code
+    --from <major>  --to <major>  --agent <id>  [--yes] [--dry-run] [--json]
+  ngautopilot migrador                      Alias for migrate setup
 
 Legacy (deprecated, delegate to install):
   ngautopilot init                          Copy whole tree to .ngautopilot/ (use 'install' instead)
@@ -395,6 +401,34 @@ function restoreCmd(args) {
   if (!result.ok) process.exitCode = 1;
 }
 
+function migrateCmd(args) {
+  if (args._?.[0] !== 'setup') throw new Error('only "migrate setup" is supported; migrate run and resume are not implemented');
+  migrationSetupCmd(args);
+}
+
+function migrationSetupCmd(args) {
+  if (!args.agent) throw new Error('--agent is required');
+  if (!args.from || !args.to) throw new Error('--from and --to are required');
+  loadAdapterManifest(adaptersRoot, args.agent);
+  const plan = createMigrationPlan({ repositoryRoot: packageRoot, projectRoot: process.cwd(), from: args.from, to: args.to, agent: args.agent });
+  const dryRun = !!args['dry-run'];
+  const approved = !!args.yes;
+  if (!approved) {
+    if (args.json) jsonOut({ ok: false, status: 'approval-required', plan });
+    else console.log(`Migration plan ${plan.from}->${plan.to} is pending approval. Re-run with --yes to write ${plan.output.path}.`);
+    process.exitCode = 1;
+    return;
+  }
+  if (dryRun) {
+    if (args.json) jsonOut({ ok: true, status: 'dry-run', plan });
+    else console.log(`Dry run: would write ${plan.output.path}; no files were changed.`);
+    return;
+  }
+  const output = writeMigrationPlan(plan);
+  if (args.json) jsonOut({ ok: true, status: 'planned', plan, output });
+  else console.log(`Migration plan written to ${output.path}. It is pending and does not execute migrations.`);
+}
+
 // ── legacy commands ──────────────────────────────────────
 
 function initProject() {
@@ -424,6 +458,8 @@ try {
     case 'doctor': doctor(); break;
     case 'backup': backupCmd(args); break;
     case 'restore': restoreCmd(args); break;
+    case 'migrate': migrateCmd(args); break;
+    case 'migrador': migrationSetupCmd(args); break;
     case 'init': initProject(); break;
     case 'add': throw new Error('"add" is deprecated. Use: ngautopilot install --pack <pack-id>');
     case 'adapter': throw new Error('"adapter" is deprecated. Use: ngautopilot install --agent <agent> --pack <pack-id>');
