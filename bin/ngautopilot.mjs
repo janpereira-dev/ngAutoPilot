@@ -36,6 +36,7 @@ import { applyPlan, verifyInstall, uninstall, backup, restore, loadManifest, sav
 import { listAdapters, loadAdapterManifest, createRootGuard, safeWriteFile, safeCopyDirInto, resolveUserRoot, SafeFsError } from '../adapters/_shared/adapter-core.mjs';
 import { resolveAngularInstallation } from '../lib/agent-plugins/repository.mjs';
 import { createMigrationPlan, writeMigrationPlan } from '../lib/migration-plan.mjs';
+import { runMigration, resumeMigration } from '../lib/migration-runner.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const packageRoot = path.resolve(path.dirname(__filename), '..');
@@ -135,6 +136,10 @@ Usage:
     --backup <path>  [--agent <id>]  [--scope project|user]  [--json]
   ngautopilot migrate setup                 Prepare an approved Angular major-hop plan; does not migrate code
     --from <major>  --to <major>  --agent <id>  [--yes] [--dry-run] [--json]
+  ngautopilot migrate run                   Validate one approved hop and persist its execution gate
+    --plan <path>  --agent <id>  [--yes] [--json]
+  ngautopilot migrate resume                 Re-check a persisted migration gate; never skips a block
+    --run <id>  --agent <id>  [--plan <path>] [--yes] [--json]
   ngautopilot migrador                      Alias for migrate setup
 
 Legacy (deprecated, delegate to install):
@@ -402,8 +407,25 @@ function restoreCmd(args) {
 }
 
 function migrateCmd(args) {
-  if (args._?.[0] !== 'setup') throw new Error('only "migrate setup" is supported; migrate run and resume are not implemented');
+  if (args._?.[0] === 'run') return migrationRunCmd(args);
+  if (args._?.[0] === 'resume') return migrationResumeCmd(args);
+  if (args._?.[0] !== 'setup') throw new Error('migrate setup, run, or resume is required');
   migrationSetupCmd(args);
+}
+
+function migrationRunCmd(args) {
+  if (!args.agent) throw new Error('--agent is required');
+  const result = runMigration({ projectRoot: process.cwd(), planPath: args.plan, agent: args.agent, approved: !!args.yes });
+  if (args.json) jsonOut(result); else console.log(result.status === 'blocked' ? `Migration checkpoint blocked: ${result.reason.message}` : result.status);
+  if (!result.ok) process.exitCode = 1;
+}
+
+function migrationResumeCmd(args) {
+  if (!args.agent) throw new Error('--agent is required');
+  if (!args.run) throw new Error('--run is required');
+  const result = resumeMigration({ projectRoot: process.cwd(), runId: args.run, planPath: args.plan, agent: args.agent, approved: !!args.yes });
+  if (args.json) jsonOut(result); else console.log(`${result.status}: ${result.reason.message}`);
+  if (!result.ok) process.exitCode = 1;
 }
 
 function migrationSetupCmd(args) {
@@ -466,6 +488,7 @@ try {
     default: console.error(`Unknown command: ${command}`); help(); process.exitCode = 1; break;
   }
 } catch (error) {
+  if (process.argv.includes('--json')) jsonOut({ ok: false, status: error.message?.includes('approval') ? 'approval-required' : 'failed', reason: { code: String(error.message).split(':', 1)[0], message: error.message } });
   console.error(`Error: ${error.message}`);
   process.exitCode = 1;
 }
