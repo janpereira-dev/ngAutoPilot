@@ -98,6 +98,22 @@ test('accepts a package-only concrete target that is spanned by every declaratio
   assert.deepEqual(result.target, { major: 13, minor: 0 });
 });
 
+test('uses the explicitly requested major for package-only skill compatibility', (t) => {
+  const projectRoot = createProject(t, '12.1.0', {
+    declaration: '>=12.1.0',
+    commonDeclaration: '>=12.1.0',
+    lockfile: false,
+  });
+  const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '22.0' });
+
+  assert.ok(result.included.some((item) => item.id === 'angular.versioning.angular-v22-feature-index'));
+  assert.equal(result.excluded.some((item) => item.id === 'angular.versioning.angular-v22-feature-index'), false);
+  assert.match(
+    result.included.find((item) => item.id === 'angular.versioning.angular-v22-feature-index').reason,
+    /compatible with Angular 22/,
+  );
+});
+
 test('rejects a package-only target outside the declared Angular range', (t) => {
   const projectRoot = createProject(t, '12.2.17', { declaration: '^12.1.0', commonDeclaration: '^12.1.0', lockfile: false });
 
