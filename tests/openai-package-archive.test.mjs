@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
+import zlib from 'node:zlib';
 
 import {
   MAX_ARCHIVE_BYTES,
@@ -171,7 +172,7 @@ test('rejects normalized file-versus-descendant conflicts', () => {
 });
 
 test('rejects Windows-special archive path segments', () => {
-  for (const segment of ['CON', 'PRN', 'AUX', 'NUL', 'COM1', 'COM9', 'LPT1', 'LPT9', 'CON.txt', 'name.', 'name ', 'file:stream', 'ＣＯＮ', 'name．', 'file：stream']) {
+  for (const segment of ['CON', 'PRN', 'AUX', 'NUL', 'COM1', 'COM9', 'LPT1', 'LPT9', 'CON.txt', 'name.', 'name ', 'file:stream', '<', '>', '"', '|', '?', '*', 'ＣＯＮ', 'name．', 'file：stream']) {
     assert.match(validateArchivePath(`safe/${segment}/file`).join('\n'), /windows|device|colon|trailing/i, segment);
   }
 });
@@ -194,6 +195,105 @@ test('rejects oversized archives before reading their contents', () => {
     ]);
   } finally {
     fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test('rejects corrupted ZIP payloads even when metadata is unchanged', async () => {
+  const root = temporaryDirectory();
+  const output = temporaryDirectory();
+  try {
+    fs.writeFileSync(path.join(root, 'payload.txt'), 'payload that must be verified\n'.repeat(20), 'utf8');
+    const valid = path.join(output, 'valid.zip');
+    await createZip(root, valid);
+    const data = fs.readFileSync(valid);
+    const localOffset = data.indexOf(Buffer.from([0x50, 0x4b, 0x03, 0x04]));
+    assert.notEqual(localOffset, -1);
+    const payloadStart = localOffset + 30 + data.readUInt16LE(localOffset + 26) + data.readUInt16LE(localOffset + 28);
+    data[payloadStart] ^= 0xff;
+    const corrupted = path.join(output, 'corrupted.zip');
+    fs.writeFileSync(corrupted, data);
+    assert.match(validateArchiveFile(corrupted).join('\n'), /payload.*(?:decode|CRC|size)/i);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(output, { recursive: true, force: true });
+  }
+});
+
+test('rejects aggregate expansion before inflating every payload', async () => {
+  const root = temporaryDirectory();
+  const output = temporaryDirectory();
+  try {
+    for (let index = 0; index < 6; index += 1) fs.writeFileSync(path.join(root, `payload-${index}.txt`), `payload-${index}\n`, 'utf8');
+    const valid = path.join(output, 'valid.zip');
+    await createZip(root, valid);
+    const data = fs.readFileSync(valid);
+    const centralSignature = Buffer.from([0x50, 0x4b, 0x01, 0x02]);
+    const declaredSize = Math.floor(MAX_ARCHIVE_UNCOMPRESSED_BYTES / 6) + 1;
+    let searchOffset = 0;
+    for (let index = 0; index < 6; index += 1) {
+      const centralOffset = data.indexOf(centralSignature, searchOffset);
+      assert.notEqual(centralOffset, -1);
+      data.writeUInt32LE(declaredSize, centralOffset + 24);
+      searchOffset = centralOffset + centralSignature.length;
+    }
+    const oversized = path.join(output, 'aggregate.zip');
+    fs.writeFileSync(oversized, data);
+    assert.match(validateArchiveFile(oversized).join('\n'), /archive expands to more than/i);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(output, { recursive: true, force: true });
+  }
+});
+
+test('rejects trailing bytes after a deflate stream', async () => {
+  const root = temporaryDirectory();
+  const output = temporaryDirectory();
+  try {
+    fs.writeFileSync(path.join(root, 'payload.txt'), 'payload to compress\n'.repeat(20), 'utf8');
+    const valid = path.join(output, 'valid.zip');
+    await createZip(root, valid);
+    const data = fs.readFileSync(valid);
+    const centralSignature = Buffer.from([0x50, 0x4b, 0x01, 0x02]);
+    const eocdSignature = Buffer.from([0x50, 0x4b, 0x05, 0x06]);
+    const centralOffset = data.indexOf(centralSignature);
+    const eocdOffset = data.lastIndexOf(eocdSignature);
+    assert.notEqual(centralOffset, -1);
+    assert.notEqual(eocdOffset, -1);
+    const localOffset = data.readUInt32LE(centralOffset + 42);
+    const compressedSize = data.readUInt32LE(centralOffset + 20);
+    const localNameLength = data.readUInt16LE(localOffset + 26);
+    const localExtraLength = data.readUInt16LE(localOffset + 28);
+    const payloadStart = localOffset + 30 + localNameLength + localExtraLength;
+    const descriptorOffset = payloadStart + compressedSize;
+    const hasDescriptor = (data.readUInt16LE(localOffset + 6) & 0x0008) !== 0;
+    const candidate = Buffer.concat([data.subarray(0, descriptorOffset), Buffer.from([0]), data.subarray(descriptorOffset)]);
+    const newEocdOffset = eocdOffset + 1;
+    const newCentralOffset = centralOffset + 1;
+    candidate.writeUInt32LE(data.readUInt32LE(eocdOffset + 16) + 1, newEocdOffset + 16);
+    candidate.writeUInt32LE(compressedSize + 1, newCentralOffset + 20);
+    if (hasDescriptor) {
+      const newDescriptorOffset = descriptorOffset + 1;
+      const descriptorHasSignature = candidate.readUInt32LE(newDescriptorOffset) === 0x08074b50;
+      candidate.writeUInt32LE(compressedSize + 1, newDescriptorOffset + (descriptorHasSignature ? 8 : 4));
+    } else {
+      candidate.writeUInt32LE(compressedSize + 1, localOffset + 18);
+    }
+    const malformed = path.join(output, 'trailing-byte.zip');
+    fs.writeFileSync(malformed, candidate);
+    assert.match(validateArchiveFile(malformed).join('\n'), /trailing bytes|payload/i);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(output, { recursive: true, force: true });
+  }
+});
+
+test('rejects a missing package root instead of creating an empty ZIP', async () => {
+  const output = path.join(temporaryDirectory(), 'missing-root.zip');
+  try {
+    await assert.rejects(() => createZip(path.join(os.tmpdir(), 'ngautopilot-root-does-not-exist'), output), /package root does not exist/i);
+    assert.equal(fs.existsSync(output), false);
+  } finally {
+    fs.rmSync(path.dirname(output), { recursive: true, force: true });
   }
 });
 
@@ -326,11 +426,165 @@ test('rejects central entries whose local records are malformed or inconsistent'
   }
 });
 
+test('rejects duplicate central entries before payload validation', async () => {
+  const root = temporaryDirectory();
+  const output = temporaryDirectory();
+  try {
+    fs.writeFileSync(path.join(root, 'a.txt'), 'first\n', 'utf8');
+    fs.writeFileSync(path.join(root, 'b.txt'), 'second\n', 'utf8');
+    const valid = path.join(output, 'valid.zip');
+    await createZip(root, valid);
+    const data = fs.readFileSync(valid);
+    const centralSignature = Buffer.from([0x50, 0x4b, 0x01, 0x02]);
+    const firstCentral = data.indexOf(centralSignature);
+    const secondCentral = data.indexOf(centralSignature, firstCentral + centralSignature.length);
+    assert.notEqual(firstCentral, -1);
+    assert.notEqual(secondCentral, -1);
+    const firstNameLength = data.readUInt16LE(firstCentral + 28);
+    const secondNameLength = data.readUInt16LE(secondCentral + 28);
+    assert.equal(firstNameLength, secondNameLength);
+    data.copy(data, secondCentral + 46, firstCentral + 46, firstCentral + 46 + firstNameLength);
+    const duplicate = path.join(output, 'duplicate.zip');
+    fs.writeFileSync(duplicate, data);
+    assert.match(validateArchiveFile(duplicate).join('\n'), /duplicate|normalization_collision/i);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(output, { recursive: true, force: true });
+  }
+});
+
+test('rejects overlapping local records before inflating payloads', async () => {
+  const root = temporaryDirectory();
+  const output = temporaryDirectory();
+  const originalInflateRawSync = zlib.inflateRawSync;
+  let inflateCalls = 0;
+  try {
+    fs.writeFileSync(path.join(root, 'a.txt'), 'first\n'.repeat(20), 'utf8');
+    fs.writeFileSync(path.join(root, 'b.txt'), 'second\n'.repeat(20), 'utf8');
+    const valid = path.join(output, 'valid.zip');
+    await createZip(root, valid);
+    const data = fs.readFileSync(valid);
+    const centralSignature = Buffer.from([0x50, 0x4b, 0x01, 0x02]);
+    const firstCentral = data.indexOf(centralSignature);
+    const secondCentral = data.indexOf(centralSignature, firstCentral + centralSignature.length);
+    const eocdOffset = data.lastIndexOf(Buffer.from([0x50, 0x4b, 0x05, 0x06]));
+    const originalCentralOffset = data.readUInt32LE(eocdOffset + 16);
+    assert.notEqual(firstCentral, -1);
+    assert.notEqual(secondCentral, -1);
+    assert.equal(firstCentral, originalCentralOffset);
+
+    const firstLocalOffset = data.readUInt32LE(firstCentral + 42);
+    const firstPayloadStart = firstLocalOffset + 30 + data.readUInt16LE(firstLocalOffset + 26) + data.readUInt16LE(firstLocalOffset + 28);
+    const secondLocalOffset = data.readUInt32LE(secondCentral + 42);
+    const secondLocalRecord = data.subarray(secondLocalOffset, originalCentralOffset);
+    const firstHeaderAndName = Buffer.from(data.subarray(firstLocalOffset, firstPayloadStart));
+    const firstExtra = Buffer.alloc(4 + secondLocalRecord.length);
+    firstExtra.writeUInt16LE(0, 0);
+    firstExtra.writeUInt16LE(secondLocalRecord.length, 2);
+    secondLocalRecord.copy(firstExtra, 4);
+    firstHeaderAndName.writeUInt16LE(firstExtra.length, 28);
+    const firstRecord = Buffer.concat([
+      firstHeaderAndName,
+      firstExtra,
+      data.subarray(firstPayloadStart, secondLocalOffset),
+    ]);
+    const nestedSecondLocalOffset = firstHeaderAndName.length + 4;
+    const centralDirectory = Buffer.from(data.subarray(originalCentralOffset, eocdOffset));
+    centralDirectory.writeUInt32LE(nestedSecondLocalOffset, secondCentral - originalCentralOffset + 42);
+    const eocd = Buffer.from(data.subarray(eocdOffset));
+    eocd.writeUInt32LE(firstRecord.length, 16);
+    const overlapping = path.join(output, 'overlapping-local-records.zip');
+    fs.writeFileSync(overlapping, Buffer.concat([firstRecord, centralDirectory, eocd]));
+
+    zlib.inflateRawSync = (...args) => {
+      inflateCalls += 1;
+      return originalInflateRawSync(...args);
+    };
+    assert.match(validateArchiveFile(overlapping).join('\n'), /local records overlap/i);
+    assert.equal(inflateCalls, 0);
+  } finally {
+    zlib.inflateRawSync = originalInflateRawSync;
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(output, { recursive: true, force: true });
+  }
+});
+
+test('decodes distinct CP437 member names when UTF-8 is not declared', async () => {
+  const root = temporaryDirectory();
+  const output = temporaryDirectory();
+  try {
+    fs.writeFileSync(path.join(root, 'a'), 'first\n', 'utf8');
+    fs.writeFileSync(path.join(root, 'b'), 'second\n', 'utf8');
+    const valid = path.join(output, 'valid.zip');
+    await createZip(root, valid);
+    const data = fs.readFileSync(valid);
+    const centralSignature = Buffer.from([0x50, 0x4b, 0x01, 0x02]);
+    const centralOffsets = [];
+    let searchOffset = 0;
+    while (centralOffsets.length < 2) {
+      const offset = data.indexOf(centralSignature, searchOffset);
+      assert.notEqual(offset, -1);
+      centralOffsets.push(offset);
+      searchOffset = offset + centralSignature.length;
+    }
+    for (const [index, centralOffset] of centralOffsets.entries()) {
+      const localOffset = data.readUInt32LE(centralOffset + 42);
+      data.writeUInt16LE(data.readUInt16LE(localOffset + 6) & ~0x0800, localOffset + 6);
+      data[localOffset + 30] = 0x82 + index;
+      data.writeUInt16LE(data.readUInt16LE(centralOffset + 8) & ~0x0800, centralOffset + 8);
+      data[centralOffset + 46] = 0x82 + index;
+    }
+    const cp437 = path.join(output, 'cp437.zip');
+    fs.writeFileSync(cp437, data);
+    assert.deepEqual(validateArchiveFile(cp437), []);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(output, { recursive: true, force: true });
+  }
+});
+
+test('keeps repository-relative copies stable through symlinked ancestors', (t) => {
+  const realParent = temporaryDirectory();
+  const realRepository = path.join(realParent, 'repository');
+  const aliasParent = temporaryDirectory();
+  const packageRoot = temporaryDirectory();
+  const aliasRoot = path.join(aliasParent, 'workspace');
+  const repositoryAlias = path.join(aliasRoot, 'repository');
+  try {
+    const source = path.join(realRepository, 'skills', 'sample', 'SKILL.md');
+    fs.mkdirSync(path.dirname(source), { recursive: true });
+    fs.writeFileSync(source, '# Sample\n', 'utf8');
+    fs.writeFileSync(path.join(realRepository, 'skills', 'sample', 'guide.md'), 'guide\n', 'utf8');
+    try {
+      fs.symlinkSync(realParent, aliasRoot, process.platform === 'win32' ? 'junction' : 'dir');
+    } catch (error) {
+      t.skip(`symlink or junction creation is unavailable on this host: ${error.code ?? error.message}`);
+      return;
+    }
+    const generatedSkillFile = path.join(packageRoot, 'skills', 'sample', 'SKILL.md');
+    const result = rewriteLocalReferences(
+      '[guide](./guide.md)',
+      'skills/sample/SKILL.md',
+      repositoryAlias,
+      packageRoot,
+      generatedSkillFile,
+      new Map(),
+    );
+    assert.equal(result, '[guide](guide.md)');
+    assert.equal(fs.readFileSync(path.join(packageRoot, 'skills', 'sample', 'guide.md'), 'utf8'), 'guide\n');
+  } finally {
+    fs.rmSync(realParent, { recursive: true, force: true });
+    fs.rmSync(aliasParent, { recursive: true, force: true });
+    fs.rmSync(packageRoot, { recursive: true, force: true });
+  }
+});
+
 test('rewrites only standalone local references and preserves external URLs', () => {
   const publicPaths = new Map([['skills/sample/SKILL.md', './skills/sample/SKILL.md']]);
   const body = [
     '[remote](https://example.test/skills/sample/SKILL.md?remote=1#fragment)',
     'external query https://example.test/?next=skills/sample/SKILL.md&remote=1',
+    'email mailto:user@example.test?body=skills/sample/SKILL.md',
     'local skills/sample/SKILL.md?local=2#fragment.',
     'unrelated myskills/sample/SKILL.md',
     'unrelated skills/sample/SKILL.md.bak',
@@ -340,6 +594,7 @@ test('rewrites only standalone local references and preserves external URLs', ()
     [
       '[remote](https://example.test/skills/sample/SKILL.md?remote=1#fragment)',
       'external query https://example.test/?next=skills/sample/SKILL.md&remote=1',
+      'email mailto:user@example.test?body=skills/sample/SKILL.md',
       'local ./skills/sample/SKILL.md?local=2#fragment.',
       'unrelated myskills/sample/SKILL.md',
       'unrelated skills/sample/SKILL.md.bak',
