@@ -19,6 +19,8 @@ test('updates versioned assets without rewriting changelog history', () => {
     write(directory, 'agent-plugins/example/plugin.json', '{"version":"0.5.1"}\n');
     write(directory, 'mcp/server-entry.mjs', "const version = '0.5.1';\n");
     write(directory, 'CHANGELOG.md', '# Changelog\n\n## 0.5.1 - 2026-07-16\n');
+    write(directory, 'openai/plugin.json', '{\"version\":\"0.5.1\"}\n');
+    write(directory, 'openai/submission/0.5.1/release-notes.md', 'Release version: 0.5.1\n');
 
     const result = spawnSync(process.execPath, [scriptPath, '0.5.2'], {
       cwd: directory,
@@ -32,6 +34,9 @@ test('updates versioned assets without rewriting changelog history', () => {
     assert.match(fs.readFileSync(path.join(directory, 'agent-plugins/example/plugin.json'), 'utf8'), /0\.5\.2/);
     assert.match(fs.readFileSync(path.join(directory, 'mcp/server-entry.mjs'), 'utf8'), /0\.5\.2/);
     assert.match(fs.readFileSync(path.join(directory, 'CHANGELOG.md'), 'utf8'), /0\.5\.1/);
+    assert.match(fs.readFileSync(path.join(directory, 'openai/plugin.json'), 'utf8'), /0\.5\.2/);
+    assert.match(fs.readFileSync(path.join(directory, 'openai/submission/0.5.2/release-notes.md'), 'utf8'), /0\.5\.2/);
+    assert.match(fs.readFileSync(path.join(directory, 'openai/submission/0.5.1/release-notes.md'), 'utf8'), /0\.5\.1/);
   } finally {
     fs.rmSync(directory, { recursive: true, force: true });
   }
