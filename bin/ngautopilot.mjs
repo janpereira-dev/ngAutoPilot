@@ -6,7 +6,7 @@
 //   ngautopilot list [--json]
 //   ngautopilot packs [--json]
 //   ngautopilot adapters [--json]
-//   ngautopilot install --agent <id> --pack <id> [--scope project|user] [--dry-run] [--yes] [--force] [--json]
+//   ngautopilot install --agent <id> (--pack <id> | --angular <major[.minor]> --profile <name>) [--capabilities a,b] [--scope project|user] [--dry-run] [--yes] [--force] [--json]
 //   ngautopilot update --agent <id> [--pack <id>] [--scope project|user] [--dry-run] [--yes] [--force] [--json]
 //   ngautopilot uninstall --agent <id> [--scope project|user] [--dry-run] [--yes] [--force] [--json]
 //   ngautopilot verify --agent <id> [--scope project|user] [--json]
@@ -32,6 +32,7 @@ import { buildPlan } from '../adapters/_shared/planner.mjs';
 import { resolveProjectRoot } from '../adapters/_shared/install-roots.mjs';
 import { applyPlan, verifyInstall, uninstall, backup, restore, loadManifest, saveManifest } from '../adapters/_shared/installer.mjs';
 import { listAdapters, loadAdapterManifest, createRootGuard, safeWriteFile, safeCopyDirInto, resolveUserRoot, SafeFsError } from '../adapters/_shared/adapter-core.mjs';
+import { resolveAngularInstallation } from '../lib/agent-plugins/repository.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const packageRoot = path.resolve(path.dirname(__filename), '..');
@@ -108,6 +109,9 @@ Usage:
   ngautopilot install                       Install a pack for an agent
     --agent <id>                            Agent adapter id (codex, claude, opencode, ...)
     --pack <id>                             Pack to install (ngautopilot-core, ngautopilot-angular, ...)
+    --angular <major[.minor]>                Resolve installed Angular evidence (cannot be combined with --pack)
+    --profile <name>                         Angular profile: essentials, architecture, performance, testing, migration, core
+    [--capabilities a,b]                     Additional supported Angular capabilities
     [--scope project|user]                  Install scope (default: project)
     [--dry-run]                             Show what would happen without writing
     [--yes]                                 Skip confirmation prompts
@@ -164,10 +168,14 @@ function installCmd(args) {
   const yes = !!args.yes || dryRun;
   const force = !!args.force;
   if (!agent) throw new Error('--agent is required. Available: ' + listAdapters(adaptersRoot).join(', '));
-  if (!packId) throw new Error('--pack is required. Available: ' + fs.readdirSync(packsRoot).filter(f=>f.endsWith('.json')).map(f=>f.replace('.json','')).join(', '));
+  if (packId && args.angular) throw new Error('--pack and --angular are mutually exclusive; choose one installation selection method');
+  if (!packId && !args.angular) throw new Error('--pack or --angular is required');
+  if (!args.angular && (args.profile || args.capabilities)) throw new Error('--profile and --capabilities require --angular');
 
-  const packPath = findPack(packId);
-  const plan = buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot: packageRoot, agent, scope, cwd: process.cwd(), home: safeHome() });
+  const selection = args.angular ? resolveAngularSelection(args) : undefined;
+  const plan = selection
+    ? buildAngularPlan({ agent, scope, selection })
+    : buildPlan({ catalogPath, packPath: findPack(packId), adaptersRoot, sourceRoot: packageRoot, agent, scope, cwd: process.cwd(), home: safeHome() });
 
   if (!yes && !args.json) {
     console.log(`Plan: ${plan.files.length} files -> ${plan.installRoot}`);
@@ -178,10 +186,10 @@ function installCmd(args) {
 
   const result = applyPlan(plan, { dryRun, force, yes });
   if (args.json) {
-    jsonOut({ ok: result.ok, agent, pack: packId, scope, dryRun, created: result.created, updated: result.updated, skipped: result.skipped, warnings: result.warnings });
+    jsonOut({ ok: result.ok, agent, pack: plan.pack, scope, dryRun, created: result.created, updated: result.updated, skipped: result.skipped, warnings: result.warnings, ...(selection ? { selection } : {}) });
   } else {
     if (dryRun) console.log(`Dry run: would create ${result.created}, update ${result.updated}, skip ${result.skipped}`);
-    else console.log(`Installed ${packId} for ${agent} (${scope}): ${result.created} created, ${result.updated} updated, ${result.skipped} skipped`);
+    else console.log(`Installed ${plan.pack} for ${agent} (${scope}): ${result.created} created, ${result.updated} updated, ${result.skipped} skipped`);
     if (result.warnings.length) for (const w of result.warnings) console.log(`  ⚠ ${w}`);
   }
   if (!result.ok) process.exitCode = 1;
@@ -198,11 +206,67 @@ function updateCmd(args) {
   const manifest = loadInstallationManifest(agent, installRoot);
   if (!manifest) { console.error(`No NgAutoPilot installation found for ${agent} (${scope}) at ${installRoot}`); process.exitCode = 1; return; }
 
-  const plan = buildPlan({ catalogPath, packPath: findPack(manifest.pack || args.pack), adaptersRoot, sourceRoot: packageRoot, agent, scope, cwd: process.cwd(), home: safeHome() });
+  if (manifest.angularSelection && args.pack) throw new Error('this installation uses an Angular selection; rerun update without --pack to preserve it');
+  const selection = manifest.angularSelection ? resolveAngularSelection({
+    angular: formatAngularTarget(manifest.angularSelection.target),
+    profile: manifest.angularSelection.profile,
+    ...(manifest.angularSelection.capabilities.length ? { capabilities: manifest.angularSelection.capabilities.join(',') } : {}),
+  }) : undefined;
+  const plan = selection
+    ? buildAngularPlan({ agent, scope, selection })
+    : buildPlan({ catalogPath, packPath: findPack(manifest.pack || args.pack), adaptersRoot, sourceRoot: packageRoot, agent, scope, cwd: process.cwd(), home: safeHome() });
   const result = applyPlan(plan, { dryRun, force, yes: true });
-  if (args.json) jsonOut({ ok: result.ok, agent, scope, dryRun, created: result.created, updated: result.updated, skipped: result.skipped, warnings: result.warnings });
-  else console.log(`Updated ${manifest.pack} for ${agent} (${scope}): ${result.created} created, ${result.updated} updated, ${result.skipped} skipped`);
+  if (args.json) jsonOut({ ok: result.ok, agent, pack: plan.pack, scope, dryRun, created: result.created, updated: result.updated, skipped: result.skipped, warnings: result.warnings, ...(selection ? { selection } : {}) });
+  else console.log(`Updated ${plan.pack} for ${agent} (${scope}): ${result.created} created, ${result.updated} updated, ${result.skipped} skipped`);
   if (!result.ok) process.exitCode = 1;
+}
+
+function resolveAngularSelection(args) {
+  if (!args.profile || typeof args.profile !== 'string') throw new Error('--profile is required with --angular');
+  const capabilities = parseCapabilities(args.capabilities);
+  return resolveAngularInstallation({ root: packageRoot, projectRoot: process.cwd(), target: args.angular, profile: args.profile, capabilities });
+}
+
+function parseCapabilities(value) {
+  if (value === undefined) return [];
+  if (typeof value !== 'string' || !value.trim()) throw new Error('--capabilities must be a comma-separated list');
+  const capabilities = value.split(',').map((item) => item.trim());
+  if (capabilities.some((item) => !item)) throw new Error('--capabilities must not contain empty values');
+  return capabilities;
+}
+
+function buildAngularPlan({ agent, scope, selection }) {
+  const packIds = selection.included.filter((item) => item.type === 'pack').map((item) => item.id);
+  const plans = packIds.map((packId) => buildPlan({ catalogPath, packPath: findPack(packId), adaptersRoot, sourceRoot: packageRoot, agent, scope, cwd: process.cwd(), home: safeHome() }));
+  const base = plans.at(0);
+  const catalog = readJson(catalogPath);
+  const byId = new Map(catalog.skills.map((skill) => [skill.id, skill]));
+  const adapter = loadAdapterManifest(adaptersRoot, agent);
+  const directFiles = selection.included.filter((item) => item.type === 'skill').map((item) => {
+    const skill = byId.get(item.id);
+    if (!skill) throw new Error(`catalog skill missing: ${item.id}`);
+    const outputPaths = adapter.outputPaths?.[scope];
+    const relativePath = outputPaths ? path.posix.join(outputPaths.skills, path.posix.relative('skills', skill.path)) : skill.path;
+    return { path: relativePath, source: path.join(packageRoot, skill.path), action: fs.existsSync(path.join(base.installRoot, relativePath)) ? 'update' : 'create', checksum: undefined };
+  });
+  const files = [...new Map([...plans.flatMap((plan) => plan.files), ...directFiles]
+    .sort((left, right) => left.path.localeCompare(right.path))
+    .map((file) => [file.path, file])).values()];
+  return {
+    ...base,
+    pack: 'angular-selection',
+    files,
+    warnings: [...new Set(plans.flatMap((plan) => plan.warnings))].sort(),
+    angularSelection: {
+      target: selection.target,
+      profile: selection.profile,
+      capabilities: selection.capabilities,
+    },
+  };
+}
+
+function formatAngularTarget(target) {
+  return target.minor === undefined ? String(target.major) : `${target.major}.${target.minor}`;
 }
 
 function uninstallCmd(args) {
