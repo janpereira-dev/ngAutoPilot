@@ -54,8 +54,48 @@ test('resolves Angular 15 package-only evidence and keeps capabilities determini
   assert.equal(result.included.some((item) => item.id === 'angular.versioning.angular-v22-risk-matrix'), false);
 });
 
+test('accepts a package-only target within the declared Angular range', (t) => {
+  const projectRoot = createProject(t, '12.2.17', { declaration: '^12.1.0', lockfile: false });
+  const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' });
+
+  assert.deepEqual(result.target, { major: 12, minor: 2 });
+});
+
+test('checks a package-only target against every Angular declaration', (t) => {
+  const projectRoot = createProject(t, '12.1.0', {
+    declaration: '^12.1.0',
+    commonDeclaration: '~12.1.0',
+    lockfile: false,
+  });
+
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' }),
+    /outside declared @angular\/common ~12\.1\.0/,
+  );
+});
+
+test('rejects a package-only target outside the declared Angular range', (t) => {
+  const projectRoot = createProject(t, '12.2.17', { declaration: '^12.1.0', commonDeclaration: '^12.1.0', lockfile: false });
+
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.0' }),
+    /outside declared @angular\/(?:core|common) \^12\.1\.0/,
+  );
+});
+
 test('derives an omitted target from parsed Angular evidence', (t) => {
   const projectRoot = createProject(t, '12.2.17');
+  const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot });
+
+  assert.deepEqual(result.target, { major: 12, minor: 2 });
+});
+
+test('derives the first satisfiable omitted minor across package-only Angular ranges', (t) => {
+  const projectRoot = createProject(t, '12.2.17', {
+    declaration: '^12.1.0',
+    commonDeclaration: '>12.1',
+    lockfile: false,
+  });
   const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot });
 
   assert.deepEqual(result.target, { major: 12, minor: 2 });
@@ -105,6 +145,104 @@ test('uses an ancestor package-lock.json for nested workspace packages', (t) => 
 
   assert.equal(result.evidence.lockfile.path, path.join(root, 'package-lock.json'));
   assert.equal(result.evidence.angular.source, 'package.json + lockfile');
+});
+
+test('normalizes npm workspace glob prefixes', (t) => {
+  const { root, projectRoot } = createNestedWorkspaceProject(t, '12.2.17', {
+    declaration: '^12.1.0',
+    workspacePattern: './packages/*',
+  });
+  const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' });
+
+  assert.equal(result.validation.level, 'lockfile-confirmed');
+});
+
+test('continues past a non-owning ancestor lockfile', (t) => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-angular-multi-workspace-'));
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  const projectRoot = path.join(root, 'projects', 'team', 'app');
+  const intermediateRoot = path.dirname(projectRoot);
+  fs.mkdirSync(projectRoot, { recursive: true });
+  fs.writeFileSync(path.join(root, 'package.json'), `${JSON.stringify({ private: true, workspaces: ['projects/*/*'] }, null, 2)}\n`);
+  fs.writeFileSync(path.join(root, 'package-lock.json'), `${JSON.stringify({
+    lockfileVersion: 3,
+    packages: {
+      'projects/team/app': {},
+      'node_modules/@angular/core': { version: '12.2.17' },
+    },
+  }, null, 2)}\n`);
+  fs.writeFileSync(path.join(intermediateRoot, 'package-lock.json'), `${JSON.stringify({
+    lockfileVersion: 3,
+    packages: { 'node_modules/@angular/core': { version: '12.1.0' } },
+  }, null, 2)}\n`);
+  fs.writeFileSync(path.join(projectRoot, 'package.json'), `${JSON.stringify({
+    private: true,
+    dependencies: { '@angular/core': '^12.1.0', '@angular/common': '^12.1.0' },
+  }, null, 2)}\n`);
+
+  const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' });
+
+  assert.equal(result.validation.level, 'lockfile-confirmed');
+  assert.equal(result.evidence.lockfile.path, path.join(root, 'package-lock.json'));
+});
+
+test('fails closed when the workspace is absent from its ancestor lockfile', (t) => {
+  const { root, projectRoot } = createNestedWorkspaceProject(t, '12.2.17', {
+    declaration: '^12.1.0',
+    includeWorkspaceLockEntry: false,
+  });
+
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' }),
+    /@angular\/core is not recorded/,
+  );
+});
+
+test('treats a partial greater-than declaration as the next minor', (t) => {
+  const projectRoot = createProject(t, '12.1.0', {
+    declaration: '>12.1',
+    commonDeclaration: '>12.1',
+    lockfile: false,
+  });
+
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.1' }),
+    /outside declared/,
+  );
+  const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' });
+
+  assert.deepEqual(result.target, { major: 12, minor: 2 });
+});
+
+test('does not use an unrelated ancestor package-lock.json', (t) => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-angular-unrelated-'));
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  const projectRoot = path.join(root, 'packages', 'library');
+  fs.mkdirSync(projectRoot, { recursive: true });
+  fs.writeFileSync(path.join(root, 'package.json'), `${JSON.stringify({ private: true }, null, 2)}\n`);
+  fs.writeFileSync(path.join(root, 'package-lock.json'), `${JSON.stringify({
+    lockfileVersion: 3,
+    packages: { 'node_modules/@angular/core': { version: '12.2.17' } },
+  }, null, 2)}\n`);
+  fs.writeFileSync(path.join(projectRoot, 'package.json'), `${JSON.stringify({
+    private: true,
+    dependencies: { '@angular/core': '^12.1.0', '@angular/common': '^12.1.0' },
+  }, null, 2)}\n`);
+
+  const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.1' });
+
+  assert.equal(result.validation.level, 'package-json-only');
+});
+
+test('prefers a workspace-local locked Angular version before the hoisted root', (t) => {
+  const { root, projectRoot } = createNestedWorkspaceProject(t, '12.2.17', {
+    declaration: '^12.1.0',
+    nestedAngularVersion: '12.3.0',
+  });
+  const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.3' });
+
+  assert.equal(result.evidence.angular.version, '12.3.0');
+  assert.equal(result.evidence.lockfile.path, path.join(root, 'package-lock.json'));
 });
 
 test('resolves Angular declarations from peerDependencies', (t) => {
@@ -179,13 +317,14 @@ test('rejects unknown Angular evidence and contradictory targets', (t) => {
 function createProject(t, angularVersion, {
   compilerCliVersion,
   declaration,
+  commonDeclaration,
   dependencyField = 'dependencies',
   lockfile = true,
 } = {}) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-angular-resolver-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
   fs.mkdirSync(path.join(root, 'apps', 'shell'), { recursive: true });
-  const angularDependencies = angularVersion ? { '@angular/core': declaration ?? `^${angularVersion}`, '@angular/common': `^${angularVersion}` } : {};
+  const angularDependencies = angularVersion ? { '@angular/core': declaration ?? `^${angularVersion}`, '@angular/common': commonDeclaration ?? `^${angularVersion}` } : {};
   const packageJson = { private: true, [dependencyField]: angularDependencies };
   if (compilerCliVersion) packageJson.devDependencies = { '@angular/compiler-cli': compilerCliVersion };
   fs.writeFileSync(path.join(root, 'package.json'), `${JSON.stringify(packageJson, null, 2)}\n`);
@@ -198,12 +337,17 @@ function createProject(t, angularVersion, {
   return root;
 }
 
-function createNestedWorkspaceProject(t, angularVersion, { declaration } = {}) {
+function createNestedWorkspaceProject(t, angularVersion, {
+  declaration,
+  nestedAngularVersion,
+  workspacePattern = 'packages/*',
+  includeWorkspaceLockEntry = true,
+} = {}) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-angular-workspace-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
   const projectRoot = path.join(root, 'packages', 'library');
   fs.mkdirSync(projectRoot, { recursive: true });
-  fs.writeFileSync(path.join(root, 'package.json'), `${JSON.stringify({ private: true, workspaces: ['packages/*'] }, null, 2)}\n`);
+  fs.writeFileSync(path.join(root, 'package.json'), `${JSON.stringify({ private: true, workspaces: [workspacePattern] }, null, 2)}\n`);
   fs.writeFileSync(path.join(projectRoot, 'package.json'), `${JSON.stringify({
     name: '@example/library',
     private: true,
@@ -211,7 +355,11 @@ function createNestedWorkspaceProject(t, angularVersion, { declaration } = {}) {
   }, null, 2)}\n`);
   fs.writeFileSync(path.join(root, 'package-lock.json'), `${JSON.stringify({
     lockfileVersion: 3,
-    packages: { 'node_modules/@angular/core': { version: angularVersion } },
+    packages: {
+      ...(includeWorkspaceLockEntry ? { 'packages/library': {} } : {}),
+      'node_modules/@angular/core': { version: angularVersion },
+      ...(nestedAngularVersion ? { 'packages/library/node_modules/@angular/core': { version: nestedAngularVersion } } : {}),
+    },
   }, null, 2)}\n`);
   return { root, projectRoot };
 }
