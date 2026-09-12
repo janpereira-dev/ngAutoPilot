@@ -74,6 +74,30 @@ test('checks a package-only target against every Angular declaration', (t) => {
   );
 });
 
+test('rejects a major-only package target when declarations have no common minor', (t) => {
+  const projectRoot = createProject(t, '12.1.0', {
+    declaration: '~12.1.0',
+    commonDeclaration: '~12.2.0',
+    lockfile: false,
+  });
+
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: 12 }),
+    /no satisfiable minor across declared Angular ranges/,
+  );
+});
+
+test('accepts a package-only concrete target that is spanned by every declaration', (t) => {
+  const projectRoot = createProject(t, '12.1.0', {
+    declaration: '>=12.1.0',
+    commonDeclaration: '>=12.1.0',
+    lockfile: false,
+  });
+  const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '13.0' });
+
+  assert.deepEqual(result.target, { major: 13, minor: 0 });
+});
+
 test('rejects a package-only target outside the declared Angular range', (t) => {
   const projectRoot = createProject(t, '12.2.17', { declaration: '^12.1.0', commonDeclaration: '^12.1.0', lockfile: false });
 
