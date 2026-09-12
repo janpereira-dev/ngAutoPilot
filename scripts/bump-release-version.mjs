@@ -29,8 +29,25 @@ const rootFiles = [
   'README.md',
   'skill-lab/python/pyproject.toml',
   'skill-lab/python/ngautopilot_skillopt/__init__.py',
+  'openai/plugin.json',
 ];
 const textExtensions = new Set(['.json', '.md', '.mjs', '.yml', '.yaml']);
+const previousPacket = path.join('openai', 'submission', previousVersion);
+const nextPacket = path.join('openai', 'submission', nextVersion);
+
+if (!fs.existsSync(path.join('openai', 'plugin.json')) || !fs.existsSync(previousPacket)) {
+  console.error(`OpenAI package is stale: expected manifest and submission/${previousVersion}/.`);
+  process.exit(1);
+}
+
+if (fs.existsSync(nextPacket)) {
+  console.error(`Refusing to overwrite existing OpenAI submission packet ${nextPacket}.`);
+  process.exit(1);
+}
+
+fs.mkdirSync(path.dirname(nextPacket), { recursive: true });
+fs.cpSync(previousPacket, nextPacket, { recursive: true });
+
 let touched = 0;
 
 for (const file of rootFiles) {
@@ -43,7 +60,20 @@ for (const root of roots) {
   }
 }
 
+for (const file of findTextFiles(nextPacket)) {
+  replaceInFile(file, previousVersion, nextVersion);
+}
+
+validateOpenAiRelease(nextVersion);
 console.log(`Updated ${touched} files from ${previousVersion} to ${nextVersion}.`);
+
+function validateOpenAiRelease(version) {
+  const manifest = JSON.parse(fs.readFileSync(path.join('openai', 'plugin.json'), 'utf8'));
+
+  if (manifest.version !== version || !fs.existsSync(path.join('openai', 'submission', version))) {
+    throw new Error(`OpenAI package is stale after version bump; manifest and submission/${version}/ must match package.json.`);
+  }
+}
 
 function replaceInFile(file, from, to) {
   if (!fs.existsSync(file)) {

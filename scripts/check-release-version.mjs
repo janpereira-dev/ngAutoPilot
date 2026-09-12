@@ -47,6 +47,14 @@ for (const skill of catalog.skills ?? []) {
   }
 }
 
+const openAiManifestPath = path.join('openai', 'plugin.json');
+if (!fs.existsSync(openAiManifestPath)) {
+  errors.push('openai/plugin.json is missing');
+} else {
+  const openAiManifest = JSON.parse(fs.readFileSync(openAiManifestPath, 'utf8'));
+  if (openAiManifest.version !== currentVersion) errors.push(`openai/plugin.json version ${openAiManifest.version ?? 'missing'} does not match ${currentVersion}`);
+  if (!fs.existsSync(path.join('openai', 'submission', currentVersion))) errors.push(`openai/submission/${currentVersion}/ is missing`);
+}
 for (const manifestPath of findTextFiles('plugins').filter((file) => file.endsWith('plugin.json'))) {
   const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 
