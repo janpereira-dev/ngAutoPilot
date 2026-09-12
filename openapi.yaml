@@ -1,0 +1,98 @@
+openapi: 3.1.0
+info:
+  title: NgAutoPilot Snapshot Resolver (deployment contract)
+  version: 0.1.0
+  description: This contract documents an opt-in HTTPS adapter. It is not a public deployment.
+paths:
+  /v1/angular/resolve:
+    post:
+      summary: Resolve Angular guidance from a caller-supplied snapshot
+      description: Input is package and lockfile evidence, never a project path or workspace access.
+      x-max-body-bytes: 32768
+      security: [{ bearerAuth: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResolveRequest'
+      responses:
+        '200':
+          description: Resolution result
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [target, profile, capabilities, evidence, included, excluded]
+                properties:
+                  target: { type: object, required: [major], properties: { major: { type: integer }, minor: { type: integer } } }
+                  profile: { type: string }
+                  capabilities: { type: array, items: { type: string } }
+                  evidence: { type: object }
+                  included: { type: array, items: { type: object } }
+                  excluded: { type: array, items: { type: object } }
+        '400': { $ref: '#/components/responses/Error' }
+        '401': { $ref: '#/components/responses/Error' }
+        '403': { $ref: '#/components/responses/Error' }
+        '408': { $ref: '#/components/responses/Error' }
+        '413': { $ref: '#/components/responses/Error' }
+        '415': { $ref: '#/components/responses/Error' }
+        '429': { $ref: '#/components/responses/Error' }
+components:
+  securitySchemes:
+    bearerAuth: { type: http, scheme: bearer }
+  schemas:
+    ResolveRequest:
+      type: object
+      additionalProperties: false
+      maxProperties: 4
+      required: [snapshot]
+      properties:
+        snapshot:
+          type: object
+          additionalProperties: false
+          maxProperties: 3
+          required: [manifest]
+          properties:
+            manifest:
+              type: object
+              additionalProperties: false
+              properties:
+                dependencies: { $ref: '#/components/schemas/PackageVersions' }
+                devDependencies: { $ref: '#/components/schemas/PackageVersions' }
+            lockfile:
+              type: object
+              additionalProperties: false
+              required: [kind, packages]
+              properties:
+                kind: { const: npm }
+                packages: { $ref: '#/components/schemas/PackageVersions' }
+            workspace:
+              type: object
+              additionalProperties: false
+              properties:
+                angularJson: { type: boolean }
+                workspaceJson: { type: boolean }
+                projectJson: { type: boolean }
+        target: { oneOf: [{ type: integer, minimum: 2, maximum: 99 }, { type: string, pattern: '^\\d+(\\.\\d+)?$' }] }
+        profile: { enum: [core, essentials, architecture, performance, testing, migration] }
+        capabilities: { type: array, maxItems: 5, items: { enum: [foundations, runtime, state, testing, ui] } }
+    PackageVersions:
+      type: object
+      maxProperties: 16
+      additionalProperties: { type: string, minLength: 1, maxLength: 64 }
+  responses:
+    Error:
+      description: Safe structured error without request data or internal details
+      content:
+        application/json:
+          schema:
+            type: object
+            required: [error]
+            properties:
+              error:
+                type: object
+                required: [code, message]
+                properties:
+                  code: { type: string }
+                  message: { type: string }

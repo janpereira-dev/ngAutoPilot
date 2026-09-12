@@ -21,7 +21,7 @@ npm run agent-plugins:validate
 npm run agent-plugins:smoke
 ```
 
-This repository does not ship an HTTP MCP server or a ChatGPT connector registration flow. ChatGPT web cannot connect to this local stdio process. A future HTTP deployment must provide its own authentication, TLS, request limits, and host controls before it is connected to any remote client.
+This repository does not ship an HTTP MCP server or a ChatGPT connector registration flow. ChatGPT web cannot connect to this local stdio process. It includes an **opt-in, unbound HTTPS factory** for `POST /v1/angular/resolve`, documented in [`openapi.yaml`](../openapi.yaml), for an integrator that explicitly supplies TLS key/cert material and deny-by-default authorization. The factory is not a deployment or a connector registration; it accepts only the same minimized snapshot input as `angular.resolve`, applies request limits, and never opens workspace access.
 
 ## Codex CLI registration
 
