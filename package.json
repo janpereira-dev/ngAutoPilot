@@ -78,10 +78,12 @@
     "skill-lab:clean": "node skill-lab/scripts/clean-runs.mjs",
     "skill-lab:ci": "npm run skill-lab:validate && npm run skill-lab:test",
     "test": "node --test --test-concurrency=1 tests/**/*.test.mjs",
-    "release:validate": "npm run skills:validate:frontmatter && npm run skills:validate && npm run security:scan && npm run distribution:validate && npm run skills:catalog && npm run plugins:sync && npm run agent-plugins:sync && git diff --exit-code -- agent-plugins && npm run agent-plugins:validate && npm run agent-plugins:smoke && npm run marketplaces:validate && npm run consistency:validate && npm run release:check-version && npm test",
+    "release:validate": "npm run skills:validate:frontmatter && npm run skills:validate && npm run security:scan && npm run distribution:validate && npm run skills:catalog && npm run plugins:sync && npm run agent-plugins:sync && git diff --exit-code -- agent-plugins && npm run agent-plugins:validate && npm run agent-plugins:smoke && npm run marketplaces:validate && npm run consistency:validate && npm run release:check-version && npm run openai:validate && npm test",
     "hooks:install": "node scripts/install-git-hooks.mjs",
     "cli": "node bin/ngautopilot.mjs",
-    "pack:dry": "npm pack --dry-run"
+    "pack:dry": "npm pack --dry-run",
+    "openai:validate": "node scripts/validate-openai-package.mjs",
+    "openai:pack": "node scripts/build-openai-package.mjs"
   },
   "keywords": [
     "pi-package",
