@@ -23,9 +23,15 @@ ngautopilot help
 
 ## What `install` Creates
 
-`ngautopilot install --agent <id> --pack <id>` writes skills and optional pack assets into the selected adapter's project or user scope. It also records managed files in `.ngautopilot-manifest.json` within that install root.
+`ngautopilot install --agent <id> --pack <id>` writes an explicit named pack,
+while `ngautopilot install --agent <id> --angular <major[.minor]> --profile
+<name>` resolves Angular/toolchain evidence and composes a compatible profile.
+The two selection modes are mutually exclusive. Both record managed files in
+`.ngautopilot-manifest.json` within the selected install root.
 
 - Use `--dry-run` to inspect the plan without writing files.
+- Use `--yes` to approve a write; without it, commands that require approval do
+  not write.
 - Use `ngautopilot export --agent <id> --pack <id> --output <dir>` for a portable snapshot.
 
 `init` remains a deprecated compatibility command; new integrations should use explicit `install` or `export` commands.
@@ -38,6 +44,18 @@ ngautopilot help
 4. Route into `skills/_core/skill-router/SKILL.md` and `skills/_core/compatibility-router/SKILL.md`.
 5. For Angular work, check `skills/angular/versioning/` before touching upgrade hops.
 6. Keep modernization work separate from major-version upgrades.
+
+For a controlled Angular migration, prepare a plan first:
+
+```bash
+ngautopilot migrate setup --from 12 --to 22 --agent codex --yes
+ngautopilot migrate run --plan .ngautopilot/migration-plan.json --agent codex --yes
+```
+
+Setup is not code migration. Run validates at most one hop and stops at
+`awaiting-executor` when no authorized transformer exists; `migrate resume`
+rechecks the checkpoint and cannot bypass a failed gate. For a separate bounded
+read-only assignment, use `ngautopilot work plan --goal "Inspect Angular tests"`.
 
 ## Example Routes
 

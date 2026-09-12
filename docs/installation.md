@@ -28,6 +28,23 @@ npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngaut
 npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-21-to-22 --scope project --yes
 ```
 
+For a project-aware Angular installation, use `--angular` with one profile
+instead of `--pack`:
+
+```bash
+# Resolve Angular/toolchain evidence and inspect the composed plan
+npm exec --package=ngautopilot -- ngautopilot install --agent codex --angular 22 --profile essentials --scope project --dry-run
+
+# Apply after review
+npm exec --package=ngautopilot -- ngautopilot install --agent codex --angular 22 --profile testing --capabilities ui,testing --scope project --yes
+```
+
+`--pack` and `--angular` are mutually exclusive. Profiles and capabilities are
+only valid with `--angular`; use `--pack` when you need an exact named pack,
+including a specific Angular hop pack. `--dry-run` never writes. Without
+`--yes`, the command requires explicit approval and does not write; `--yes`
+applies the approved installation.
+
 ## Quick Install: User Scope
 
 ```bash
@@ -107,6 +124,36 @@ ngautopilot export --agent generic --pack ngautopilot-core --output ./ngautopilo
 ```
 
 Produces a portable directory with skills, an instruction file, and a README. Copy it into your project manually.
+
+## Migration preparation and gates
+
+Prepare a migration plan without changing Angular code:
+
+```bash
+npm exec --package=ngautopilot -- ngautopilot migrate setup --from 12 --to 22 --agent codex --yes
+# Alias:
+npm exec --package=ngautopilot -- ngautopilot migrador --from 12 --to 22 --agent codex --yes --dry-run
+```
+
+Setup is approval-gated and plan-only. `migrate run` validates at most one hop
+and persists a checkpoint; because hop packs are declarative guidance, it stops
+at `awaiting-executor` when no authorized source transformer exists. `migrate
+resume` rechecks the checkpoint and cannot bypass a failed or blocked gate.
+
+```bash
+npm exec --package=ngautopilot -- ngautopilot migrate run --plan .ngautopilot/migration-plan.json --agent codex --yes
+npm exec --package=ngautopilot -- ngautopilot migrate resume --run <run-id> --agent codex --yes
+```
+
+For a bounded read-only assignment rather than a migration, use:
+
+```bash
+npm exec --package=ngautopilot -- ngautopilot work plan --goal "Inspect Angular tests" --agent codex --yes --dry-run
+```
+
+Work plans are approval-gated and limited to inventory, inspection, validation,
+and reporting; they do not execute arbitrary shell, Git, package, or source
+changes.
 
 ## Offline install
 

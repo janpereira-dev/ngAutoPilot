@@ -34,4 +34,31 @@ ngautopilot verify --agent codex --scope project
 
 For Codex, project installs place skills in `.agents/skills/` and managed instructions in the project-root `AGENTS.md`. User installs place skills in `~/.agents/skills/` and instructions in `~/.codex/AGENTS.md`. Registering the bundled stdio MCP server is a separate step; follow [MCP and ChatGPT Integration](mcp-and-chatgpt.md#codex-cli-registration).
 
-Run `ngautopilot packs --json` before selecting a pack. The public CLI supports named packs; it does not currently accept `--angular` or upgrade-range selectors.
+Run `ngautopilot packs --json` before selecting a pack. Named packs remain the
+right choice when you need an exact pack or version-hop pack. For project-aware
+Angular installation, use the mutually exclusive `--angular` mode:
+
+```bash
+ngautopilot install --agent codex --angular 22 --profile essentials --scope project --dry-run
+ngautopilot install --agent codex --angular 22 --profile testing --capabilities ui,testing --scope project --yes
+```
+
+Profiles are `essentials`, `architecture`, `performance`, `testing`,
+`migration`, and `core`. `--profile` and `--capabilities` require `--angular`;
+they cannot be combined with `--pack`. `--dry-run` never writes, and `--yes`
+is required to approve a write.
+
+Migration commands are controlled evidence gates, not source transformers:
+
+```bash
+ngautopilot migrate setup --from 12 --to 22 --agent codex --yes
+ngautopilot migrate run --plan .ngautopilot/migration-plan.json --agent codex --yes
+ngautopilot migrate resume --run <run-id> --agent codex --yes
+ngautopilot work plan --goal "Inspect Angular tests" --agent codex --yes --dry-run
+```
+
+`migrate setup` (also `migrador`) creates an approved plan only. `migrate run`
+validates at most one hop and stops at `awaiting-executor` when no authorized
+transformer exists; `resume` revalidates the checkpoint and cannot bypass a
+failed or blocked gate. `work plan` is an approval-gated, read-only assignment
+limited to inventory, inspection, validation, and reporting.
