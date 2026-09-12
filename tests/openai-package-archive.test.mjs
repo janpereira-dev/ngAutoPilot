@@ -601,3 +601,11 @@ test('rewrites only standalone local references and preserves external URLs', ()
     ].join('\n'),
   );
 });
+
+test('rewrites canonical references inside Markdown code spans', () => {
+  const publicPaths = new Map([['skills/sample/SKILL.md', '../sample/SKILL.md']]);
+  assert.equal(
+    rewriteLocalReferences('Route to `skills/sample/SKILL.md`.', 'skills/other/SKILL.md', 'repository', 'package', 'package/skills/other/SKILL.md', publicPaths),
+    'Route to `../sample/SKILL.md`.',
+  );
+});
