@@ -171,7 +171,7 @@ test('rejects normalized file-versus-descendant conflicts', () => {
 });
 
 test('rejects Windows-special archive path segments', () => {
-  for (const segment of ['CON', 'PRN', 'AUX', 'NUL', 'COM1', 'COM9', 'LPT1', 'LPT9', 'CON.txt', 'name.', 'name ', 'file:stream', 'ＣＯＮ', 'name．', 'file：stream']) {
+  for (const segment of ['CON', 'PRN', 'AUX', 'NUL', 'COM1', 'COM9', 'LPT1', 'LPT9', 'CON.txt', 'name.', 'name ', 'file:stream', '<', '>', '"', '|', '?', '*', 'ＣＯＮ', 'name．', 'file：stream']) {
     assert.match(validateArchivePath(`safe/${segment}/file`).join('\n'), /windows|device|colon|trailing/i, segment);
   }
 });
@@ -194,6 +194,37 @@ test('rejects oversized archives before reading their contents', () => {
     ]);
   } finally {
     fs.rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test('rejects corrupted ZIP payloads even when metadata is unchanged', async () => {
+  const root = temporaryDirectory();
+  const output = temporaryDirectory();
+  try {
+    fs.writeFileSync(path.join(root, 'payload.txt'), 'payload that must be verified\n'.repeat(20), 'utf8');
+    const valid = path.join(output, 'valid.zip');
+    await createZip(root, valid);
+    const data = fs.readFileSync(valid);
+    const localOffset = data.indexOf(Buffer.from([0x50, 0x4b, 0x03, 0x04]));
+    assert.notEqual(localOffset, -1);
+    const payloadStart = localOffset + 30 + data.readUInt16LE(localOffset + 26) + data.readUInt16LE(localOffset + 28);
+    data[payloadStart] ^= 0xff;
+    const corrupted = path.join(output, 'corrupted.zip');
+    fs.writeFileSync(corrupted, data);
+    assert.match(validateArchiveFile(corrupted).join('\n'), /payload.*(?:decode|CRC|size)/i);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(output, { recursive: true, force: true });
+  }
+});
+
+test('rejects a missing package root instead of creating an empty ZIP', async () => {
+  const output = path.join(temporaryDirectory(), 'missing-root.zip');
+  try {
+    await assert.rejects(() => createZip(path.join(os.tmpdir(), 'ngautopilot-root-does-not-exist'), output), /package root does not exist/i);
+    assert.equal(fs.existsSync(output), false);
+  } finally {
+    fs.rmSync(path.dirname(output), { recursive: true, force: true });
   }
 });
 
@@ -326,11 +357,82 @@ test('rejects central entries whose local records are malformed or inconsistent'
   }
 });
 
+test('decodes distinct CP437 member names when UTF-8 is not declared', async () => {
+  const root = temporaryDirectory();
+  const output = temporaryDirectory();
+  try {
+    fs.writeFileSync(path.join(root, 'a'), 'first\n', 'utf8');
+    fs.writeFileSync(path.join(root, 'b'), 'second\n', 'utf8');
+    const valid = path.join(output, 'valid.zip');
+    await createZip(root, valid);
+    const data = fs.readFileSync(valid);
+    const centralSignature = Buffer.from([0x50, 0x4b, 0x01, 0x02]);
+    const centralOffsets = [];
+    let searchOffset = 0;
+    while (centralOffsets.length < 2) {
+      const offset = data.indexOf(centralSignature, searchOffset);
+      assert.notEqual(offset, -1);
+      centralOffsets.push(offset);
+      searchOffset = offset + centralSignature.length;
+    }
+    for (const [index, centralOffset] of centralOffsets.entries()) {
+      const localOffset = data.readUInt32LE(centralOffset + 42);
+      data.writeUInt16LE(data.readUInt16LE(localOffset + 6) & ~0x0800, localOffset + 6);
+      data[localOffset + 30] = 0x82 + index;
+      data.writeUInt16LE(data.readUInt16LE(centralOffset + 8) & ~0x0800, centralOffset + 8);
+      data[centralOffset + 46] = 0x82 + index;
+    }
+    const cp437 = path.join(output, 'cp437.zip');
+    fs.writeFileSync(cp437, data);
+    assert.deepEqual(validateArchiveFile(cp437), []);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(output, { recursive: true, force: true });
+  }
+});
+
+test('keeps repository-relative copies stable through symlinked ancestors', (t) => {
+  const realParent = temporaryDirectory();
+  const realRepository = path.join(realParent, 'repository');
+  const aliasParent = temporaryDirectory();
+  const packageRoot = temporaryDirectory();
+  const aliasRoot = path.join(aliasParent, 'workspace');
+  const repositoryAlias = path.join(aliasRoot, 'repository');
+  try {
+    const source = path.join(realRepository, 'skills', 'sample', 'SKILL.md');
+    fs.mkdirSync(path.dirname(source), { recursive: true });
+    fs.writeFileSync(source, '# Sample\n', 'utf8');
+    fs.writeFileSync(path.join(realRepository, 'skills', 'sample', 'guide.md'), 'guide\n', 'utf8');
+    try {
+      fs.symlinkSync(realParent, aliasRoot, process.platform === 'win32' ? 'junction' : 'dir');
+    } catch (error) {
+      t.skip(`symlink or junction creation is unavailable on this host: ${error.code ?? error.message}`);
+      return;
+    }
+    const generatedSkillFile = path.join(packageRoot, 'skills', 'sample', 'SKILL.md');
+    const result = rewriteLocalReferences(
+      '[guide](./guide.md)',
+      'skills/sample/SKILL.md',
+      repositoryAlias,
+      packageRoot,
+      generatedSkillFile,
+      new Map(),
+    );
+    assert.equal(result, '[guide](guide.md)');
+    assert.equal(fs.readFileSync(path.join(packageRoot, 'skills', 'sample', 'guide.md'), 'utf8'), 'guide\n');
+  } finally {
+    fs.rmSync(realParent, { recursive: true, force: true });
+    fs.rmSync(aliasParent, { recursive: true, force: true });
+    fs.rmSync(packageRoot, { recursive: true, force: true });
+  }
+});
+
 test('rewrites only standalone local references and preserves external URLs', () => {
   const publicPaths = new Map([['skills/sample/SKILL.md', './skills/sample/SKILL.md']]);
   const body = [
     '[remote](https://example.test/skills/sample/SKILL.md?remote=1#fragment)',
     'external query https://example.test/?next=skills/sample/SKILL.md&remote=1',
+    'email mailto:user@example.test?body=skills/sample/SKILL.md',
     'local skills/sample/SKILL.md?local=2#fragment.',
     'unrelated myskills/sample/SKILL.md',
     'unrelated skills/sample/SKILL.md.bak',
@@ -340,6 +442,7 @@ test('rewrites only standalone local references and preserves external URLs', ()
     [
       '[remote](https://example.test/skills/sample/SKILL.md?remote=1#fragment)',
       'external query https://example.test/?next=skills/sample/SKILL.md&remote=1',
+      'email mailto:user@example.test?body=skills/sample/SKILL.md',
       'local ./skills/sample/SKILL.md?local=2#fragment.',
       'unrelated myskills/sample/SKILL.md',
       'unrelated skills/sample/SKILL.md.bak',
