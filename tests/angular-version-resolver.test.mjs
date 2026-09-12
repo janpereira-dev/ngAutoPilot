@@ -54,6 +54,87 @@ test('resolves Angular 15 package-only evidence and keeps capabilities determini
   assert.equal(result.included.some((item) => item.id === 'angular.versioning.angular-v22-risk-matrix'), false);
 });
 
+test('derives an omitted target from parsed Angular evidence', (t) => {
+  const projectRoot = createProject(t, '12.2.17');
+  const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot });
+
+  assert.deepEqual(result.target, { major: 12, minor: 2 });
+});
+
+test('filters incompatible skills selected by capability packs', (t) => {
+  const projectRoot = createProject(t, '12.2.17');
+  const result = resolveAngularInstallation({
+    root: repositoryRoot,
+    projectRoot,
+    target: 12,
+    profile: 'performance',
+    capabilities: ['state', 'ui'],
+  });
+
+  for (const skillId of [
+    'angular.performance.angular-v22-performance-baseline',
+    'angular.forms.angular-v22-signal-forms',
+    'angular.signals.angular-v22-signals-state-and-forms',
+  ]) {
+    assert.equal(result.included.some((item) => item.id === skillId), false, skillId);
+    assert.ok(result.excluded.some((item) => item.id === skillId && /requires Angular >=22; detected 12/.test(item.reason)), skillId);
+  }
+  assert.ok(result.included.some((item) => item.id === 'angular.performance.performance-audit'));
+});
+
+test('accepts a lockfile version within a declared Angular range', (t) => {
+  const projectRoot = createProject(t, '12.2.17', { declaration: '^12.1.0' });
+  const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' });
+
+  assert.equal(result.evidence.angular.version, '12.2.17');
+  assert.equal(result.validation.level, 'lockfile-confirmed');
+});
+
+test('rejects a lockfile version outside an exact Angular declaration', (t) => {
+  const projectRoot = createProject(t, '12.2.17', { declaration: '12.2.0' });
+
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' }),
+    /package\.json @angular\/core 12\.2\.0 contradicts lockfile 12\.2\.17/,
+  );
+});
+
+test('uses an ancestor package-lock.json for nested workspace packages', (t) => {
+  const { root, projectRoot } = createNestedWorkspaceProject(t, '12.2.17', { declaration: '^12.1.0' });
+  const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' });
+
+  assert.equal(result.evidence.lockfile.path, path.join(root, 'package-lock.json'));
+  assert.equal(result.evidence.angular.source, 'package.json + lockfile');
+});
+
+test('resolves Angular declarations from peerDependencies', (t) => {
+  const projectRoot = createProject(t, '12.2.17', { dependencyField: 'peerDependencies', lockfile: false });
+  const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' });
+
+  assert.deepEqual(result.evidence.angular.declarations, [
+    { name: '@angular/common', version: '^12.2.17' },
+    { name: '@angular/core', version: '^12.2.17' },
+  ]);
+});
+
+test('detects compiler-cli mixed-major declarations', (t) => {
+  const projectRoot = createProject(t, '12.2.17', { compilerCliVersion: '^22.0.0', lockfile: false });
+
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: 12 }),
+    /contradictory Angular major versions are declared/,
+  );
+});
+
+test('fails closed for unsupported Angular dependency ranges', (t) => {
+  const projectRoot = createProject(t, '12.2.17', { declaration: '12.2.0 || 13.0.0' });
+
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: 12 }),
+    /unsupported Angular dependency version/,
+  );
+});
+
 test('maps declared profiles to existing packs and includes Angular 22 versioning skills only for Angular 22', (t) => {
   const angularTwelve = createProject(t, '12.2.17');
   const essentials = resolveAngularInstallation({ root: repositoryRoot, projectRoot: angularTwelve, target: 12, profile: 'essentials' });
@@ -95,12 +176,19 @@ test('rejects unknown Angular evidence and contradictory targets', (t) => {
   );
 });
 
-function createProject(t, angularVersion, { lockfile = true } = {}) {
+function createProject(t, angularVersion, {
+  compilerCliVersion,
+  declaration,
+  dependencyField = 'dependencies',
+  lockfile = true,
+} = {}) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-angular-resolver-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
   fs.mkdirSync(path.join(root, 'apps', 'shell'), { recursive: true });
-  const dependencies = angularVersion ? { '@angular/core': `^${angularVersion}`, '@angular/common': `^${angularVersion}` } : {};
-  fs.writeFileSync(path.join(root, 'package.json'), `${JSON.stringify({ private: true, dependencies }, null, 2)}\n`);
+  const angularDependencies = angularVersion ? { '@angular/core': declaration ?? `^${angularVersion}`, '@angular/common': `^${angularVersion}` } : {};
+  const packageJson = { private: true, [dependencyField]: angularDependencies };
+  if (compilerCliVersion) packageJson.devDependencies = { '@angular/compiler-cli': compilerCliVersion };
+  fs.writeFileSync(path.join(root, 'package.json'), `${JSON.stringify(packageJson, null, 2)}\n`);
   if (lockfile && angularVersion) {
     fs.writeFileSync(path.join(root, 'package-lock.json'), `${JSON.stringify({
       lockfileVersion: 3,
@@ -108,4 +196,22 @@ function createProject(t, angularVersion, { lockfile = true } = {}) {
     }, null, 2)}\n`);
   }
   return root;
+}
+
+function createNestedWorkspaceProject(t, angularVersion, { declaration } = {}) {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-angular-workspace-'));
+  t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  const projectRoot = path.join(root, 'packages', 'library');
+  fs.mkdirSync(projectRoot, { recursive: true });
+  fs.writeFileSync(path.join(root, 'package.json'), `${JSON.stringify({ private: true, workspaces: ['packages/*'] }, null, 2)}\n`);
+  fs.writeFileSync(path.join(projectRoot, 'package.json'), `${JSON.stringify({
+    name: '@example/library',
+    private: true,
+    dependencies: { '@angular/core': declaration ?? `^${angularVersion}`, '@angular/common': `^${angularVersion}` },
+  }, null, 2)}\n`);
+  fs.writeFileSync(path.join(root, 'package-lock.json'), `${JSON.stringify({
+    lockfileVersion: 3,
+    packages: { 'node_modules/@angular/core': { version: angularVersion } },
+  }, null, 2)}\n`);
+  return { root, projectRoot };
 }
