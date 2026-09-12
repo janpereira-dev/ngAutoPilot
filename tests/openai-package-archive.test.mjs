@@ -288,11 +288,13 @@ test('rejects trailing bytes after a deflate stream', async () => {
 });
 
 test('rejects a missing package root instead of creating an empty ZIP', async () => {
+  const missingRootParent = temporaryDirectory();
   const output = path.join(temporaryDirectory(), 'missing-root.zip');
   try {
-    await assert.rejects(() => createZip(path.join(os.tmpdir(), 'ngautopilot-root-does-not-exist'), output), /package root does not exist/i);
+    await assert.rejects(() => createZip(path.join(missingRootParent, 'missing-root'), output), /package root does not exist/i);
     assert.equal(fs.existsSync(output), false);
   } finally {
+    fs.rmSync(missingRootParent, { recursive: true, force: true });
     fs.rmSync(path.dirname(output), { recursive: true, force: true });
   }
 });
