@@ -8,11 +8,12 @@ NgAutoPilot ships a read-only stdio Model Context Protocol server as part of the
 - `pack.list` and `pack.resolve` — inspect packs and dependencies.
 - `project.inspect` and `stack.detect` — inspect repository metadata.
 - `skill.route`, `compatibility.check`, and `upgrade.plan` — select relevant guidance.
+- `angular.resolve` — resolve Angular guidance from a minimized caller-supplied package manifest, optional npm lockfile evidence, and optional workspace-marker snapshot. It never accepts a project path or reads caller files.
 - `repository.validate` — validate catalog and pack consistency.
 
 ## Supported transport
 
-The published entry point is stdio. The generated plugin contains its configuration in `agent-plugins/ngautopilot-tools/mcp.json`; hosts remain responsible for registration, approval, and execution of local MCP tools.
+The published entry point is local read-only stdio. The generated plugin contains its configuration in `agent-plugins/ngautopilot-tools/mcp.json`; hosts remain responsible for registration, approval, and execution of local MCP tools.
 
 ```bash
 npm run agent-plugins:sync
