@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
+import zlib from 'node:zlib';
 
 import {
   MAX_ARCHIVE_BYTES,
@@ -447,6 +448,62 @@ test('rejects duplicate central entries before payload validation', async () => 
     fs.writeFileSync(duplicate, data);
     assert.match(validateArchiveFile(duplicate).join('\n'), /duplicate|normalization_collision/i);
   } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(output, { recursive: true, force: true });
+  }
+});
+
+test('rejects overlapping local records before inflating payloads', async () => {
+  const root = temporaryDirectory();
+  const output = temporaryDirectory();
+  const originalInflateRawSync = zlib.inflateRawSync;
+  let inflateCalls = 0;
+  try {
+    fs.writeFileSync(path.join(root, 'a.txt'), 'first\n'.repeat(20), 'utf8');
+    fs.writeFileSync(path.join(root, 'b.txt'), 'second\n'.repeat(20), 'utf8');
+    const valid = path.join(output, 'valid.zip');
+    await createZip(root, valid);
+    const data = fs.readFileSync(valid);
+    const centralSignature = Buffer.from([0x50, 0x4b, 0x01, 0x02]);
+    const firstCentral = data.indexOf(centralSignature);
+    const secondCentral = data.indexOf(centralSignature, firstCentral + centralSignature.length);
+    const eocdOffset = data.lastIndexOf(Buffer.from([0x50, 0x4b, 0x05, 0x06]));
+    const originalCentralOffset = data.readUInt32LE(eocdOffset + 16);
+    assert.notEqual(firstCentral, -1);
+    assert.notEqual(secondCentral, -1);
+    assert.equal(firstCentral, originalCentralOffset);
+
+    const firstLocalOffset = data.readUInt32LE(firstCentral + 42);
+    const firstPayloadStart = firstLocalOffset + 30 + data.readUInt16LE(firstLocalOffset + 26) + data.readUInt16LE(firstLocalOffset + 28);
+    const secondLocalOffset = data.readUInt32LE(secondCentral + 42);
+    const secondLocalRecord = data.subarray(secondLocalOffset, originalCentralOffset);
+    const firstHeaderAndName = Buffer.from(data.subarray(firstLocalOffset, firstPayloadStart));
+    const firstExtra = Buffer.alloc(4 + secondLocalRecord.length);
+    firstExtra.writeUInt16LE(0, 0);
+    firstExtra.writeUInt16LE(secondLocalRecord.length, 2);
+    secondLocalRecord.copy(firstExtra, 4);
+    firstHeaderAndName.writeUInt16LE(firstExtra.length, 28);
+    const firstRecord = Buffer.concat([
+      firstHeaderAndName,
+      firstExtra,
+      data.subarray(firstPayloadStart, secondLocalOffset),
+    ]);
+    const nestedSecondLocalOffset = firstHeaderAndName.length + 4;
+    const centralDirectory = Buffer.from(data.subarray(originalCentralOffset, eocdOffset));
+    centralDirectory.writeUInt32LE(nestedSecondLocalOffset, secondCentral - originalCentralOffset + 42);
+    const eocd = Buffer.from(data.subarray(eocdOffset));
+    eocd.writeUInt32LE(firstRecord.length, 16);
+    const overlapping = path.join(output, 'overlapping-local-records.zip');
+    fs.writeFileSync(overlapping, Buffer.concat([firstRecord, centralDirectory, eocd]));
+
+    zlib.inflateRawSync = (...args) => {
+      inflateCalls += 1;
+      return originalInflateRawSync(...args);
+    };
+    assert.match(validateArchiveFile(overlapping).join('\n'), /local records overlap/i);
+    assert.equal(inflateCalls, 0);
+  } finally {
+    zlib.inflateRawSync = originalInflateRawSync;
     fs.rmSync(root, { recursive: true, force: true });
     fs.rmSync(output, { recursive: true, force: true });
   }
