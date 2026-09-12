@@ -218,6 +218,74 @@ test('rejects corrupted ZIP payloads even when metadata is unchanged', async () 
   }
 });
 
+test('rejects aggregate expansion before inflating every payload', async () => {
+  const root = temporaryDirectory();
+  const output = temporaryDirectory();
+  try {
+    for (let index = 0; index < 6; index += 1) fs.writeFileSync(path.join(root, `payload-${index}.txt`), `payload-${index}\n`, 'utf8');
+    const valid = path.join(output, 'valid.zip');
+    await createZip(root, valid);
+    const data = fs.readFileSync(valid);
+    const centralSignature = Buffer.from([0x50, 0x4b, 0x01, 0x02]);
+    const declaredSize = Math.floor(MAX_ARCHIVE_UNCOMPRESSED_BYTES / 6) + 1;
+    let searchOffset = 0;
+    for (let index = 0; index < 6; index += 1) {
+      const centralOffset = data.indexOf(centralSignature, searchOffset);
+      assert.notEqual(centralOffset, -1);
+      data.writeUInt32LE(declaredSize, centralOffset + 24);
+      searchOffset = centralOffset + centralSignature.length;
+    }
+    const oversized = path.join(output, 'aggregate.zip');
+    fs.writeFileSync(oversized, data);
+    assert.match(validateArchiveFile(oversized).join('\n'), /archive expands to more than/i);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(output, { recursive: true, force: true });
+  }
+});
+
+test('rejects trailing bytes after a deflate stream', async () => {
+  const root = temporaryDirectory();
+  const output = temporaryDirectory();
+  try {
+    fs.writeFileSync(path.join(root, 'payload.txt'), 'payload to compress\n'.repeat(20), 'utf8');
+    const valid = path.join(output, 'valid.zip');
+    await createZip(root, valid);
+    const data = fs.readFileSync(valid);
+    const centralSignature = Buffer.from([0x50, 0x4b, 0x01, 0x02]);
+    const eocdSignature = Buffer.from([0x50, 0x4b, 0x05, 0x06]);
+    const centralOffset = data.indexOf(centralSignature);
+    const eocdOffset = data.lastIndexOf(eocdSignature);
+    assert.notEqual(centralOffset, -1);
+    assert.notEqual(eocdOffset, -1);
+    const localOffset = data.readUInt32LE(centralOffset + 42);
+    const compressedSize = data.readUInt32LE(centralOffset + 20);
+    const localNameLength = data.readUInt16LE(localOffset + 26);
+    const localExtraLength = data.readUInt16LE(localOffset + 28);
+    const payloadStart = localOffset + 30 + localNameLength + localExtraLength;
+    const descriptorOffset = payloadStart + compressedSize;
+    const hasDescriptor = (data.readUInt16LE(localOffset + 6) & 0x0008) !== 0;
+    const candidate = Buffer.concat([data.subarray(0, descriptorOffset), Buffer.from([0]), data.subarray(descriptorOffset)]);
+    const newEocdOffset = eocdOffset + 1;
+    const newCentralOffset = centralOffset + 1;
+    candidate.writeUInt32LE(data.readUInt32LE(eocdOffset + 16) + 1, newEocdOffset + 16);
+    candidate.writeUInt32LE(compressedSize + 1, newCentralOffset + 20);
+    if (hasDescriptor) {
+      const newDescriptorOffset = descriptorOffset + 1;
+      const descriptorHasSignature = candidate.readUInt32LE(newDescriptorOffset) === 0x08074b50;
+      candidate.writeUInt32LE(compressedSize + 1, newDescriptorOffset + (descriptorHasSignature ? 8 : 4));
+    } else {
+      candidate.writeUInt32LE(compressedSize + 1, localOffset + 18);
+    }
+    const malformed = path.join(output, 'trailing-byte.zip');
+    fs.writeFileSync(malformed, candidate);
+    assert.match(validateArchiveFile(malformed).join('\n'), /trailing bytes|payload/i);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(output, { recursive: true, force: true });
+  }
+});
+
 test('rejects a missing package root instead of creating an empty ZIP', async () => {
   const output = path.join(temporaryDirectory(), 'missing-root.zip');
   try {
