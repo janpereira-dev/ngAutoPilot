@@ -425,6 +425,33 @@ test('rejects central entries whose local records are malformed or inconsistent'
   }
 });
 
+test('rejects duplicate central entries before payload validation', async () => {
+  const root = temporaryDirectory();
+  const output = temporaryDirectory();
+  try {
+    fs.writeFileSync(path.join(root, 'a.txt'), 'first\n', 'utf8');
+    fs.writeFileSync(path.join(root, 'b.txt'), 'second\n', 'utf8');
+    const valid = path.join(output, 'valid.zip');
+    await createZip(root, valid);
+    const data = fs.readFileSync(valid);
+    const centralSignature = Buffer.from([0x50, 0x4b, 0x01, 0x02]);
+    const firstCentral = data.indexOf(centralSignature);
+    const secondCentral = data.indexOf(centralSignature, firstCentral + centralSignature.length);
+    assert.notEqual(firstCentral, -1);
+    assert.notEqual(secondCentral, -1);
+    const firstNameLength = data.readUInt16LE(firstCentral + 28);
+    const secondNameLength = data.readUInt16LE(secondCentral + 28);
+    assert.equal(firstNameLength, secondNameLength);
+    data.copy(data, secondCentral + 46, firstCentral + 46, firstCentral + 46 + firstNameLength);
+    const duplicate = path.join(output, 'duplicate.zip');
+    fs.writeFileSync(duplicate, data);
+    assert.match(validateArchiveFile(duplicate).join('\n'), /duplicate|normalization_collision/i);
+  } finally {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(output, { recursive: true, force: true });
+  }
+});
+
 test('decodes distinct CP437 member names when UTF-8 is not declared', async () => {
   const root = temporaryDirectory();
   const output = temporaryDirectory();
