@@ -42,8 +42,10 @@ test('packed npm artifact installs Codex files into discoverable paths and serve
   const installedPackage = path.join(projectDirectory, 'node_modules', 'ngautopilot');
   const cli = path.join(installedPackage, 'bin', 'ngautopilot.mjs');
   const mcpEntry = path.join(installedPackage, 'mcp', 'server-entry.mjs');
+  const openApiContract = path.join(installedPackage, 'openapi.yaml');
   assert.ok(fs.existsSync(cli), 'packed CLI is missing');
   assert.ok(fs.existsSync(mcpEntry), 'packed root MCP entry point is missing');
+  assert.ok(fs.existsSync(openApiContract), 'packed OpenAPI contract is missing');
 
   const isolatedEnvironment = {
     ...process.env,

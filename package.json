@@ -30,7 +30,8 @@
     "LICENSE",
     "CHANGELOG.md",
     "CONTRIBUTING.md",
-    "SECURITY.md"
+    "SECURITY.md",
+    "openapi.yaml"
   ],
   "repository": {
     "type": "git",
