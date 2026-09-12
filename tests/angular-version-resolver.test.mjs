@@ -90,6 +90,17 @@ test('derives an omitted target from parsed Angular evidence', (t) => {
   assert.deepEqual(result.target, { major: 12, minor: 2 });
 });
 
+test('derives the first satisfiable omitted minor across package-only Angular ranges', (t) => {
+  const projectRoot = createProject(t, '12.2.17', {
+    declaration: '^12.1.0',
+    commonDeclaration: '>12.1',
+    lockfile: false,
+  });
+  const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot });
+
+  assert.deepEqual(result.target, { major: 12, minor: 2 });
+});
+
 test('filters incompatible skills selected by capability packs', (t) => {
   const projectRoot = createProject(t, '12.2.17');
   const result = resolveAngularInstallation({
@@ -198,6 +209,9 @@ test('treats a partial greater-than declaration as the next minor', (t) => {
     () => resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.1' }),
     /outside declared/,
   );
+  const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' });
+
+  assert.deepEqual(result.target, { major: 12, minor: 2 });
 });
 
 test('does not use an unrelated ancestor package-lock.json', (t) => {
