@@ -42,7 +42,7 @@ test('builds a bounded reproducible public archive in independent staging direct
     assert.equal(fs.existsSync(path.join(first.packageRoot, 'skills', 'README.md')), false);
     assert.equal(fs.existsSync(path.join(first.packageRoot, 'mcp.json')), false);
     assert.deepEqual(validateGeneratedPackageReferences(first.packageRoot), []);
-    assert.ok(fs.existsSync(path.join(first.packageRoot, 'docs', 'design-excellence-guide.md')));
+    assert.ok(fs.existsSync(path.join(first.packageRoot, 'resources', 'docs', 'design-excellence-guide.md')));
     for (const skill of skills) assert.doesNotMatch(fs.readFileSync(path.join(first.packageRoot, 'skills', skill.name, 'SKILL.md'), 'utf8'), /\bskills\/[\w.-]+(?:\/[\w.-]+)*\/SKILL\.md\b/);
   } finally {
     fs.rmSync(firstOutput, { recursive: true, force: true });
@@ -56,12 +56,16 @@ test('rejects the known-invalid dotted OpenAI extension shape', async () => {
     for (const entry of ['package.json', 'LICENSE', 'skills', 'openai', 'docs']) fs.cpSync(path.join(root, entry), path.join(temporary, entry), { recursive: true });
     const manifestPath = path.join(temporary, 'openai', 'plugin.json');
     const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    manifest.$schema = 'https://example.test/unsupported.schema.json';
+    manifest.unexpected = true;
     manifest.extensions['com.openai.interface'] = manifest.extensions['com.openai'];
     delete manifest.extensions['com.openai'];
     fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
     const result = await validateOpenAiPackage({ root: temporary });
     assert.match(result.errors.join('\n'), /must not use a dotted com\.openai\.interface key/);
     assert.match(result.errors.join('\n'), /must define extensions\.com\.openai/);
+    assert.match(result.errors.join('\n'), /plugin\.json unsupported plugin schema/);
+    assert.match(result.errors.join('\n'), /plugin\.json unknown manifest field: unexpected/);
   } finally {
     fs.rmSync(temporary, { recursive: true, force: true });
   }
@@ -71,14 +75,40 @@ test('refuses to clean a caller-controlled output path outside the approved root
   const sibling = path.join(path.dirname(root), `ngautopilot-untrusted-${process.pid}`);
   fs.mkdirSync(sibling, { recursive: true });
   const sentinel = path.join(sibling, 'sentinel.txt');
+  const output = createTemporaryOutputRoot();
   fs.writeFileSync(sentinel, 'preserve', 'utf8');
   try {
     for (const outputRoot of [root, path.dirname(root), sibling, path.join(root, 'dist')]) {
       await assert.rejects(() => buildOpenAiPackage({ root, outputRoot }), /refusing to clean untrusted output path/);
     }
+    await assert.rejects(() => buildOpenAiPackage({ root, outputRoot: output, version: '../../outside' }), /safe SemVer value/);
     assert.equal(fs.readFileSync(sentinel, 'utf8'), 'preserve');
   } finally {
     fs.rmSync(sibling, { recursive: true, force: true });
+    fs.rmSync(output, { recursive: true, force: true });
+  }
+});
+
+test('refuses to clean an allowed output beneath a symlinked parent', async (t) => {
+  const temporary = fs.mkdtempSync(path.join(path.dirname(root), 'ngautopilot-openai-output-link-'));
+  const outside = fs.mkdtempSync(path.join(path.dirname(root), 'ngautopilot-openai-output-outside-'));
+  try {
+    for (const entry of ['package.json', 'LICENSE', 'skills', 'openai', 'docs']) fs.cpSync(path.join(root, entry), path.join(temporary, entry), { recursive: true });
+    const dist = path.join(temporary, 'dist');
+    try {
+      fs.symlinkSync(outside, dist, process.platform === 'win32' ? 'junction' : 'dir');
+    } catch (error) {
+      t.skip(`symlink or junction creation is unavailable on this host: ${error.code ?? error.message}`);
+      return;
+    }
+    await assert.rejects(
+      () => buildOpenAiPackage({ root: temporary, outputRoot: path.join(dist, 'openai-plugin') }),
+      /symlinked or non-directory output parent/,
+    );
+    assert.deepEqual(fs.readdirSync(outside), []);
+  } finally {
+    fs.rmSync(temporary, { recursive: true, force: true });
+    fs.rmSync(outside, { recursive: true, force: true });
   }
 });
 
@@ -160,6 +190,44 @@ test('standalone builder fails closed when a source skill contains a broken loca
       () => buildOpenAiPackage({ root: temporary, outputRoot: output }),
       /unresolvable local Markdown target/,
     );
+  } finally {
+    fs.rmSync(temporary, { recursive: true, force: true });
+  }
+});
+
+test('does not copy arbitrary checkout files referenced by a source skill', async () => {
+  const temporary = fs.mkdtempSync(path.join(path.dirname(root), 'ngautopilot-openai-private-reference-'));
+  const output = path.join(temporary, 'dist', 'openai-plugin');
+  try {
+    for (const entry of ['package.json', 'LICENSE', 'skills', 'openai', 'docs']) fs.cpSync(path.join(root, entry), path.join(temporary, entry), { recursive: true });
+    fs.mkdirSync(path.join(temporary, '.git'), { recursive: true });
+    fs.writeFileSync(path.join(temporary, '.git', 'config'), '[core]\nrepositoryformatversion = 0\n', 'utf8');
+    const skillFile = path.join(temporary, 'skills', fs.readdirSync(path.join(temporary, 'skills'))[0], 'SKILL.md');
+    fs.appendFileSync(skillFile, '\n[Private checkout metadata](../../.git/config)\n', 'utf8');
+    await assert.rejects(
+      () => buildOpenAiPackage({ root: temporary, outputRoot: output }),
+      /not an approved public resource/,
+    );
+    assert.equal(fs.existsSync(path.join(output, 'ngautopilot-skills', '.git', 'config')), false);
+  } finally {
+    fs.rmSync(temporary, { recursive: true, force: true });
+  }
+});
+
+test('places all supplementary files in an isolated resources namespace', async () => {
+  const temporary = fs.mkdtempSync(path.join(path.dirname(root), 'ngautopilot-openai-skill-resource-'));
+  const output = path.join(temporary, 'dist', 'openai-plugin');
+  try {
+    for (const entry of ['package.json', 'LICENSE', 'skills', 'openai', 'assets', 'docs']) fs.cpSync(path.join(root, entry), path.join(temporary, entry), { recursive: true });
+    const skillFile = path.join(temporary, 'skills', fs.readdirSync(path.join(temporary, 'skills'))[0], 'SKILL.md');
+    fs.mkdirSync(path.join(temporary, 'skills', 'shared'), { recursive: true });
+    fs.writeFileSync(path.join(temporary, 'skills', 'shared', 'guide.md'), '# Shared guide\n', 'utf8');
+    fs.appendFileSync(skillFile, '\n[Shared guide](../shared/guide.md)\n[Shared asset](../../assets/ngautopilot-hero.svg)\n', 'utf8');
+    const result = await buildOpenAiPackage({ root: temporary, outputRoot: output });
+    assert.equal(fs.existsSync(path.join(output, 'ngautopilot-skills', 'skills', 'shared', 'guide.md')), false);
+    assert.equal(fs.readFileSync(path.join(result.packageRoot, 'resources', 'skills', 'shared', 'guide.md'), 'utf8'), '# Shared guide\n');
+    assert.equal(fs.readFileSync(path.join(result.packageRoot, 'resources', 'assets', 'ngautopilot-hero.svg'), 'utf8'), fs.readFileSync(path.join(temporary, 'assets', 'ngautopilot-hero.svg'), 'utf8'));
+    assert.equal(fs.readFileSync(path.join(result.packageRoot, 'assets', 'ngautopilot-hero.svg'), 'utf8'), fs.readFileSync(path.join(temporary, 'openai', 'assets', 'ngautopilot-hero.svg'), 'utf8'));
   } finally {
     fs.rmSync(temporary, { recursive: true, force: true });
   }

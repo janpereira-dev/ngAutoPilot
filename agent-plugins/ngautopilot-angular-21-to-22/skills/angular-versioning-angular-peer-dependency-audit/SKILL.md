@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.versioning.angular-peer-dependency-audit"
   ngautopilot-source: "skills/angular/versioning/angular-peer-dependency-audit/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.8.0"
 ---
 
 

@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.versioning.angular-version-gates"
   ngautopilot-source: "skills/angular/versioning/angular-version-gates/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.8.0"
 ---
 
 

@@ -293,11 +293,11 @@ The CI and release-gate workflows stay focused on deterministic validation. The 
 
 ## OpenAI Public Skills Package
 
-`openai/plugin.json` is the source manifest for the single public `ngautopilot-skills` package. The executable OpenAI validator and packager are deferred to the follow-up tooling slice; this metadata slice does not advertise npm commands that are not yet present in the committed branch. The eventual packager must create a portable flat skills layout with the branded asset and versioned submission packet in a deterministic ZIP under `dist/openai-plugin/`, without `ngautopilot-tools` or MCP configuration.
+`openai/plugin.json` is the source manifest for the single public `ngautopilot-skills` package. Run `npm run openai:validate` to execute the read-only validation gate, then `npm run openai:pack` to create its portable flat skills layout, branded asset, versioned submission packet, deterministic ZIP, and `SHA256SUMS` under `dist/openai-plugin/`. The skills-only artifact excludes `ngautopilot-tools` and MCP configuration.
 
-The eventual `openai:validate` command must be a read-only gate for canonical skill coverage, UTF-8/JSON, safe paths, exact legal URLs, skills-only capability scope, archive limits, and the required submission packet. The canonical source frontmatter remains authoritative and is validated by the existing skill validators; the public package is a generated distribution, not a second hand-maintained skill tree.
+`openai:validate` is a read-only gate for canonical skill coverage, UTF-8/JSON, safe paths, exact legal URLs, skills-only capability scope, archive limits, and the required submission packet. The canonical source frontmatter remains authoritative and is validated by the existing skill validators; the public package is a generated distribution, not a second hand-maintained skill tree.
 
-The versioned packet at `openai/submission/0.6.0/` deliberately states that the package is **not submitted** and **not OpenAI verified**. The release owner must complete any portal actions and required human attestations before publication.
+The versioned packet at `openai/submission/0.8.0/` deliberately states that the package is **not submitted** and **not OpenAI verified**. The release owner must complete any portal actions and required human attestations before publication.
 ## Plugin Marketplaces
 
 NgAutoPilot ships marketplace manifests for Claude Code and Codex:

@@ -9,7 +9,7 @@ stack:
   - Testing
 category: quality
 status: stable
-version: 0.6.0
+version: 0.8.0
 owner: NgAutoPilot
 triggers:
   - design release gate

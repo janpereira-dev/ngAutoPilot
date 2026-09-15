@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.angular-enterprise-primitives"
   ngautopilot-source: "skills/angular/architecture/angular-enterprise-primitives/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.8.0"
 ---
 
 

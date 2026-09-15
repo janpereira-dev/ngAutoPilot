@@ -2,6 +2,19 @@
 
 All notable changes to NgAutoPilot will be documented in this file.
 
+## 0.8.0 - 2026-09-15
+
+### Added
+
+- Added fail-closed release checks for OpenAI package output parents, SemVer path inputs, base manifest contracts, and allowlisted public resource copying.
+- Expanded deterministic security scanning to every publishable UTF-8 text input, including top-level metadata, SVG assets, and nested source-snapshot directories.
+- Added regression coverage for symlinked output parents, invalid manifest types, NUL-bearing text files, and nested publishable content.
+
+### Changed
+
+- Updated the package, catalog, 413 source skills, packs, plugin bundles, Agent Plugins, marketplaces, and OpenAI submission packet to version `0.8.0`.
+- Updated package-lock metadata and generated Agent Plugin snapshots to match the release version.
+
 ## 0.6.0 - 2026-08-09
 
 ### Added

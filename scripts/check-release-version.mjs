@@ -41,6 +41,11 @@ if (catalog.version !== currentVersion) {
   errors.push(`catalog.json version ${catalog.version} does not match package.json ${currentVersion}`);
 }
 
+const lockfile = JSON.parse(fs.readFileSync('package-lock.json', 'utf8'));
+if (lockfile.version !== currentVersion || lockfile.packages?.['']?.version !== currentVersion) {
+  errors.push(`package-lock.json root version must match ${currentVersion}`);
+}
+
 for (const skill of catalog.skills ?? []) {
   if (skill.version !== currentVersion) {
     errors.push(`${skill.path} catalog version ${skill.version} does not match ${currentVersion}`);

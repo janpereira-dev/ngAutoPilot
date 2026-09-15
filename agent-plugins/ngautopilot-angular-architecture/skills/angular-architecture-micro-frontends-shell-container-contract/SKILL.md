@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.micro-frontends-shell-container-contract"
   ngautopilot-source: "skills/angular/architecture/micro-frontends-shell-container-contract/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.8.0"
 ---
 
 

@@ -25,6 +25,7 @@ const roots = [
 const rootFiles = [
   'agent-plugins.config.json',
   'catalog.json',
+  'package-lock.json',
   'package.json',
   'README.md',
   'skill-lab/python/pyproject.toml',
@@ -51,7 +52,11 @@ fs.cpSync(previousPacket, nextPacket, { recursive: true });
 let touched = 0;
 
 for (const file of rootFiles) {
-  replaceInFile(file, previousVersion, nextVersion);
+  if (file === 'package-lock.json') {
+    updateRootLockfileVersion(file, nextVersion);
+  } else {
+    replaceInFile(file, previousVersion, nextVersion);
+  }
 }
 
 for (const root of roots) {
@@ -91,6 +96,30 @@ function replaceInFile(file, from, to) {
   touched += 1;
 }
 
+function updateRootLockfileVersion(file, version) {
+  if (!fs.existsSync(file)) {
+    return;
+  }
+
+  const lockfile = JSON.parse(fs.readFileSync(file, 'utf8'));
+  let changed = false;
+
+  if (lockfile.version !== version) {
+    lockfile.version = version;
+    changed = true;
+  }
+
+  if (lockfile.packages?.[''] && lockfile.packages[''].version !== version) {
+    lockfile.packages[''].version = version;
+    changed = true;
+  }
+
+  if (changed) {
+    fs.writeFileSync(file, `${JSON.stringify(lockfile, null, 2)}\n`, 'utf8');
+    touched += 1;
+  }
+}
+
 function findTextFiles(root) {
   if (!fs.existsSync(root)) {
     return [];
@@ -102,7 +131,7 @@ function findTextFiles(root) {
   for (const entry of entries) {
     const fullPath = path.join(root, entry.name);
 
-    if (entry.name === 'node_modules' || entry.name === 'dist' || entry.name === '.git') {
+    if (entry.name === 'node_modules' || entry.name === 'dist' || entry.name === '.git' || isHistoricalDocumentation(fullPath)) {
       continue;
     }
 
@@ -117,4 +146,9 @@ function findTextFiles(root) {
   }
 
   return files;
+}
+
+function isHistoricalDocumentation(file) {
+  const relative = file.split(path.sep).join('/');
+  return relative === 'docs/superpowers' || relative.startsWith('docs/superpowers/');
 }

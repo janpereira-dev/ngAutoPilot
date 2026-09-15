@@ -44,8 +44,8 @@ test('rewrites canonical local Markdown references into package-local assets', a
     assert.ok(skill);
     const generatedSkill = path.join(result.packageRoot, 'skills', skill.publicName, 'SKILL.md');
     const content = fs.readFileSync(generatedSkill, 'utf8');
-    assert.match(content, /\]\(\.\.\/\.\.\/docs\/design-excellence-guide\.md\)/);
-    assert.ok(fs.statSync(path.join(result.packageRoot, 'docs', 'design-excellence-guide.md')).isFile());
+    assert.match(content, /\]\(\.\.\/\.\.\/resources\/docs\/design-excellence-guide\.md\)/);
+    assert.ok(fs.statSync(path.join(result.packageRoot, 'resources', 'docs', 'design-excellence-guide.md')).isFile());
   } finally {
     fs.rmSync(output, { recursive: true, force: true });
   }
