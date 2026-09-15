@@ -214,6 +214,25 @@ test('does not copy arbitrary checkout files referenced by a source skill', asyn
   }
 });
 
+test('does not place supplementary files in the flat generated skills namespace', async () => {
+  const temporary = fs.mkdtempSync(path.join(path.dirname(root), 'ngautopilot-openai-skill-resource-'));
+  const output = path.join(temporary, 'dist', 'openai-plugin');
+  try {
+    for (const entry of ['package.json', 'LICENSE', 'skills', 'openai', 'docs']) fs.cpSync(path.join(root, entry), path.join(temporary, entry), { recursive: true });
+    const skillFile = path.join(temporary, 'skills', fs.readdirSync(path.join(temporary, 'skills'))[0], 'SKILL.md');
+    fs.mkdirSync(path.join(temporary, 'skills', 'shared'), { recursive: true });
+    fs.writeFileSync(path.join(temporary, 'skills', 'shared', 'guide.md'), '# Shared guide\n', 'utf8');
+    fs.appendFileSync(skillFile, '\n[Shared guide](../shared/guide.md)\n', 'utf8');
+    await assert.rejects(
+      () => buildOpenAiPackage({ root: temporary, outputRoot: output }),
+      /not an approved public resource/,
+    );
+    assert.equal(fs.existsSync(path.join(output, 'ngautopilot-skills', 'skills', 'shared', 'guide.md')), false);
+  } finally {
+    fs.rmSync(temporary, { recursive: true, force: true });
+  }
+});
+
 test('rejects Unix symlink members encoded in ZIP central-directory metadata', async () => {
   const output = createTemporaryOutputRoot();
   try {
