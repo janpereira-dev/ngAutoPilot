@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.versioning.angular-v22-feature-index"
   ngautopilot-source: "skills/angular/versioning/angular-v22-feature-index/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.8.0"
 ---
 
 

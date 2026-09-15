@@ -1,6 +1,6 @@
 {
   "name": "ngautopilot",
-  "version": "0.6.0",
+  "version": "0.8.0",
   "description": "Agent-agnostic CLI and catalog of skills, subagents, prompts, guardrails, and packs for safe Angular, TypeScript, and frontend engineering.",
   "type": "module",
   "bin": {

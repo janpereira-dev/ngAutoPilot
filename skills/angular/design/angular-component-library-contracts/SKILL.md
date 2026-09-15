@@ -10,7 +10,7 @@ stack:
   - Design Systems
 category: components
 status: stable
-version: 0.6.0
+version: 0.8.0
 owner: NgAutoPilot
 triggers:
   - Angular component library

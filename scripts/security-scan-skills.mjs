@@ -4,49 +4,11 @@ import path from 'node:path';
 import { scanCandidateSecurity } from '../skill-lab/lib/candidate-security.mjs';
 
 const root = process.cwd();
-const scanRoots = [
-  'skills',
-  'plugins',
-  'agents',
-  'adapters',
-  'agent-plugins',
-  'bin',
-  'config',
-  'lib',
-  'mcp',
-  'openai',
-  'packs',
-  'schemas',
-  'scripts',
-  'templates',
-  'docs',
-  '.agents',
-  '.claude-plugin',
-  '.githooks',
-  '.github/workflows',
-  'skill-lab',
-];
-const rootFiles = ['SKILL.md', 'README.md', 'SECURITY.md', 'package.json'];
-const allowedExtensions = new Set(['.json', '.md', '.mjs', '.py', '.toml', '.yml', '.yaml']);
-const scanAllFilesRoots = new Set(['.githooks']);
 const excludedSkillLabDirectories = new Set(['skill-lab/.cache', 'skill-lab/.venv', 'skill-lab/runs']);
+const excludedDirectoryNames = new Set(['.git', 'dist', 'node_modules']);
 const findings = [];
 
-for (const relativeRoot of scanRoots) {
-  const directory = path.join(root, relativeRoot);
-
-  if (fs.existsSync(directory)) {
-    scanDirectory(directory, scanAllFilesRoots.has(relativeRoot));
-  }
-}
-
-for (const relativeFile of rootFiles) {
-  const file = path.join(root, relativeFile);
-
-  if (fs.existsSync(file)) {
-    scanFile(file);
-  }
-}
+scanDirectory(root);
 
 if (findings.length > 0) {
   console.error('Security content scan failed:\n');
@@ -60,7 +22,7 @@ if (findings.length > 0) {
 
 console.log('Security content scan passed.');
 
-function scanDirectory(directory, scanAllFiles = false) {
+function scanDirectory(directory) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
     const target = path.join(directory, entry.name);
 
@@ -69,19 +31,32 @@ function scanDirectory(directory, scanAllFiles = false) {
         continue;
       }
 
-      scanDirectory(target, scanAllFiles);
+      scanDirectory(target);
       continue;
     }
 
-    if (entry.isFile() && (scanAllFiles || allowedExtensions.has(path.extname(entry.name)))) {
+    if (entry.isFile() && isUtf8TextFile(target)) {
       scanFile(target);
     }
   }
 }
 
 function isExcludedDirectory(directory, name) {
+  if (excludedDirectoryNames.has(name)) return true;
   const relative = toPosixPath(path.relative(root, path.join(directory, name)));
   return excludedSkillLabDirectories.has(relative);
+}
+
+function isUtf8TextFile(file) {
+  const content = fs.readFileSync(file);
+  if (content.includes(0)) return false;
+
+  try {
+    new TextDecoder('utf-8', { fatal: true }).decode(content);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 function scanFile(file) {
