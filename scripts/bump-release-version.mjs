@@ -25,6 +25,7 @@ const roots = [
 const rootFiles = [
   'agent-plugins.config.json',
   'catalog.json',
+  'package-lock.json',
   'package.json',
   'README.md',
   'skill-lab/python/pyproject.toml',

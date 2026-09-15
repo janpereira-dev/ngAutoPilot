@@ -260,7 +260,7 @@ git commit -m "feat: generate portable agent plugins"
 const first = await createPluginArchives({ sourceRoot, outputRoot: firstOutput, version: '0.8.0' });
 const second = await createPluginArchives({ sourceRoot, outputRoot: secondOutput, version: '0.8.0' });
 assert.deepEqual(first.archives, second.archives);
-assert.match(readText(path.join(firstOutput, 'SHA256SUMS')), /^.+  ngautopilot-core-0\.6\.0\.zip$/m);
+assert.match(readText(path.join(firstOutput, 'SHA256SUMS')), /^.+  ngautopilot-core-0\.8\.0\.zip$/m);
 ```
 
 - [ ] **Step 2: Run test to verify failure**

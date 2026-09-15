@@ -35,32 +35,39 @@ function scanDirectory(directory) {
       continue;
     }
 
-    if (entry.isFile() && isUtf8TextFile(target)) {
-      scanFile(target);
+    if (entry.isFile()) {
+      scanFileIfText(target);
     }
   }
 }
 
 function isExcludedDirectory(directory, name) {
-  if (excludedDirectoryNames.has(name)) return true;
+  if (path.resolve(directory) === root && excludedDirectoryNames.has(name)) return true;
   const relative = toPosixPath(path.relative(root, path.join(directory, name)));
   return excludedSkillLabDirectories.has(relative);
 }
 
-function isUtf8TextFile(file) {
+function scanFileIfText(file) {
   const content = fs.readFileSync(file);
-  if (content.includes(0)) return false;
+  const relative = toPosixPath(path.relative(root, file));
+  const knownText = isKnownTextFile(relative);
+  if (content.includes(0)) {
+    if (knownText) findings.push(`${relative}: must be valid UTF-8 text without NUL bytes`);
+    return;
+  }
 
   try {
-    new TextDecoder('utf-8', { fatal: true }).decode(content);
-    return true;
+    scanTextFile(file, new TextDecoder('utf-8', { fatal: true }).decode(content));
   } catch {
-    return false;
+    if (knownText) findings.push(`${relative}: must be valid UTF-8 text`);
   }
 }
 
-function scanFile(file) {
-  const content = fs.readFileSync(file, 'utf8');
+function isKnownTextFile(relative) {
+  return relative.startsWith('.githooks/') || new Set(['.json', '.md', '.mjs', '.py', '.svg', '.toml', '.yml', '.yaml']).has(path.extname(relative).toLowerCase());
+}
+
+function scanTextFile(file, content) {
   const relative = toPosixPath(path.relative(root, file));
 
   for (const finding of scanCandidateSecurity(content, {
