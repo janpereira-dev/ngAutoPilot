@@ -118,7 +118,7 @@ test('rejects symlinks or junctions in the copied destination path', (t) => {
 
     const linkType = process.platform === 'win32' ? 'junction' : 'dir';
     try {
-      fs.symlinkSync(outside, path.join(packageRoot, 'skills'), linkType);
+      fs.symlinkSync(outside, path.join(packageRoot, 'resources'), linkType);
     } catch (error) {
       t.skip(`symlink or junction creation is unavailable on this host: ${error.code ?? error.message}`);
       return;
@@ -135,9 +135,9 @@ test('rejects symlinks or junctions in the copied destination path', (t) => {
       ),
       /unsafe package destination|destination.*symlink|destination.*root/i,
     );
-    assert.equal(fs.existsSync(path.join(outside, 'sample', 'guide.md')), false);
+    assert.equal(fs.existsSync(path.join(outside, 'skills', 'sample', 'guide.md')), false);
 
-    fs.unlinkSync(path.join(packageRoot, 'skills'));
+    fs.unlinkSync(path.join(packageRoot, 'resources'));
     fs.rmSync(packageRoot, { recursive: true, force: true });
     fs.symlinkSync(outside, packageRoot, linkType);
     assert.throws(
@@ -572,8 +572,8 @@ test('keeps repository-relative copies stable through symlinked ancestors', (t) 
       generatedSkillFile,
       new Map(),
     );
-    assert.equal(result, '[guide](guide.md)');
-    assert.equal(fs.readFileSync(path.join(packageRoot, 'skills', 'sample', 'guide.md'), 'utf8'), 'guide\n');
+    assert.equal(result, '[guide](../../resources/skills/sample/guide.md)');
+    assert.equal(fs.readFileSync(path.join(packageRoot, 'resources', 'skills', 'sample', 'guide.md'), 'utf8'), 'guide\n');
   } finally {
     fs.rmSync(realParent, { recursive: true, force: true });
     fs.rmSync(aliasParent, { recursive: true, force: true });

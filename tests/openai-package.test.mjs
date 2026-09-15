@@ -214,7 +214,7 @@ test('does not copy arbitrary checkout files referenced by a source skill', asyn
   }
 });
 
-test('does not place supplementary files in the flat generated skills namespace', async () => {
+test('places supplementary skill files outside the flat generated skills namespace', async () => {
   const temporary = fs.mkdtempSync(path.join(path.dirname(root), 'ngautopilot-openai-skill-resource-'));
   const output = path.join(temporary, 'dist', 'openai-plugin');
   try {
@@ -223,11 +223,9 @@ test('does not place supplementary files in the flat generated skills namespace'
     fs.mkdirSync(path.join(temporary, 'skills', 'shared'), { recursive: true });
     fs.writeFileSync(path.join(temporary, 'skills', 'shared', 'guide.md'), '# Shared guide\n', 'utf8');
     fs.appendFileSync(skillFile, '\n[Shared guide](../shared/guide.md)\n', 'utf8');
-    await assert.rejects(
-      () => buildOpenAiPackage({ root: temporary, outputRoot: output }),
-      /not an approved public resource/,
-    );
+    const result = await buildOpenAiPackage({ root: temporary, outputRoot: output });
     assert.equal(fs.existsSync(path.join(output, 'ngautopilot-skills', 'skills', 'shared', 'guide.md')), false);
+    assert.equal(fs.readFileSync(path.join(result.packageRoot, 'resources', 'skills', 'shared', 'guide.md'), 'utf8'), '# Shared guide\n');
   } finally {
     fs.rmSync(temporary, { recursive: true, force: true });
   }
