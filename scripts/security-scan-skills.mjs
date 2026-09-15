@@ -16,16 +16,19 @@ const scanRoots = [
   'mcp',
   'openai',
   'packs',
+  'schemas',
   'scripts',
   'templates',
   'docs',
   '.agents',
   '.claude-plugin',
+  '.githooks',
   '.github/workflows',
   'skill-lab',
 ];
 const rootFiles = ['SKILL.md', 'README.md', 'SECURITY.md', 'package.json'];
 const allowedExtensions = new Set(['.json', '.md', '.mjs', '.py', '.toml', '.yml', '.yaml']);
+const scanAllFilesRoots = new Set(['.githooks']);
 const excludedSkillLabDirectories = new Set(['skill-lab/.cache', 'skill-lab/.venv', 'skill-lab/runs']);
 const findings = [];
 
@@ -33,7 +36,7 @@ for (const relativeRoot of scanRoots) {
   const directory = path.join(root, relativeRoot);
 
   if (fs.existsSync(directory)) {
-    scanDirectory(directory);
+    scanDirectory(directory, scanAllFilesRoots.has(relativeRoot));
   }
 }
 
@@ -57,7 +60,7 @@ if (findings.length > 0) {
 
 console.log('Security content scan passed.');
 
-function scanDirectory(directory) {
+function scanDirectory(directory, scanAllFiles = false) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
     const target = path.join(directory, entry.name);
 
@@ -66,11 +69,11 @@ function scanDirectory(directory) {
         continue;
       }
 
-      scanDirectory(target);
+      scanDirectory(target, scanAllFiles);
       continue;
     }
 
-    if (entry.isFile() && allowedExtensions.has(path.extname(entry.name))) {
+    if (entry.isFile() && (scanAllFiles || allowedExtensions.has(path.extname(entry.name)))) {
       scanFile(target);
     }
   }
