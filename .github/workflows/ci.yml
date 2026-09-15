@@ -46,6 +46,9 @@ jobs:
       - name: Sync plugin bundles
         run: npm run plugins:sync
 
+      - name: Validate OpenAI public package
+        run: npm run openai:validate
+
       - name: Check generated drift
         run: git diff --exit-code -- catalog.json plugins .agents/plugins/marketplace.json .claude-plugin/marketplace.json
 

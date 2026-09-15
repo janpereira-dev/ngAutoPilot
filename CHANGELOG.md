@@ -6,6 +6,15 @@ All notable changes to NgAutoPilot will be documented in this file.
 
 ### Added
 
+- Added the reproducible `ngautopilot-skills` OpenAI public package source, a skills-only manifest, branding asset, bounded archive builder, read-only validation gate, and versioned submission packet.
+- Added required presentation metadata to all ten generated local Codex marketplace plugin manifests while preserving the ten separate bundles.
+- Added documented openai:validate and openai:pack release commands; validation is read-only and packing produces the local ZIP plus checksum without claiming OpenAI submission.
+
+### Changed
+
+- Updated the direct `zod` dependency to `4.5.4` for the release branch.
+- Corrected the Angular 12-to-13 source skill's mojibake quotation; generated bundles now inherit the fixed source text.
+
 - Added Agent Plugins 1.0 Preview generation for core, Angular architecture, Angular testing, and Angular 21-to-22 packs.
 - Added `ngautopilot-tools`, a bundled stdio MCP plugin with nine schema-validated read-only inspection tools.
 - Added portable artifact validation, deterministic ZIP distribution, and SHA-256 checksums.

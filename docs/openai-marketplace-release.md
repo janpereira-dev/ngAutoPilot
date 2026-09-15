@@ -4,13 +4,28 @@ The repository prepares one public skills-only package: `ngautopilot-skills`. It
 
 ## Validate and package
 
-The executable OpenAI validator and packager are intentionally deferred to the
-follow-up tooling slice. This metadata slice does not advertise npm commands
-that are not yet present in the committed branch. That follow-up must add a
-read-only validator for the manifest, legal URLs, canonical skill coverage,
-skills-only scope, safe paths, generated-package referential integrity, archive
-limits, and the versioned submission packet, plus a deterministic packager for
-the flattened public catalog and checksum.
+Run the read-only validation gate before release work:
+
+```sh
+npm run openai:validate
+```
+
+It validates the manifest, legal URLs, canonical skill coverage, skills-only
+scope, safe paths, generated-package references, archive limits, and the
+versioned submission packet. The command builds only temporary packages for its
+reproducibility check and does not submit anything to OpenAI.
+
+Create the release artifact only when the intended output directory may be
+replaced:
+
+```sh
+npm run openai:pack
+```
+
+This writes the deterministic ZIP and `SHA256SUMS` to
+`dist/openai-plugin/`. The release workflow runs validation before packing and
+uploads the generated artifact; neither action represents human attestation,
+portal submission, or OpenAI approval.
 
 ## Release/tag path
 
