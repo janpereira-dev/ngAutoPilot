@@ -42,7 +42,7 @@ test('builds a bounded reproducible public archive in independent staging direct
     assert.equal(fs.existsSync(path.join(first.packageRoot, 'skills', 'README.md')), false);
     assert.equal(fs.existsSync(path.join(first.packageRoot, 'mcp.json')), false);
     assert.deepEqual(validateGeneratedPackageReferences(first.packageRoot), []);
-    assert.ok(fs.existsSync(path.join(first.packageRoot, 'docs', 'design-excellence-guide.md')));
+    assert.ok(fs.existsSync(path.join(first.packageRoot, 'resources', 'docs', 'design-excellence-guide.md')));
     for (const skill of skills) assert.doesNotMatch(fs.readFileSync(path.join(first.packageRoot, 'skills', skill.name, 'SKILL.md'), 'utf8'), /\bskills\/[\w.-]+(?:\/[\w.-]+)*\/SKILL\.md\b/);
   } finally {
     fs.rmSync(firstOutput, { recursive: true, force: true });
@@ -214,18 +214,20 @@ test('does not copy arbitrary checkout files referenced by a source skill', asyn
   }
 });
 
-test('places supplementary skill files outside the flat generated skills namespace', async () => {
+test('places all supplementary files in an isolated resources namespace', async () => {
   const temporary = fs.mkdtempSync(path.join(path.dirname(root), 'ngautopilot-openai-skill-resource-'));
   const output = path.join(temporary, 'dist', 'openai-plugin');
   try {
-    for (const entry of ['package.json', 'LICENSE', 'skills', 'openai', 'docs']) fs.cpSync(path.join(root, entry), path.join(temporary, entry), { recursive: true });
+    for (const entry of ['package.json', 'LICENSE', 'skills', 'openai', 'assets', 'docs']) fs.cpSync(path.join(root, entry), path.join(temporary, entry), { recursive: true });
     const skillFile = path.join(temporary, 'skills', fs.readdirSync(path.join(temporary, 'skills'))[0], 'SKILL.md');
     fs.mkdirSync(path.join(temporary, 'skills', 'shared'), { recursive: true });
     fs.writeFileSync(path.join(temporary, 'skills', 'shared', 'guide.md'), '# Shared guide\n', 'utf8');
-    fs.appendFileSync(skillFile, '\n[Shared guide](../shared/guide.md)\n', 'utf8');
+    fs.appendFileSync(skillFile, '\n[Shared guide](../shared/guide.md)\n[Shared asset](../../assets/ngautopilot-hero.svg)\n', 'utf8');
     const result = await buildOpenAiPackage({ root: temporary, outputRoot: output });
     assert.equal(fs.existsSync(path.join(output, 'ngautopilot-skills', 'skills', 'shared', 'guide.md')), false);
     assert.equal(fs.readFileSync(path.join(result.packageRoot, 'resources', 'skills', 'shared', 'guide.md'), 'utf8'), '# Shared guide\n');
+    assert.equal(fs.readFileSync(path.join(result.packageRoot, 'resources', 'assets', 'ngautopilot-hero.svg'), 'utf8'), fs.readFileSync(path.join(temporary, 'assets', 'ngautopilot-hero.svg'), 'utf8'));
+    assert.equal(fs.readFileSync(path.join(result.packageRoot, 'assets', 'ngautopilot-hero.svg'), 'utf8'), fs.readFileSync(path.join(temporary, 'openai', 'assets', 'ngautopilot-hero.svg'), 'utf8'));
   } finally {
     fs.rmSync(temporary, { recursive: true, force: true });
   }
