@@ -60,7 +60,7 @@ for (const site of sites) {
   fs.mkdirSync(siteDir, { recursive: true });
 
   for (const entry of fs.readdirSync('.')) {
-    if (entry === 'dist' || entry === '.git' || entry === 'node_modules') {
+    if (!isPublishableSourcePath(entry)) {
       continue;
     }
 
@@ -69,7 +69,7 @@ for (const site of sites) {
 
     const stat = fs.statSync(sourcePath);
     if (stat.isDirectory()) {
-      fs.cpSync(sourcePath, targetPath, { recursive: true, force: true });
+      fs.cpSync(sourcePath, targetPath, { recursive: true, force: true, filter: isPublishableSourcePath });
       continue;
     }
 
@@ -100,6 +100,22 @@ for (const site of sites) {
   fs.writeFileSync(path.join(siteDir, 'listing.md'), listing, 'utf8');
   fs.writeFileSync(path.join(siteDir, 'README.md'), buildBundleReadme(site), 'utf8');
   fs.copyFileSync('catalog.json', path.join(siteDir, 'catalog.json'));
+}
+
+function isPublishableSourcePath(source) {
+  const relative = toPosixPath(path.relative('.', source));
+
+  if (relative === '.git' || relative === 'dist' || relative === 'node_modules') {
+    return false;
+  }
+
+  return !isExcludedSkillLabPath(relative);
+}
+
+function isExcludedSkillLabPath(relative) {
+  const generatedDirectories = ['skill-lab/.cache', 'skill-lab/.venv', 'skill-lab/runs'];
+  return generatedDirectories.some((directory) => relative === directory || relative.startsWith(`${directory}/`)) ||
+    (relative.startsWith('skill-lab/python/') && relative.split('/').includes('__pycache__'));
 }
 
 console.log(`Prepared publish bundles in ${toPosixPath(outputRoot)}`);

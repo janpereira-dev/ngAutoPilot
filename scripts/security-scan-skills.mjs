@@ -44,7 +44,12 @@ function scanDirectory(directory) {
 function isExcludedDirectory(directory, name) {
   if (path.resolve(directory) === root && excludedDirectoryNames.has(name)) return true;
   const relative = toPosixPath(path.relative(root, path.join(directory, name)));
-  return excludedSkillLabDirectories.has(relative);
+  return isExcludedSkillLabPath(relative);
+}
+
+function isExcludedSkillLabPath(relative) {
+  return excludedSkillLabDirectories.has(relative) ||
+    (relative.startsWith('skill-lab/python/') && relative.split('/').includes('__pycache__'));
 }
 
 function scanFileIfText(file) {
