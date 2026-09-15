@@ -13,6 +13,7 @@ test('updates versioned assets without rewriting changelog history', () => {
 
   try {
     write(directory, 'package.json', '{"version":"0.5.1"}\n');
+    write(directory, 'package-lock.json', JSON.stringify({ version: '0.5.1', packages: { '': { version: '0.5.1' }, 'node_modules/example': { version: '0.5.1' } } }, null, 2));
     write(directory, 'catalog.json', '{"version":"0.5.1"}\n');
     write(directory, 'skills/example/SKILL.md', 'version: 0.5.1\n');
     write(directory, 'packs/example.json', '{"version":"0.5.1"}\n');
@@ -21,6 +22,7 @@ test('updates versioned assets without rewriting changelog history', () => {
     write(directory, 'CHANGELOG.md', '# Changelog\n\n## 0.5.1 - 2026-07-16\n');
     write(directory, 'openai/plugin.json', '{\"version\":\"0.5.1\"}\n');
     write(directory, 'openai/submission/0.5.1/release-notes.md', 'Release version: 0.5.1\n');
+    write(directory, 'docs/superpowers/plans/archived.md', 'Historical release 0.5.1\n');
 
     const result = spawnSync(process.execPath, [scriptPath, '0.5.2'], {
       cwd: directory,
@@ -37,6 +39,11 @@ test('updates versioned assets without rewriting changelog history', () => {
     assert.match(fs.readFileSync(path.join(directory, 'openai/plugin.json'), 'utf8'), /0\.5\.2/);
     assert.match(fs.readFileSync(path.join(directory, 'openai/submission/0.5.2/release-notes.md'), 'utf8'), /0\.5\.2/);
     assert.match(fs.readFileSync(path.join(directory, 'openai/submission/0.5.1/release-notes.md'), 'utf8'), /0\.5\.1/);
+    const lockfile = JSON.parse(fs.readFileSync(path.join(directory, 'package-lock.json'), 'utf8'));
+    assert.equal(lockfile.version, '0.5.2');
+    assert.equal(lockfile.packages[''].version, '0.5.2');
+    assert.equal(lockfile.packages['node_modules/example'].version, '0.5.1');
+    assert.match(fs.readFileSync(path.join(directory, 'docs/superpowers/plans/archived.md'), 'utf8'), /0\.5\.1/);
   } finally {
     fs.rmSync(directory, { recursive: true, force: true });
   }

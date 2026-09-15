@@ -50,21 +50,21 @@ function isExcludedDirectory(directory, name) {
 function scanFileIfText(file) {
   const content = fs.readFileSync(file);
   const relative = toPosixPath(path.relative(root, file));
-  const knownText = isKnownTextFile(relative);
+  const knownBinary = isKnownBinaryFile(relative);
   if (content.includes(0)) {
-    if (knownText) findings.push(`${relative}: must be valid UTF-8 text without NUL bytes`);
+    if (!knownBinary) findings.push(`${relative}: must be valid UTF-8 text without NUL bytes`);
     return;
   }
 
   try {
     scanTextFile(file, new TextDecoder('utf-8', { fatal: true }).decode(content));
   } catch {
-    if (knownText) findings.push(`${relative}: must be valid UTF-8 text`);
+    if (!knownBinary) findings.push(`${relative}: must be valid UTF-8 text`);
   }
 }
 
-function isKnownTextFile(relative) {
-  return relative.startsWith('.githooks/') || new Set(['.json', '.md', '.mjs', '.py', '.svg', '.toml', '.yml', '.yaml']).has(path.extname(relative).toLowerCase());
+function isKnownBinaryFile(relative) {
+  return new Set(['.bin', '.gif', '.ico', '.jpeg', '.jpg', '.png', '.webp', '.woff', '.woff2', '.zip']).has(path.extname(relative).toLowerCase());
 }
 
 function scanTextFile(file, content) {

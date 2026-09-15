@@ -1,8 +1,8 @@
-# Agent Plugins 0.8.0 Implementation Plan
+# Agent Plugins 0.6.0 Implementation Plan
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Ship pack-driven Agent Plugins 1.0 artifacts, reproducible ZIP distribution, and a tested read-only NgAutoPilot MCP server in release `0.8.0`.
+**Goal:** Ship pack-driven Agent Plugins 1.0 artifacts, reproducible ZIP distribution, and a tested read-only NgAutoPilot MCP server in release `0.6.0`.
 
 **Architecture:** Source skills remain NgAutoPilot-specific and are rendered into portable Agent Skills only during generation. A shared portable-plugin library resolves packs, enforces containment, renders artifacts, validates them, and feeds archive generation. A separate MCP plugin uses current MCP SDK v2 server/client packages and only read-only catalog and repository analysis.
 
@@ -18,7 +18,7 @@
 - Use current split MCP SDK v2 packages, not retired monolithic `@modelcontextprotocol/sdk`.
 - Require Node.js `>=24.0.0 <25` locally, in package metadata, and in CI.
 - MCP tools may read only; no Git, dependency, filesystem, package, or upgrade mutation.
-- Release target is `0.8.0`; version synchronization includes source skills, catalog, packs, native bundles, marketplaces, portable plugins, docs, and release validation.
+- Release target is `0.6.0`; version synchronization includes source skills, catalog, packs, native bundles, marketplaces, portable plugins, docs, and release validation.
 - Do not add client-by-client installation validation to this change.
 
 ---
@@ -257,10 +257,10 @@ git commit -m "feat: generate portable agent plugins"
 - [ ] **Step 1: Write failing archive tests**
 
 ```javascript
-const first = await createPluginArchives({ sourceRoot, outputRoot: firstOutput, version: '0.8.0' });
-const second = await createPluginArchives({ sourceRoot, outputRoot: secondOutput, version: '0.8.0' });
+const first = await createPluginArchives({ sourceRoot, outputRoot: firstOutput, version: '0.6.0' });
+const second = await createPluginArchives({ sourceRoot, outputRoot: secondOutput, version: '0.6.0' });
 assert.deepEqual(first.archives, second.archives);
-assert.match(readText(path.join(firstOutput, 'SHA256SUMS')), /^.+  ngautopilot-core-0\.8\.0\.zip$/m);
+assert.match(readText(path.join(firstOutput, 'SHA256SUMS')), /^.+  ngautopilot-core-0\.6\.0\.zip$/m);
 ```
 
 - [ ] **Step 2: Run test to verify failure**
@@ -373,7 +373,7 @@ git commit -m "feat: expose read-only repository queries"
 
 ```javascript
 const [clientTransport, serverTransport] = InMemoryTransport.createLinkedPair();
-const server = createMcpServer({ root: fixtureRoot, version: '0.8.0' });
+const server = createMcpServer({ root: fixtureRoot, version: '0.6.0' });
 await Promise.all([client.connect(clientTransport), server.connect(serverTransport)]);
 const { tools } = await client.listTools();
 assert.deepEqual(tools.map(({ name }) => name).sort(), [
@@ -427,7 +427,7 @@ git add lib/agent-plugins/mcp-server.mjs mcp/server-entry.mjs agent-plugins/ngau
 git commit -m "feat: add read-only ngautopilot mcp"
 ```
 
-### Task 7: Integrate Release 0.8.0 and Full Regression Gates
+### Task 7: Integrate Release 0.6.0 and Full Regression Gates
 
 **Files:**
 - Modify: `scripts/bump-release-version.mjs`
@@ -445,13 +445,13 @@ git commit -m "feat: add read-only ngautopilot mcp"
 - Test: `tests/bump-release-version.test.mjs`
 
 **Interfaces:**
-- `release:bump-version 0.8.0` updates portable plugin manifests and Agent Plugin configuration-derived outputs together with existing release surfaces.
+- `release:bump-version 0.6.0` updates portable plugin manifests and Agent Plugin configuration-derived outputs together with existing release surfaces.
 - `release:validate` runs source, native bundle, portable plugin, MCP smoke, and package checks.
 
 - [ ] **Step 1: Write failing version and gate tests**
 
 ```javascript
-assert.equal(readJson('agent-plugins/ngautopilot-core/plugin.json').version, '0.8.0');
+assert.equal(readJson('agent-plugins/ngautopilot-core/plugin.json').version, '0.6.0');
 assert.match(readText('package.json'), /"agent-plugins:validate"/);
 assert.match(readText('package.json'), /agent-plugins:sync/);
 ```
@@ -468,15 +468,15 @@ Extend version replacement roots to include `agent-plugins` and `agent-plugins.c
 
 - [ ] **Step 4: Execute complete release gate**
 
-Run: `npm run release:bump-version -- 0.8.0 && npm run release:validate && npm run agent-plugins:pack && npm run pack:dry`
+Run: `npm run release:bump-version -- 0.6.0 && npm run release:validate && npm run agent-plugins:pack && npm run pack:dry`
 
-Expected: all source and generated version contracts report `0.8.0`; 413 source skills validate; native plugins and marketplaces remain valid; portable plugins and MCP smoke pass; package dry run includes `agent-plugins` and excludes `dist`.
+Expected: all source and generated version contracts report `0.6.0`; 413 source skills validate; native plugins and marketplaces remain valid; portable plugins and MCP smoke pass; package dry run includes `agent-plugins` and excludes `dist`.
 
 - [ ] **Step 5: Commit**
 
 ```bash
 git add package.json package-lock.json catalog.json skills packs plugins agent-plugins .agents .claude-plugin scripts README.md CHANGELOG.md docs tests
-git commit -m "feat: release agent plugins preview 0.8.0"
+git commit -m "feat: release agent plugins preview 0.6.0"
 ```
 
 ### Task 8: Final Integrity Review
@@ -509,4 +509,4 @@ Expected: `FC: no differences encountered`.
 
 Run: `git status --short && git log --oneline main..HEAD && git diff --stat main...HEAD`
 
-Expected: only intentional `0.8.0` Agent Plugins changes and design/plan documentation.
+Expected: only intentional `0.6.0` Agent Plugins changes and design/plan documentation.

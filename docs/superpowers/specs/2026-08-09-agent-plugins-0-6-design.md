@@ -1,4 +1,4 @@
-# NgAutoPilot 0.8.0 Agent Plugins Design
+# NgAutoPilot 0.6.0 Agent Plugins Design
 
 ## Goal
 
@@ -17,7 +17,7 @@ Generate a separate read-only MCP plugin:
 
 - `ngautopilot-tools`
 
-Include portable validation, reproducible ZIP distribution with SHA-256 checksums, source-to-artifact traceability, documentation, release integration, and version synchronization to `0.8.0`.
+Include portable validation, reproducible ZIP distribution with SHA-256 checksums, source-to-artifact traceability, documentation, release integration, and version synchronization to `0.6.0`.
 
 Do not reduce adapters, retire marketplaces, add client-specific installation validation, or add mutating MCP tools.
 
@@ -95,7 +95,7 @@ Dedicated tests and validation cover:
 
 ## Release Contract
 
-`0.8.0` is NgAutoPilot version, not Agent Plugins version. Version synchronization covers package metadata, catalog, all source skills, packs, native bundles, marketplaces, portable plugins, docs, and generated distribution artifacts.
+`0.6.0` is NgAutoPilot version, not Agent Plugins version. Version synchronization covers package metadata, catalog, all source skills, packs, native bundles, marketplaces, portable plugins, docs, and generated distribution artifacts.
 
 ## Acceptance Criteria
 
