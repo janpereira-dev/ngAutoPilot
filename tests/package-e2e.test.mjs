@@ -43,6 +43,8 @@ test('packed npm artifact installs Codex files into discoverable paths and serve
   const cli = path.join(installedPackage, 'bin', 'ngautopilot.mjs');
   const mcpEntry = path.join(installedPackage, 'mcp', 'server-entry.mjs');
   assert.ok(fs.existsSync(cli), 'packed CLI is missing');
+  const binName = process.platform === 'win32' ? 'ngautopilot.cmd' : 'ngautopilot';
+  assert.ok(fs.existsSync(path.join(projectDirectory, 'node_modules', '.bin', binName)), 'installed package must expose the ngautopilot binary');
   assert.ok(fs.existsSync(mcpEntry), 'packed root MCP entry point is missing');
 
   const isolatedEnvironment = {

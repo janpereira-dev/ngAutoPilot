@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: workspace
 status: stable
-version: 0.8.0
+version: 0.8.1
 owner: NgAutoPilot
 triggers:
   - angular.json migration

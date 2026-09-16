@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "core.autopilot-orchestrator"
   ngautopilot-source: "skills/_core/autopilot-orchestrator/SKILL.md"
-  ngautopilot-version: "0.8.0"
+  ngautopilot-version: "0.8.1"
 ---
 
 

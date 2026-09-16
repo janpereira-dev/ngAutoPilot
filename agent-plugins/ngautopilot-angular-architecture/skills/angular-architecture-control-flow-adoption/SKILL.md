@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.control-flow-adoption"
   ngautopilot-source: "skills/angular/architecture/control-flow-adoption/SKILL.md"
-  ngautopilot-version: "0.8.0"
+  ngautopilot-version: "0.8.1"
 ---
 
 

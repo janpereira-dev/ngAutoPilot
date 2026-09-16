@@ -4,7 +4,7 @@ description: Uses read-only NgAutoPilot MCP tools to inspect catalog skills, pac
 license: MIT
 metadata:
   ngautopilot-id: "tools.read-only-mcp"
-  ngautopilot-version: "0.8.0"
+  ngautopilot-version: "0.8.1"
 ---
 
 Use the ngautopilot MCP server for repository inspection. Tools do not modify repository files, dependencies, or Git state.

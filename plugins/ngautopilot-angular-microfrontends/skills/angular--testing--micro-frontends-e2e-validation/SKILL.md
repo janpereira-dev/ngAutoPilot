@@ -10,7 +10,7 @@ stack:
   - Testing
 category: testing
 status: stable
-version: 0.8.0
+version: 0.8.1
 owner: NgAutoPilot
 triggers:
   - micro frontends e2e

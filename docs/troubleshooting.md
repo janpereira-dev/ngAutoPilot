@@ -71,10 +71,10 @@ npm run consistency:validate
 `.githooks/pre-commit` is a Bash script. On Windows, it requires Git Bash (bundled with Git for Windows). Alternatively:
 
 ```bash
-npm run hooks:install
+git config core.hooksPath .githooks
 ```
 
-This installs the hooks via Node.js where available.
+This is an explicit local Git configuration; the npm package never changes Git hook settings automatically.
 
 ## Stop hook error (`invalid stop hook JSON output`)
 

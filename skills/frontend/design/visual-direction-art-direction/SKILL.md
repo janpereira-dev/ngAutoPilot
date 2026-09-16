@@ -7,7 +7,7 @@ stack:
   - Visual Design
 category: design
 status: stable
-version: 0.8.0
+version: 0.8.1
 owner: NgAutoPilot
 triggers:
   - visual direction

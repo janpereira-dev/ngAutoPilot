@@ -492,7 +492,7 @@ The lab Python package pins SkillOpt:
 ```toml
 [project]
 name = "ngautopilot-skill-lab"
-version = "0.8.0"
+version = "0.8.1"
 requires-python = ">=3.10,<3.13"
 
 dependencies = [

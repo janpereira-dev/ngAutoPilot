@@ -6,7 +6,7 @@ stack:
   - Angular
 category: security
 status: stable
-version: 0.8.0
+version: 0.8.1
 owner: NgAutoPilot
 triggers:
   - ssr security
