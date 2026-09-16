@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: technical-debt
 status: stable
-version: 0.8.0
+version: 0.8.1
 owner: NgAutoPilot
 triggers:
   - debt ledger

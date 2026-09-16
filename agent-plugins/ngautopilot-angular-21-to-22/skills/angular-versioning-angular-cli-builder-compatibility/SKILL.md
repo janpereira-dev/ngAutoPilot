@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.versioning.angular-cli-builder-compatibility"
   ngautopilot-source: "skills/angular/versioning/angular-cli-builder-compatibility/SKILL.md"
-  ngautopilot-version: "0.8.0"
+  ngautopilot-version: "0.8.1"
 ---
 
 

@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: rxjs
 status: stable
-version: 0.8.0
+version: 0.8.1
 owner: NgAutoPilot
 triggers:
   - Observable as contract
