@@ -532,7 +532,6 @@ Planned package scripts:
   "skill-lab:gate": "node skill-lab/scripts/run-gate.mjs",
   "skill-lab:agentic-gate": "node skill-lab/scripts/run-agentic-gate.mjs",
   "skill-lab:prepare-promotion": "node skill-lab/scripts/generate-promotion-packet.mjs",
-  "skill-lab:clean": "node skill-lab/scripts/clean-runs.mjs",
   "skill-lab:ci": "npm run skill-lab:validate && npm run skill-lab:test"
 }
 ```

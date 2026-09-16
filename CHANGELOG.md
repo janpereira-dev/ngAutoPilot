@@ -2,6 +2,18 @@
 
 All notable changes to NgAutoPilot will be documented in this file.
 
+## 0.8.1 - 2026-09-16
+
+### Security
+
+- Replaced dynamic evaluation of downloaded Angular Can I Use data with a strict data-literal parser and sanitized the shipped CSV against spreadsheet formula interpretation.
+- Removed automatic Git hook configuration and the recursive Skill Lab cleanup command from the published package.
+- Added package-install coverage that verifies the public `ngautopilot` binary is linked for consumers.
+
+### Changed
+
+- Removed the unsupported `always-auth` input from the Node setup action and synchronized generated release metadata, catalogs, packs, plugins, marketplaces, and OpenAI submission assets to version `0.8.1`.
+
 ## 0.8.0 - 2026-09-15
 
 ### Added
