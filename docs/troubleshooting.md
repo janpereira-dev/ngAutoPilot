@@ -68,13 +68,13 @@ npm run consistency:validate
 
 ## Pre-commit hook fails on Windows
 
-`.githooks/pre-commit` is a Bash script. On Windows, it requires Git Bash (bundled with Git for Windows). Alternatively:
+`.githooks/pre-commit` is a Bash script. On Windows, it requires Git Bash (bundled with Git for Windows). In a repository checkout, configure it explicitly:
 
 ```bash
 git config core.hooksPath .githooks
 ```
 
-This is an explicit local Git configuration; the npm package never changes Git hook settings automatically.
+This applies only to a repository checkout: the published npm package does not include Git hooks and never changes Git hook settings automatically.
 
 ## Stop hook error (`invalid stop hook JSON output`)
 

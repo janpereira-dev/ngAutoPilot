@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
+import { escapeCsvCell } from "./csv-safety.mjs";
 import { parseDataLiteral } from "./data-literal-parser.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -377,14 +378,9 @@ function writeJson(name, data) {
 }
 
 function writeCsv(name, rows, headers) {
-  const escape = (value) => {
-    const text = String(value ?? "");
-    const hardened = /^[=+\-@]/.test(text) ? `'${text}` : text;
-    return /[",\n\r]/.test(hardened) ? `"${hardened.replaceAll('"', '""')}"` : hardened;
-  };
   const lines = [headers.join(",")];
   for (const row of rows) {
-    lines.push(headers.map((header) => escape(row[header])).join(","));
+    lines.push(headers.map((header) => escapeCsvCell(row[header])).join(","));
   }
   fs.writeFileSync(path.join(outputDir, name), `${lines.join("\n")}\n`, "utf8");
 }

@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
+import { escapeCsvCell } from '../docs/angular-caniuse/csv-safety.mjs';
 import { parseDataLiteral } from '../docs/angular-caniuse/data-literal-parser.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -22,6 +23,13 @@ test('parses data literals without executing expressions', () => {
   );
   assert.throws(() => parseDataLiteral('[process.exit()]'), /Only data literals|Expected comma/);
   assert.throws(() => parseDataLiteral('[{value:()=>1}]'), /Only data literals/);
+});
+
+test('neutralizes spreadsheet formulas after leading control characters', () => {
+  assert.equal(escapeCsvCell('@angular/core'), "'@angular/core");
+  assert.equal(escapeCsvCell('\t=HYPERLINK("https://example.test")'), "\"'\t=HYPERLINK(\"\"https://example.test\"\")\"");
+  assert.equal(escapeCsvCell('\n+1'), "\"'\n+1\"");
+  assert.equal(escapeCsvCell('ordinary text'), 'ordinary text');
 });
 
 test('parses the committed Angular Can I Use data sections', () => {
