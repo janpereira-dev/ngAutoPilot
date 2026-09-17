@@ -11,11 +11,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { loadAdapterManifest } from './adapter-core.mjs';
+import { safeReadSourceFile } from './safe-fs.mjs';
 import { resolveProjectRoot } from './install-roots.mjs';
 
 export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, agent, scope, cwd, home }) {
-  const catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
-  const packs = resolvePacks(packPath);
+  const catalog = JSON.parse(safeReadSourceFile(sourceRoot, catalogPath));
+  const packs = resolvePacks(sourceRoot, packPath);
   const pack = packs.at(-1);
   const manifest = loadAdapterManifest(adaptersRoot, agent);
 
@@ -101,11 +102,11 @@ export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, age
     });
   }
 
-  return { agent, scope, pack: pack.id, installRoot, manifestPath, legacyInstallRoot, files, warnings };
+  return { agent, scope, pack: pack.id, installRoot, manifestPath, legacyInstallRoot, sourceRoot, files, warnings };
 }
 
-function resolvePacks(packPath, resolving = new Set()) {
-  const pack = JSON.parse(fs.readFileSync(packPath, 'utf8'));
+function resolvePacks(sourceRoot, packPath, resolving = new Set()) {
+  const pack = JSON.parse(safeReadSourceFile(sourceRoot, packPath));
 
   if (resolving.has(pack.id)) {
     throw new Error(`pack dependency cycle: ${[...resolving, pack.id].join(' -> ')}`);
@@ -121,7 +122,7 @@ function resolvePacks(packPath, resolving = new Set()) {
       throw new Error(`pack dependency missing: ${dependency}`);
     }
 
-    packs.push(...resolvePacks(dependencyPath, nextResolving));
+    packs.push(...resolvePacks(sourceRoot, dependencyPath, nextResolving));
   }
 
   return [...uniqueById(packs), pack];

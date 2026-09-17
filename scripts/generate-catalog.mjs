@@ -42,7 +42,7 @@ const skills = skillFiles
 const catalog = {
   name: 'NgAutoPilot',
   description: 'Agnostic micro-skills for Angular, TypeScript and JavaScript development.',
-  version: '0.8.1',
+  version: '0.9.0',
   skills,
 };
 
@@ -152,8 +152,11 @@ function parseAngularCompatibility(content) {
     if (inCompatibility && /^\S.*:$/.test(line)) break;
     if (inCompatibility && /^\s{2}angular:\s*$/.test(line)) { inAngular = true; continue; }
     if (inAngular && /^\s{2}\S.*:$/.test(line)) break;
-    const bound = inAngular && line.match(/^\s{4}(min|max):\s*["']?(\d+)["']?\s*$/);
-    if (bound) result[bound[1]] = Number(bound[2]);
+    const bound = inAngular && line.match(/^\s{4}(min|max):\s*["']?(\d+)(?:\.(\d+))?["']?\s*$/);
+    if (bound) {
+      result[bound[1]] = Number(bound[2]);
+      if (bound[3] !== undefined) result[`${bound[1]}Minor`] = Number(bound[3]);
+    }
   }
   return result;
 }

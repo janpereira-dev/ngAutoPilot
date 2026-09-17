@@ -30,11 +30,11 @@ portal submission, or OpenAI approval.
 ## Release/tag path
 
 1. Run the release validation on the intended release branch and verify the resulting generated-artifact diff.
-2. Create an annotated or signed `v0.8.1` tag according to maintainer policy after all repository checks pass.
+2. Create an annotated or signed `v0.9.0` tag according to maintainer policy after all repository checks pass.
 3. Build the public archive and attach the ZIP plus checksum to the matching GitHub release.
 4. Submit through the applicable OpenAI workflow only after a release owner completes the human attestation.
 
-The packet in [`openai/submission/0.8.1/`](../openai/submission/0.8.1/) is intentionally honest: it records that the package is not submitted and not OpenAI verified. It does not claim portal approval or developer verification.
+The packet in [`openai/submission/0.9.0/`](../openai/submission/0.9.0/) is intentionally honest: it records that the package is not submitted and not OpenAI verified. It does not claim portal approval or developer verification.
 
 `ngautopilot-tools` remains a separate local Agent Plugin/MCP distribution and is deliberately excluded from this package.
 

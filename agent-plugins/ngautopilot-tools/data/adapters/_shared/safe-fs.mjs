@@ -122,6 +122,37 @@ export function safeReadFile(guard, rel) {
 }
 
 /**
+ * Read a regular source file from a declared immutable source root.
+ * Source files are never followed through symlinks, even when their target
+ * would remain inside the root, because installation sources must not change
+ * after planning.
+ * @param {string} sourceRoot
+ * @param {string} sourcePath
+ * @returns {string}
+ */
+export function safeReadSourceFile(sourceRoot, sourcePath) {
+  if (typeof sourceRoot !== 'string' || typeof sourcePath !== 'string') {
+    throw new SafeFsError('source_invalid', 'source root and path must be strings');
+  }
+  if (!fs.existsSync(sourceRoot)) {
+    throw new SafeFsError('source_root_missing', `source root missing: ${sourceRoot}`);
+  }
+  const sourceGuard = createRootGuard(sourceRoot);
+  const absoluteSource = path.resolve(sourcePath);
+  const relativeSource = path.relative(sourceGuard.root, absoluteSource);
+  if (relativeSource === '' || relativeSource.startsWith('..') || path.isAbsolute(relativeSource)) {
+    throw new SafeFsError('source_escape', `source escapes declared root: ${sourcePath}`);
+  }
+  const protectedSource = sourceGuard.resolve(relativeSource);
+  assertNoSymlinkParents(sourceGuard, protectedSource);
+  const stat = fs.lstatSync(protectedSource);
+  if (stat.isSymbolicLink() || !stat.isFile()) {
+    throw new SafeFsError('source_not_regular_file', `source is not a regular file: ${sourcePath}`);
+  }
+  return fs.readFileSync(protectedSource, 'utf8');
+}
+
+/**
  * Write a file inside the guard. Creates parent dirs. Never appends.
  * Idempotent: if existing content matches (same checksum) no write is performed.
  * @param {ReturnType<createRootGuard>} guard
@@ -178,8 +209,8 @@ export function safeCopyInto(guard, sourceRelOrAbs, destRel) {
   if (!fs.existsSync(source)) {
     throw new SafeFsError('source_missing', `source missing: ${sourceRelOrAbs}`);
   }
-  const stat = fs.statSync(source);
-  if (!stat.isFile()) {
+  const stat = fs.lstatSync(source);
+  if (stat.isSymbolicLink() || !stat.isFile()) {
     throw new SafeFsError('source_not_file', `source is not a file: ${sourceRelOrAbs}`);
   }
   const content = fs.readFileSync(source, 'utf8');
@@ -196,7 +227,7 @@ export function safeCopyInto(guard, sourceRelOrAbs, destRel) {
  */
 export function safeCopyDirInto(guard, sourceDir, destRel, filter) {
   const sourceAbs = path.resolve(sourceDir);
-  if (!fs.existsSync(sourceAbs) || !fs.statSync(sourceAbs).isDirectory()) {
+  if (!fs.existsSync(sourceAbs) || fs.lstatSync(sourceAbs).isSymbolicLink() || !fs.statSync(sourceAbs).isDirectory()) {
     throw new SafeFsError('source_dir_missing', `source directory missing: ${sourceDir}`);
   }
   const copied = [];

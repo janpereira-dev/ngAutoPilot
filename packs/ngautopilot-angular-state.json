@@ -1,7 +1,7 @@
 {
   "id": "ngautopilot-angular-state",
   "name": "NgAutoPilot Angular State",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "status": "stable",
   "description": "Signals, RxJS interoperability, and state-management guidance without unrelated Angular runtime concerns.",
   "audience": "Angular teams designing state and reactive data flow",

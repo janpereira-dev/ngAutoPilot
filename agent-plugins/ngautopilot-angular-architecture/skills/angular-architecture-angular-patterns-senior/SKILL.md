@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.angular-patterns-senior"
   ngautopilot-source: "skills/angular/architecture/angular-patterns-senior/SKILL.md"
-  ngautopilot-version: "0.8.1"
+  ngautopilot-version: "0.9.0"
 ---
 
 

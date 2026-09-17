@@ -307,7 +307,7 @@ The CI and release-gate workflows stay focused on deterministic validation. The 
 
 `openai:validate` is a read-only gate for canonical skill coverage, UTF-8/JSON, safe paths, exact legal URLs, skills-only capability scope, archive limits, and the required submission packet. The canonical source frontmatter remains authoritative and is validated by the existing skill validators; the public package is a generated distribution, not a second hand-maintained skill tree.
 
-The versioned packet at `openai/submission/0.8.1/` deliberately states that the package is **not submitted** and **not OpenAI verified**. The release owner must complete any portal actions and required human attestations before publication.
+The versioned packet at `openai/submission/0.9.0/` deliberately states that the package is **not submitted** and **not OpenAI verified**. The release owner must complete any portal actions and required human attestations before publication.
 ## Plugin Marketplaces
 
 NgAutoPilot ships marketplace manifests for Claude Code and Codex:

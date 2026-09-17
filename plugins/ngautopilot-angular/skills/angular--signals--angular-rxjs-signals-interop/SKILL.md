@@ -7,12 +7,15 @@ stack:
   - RxJS
 category: signals
 status: stable
-version: 0.8.1
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - rxjs signals interop
   - signals bridge
   - interop
+compatibility:
+  angular:
+    min: "16"
 ---
 
 # Angular RxJS Signals Interop

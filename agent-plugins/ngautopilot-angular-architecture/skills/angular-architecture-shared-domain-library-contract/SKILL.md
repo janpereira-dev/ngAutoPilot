@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.shared-domain-library-contract"
   ngautopilot-source: "skills/angular/architecture/shared-domain-library-contract/SKILL.md"
-  ngautopilot-version: "0.8.1"
+  ngautopilot-version: "0.9.0"
 ---
 
 

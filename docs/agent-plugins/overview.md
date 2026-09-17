@@ -1,6 +1,6 @@
 # Agent Plugins Preview
 
-NgAutoPilot `0.8.1` generates portable Agent Plugins 1.0 from canonical `skills/` and pack selection policy in `packs/`.
+NgAutoPilot `0.9.0` generates portable Agent Plugins 1.0 from canonical `skills/` and pack selection policy in `packs/`.
 
 Generated skill plugins are `ngautopilot-core`, `ngautopilot-angular-architecture`, `ngautopilot-angular-testing`, and `ngautopilot-angular-21-to-22`. Each focused plugin includes transitive Core skills.
 

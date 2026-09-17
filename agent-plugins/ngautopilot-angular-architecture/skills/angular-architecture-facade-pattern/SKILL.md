@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.facade-pattern"
   ngautopilot-source: "skills/angular/architecture/facade-pattern/SKILL.md"
-  ngautopilot-version: "0.8.1"
+  ngautopilot-version: "0.9.0"
 ---
 
 

@@ -7,7 +7,7 @@
 //
 // Strict TypeScript-style JSDoc. No `any`. Cross-platform via safe-fs.
 
-import { createRootGuard, safeReadFile, safeWriteFile, safeRemoveFile, safeCopyInto, safeCopyDirInto, safePruneManagedDir, safeExists, sha256, verifyChecksum, resolveUserRoot, SafeFsError } from './safe-fs.mjs';
+import { createRootGuard, safeReadFile, safeReadSourceFile, safeWriteFile, safeRemoveFile, safeCopyInto, safeCopyDirInto, safePruneManagedDir, safeExists, sha256, verifyChecksum, resolveUserRoot, SafeFsError } from './safe-fs.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -115,11 +115,14 @@ const MANIFEST_NAME = '.ngautopilot-manifest.json';
  * @returns {Object} manifest
  */
 export function loadAdapterManifest(adaptersRoot, agentId) {
+  if (!/^[a-z0-9][a-z0-9-]*$/.test(agentId)) {
+    throw new AdapterError('manifest_invalid', `invalid adapter id: ${agentId}`);
+  }
   const file = path.join(adaptersRoot, agentId, 'manifest.json');
   if (!fs.existsSync(file)) {
     throw new AdapterError('manifest_missing', `no manifest.json for adapter ${agentId}`);
   }
-  const json = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const json = JSON.parse(safeReadSourceFile(adaptersRoot, file));
   if (!json.id || json.id !== agentId) {
     throw new AdapterError('manifest_invalid', `manifest id mismatch: ${json.id} vs ${agentId}`);
   }
@@ -225,5 +228,5 @@ export class Adapter {
   }
 }
 
-export { createRootGuard, safeReadFile, safeWriteFile, safeRemoveFile, safeCopyInto, safeCopyDirInto, safePruneManagedDir, safeExists, sha256, verifyChecksum, SafeFsError, resolveUserRoot };
+export { createRootGuard, safeReadFile, safeReadSourceFile, safeWriteFile, safeRemoveFile, safeCopyInto, safeCopyDirInto, safePruneManagedDir, safeExists, sha256, verifyChecksum, SafeFsError, resolveUserRoot };
 export const MANIFEST_FILE = MANIFEST_NAME;

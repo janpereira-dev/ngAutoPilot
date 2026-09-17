@@ -1,6 +1,6 @@
 {
   "name": "ngautopilot-typescript",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "description": "TypeScript-focused skills for strict typing, DTO mappers, fundamentals, and safe modernization.",
   "author": {
     "name": "Jan Pereira",
