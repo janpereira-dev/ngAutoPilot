@@ -191,7 +191,7 @@ function platformCmd(args) {
   if (args.json) { jsonOut(result); return; }
   console.log(`NgAutoPilot ${result.version}: ${result.skills.count} skills, ${result.packs.count} packs, ${result.adapters.length} adapters, ${result.subagents.length} subagents.`);
   console.log(`Angular upgrade hops: ${result.angular.upgradeHops.map(({ from, to }) => `${from}->${to}`).join(', ')}`);
-  console.log(`Distribution: Claude=${result.distribution.claudeMarketplace}, Codex=${result.distribution.codexMarketplace}, OpenAI=${result.distribution.openaiPackage}, MCP=${result.distribution.mcpServer}`);
+  console.log(`Distribution: ${Object.entries(result.distribution).map(([name, surface]) => `${name}=${surface.availability} (${surface.manifest ?? surface.entry})`).join(', ')}`);
 }
 
 function qualityCmd(args) {

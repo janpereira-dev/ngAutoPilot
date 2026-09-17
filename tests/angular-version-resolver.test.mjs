@@ -29,6 +29,7 @@ test('resolves a nested Angular 12 project deterministically without migration h
     'ngautopilot-core',
   ]);
   assert.ok(result.included.some((item) => item.type === 'skill' && item.id === 'angular.versioning.angular-version-gates'));
+  assert.ok(result.included.some((item) => item.type === 'skill' && item.id === 'core.project-intake'));
   assert.equal(result.included.some((item) => item.id === 'angular.versioning.angular-v22-feature-index'), false);
   assert.ok(result.excluded.some((item) => item.id === 'angular.versioning.angular-v22-feature-index' && /requires Angular >=22/.test(item.reason)));
   assert.ok(result.excluded.some((item) => item.selector === 'angular.upgrade.hops.*'));
@@ -93,6 +94,18 @@ test('checks a package-only target against every Angular declaration', (t) => {
     declaration: '^12.1.0',
     commonDeclaration: '~12.1.0',
     lockfile: false,
+  });
+
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' }),
+    /outside declared @angular\/common ~12\.1\.0/,
+  );
+});
+
+test('checks a lockfile-confirmed target against every Angular declaration', (t) => {
+  const projectRoot = createProject(t, '12.2.17', {
+    declaration: '^12.1.0',
+    commonDeclaration: '~12.1.0',
   });
 
   assert.throws(
@@ -199,6 +212,14 @@ test('filters incompatible skills selected by capability packs', (t) => {
   ]) {
     assert.equal(result.included.some((item) => item.id === skillId), false, skillId);
     assert.ok(result.excluded.some((item) => item.id === skillId && /requires Angular >=22; detected 12/.test(item.reason)), skillId);
+  }
+  for (const skillId of [
+    'angular.forms.angular-typed-forms-governance',
+    'angular.router.angular-functional-guards-resolvers',
+    'angular.signals.angular-signals-fundamentals',
+  ]) {
+    assert.equal(result.included.some((item) => item.id === skillId), false, skillId);
+    assert.ok(result.excluded.some((item) => item.id === skillId && /requires an explicit Angular compatibility declaration; detected 12/.test(item.reason)), skillId);
   }
   assert.ok(result.included.some((item) => item.id === 'angular.performance.performance-audit'));
 });

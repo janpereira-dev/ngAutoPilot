@@ -19,6 +19,14 @@ test('reports platform and quality inventories as read-only JSON', () => {
   assert.equal(JSON.parse(quality.stdout).summary.skillCount, 413);
 });
 
+test('renders distribution metadata in the human-readable platform inventory', () => {
+  const platform = run('platform');
+
+  assert.equal(platform.status, 0, platform.stderr);
+  assert.doesNotMatch(platform.stdout, /\[object Object\]/);
+  assert.match(platform.stdout, /mcpServer=npm-and-agent-plugin \(mcp\/server-entry\.mjs\)/);
+});
+
 test('resolves a detected Angular project without installing or selecting a migration hop', (t) => {
   const projectRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-cli-angular-'));
   t.after(() => fs.rmSync(projectRoot, { recursive: true, force: true }));

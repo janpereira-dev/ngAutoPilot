@@ -38,6 +38,8 @@ test('reports platform assets and deterministic content signals without semantic
   assert.equal(inventory.angular.upgradeHops.some(({ from, to }) => from === 2 && to === 4), true);
   assert.equal(inventory.adapters.length, 10);
   assert.equal(inventory.subagents.length, 8);
+  assert.ok(inventory.subagents.some(({ id }) => id === 'athenian-angular-architect'));
+  assert.equal(inventory.subagents.some(({ id }) => /^\d+-/.test(id)), false);
   assert.equal(inventory.distribution.mcpServer.availability, 'npm-and-agent-plugin');
   assert.equal(inventory.distribution.openaiPackage.availability, 'source-only');
   const mirroredTools = createRepositoryTools({ root: path.join(root, 'agent-plugins', 'ngautopilot-tools', 'data') });
