@@ -33,7 +33,7 @@ test('keeps the committed MCP bundle synchronized with the lock-resolved Zod dep
   );
   assert.deepEqual(
     fs.readFileSync(path.join(root, bundlePath)),
-    execFileSync('git', ['show', `HEAD:${bundlePath}`], { cwd: root }),
+    execFileSync('git', ['show', `HEAD:${bundlePath}`], { cwd: root, maxBuffer: 8 * 1024 * 1024 }),
   );
   assert.doesNotThrow(() => execFileSync(
     'git',

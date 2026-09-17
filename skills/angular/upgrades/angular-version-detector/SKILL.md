@@ -30,7 +30,7 @@ Use this skill to detect the installed Angular major and the compatibility evide
 
 This skill only gathers version facts. It does not plan hops, change code, or run migrations.
 
-## When to Use This Skill
+## When to Use
 
 Use this skill when:
 

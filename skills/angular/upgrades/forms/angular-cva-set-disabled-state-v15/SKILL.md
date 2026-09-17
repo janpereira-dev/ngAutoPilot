@@ -25,7 +25,7 @@ compatibility:
 
 Use this skill to review custom `ControlValueAccessor` implementations for Angular 15 `setDisabledState` behavior.
 
-## When to Use This Skill
+## When to Use
 
 - The project contains custom CVAs.
 - Form controls have custom disabled behavior.

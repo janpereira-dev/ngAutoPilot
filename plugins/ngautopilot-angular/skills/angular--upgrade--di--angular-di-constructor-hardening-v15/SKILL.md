@@ -26,7 +26,7 @@ compatibility:
 
 Use this skill to review classes that inherit Angular DI or lifecycle behavior for Angular 15 hardening.
 
-## When to Use This Skill
+## When to Use
 
 - Base classes are used by components/directives.
 - Constructor DI or lifecycle hooks are inherited.

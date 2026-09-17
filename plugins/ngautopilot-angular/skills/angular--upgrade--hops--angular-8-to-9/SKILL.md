@@ -31,7 +31,7 @@ Use this skill to upgrade an Angular 8.x application to Angular 9.1.x in one bou
 
 This hop is a critical compatibility boundary because Angular 9 enables Ivy by default. It upgrades only from Angular 8 to Angular 9.1 and must not continue to Angular 10 or later. The next hop must be handled by a dedicated follow-up skill.
 
-## When to Use This Skill
+## When to Use
 
 Use this skill when:
 

@@ -23,12 +23,13 @@ test('resolves a nested Angular 12 project deterministically without migration h
   assert.deepEqual(result.target, { major: 12, minor: 2 });
   assert.equal(result.evidence.angular.source, 'package.json + lockfile');
   assert.equal(result.validation.level, 'lockfile-confirmed');
-  assert.deepEqual(result.included.filter((item) => item.type === 'pack').map((item) => item.id), [
+  assert.deepEqual(result.selection.sourcePacks.map((item) => item.id), [
     'ngautopilot-angular-testing',
     'ngautopilot-angular-ui',
     'ngautopilot-core',
   ]);
   assert.ok(result.included.some((item) => item.type === 'skill' && item.id === 'angular.versioning.angular-version-gates'));
+  assert.ok(result.included.some((item) => item.type === 'skill' && item.id === 'core.project-intake'));
   assert.equal(result.included.some((item) => item.id === 'angular.versioning.angular-v22-feature-index'), false);
   assert.ok(result.excluded.some((item) => item.id === 'angular.versioning.angular-v22-feature-index' && /requires Angular >=22/.test(item.reason)));
   assert.ok(result.excluded.some((item) => item.selector === 'angular.upgrade.hops.*'));
@@ -46,12 +47,39 @@ test('resolves Angular 15 package-only evidence and keeps capabilities determini
 
   assert.equal(result.validation.level, 'package-json-only');
   assert.deepEqual(result.capabilities, ['foundations', 'runtime']);
-  assert.deepEqual(result.included.filter((item) => item.type === 'pack').map((item) => item.id), [
+  assert.deepEqual(result.selection.sourcePacks.map((item) => item.id), [
     'ngautopilot-angular-foundations',
     'ngautopilot-angular-runtime',
     'ngautopilot-core',
   ]);
   assert.equal(result.included.some((item) => item.id === 'angular.versioning.angular-v22-risk-matrix'), false);
+});
+
+test('rejects detected and requested Angular majors outside the catalog support contract', (t) => {
+  const angularThree = createProject(t, '3.0.0');
+  const angularTwentyThree = createProject(t, '23.0.0');
+  const packageOnly = createProject(t, '12.1.0', {
+    declaration: '>=12.1.0',
+    commonDeclaration: '>=12.1.0',
+    lockfile: false,
+  });
+
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot: angularThree }),
+    /unsupported detected Angular major 3/,
+  );
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot: angularTwentyThree }),
+    /unsupported detected Angular major 23/,
+  );
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot: packageOnly, target: 3 }),
+    /unsupported requested Angular major 3/,
+  );
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot: packageOnly, target: 23 }),
+    /unsupported requested Angular major 23/,
+  );
 });
 
 test('accepts a package-only target within the declared Angular range', (t) => {
@@ -173,7 +201,31 @@ test('filters incompatible skills selected by capability packs', (t) => {
     assert.equal(result.included.some((item) => item.id === skillId), false, skillId);
     assert.ok(result.excluded.some((item) => item.id === skillId && /requires Angular >=22; detected 12/.test(item.reason)), skillId);
   }
+  const unboundedSkillId = 'angular.signals.angular-signal-state-pattern';
+  assert.equal(result.included.some((item) => item.id === unboundedSkillId), false, unboundedSkillId);
+  assert.ok(result.excluded.some((item) => item.id === unboundedSkillId && /requires an explicit Angular compatibility declaration; detected 12/.test(item.reason)));
   assert.ok(result.included.some((item) => item.id === 'angular.performance.performance-audit'));
+  assert.equal(result.selection.installable, false);
+  assert.match(result.selection.reason, /must not be installed directly/);
+});
+
+test('excludes capability skills before the Angular version that introduced their APIs', (t) => {
+  const projectRoot = createProject(t, '12.2.17');
+  const result = resolveAngularInstallation({
+    root: repositoryRoot,
+    projectRoot,
+    target: 12,
+    capabilities: ['state', 'ui'],
+  });
+
+  for (const skillId of [
+    'angular.signals.angular-signals-fundamentals',
+    'angular.forms.angular-typed-forms-governance',
+    'angular.router.angular-functional-guards-resolvers',
+  ]) {
+    assert.equal(result.included.some((item) => item.id === skillId), false, skillId);
+    assert.ok(result.excluded.some((item) => item.id === skillId && /requires Angular >=/.test(item.reason)), skillId);
+  }
 });
 
 test('accepts a lockfile version within a declared Angular range', (t) => {
@@ -190,6 +242,15 @@ test('rejects a lockfile version outside an exact Angular declaration', (t) => {
   assert.throws(
     () => resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' }),
     /package\.json @angular\/core 12\.2\.0 contradicts lockfile 12\.2\.17/,
+  );
+});
+
+test('rejects a lockfile version that contradicts a non-core Angular declaration', (t) => {
+  const projectRoot = createProject(t, '12.2.17', { declaration: '^12.1.0', commonDeclaration: '~12.1.0' });
+
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' }),
+    /package\.json @angular\/common ~12\.1\.0 contradicts lockfile 12\.2\.17/,
   );
 });
 
@@ -332,16 +393,16 @@ test('maps declared profiles to existing packs and includes Angular 22 versionin
   const essentials = resolveAngularInstallation({ root: repositoryRoot, projectRoot: angularTwelve, target: 12, profile: 'essentials' });
   const architecture = resolveAngularInstallation({ root: repositoryRoot, projectRoot: angularTwelve, target: 12, profile: 'architecture' });
   const migration = resolveAngularInstallation({ root: repositoryRoot, projectRoot: angularTwelve, target: 12, profile: 'migration' });
-  assert.ok(essentials.included.some((item) => item.type === 'pack' && item.id === 'ngautopilot-angular-foundations'));
-  assert.ok(architecture.included.some((item) => item.type === 'pack' && item.id === 'ngautopilot-angular-foundations'));
-  assert.ok(migration.included.some((item) => item.type === 'pack' && item.id === 'ngautopilot-core'));
+  assert.ok(essentials.selection.sourcePacks.some(({ id }) => id === 'ngautopilot-angular-foundations'));
+  assert.ok(architecture.selection.sourcePacks.some(({ id }) => id === 'ngautopilot-angular-foundations'));
+  assert.ok(migration.selection.sourcePacks.some(({ id }) => id === 'ngautopilot-core'));
   assert.equal(migration.included.some((item) => item.id.includes('angular.upgrade.hops')), false);
 
   const angularTwentyTwo = createProject(t, '22.0.1');
   const performance = resolveAngularInstallation({ root: repositoryRoot, projectRoot: angularTwentyTwo, target: '22.0', profile: 'performance' });
   const testing = resolveAngularInstallation({ root: repositoryRoot, projectRoot: angularTwentyTwo, target: 22, profile: 'testing' });
-  assert.ok(performance.included.some((item) => item.type === 'pack' && item.id === 'ngautopilot-angular-runtime'));
-  assert.ok(testing.included.some((item) => item.type === 'pack' && item.id === 'ngautopilot-angular-testing'));
+  assert.ok(performance.selection.sourcePacks.some(({ id }) => id === 'ngautopilot-angular-runtime'));
+  assert.ok(testing.selection.sourcePacks.some(({ id }) => id === 'ngautopilot-angular-testing'));
   assert.ok(performance.included.some((item) => item.id === 'angular.versioning.angular-v22-feature-index'));
   assert.equal(performance.excluded.some((item) => item.id === 'angular.versioning.angular-v22-feature-index'), false);
   assert.throws(

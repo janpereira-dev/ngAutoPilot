@@ -12,6 +12,9 @@ triggers:
   - functional guards
   - resolvers
   - router guards
+compatibility:
+  angular:
+    min: "15"
 ---
 
 # Angular Functional Guards Resolvers

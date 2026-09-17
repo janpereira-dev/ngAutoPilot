@@ -68,6 +68,16 @@ Adapter IDs are `claude`, `codex`, `copilot`, `cursor`, `gemini`, `generic`, `he
 
 Read [Pack Selection](docs/packs.md) for every pack, historical Angular hops, and agent examples. Read [Installation](docs/installation.md) for switching, updates, verification, export, and offline use.
 
+For evidence-backed selection in an Angular project (for example Angular 6 or
+Angular 12), use the non-mutating resolver before choosing a pack:
+
+```bash
+npm exec --package=ngautopilot -- ngautopilot angular --profile core --capabilities ui,testing --json
+```
+
+Read [Capability Platform](docs/capability-platform.md) for the Angular-era,
+MCP, adapter, quality-evaluation, local-research, and future-major contracts.
+
 ## Choose Right Entry Point
 
 | Entry point | Use it for | Does it select a focused pack? |

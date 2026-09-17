@@ -32,7 +32,7 @@ This skill does not upgrade Angular by itself. It determines whether the upgrade
 
 Angular 12 deprecates IE11 support. Angular 13 removes IE11 support.
 
-## When to Use This Skill
+## When to Use
 
 Use this skill when:
 

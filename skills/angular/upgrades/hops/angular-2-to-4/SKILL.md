@@ -31,7 +31,7 @@ Use this skill to upgrade an Angular 2.x application to Angular 4.x in one bound
 
 This skill upgrades only from Angular 2 to Angular 4. It must not continue to Angular 5 or later. The next hop must be handled by a dedicated follow-up skill.
 
-## When to Use This Skill
+## When to Use
 
 Use this skill when:
 

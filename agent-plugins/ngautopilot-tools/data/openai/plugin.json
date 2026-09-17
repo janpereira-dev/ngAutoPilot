@@ -1,0 +1,31 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ngautopilot-skills",
+  "version": "0.8.1",
+  "description": "A skills-only package of NgAutoPilot engineering guidance.",
+  "author": { "name": "Jan Pereira", "url": "https://github.com/janpereira-dev" },
+  "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
+  "repository": "https://github.com/janpereira-dev/ngAutoPilot",
+  "license": "MIT",
+  "keywords": ["angular", "agent-skills", "developer-tools", "ngautopilot"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "NgAutoPilot Skills",
+        "shortDescription": "Angular skills toolkit",
+        "longDescription": "NgAutoPilot provides reusable, version-aware skills for Angular upgrades, architecture, testing, TypeScript, JavaScript, frontend quality, and release validation. This package contains skills only and has no MCP server or external service connection.",
+        "developerName": "Jan Pereira",
+        "category": "Developer Tools",
+        "capabilities": ["skills"],
+        "defaultPrompt": "Use NgAutoPilot to identify the smallest relevant engineering skill and propose a bounded validation plan.",
+        "brandColor": "#0F172A",
+        "websiteURL": "https://github.com/janpereira-dev/ngAutoPilot",
+        "supportURL": "https://janpereira-dev.pages.dev/ngautopilot/support",
+        "privacyPolicyURL": "https://janpereira-dev.pages.dev/ngautopilot/privacy",
+        "termsOfServiceURL": "https://janpereira-dev.pages.dev/ngautopilot/terms",
+        "logo": "./assets/ngautopilot-icon.svg",
+        "composerIcon": "./assets/ngautopilot-icon.svg"
+      }
+    }
+  }
+}

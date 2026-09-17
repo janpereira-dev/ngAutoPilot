@@ -6,6 +6,9 @@
 //   ngautopilot list [--json]
 //   ngautopilot packs [--json]
 //   ngautopilot adapters [--json]
+//   ngautopilot angular [--target <major[.minor]>] [--profile <profile>] [--capabilities <comma-list>] [--json]
+//   ngautopilot platform [--json]
+//   ngautopilot quality [--json]
 //   ngautopilot install --agent <id> --pack <id> [--scope project|user] [--dry-run] [--yes] [--force] [--json]
 //   ngautopilot update --agent <id> [--pack <id>] [--scope project|user] [--dry-run] [--yes] [--force] [--json]
 //   ngautopilot uninstall --agent <id> [--scope project|user] [--dry-run] [--yes] [--force] [--json]
@@ -32,6 +35,7 @@ import { buildPlan } from '../adapters/_shared/planner.mjs';
 import { resolveProjectRoot } from '../adapters/_shared/install-roots.mjs';
 import { applyPlan, verifyInstall, uninstall, backup, restore, loadManifest, saveManifest } from '../adapters/_shared/installer.mjs';
 import { listAdapters, loadAdapterManifest, createRootGuard, safeWriteFile, safeCopyDirInto, resolveUserRoot, SafeFsError } from '../adapters/_shared/adapter-core.mjs';
+import { catalogQuality, platformInventory, resolveAngularInstallation } from '../lib/agent-plugins/repository.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const packageRoot = path.resolve(path.dirname(__filename), '..');
@@ -105,6 +109,13 @@ Usage:
   ngautopilot list [--json]                 List all catalog skills
   ngautopilot packs [--json]                List available packs
   ngautopilot adapters [--json]             List available agent adapters
+  ngautopilot angular                        Resolve compatible packs and skills for the Angular project in the current directory
+    [--target <major[.minor]>]               Require matching Angular target evidence
+    [--profile <profile>]                    core, essentials, architecture, performance, testing, or migration (default: core)
+    [--capabilities <comma-list>]            foundations, runtime, state, testing, ui
+    [--json]                                 Output the full evidence-backed resolution
+  ngautopilot platform [--json]             Inspect catalog, Angular coverage, adapters, subagents, and distribution surfaces
+  ngautopilot quality [--json]              Inspect deterministic content signals; not a semantic-quality claim
   ngautopilot install                       Install a pack for an agent
     --agent <id>                            Agent adapter id (codex, claude, opencode, ...)
     --pack <id>                             Pack to install (ngautopilot-core, ngautopilot-angular, ...)
@@ -154,6 +165,46 @@ function listAdaptersCmd(args) {
   const manifests = ids.map(id => loadAdapterManifest(adaptersRoot, id));
   if (args.json) { jsonOut({ count: manifests.length, adapters: manifests }); return; }
   for (const m of manifests) console.log(`${m.id} :: ${m.name} [${m.status}] scope=${m.scope.join('|')}`);
+}
+
+function angularCmd(args) {
+  const capabilities = args.capabilities
+    ? String(args.capabilities).split(',').map((capability) => capability.trim()).filter(Boolean)
+    : [];
+  const result = resolveAngularInstallation({
+    root: packageRoot,
+    projectRoot: process.cwd(),
+    target: args.target,
+    profile: args.profile || 'core',
+    capabilities,
+  });
+  if (args.json) { jsonOut(result); return; }
+  console.log(`Angular ${result.evidence.angular.version} (${result.validation.level}) -> profile ${result.profile}`);
+  console.log(`Selection source packs: ${result.selection.sourcePacks.map(({ id }) => id).join(', ') || 'none'}`);
+  console.log(`Compatible skills: ${result.included.filter(({ type }) => type === 'skill').length}`);
+  console.log(`Excluded skills: ${result.excluded.filter(({ type }) => type === 'skill').length}`);
+  console.log(result.selection.reason);
+  console.log('No migration hop is installed by this command. Use upgrade.plan or an explicit ngautopilot-angular-<from>-to-<to> pack for a bounded upgrade.');
+}
+
+function platformCmd(args) {
+  const result = platformInventory(packageRoot);
+  if (args.json) { jsonOut(result); return; }
+  console.log(`NgAutoPilot ${result.version}: ${result.skills.count} skills, ${result.packs.count} packs, ${result.adapters.length} adapters, ${result.subagents.length} subagents.`);
+  console.log(`Angular upgrade hops: ${result.angular.upgradeHops.map(({ from, to }) => `${from}->${to}`).join(', ')}`);
+  console.log(`Distribution: ${formatDistribution('Claude', result.distribution.claudeMarketplace)}, ${formatDistribution('Codex', result.distribution.codexMarketplace)}, ${formatDistribution('OpenAI', result.distribution.openaiPackage)}, ${formatDistribution('MCP', result.distribution.mcpServer)}`);
+}
+
+function formatDistribution(name, distribution) {
+  const location = distribution.manifest ?? distribution.entry ?? distribution.plugin ?? 'unspecified';
+  return `${name}=${distribution.availability} (${location})`;
+}
+
+function qualityCmd(args) {
+  const result = catalogQuality(packageRoot);
+  if (args.json) { jsonOut(result); return; }
+  console.log(`Content signals: ${result.summary.skillCount} skills, ${result.summary.totalWords} words, ${result.summary.reviewNeededCount} requiring structural review.`);
+  console.log(result.semanticEvaluation);
 }
 
 function installCmd(args) {
@@ -352,6 +403,9 @@ try {
     case 'list': listSkills(args); break;
     case 'packs': listPacks(args); break;
     case 'adapters': listAdaptersCmd(args); break;
+    case 'angular': angularCmd(args); break;
+    case 'platform': platformCmd(args); break;
+    case 'quality': qualityCmd(args); break;
     case 'install': installCmd(args); break;
     case 'update': updateCmd(args); break;
     case 'uninstall': uninstallCmd(args); break;

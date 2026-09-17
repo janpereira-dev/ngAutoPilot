@@ -14,7 +14,7 @@ const descriptions = {
   'ngautopilot-angular-architecture': 'Focused Angular architecture, component, dependency-boundary, and service-design guidance.',
   'ngautopilot-angular-testing': 'Focused Angular TestBed, component test, visual validation, and test-stability guidance.',
   'ngautopilot-angular-21-to-22': 'Bounded Angular 21 to 22 upgrade preflight, execution, compatibility, and validation guidance.',
-  'ngautopilot-tools': 'Read-only NgAutoPilot MCP tools for catalog, pack, compatibility, upgrade, and repository inspection.',
+  'ngautopilot-tools': 'Read-only NgAutoPilot MCP tools for catalog, Angular compatibility, upgrade coverage, packs, adapters, subagents, and repository inspection.',
 };
 
 export function syncAgentPlugins({ root = process.cwd() } = {}) {
@@ -84,6 +84,16 @@ function syncMcpPlugin({ root, pluginDir, version }) {
   fs.copyFileSync(path.join(root, 'package.json'), path.join(dataDir, 'package.json'));
   fs.copyFileSync(path.join(root, 'package-lock.json'), path.join(dataDir, 'package-lock.json'));
   fs.cpSync(path.join(root, 'packs'), path.join(dataDir, 'packs'), { recursive: true, dereference: false });
+  // The generated catalog carries compatibility and structural content signals,
+  // so the MCP can answer from a compact, read-only mirror without duplicating
+  // the full skill corpus inside its plugin package.
+  fs.cpSync(path.join(root, 'adapters'), path.join(dataDir, 'adapters'), { recursive: true, dereference: false });
+  fs.cpSync(path.join(root, 'agents'), path.join(dataDir, 'agents'), { recursive: true, dereference: false });
+  fs.cpSync(path.join(root, '.claude-plugin'), path.join(dataDir, '.claude-plugin'), { recursive: true, dereference: false });
+  fs.mkdirSync(path.join(dataDir, '.agents', 'plugins'), { recursive: true });
+  fs.copyFileSync(path.join(root, '.agents', 'plugins', 'marketplace.json'), path.join(dataDir, '.agents', 'plugins', 'marketplace.json'));
+  fs.mkdirSync(path.join(dataDir, 'openai'), { recursive: true });
+  fs.copyFileSync(path.join(root, 'openai', 'plugin.json'), path.join(dataDir, 'openai', 'plugin.json'));
   buildSync({
     absWorkingDir: root,
     entryPoints: ['mcp/server-entry.mjs'],
@@ -108,7 +118,7 @@ function syncMcpPlugin({ root, pluginDir, version }) {
       },
     },
   }, null, 2)}\n`, 'utf8');
-  fs.writeFileSync(path.join(skillDir, 'SKILL.md'), `---\nname: ngautopilot-tooling\ndescription: Uses read-only NgAutoPilot MCP tools to inspect catalog skills, packs, stack metadata, compatibility, upgrade hops, and repository consistency. Use when a task needs deterministic NgAutoPilot repository evidence.\nlicense: MIT\nmetadata:\n  ngautopilot-id: "tools.read-only-mcp"\n  ngautopilot-version: "${version}"\n---\n\nUse the ngautopilot MCP server for repository inspection. Tools do not modify repository files, dependencies, or Git state.\n`, 'utf8');
+  fs.writeFileSync(path.join(skillDir, 'SKILL.md'), `---\nname: ngautopilot-tooling\ndescription: Uses read-only NgAutoPilot MCP tools to inspect catalog skills, content signals, packs, adapters, subagents, stack metadata, Angular compatibility, upgrade hops, and repository consistency. Use when a task needs deterministic NgAutoPilot repository evidence.\nlicense: MIT\nmetadata:\n  ngautopilot-id: "tools.read-only-mcp"\n  ngautopilot-version: "${version}"\n---\n\nUse the ngautopilot MCP server for repository inspection. Tools do not modify repository files, dependencies, or Git state.\n`, 'utf8');
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

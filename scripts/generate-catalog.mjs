@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const skillsRoot = 'skills';
 const catalogPath = 'catalog.json';
+const requiredSections = ['## Purpose', '## When to Use', '## Do', '## Do Not', '## Review Checklist', '## Expected Output'];
 
 const skillFiles = findSkillFiles(skillsRoot);
 
@@ -15,6 +16,8 @@ const skills = skillFiles
       throw new Error(`${file}: missing frontmatter block`);
     }
 
+    const missingSections = missingRequiredSections(content);
+
     return {
       id: metadata.id,
       name: metadata.name,
@@ -24,6 +27,14 @@ const skills = skillFiles
       status: metadata.status,
       version: metadata.version,
       triggers: metadata.triggers,
+      compatibility: parseAngularCompatibility(content),
+      contentSignals: {
+        requiredSections: missingSections.length === 0,
+        ...(missingSections.length > 0 ? { missingRequiredSections: missingSections } : {}),
+        hasProcedure: content.includes('## Procedure') || content.includes('## Execution Workflow'),
+        hasRisks: content.includes('## Risks'),
+        wordCount: content.trim().split(/\s+/).filter(Boolean).length,
+      },
     };
   })
   .sort((left, right) => left.id.localeCompare(right.id));
@@ -128,4 +139,29 @@ function isTopLevelKey(line) {
 
 function toPosixPath(value) {
   return value.split(path.sep).join('/');
+}
+
+function parseAngularCompatibility(content) {
+  const frontmatter = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!frontmatter) return {};
+  let inCompatibility = false;
+  let inAngular = false;
+  const result = {};
+  for (const line of frontmatter[1].split(/\r?\n/)) {
+    if (/^compatibility:\s*$/.test(line)) { inCompatibility = true; continue; }
+    if (inCompatibility && /^\S.*:$/.test(line)) break;
+    if (inCompatibility && /^\s{2}angular:\s*$/.test(line)) { inAngular = true; continue; }
+    if (inAngular && /^\s{2}\S.*:$/.test(line)) break;
+    const bound = inAngular && line.match(/^\s{4}(min|max):\s*["']?(\d+)["']?\s*$/);
+    if (bound) result[bound[1]] = Number(bound[2]);
+  }
+  return result;
+}
+
+function missingRequiredSections(content) {
+  return requiredSections.filter((section) => !hasExactHeading(content, section));
+}
+
+function hasExactHeading(content, heading) {
+  return content.split(/\r?\n/).some((line) => line.trimEnd() === heading);
 }

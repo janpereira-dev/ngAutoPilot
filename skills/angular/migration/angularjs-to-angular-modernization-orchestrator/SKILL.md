@@ -35,7 +35,7 @@ This skill does not perform the full migration itself. It detects AngularJS evid
 
 The default target is Angular 21. If the project or delivery constraints require a different target major, that must be stated explicitly before any code changes.
 
-## When to Use This Skill
+## When to Use
 
 Use this skill when:
 

@@ -1,14 +1,21 @@
 # MCP and ChatGPT Integration
 
-NgAutoPilot ships a read-only stdio Model Context Protocol server as part of the `ngautopilot-tools` Agent Plugin. It reads bundled catalog and pack metadata; it does not edit applications, install dependencies, run migrations, or change Git state.
+NgAutoPilot ships a read-only stdio Model Context Protocol server as part of the `ngautopilot-tools` Agent Plugin. It reads bundled catalog metadata (including generated compatibility and content signals), pack, adapter, subagent, and distribution metadata; it does not edit applications, install dependencies, run migrations, or change Git state.
 
 ## Available tools
 
 - `catalog.search` — find catalog skills.
+- `catalog.quality` — inspect deterministic structural content signals. It is not a semantic-quality claim.
 - `pack.list` and `pack.resolve` — inspect packs and dependencies.
+- `platform.inventory` — list skill families, Angular-hop coverage, packs, adapters, subagents, distribution surfaces, and content-signal totals.
 - `project.inspect` and `stack.detect` — inspect repository metadata.
+- `angular.installation.resolve` — read a supplied local Angular project's package metadata and lockfile to resolve compatible non-migration guidance.
 - `skill.route`, `compatibility.check`, and `upgrade.plan` — select relevant guidance.
 - `repository.validate` — validate catalog and pack consistency.
+
+`angular.installation.resolve` can read only the local path explicitly supplied
+to the MCP host. Treat that path as local project metadata and do not supply a
+directory containing secrets or material that is outside the task scope.
 
 ## Supported transport
 

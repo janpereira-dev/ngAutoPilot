@@ -29,7 +29,7 @@ Use this skill to migrate Angular reactive forms to typed forms in bounded slice
 
 This skill does not upgrade Angular itself. It focuses on the form model and supports either typed migration or an untyped bridge when the project is too large or risky to convert all at once.
 
-## When to Use This Skill
+## When to Use
 
 Use this skill when:
 
