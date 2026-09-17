@@ -191,7 +191,12 @@ function platformCmd(args) {
   if (args.json) { jsonOut(result); return; }
   console.log(`NgAutoPilot ${result.version}: ${result.skills.count} skills, ${result.packs.count} packs, ${result.adapters.length} adapters, ${result.subagents.length} subagents.`);
   console.log(`Angular upgrade hops: ${result.angular.upgradeHops.map(({ from, to }) => `${from}->${to}`).join(', ')}`);
-  console.log(`Distribution: ${Object.entries(result.distribution).map(([name, surface]) => `${name}=${surface.availability} (${surface.manifest ?? surface.entry})`).join(', ')}`);
+  console.log(`Distribution: ${formatDistribution('Claude', result.distribution.claudeMarketplace)}, ${formatDistribution('Codex', result.distribution.codexMarketplace)}, ${formatDistribution('OpenAI', result.distribution.openaiPackage)}, ${formatDistribution('MCP', result.distribution.mcpServer)}`);
+}
+
+function formatDistribution(name, distribution) {
+  const location = distribution.manifest ?? distribution.entry ?? distribution.plugin ?? 'unspecified';
+  return `${name}=${distribution.availability} (${location})`;
 }
 
 function qualityCmd(args) {

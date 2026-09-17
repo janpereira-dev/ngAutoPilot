@@ -23,8 +23,10 @@ test('renders distribution metadata in the human-readable platform inventory', (
   const platform = run('platform');
 
   assert.equal(platform.status, 0, platform.stderr);
+  assert.match(platform.stdout, /Claude=repository-manifest \(\.claude-plugin\/marketplace\.json\)/);
+  assert.match(platform.stdout, /OpenAI=source-only \(openai\/plugin\.json\)/);
+  assert.match(platform.stdout, /MCP=npm-and-agent-plugin \(mcp\/server-entry\.mjs\)/);
   assert.doesNotMatch(platform.stdout, /\[object Object\]/);
-  assert.match(platform.stdout, /mcpServer=npm-and-agent-plugin \(mcp\/server-entry\.mjs\)/);
 });
 
 test('resolves a detected Angular project without installing or selecting a migration hop', (t) => {
