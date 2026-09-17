@@ -201,9 +201,6 @@ test('filters incompatible skills selected by capability packs', (t) => {
     assert.equal(result.included.some((item) => item.id === skillId), false, skillId);
     assert.ok(result.excluded.some((item) => item.id === skillId && /requires Angular >=22; detected 12/.test(item.reason)), skillId);
   }
-  const unboundedSkillId = 'angular.signals.angular-signal-state-pattern';
-  assert.equal(result.included.some((item) => item.id === unboundedSkillId), false, unboundedSkillId);
-  assert.ok(result.excluded.some((item) => item.id === unboundedSkillId && /requires an explicit Angular compatibility declaration; detected 12/.test(item.reason)));
   assert.ok(result.included.some((item) => item.id === 'angular.performance.performance-audit'));
   assert.equal(result.selection.installable, false);
   assert.match(result.selection.reason, /must not be installed directly/);
@@ -220,12 +217,24 @@ test('excludes capability skills before the Angular version that introduced thei
 
   for (const skillId of [
     'angular.signals.angular-signals-fundamentals',
+    'angular.signals.angular-signal-state-pattern',
+    'angular.signals.angular-rxjs-signals-interop',
     'angular.forms.angular-typed-forms-governance',
     'angular.router.angular-functional-guards-resolvers',
   ]) {
     assert.equal(result.included.some((item) => item.id === skillId), false, skillId);
     assert.ok(result.excluded.some((item) => item.id === skillId && /requires Angular >=/.test(item.reason)), skillId);
   }
+});
+
+test('uses Angular 14.2 as the functional-guard compatibility boundary', (t) => {
+  const projectRoot = createProject(t, '14.1.0', { declaration: '>=14.1.0', commonDeclaration: '>=14.1.0', lockfile: false });
+  const beforeBoundary = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '14.1', capabilities: ['ui'] });
+  const atBoundary = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '14.2', capabilities: ['ui'] });
+  const skillId = 'angular.router.angular-functional-guards-resolvers';
+
+  assert.ok(beforeBoundary.excluded.some((item) => item.id === skillId && /requires Angular >=14\.2; target 14\.1/.test(item.reason)));
+  assert.ok(atBoundary.included.some((item) => item.id === skillId && /declared minimum 14\.2/.test(item.reason)));
 });
 
 test('accepts a lockfile version within a declared Angular range', (t) => {

@@ -12,6 +12,9 @@ triggers:
   - signal state
   - state pattern
   - signals state
+compatibility:
+  angular:
+    min: "16"
 ---
 
 # Angular Signal State Pattern

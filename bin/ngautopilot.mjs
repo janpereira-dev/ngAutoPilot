@@ -179,7 +179,7 @@ function angularCmd(args) {
     capabilities,
   });
   if (args.json) { jsonOut(result); return; }
-  console.log(`Angular ${result.evidence.angular.version} (${result.validation.level}) -> profile ${result.profile}`);
+  console.log(`Angular evidence ${result.evidence.angular.version} (${result.validation.level}); effective target Angular ${formatAngularTarget(result.target)} -> profile ${result.profile}`);
   console.log(`Selection source packs: ${result.selection.sourcePacks.map(({ id }) => id).join(', ') || 'none'}`);
   console.log(`Compatible skills: ${result.included.filter(({ type }) => type === 'skill').length}`);
   console.log(`Excluded skills: ${result.excluded.filter(({ type }) => type === 'skill').length}`);
@@ -198,6 +198,10 @@ function platformCmd(args) {
 function formatDistribution(name, distribution) {
   const location = distribution.manifest ?? distribution.entry ?? distribution.plugin ?? 'unspecified';
   return `${name}=${distribution.availability} (${location})`;
+}
+
+function formatAngularTarget(target) {
+  return target.minor === undefined ? String(target.major) : `${target.major}.${target.minor}`;
 }
 
 function qualityCmd(args) {

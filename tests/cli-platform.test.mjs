@@ -51,6 +51,20 @@ test('resolves a detected Angular project without installing or selecting a migr
   assert.ok(resolution.excluded.some(({ selector }) => selector === 'angular.upgrade.hops.*'));
 });
 
+test('renders the effective Angular target alongside package-only evidence', (t) => {
+  const projectRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-cli-angular-target-'));
+  t.after(() => fs.rmSync(projectRoot, { recursive: true, force: true }));
+  fs.writeFileSync(path.join(projectRoot, 'package.json'), `${JSON.stringify({
+    private: true,
+    dependencies: { '@angular/core': '>=12.1.0', '@angular/common': '>=12.1.0' },
+  }, null, 2)}\n`);
+
+  const result = run('angular', '--target', '22', { cwd: projectRoot });
+
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(result.stdout, /Angular evidence >=12\.1\.0 \(package-json-only\); effective target Angular 22/);
+});
+
 function run(...args) {
   const options = typeof args.at(-1) === 'object' && !Array.isArray(args.at(-1)) ? args.pop() : {};
   return spawnSync(process.execPath, [cli, ...args], { encoding: 'utf8', ...options });

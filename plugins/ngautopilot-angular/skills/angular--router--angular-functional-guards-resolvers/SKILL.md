@@ -14,7 +14,7 @@ triggers:
   - router guards
 compatibility:
   angular:
-    min: "15"
+    min: "14.2"
 ---
 
 # Angular Functional Guards Resolvers

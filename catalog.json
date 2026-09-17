@@ -3460,7 +3460,8 @@
         "router guards"
       ],
       "compatibility": {
-        "min": 15
+        "min": 14,
+        "minMinor": 2
       },
       "contentSignals": {
         "requiredSections": true,
@@ -3838,12 +3839,14 @@
         "signals bridge",
         "interop"
       ],
-      "compatibility": {},
+      "compatibility": {
+        "min": 16
+      },
       "contentSignals": {
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 519
+        "wordCount": 523
       }
     },
     {
@@ -3861,12 +3864,14 @@
         "state pattern",
         "signals state"
       ],
-      "compatibility": {},
+      "compatibility": {
+        "min": 16
+      },
       "contentSignals": {
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 517
+        "wordCount": 521
       }
     },
     {

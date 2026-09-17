@@ -13,6 +13,9 @@ triggers:
   - rxjs signals interop
   - signals bridge
   - interop
+compatibility:
+  angular:
+    min: "16"
 ---
 
 # Angular RxJS Signals Interop
