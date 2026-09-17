@@ -32,7 +32,7 @@ This skill does not plan hops or change code. It checks the repository using the
 
 Validate exactly one Angular major hop per gate. If the request combines multiple major hops, return `BLOCKED` and ask for a separate validation after each hop.
 
-## When to Use This Skill
+## When to Use
 
 Use this skill when:
 

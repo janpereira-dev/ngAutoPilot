@@ -31,7 +31,7 @@ Use this skill to upgrade an Angular 12.x application to Angular 13.x in one bou
 
 This hop is a hard compatibility boundary because Angular 13 removes IE11 support and makes Ivy the only rendering engine. It upgrades only from Angular 12 to Angular 13 and must not continue to Angular 14 or later. The next hop must be handled by a dedicated follow-up skill.
 
-## When to Use This Skill
+## When to Use
 
 Use this skill when:
 

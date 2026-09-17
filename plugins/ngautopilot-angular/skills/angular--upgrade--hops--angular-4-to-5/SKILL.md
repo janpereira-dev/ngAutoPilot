@@ -31,7 +31,7 @@ Use this skill to upgrade an Angular 4.x application to Angular 5.2.x in one bou
 
 This skill upgrades only from Angular 4 to Angular 5.2. It must not continue to Angular 6 or later. The next hop must be handled by a dedicated follow-up skill.
 
-## When to Use This Skill
+## When to Use
 
 Use this skill when:
 

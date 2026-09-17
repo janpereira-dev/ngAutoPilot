@@ -31,7 +31,7 @@ Use this skill to upgrade an Angular 13.x application to Angular 14.x in one bou
 
 This hop is a high-control migration boundary because Angular 14 introduces typed forms and several Angular Material/CDK, Router, JSONP, animation, testing, and lazy-loading behavior changes. It upgrades only from Angular 13 to Angular 14 and must not continue to Angular 15 or later. The next hop must be handled by a dedicated follow-up skill.
 
-## When to Use This Skill
+## When to Use
 
 Use this skill when:
 

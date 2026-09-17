@@ -31,7 +31,7 @@ Use this skill to upgrade an Angular 10.x application to Angular 11.x in one bou
 
 This hop belongs to the Angular 6+ strict upgrade zone. It upgrades only from Angular 10 to Angular 11 and must not continue to Angular 12 or later. The next hop must be handled by a dedicated follow-up skill.
 
-## When to Use This Skill
+## When to Use
 
 Use this skill when:
 
