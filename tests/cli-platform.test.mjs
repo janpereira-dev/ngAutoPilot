@@ -45,7 +45,8 @@ test('resolves a detected Angular project without installing or selecting a migr
   assert.equal(result.status, 0, result.stderr);
   const resolution = JSON.parse(result.stdout);
   assert.equal(resolution.evidence.angular.major, 12);
-  assert.ok(resolution.included.some(({ id, type }) => type === 'pack' && id === 'ngautopilot-angular-testing'));
+  assert.ok(resolution.selection.sourcePacks.some(({ id }) => id === 'ngautopilot-angular-testing'));
+  assert.equal(resolution.selection.installable, false);
   assert.ok(resolution.excluded.some(({ selector }) => selector === 'angular.upgrade.hops.*'));
 });
 

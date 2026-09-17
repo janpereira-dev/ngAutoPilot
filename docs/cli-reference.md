@@ -20,8 +20,9 @@ List available agent adapters with status and scope.
 
 ### `ngautopilot angular [--target <major[.minor]>] [--profile <profile>] [--capabilities <comma-list>] [--json]`
 
-Resolve compatible **non-migration** packs and skills for the Angular project at
-the current directory. The command reads the nearest `package.json` and a
+Resolve compatible **non-migration** skills for the Angular project at the
+current directory, and report the unfiltered source packs that selected them.
+The command reads the nearest `package.json` and a
 supported lockfile when available. It writes nothing.
 
 ```bash
@@ -34,8 +35,10 @@ Profiles: `core`, `essentials`, `architecture`, `performance`, `testing`, and
 all declared Angular ranges when no lockfile is present.
 
 This resolver does not install files and intentionally excludes upgrade hops
-and modernization. Install a named `ngautopilot-angular-<from>-to-<to>` pack
-only for the explicit, bounded migration step.
+and modernization. Its source-pack list is not an install plan: do not install
+one of those unfiltered packs when the resolution has exclusions. Install a
+named `ngautopilot-angular-<from>-to-<to>` pack only for the explicit, bounded
+migration step.
 
 ### `ngautopilot platform [--json]`
 

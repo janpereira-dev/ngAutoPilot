@@ -46,9 +46,11 @@ npm exec --package=ngautopilot -- ngautopilot install \
 
 Current profiles are `core`, `essentials`, `architecture`, `performance`,
 `testing`, and `migration`. Current optional capabilities are `foundations`,
-`runtime`, `state`, `testing`, and `ui`. A resolver is a selection report; the
-installer remains explicitly pack-based so it never silently combines migration
-or modernization work with daily-work guidance.
+`runtime`, `state`, `testing`, and `ui`. A resolver is a filtered selection
+report, not an installer plan: its `sourcePacks` explain where skills came from,
+but remain unfiltered and must not be installed directly when the report has
+exclusions. The installer remains explicitly pack-based so it never silently
+combines migration or modernization work with daily-work guidance.
 
 ## Naming Contract
 

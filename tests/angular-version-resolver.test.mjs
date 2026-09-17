@@ -23,7 +23,7 @@ test('resolves a nested Angular 12 project deterministically without migration h
   assert.deepEqual(result.target, { major: 12, minor: 2 });
   assert.equal(result.evidence.angular.source, 'package.json + lockfile');
   assert.equal(result.validation.level, 'lockfile-confirmed');
-  assert.deepEqual(result.included.filter((item) => item.type === 'pack').map((item) => item.id), [
+  assert.deepEqual(result.selection.sourcePacks.map((item) => item.id), [
     'ngautopilot-angular-testing',
     'ngautopilot-angular-ui',
     'ngautopilot-core',
@@ -46,7 +46,7 @@ test('resolves Angular 15 package-only evidence and keeps capabilities determini
 
   assert.equal(result.validation.level, 'package-json-only');
   assert.deepEqual(result.capabilities, ['foundations', 'runtime']);
-  assert.deepEqual(result.included.filter((item) => item.type === 'pack').map((item) => item.id), [
+  assert.deepEqual(result.selection.sourcePacks.map((item) => item.id), [
     'ngautopilot-angular-foundations',
     'ngautopilot-angular-runtime',
     'ngautopilot-core',
@@ -201,6 +201,8 @@ test('filters incompatible skills selected by capability packs', (t) => {
     assert.ok(result.excluded.some((item) => item.id === skillId && /requires Angular >=22; detected 12/.test(item.reason)), skillId);
   }
   assert.ok(result.included.some((item) => item.id === 'angular.performance.performance-audit'));
+  assert.equal(result.selection.installable, false);
+  assert.match(result.selection.reason, /must not be installed directly/);
 });
 
 test('excludes capability skills before the Angular version that introduced their APIs', (t) => {
@@ -387,16 +389,16 @@ test('maps declared profiles to existing packs and includes Angular 22 versionin
   const essentials = resolveAngularInstallation({ root: repositoryRoot, projectRoot: angularTwelve, target: 12, profile: 'essentials' });
   const architecture = resolveAngularInstallation({ root: repositoryRoot, projectRoot: angularTwelve, target: 12, profile: 'architecture' });
   const migration = resolveAngularInstallation({ root: repositoryRoot, projectRoot: angularTwelve, target: 12, profile: 'migration' });
-  assert.ok(essentials.included.some((item) => item.type === 'pack' && item.id === 'ngautopilot-angular-foundations'));
-  assert.ok(architecture.included.some((item) => item.type === 'pack' && item.id === 'ngautopilot-angular-foundations'));
-  assert.ok(migration.included.some((item) => item.type === 'pack' && item.id === 'ngautopilot-core'));
+  assert.ok(essentials.selection.sourcePacks.some(({ id }) => id === 'ngautopilot-angular-foundations'));
+  assert.ok(architecture.selection.sourcePacks.some(({ id }) => id === 'ngautopilot-angular-foundations'));
+  assert.ok(migration.selection.sourcePacks.some(({ id }) => id === 'ngautopilot-core'));
   assert.equal(migration.included.some((item) => item.id.includes('angular.upgrade.hops')), false);
 
   const angularTwentyTwo = createProject(t, '22.0.1');
   const performance = resolveAngularInstallation({ root: repositoryRoot, projectRoot: angularTwentyTwo, target: '22.0', profile: 'performance' });
   const testing = resolveAngularInstallation({ root: repositoryRoot, projectRoot: angularTwentyTwo, target: 22, profile: 'testing' });
-  assert.ok(performance.included.some((item) => item.type === 'pack' && item.id === 'ngautopilot-angular-runtime'));
-  assert.ok(testing.included.some((item) => item.type === 'pack' && item.id === 'ngautopilot-angular-testing'));
+  assert.ok(performance.selection.sourcePacks.some(({ id }) => id === 'ngautopilot-angular-runtime'));
+  assert.ok(testing.selection.sourcePacks.some(({ id }) => id === 'ngautopilot-angular-testing'));
   assert.ok(performance.included.some((item) => item.id === 'angular.versioning.angular-v22-feature-index'));
   assert.equal(performance.excluded.some((item) => item.id === 'angular.versioning.angular-v22-feature-index'), false);
   assert.throws(
