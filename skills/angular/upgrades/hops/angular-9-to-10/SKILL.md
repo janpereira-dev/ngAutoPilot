@@ -31,7 +31,7 @@ Use this skill to upgrade an Angular 9.x application to Angular 10.2.x in one bo
 
 This hop is part of the Angular 6+ strict upgrade zone and follows the Ivy boundary introduced in Angular 9. It upgrades only from Angular 9 to Angular 10.2 and must not continue to Angular 11 or later. The next hop must be handled by a dedicated follow-up skill.
 
-## When to Use This Skill
+## When to Use
 
 Use this skill when:
 

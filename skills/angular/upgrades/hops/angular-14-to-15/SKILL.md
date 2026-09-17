@@ -31,7 +31,7 @@ Use this skill to upgrade an Angular 14.x application to Angular 15.x in one bou
 
 This hop is a compatibility boundary where Material, router, forms, signals, security, tests, and library packaging changes may surface. It upgrades only from Angular 14 to Angular 15 and must not continue to Angular 16 or later. The next hop must be handled by a dedicated follow-up skill.
 
-## When to Use This Skill
+## When to Use
 
 Use this skill when:
 

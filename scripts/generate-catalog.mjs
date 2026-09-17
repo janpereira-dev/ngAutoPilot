@@ -16,6 +16,8 @@ const skills = skillFiles
       throw new Error(`${file}: missing frontmatter block`);
     }
 
+    const missingSections = missingRequiredSections(content);
+
     return {
       id: metadata.id,
       name: metadata.name,
@@ -27,7 +29,8 @@ const skills = skillFiles
       triggers: metadata.triggers,
       compatibility: parseAngularCompatibility(content),
       contentSignals: {
-        requiredSections: requiredSections.every((section) => content.includes(section)),
+        requiredSections: missingSections.length === 0,
+        ...(missingSections.length > 0 ? { missingRequiredSections: missingSections } : {}),
         hasProcedure: content.includes('## Procedure') || content.includes('## Execution Workflow'),
         hasRisks: content.includes('## Risks'),
         wordCount: content.trim().split(/\s+/).filter(Boolean).length,
@@ -153,4 +156,13 @@ function parseAngularCompatibility(content) {
     if (bound) result[bound[1]] = Number(bound[2]);
   }
   return result;
+}
+
+function missingRequiredSections(content) {
+  return requiredSections.filter((section) => !hasExactHeading(content, section));
+}
+
+function hasExactHeading(content, heading) {
+  const escaped = heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`^${escaped}\s*$`, 'm').test(content);
 }

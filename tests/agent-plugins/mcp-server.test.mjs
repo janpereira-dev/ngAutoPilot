@@ -36,6 +36,9 @@ test('exposes the complete read-only MCP catalog and platform tools', async (t) 
 
   const inventory = await client.callTool({ name: 'platform.inventory', arguments: {} });
   assert.equal(inventory.isError, undefined);
+  const inventoryPayload = JSON.parse(inventory.content[0].text);
+  assert.equal(inventoryPayload.distribution.mcpServer.availability, 'npm-and-agent-plugin');
+  assert.equal(inventoryPayload.distribution.openaiPackage.availability, 'source-only');
 
   const projectRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-mcp-angular-'));
   t.after(() => fs.rmSync(projectRoot, { recursive: true, force: true }));

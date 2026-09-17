@@ -127,5 +127,30 @@
     "@modelcontextprotocol/client": "^2.0.0",
     "esbuild": "^0.28.2",
     "yazl": "^3.3.1"
+  },
+  "ngautopilot": {
+    "distribution": {
+      "claudeMarketplace": {
+        "kind": "marketplace",
+        "manifest": ".claude-plugin/marketplace.json",
+        "availability": "repository-manifest"
+      },
+      "codexMarketplace": {
+        "kind": "marketplace",
+        "manifest": ".agents/plugins/marketplace.json",
+        "availability": "repository-manifest"
+      },
+      "openaiPackage": {
+        "kind": "plugin-package",
+        "manifest": "openai/plugin.json",
+        "availability": "source-only"
+      },
+      "mcpServer": {
+        "kind": "stdio-mcp",
+        "entry": "mcp/server-entry.mjs",
+        "plugin": "agent-plugins/ngautopilot-tools",
+        "availability": "npm-and-agent-plugin"
+      }
+    }
   }
 }

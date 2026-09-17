@@ -77,6 +77,8 @@ The `ngautopilot-tools` MCP is read-only. It exposes:
   Angular project.
 - `upgrade.plan` for explicit sequential upgrade hops.
 - `catalog.quality` for deterministic content signals.
+
+`platform.inventory` reports the canonical distribution contract from `package.json`, not files visible in the current artifact. Its availability values distinguish repository manifests, source-only artifacts, and npm/agent-plugin delivery; they do not claim remote marketplace publication.
 - search, routing, pack, stack, compatibility, and repository-consistency
   tools.
 

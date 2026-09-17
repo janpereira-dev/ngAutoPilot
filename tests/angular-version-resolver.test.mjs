@@ -54,6 +54,33 @@ test('resolves Angular 15 package-only evidence and keeps capabilities determini
   assert.equal(result.included.some((item) => item.id === 'angular.versioning.angular-v22-risk-matrix'), false);
 });
 
+test('rejects detected and requested Angular majors outside the catalog support contract', (t) => {
+  const angularThree = createProject(t, '3.0.0');
+  const angularTwentyThree = createProject(t, '23.0.0');
+  const packageOnly = createProject(t, '12.1.0', {
+    declaration: '>=12.1.0',
+    commonDeclaration: '>=12.1.0',
+    lockfile: false,
+  });
+
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot: angularThree }),
+    /unsupported detected Angular major 3/,
+  );
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot: angularTwentyThree }),
+    /unsupported detected Angular major 23/,
+  );
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot: packageOnly, target: 3 }),
+    /unsupported requested Angular major 3/,
+  );
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot: packageOnly, target: 23 }),
+    /unsupported requested Angular major 23/,
+  );
+});
+
 test('accepts a package-only target within the declared Angular range', (t) => {
   const projectRoot = createProject(t, '12.2.17', { declaration: '^12.1.0', lockfile: false });
   const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' });

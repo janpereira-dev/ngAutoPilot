@@ -1,9 +1,11 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
-import { createRepositoryTools } from '../../lib/agent-plugins/repository.mjs';
+import { catalogQuality, createRepositoryTools } from '../../lib/agent-plugins/repository.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -36,8 +38,70 @@ test('reports platform assets and deterministic content signals without semantic
   assert.equal(inventory.angular.upgradeHops.some(({ from, to }) => from === 2 && to === 4), true);
   assert.equal(inventory.adapters.length, 10);
   assert.equal(inventory.subagents.length, 8);
-  assert.equal(inventory.distribution.mcpServer, true);
+  assert.equal(inventory.distribution.mcpServer.availability, 'npm-and-agent-plugin');
+  assert.equal(inventory.distribution.openaiPackage.availability, 'source-only');
+  const mirroredTools = createRepositoryTools({ root: path.join(root, 'agent-plugins', 'ngautopilot-tools', 'data') });
+  assert.deepEqual(mirroredTools.platformInventory().distribution, inventory.distribution);
   assert.equal(quality.summary.skillCount, 413);
   assert.match(quality.semanticEvaluation, /does not claim semantic value/);
   assert.ok(quality.skills.every(({ signals }) => signals.requiredSections));
+});
+
+test('reports cached missing required sections and falls back to local source when detail is absent', (t) => {
+  const temporaryRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-catalog-quality-'));
+  t.after(() => fs.rmSync(temporaryRoot, { recursive: true, force: true }));
+  const legacySkillPath = path.join(temporaryRoot, 'skills', 'core', 'legacy-incomplete', 'SKILL.md');
+  fs.mkdirSync(path.dirname(legacySkillPath), { recursive: true });
+  fs.writeFileSync(legacySkillPath, `## Purpose
+
+Fixture.
+
+## When to Use
+
+Fixture.
+
+## Do Not
+
+Fixture.
+
+## Review Checklist
+
+- [ ] Fixture.
+
+## Expected Output
+
+Fixture.
+`);
+  fs.writeFileSync(path.join(temporaryRoot, 'catalog.json'), `${JSON.stringify({
+    skills: [
+      {
+        id: 'core.incomplete',
+        path: 'skills/core/incomplete/SKILL.md',
+        contentSignals: {
+          requiredSections: false,
+          missingRequiredSections: ['## Do'],
+          hasProcedure: false,
+          hasRisks: false,
+          wordCount: 12,
+        },
+      },
+      {
+        id: 'core.legacy-incomplete',
+        path: 'skills/core/legacy-incomplete/SKILL.md',
+        contentSignals: {
+          requiredSections: false,
+          hasProcedure: false,
+          hasRisks: false,
+          wordCount: 12,
+        },
+      },
+    ],
+  }, null, 2)}\n`);
+
+  const quality = catalogQuality(temporaryRoot);
+
+  assert.equal(quality.summary.reviewNeededCount, 2);
+  assert.deepEqual(quality.skills.find(({ id }) => id === 'core.incomplete').missingSections, ['## Do']);
+  assert.deepEqual(quality.skills.find(({ id }) => id === 'core.legacy-incomplete').missingSections, ['## Do']);
+  assert.deepEqual(quality.skills[0].reviewNeeded, ['missing-required-sections']);
 });
