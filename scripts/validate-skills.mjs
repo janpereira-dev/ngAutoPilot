@@ -184,6 +184,5 @@ function toPosixPath(value) {
 }
 
 function hasExactHeading(content, heading) {
-  const escaped = heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return new RegExp(`^${escaped}\s*$`, 'm').test(content);
+  return content.split(/\r?\n/).some((line) => line.trimEnd() === heading);
 }
