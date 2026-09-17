@@ -32,6 +32,17 @@ test('resolves packs from a relative root', () => {
   assert.equal(resolvePacks(relativePacksRoot, 'ngautopilot-core').at(-1).id, 'ngautopilot-core');
 });
 
+test('resolves a catalog path with a relative parent directory', () => {
+  const relativeRoot = path.relative(process.cwd(), root) || '.';
+  const skills = resolvePackSkills({
+    catalogPath: path.join(relativeRoot, 'catalog.json'),
+    packsRoot: path.join(relativeRoot, 'packs'),
+    sourceRoot: root,
+    packId: 'ngautopilot-core',
+  });
+  assert.ok(skills.some(({ id }) => id === 'core.project-intake'));
+});
+
 test('rejects a catalog skill whose source path escapes the declared source root', () => {
   const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'ngap-pack-resolver-'));
   const packsRoot = path.join(fixture, 'packs');

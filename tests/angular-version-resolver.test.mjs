@@ -180,6 +180,18 @@ test('retains the lockfile-confirmed minor when a matching major-only target is 
   assert.ok(result.included.some((item) => item.id === 'angular.router.angular-functional-guards-resolvers'));
 });
 
+test('retains a satisfiable package-only minor when a major-only target is requested', (t) => {
+  const projectRoot = createProject(t, '14.2.17', {
+    declaration: '>=14.2.0',
+    commonDeclaration: '>=14.2.0',
+    lockfile: false,
+  });
+  const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: 14, capabilities: ['ui'] });
+
+  assert.deepEqual(result.target, { major: 14, minor: 2 });
+  assert.ok(result.included.some((item) => item.id === 'angular.router.angular-functional-guards-resolvers'));
+});
+
 test('derives the first satisfiable omitted minor across package-only Angular ranges', (t) => {
   const projectRoot = createProject(t, '12.2.17', {
     declaration: '^12.1.0',
