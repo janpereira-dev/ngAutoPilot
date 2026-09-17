@@ -13,6 +13,9 @@ skill-lab/python/**/__pycache__/
 skill-lab/python/**/*.pyc
 skill-lab/python/*.egg-info/
 
+# Local-only research input. Never commit, package, or automatically ingest it.
+/info/
+
 skill-lab/runs/*
 !skill-lab/runs/.gitkeep
 

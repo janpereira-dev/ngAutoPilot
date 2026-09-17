@@ -1,6 +1,6 @@
 ---
 name: ngautopilot-tooling
-description: Uses read-only NgAutoPilot MCP tools to inspect catalog skills, packs, stack metadata, compatibility, upgrade hops, and repository consistency. Use when a task needs deterministic NgAutoPilot repository evidence.
+description: Uses read-only NgAutoPilot MCP tools to inspect catalog skills, content signals, packs, adapters, subagents, stack metadata, Angular compatibility, upgrade hops, and repository consistency. Use when a task needs deterministic NgAutoPilot repository evidence.
 license: MIT
 metadata:
   ngautopilot-id: "tools.read-only-mcp"

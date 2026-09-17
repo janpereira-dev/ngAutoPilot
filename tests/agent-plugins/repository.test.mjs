@@ -25,3 +25,19 @@ test('derives stack, route, compatibility, and upgrade data from repository file
   assert.deepEqual(tools.upgradePlan({ from: 20, to: 22 }).hops, ['20-to-21', '21-to-22']);
   assert.throws(() => tools.upgradePlan({ from: 2, to: 3 }), /Angular 3/);
 });
+
+test('reports platform assets and deterministic content signals without semantic-quality claims', () => {
+  const tools = createRepositoryTools({ root });
+  const inventory = tools.platformInventory();
+  const quality = tools.catalogQuality();
+
+  assert.equal(inventory.skills.count, 413);
+  assert.equal(inventory.angular.unsupportedMajor.includes(3), true);
+  assert.equal(inventory.angular.upgradeHops.some(({ from, to }) => from === 2 && to === 4), true);
+  assert.equal(inventory.adapters.length, 10);
+  assert.equal(inventory.subagents.length, 8);
+  assert.equal(inventory.distribution.mcpServer, true);
+  assert.equal(quality.summary.skillCount, 413);
+  assert.match(quality.semanticEvaluation, /does not claim semantic value/);
+  assert.ok(quality.skills.every(({ signals }) => signals.requiredSections));
+});

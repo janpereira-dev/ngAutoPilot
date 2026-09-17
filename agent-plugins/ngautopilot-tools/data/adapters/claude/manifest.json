@@ -1,0 +1,17 @@
+{
+  "id": "claude",
+  "name": "Claude Code",
+  "status": "native",
+  "scope": ["project", "user"],
+  "paths": {
+    "project": ".claude",
+    "user": ".claude"
+  },
+  "formats": {
+    "skills": "markdown-directory",
+    "instructions": "CLAUDE.md",
+    "agents": "markdown-directory"
+  },
+  "requirements": ["Claude Code"],
+  "notes": "Project-scope installs into .claude/ and augments CLAUDE.md."
+}

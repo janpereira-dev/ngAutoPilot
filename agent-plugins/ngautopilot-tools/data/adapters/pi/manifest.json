@@ -1,0 +1,17 @@
+{
+  "id": "pi",
+  "name": "Pi",
+  "status": "unverified",
+  "scope": ["project"],
+  "paths": {
+    "project": ".pi",
+    "user": ".pi"
+  },
+  "formats": {
+    "skills": "markdown-directory",
+    "instructions": "PI.md",
+    "agents": "markdown-directory"
+  },
+  "requirements": [],
+  "notes": "Status unverified until the official Pi agent documents skill loading."
+}

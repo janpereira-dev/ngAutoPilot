@@ -89,6 +89,7 @@ Primary upgrade path currently available:
 
 - `skills/angular/upgrades/hops/angular-19-to-20/`
 - `skills/angular/upgrades/hops/angular-20-to-21/`
+- `skills/angular/upgrades/21-to-22/`
 
 Angular 22 now has dedicated concern-first skills in:
 
@@ -121,7 +122,13 @@ The older upgrade satellites still live under:
 - `skills/angular/upgrades/zone/`
 - `skills/angular/upgrades/zoneless/`
 
-## Angular 22 Gap Still Open
+## Extension Rule For The Next Major
 
-The catalog still does not include an `angular-21-to-22` hop skill yet.
-That hop should be created next if the upgrade path itself is needed.
+Angular 3 was never released as a standalone major, so the historical path is
+`2 -> 4`, not `2 -> 3`. Every later supported major has a bounded, sequential
+hop.
+
+When a new Angular major is supported, add only its compatibility declaration,
+one bounded prior-major hop, concern-specific satellites where the public API
+actually changed, validation fixtures, and pack/docs references. Do not revise
+or silently modernize prior-version guidance as part of that addition.

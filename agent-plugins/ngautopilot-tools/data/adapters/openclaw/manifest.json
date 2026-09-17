@@ -1,0 +1,17 @@
+{
+  "id": "openclaw",
+  "name": "OpenClaw",
+  "status": "experimental",
+  "scope": ["project"],
+  "paths": {
+    "project": ".openclaw",
+    "user": ".openclaw"
+  },
+  "formats": {
+    "skills": "markdown-directory",
+    "instructions": "openclaw.json",
+    "agents": "markdown-directory"
+  },
+  "requirements": [],
+  "notes": "Experimental install convention; verify against OpenClaw's latest docs before relying on it."
+}

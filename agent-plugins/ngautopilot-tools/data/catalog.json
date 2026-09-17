@@ -21,7 +21,16 @@
         "Angular v22 Agent Skills Integration",
         "AI / MCP / WebMCP",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 750
+      }
     },
     {
       "id": "angular.ai.angular-v22-ai-tutor-safe-usage",
@@ -41,7 +50,16 @@
         "Angular v22 AI Tutor Safe Usage",
         "AI / MCP / WebMCP",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 745
+      }
     },
     {
       "id": "angular.ai.angular-v22-angular-mcp-agent-workflow",
@@ -61,7 +79,16 @@
         "Angular v22 Angular MCP Agent Workflow",
         "AI / MCP / WebMCP",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 738
+      }
     },
     {
       "id": "angular.ai.angular-v22-devserver-self-healing-loop",
@@ -81,7 +108,16 @@
         "Angular v22 Devserver Self Healing Loop",
         "AI / MCP / WebMCP",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 740
+      }
     },
     {
       "id": "angular.ai.angular-v22-webmcp-tool-exposure",
@@ -101,7 +137,16 @@
         "Angular v22 WebMCP Tool Exposure",
         "AI / MCP / WebMCP",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 733
+      }
     },
     {
       "id": "angular.architecture.angular-enterprise-onboarding-plan",
@@ -126,7 +171,16 @@
         "project conventions",
         "enterprise ramp up",
         "angular introduction plan"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 416
+      }
     },
     {
       "id": "angular.architecture.angular-enterprise-primitives",
@@ -150,7 +204,16 @@
         "capability adoption path",
         "angular adoption matrix",
         "version aware primitives"
-      ]
+      ],
+      "compatibility": {
+        "min": 14
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 443
+      }
     },
     {
       "id": "angular.architecture.angular-enterprise-training-assessment",
@@ -175,7 +238,16 @@
         "onboarding assessment",
         "enterprise training assessment",
         "version awareness assessment"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 439
+      }
     },
     {
       "id": "angular.architecture.angular-enterprise-training-blueprint",
@@ -201,7 +273,16 @@
         "angular learning path",
         "angular team onboarding",
         "version aware angular training"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 1001
+      }
     },
     {
       "id": "angular.architecture.angular-patterns-senior",
@@ -222,7 +303,16 @@
         "refactor Angular component",
         "split Angular responsibilities",
         "facade pattern"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 595
+      }
     },
     {
       "id": "angular.architecture.angular-version-aware-training-matrix",
@@ -247,7 +337,16 @@
         "angular compatibility training",
         "version based training",
         "angular roadmap matrix"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 445
+      }
     },
     {
       "id": "angular.architecture.control-flow-adoption",
@@ -266,7 +365,16 @@
         "\"@for\"",
         "\"@switch\"",
         "structural directives modernization"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 348
+      }
     },
     {
       "id": "angular.architecture.defer-lazy-loading-modernization",
@@ -284,7 +392,16 @@
         "lazy loading modernization",
         "route splitting",
         "loading behavior modernization"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 357
+      }
     },
     {
       "id": "angular.architecture.design-system-for-micro-frontends",
@@ -309,7 +426,16 @@
         "shell and remote design",
         "shared visual language",
         "micro frontends design system"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 452
+      }
     },
     {
       "id": "angular.architecture.directive-composition-api",
@@ -326,7 +452,16 @@
         "directive composition",
         "composition API",
         "inheritance reduction"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 293
+      }
     },
     {
       "id": "angular.architecture.facade-pattern",
@@ -347,7 +482,16 @@
         "component injects many services",
         "simplify Angular tests",
         "feature API"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 485
+      }
     },
     {
       "id": "angular.architecture.host-directives-adoption",
@@ -365,7 +509,16 @@
         "hostDirectives",
         "wrapper reduction",
         "inheritance reduction"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 354
+      }
     },
     {
       "id": "angular.architecture.layered-architecture-boundaries",
@@ -390,7 +543,16 @@
         "module first organization",
         "data access boundaries",
         "dto leakage"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 911
+      }
     },
     {
       "id": "angular.architecture.micro-frontends-architecture",
@@ -420,7 +582,16 @@
         "runtime composition",
         "nx monorepo architecture",
         "angular micro frontends"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 800
+      }
     },
     {
       "id": "angular.architecture.micro-frontends-communication-patterns",
@@ -446,7 +617,16 @@
         "shared state between remotes",
         "cross micro frontend events",
         "micro frontends events"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 475
+      }
     },
     {
       "id": "angular.architecture.micro-frontends-dependency-sharing-policy",
@@ -471,7 +651,16 @@
         "shared library boundaries",
         "module federation shared dependencies",
         "micro frontends dependencies"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 382
+      }
     },
     {
       "id": "angular.architecture.micro-frontends-fallback-and-rollback",
@@ -496,7 +685,16 @@
         "retry flow",
         "graceful fallback",
         "micro frontends rollback"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 400
+      }
     },
     {
       "id": "angular.architecture.micro-frontends-observability-contract",
@@ -521,7 +719,16 @@
         "micro frontends logs",
         "shell telemetry",
         "remote telemetry"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 399
+      }
     },
     {
       "id": "angular.architecture.micro-frontends-ownership-and-rbac-contract",
@@ -546,7 +753,16 @@
         "least privilege",
         "permissions policy",
         "micro frontends access control"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 403
+      }
     },
     {
       "id": "angular.architecture.micro-frontends-release-governance",
@@ -571,7 +787,16 @@
         "release train",
         "compatibility checks",
         "micro frontends release"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 381
+      }
     },
     {
       "id": "angular.architecture.micro-frontends-shell-container-contract",
@@ -598,7 +823,16 @@
         "remote loading",
         "container boundary",
         "shell fallback"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 436
+      }
     },
     {
       "id": "angular.architecture.micro-frontends-version-compatibility-gate",
@@ -623,7 +857,16 @@
         "upgrade safety",
         "module federation versioning",
         "micro frontends compatibility"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 405
+      }
     },
     {
       "id": "angular.architecture.module-federation-runtime-contract",
@@ -650,7 +893,16 @@
         "remote fallback",
         "runtime composition contract",
         "federated module contract"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 442
+      }
     },
     {
       "id": "angular.architecture.nx-bounded-context-contract",
@@ -675,7 +927,16 @@
         "shared ui shared domain shared data access",
         "architecture governance",
         "monorepo governance"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 563
+      }
     },
     {
       "id": "angular.architecture.shared-data-access-library-contract",
@@ -705,7 +966,16 @@
         "nx module boundaries",
         "bounded context data access",
         "shared domain"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 712
+      }
     },
     {
       "id": "angular.architecture.shared-domain-library-contract",
@@ -731,7 +1001,16 @@
         "bounded context",
         "bounded context domain",
         "nx module boundaries"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 614
+      }
     },
     {
       "id": "angular.architecture.signals-adoption",
@@ -749,7 +1028,16 @@
         "signal state",
         "reactive state modernization",
         "computed effect adoption"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 339
+      }
     },
     {
       "id": "angular.architecture.standalone-components-adoption",
@@ -766,7 +1054,16 @@
         "standalone components",
         "standalone adoption",
         "NgModule reduction"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 342
+      }
     },
     {
       "id": "angular.build.angular-v22-build-system-migration",
@@ -785,7 +1082,16 @@
         "webpack builders",
         "architect",
         "ng serve"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 344
+      }
     },
     {
       "id": "angular.components.angular-v22-component-contracts",
@@ -804,7 +1110,16 @@
         "selector collision",
         "createComponent",
         "change detection"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 317
+      }
     },
     {
       "id": "angular.components.container-presentational",
@@ -824,7 +1139,16 @@
         "presentational component fetching data",
         "component too large",
         "reusable Angular component"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 520
+      }
     },
     {
       "id": "angular.components.shared-ui-library-contract",
@@ -861,7 +1185,16 @@
         "reusable contract",
         "bounded context ui",
         "shared domain"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 901
+      }
     },
     {
       "id": "angular.dependency-injection",
@@ -884,7 +1217,16 @@
         "circular dependency",
         "service provider",
         "TestBed provider override"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 1594
+      }
     },
     {
       "id": "angular.design.angular-component-library-contracts",
@@ -905,7 +1247,16 @@
         "Angular design system",
         "reusable Angular components",
         "component contract"
-      ]
+      ],
+      "compatibility": {
+        "min": 12
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 274
+      }
     },
     {
       "id": "angular.design.angular-headless-accessible-components",
@@ -926,7 +1277,16 @@
         "headless Angular component",
         "accessible Angular design system",
         "custom Angular control"
-      ]
+      ],
+      "compatibility": {
+        "min": 12
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 267
+      }
     },
     {
       "id": "angular.docs.angular-adr-for-architecture-decisions",
@@ -942,7 +1302,14 @@
         "adr",
         "architecture decision",
         "decision record"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 224
+      }
     },
     {
       "id": "angular.docs.angular-review-packet",
@@ -958,7 +1325,14 @@
         "review packet",
         "PR summary",
         "agent review"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 232
+      }
     },
     {
       "id": "angular.docs.angular-upgrade-report-template",
@@ -974,7 +1348,14 @@
         "upgrade report",
         "migration report",
         "hop summary"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 252
+      }
     },
     {
       "id": "angular.education.angular-v22-business-impact-explainer",
@@ -994,7 +1375,16 @@
         "Angular v22 Business Impact Explainer",
         "Education",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 729
+      }
     },
     {
       "id": "angular.education.angular-v22-non-dev-concepts-map",
@@ -1014,7 +1404,16 @@
         "Angular v22 Non Dev Concepts Map",
         "Education",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 722
+      }
     },
     {
       "id": "angular.education.angular-v22-signals-forms-router-analogy",
@@ -1034,7 +1433,16 @@
         "Angular v22 Signals Forms Router Analogy",
         "Education",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 724
+      }
     },
     {
       "id": "angular.education.angular-v22-upgrade-risk-plain-language",
@@ -1054,7 +1462,16 @@
         "Angular v22 Upgrade Risk Plain Language",
         "Education",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 729
+      }
     },
     {
       "id": "angular.forms.angular-cva-patterns",
@@ -1070,7 +1487,14 @@
         "cva",
         "control value accessor",
         "forms"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 514
+      }
     },
     {
       "id": "angular.forms.angular-number-input-min-max-validation-v12",
@@ -1086,7 +1510,16 @@
       "triggers": [
         "number input min max",
         "form validity"
-      ]
+      ],
+      "compatibility": {
+        "min": 12
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 170
+      }
     },
     {
       "id": "angular.forms.angular-signal-forms-readiness",
@@ -1102,7 +1535,14 @@
         "signal forms",
         "forms readiness",
         "typed forms"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 526
+      }
     },
     {
       "id": "angular.forms.angular-typed-forms-governance",
@@ -1118,7 +1558,14 @@
         "typed forms",
         "forms governance",
         "null safety"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 522
+      }
     },
     {
       "id": "angular.forms.angular-typed-forms-migration",
@@ -1136,7 +1583,16 @@
         "FormControl",
         "FormGroup",
         "FormArray"
-      ]
+      ],
+      "compatibility": {
+        "min": 14
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 187
+      }
     },
     {
       "id": "angular.forms.angular-untyped-forms-bridge",
@@ -1153,7 +1609,16 @@
         "UntypedFormGroup",
         "UntypedFormControl",
         "typed forms bridge"
-      ]
+      ],
+      "compatibility": {
+        "min": 14
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 168
+      }
     },
     {
       "id": "angular.forms.angular-v22-signal-forms",
@@ -1171,7 +1636,16 @@
         "reactive forms",
         "template type checking",
         "validation"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 350
+      }
     },
     {
       "id": "angular.forms.form-validation-contracts",
@@ -1193,7 +1667,16 @@
         "error presentation",
         "custom validator",
         "form errors"
-      ]
+      ],
+      "compatibility": {
+        "min": 14
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 386
+      }
     },
     {
       "id": "angular.forms.reactive-forms-patterns",
@@ -1215,7 +1698,16 @@
         "form workflow",
         "form architecture",
         "enterprise forms"
-      ]
+      ],
+      "compatibility": {
+        "min": 14
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 415
+      }
     },
     {
       "id": "angular.forms.reactive-forms-patterns-v14",
@@ -1234,7 +1726,16 @@
         "angular 14 forms",
         "typed reactive forms",
         "forms migration 14"
-      ]
+      ],
+      "compatibility": {
+        "min": 14
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 297
+      }
     },
     {
       "id": "angular.governance.angular-change-type-classifier",
@@ -1250,7 +1751,14 @@
         "change type",
         "classify change",
         "risk level"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 522
+      }
     },
     {
       "id": "angular.governance.angular-compatibility-evidence",
@@ -1266,7 +1774,14 @@
         "compatibility evidence",
         "version proof",
         "matrix evidence"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 514
+      }
     },
     {
       "id": "angular.governance.angular-migration-vs-modernization-boundary",
@@ -1282,7 +1797,14 @@
         "migration vs modernization",
         "upgrade boundary",
         "separate concerns"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 525
+      }
     },
     {
       "id": "angular.governance.angular-project-classifier",
@@ -1298,7 +1820,14 @@
         "project classifier",
         "app type",
         "repo shape"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 519
+      }
     },
     {
       "id": "angular.governance.angular-validation-contract",
@@ -1314,7 +1843,14 @@
         "validation contract",
         "build test lint",
         "gate"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 521
+      }
     },
     {
       "id": "angular.i18n.angular-localize-v9-migration",
@@ -1331,7 +1867,16 @@
         "\"@angular/localize\"",
         "$localize",
         "Angular i18n"
-      ]
+      ],
+      "compatibility": {
+        "min": 9
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 166
+      }
     },
     {
       "id": "angular.ivy.angular-ivy-only-v13-gate",
@@ -1348,7 +1893,16 @@
         "Ivy only",
         "View Engine",
         "ngcc"
-      ]
+      ],
+      "compatibility": {
+        "min": 13
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 189
+      }
     },
     {
       "id": "angular.libraries.angular-view-engine-library-audit-v13",
@@ -1365,7 +1919,16 @@
         "View Engine libraries",
         "ngcc audit",
         "Angular library compatibility"
-      ]
+      ],
+      "compatibility": {
+        "min": 13
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 185
+      }
     },
     {
       "id": "angular.material.angular-aria-headless-patterns",
@@ -1381,7 +1944,14 @@
         "aria",
         "headless",
         "accessibility patterns"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 520
+      }
     },
     {
       "id": "angular.material.angular-cdk-a11y-patterns",
@@ -1397,7 +1967,14 @@
         "cdk a11y",
         "accessibility",
         "keyboard navigation"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 518
+      }
     },
     {
       "id": "angular.material.angular-material-theming-system",
@@ -1413,7 +1990,14 @@
         "material theming",
         "theme system",
         "density typography"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 518
+      }
     },
     {
       "id": "angular.microfrontends.micro-frontends-architecture",
@@ -1444,7 +2028,16 @@
         "runtime composition",
         "nx monorepo architecture",
         "angular micro frontends"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 295
+      }
     },
     {
       "id": "angular.microfrontends.micro-frontends-dependency-sharing-policy",
@@ -1472,7 +2065,16 @@
         "shared library boundaries",
         "module federation shared dependencies",
         "micro frontends dependencies"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 293
+      }
     },
     {
       "id": "angular.microfrontends.micro-frontends-fallback-and-rollback",
@@ -1499,7 +2101,16 @@
         "retry flow",
         "graceful fallback",
         "micro frontends rollback"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 280
+      }
     },
     {
       "id": "angular.microfrontends.micro-frontends-shell-container-contract",
@@ -1526,7 +2137,16 @@
         "shell composition",
         "container boundary",
         "shell fallback"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 275
+      }
     },
     {
       "id": "angular.microfrontends.micro-frontends-version-compatibility-gate",
@@ -1552,7 +2172,16 @@
         "upgrade safety",
         "module federation versioning",
         "micro frontends compatibility"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 267
+      }
     },
     {
       "id": "angular.migration.angularjs-decommission",
@@ -1569,7 +2198,14 @@
         "angularjs decommission",
         "legacy cleanup",
         "decommission"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 516
+      }
     },
     {
       "id": "angular.migration.angularjs-hybrid-ngupgrade",
@@ -1586,7 +2222,14 @@
         "ngupgrade",
         "hybrid angularjs",
         "hybrid migration"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 523
+      }
     },
     {
       "id": "angular.migration.angularjs-legacy-inventory",
@@ -1603,7 +2246,14 @@
         "legacy inventory",
         "angularjs inventory",
         "debt inventory"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 520
+      }
     },
     {
       "id": "angular.migration.angularjs-routing-migration",
@@ -1620,7 +2270,14 @@
         "routing migration",
         "angularjs routes",
         "router migration"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 517
+      }
     },
     {
       "id": "angular.migration.angularjs-service-migration",
@@ -1637,7 +2294,14 @@
         "service migration",
         "angularjs services",
         "migration plan"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 520
+      }
     },
     {
       "id": "angular.migration.angularjs-strategy-selector",
@@ -1654,7 +2318,14 @@
         "strategy selector",
         "migration strategy",
         "legacy migration"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 521
+      }
     },
     {
       "id": "angular.migration.angularjs-template-syntax-migration",
@@ -1671,7 +2342,14 @@
         "template syntax migration",
         "angularjs templates",
         "migration path"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 524
+      }
     },
     {
       "id": "angular.migration.angularjs-to-angular-modernization-orchestrator",
@@ -1691,7 +2369,16 @@
         "ngUpgrade",
         "hybrid AngularJS Angular",
         "legacy modernization"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 1112
+      }
     },
     {
       "id": "angular.modernization.angular-control-flow-v17-migration",
@@ -1710,7 +2397,16 @@
         "\"@for\"",
         "\"@switch\"",
         "structural directives modernization"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 326
+      }
     },
     {
       "id": "angular.modernization.angular-control-flow-v18-migration",
@@ -1729,7 +2425,16 @@
         "\"@for\"",
         "\"@switch\"",
         "structural directives modernization"
-      ]
+      ],
+      "compatibility": {
+        "min": 18
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 326
+      }
     },
     {
       "id": "angular.modernization.angular-control-flow-v19-migration",
@@ -1748,7 +2453,16 @@
         "\"@for\"",
         "\"@switch\"",
         "structural directives modernization"
-      ]
+      ],
+      "compatibility": {
+        "min": 19
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 326
+      }
     },
     {
       "id": "angular.modernization.angular-control-flow-v20-migration",
@@ -1767,7 +2481,16 @@
         "\"@for\"",
         "\"@switch\"",
         "structural directives modernization"
-      ]
+      ],
+      "compatibility": {
+        "min": 20
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 326
+      }
     },
     {
       "id": "angular.modernization.angular-control-flow-v21-migration",
@@ -1786,7 +2509,16 @@
         "\"@for\"",
         "\"@switch\"",
         "structural directives modernization"
-      ]
+      ],
+      "compatibility": {
+        "min": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 326
+      }
     },
     {
       "id": "angular.modernization.angular-defer-views-v17-adoption",
@@ -1804,7 +2536,16 @@
         "\"@defer\"",
         "deferrable views",
         "lazy rendering modernization"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 318
+      }
     },
     {
       "id": "angular.modernization.angular-defer-views-v18-adoption",
@@ -1822,7 +2563,16 @@
         "\"@defer\"",
         "deferrable views",
         "lazy rendering modernization"
-      ]
+      ],
+      "compatibility": {
+        "min": 18
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 318
+      }
     },
     {
       "id": "angular.modernization.angular-defer-views-v19-adoption",
@@ -1840,7 +2590,16 @@
         "\"@defer\"",
         "deferrable views",
         "lazy rendering modernization"
-      ]
+      ],
+      "compatibility": {
+        "min": 19
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 318
+      }
     },
     {
       "id": "angular.modernization.angular-defer-views-v20-adoption",
@@ -1858,7 +2617,16 @@
         "\"@defer\"",
         "deferrable views",
         "lazy rendering modernization"
-      ]
+      ],
+      "compatibility": {
+        "min": 20
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 318
+      }
     },
     {
       "id": "angular.modernization.angular-defer-views-v21-adoption",
@@ -1876,7 +2644,16 @@
         "\"@defer\"",
         "deferrable views",
         "lazy rendering modernization"
-      ]
+      ],
+      "compatibility": {
+        "min": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 318
+      }
     },
     {
       "id": "angular.modernization.angular-standalone-first-adoption",
@@ -1894,7 +2671,16 @@
         "standalone components",
         "bootstrapApplication",
         "NgModule reduction"
-      ]
+      ],
+      "compatibility": {
+        "min": 18
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 327
+      }
     },
     {
       "id": "angular.modernization.angular-standalone-first-adoption-v19",
@@ -1912,7 +2698,16 @@
         "standalone components",
         "bootstrapApplication",
         "NgModule reduction"
-      ]
+      ],
+      "compatibility": {
+        "min": 19
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 329
+      }
     },
     {
       "id": "angular.modernization.angular-standalone-first-adoption-v20",
@@ -1930,7 +2725,16 @@
         "standalone components",
         "bootstrapApplication",
         "NgModule reduction"
-      ]
+      ],
+      "compatibility": {
+        "min": 20
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 329
+      }
     },
     {
       "id": "angular.modernization.angular-standalone-first-adoption-v21",
@@ -1948,7 +2752,16 @@
         "standalone components",
         "bootstrapApplication",
         "NgModule reduction"
-      ]
+      ],
+      "compatibility": {
+        "min": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 329
+      }
     },
     {
       "id": "angular.modernization.angular-v22-modernization-baseline",
@@ -1968,7 +2781,16 @@
         "resource",
         "httpResource",
         "zoneless readiness"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 340
+      }
     },
     {
       "id": "angular.modernization.angular-zoneless-readiness-v17",
@@ -1986,7 +2808,16 @@
         "Zone.js reduction",
         "zoneless modernization",
         "change detection assumptions"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 343
+      }
     },
     {
       "id": "angular.modernization.angular-zoneless-readiness-v18",
@@ -2004,7 +2835,16 @@
         "Zone.js reduction",
         "zoneless modernization",
         "change detection assumptions"
-      ]
+      ],
+      "compatibility": {
+        "min": 18
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 343
+      }
     },
     {
       "id": "angular.modernization.angular-zoneless-readiness-v19",
@@ -2022,7 +2862,16 @@
         "Zone.js reduction",
         "zoneless modernization",
         "change detection assumptions"
-      ]
+      ],
+      "compatibility": {
+        "min": 19
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 343
+      }
     },
     {
       "id": "angular.modernization.angular-zoneless-readiness-v20",
@@ -2040,7 +2889,16 @@
         "Zone.js reduction",
         "zoneless modernization",
         "change detection assumptions"
-      ]
+      ],
+      "compatibility": {
+        "min": 20
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 343
+      }
     },
     {
       "id": "angular.modernization.angular-zoneless-readiness-v21",
@@ -2058,7 +2916,16 @@
         "Zone.js reduction",
         "zoneless modernization",
         "change detection assumptions"
-      ]
+      ],
+      "compatibility": {
+        "min": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 343
+      }
     },
     {
       "id": "angular.modules.angular-v22-dynamic-module-creation",
@@ -2076,7 +2943,16 @@
         "createNgModule",
         "dynamic module",
         "NgModule"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 308
+      }
     },
     {
       "id": "angular.performance.angular-bundle-budget-governance",
@@ -2092,7 +2968,14 @@
         "bundle budget",
         "performance budget",
         "bundle size"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 516
+      }
     },
     {
       "id": "angular.performance.angular-core-web-vitals-audit",
@@ -2108,7 +2991,14 @@
         "core web vitals",
         "web vitals audit",
         "performance audit"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 524
+      }
     },
     {
       "id": "angular.performance.angular-v22-performance-baseline",
@@ -2127,7 +3017,16 @@
         "zoneless",
         "template hot path",
         "rendering"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 314
+      }
     },
     {
       "id": "angular.performance.angular-zoneless-performance-readiness",
@@ -2143,7 +3042,14 @@
         "zoneless readiness",
         "zonejs performance",
         "change detection"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 519
+      }
     },
     {
       "id": "angular.performance.avoid-template-functions",
@@ -2162,7 +3068,14 @@
         "change detection cost",
         "computed signals",
         "pure pipe"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 503
+      }
     },
     {
       "id": "angular.performance.change-detection-optimization",
@@ -2181,7 +3094,16 @@
         "markForCheck",
         "detectChanges",
         "signals rendering"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 487
+      }
     },
     {
       "id": "angular.performance.lazy-loading-strategy",
@@ -2201,7 +3123,16 @@
         "loadComponent",
         "\"@defer\"",
         "route splitting"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 582
+      }
     },
     {
       "id": "angular.performance.list-rendering-optimization",
@@ -2221,7 +3152,16 @@
         "large list",
         "DOM recreation",
         "virtual scroll"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 470
+      }
     },
     {
       "id": "angular.performance.measure-before-optimizing",
@@ -2242,7 +3182,16 @@
         "Lighthouse",
         "Web Vitals",
         "performance profiling"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 487
+      }
     },
     {
       "id": "angular.performance.ng-optimized-image-adoption",
@@ -2259,7 +3208,16 @@
         "NgOptimizedImage",
         "image performance",
         "LCP optimization"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 289
+      }
     },
     {
       "id": "angular.performance.onpush-change-detection",
@@ -2278,7 +3236,14 @@
         "change detection",
         "Angular performance",
         "slow rendering"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 506
+      }
     },
     {
       "id": "angular.performance.performance-audit",
@@ -2297,7 +3262,16 @@
         "slow component",
         "slow dashboard",
         "performance review"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 577
+      }
     },
     {
       "id": "angular.performance.performance-orchestrator",
@@ -2316,7 +3290,16 @@
         "slow Angular app",
         "performance skill selection",
         "rendering issue"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 513
+      }
     },
     {
       "id": "angular.performance.pipes-and-memoization",
@@ -2336,7 +3319,16 @@
         "computed values",
         "repeated transformation",
         "view model mapping"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 509
+      }
     },
     {
       "id": "angular.performance.rxjs-performance",
@@ -2357,7 +3349,16 @@
         "takeUntilDestroyed",
         "shareReplay",
         "debounceTime"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 578
+      }
     },
     {
       "id": "angular.performance.template-logic-optimization",
@@ -2376,7 +3377,16 @@
         "template method call",
         "template expression",
         "computed signal"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 517
+      }
     },
     {
       "id": "angular.performance.trackby-for-lists",
@@ -2396,7 +3406,14 @@
         "track expression",
         "large list",
         "DOM recreation"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 510
+      }
     },
     {
       "id": "angular.resources.angular-v22-resource-apis",
@@ -2414,7 +3431,16 @@
         "httpResource",
         "async state",
         "loading state"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 321
+      }
     },
     {
       "id": "angular.router.angular-functional-guards-resolvers",
@@ -2430,7 +3456,14 @@
         "functional guards",
         "resolvers",
         "router guards"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 517
+      }
     },
     {
       "id": "angular.router.angular-lazy-loading-routes",
@@ -2446,7 +3479,14 @@
         "lazy loading routes",
         "route splitting",
         "router lazy load"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 520
+      }
     },
     {
       "id": "angular.router.angular-route-configuration-patterns",
@@ -2462,7 +3502,14 @@
         "route configuration",
         "router config",
         "route contract"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 518
+      }
     },
     {
       "id": "angular.router.angular-router-testing-patterns",
@@ -2478,7 +3525,14 @@
         "router testing",
         "route tests",
         "router harness"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 520
+      }
     },
     {
       "id": "angular.router.angular-v22-router-upgrade-contracts",
@@ -2497,7 +3551,16 @@
         "CanMatch",
         "paramsInheritanceStrategy",
         "route cleanup"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 320
+      }
     },
     {
       "id": "angular.rxjs.avoid-nested-subscriptions",
@@ -2518,7 +3581,14 @@
         "combineLatest",
         "takeUntilDestroyed",
         "RxJS lifecycle"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 470
+      }
     },
     {
       "id": "angular.rxjs.observable-contracts",
@@ -2539,7 +3609,16 @@
         "readonly Observable",
         "mutable state exposure",
         "Angular state service"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 482
+      }
     },
     {
       "id": "angular.security.angular-dependency-vulnerability-triage",
@@ -2555,7 +3634,14 @@
         "dependency vulnerability",
         "security triage",
         "package audit"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 518
+      }
     },
     {
       "id": "angular.security.angular-domsanitizer-governance",
@@ -2571,7 +3657,14 @@
         "domsanitizer",
         "sanitization",
         "security governance"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 511
+      }
     },
     {
       "id": "angular.security.angular-ssr-security-risk-gate",
@@ -2587,7 +3680,14 @@
         "ssr security",
         "security risk gate",
         "server rendering security"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 525
+      }
     },
     {
       "id": "angular.security.angular-token-storage-policy",
@@ -2603,7 +3703,14 @@
         "token storage",
         "auth token policy",
         "security policy"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 521
+      }
     },
     {
       "id": "angular.security.angular-v22-security-and-server-boundaries",
@@ -2622,7 +3729,16 @@
         "SSR security",
         "server transport",
         "redirect safety"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 336
+      }
     },
     {
       "id": "angular.security.angular-xss-template-safety",
@@ -2638,7 +3754,14 @@
         "xss safety",
         "template safety",
         "sanitization"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 519
+      }
     },
     {
       "id": "angular.service-worker.angular-swupdate-v13-migration",
@@ -2655,7 +3778,16 @@
         "SwUpdate",
         "service worker updates",
         "versionUpdates"
-      ]
+      ],
+      "compatibility": {
+        "min": 13
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 213
+      }
     },
     {
       "id": "angular.services.single-responsibility-services",
@@ -2675,7 +3807,16 @@
         "CommonService",
         "UtilsService",
         "ManagerService"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 466
+      }
     },
     {
       "id": "angular.signals.angular-rxjs-signals-interop",
@@ -2692,7 +3833,14 @@
         "rxjs signals interop",
         "signals bridge",
         "interop"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 519
+      }
     },
     {
       "id": "angular.signals.angular-signal-state-pattern",
@@ -2708,7 +3856,14 @@
         "signal state",
         "state pattern",
         "signals state"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 517
+      }
     },
     {
       "id": "angular.signals.angular-signals-fundamentals",
@@ -2724,7 +3879,14 @@
         "signals fundamentals",
         "computed effect",
         "signal basics"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 514
+      }
     },
     {
       "id": "angular.signals.angular-v22-signals-state-and-forms",
@@ -2744,7 +3906,16 @@
         "signal forms",
         "resource",
         "httpResource"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 320
+      }
     },
     {
       "id": "angular.signals.signal-computed-linked-effect-boundaries",
@@ -2765,7 +3936,16 @@
         "angular reactive context",
         "signals architecture",
         "signal responsibility model"
-      ]
+      ],
+      "compatibility": {
+        "min": 16
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": true,
+        "wordCount": 1356
+      }
     },
     {
       "id": "angular.signals.signals-rxjs-interop",
@@ -2788,7 +3968,16 @@
         "observable to signal",
         "signal to observable",
         "reactive boundary"
-      ]
+      ],
+      "compatibility": {
+        "min": 16
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 363
+      }
     },
     {
       "id": "angular.signals.signals-state-patterns",
@@ -2810,7 +3999,16 @@
         "signal store",
         "derived state",
         "signals architecture"
-      ]
+      ],
+      "compatibility": {
+        "min": 16
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 388
+      }
     },
     {
       "id": "angular.signals.signals-state-patterns-v16",
@@ -2829,7 +4027,16 @@
         "signals state patterns 16",
         "local state signals",
         "computed effect v16"
-      ]
+      ],
+      "compatibility": {
+        "min": 16
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 279
+      }
     },
     {
       "id": "angular.ssr.angular-hydration-risk-gate",
@@ -2845,7 +4052,14 @@
         "hydration risk",
         "hydration gate",
         "ssr hydration"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 521
+      }
     },
     {
       "id": "angular.ssr.angular-render-module-v13-migration",
@@ -2862,7 +4076,16 @@
         "renderModuleFactory",
         "renderModule",
         "SSR migration"
-      ]
+      ],
+      "compatibility": {
+        "min": 13
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 190
+      }
     },
     {
       "id": "angular.ssr.angular-ssr-browser-api-safety",
@@ -2878,7 +4101,14 @@
         "browser api safety",
         "ssr browser safety",
         "window document"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 530
+      }
     },
     {
       "id": "angular.ssr.angular-ssr-readiness-audit",
@@ -2894,7 +4124,14 @@
         "ssr readiness",
         "ssr audit",
         "server rendering readiness"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 525
+      }
     },
     {
       "id": "angular.ssr.angular-v22-ssr-hydration-baseline",
@@ -2913,7 +4150,16 @@
         "CommonEngine",
         "platform-server",
         "incremental hydration"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 307
+      }
     },
     {
       "id": "angular.state.signals-vs-rxjs",
@@ -2934,7 +4180,16 @@
         "Angular state decision",
         "toSignal",
         "toObservable"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 588
+      }
     },
     {
       "id": "angular.styles.host-css-custom-properties",
@@ -2950,7 +4205,14 @@
         "host css custom properties",
         "css variables",
         "style-only state"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 226
+      }
     },
     {
       "id": "angular.templates.angular-extended-diagnostics-governance",
@@ -2966,7 +4228,14 @@
         "extended diagnostics",
         "template diagnostics",
         "ng810x"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 522
+      }
     },
     {
       "id": "angular.templates.angular-strict-templates-gate",
@@ -2982,7 +4251,14 @@
         "strict templates",
         "template gate",
         "template validation"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 519
+      }
     },
     {
       "id": "angular.templates.angular-v22-template-strictness",
@@ -3001,7 +4277,16 @@
         "fullTemplateTypeCheck",
         "\"@switch\"",
         "optional chaining"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 336
+      }
     },
     {
       "id": "angular.templates.extended-diagnostics-governance",
@@ -3023,7 +4308,16 @@
         "extended diagnostics",
         "template diagnostics",
         "ng810x"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 364
+      }
     },
     {
       "id": "angular.templates.extended-diagnostics-remediation",
@@ -3042,7 +4336,16 @@
         "NG8101",
         "NG8113",
         "template warning fix"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 304
+      }
     },
     {
       "id": "angular.templates.strict-templates-adoption",
@@ -3061,7 +4364,16 @@
         "template type checking",
         "angular template strictness",
         "strict template rollout"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 326
+      }
     },
     {
       "id": "angular.templates.template-diagnostics-matrix",
@@ -3080,7 +4392,16 @@
         "diagnostic grouping",
         "template problem types",
         "angular diagnostics triage"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 288
+      }
     },
     {
       "id": "angular.testing.angular-component-testing-patterns",
@@ -3101,7 +4422,16 @@
         "template interaction test",
         "harness testing",
         "angular template test"
-      ]
+      ],
+      "compatibility": {
+        "min": 12
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 377
+      }
     },
     {
       "id": "angular.testing.angular-component-testing-patterns-v17",
@@ -3120,7 +4450,16 @@
         "modern component testing",
         "template interaction tests",
         "component contract testing"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 264
+      }
     },
     {
       "id": "angular.testing.angular-test-strategy-router",
@@ -3136,7 +4475,14 @@
         "test strategy",
         "vitest jest karma",
         "testing router"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 523
+      }
     },
     {
       "id": "angular.testing.angular-testbed-inject-v9-migration",
@@ -3153,7 +4499,16 @@
         "TestBed.get",
         "TestBed.inject",
         "test modernization"
-      ]
+      ],
+      "compatibility": {
+        "min": 9
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 186
+      }
     },
     {
       "id": "angular.testing.angular-v22-testing-stability",
@@ -3172,7 +4527,16 @@
         "router tests",
         "async behavior",
         "hydration tests"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 324
+      }
     },
     {
       "id": "angular.testing.angular-visual-accessibility-e2e-validation",
@@ -3192,7 +4556,14 @@
         "accessibility testing",
         "Playwright",
         "keyboard flow"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 454
+      }
     },
     {
       "id": "angular.testing.jest-angular-unit-testing",
@@ -3215,7 +4586,16 @@
         "angular component test",
         "angular service test",
         "mocking strategy"
-      ]
+      ],
+      "compatibility": {
+        "min": 12
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 370
+      }
     },
     {
       "id": "angular.testing.micro-frontends-e2e-validation",
@@ -3240,7 +4620,16 @@
         "federated integration test",
         "micro frontends testing",
         "end to end federation"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 473
+      }
     },
     {
       "id": "angular.upgrade.angular-major-hop-executor",
@@ -3259,7 +4648,17 @@
         "single Angular hop",
         "Angular version step",
         "upgrade execution"
-      ]
+      ],
+      "compatibility": {
+        "min": 2,
+        "max": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 753
+      }
     },
     {
       "id": "angular.upgrade.angular-upgrade-orchestrator",
@@ -3279,7 +4678,17 @@
         "next Angular version",
         "upgrade route planner",
         "Angular version chain"
-      ]
+      ],
+      "compatibility": {
+        "min": 2,
+        "max": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 1053
+      }
     },
     {
       "id": "angular.upgrade.angular-upgrade-route-planner",
@@ -3298,7 +4707,17 @@
         "major-by-major plan",
         "next hop selection",
         "upgrade chain"
-      ]
+      ],
+      "compatibility": {
+        "min": 2,
+        "max": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 885
+      }
     },
     {
       "id": "angular.upgrade.angular-upgrade-validation-gate",
@@ -3317,7 +4736,17 @@
         "validation gate",
         "build test lint",
         "hop approval"
-      ]
+      ],
+      "compatibility": {
+        "min": 2,
+        "max": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 911
+      }
     },
     {
       "id": "angular.upgrade.angular-version-detector",
@@ -3336,7 +4765,17 @@
         "package version scan",
         "compatibility check",
         "source version evidence"
-      ]
+      ],
+      "compatibility": {
+        "min": 2,
+        "max": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 781
+      }
     },
     {
       "id": "angular.upgrade.angularjs.angularjs-controller-to-component-migration",
@@ -3353,7 +4792,16 @@
         "AngularJS controller migration",
         "controller to component",
         "legacy controller"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 214
+      }
     },
     {
       "id": "angular.upgrade.angularjs.angularjs-decommission-gate",
@@ -3370,7 +4818,16 @@
         "AngularJS decommission",
         "hybrid removal gate",
         "remove AngularJS"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 223
+      }
     },
     {
       "id": "angular.upgrade.angularjs.angularjs-directive-to-component-migration",
@@ -3387,7 +4844,16 @@
         "AngularJS directive migration",
         "directive to component",
         "legacy directive"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 213
+      }
     },
     {
       "id": "angular.upgrade.angularjs.angularjs-downgrade-upgrade-api-bridge",
@@ -3405,7 +4871,16 @@
         "downgradeInjectable",
         "UpgradeComponent",
         "ngUpgrade bridge APIs"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 203
+      }
     },
     {
       "id": "angular.upgrade.angularjs.angularjs-filter-to-pipe-migration",
@@ -3422,7 +4897,16 @@
         "AngularJS filter migration",
         "filter to pipe",
         "legacy filter"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 221
+      }
     },
     {
       "id": "angular.upgrade.angularjs.angularjs-ngupgrade-hybrid-bootstrap",
@@ -3440,7 +4924,16 @@
         "hybrid AngularJS and Angular",
         "UpgradeModule",
         "downgradeComponent"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 228
+      }
     },
     {
       "id": "angular.upgrade.angularjs.angularjs-routing-hybrid-migration",
@@ -3458,7 +4951,16 @@
         "hybrid routing",
         "ui-router bridge",
         "Angular Router coexistence"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 213
+      }
     },
     {
       "id": "angular.upgrade.angularjs.angularjs-service-to-injectable-migration",
@@ -3475,7 +4977,16 @@
         "AngularJS service migration",
         "service to injectable",
         "legacy service"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 212
+      }
     },
     {
       "id": "angular.upgrade.angularjs.angularjs-template-syntax-migration",
@@ -3494,7 +5005,16 @@
         "ng-if",
         "ng-click",
         "ng-model"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 203
+      }
     },
     {
       "id": "angular.upgrade.angularjs.angularjs-upgrade-inventory",
@@ -3512,7 +5032,16 @@
         "ngUpgrade inventory",
         "legacy AngularJS app",
         "hybrid migration planning"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 235
+      }
     },
     {
       "id": "angular.upgrade.browser-support.angular-ie11-deprecation-removal-governance",
@@ -3531,7 +5060,17 @@
         "Angular 12 IE11 deprecation",
         "Angular 13 IE11 removal",
         "legacy browser governance"
-      ]
+      ],
+      "compatibility": {
+        "min": 11,
+        "max": 13
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 1131
+      }
     },
     {
       "id": "angular.upgrade.build.angular-v20-module-resolution-bundler",
@@ -3549,7 +5088,16 @@
         "secondary entry points",
         "custom builders",
         "tsconfig inheritance"
-      ]
+      ],
+      "compatibility": {
+        "min": 20
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 262
+      }
     },
     {
       "id": "angular.upgrade.change-detection.angular-onpush-host-bindings-v18",
@@ -3567,7 +5115,16 @@
         "host bindings",
         "markForCheck",
         "detectChanges"
-      ]
+      ],
+      "compatibility": {
+        "min": 18
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 266
+      }
     },
     {
       "id": "angular.upgrade.changelog.angular-major-changelog-risk-review",
@@ -3585,7 +5142,16 @@
         "patch baseline review",
         "minor baseline review",
         "Angular 16 to 17 risk review"
-      ]
+      ],
+      "compatibility": {
+        "min": 16
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 1514
+      }
     },
     {
       "id": "angular.upgrade.components.angular-create-component-projectable-nodes-v19",
@@ -3603,7 +5169,16 @@
         "projectable nodes",
         "content projection",
         "ng-content fallback"
-      ]
+      ],
+      "compatibility": {
+        "min": 19
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 263
+      }
     },
     {
       "id": "angular.upgrade.components.angular-dynamic-component-docheck-v17",
@@ -3621,7 +5196,16 @@
         "ngDoCheck",
         "change detection",
         "ViewContainerRef.createComponent"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 275
+      }
     },
     {
       "id": "angular.upgrade.components.angular-v21-custom-elements-signal-inputs",
@@ -3639,7 +5223,16 @@
         "signal inputs",
         "createCustomElement",
         "customElements.define"
-      ]
+      ],
+      "compatibility": {
+        "min": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 239
+      }
     },
     {
       "id": "angular.upgrade.debug.angular-v20-ng-reflect-cleanup",
@@ -3657,7 +5250,16 @@
         "debug attributes",
         "e2e selectors",
         "DOM contracts"
-      ]
+      ],
+      "compatibility": {
+        "min": 20
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 256
+      }
     },
     {
       "id": "angular.upgrade.deprecations.angular-v15-deprecation-cleanup",
@@ -3674,7 +5276,16 @@
         "deprecation cleanup",
         "routerlinkwithhref",
         "date pipe timezone"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 180
+      }
     },
     {
       "id": "angular.upgrade.di.angular-di-constructor-hardening-v15",
@@ -3692,7 +5303,16 @@
         "inheritance",
         "decorators",
         "Angular DI hardening"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 187
+      }
     },
     {
       "id": "angular.upgrade.di.angular-v20-injector-injectflags-cleanup",
@@ -3710,7 +5330,16 @@
         "TestBed.get",
         "Injector.get",
         "DI cleanup"
-      ]
+      ],
+      "compatibility": {
+        "min": 20
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 261
+      }
     },
     {
       "id": "angular.upgrade.forms.angular-cva-set-disabled-state-v15",
@@ -3727,7 +5356,16 @@
         "ControlValueAccessor",
         "setDisabledState",
         "NG_VALUE_ACCESSOR"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 168
+      }
     },
     {
       "id": "angular.upgrade.forms.angular-ngmodel-template-write-cleanup-v18",
@@ -3744,7 +5382,16 @@
         "ngModel cleanup",
         "template write expressions",
         "template-driven forms"
-      ]
+      ],
+      "compatibility": {
+        "min": 18
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 260
+      }
     },
     {
       "id": "angular.upgrade.forms.angular-typed-forms-migration",
@@ -3762,7 +5409,17 @@
         "untyped forms bridge",
         "reactive forms typing",
         "FormControl generic"
-      ]
+      ],
+      "compatibility": {
+        "min": 14,
+        "max": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 860
+      }
     },
     {
       "id": "angular.upgrade.forms.angular-untyped-forms-bridge",
@@ -3779,7 +5436,16 @@
         "UntypedFormGroup",
         "UntypedFormControl",
         "typed forms bridge"
-      ]
+      ],
+      "compatibility": {
+        "min": 14
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 216
+      }
     },
     {
       "id": "angular.upgrade.forms.angular-v21-formarray-directive-conflict",
@@ -3796,7 +5462,16 @@
         "FormArray conflict",
         "formArray directive",
         "reactive forms naming"
-      ]
+      ],
+      "compatibility": {
+        "min": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 238
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-10-to-11",
@@ -3815,7 +5490,14 @@
         "major hop upgrade",
         "router behavior",
         "validation gate"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 1594
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-11-to-12",
@@ -3834,7 +5516,14 @@
         "major hop upgrade",
         "validation gate",
         "production build"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 1767
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-12-to-13",
@@ -3853,7 +5542,14 @@
         "major hop upgrade",
         "IE11 removal",
         "View Engine removal"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 1626
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-13-to-14",
@@ -3872,7 +5568,14 @@
         "major hop upgrade",
         "typed forms",
         "validation gate"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 1773
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-14-to-15",
@@ -3891,7 +5594,14 @@
         "major hop upgrade",
         "validation gate",
         "Material MDC"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 1653
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-15-to-16",
@@ -3909,7 +5619,16 @@
         "Angular 16 upgrade",
         "ngcc removal",
         "View Engine libraries"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 1147
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-16-to-17",
@@ -3927,7 +5646,16 @@
         "Angular 17 upgrade",
         "Angular 16 changelog review",
         "Zone.js imports"
-      ]
+      ],
+      "compatibility": {
+        "min": 16
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 1283
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-17-to-18",
@@ -3945,7 +5673,16 @@
         "Angular 18 upgrade",
         "test stability",
         "SSR platform-server"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 1370
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-18-to-19",
@@ -3963,7 +5700,16 @@
         "Angular 19 upgrade",
         "standalone default",
         "effects timing"
-      ]
+      ],
+      "compatibility": {
+        "min": 18
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 1205
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-19-to-20",
@@ -3981,7 +5727,16 @@
         "Angular 20 upgrade",
         "moduleResolution bundler",
         "Resource API migration"
-      ]
+      ],
+      "compatibility": {
+        "min": 19
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 1424
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-2-to-4",
@@ -4000,7 +5755,14 @@
         "major hop upgrade",
         "Angular version hop",
         "Angular 4 migration"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 1032
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-20-to-21",
@@ -4018,7 +5780,16 @@
         "Angular 21 upgrade",
         "SSR allowedHosts",
         "UpgradeAdapter removal"
-      ]
+      ],
+      "compatibility": {
+        "min": 20
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 1186
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-4-to-5",
@@ -4037,7 +5808,14 @@
         "Angular 5.2 upgrade",
         "major hop upgrade",
         "Angular version hop"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 1068
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-5-to-6",
@@ -4056,7 +5834,14 @@
         "Angular 6.1 upgrade",
         "major hop upgrade",
         "angular.json migration"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 1150
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-6-to-7",
@@ -4075,7 +5860,14 @@
         "Angular 7.2 upgrade",
         "major hop upgrade",
         "validation gate"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 1363
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-7-to-8",
@@ -4094,7 +5886,14 @@
         "Angular 8.2 upgrade",
         "major hop upgrade",
         "validation gate"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 1504
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-8-to-9",
@@ -4113,7 +5912,14 @@
         "Angular 9.1 upgrade",
         "Ivy migration",
         "major hop upgrade"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 1647
+      }
     },
     {
       "id": "angular.upgrade.hops.angular-9-to-10",
@@ -4132,7 +5938,14 @@
         "Angular 10.2 upgrade",
         "major hop upgrade",
         "validation gate"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 1796
+      }
     },
     {
       "id": "angular.upgrade.http.angular-http-transfer-cache-v18",
@@ -4150,7 +5963,16 @@
         "authenticated HTTP requests",
         "SSR transfer cache",
         "withHttpTransferCache"
-      ]
+      ],
+      "compatibility": {
+        "min": 18
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 285
+      }
     },
     {
       "id": "angular.upgrade.http.angular-httpclient-migration-v6",
@@ -4167,7 +5989,16 @@
         "HttpClient migration",
         "HttpModule",
         "legacy Http"
-      ]
+      ],
+      "compatibility": {
+        "min": 6
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 214
+      }
     },
     {
       "id": "angular.upgrade.hybrid.angular-v21-upgrade-adapter-removal",
@@ -4185,7 +6016,16 @@
         "AngularJS hybrid",
         "upgrade/static",
         "hybrid cleanup"
-      ]
+      ],
+      "compatibility": {
+        "min": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 243
+      }
     },
     {
       "id": "angular.upgrade.hydration.angular-hydration-v17-risk-gate",
@@ -4203,7 +6043,16 @@
         "SSR hydration",
         "provideClientHydration",
         "ngSkipHydration"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 266
+      }
     },
     {
       "id": "angular.upgrade.i18n.angular-localize-v9-migration",
@@ -4220,7 +6069,16 @@
         "angular localize",
         "$localize",
         "i18n migration"
-      ]
+      ],
+      "compatibility": {
+        "min": 9
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 214
+      }
     },
     {
       "id": "angular.upgrade.ivy.angular-ivy-default-v9-compatibility",
@@ -4237,7 +6095,16 @@
         "Ivy default",
         "entryComponents",
         "View Engine compatibility"
-      ]
+      ],
+      "compatibility": {
+        "min": 9
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 204
+      }
     },
     {
       "id": "angular.upgrade.ivy.angular-ivy-only-v13-gate",
@@ -4254,7 +6121,16 @@
         "Ivy only gate",
         "View Engine dependency",
         "Angular 13 gate"
-      ]
+      ],
+      "compatibility": {
+        "min": 13
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 217
+      }
     },
     {
       "id": "angular.upgrade.libraries.angular-ngcc-view-engine-removal-v16",
@@ -4272,7 +6148,16 @@
         "View Engine libraries",
         "Angular 16 library compatibility",
         "ngcc removal"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 381
+      }
     },
     {
       "id": "angular.upgrade.libraries.angular-view-engine-library-audit-v13",
@@ -4289,7 +6174,16 @@
         "View Engine library audit",
         "ngcc audit",
         "Angular library compatibility"
-      ]
+      ],
+      "compatibility": {
+        "min": 13
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 209
+      }
     },
     {
       "id": "angular.upgrade.localize.angular-localize-builder-v19",
@@ -4307,7 +6201,16 @@
         "\"@angular/localize\"",
         "translation build",
         "builder project option"
-      ]
+      ],
+      "compatibility": {
+        "min": 19
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 247
+      }
     },
     {
       "id": "angular.upgrade.modules.angular-v21-ngmodulefactory-removal",
@@ -4325,7 +6228,16 @@
         "dynamic module loading",
         "legacy loaders",
         "plugin systems"
-      ]
+      ],
+      "compatibility": {
+        "min": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 231
+      }
     },
     {
       "id": "angular.upgrade.resources.angular-v20-resource-rxresource-migration",
@@ -4343,7 +6255,16 @@
         "rxResource",
         "ResourceStatus",
         "params and stream"
-      ]
+      ],
+      "compatibility": {
+        "min": 20
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 269
+      }
     },
     {
       "id": "angular.upgrade.router.angular-dynamic-import-lazy-routes",
@@ -4360,7 +6281,16 @@
         "lazy routes",
         "loadChildren string",
         "dynamic import routes"
-      ]
+      ],
+      "compatibility": {
+        "min": 8
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 207
+      }
     },
     {
       "id": "angular.upgrade.router.angular-router-error-handler-v19",
@@ -4378,7 +6308,16 @@
         "navigation error handling",
         "RedirectCommand",
         "routing failures"
-      ]
+      ],
+      "compatibility": {
+        "min": 19
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 261
+      }
     },
     {
       "id": "angular.upgrade.router.angular-router-redirect-command-v18",
@@ -4396,7 +6335,16 @@
         "router redirects",
         "guards and resolvers",
         "Route.redirectTo"
-      ]
+      ],
+      "compatibility": {
+        "min": 18
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 268
+      }
     },
     {
       "id": "angular.upgrade.router.angular-router-v15-behavior",
@@ -4414,7 +6362,16 @@
         "route timing",
         "navigation assumptions",
         "relativeLinkResolution"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 184
+      }
     },
     {
       "id": "angular.upgrade.router.angular-router-v17-public-api-migration",
@@ -4432,7 +6389,16 @@
         "malformedUriErrorHandler",
         "absolute redirects",
         "loadComponent inheritance"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 320
+      }
     },
     {
       "id": "angular.upgrade.router.angular-v13-router-lazy-route-cleanup",
@@ -4449,7 +6415,16 @@
         "Angular 13 router",
         "lazy route cleanup",
         "loadChildren strings"
-      ]
+      ],
+      "compatibility": {
+        "min": 13
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 199
+      }
     },
     {
       "id": "angular.upgrade.router.angular-v14-router-resolver-first-emission",
@@ -4466,7 +6441,16 @@
         "resolver first emission",
         "router resolver",
         "navigation completion"
-      ]
+      ],
+      "compatibility": {
+        "min": 14
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 205
+      }
     },
     {
       "id": "angular.upgrade.router.angular-v20-guards-redirects-route-validation",
@@ -4484,7 +6468,16 @@
         "redirects",
         "route validation",
         "RedirectFn"
-      ]
+      ],
+      "compatibility": {
+        "min": 20
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 266
+      }
     },
     {
       "id": "angular.upgrade.rxjs.angular-rxjs-5-to-6-bridge",
@@ -4501,7 +6494,16 @@
         "RxJS 5 to 6",
         "rxjs-compat",
         "lettable operators"
-      ]
+      ],
+      "compatibility": {
+        "min": 6
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 225
+      }
     },
     {
       "id": "angular.upgrade.security.angular-iframe-binding-hardening",
@@ -4519,7 +6521,16 @@
         "iframe security",
         "sandbox",
         "allow attribute"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 185
+      }
     },
     {
       "id": "angular.upgrade.service-worker.angular-swupdate-v13-migration",
@@ -4536,7 +6547,16 @@
         "SwUpdate migration",
         "service worker update flow",
         "Angular service worker"
-      ]
+      ],
+      "compatibility": {
+        "min": 13
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 211
+      }
     },
     {
       "id": "angular.upgrade.signals.angular-signals-mutate-to-update-v17",
@@ -4553,7 +6573,16 @@
         "signals mutate",
         "signals update",
         "reactive state modernization"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 263
+      }
     },
     {
       "id": "angular.upgrade.ssr.angular-platform-server-v18-migration",
@@ -4571,7 +6600,16 @@
         "SSR migration",
         "TransferState",
         "prerender"
-      ]
+      ],
+      "compatibility": {
+        "min": 18
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 258
+      }
     },
     {
       "id": "angular.upgrade.ssr.angular-render-module-v13-migration",
@@ -4588,7 +6626,16 @@
         "renderModuleFactory",
         "SSR migration",
         "platform-server"
-      ]
+      ],
+      "compatibility": {
+        "min": 13
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 181
+      }
     },
     {
       "id": "angular.upgrade.ssr.angular-ssr-allowed-hosts-v21-security",
@@ -4606,7 +6653,16 @@
         "SSR security",
         "CommonEngine",
         "trusted proxy headers"
-      ]
+      ],
+      "compatibility": {
+        "min": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 252
+      }
     },
     {
       "id": "angular.upgrade.standalone.angular-standalone-default-v19-ngmodule-compat",
@@ -4624,7 +6680,16 @@
         "standalone false",
         "NgModule compatibility",
         "module-heavy architecture"
-      ]
+      ],
+      "compatibility": {
+        "min": 19
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 289
+      }
     },
     {
       "id": "angular.upgrade.styles.angular-keyframes-scope-v15",
@@ -4642,7 +6707,16 @@
         "animation-name",
         "component styles",
         "animation regression"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 179
+      }
     },
     {
       "id": "angular.upgrade.styles.angular-remove-styles-on-destroy-v17",
@@ -4659,7 +6733,16 @@
         "remove styles on destroy",
         "component style cleanup",
         "leaked component styles"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 296
+      }
     },
     {
       "id": "angular.upgrade.templates.angular-v20-template-operator-compat",
@@ -4677,7 +6760,16 @@
         "in operator",
         "void operator",
         "parenthesized expressions"
-      ]
+      ],
+      "compatibility": {
+        "min": 20
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 268
+      }
     },
     {
       "id": "angular.upgrade.templates.angular-v21-host-binding-typecheck",
@@ -4695,7 +6787,16 @@
         "HostBinding",
         "host metadata",
         "inherited host bindings"
-      ]
+      ],
+      "compatibility": {
+        "min": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 247
+      }
     },
     {
       "id": "angular.upgrade.testing.angular-testbed-aot-summaries-cleanup-v14",
@@ -4712,7 +6813,16 @@
         "TestBed AOT summaries",
         "aotSummaries",
         "testing cleanup"
-      ]
+      ],
+      "compatibility": {
+        "min": 14
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 193
+      }
     },
     {
       "id": "angular.upgrade.testing.angular-testbed-inject-v9-migration",
@@ -4729,7 +6839,16 @@
         "TestBed.get",
         "TestBed.inject",
         "testing migration"
-      ]
+      ],
+      "compatibility": {
+        "min": 9
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 178
+      }
     },
     {
       "id": "angular.upgrade.testing.angular-v18-test-stability-change-detection",
@@ -4747,7 +6866,16 @@
         "change detection timing",
         "whenStable",
         "autoDetectChanges"
-      ]
+      ],
+      "compatibility": {
+        "min": 18
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 275
+      }
     },
     {
       "id": "angular.upgrade.testing.angular-v19-effects-and-fakeasync-scheduler",
@@ -4765,7 +6893,16 @@
         "fakeAsync scheduler",
         "whenStable",
         "ApplicationRef.tick"
-      ]
+      ],
+      "compatibility": {
+        "min": 19
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 270
+      }
     },
     {
       "id": "angular.upgrade.testing.angular-v20-testing-errors-effects-animations",
@@ -4783,7 +6920,16 @@
         "fakeAsync",
         "animations",
         "AsyncPipe errors"
-      ]
+      ],
+      "compatibility": {
+        "min": 20
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 274
+      }
     },
     {
       "id": "angular.upgrade.testing.angular-v21-router-zone-platformlocation-tests",
@@ -4801,7 +6947,16 @@
         "Zone.js timing",
         "PlatformLocation",
         "navigation assertions"
-      ]
+      ],
+      "compatibility": {
+        "min": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 245
+      }
     },
     {
       "id": "angular.upgrade.workspace.angular-cli-workspace-migration-v6",
@@ -4818,7 +6973,16 @@
         "angular.json migration",
         "angular-cli workspace",
         ".angular-cli.json"
-      ]
+      ],
+      "compatibility": {
+        "min": 6
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 211
+      }
     },
     {
       "id": "angular.upgrade.zone.angular-v21-zone-change-detection-root-provider",
@@ -4836,7 +7000,16 @@
         "Zone.js",
         "scheduler behavior",
         "root provider"
-      ]
+      ],
+      "compatibility": {
+        "min": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 239
+      }
     },
     {
       "id": "angular.upgrade.zone.angular-zonejs-imports-v17-migration",
@@ -4853,7 +7026,16 @@
         "Zone.js imports",
         "zone.js/testing",
         "zone.js deep imports"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 269
+      }
     },
     {
       "id": "angular.upgrade.zoneless.angular-v20-zoneless-api-rename",
@@ -4870,7 +7052,16 @@
         "zoneless API rename",
         "provideExperimentalZonelessChangeDetection",
         "provideExperimentalCheckNoChangesForDebug"
-      ]
+      ],
+      "compatibility": {
+        "min": 20
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 223
+      }
     },
     {
       "id": "angular.upgrades.21-to-22.angular-21-to-22-breaking-changes-gate",
@@ -4890,7 +7081,16 @@
         "Angular 21 to 22 Breaking Changes Gate",
         "Hop 21 to 22",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 741
+      }
     },
     {
       "id": "angular.upgrades.21-to-22.angular-21-to-22-post-upgrade-validation-gate",
@@ -4910,7 +7110,16 @@
         "Angular 21 to 22 Post Upgrade Validation Gate",
         "Hop 21 to 22",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 739
+      }
     },
     {
       "id": "angular.upgrades.21-to-22.angular-21-to-22-preflight-inventory",
@@ -4930,7 +7139,16 @@
         "Angular 21 to 22 Preflight Inventory",
         "Hop 21 to 22",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 724
+      }
     },
     {
       "id": "angular.upgrades.21-to-22.angular-21-to-22-upgrade-orchestrator",
@@ -4951,7 +7169,16 @@
         "Angular 21 to 22 Upgrade Orchestrator",
         "Hop 21 to 22",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 745
+      }
     },
     {
       "id": "angular.upgrades.accessibility.angular-v22-angular-aria-production-patterns",
@@ -4971,7 +7198,16 @@
         "Angular v22 Angular Aria Production Patterns",
         "Accessibility / Angular Aria",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 740
+      }
     },
     {
       "id": "angular.upgrades.accessibility.angular-v22-angular-aria-test-harnesses",
@@ -4991,7 +7227,16 @@
         "Angular v22 Angular Aria Test Harnesses",
         "Accessibility / Angular Aria",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 747
+      }
     },
     {
       "id": "angular.upgrades.accessibility.angular-v22-headless-component-a11y-governance",
@@ -5011,7 +7256,16 @@
         "Angular v22 Headless Component A11y Governance",
         "Accessibility / Angular Aria",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 740
+      }
     },
     {
       "id": "angular.upgrades.build.angular-v22-application-builder-validation",
@@ -5031,7 +7285,16 @@
         "Angular v22 Application Builder Validation",
         "Build / Tooling",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 731
+      }
     },
     {
       "id": "angular.upgrades.build.angular-v22-node-compatibility-gate",
@@ -5051,7 +7314,16 @@
         "Angular v22 Node Compatibility Gate",
         "Build / Tooling",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 733
+      }
     },
     {
       "id": "angular.upgrades.build.angular-v22-tsgo-readiness-watch",
@@ -5071,7 +7343,16 @@
         "Angular v22 TSGo Readiness Watch",
         "Build / Tooling",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 726
+      }
     },
     {
       "id": "angular.upgrades.build.angular-v22-typescript-6-compatibility-gate",
@@ -5091,7 +7372,16 @@
         "Angular v22 TypeScript 6 Compatibility Gate",
         "Build / Tooling",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 741
+      }
     },
     {
       "id": "angular.upgrades.build.angular-v22-webpack-builder-deprecation-gate",
@@ -5111,7 +7401,16 @@
         "Angular v22 Webpack Builder Deprecation Gate",
         "Build / Tooling",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 733
+      }
     },
     {
       "id": "angular.upgrades.change-detection.angular-v22-change-detection-risk-audit",
@@ -5131,7 +7430,16 @@
         "Angular v22 Change Detection Risk Audit",
         "Change Detection / Zoneless",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 742
+      }
     },
     {
       "id": "angular.upgrades.change-detection.angular-v22-onpush-default-eager-migration",
@@ -5151,7 +7459,16 @@
         "Angular v22 OnPush Default Eager Migration",
         "Change Detection / Zoneless",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 744
+      }
     },
     {
       "id": "angular.upgrades.components.angular-v22-componentfactory-removal-gate",
@@ -5171,7 +7488,16 @@
         "Angular v22 ComponentFactory Removal Gate",
         "Components / Host Directives",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 720
+      }
     },
     {
       "id": "angular.upgrades.components.angular-v22-createcomponent-modern-api",
@@ -5191,7 +7517,16 @@
         "Angular v22 CreateComponent Modern API",
         "Components / Host Directives",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 724
+      }
     },
     {
       "id": "angular.upgrades.components.angular-v22-host-directive-conflicting-alias-gate",
@@ -5211,7 +7546,16 @@
         "Angular v22 Host Directive Conflicting Alias Gate",
         "Components / Host Directives",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 731
+      }
     },
     {
       "id": "angular.upgrades.components.angular-v22-host-directives-deduplication",
@@ -5231,7 +7575,16 @@
         "Angular v22 Host Directives Deduplication",
         "Components / Host Directives",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 718
+      }
     },
     {
       "id": "angular.upgrades.components.angular-v22-shadow-root-bootstrap-gate",
@@ -5251,7 +7604,16 @@
         "Angular v22 Shadow Root Bootstrap Gate",
         "Components / Host Directives",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 734
+      }
     },
     {
       "id": "angular.upgrades.di.angular-v22-injectasync-lazy-service-loading",
@@ -5271,7 +7633,16 @@
         "Angular v22 InjectAsync Lazy Service Loading",
         "Dependency Injection",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 732
+      }
     },
     {
       "id": "angular.upgrades.di.angular-v22-injectasync-prefetch-patterns",
@@ -5291,7 +7662,16 @@
         "Angular v22 InjectAsync Prefetch Patterns",
         "Dependency Injection",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 730
+      }
     },
     {
       "id": "angular.upgrades.di.angular-v22-root-provider-lazy-boundary-gate",
@@ -5311,7 +7691,16 @@
         "Angular v22 Root Provider Lazy Boundary Gate",
         "Dependency Injection",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 740
+      }
     },
     {
       "id": "angular.upgrades.di.angular-v22-service-decorator-adoption",
@@ -5331,7 +7720,16 @@
         "Angular v22 Service Decorator Adoption",
         "Dependency Injection",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 734
+      }
     },
     {
       "id": "angular.upgrades.forms.angular-v22-min-max-number-validation-gate",
@@ -5351,7 +7749,16 @@
         "Angular v22 Min Max Number Validation Gate",
         "Forms / Signal Forms",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 742
+      }
     },
     {
       "id": "angular.upgrades.forms.angular-v22-signal-forms-async-validation",
@@ -5371,7 +7778,16 @@
         "Angular v22 Signal Forms Async Validation",
         "Forms / Signal Forms",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 730
+      }
     },
     {
       "id": "angular.upgrades.forms.angular-v22-signal-forms-cva-interop",
@@ -5391,7 +7807,16 @@
         "Angular v22 Signal Forms CVA Interop",
         "Forms / Signal Forms",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 740
+      }
     },
     {
       "id": "angular.upgrades.forms.angular-v22-signal-forms-dynamic-arrays",
@@ -5411,7 +7836,16 @@
         "Angular v22 Signal Forms Dynamic Arrays",
         "Forms / Signal Forms",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 741
+      }
     },
     {
       "id": "angular.upgrades.forms.angular-v22-signal-forms-file-upload",
@@ -5431,7 +7865,16 @@
         "Angular v22 Signal Forms File Upload",
         "Forms / Signal Forms",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 735
+      }
     },
     {
       "id": "angular.upgrades.forms.angular-v22-signal-forms-production-patterns",
@@ -5451,7 +7894,16 @@
         "Angular v22 Signal Forms Production Patterns",
         "Forms / Signal Forms",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 740
+      }
     },
     {
       "id": "angular.upgrades.http.angular-v22-fetch-backend-default-gate",
@@ -5471,7 +7923,16 @@
         "Angular v22 Fetch Backend Default Gate",
         "Resources / HTTP",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 747
+      }
     },
     {
       "id": "angular.upgrades.http.angular-v22-http-progress-migration",
@@ -5491,7 +7952,16 @@
         "Angular v22 HTTP Progress Migration",
         "Resources / HTTP",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 754
+      }
     },
     {
       "id": "angular.upgrades.http.angular-v22-jsonp-deprecation-cleanup",
@@ -5511,7 +7981,16 @@
         "Angular v22 JSONP Deprecation Cleanup",
         "Resources / HTTP",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 747
+      }
     },
     {
       "id": "angular.upgrades.material.angular-material-mdc-v15-chips-slider",
@@ -5529,7 +8008,16 @@
         "Material slider migration",
         "MDC chips",
         "MDC slider"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 299
+      }
     },
     {
       "id": "angular.upgrades.material.angular-material-mdc-v15-data-display",
@@ -5547,7 +8035,16 @@
         "Material list",
         "Material card",
         "Material paginator"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 280
+      }
     },
     {
       "id": "angular.upgrades.material.angular-material-mdc-v15-form-controls",
@@ -5565,7 +8062,16 @@
         "form-field migration",
         "checkbox migration",
         "radio migration"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 280
+      }
     },
     {
       "id": "angular.upgrades.material.angular-material-mdc-v15-inventory",
@@ -5583,7 +8089,16 @@
         "MDC inventory",
         "legacy Material imports",
         "Material CSS overrides"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 369
+      }
     },
     {
       "id": "angular.upgrades.material.angular-material-mdc-v15-migration",
@@ -5601,7 +8116,16 @@
         "MDC migration",
         "Material visual regression",
         "harness migration"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 516
+      }
     },
     {
       "id": "angular.upgrades.material.angular-material-mdc-v15-orchestrator",
@@ -5619,7 +8143,16 @@
         "MDC migration",
         "Material orchestrator",
         "visual regression gate"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 554
+      }
     },
     {
       "id": "angular.upgrades.material.angular-material-mdc-v15-overlays-navigation",
@@ -5638,7 +8171,16 @@
         "Material snack-bars",
         "Material tooltips",
         "Material tabs"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 287
+      }
     },
     {
       "id": "angular.upgrades.material.angular-material-mdc-v15-testing-harnesses",
@@ -5656,7 +8198,16 @@
         "DOM-based Material tests",
         "screenshot tests",
         "MDC tests"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 298
+      }
     },
     {
       "id": "angular.upgrades.material.angular-material-mdc-v15-theming-density-typography",
@@ -5674,7 +8225,16 @@
         "Material density",
         "Material typography",
         "MDC classes"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 310
+      }
     },
     {
       "id": "angular.upgrades.material.angular-material-mdc-v15-visual-regression-gate",
@@ -5691,7 +8251,16 @@
         "Material visual regression",
         "screenshot review",
         "MDC final gate"
-      ]
+      ],
+      "compatibility": {
+        "min": 15
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 276
+      }
     },
     {
       "id": "angular.upgrades.material.angular-material-v14-stepper-selectionlist-chips-cleanup",
@@ -5709,7 +8278,16 @@
         "stepper cleanup",
         "selection list cleanup",
         "chips cleanup"
-      ]
+      ],
+      "compatibility": {
+        "min": 14
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 226
+      }
     },
     {
       "id": "angular.upgrades.resources.angular-v22-httpresource-production-patterns",
@@ -5729,7 +8307,16 @@
         "Angular v22 HttpResource Production Patterns",
         "Resources / HTTP",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 751
+      }
     },
     {
       "id": "angular.upgrades.resources.angular-v22-resource-production-patterns",
@@ -5749,7 +8336,16 @@
         "Angular v22 Resource Production Patterns",
         "Resources / HTTP",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 750
+      }
     },
     {
       "id": "angular.upgrades.resources.angular-v22-resource-ssr-cache-gate",
@@ -5769,7 +8365,16 @@
         "Angular v22 Resource SSR Cache Gate",
         "Resources / HTTP",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 744
+      }
     },
     {
       "id": "angular.upgrades.resources.angular-v22-rxresource-interop-patterns",
@@ -5789,7 +8394,16 @@
         "Angular v22 RxResource Interop Patterns",
         "Resources / HTTP",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 735
+      }
     },
     {
       "id": "angular.upgrades.router.angular-v22-canmatch-current-snapshot-migration",
@@ -5809,7 +8423,16 @@
         "Angular v22 CanMatch Current Snapshot Migration",
         "Router",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 726
+      }
     },
     {
       "id": "angular.upgrades.router.angular-v22-component-input-binding-options",
@@ -5829,7 +8452,16 @@
         "Angular v22 Component Input Binding Options",
         "Router",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 721
+      }
     },
     {
       "id": "angular.upgrades.router.angular-v22-detached-route-handle-destroy",
@@ -5849,7 +8481,16 @@
         "Angular v22 Detached Route Handle Destroy",
         "Router",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 723
+      }
     },
     {
       "id": "angular.upgrades.router.angular-v22-params-inheritance-always-gate",
@@ -5869,7 +8510,16 @@
         "Angular v22 Params Inheritance Always Gate",
         "Router",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 736
+      }
     },
     {
       "id": "angular.upgrades.router.angular-v22-platform-navigation-api-adoption",
@@ -5889,7 +8539,16 @@
         "Angular v22 Platform Navigation API Adoption",
         "Router",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 720
+      }
     },
     {
       "id": "angular.upgrades.router.angular-v22-provideroutes-removal",
@@ -5909,7 +8568,16 @@
         "Angular v22 ProvideRoutes Removal",
         "Router",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 713
+      }
     },
     {
       "id": "angular.upgrades.router.angular-v22-route-injector-auto-cleanup",
@@ -5929,7 +8597,16 @@
         "Angular v22 Route Injector Auto Cleanup",
         "Router",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 714
+      }
     },
     {
       "id": "angular.upgrades.security.angular-v22-dynamic-script-host-rejection",
@@ -5949,7 +8626,16 @@
         "Angular v22 Dynamic Script Host Rejection",
         "Security",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 742
+      }
     },
     {
       "id": "angular.upgrades.security.angular-v22-iframe-credentialless-security-gate",
@@ -5969,7 +8655,16 @@
         "Angular v22 Iframe Credentialless Security Gate",
         "Security",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 729
+      }
     },
     {
       "id": "angular.upgrades.security.angular-v22-service-worker-sensitive-header-gate",
@@ -5989,7 +8684,16 @@
         "Angular v22 Service Worker Sensitive Header Gate",
         "Security",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 742
+      }
     },
     {
       "id": "angular.upgrades.security.angular-v22-svg-mathml-url-sanitization-gate",
@@ -6009,7 +8713,16 @@
         "Angular v22 SVG MathML URL Sanitization Gate",
         "Security",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 736
+      }
     },
     {
       "id": "angular.upgrades.security.angular-v22-template-sanitization-hardening",
@@ -6029,7 +8742,16 @@
         "Angular v22 Template Sanitization Hardening",
         "Security",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 734
+      }
     },
     {
       "id": "angular.upgrades.security.angular-v22-webmcp-security-gate",
@@ -6049,7 +8771,16 @@
         "Angular v22 WebMCP Security Gate",
         "Security",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 747
+      }
     },
     {
       "id": "angular.upgrades.ssr.angular-v22-incremental-hydration-default-gate",
@@ -6069,7 +8800,16 @@
         "Angular v22 Incremental Hydration Default Gate",
         "SSR / Hydration",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 743
+      }
     },
     {
       "id": "angular.upgrades.ssr.angular-v22-origin-validation-hardening",
@@ -6089,7 +8829,16 @@
         "Angular v22 Origin Validation Hardening",
         "SSR / Hydration",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 728
+      }
     },
     {
       "id": "angular.upgrades.ssr.angular-v22-platform-server-fetch-migration",
@@ -6109,7 +8858,16 @@
         "Angular v22 Platform Server Fetch Migration",
         "SSR / Hydration",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 735
+      }
     },
     {
       "id": "angular.upgrades.ssr.angular-v22-ssr-resource-cache-validation",
@@ -6129,7 +8887,16 @@
         "Angular v22 SSR Resource Cache Validation",
         "SSR / Hydration",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 745
+      }
     },
     {
       "id": "angular.upgrades.ssr.angular-v22-transferstate-security-hardening",
@@ -6149,7 +8916,16 @@
         "Angular v22 TransferState Security Hardening",
         "SSR / Hydration",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 742
+      }
     },
     {
       "id": "angular.upgrades.templates.angular-extended-diagnostics-upgrade-gate",
@@ -6167,7 +8943,16 @@
         "angular upgrade diagnostics",
         "template upgrade blocker",
         "diagnostics after upgrade"
-      ]
+      ],
+      "compatibility": {
+        "min": 17
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 280
+      }
     },
     {
       "id": "angular.upgrades.templates.angular-v22-data-attribute-binding-gate",
@@ -6187,7 +8972,16 @@
         "Angular v22 Data Attribute Binding Gate",
         "Templates / Compiler",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 725
+      }
     },
     {
       "id": "angular.upgrades.templates.angular-v22-duplicate-input-output-model-gate",
@@ -6207,7 +9001,16 @@
         "Angular v22 Duplicate Input Output Model Gate",
         "Templates / Compiler",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 739
+      }
     },
     {
       "id": "angular.upgrades.templates.angular-v22-duplicate-selector-diagnostic-gate",
@@ -6227,7 +9030,16 @@
         "Angular v22 Duplicate Selector Diagnostic Gate",
         "Templates / Compiler",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 733
+      }
     },
     {
       "id": "angular.upgrades.templates.angular-v22-invalid-in-expression-gate",
@@ -6247,7 +9059,16 @@
         "Angular v22 Invalid In Expression Gate",
         "Templates / Compiler",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 723
+      }
     },
     {
       "id": "angular.upgrades.templates.angular-v22-safe-navigation-nullability-gate",
@@ -6267,7 +9088,16 @@
         "Angular v22 Safe Navigation Nullability Gate",
         "Templates / Compiler",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 723
+      }
     },
     {
       "id": "angular.upgrades.templates.angular-v22-switch-multiple-case-exhaustiveness",
@@ -6287,7 +9117,16 @@
         "Angular v22 Switch Multiple Case Exhaustiveness",
         "Templates / Compiler",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 724
+      }
     },
     {
       "id": "angular.upgrades.templates.angular-v22-template-arrow-functions-governance",
@@ -6307,7 +9146,16 @@
         "Angular v22 Template Arrow Functions Governance",
         "Templates / Compiler",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 733
+      }
     },
     {
       "id": "angular.upgrades.templates.angular-v22-template-comments-in-elements",
@@ -6327,7 +9175,16 @@
         "Angular v22 Template Comments In Elements",
         "Templates / Compiler",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 726
+      }
     },
     {
       "id": "angular.upgrades.templates.angular-v22-template-spread-rest-syntax",
@@ -6347,7 +9204,16 @@
         "Angular v22 Template Spread Rest Syntax",
         "Templates / Compiler",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 727
+      }
     },
     {
       "id": "angular.upgrades.testing.angular-v22-injectasync-testing",
@@ -6367,7 +9233,16 @@
         "Angular v22 InjectAsync Testing",
         "Testing",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 738
+      }
     },
     {
       "id": "angular.upgrades.testing.angular-v22-onpush-zoneless-testing-gate",
@@ -6387,7 +9262,16 @@
         "Angular v22 OnPush Zoneless Testing Gate",
         "Testing",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 745
+      }
     },
     {
       "id": "angular.upgrades.testing.angular-v22-resource-httpresource-testing",
@@ -6407,7 +9291,16 @@
         "Angular v22 Resource HttpResource Testing",
         "Testing",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 740
+      }
     },
     {
       "id": "angular.upgrades.testing.angular-v22-signal-forms-testing",
@@ -6427,7 +9320,16 @@
         "Angular v22 Signal Forms Testing",
         "Testing",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 741
+      }
     },
     {
       "id": "angular.upgrades.testing.angular-v22-template-diagnostics-testing-gate",
@@ -6447,7 +9349,16 @@
         "Angular v22 Template Diagnostics Testing Gate",
         "Testing",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 745
+      }
     },
     {
       "id": "angular.upgrades.testing.angular-v22-testbed-getlastfixture-patterns",
@@ -6467,7 +9378,16 @@
         "Angular v22 TestBed GetLastFixture Patterns",
         "Testing",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 748
+      }
     },
     {
       "id": "angular.upgrades.versioning.angular-21-to-22-index",
@@ -6486,7 +9406,16 @@
         "Angular 21 to 22 Index",
         "Versioning",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 21
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 734
+      }
     },
     {
       "id": "angular.upgrades.zoneless.angular-v22-zoneless-default-governance",
@@ -6506,7 +9435,16 @@
         "Angular v22 Zoneless Default Governance",
         "Change Detection / Zoneless",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 743
+      }
     },
     {
       "id": "angular.versioning.angular-cli-builder-compatibility",
@@ -6522,7 +9460,14 @@
         "cli builder compatibility",
         "builder compatibility",
         "application builder"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 524
+      }
     },
     {
       "id": "angular.versioning.angular-node-typescript-rxjs-matrix",
@@ -6540,7 +9485,14 @@
         "node typescript rxjs matrix",
         "compatibility matrix",
         "version gate"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 537
+      }
     },
     {
       "id": "angular.versioning.angular-peer-dependency-audit",
@@ -6556,7 +9508,14 @@
         "peer dependency audit",
         "peer deps",
         "compatibility audit"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 522
+      }
     },
     {
       "id": "angular.versioning.angular-v22-feature-index",
@@ -6575,7 +9534,16 @@
         "Angular v22 Feature Index",
         "Versioning",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 716
+      }
     },
     {
       "id": "angular.versioning.angular-v22-risk-matrix",
@@ -6594,7 +9562,16 @@
         "Angular v22 Risk Matrix",
         "Versioning",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 716
+      }
     },
     {
       "id": "angular.versioning.angular-v22-roadmap-alignment",
@@ -6613,7 +9590,16 @@
         "Angular v22 Roadmap Alignment",
         "Versioning",
         "Angular 22"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 719
+      }
     },
     {
       "id": "angular.versioning.angular-version-compatibility-gate",
@@ -6637,7 +9623,16 @@
         "angular cli version",
         "typescript range",
         "rxjs range"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 786
+      }
     },
     {
       "id": "angular.versioning.angular-version-gates",
@@ -6658,7 +9653,16 @@
         "Angular 12 compatibility",
         "Angular 17 migration",
         "Angular 20 modernization"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 717
+      }
     },
     {
       "id": "angular.versioning.angular-versioning-index",
@@ -6678,7 +9682,16 @@
         "versioning catalog",
         "hop index",
         "compatibility gate index"
-      ]
+      ],
+      "compatibility": {
+        "min": 2
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 574
+      }
     },
     {
       "id": "angular.zone.angular-v22-zone-boundaries",
@@ -6697,7 +9710,16 @@
         "Eager",
         "OnPush",
         "zone boundaries"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 323
+      }
     },
     {
       "id": "angular.zoneless.angular-v22-zoneless-readiness",
@@ -6716,7 +9738,16 @@
         "signals",
         "change detection",
         "bootstrap"
-      ]
+      ],
+      "compatibility": {
+        "min": 22
+      },
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": false,
+        "wordCount": 345
+      }
     },
     {
       "id": "core.autopilot-orchestrator",
@@ -6736,7 +9767,14 @@
         "choose skill",
         "analyze before coding",
         "NgAutoPilot orchestration"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 834
+      }
     },
     {
       "id": "core.compatibility-router",
@@ -6757,7 +9795,14 @@
         "unsupported API",
         "fallback pattern",
         "version gate"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 1113
+      }
     },
     {
       "id": "core.project-intake",
@@ -6777,7 +9822,14 @@
         "understand project",
         "repo context",
         "before coding"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 714
+      }
     },
     {
       "id": "core.risk-assessment",
@@ -6798,7 +9850,14 @@
         "architecture change",
         "migration risk",
         "safe change plan"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 762
+      }
     },
     {
       "id": "core.skill-router",
@@ -6818,7 +9877,14 @@
         "choose micro-skill",
         "skill selection",
         "task routing"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 731
+      }
     },
     {
       "id": "core.stack-version-detection",
@@ -6839,7 +9905,14 @@
         "Node version",
         "RxJS version",
         "package manager detection"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": true,
+        "hasRisks": true,
+        "wordCount": 761
+      }
     },
     {
       "id": "css.selectors.has-content-aware-layout",
@@ -6855,7 +9928,14 @@
         "css has",
         "content aware layout",
         "quantity query"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 209
+      }
     },
     {
       "id": "frontend.accessibility.inclusive-ui-foundations",
@@ -6875,7 +9955,14 @@
         "form errors",
         "semantic HTML",
         "screen reader"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 404
+      }
     },
     {
       "id": "frontend.css.responsive-layout-and-motion",
@@ -6894,7 +9981,14 @@
         "CSS grid",
         "reduced motion",
         "overflow"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 376
+      }
     },
     {
       "id": "frontend.design.accessibility-interaction-gate",
@@ -6913,7 +10007,14 @@
         "a11y gate",
         "keyboard testing",
         "WCAG review"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 241
+      }
     },
     {
       "id": "frontend.design.anti-generic-ai-design-gate",
@@ -6932,7 +10033,14 @@
         "generic AI UI",
         "avoid AI aesthetic",
         "design feels generated"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 241
+      }
     },
     {
       "id": "frontend.design.color-contrast-semantic-tokens",
@@ -6952,7 +10060,14 @@
         "contrast audit",
         "semantic color tokens",
         "dark theme"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 246
+      }
     },
     {
       "id": "frontend.design.component-api-composition",
@@ -6971,7 +10086,14 @@
         "reusable component",
         "component composition",
         "boolean prop explosion"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 241
+      }
     },
     {
       "id": "frontend.design.component-state-completeness",
@@ -6990,7 +10112,14 @@
         "loading empty error states",
         "component matrix",
         "design system completeness"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 233
+      }
     },
     {
       "id": "frontend.design.design-quality-orchestrator",
@@ -7010,7 +10139,14 @@
         "design quality review",
         "make UI better",
         "frontend UX audit"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 251
+      }
     },
     {
       "id": "frontend.design.design-quality-release-gate",
@@ -7030,7 +10166,14 @@
         "frontend quality score",
         "design QA",
         "approve UI release"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 262
+      }
     },
     {
       "id": "frontend.design.design-system-governance",
@@ -7050,7 +10193,14 @@
         "component contract",
         "theme",
         "Material"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 413
+      }
     },
     {
       "id": "frontend.design.design-token-system",
@@ -7069,7 +10219,14 @@
         "CSS variables",
         "theme architecture",
         "component tokens"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 246
+      }
     },
     {
       "id": "frontend.design.disclosure-accordion-details",
@@ -7089,7 +10246,14 @@
         "accordion component",
         "disclosure widget",
         "exclusive accordion"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 247
+      }
     },
     {
       "id": "frontend.design.microcopy-feedback-system-states",
@@ -7109,7 +10273,14 @@
         "empty states",
         "loading copy",
         "user feedback"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 237
+      }
     },
     {
       "id": "frontend.design.motion-choreography-progressive-enhancement",
@@ -7129,7 +10300,14 @@
         "motion design",
         "reduced motion",
         "view transition"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 247
+      }
     },
     {
       "id": "frontend.design.native-first-interaction-components",
@@ -7148,7 +10326,14 @@
         "custom control accessibility",
         "button link semantics",
         "interactive component"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 245
+      }
     },
     {
       "id": "frontend.design.product-design-intake",
@@ -7167,7 +10352,14 @@
         "product UX brief",
         "redesign context",
         "user task analysis"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 239
+      }
     },
     {
       "id": "frontend.design.product-ui-discovery",
@@ -7187,7 +10379,14 @@
         "user journey",
         "empty state",
         "microcopy"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 375
+      }
     },
     {
       "id": "frontend.design.responsive-layout-content-density",
@@ -7206,7 +10405,14 @@
         "mobile layout",
         "content density",
         "container queries"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 243
+      }
     },
     {
       "id": "frontend.design.storybook-visual-regression-gate",
@@ -7225,7 +10431,14 @@
         "visual regression",
         "component screenshots",
         "design QA"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 236
+      }
     },
     {
       "id": "frontend.design.task-flow-usability-review",
@@ -7244,7 +10457,14 @@
         "task flow audit",
         "UX friction",
         "form flow review"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 240
+      }
     },
     {
       "id": "frontend.design.typography-information-hierarchy",
@@ -7263,7 +10483,14 @@
         "information hierarchy",
         "UI readability",
         "content density"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 236
+      }
     },
     {
       "id": "frontend.design.visual-direction-art-direction",
@@ -7281,7 +10508,14 @@
         "art direction UI",
         "brand expression",
         "interface identity"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 233
+      }
     },
     {
       "id": "frontend.performance.web-performance-evidence",
@@ -7301,7 +10535,14 @@
         "render blocking",
         "image loading",
         "bundle size"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 386
+      }
     },
     {
       "id": "frontend.testing.frontend-experience-validation",
@@ -7321,7 +10562,14 @@
         "accessibility test",
         "frontend E2E",
         "user flow"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 396
+      }
     },
     {
       "id": "javascript.async-error-handling",
@@ -7343,7 +10591,14 @@
         "fallback behavior",
         "promise chains",
         "async loops"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 646
+      }
     },
     {
       "id": "javascript.async-error-handling.browser-async-error-handling-v18",
@@ -7364,7 +10619,14 @@
         "user facing failure state",
         "retry behavior",
         "browser rejection handling"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 264
+      }
     },
     {
       "id": "javascript.async-error-handling.browser-async-error-handling-v20",
@@ -7385,7 +10647,14 @@
         "user facing failure state",
         "retry behavior",
         "browser rejection handling"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 280
+      }
     },
     {
       "id": "javascript.async-error-handling.nodejs-async-error-handling-v18",
@@ -7406,7 +10675,14 @@
         "process rejection handling",
         "script failure behavior",
         "node promise errors"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 283
+      }
     },
     {
       "id": "javascript.async-error-handling.nodejs-async-error-handling-v20",
@@ -7427,7 +10703,14 @@
         "process rejection handling",
         "script failure behavior",
         "node promise errors"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 287
+      }
     },
     {
       "id": "javascript.ecmascript-compatibility-semantics",
@@ -7446,7 +10729,14 @@
         "JavaScript semantics",
         "library support",
         "toolchain target"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 430
+      }
     },
     {
       "id": "javascript.fundamentals",
@@ -7466,7 +10756,14 @@
         "js fundamentals",
         "javascript roadmap",
         "javascript capability path"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 410
+      }
     },
     {
       "id": "javascript.modules",
@@ -7488,7 +10785,14 @@
         "circular dependencies",
         "package exports",
         "module boundaries"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 550
+      }
     },
     {
       "id": "javascript.pure-functions",
@@ -7510,7 +10814,14 @@
         "validator function",
         "business rules",
         "side effect free"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 462
+      }
     },
     {
       "id": "quality.eslint.eslint-autofix-safe-cleanup",
@@ -7529,7 +10840,14 @@
         "lint fix",
         "auto fix",
         "mechanical fix"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 261
+      }
     },
     {
       "id": "quality.eslint.eslint-autofix-safe-cleanup-browser-v18",
@@ -7547,7 +10865,14 @@
         "browser lint fix",
         "safe autofix browser",
         "mechanical fix browser"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 243
+      }
     },
     {
       "id": "quality.eslint.eslint-autofix-safe-cleanup-node-v20",
@@ -7565,7 +10890,14 @@
         "node lint fix",
         "safe autofix node",
         "mechanical fix node"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 252
+      }
     },
     {
       "id": "quality.eslint.eslint-baseline-hardening",
@@ -7585,7 +10917,14 @@
         "lint warnings",
         "lint config review",
         "rule hardening"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 296
+      }
     },
     {
       "id": "quality.eslint.eslint-baseline-hardening-monorepo",
@@ -7603,7 +10942,14 @@
         "nx lint baseline",
         "workspace lint hardening",
         "shared eslint config"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 242
+      }
     },
     {
       "id": "quality.eslint.eslint-disable-governance",
@@ -7623,7 +10969,14 @@
         "ts-expect-error",
         "lint suppression",
         "disable comments"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 275
+      }
     },
     {
       "id": "quality.fundamentals",
@@ -7643,7 +10996,14 @@
         "quality primitives",
         "quality capability path",
         "debt and lint coordination"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 401
+      }
     },
     {
       "id": "quality.fundamentals.quality-decision-matrix",
@@ -7662,7 +11022,14 @@
         "eslint or sonarqube",
         "quality triage matrix",
         "cleanup decision"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 356
+      }
     },
     {
       "id": "quality.no-dead-code.dead-branches-cleanup",
@@ -7681,7 +11048,14 @@
         "obsolete branch",
         "legacy flags",
         "conditional cleanup"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 243
+      }
     },
     {
       "id": "quality.no-dead-code.orphan-files-cleanup",
@@ -7700,7 +11074,14 @@
         "file cleanup",
         "unused file",
         "stale file"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 513
+      }
     },
     {
       "id": "quality.no-dead-code.orphan-files-cleanup-monorepo",
@@ -7719,7 +11100,14 @@
         "workspace file cleanup",
         "dead files monorepo",
         "project graph cleanup"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 257
+      }
     },
     {
       "id": "quality.no-dead-code.unused-exports-cleanup",
@@ -7738,7 +11126,14 @@
         "public api cleanup",
         "barrel exports",
         "dead exports"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 266
+      }
     },
     {
       "id": "quality.sonarqube.sonarqube-cognitive-complexity-reduction",
@@ -7757,7 +11152,14 @@
         "branch simplification",
         "complex function",
         "nested conditionals"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 237
+      }
     },
     {
       "id": "quality.sonarqube.sonarqube-duplication-coverage-hardening",
@@ -7776,7 +11178,14 @@
         "duplicate code",
         "coverage hardening",
         "test coverage"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 246
+      }
     },
     {
       "id": "quality.sonarqube.sonarqube-quality-gate-triage",
@@ -7795,7 +11204,14 @@
         "sonar quality gate",
         "code smell triage",
         "coverage gate"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 248
+      }
     },
     {
       "id": "quality.sonarqube.sonarqube-quality-gate-triage-monorepo",
@@ -7813,7 +11229,14 @@
         "quality gate monorepo",
         "nx sonar",
         "workspace sonar issues"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 253
+      }
     },
     {
       "id": "quality.technical-debt.debt-ledger-cleanup-hop",
@@ -7833,7 +11256,14 @@
         "debt tracking",
         "incremental debt repayment",
         "refactor hop"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 321
+      }
     },
     {
       "id": "typescript.dto-mappers.browser-dto-mappers-v14",
@@ -7852,7 +11282,14 @@
         "view model mapping",
         "serialization boundary",
         "ui mapping contract"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 241
+      }
     },
     {
       "id": "typescript.dto-mappers.node-dto-mappers-v18",
@@ -7871,7 +11308,14 @@
         "backend mapping",
         "normalization boundary",
         "api contract mapping"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 251
+      }
     },
     {
       "id": "typescript.fundamentals",
@@ -7890,7 +11334,14 @@
         "typescript primitives",
         "typescript capability path",
         "type safety roadmap"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 417
+      }
     },
     {
       "id": "typescript.strict-types",
@@ -7910,7 +11361,14 @@
         "unsafe any removal",
         "type narrowing",
         "dto boundaries"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 400
+      }
     },
     {
       "id": "typescript.strict-types.avoid-any",
@@ -7929,7 +11387,14 @@
         "type guard",
         "DTO",
         "generic"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 501
+      }
     },
     {
       "id": "typescript.strict-types.typescript-strict-types-strict-mode",
@@ -7947,7 +11412,14 @@
         "strict typing strict mode",
         "typescript strict compiler",
         "strict null checks"
-      ]
+      ],
+      "compatibility": {},
+      "contentSignals": {
+        "requiredSections": true,
+        "hasProcedure": false,
+        "hasRisks": false,
+        "wordCount": 281
+      }
     }
   ]
 }

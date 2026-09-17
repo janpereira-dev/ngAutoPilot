@@ -18,6 +18,37 @@ List available packs with name, status, and audience.
 
 List available agent adapters with status and scope.
 
+### `ngautopilot angular [--target <major[.minor]>] [--profile <profile>] [--capabilities <comma-list>] [--json]`
+
+Resolve compatible **non-migration** packs and skills for the Angular project at
+the current directory. The command reads the nearest `package.json` and a
+supported lockfile when available. It writes nothing.
+
+```bash
+ngautopilot angular --profile core --capabilities ui,testing --json
+```
+
+Profiles: `core`, `essentials`, `architecture`, `performance`, `testing`, and
+`migration`. Capabilities: `foundations`, `runtime`, `state`, `testing`, and
+`ui`. `--target` must agree with lockfile-confirmed Angular evidence, or with
+all declared Angular ranges when no lockfile is present.
+
+This resolver does not install files and intentionally excludes upgrade hops
+and modernization. Install a named `ngautopilot-angular-<from>-to-<to>` pack
+only for the explicit, bounded migration step.
+
+### `ngautopilot platform [--json]`
+
+Report catalog families, Angular upgrade-hop coverage, packs, adapters,
+subagents, distribution surfaces, and deterministic quality totals without
+writing files.
+
+### `ngautopilot quality [--json]`
+
+Report structural content signals for every source skill. It verifies no
+semantic usefulness by itself; use the Skill Lab and human review before
+promoting a changed skill.
+
 ### `ngautopilot install`
 
 Install a pack for an agent.
