@@ -180,9 +180,10 @@ function angularCmd(args) {
   });
   if (args.json) { jsonOut(result); return; }
   console.log(`Angular ${result.evidence.angular.version} (${result.validation.level}) -> profile ${result.profile}`);
-  console.log(`Included packs: ${result.included.filter(({ type }) => type === 'pack').map(({ id }) => id).join(', ') || 'none'}`);
+  console.log(`Selection source packs: ${result.selection.sourcePacks.map(({ id }) => id).join(', ') || 'none'}`);
   console.log(`Compatible skills: ${result.included.filter(({ type }) => type === 'skill').length}`);
   console.log(`Excluded skills: ${result.excluded.filter(({ type }) => type === 'skill').length}`);
+  console.log(result.selection.reason);
   console.log('No migration hop is installed by this command. Use upgrade.plan or an explicit ngautopilot-angular-<from>-to-<to> pack for a bounded upgrade.');
 }
 
