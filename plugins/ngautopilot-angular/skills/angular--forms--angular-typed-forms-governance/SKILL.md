@@ -12,6 +12,9 @@ triggers:
   - typed forms
   - forms governance
   - null safety
+compatibility:
+  angular:
+    min: "14"
 ---
 
 # Angular Typed Forms Governance

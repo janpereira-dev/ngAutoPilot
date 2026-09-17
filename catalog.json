@@ -1559,12 +1559,14 @@
         "forms governance",
         "null safety"
       ],
-      "compatibility": {},
+      "compatibility": {
+        "min": 14
+      },
       "contentSignals": {
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 522
+        "wordCount": 526
       }
     },
     {
@@ -3457,12 +3459,14 @@
         "resolvers",
         "router guards"
       ],
-      "compatibility": {},
+      "compatibility": {
+        "min": 15
+      },
       "contentSignals": {
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 517
+        "wordCount": 521
       }
     },
     {
@@ -3880,12 +3884,14 @@
         "computed effect",
         "signal basics"
       ],
-      "compatibility": {},
+      "compatibility": {
+        "min": 16
+      },
       "contentSignals": {
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 514
+        "wordCount": 518
       }
     },
     {

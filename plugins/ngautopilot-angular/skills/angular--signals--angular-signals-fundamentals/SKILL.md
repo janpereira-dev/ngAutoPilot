@@ -12,6 +12,9 @@ triggers:
   - signals fundamentals
   - computed effect
   - signal basics
+compatibility:
+  angular:
+    min: "16"
 ---
 
 # Angular Signals Fundamentals

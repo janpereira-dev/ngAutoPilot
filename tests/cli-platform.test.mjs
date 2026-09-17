@@ -19,6 +19,15 @@ test('reports platform and quality inventories as read-only JSON', () => {
   assert.equal(JSON.parse(quality.stdout).summary.skillCount, 413);
 });
 
+test('renders distribution availability and artifact locations for terminal users', () => {
+  const platform = run('platform');
+
+  assert.equal(platform.status, 0, platform.stderr);
+  assert.match(platform.stdout, /Claude=repository-manifest \(\.claude-plugin\/marketplace\.json\)/);
+  assert.match(platform.stdout, /OpenAI=source-only \(openai\/plugin\.json\)/);
+  assert.doesNotMatch(platform.stdout, /\[object Object\]/);
+});
+
 test('resolves a detected Angular project without installing or selecting a migration hop', (t) => {
   const projectRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-cli-angular-'));
   t.after(() => fs.rmSync(projectRoot, { recursive: true, force: true }));

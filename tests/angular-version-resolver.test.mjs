@@ -203,6 +203,25 @@ test('filters incompatible skills selected by capability packs', (t) => {
   assert.ok(result.included.some((item) => item.id === 'angular.performance.performance-audit'));
 });
 
+test('excludes capability skills before the Angular version that introduced their APIs', (t) => {
+  const projectRoot = createProject(t, '12.2.17');
+  const result = resolveAngularInstallation({
+    root: repositoryRoot,
+    projectRoot,
+    target: 12,
+    capabilities: ['state', 'ui'],
+  });
+
+  for (const skillId of [
+    'angular.signals.angular-signals-fundamentals',
+    'angular.forms.angular-typed-forms-governance',
+    'angular.router.angular-functional-guards-resolvers',
+  ]) {
+    assert.equal(result.included.some((item) => item.id === skillId), false, skillId);
+    assert.ok(result.excluded.some((item) => item.id === skillId && /requires Angular >=/.test(item.reason)), skillId);
+  }
+});
+
 test('accepts a lockfile version within a declared Angular range', (t) => {
   const projectRoot = createProject(t, '12.2.17', { declaration: '^12.1.0' });
   const result = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' });
@@ -217,6 +236,15 @@ test('rejects a lockfile version outside an exact Angular declaration', (t) => {
   assert.throws(
     () => resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' }),
     /package\.json @angular\/core 12\.2\.0 contradicts lockfile 12\.2\.17/,
+  );
+});
+
+test('rejects a lockfile version that contradicts a non-core Angular declaration', (t) => {
+  const projectRoot = createProject(t, '12.2.17', { declaration: '^12.1.0', commonDeclaration: '~12.1.0' });
+
+  assert.throws(
+    () => resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: '12.2' }),
+    /package\.json @angular\/common ~12\.1\.0 contradicts lockfile 12\.2\.17/,
   );
 });
 
