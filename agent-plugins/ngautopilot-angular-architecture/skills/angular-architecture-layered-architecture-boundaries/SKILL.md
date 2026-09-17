@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.layered-architecture-boundaries"
   ngautopilot-source: "skills/angular/architecture/layered-architecture-boundaries/SKILL.md"
-  ngautopilot-version: "0.8.1"
+  ngautopilot-version: "0.9.0"
 ---
 
 

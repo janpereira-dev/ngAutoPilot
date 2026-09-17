@@ -1,6 +1,6 @@
 # Agent Plugins Compatibility
 
-Agent Plugins support is Preview in NgAutoPilot `0.8.1`. Generated artifacts conform to Agent Plugins 1.0 and Agent Skills naming requirements. `ngautopilot-tools` uses stdio MCP only.
+Agent Plugins support is Preview in NgAutoPilot `0.9.0`. Generated artifacts conform to Agent Plugins 1.0 and Agent Skills naming requirements. `ngautopilot-tools` uses stdio MCP only.
 
 Client installation and end-to-end discovery validation are release-close evidence. They are not inferred from schema validation, archive generation, or the local MCP smoke test.
 

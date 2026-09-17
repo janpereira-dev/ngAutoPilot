@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.micro-frontends-release-governance"
   ngautopilot-source: "skills/angular/architecture/micro-frontends-release-governance/SKILL.md"
-  ngautopilot-version: "0.8.1"
+  ngautopilot-version: "0.9.0"
 ---
 
 

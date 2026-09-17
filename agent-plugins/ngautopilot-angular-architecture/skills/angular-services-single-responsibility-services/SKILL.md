@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.services.single-responsibility-services"
   ngautopilot-source: "skills/angular/services/single-responsibility-services/SKILL.md"
-  ngautopilot-version: "0.8.1"
+  ngautopilot-version: "0.9.0"
 ---
 
 

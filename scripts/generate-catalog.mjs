@@ -42,7 +42,7 @@ const skills = skillFiles
 const catalog = {
   name: 'NgAutoPilot',
   description: 'Agnostic micro-skills for Angular, TypeScript and JavaScript development.',
-  version: '0.8.1',
+  version: '0.9.0',
   skills,
 };
 

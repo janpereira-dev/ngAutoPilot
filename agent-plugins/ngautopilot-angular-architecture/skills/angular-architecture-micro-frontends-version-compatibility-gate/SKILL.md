@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.micro-frontends-version-compatibility-gate"
   ngautopilot-source: "skills/angular/architecture/micro-frontends-version-compatibility-gate/SKILL.md"
-  ngautopilot-version: "0.8.1"
+  ngautopilot-version: "0.9.0"
 ---
 
 

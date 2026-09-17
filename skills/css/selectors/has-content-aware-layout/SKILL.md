@@ -6,7 +6,7 @@ stack:
   - CSS
 category: selectors
 status: stable
-version: 0.8.1
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - css has

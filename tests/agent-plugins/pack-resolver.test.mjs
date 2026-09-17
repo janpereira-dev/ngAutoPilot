@@ -1,4 +1,6 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
@@ -23,4 +25,25 @@ test('resolves transitive Core skills and source descriptions from a focused pac
 
 test('rejects pack identifiers that escape the packs directory', () => {
   assert.throws(() => resolvePacks(path.join(root, 'packs'), '../package'), /invalid pack ID/);
+});
+
+test('rejects a catalog skill whose source path escapes the declared source root', () => {
+  const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'ngap-pack-resolver-'));
+  const packsRoot = path.join(fixture, 'packs');
+  fs.mkdirSync(packsRoot);
+  fs.writeFileSync(path.join(packsRoot, 'ngautopilot-test.json'), JSON.stringify({
+    id: 'ngautopilot-test',
+    includes: { skills: ['test.'] },
+  }));
+  fs.writeFileSync(path.join(fixture, 'catalog.json'), JSON.stringify({
+    skills: [{ id: 'test.escape', path: '../outside/SKILL.md' }],
+  }));
+
+  assert.throws(() => resolvePackSkills({
+    catalogPath: path.join(fixture, 'catalog.json'),
+    packsRoot,
+    sourceRoot: fixture,
+    packId: 'ngautopilot-test',
+  }), /source path escapes root/);
+  fs.rmSync(fixture, { recursive: true, force: true });
 });

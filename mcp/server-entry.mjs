@@ -9,6 +9,6 @@ const pluginRoot = process.env.PLUGIN_ROOT ?? path.resolve(path.dirname(fileURLT
 const root = await (await import('node:fs/promises')).access(path.join(pluginRoot, 'data', 'catalog.json'))
   .then(() => path.join(pluginRoot, 'data'))
   .catch(() => pluginRoot);
-const server = createMcpServer({ root, version: process.env.NGAUTOPILOT_VERSION ?? '0.8.1' });
+const server = createMcpServer({ root, version: process.env.NGAUTOPILOT_VERSION ?? '0.9.0' });
 
 await server.connect(new StdioServerTransport());

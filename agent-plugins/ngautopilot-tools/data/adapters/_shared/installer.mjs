@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import os from 'node:os';
-import { assertNoSymlinkParents, createRootGuard, safeWriteFile, safeReadFile, safeRemoveFile, safeExists, sha256, verifyChecksum, SafeFsError } from './safe-fs.mjs';
+import { assertNoSymlinkParents, createRootGuard, safeWriteFile, safeReadFile, safeReadSourceFile, safeRemoveFile, safeExists, sha256, verifyChecksum, SafeFsError } from './safe-fs.mjs';
 import { loadAdapterManifest } from './adapter-core.mjs';
 
 const MANIFEST_NAME = '.ngautopilot-manifest.json';
@@ -29,9 +29,18 @@ function newInstallationId() {
  * @returns {Object|null}
  */
 export function loadManifest(installRoot) {
-  const abs = path.join(installRoot, MANIFEST_NAME);
-  if (!fs.existsSync(abs)) return null;
-  return JSON.parse(fs.readFileSync(abs, 'utf8'));
+  if (!fs.existsSync(installRoot)) return null;
+  const installGuard = guard(installRoot);
+  if (!safeExists(installGuard, MANIFEST_NAME)) return null;
+  return JSON.parse(safeReadFile(installGuard, MANIFEST_NAME));
+}
+
+function readPlanSource(plan, file) {
+  if (!file.source) return '';
+  if (!plan.sourceRoot) {
+    throw new SafeFsError('source_root_missing', 'installation plan does not declare a source root');
+  }
+  return safeReadSourceFile(plan.sourceRoot, file.source);
 }
 
 export function saveManifest(installRoot, manifest) {
@@ -134,20 +143,19 @@ export function backup(plan, options = {}) {
   const id = options.id || newInstallationId();
   const backupRoot = path.join(options.backupDir || path.join(os.tmpdir(), 'ngautopilot-backups'), id);
   fs.mkdirSync(backupRoot, { recursive: true });
+  const installGuard = guard(installRoot);
+  const backupGuard = guard(backupRoot);
   const backedUp = [];
   for (const file of files) {
-    const abs = path.join(installRoot, file.path);
-    if (!fs.existsSync(abs)) continue;
-    const dest = path.join(backupRoot, file.path);
-    fs.mkdirSync(path.dirname(dest), { recursive: true });
-    fs.copyFileSync(abs, dest);
+    if (!safeExists(installGuard, file.path)) continue;
+    safeWriteFile(backupGuard, file.path, safeReadFile(installGuard, file.path));
     backedUp.push(file.path);
   }
   // Persist the pre-backup manifest so we can restore precisely.
   const manifest = installation?.manifest || loadManifest(installRoot);
   if (manifest) {
     manifest.installRoot = installRoot;
-    fs.writeFileSync(path.join(backupRoot, MANIFEST_NAME), JSON.stringify(manifest, null, 2));
+    safeWriteFile(backupGuard, MANIFEST_NAME, JSON.stringify(manifest, null, 2));
   }
   return { ok: true, backupPath: backupRoot, backedUp };
 }
@@ -182,7 +190,7 @@ function computeDryRun(plan, force) {
     if (file.managedSection) {
       try {
         const currentContent = exists ? safeReadFile(guardRoot, file.path) : '';
-        const nextContent = mergeManagedSection(currentContent, fs.readFileSync(file.source, 'utf8'));
+        const nextContent = mergeManagedSection(currentContent, readPlanSource(plan, file));
         if (currentContent === nextContent) wouldSkip += 1;
         else if (exists) wouldUpdate += 1;
         else wouldCreate += 1;
@@ -194,7 +202,7 @@ function computeDryRun(plan, force) {
     }
     if (exists) {
       const currentChecksum = sha256(safeReadFile(guardRoot, file.path));
-      const sourceContent = file.source ? fs.readFileSync(file.source, 'utf8') : '';
+      const sourceContent = readPlanSource(plan, file);
       const sourceChecksum = sha256(sourceContent);
       if (currentChecksum === sourceChecksum) {
         wouldSkip += 1;
@@ -259,7 +267,7 @@ export function applyPlan(plan, opts = {}) {
     }
     // Skip if unchanged and it's an update.
     if (file.source && file.managedSection) {
-      const sourceContent = fs.readFileSync(file.source, 'utf8');
+      const sourceContent = readPlanSource(plan, file);
       const sectionChecksum = sha256(sourceContent.trimEnd());
       try {
         const currentContent = safeExists(guardRoot, file.path) ? safeReadFile(guardRoot, file.path) : '';
@@ -288,7 +296,7 @@ export function applyPlan(plan, opts = {}) {
       continue;
     }
     if (file.source) {
-      const sourceContent = fs.readFileSync(file.source, 'utf8');
+      const sourceContent = readPlanSource(plan, file);
       const sourceChecksum = sha256(sourceContent);
       if (currentChecksum === sourceChecksum) {
         skipped += 1;
@@ -509,11 +517,11 @@ export function restore(backupRef, installRootOverride) {
   if (!backupPath || !fs.existsSync(backupPath)) {
     return { ok: false, restoredFiles: 0, warnings: ['backup path missing'] };
   }
-  const manifestPath = path.join(backupPath, MANIFEST_NAME);
-  if (!fs.existsSync(manifestPath)) {
+  const backupGuard = guard(backupPath);
+  if (!safeExists(backupGuard, MANIFEST_NAME)) {
     return { ok: false, restoredFiles: 0, warnings: ['backup manifest missing'] };
   }
-  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  const manifest = JSON.parse(safeReadFile(backupGuard, MANIFEST_NAME));
   const installRoot = installRootOverride || manifest.installRoot;
   if (!installRoot) {
     return { ok: false, restoredFiles: 0, warnings: ['installRoot not provided and not in backup manifest'] };
@@ -521,9 +529,8 @@ export function restore(backupRef, installRootOverride) {
   const guardRoot = guard(installRoot);
   let restoredFiles = 0;
   for (const entry of manifest.files) {
-    const src = path.join(backupPath, entry.path);
-    if (!fs.existsSync(src)) continue;
-    const content = fs.readFileSync(src, 'utf8');
+    if (!safeExists(backupGuard, entry.path)) continue;
+    const content = safeReadFile(backupGuard, entry.path);
     safeWriteFile(guardRoot, entry.path, content);
     restoredFiles += 1;
   }

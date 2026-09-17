@@ -88,7 +88,7 @@ Each pack is a JSON file in `packs/<pack-id>.json`, validated against `schemas/p
 {
   "id": "ngautopilot-core",
   "name": "NgAutoPilot Core",
-  "version": "0.8.1",
+  "version": "0.9.0",
   "status": "stable",
   "description": "...",
   "audience": "Everyone",

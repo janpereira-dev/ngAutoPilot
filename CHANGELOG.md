@@ -2,6 +2,19 @@
 
 All notable changes to NgAutoPilot will be documented in this file.
 
+## 0.9.0 - 2026-09-17
+
+### Security
+
+- Pinned release workflow actions to immutable commit SHAs, disabled persisted checkout credentials, and reduced default workflow permissions to read-only.
+- Bound adapter installation sources to the declared package root, rejecting traversal, symlinked, and non-regular files before they can be read, copied, backed up, or restored.
+- Hardened pack and adapter manifest loading against path traversal and untrusted source-file inclusion.
+
+### Changed
+
+- Added major-minor Angular compatibility metadata so functional guards resolve from Angular 14.2 and Signals guidance resolves from Angular 16.
+- Resolver output now marks filtered selections as non-installable and displays the effective Angular target in human-readable CLI output.
+
 ## 0.8.1 - 2026-09-16
 
 ### Security

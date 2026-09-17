@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.micro-frontends-fallback-and-rollback"
   ngautopilot-source: "skills/angular/architecture/micro-frontends-fallback-and-rollback/SKILL.md"
-  ngautopilot-version: "0.8.1"
+  ngautopilot-version: "0.9.0"
 ---
 
 
