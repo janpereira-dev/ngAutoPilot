@@ -94,10 +94,13 @@ function syncMcpPlugin({ root, pluginDir, version }) {
   fs.copyFileSync(path.join(root, '.agents', 'plugins', 'marketplace.json'), path.join(dataDir, '.agents', 'plugins', 'marketplace.json'));
   fs.mkdirSync(path.join(dataDir, 'openai'), { recursive: true });
   fs.copyFileSync(path.join(root, 'openai', 'plugin.json'), path.join(dataDir, 'openai', 'plugin.json'));
-  buildSync({
+  const bundle = buildSync({
     absWorkingDir: root,
     entryPoints: ['mcp/server-entry.mjs'],
     outfile: path.join(binDir, 'server.mjs'),
+    // Keep normalization in memory: an immediate cross-process reopen of
+    // esbuild's output can fail with UNKNOWN/sharing errors on Windows.
+    write: false,
     bundle: true,
     platform: 'node',
     format: 'esm',
@@ -106,7 +109,7 @@ function syncMcpPlugin({ root, pluginDir, version }) {
     define: { 'process.env.NGAUTOPILOT_VERSION': JSON.stringify(version) },
   });
   const bundlePath = path.join(binDir, 'server.mjs');
-  fs.writeFileSync(bundlePath, fs.readFileSync(bundlePath, 'utf8').replace(/[ \t]+\r?\n/g, '\n'), 'utf8');
+  fs.writeFileSync(bundlePath, bundle.outputFiles[0].text.replace(/[ \t]+\r?\n/g, '\n'), 'utf8');
   fs.writeFileSync(path.join(pluginDir, 'mcp.json'), `${JSON.stringify({
     $schema: MCP_SCHEMA,
     mcpServers: {
