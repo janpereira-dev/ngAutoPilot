@@ -35,6 +35,12 @@ A dirty local packet is useful for development review but **cannot** satisfy rel
 
 The environment is configured separately in GitHub, not by YAML alone. Required reviewer: repository maintainer `janpereira-dev`; administrator bypass disabled. Self-review prevention is intentionally off because this repository currently has one human maintainer: that person may approve a run they requested, but the agent must never submit the human approval. Adding an independent security maintainer allows stricter separation later. Recheck environment protection before every release; deleting its rules would remove this boundary.
 
+### Credential activation and legacy workflows
+
+The new workflow uses **only** `RELEASE_NPM_TOKEN` and fails closed when it is absent. Store it as an environment secret in `release-security`, never as a repository-wide secret. There is no fallback to the historical `NPM_TOKEN`.
+
+The live settings audit found a repository-wide `NPM_TOKEN` and no environment secret. GitHub does not expose existing secret values, so the agent cannot safely migrate it or claim the credential boundary is closed. The maintainer must provision the protected environment credential and revoke/remove the old repository credential before npm release activation. Until then, npm publication through the new workflow is intentionally unavailable. Review historical/obsolete publisher workflows as well: an environment on current YAML does not retroactively protect an old workflow revision. Do not call the entire publication surface secured while a legacy repository credential remains usable.
+
 **Before approving**, the human reviewer must inspect the exact packet and record a security review on the release PR or linked audit issue:
 
 ```text

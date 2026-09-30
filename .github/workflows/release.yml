@@ -145,9 +145,11 @@ jobs:
 
       - name: Publish to npm
         if: github.event_name == 'workflow_dispatch' && inputs.publish == true
-        run: npm publish --access public
+        run: |
+          test -n "$NODE_AUTH_TOKEN" || { echo "Missing protected release-security npm credential" >&2; exit 1; }
+          npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.RELEASE_NPM_TOKEN }}
 
       - name: Publish release artifacts
         uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3
