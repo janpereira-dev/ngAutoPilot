@@ -15,7 +15,7 @@ This is **not a complete semantic or real-agent evaluation of all 413 skills**. 
 - Reduced source entrypoint prose from 208,828 to 204,086 whitespace-delimited words: **4,742 fewer words net**, including new domain guidance. This is a size measurement, not a quality score.
 - Strengthened Jest, RxJS performance/composition/contracts, component interaction, testing-runner selection, and Sonar coverage guidance. The component example now clicks the rendered button rather than emitting its own output.
 - Added a conditional, self-contained Jest search reference with typed mocks, isolated clocks, teardown, debounce reset, delayed-cancellation semantics, and recovery on the same subscription.
-- Strengthened the upgrade gate's trust and execution boundary. Fixed its evaluator's refusal false positive without changing benchmark cases, expected outcomes, checks, or weights.
+- Strengthened the upgrade gate's trust and execution boundary. Removed the evaluator's refusal bypass without changing benchmark cases, expected outcomes, checks, or weights; the conservative text check retains a known false positive.
 - Fixed classic bundle synchronization to retain supporting resources without duplicating independently catalogued child skills. It rejects linked resources using the existing safe-copy helper. The Jest reference is byte-identical in its source, classic bundle, and portable testing plugin.
 - Updated the [authoring guide](../skill-authoring.md), contribution criteria, and starter template without imposing a testing drill on unrelated skills.
 
@@ -26,12 +26,12 @@ This is **not a complete semantic or real-agent evaluation of all 413 skills**. 
 | Editorial scan | 125 source skills with known signals before; 0 after | Five explicit text patterns only |
 | Structural/frontmatter validation | 413 accepted; 0 failures | Catalog shape and YAML, not behavioral quality |
 | Repository suite | 153 passed; 0 failed | Includes new editorial and bundle resource regressions |
-| Skill Lab suite | 84 passed; 0 failed; 11 skipped | Existing optional integrations remain skipped |
+| Skill Lab suite | 85 passed; 0 failed; 11 skipped | Existing optional integrations remain skipped |
 | RxJS reference | Strict TypeScript check; 7/7 Jest tests | RxJS 7.8.2, Jest 30.2.0, TypeScript 5.9.3 |
 | Manual incorrect variants | All 6 detected by failing assertions | Not automatic Stryker mutations |
-| Upgrade gate benchmark | 34/38 before; 38/38 after | Deterministic fixture/text checks for one skill only |
+| Upgrade gate benchmark | 34/38 before; 37/38 after | Deterministic checks for one skill; one conservative remote-shell false positive remains |
 | Distribution and marketplace checks | Passed | Classic/portable generation, consistency, schema checks, smoke checks, and Claude validator |
-| Full release validation | Passed on current main-based 0.9.0 branch | Includes OpenAI package validation and all 153 repository tests |
+| Full release validation | Passed at d2d2e85 before the scorer-only follow-up | Includes OpenAI package validation and all 153 repository tests; not rerun for the subsequent scorer-only change |
 | Repository security content scan | Passed | Existing local content scanner; not an external security audit |
 
 Machine-readable evidence:
@@ -46,12 +46,12 @@ No Angular TestBed/HTTP transport E2E, real agent invocation, or Stryker score i
 
 All four inline review findings were reproduced against the reviewed commit `ccbcbff5b2a05e2f7f3d73d51b669ba1d32127bc` and addressed with regression coverage:
 
-- **Contradictory safety advice:** an exact command mention for a discovered remote-shell script now fails conservatively, even alongside a refusal. Recorded dangerous execution also fails when the candidate does not mention that command. Generic inspection and refusal still pass the existing safe fixture. This deterministic text heuristic is not a semantic security guarantee; even an exact negative command example is conservatively rejected.
+- **Contradictory safety advice:** the first correction covered exact command text only. A subsequent P1 reproduced a remaining bypass using generic advice such as "Run the build script." The refusal exception was then removed entirely: all detected generic/exact trap mentions and recorded execution fail, even alongside refusal/inspection prose. This deliberately permits false positives rather than claiming semantic safety from text matching.
 - **Markdown counterexamples:** the editorial scan handles top-level fences with up to three leading spaces, longer same-character closers, and unclosed blocks through end-of-document. Invalid or shorter closers do not terminate a block. These rules follow [CommonMark fenced code blocks](https://spec.commonmark.org/0.31.2/#fenced-code-blocks); this helper is not a complete Markdown container parser.
 - **Linked nested-skill markers:** `SKILL.md` markers are inspected without following links; valid and broken links are rejected before exclusion. Only regular files identify independently catalogued nested skills.
 - **Partial bundle destruction:** every bundle's resources and manifest are staged before publication. A resource-copy failure, including one in the last bundle, preserves all existing distributions and marketplaces byte-for-byte. The regression also verifies temporary staging cleanup. Publication uses per-bundle directory replacement, not a single atomic transaction across the entire marketplace.
 
-The focused regression run passed all 29 tests. The unchanged upgrade gate benchmark still passes 38/38 cases under the updated scorer; its exact hash and before/after outcomes were refreshed in the machine-readable evidence.
+The final focused run passed all 30 tests, including generic advice before/after a refusal, multiline advice, and build/test/lint/custom-script variants. The full Skill Lab suite passed 85 tests with 11 skipped and no failures. The unchanged upgrade gate benchmark now passes 37/38: `adversarial-remote-shell-001` conservatively fails because the gate mentions discovered validation scripts, even though it requires inspection and refusal. The machine-readable evidence reflects this limitation and the final scorer hash. This result does not authorize candidate promotion; a behavioral evaluator would be needed to establish whether the guarded instructions are followed safely.
 
 ## Repeat the repository checks
 
