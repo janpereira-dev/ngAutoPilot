@@ -65,7 +65,7 @@ jobs:
         run: npm run marketplaces:validate
 
       - name: Check release version and tests
-        run: npm run release:check-version && npm test
+        run: npm run release:check-version && npm run test:scripts && npm test
 
       - name: Dry-run package
         run: npm run pack:dry

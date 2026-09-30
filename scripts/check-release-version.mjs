@@ -26,6 +26,9 @@ const errors = [];
 
 for (const entry of roots) {
   for (const file of findTextFiles(entry)) {
+    // Transitive dependency versions are not references to NgAutoPilot releases.
+    // Root lockfile identity is checked explicitly below; mirrored locks preserve it.
+    if (path.basename(file) === 'package-lock.json') continue;
     const content = fs.readFileSync(file, 'utf8');
     const matches = [...content.matchAll(forbiddenVersionPattern)];
 

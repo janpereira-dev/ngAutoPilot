@@ -23,7 +23,36 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  security-packet:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && inputs.publish == true)
+    outputs:
+      commit: ${{ steps.identity.outputs.commit }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 24
+      - name: Bind review to the checked-out commit on main history
+        id: identity
+        run: |
+          git merge-base --is-ancestor HEAD origin/main
+          echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Build exact-commit security packet (not an approval)
+        run: npm run review:sage:pack
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: release-security-packet
+          path: dist/review/sage
+          if-no-files-found: error
+          retention-days: 30
+
   publish:
+    needs: security-packet
+    environment: release-security
     permissions:
       contents: write
     runs-on: ubuntu-latest
@@ -40,8 +69,23 @@ jobs:
           node-version: 24
           registry-url: https://registry.npmjs.org
 
+      - name: Download the reviewed packet from this workflow run
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        with:
+          name: release-security-packet
+          path: dist/review/approved
+
+      - name: Verify approval targets the exact checked-out commit
+        env:
+          REVIEWED_COMMIT: ${{ needs.security-packet.outputs.commit }}
+        run: |
+          node --input-type=module -e "import {execFileSync} from 'node:child_process'; import {verifySagePacket} from './lib/sage-review.mjs'; const head=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(); if(head!==process.env.REVIEWED_COMMIT) throw new Error('Review/source identity mismatch'); verifySagePacket({sourceRoot:process.cwd(),packetRoot:'dist/review/approved',commit:head});"
+
       - name: Install dependencies
         run: npm ci
+
+      - name: Scan skill content
+        run: npm run security:scan
 
       - name: Validate skills
         run: npm run skills:validate
@@ -74,7 +118,10 @@ jobs:
         run: npm run marketplaces:validate
 
       - name: Check release version and tests
-        run: npm run release:check-version && npm test
+        run: npm run release:check-version && npm run test:scripts && npm test
+
+      - name: Verify reviewed source bytes again after tests and generation
+        run: node --input-type=module -e "import {execFileSync} from 'node:child_process'; import {verifySagePacket} from './lib/sage-review.mjs'; verifySagePacket({sourceRoot:process.cwd(),packetRoot:'dist/review/approved',commit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim()});"
 
       - name: Build publish bundles
         run: npm run skills:publish:pack

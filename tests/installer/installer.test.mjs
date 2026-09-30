@@ -48,6 +48,22 @@ test('adapter registry lists 10 adapters', () => {
     assert.ok(ids.includes(id), `missing adapter: ${id}`);
   }
 });
+test('pack removal preserves malformed bounded instructions even with force', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  const plan = planFor(workdir);
+  assert.equal(applyPlan(plan).ok, true);
+  const broken = '<!-- ngautopilot:instructions:start -->\nUser edited section without closing marker\n';
+  fs.writeFileSync(path.join(workdir, 'AGENTS.md'), broken);
+  const withoutInstructions = { ...plan, files: plan.files.filter(file => !file.managedSection) };
+  for (const dryRun of [true, false]) {
+    const result = applyPlan(withoutInstructions, { dryRun, force: true });
+    assert.equal(result.ok, false);
+    assert.match(result.warnings.join('\n'), /invalid managed instructions/);
+    assert.equal(fs.readFileSync(path.join(workdir, 'AGENTS.md'), 'utf8'), broken);
+  }
+  assert.ok(loadManifest(workdir).files.some(file => file.path === 'AGENTS.md'));
+});
 
 test('planner resolves core pack and emits only _core skills', () => {
   const workdir = makeWorkdir();
@@ -117,6 +133,102 @@ test('switching packs removes prior managed files outside the new plan', () => {
   assert.equal(fs.existsSync(path.join(foundations.installRoot, foundationOnly.path)), false);
   assert.ok(verifyInstall(state).ok, 'new pack manifest must verify');
   fs.rmSync(workdir, { recursive: true, force: true });
+});
+
+test('core -> full -> core preserves modified shared skills and original ownership checksums', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  const core = planFor(workdir);
+  const full = planForPack(workdir, 'ngautopilot-full');
+  applyPlan(core);
+  const file = core.files.find((entry) => entry.source && !entry.managedSection);
+  const owned = loadManifest(core.installRoot).files.find((entry) => entry.path === file.path);
+  const target = path.join(core.installRoot, file.path);
+  const edited = fs.readFileSync(target, 'utf8') + '\nLocal customization\n';
+  fs.writeFileSync(target, edited);
+  for (const plan of [full, core, core]) {
+    const result = applyPlan(plan);
+    assert.equal(result.ok, false);
+    assert.ok(result.warnings.some((warning) => warning.includes(`user-modified file: ${file.path}`)));
+    assert.equal(fs.readFileSync(target, 'utf8'), edited);
+    assert.equal(loadManifest(plan.installRoot).files.find((entry) => entry.path === file.path).checksum, owned.checksum);
+    assert.ok(verifyInstall(plan).hashMismatches.includes(file.path));
+  }
+});
+
+test('pack downgrade retains modified excluded skills in the manifest for safe retry/uninstall', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  const full = planForPack(workdir, 'ngautopilot-full');
+  const core = planFor(workdir);
+  applyPlan(full);
+  const corePaths = new Set(core.files.map((file) => file.path));
+  const file = full.files.find((entry) => entry.source && !corePaths.has(entry.path));
+  const target = path.join(full.installRoot, file.path);
+  const edited = 'Local customization\n';
+  fs.writeFileSync(target, edited);
+  const result = applyPlan(core);
+  assert.equal(result.ok, false);
+  assert.equal(fs.readFileSync(target, 'utf8'), edited);
+  assert.ok(loadManifest(core.installRoot).files.some((entry) => entry.path === file.path));
+  assert.ok(uninstall(core).refused.some((entry) => entry.path === file.path));
+});
+
+test('dry-run reports the same shared-file conflict without changing file or manifest bytes', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  const core = planFor(workdir);
+  applyPlan(core);
+  const file = core.files.find((entry) => entry.source && !entry.managedSection);
+  const target = path.join(core.installRoot, file.path);
+  fs.writeFileSync(target, 'User content\n');
+  const manifestPath = path.join(core.installRoot, '.ngautopilot-manifest.json');
+  const before = fs.readFileSync(manifestPath);
+  const result = applyPlan(planForPack(workdir, 'ngautopilot-full'), { dryRun: true });
+  assert.equal(result.ok, false);
+  assert.ok(result.warnings.some((warning) => warning.includes(`user-modified file: ${file.path}`)));
+  assert.deepEqual(fs.readFileSync(manifestPath), before);
+  assert.equal(fs.readFileSync(target, 'utf8'), 'User content\n');
+});
+
+test('modified managed instruction section is preserved while unrelated user prose survives force', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  const plan = planFor(workdir);
+  applyPlan(plan);
+  const target = path.join(plan.installRoot, 'AGENTS.md');
+  const customized = 'User preface\n' + fs.readFileSync(target, 'utf8').replace('<!-- ngautopilot:instructions:end -->', 'Local section edit\n<!-- ngautopilot:instructions:end -->') + '\nUser footer\n';
+  fs.writeFileSync(target, customized);
+  for (const dryRun of [true, false]) {
+    const result = applyPlan(plan, { dryRun });
+    assert.equal(result.ok, false);
+    assert.ok(result.warnings.some((warning) => warning.includes('user-modified instruction section')));
+    assert.equal(fs.readFileSync(target, 'utf8'), customized);
+  }
+  const snapshot = backup(plan, { backupDir: path.join(workdir, '.backups') });
+  const forced = applyPlan(plan, { force: true });
+  assert.equal(forced.ok, true);
+  assert.match(fs.readFileSync(target, 'utf8'), /User preface/);
+  assert.match(fs.readFileSync(target, 'utf8'), /User footer/);
+  assert.doesNotMatch(fs.readFileSync(target, 'utf8'), /Local section edit/);
+  assert.equal(restore(snapshot, plan.installRoot).ok, true);
+  assert.equal(fs.readFileSync(target, 'utf8'), customized);
+});
+
+test('force replaces modified shared skills only when explicitly requested and backup restores user bytes', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  const core = planFor(workdir);
+  applyPlan(core);
+  const file = core.files.find((entry) => entry.source && !entry.managedSection);
+  const target = path.join(core.installRoot, file.path);
+  fs.writeFileSync(target, 'User customization\n');
+  const snapshot = backup(core, { backupDir: path.join(workdir, '.backups') });
+  const result = applyPlan(planForPack(workdir, 'ngautopilot-full'), { force: true });
+  assert.equal(result.ok, true);
+  assert.notEqual(fs.readFileSync(target, 'utf8'), 'User customization\n');
+  assert.equal(restore(snapshot, core.installRoot).ok, true);
+  assert.equal(fs.readFileSync(target, 'utf8'), 'User customization\n');
 });
 
 test('verifyInstall passes after install', () => {

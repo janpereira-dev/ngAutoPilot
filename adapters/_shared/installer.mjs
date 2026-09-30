@@ -99,6 +99,31 @@ function removeManagedSection(content) {
   return `${content.slice(0, section.start)}${content.slice(section.end).replace(/^\r?\n/, '')}`.replace(/^\s*\n/, '');
 }
 
+function overwriteConflict(content, sourceContent, owned, managedSection = false) {
+  if (managedSection) {
+    const section = extractManagedSection(content);
+    if (!section || section.body === sourceContent.trimEnd()) return undefined;
+    if (!owned?.managedSection) return 'unmanaged instruction section';
+    if (sha256(section.body) !== owned.checksum) return 'user-modified instruction section';
+    return undefined;
+  }
+  if (content === sourceContent) return undefined;
+  if (!owned) return 'unmanaged file';
+  if (sha256(content) !== owned.checksum) return 'user-modified file';
+  return undefined;
+}
+
+function entryChecksum(content, entry) {
+  if (!entry.managedSection) return sha256(content);
+  try {
+    const section = extractManagedSection(content);
+    return section ? sha256(section.body) : undefined;
+  } catch (error) {
+    if (error instanceof SafeFsError && error.code === 'managed_section_invalid') return undefined;
+    throw error;
+  }
+}
+
 /**
  * Build a fresh installation record from a plan.
  */
@@ -177,8 +202,9 @@ function computeDryRun(plan, force) {
 
   for (const entry of existing?.files || []) {
     if (!desiredPaths.has(entry.path) && safeExists(guardRoot, entry.path)) {
-      const currentChecksum = sha256(safeReadFile(guardRoot, entry.path));
-      if (currentChecksum === entry.checksum || force) wouldRemove += 1;
+      const currentChecksum = entryChecksum(safeReadFile(guardRoot, entry.path), entry);
+      if (entry.managedSection && currentChecksum === undefined) warnings.push(`would refuse to remove invalid managed instructions: ${entry.path}`);
+      else if (currentChecksum === entry.checksum || force) wouldRemove += 1;
       else warnings.push(`would refuse to remove user-modified file: ${entry.path}`);
     }
   }
@@ -190,7 +216,14 @@ function computeDryRun(plan, force) {
     if (file.managedSection) {
       try {
         const currentContent = exists ? safeReadFile(guardRoot, file.path) : '';
-        const nextContent = mergeManagedSection(currentContent, readPlanSource(plan, file));
+        const sourceContent = readPlanSource(plan, file);
+        const conflict = overwriteConflict(currentContent, sourceContent, existingOwned.get(file.path), true);
+        if (conflict && !force) {
+          warnings.push(`would refuse to overwrite ${conflict}: ${file.path}`);
+          wouldSkip += 1;
+          continue;
+        }
+        const nextContent = mergeManagedSection(currentContent, sourceContent);
         if (currentContent === nextContent) wouldSkip += 1;
         else if (exists) wouldUpdate += 1;
         else wouldCreate += 1;
@@ -201,13 +234,15 @@ function computeDryRun(plan, force) {
       continue;
     }
     if (exists) {
-      const currentChecksum = sha256(safeReadFile(guardRoot, file.path));
+      const currentContent = safeReadFile(guardRoot, file.path);
+      const currentChecksum = sha256(currentContent);
       const sourceContent = readPlanSource(plan, file);
       const sourceChecksum = sha256(sourceContent);
+      const conflict = overwriteConflict(currentContent, sourceContent, existingOwned.get(file.path));
       if (currentChecksum === sourceChecksum) {
         wouldSkip += 1;
-      } else if (!existingOwned.has(file.path) && !force) {
-        warnings.push(`would refuse to overwrite unmanaged file: ${file.path}`);
+      } else if (!force && conflict) {
+        warnings.push(`would refuse to overwrite ${conflict}: ${file.path}`);
         wouldSkip += 1;
       } else {
         wouldUpdate += 1;
@@ -216,7 +251,7 @@ function computeDryRun(plan, force) {
       wouldCreate += 1;
     }
   }
-  return { ok: true, created: wouldCreate, updated: wouldUpdate, skipped: wouldSkip, removed: wouldRemove, manifestPath: path.join(plan.installRoot, MANIFEST_NAME), warnings };
+  return { ok: warnings.length === 0, created: wouldCreate, updated: wouldUpdate, skipped: wouldSkip, removed: wouldRemove, manifestPath: path.join(plan.installRoot, MANIFEST_NAME), warnings };
 }
 
 export function applyPlan(plan, opts = {}) {
@@ -249,13 +284,26 @@ export function applyPlan(plan, opts = {}) {
       continue;
     }
 
-    const currentChecksum = sha256(safeReadFile(guardRoot, entry.path));
+    const currentContent = safeReadFile(guardRoot, entry.path);
+    const currentChecksum = entryChecksum(currentContent, entry);
+    if (entry.managedSection && currentChecksum === undefined) {
+      warnings.push(`refuse to remove invalid managed instructions: ${entry.path}`);
+      manifestFiles.push(entry);
+      continue;
+    }
     if (currentChecksum !== entry.checksum && !force) {
       warnings.push(`refuse to remove user-modified file: ${entry.path}`);
+      manifestFiles.push(entry);
       continue;
     }
 
-    safeRemoveFile(guardRoot, entry.path);
+    if (entry.managedSection) {
+      const remaining = removeManagedSection(currentContent);
+      if (remaining.trim()) safeWriteFile(guardRoot, entry.path, remaining);
+      else safeRemoveFile(guardRoot, entry.path);
+    } else {
+      safeRemoveFile(guardRoot, entry.path);
+    }
     removed += 1;
   }
 
@@ -271,6 +319,14 @@ export function applyPlan(plan, opts = {}) {
       const sectionChecksum = sha256(sourceContent.trimEnd());
       try {
         const currentContent = safeExists(guardRoot, file.path) ? safeReadFile(guardRoot, file.path) : '';
+        const conflict = overwriteConflict(currentContent, sourceContent, existingOwned.get(file.path), true);
+        if (conflict && !force) {
+          warnings.push(`refuse to overwrite ${conflict}: ${file.path}`);
+          const owned = existingOwned.get(file.path);
+          if (owned) manifestFiles.push(owned);
+          skipped += 1;
+          continue;
+        }
         const mergedContent = mergeManagedSection(currentContent, sourceContent);
         if (currentContent === mergedContent) {
           skipped += 1;
@@ -303,9 +359,11 @@ export function applyPlan(plan, opts = {}) {
         manifestFiles.push({ path: file.path, checksum: sourceChecksum, owner: 'ngautopilot' });
         continue;
       }
-      // If file exists but NOT in existing manifest and NOT force => warn & skip.
-      if (currentChecksum && !existingOwned.has(file.path) && !force) {
-        warnings.push(`refuse to overwrite unmanaged file: ${file.path}`);
+      const conflict = currentChecksum
+        ? overwriteConflict(safeReadFile(guardRoot, file.path), sourceContent, existingOwned.get(file.path))
+        : undefined;
+      if (conflict && !force) {
+        warnings.push(`refuse to overwrite ${conflict}: ${file.path}`);
         const owned = existingOwned.get(file.path);
         if (owned) manifestFiles.push(owned);
         skipped += 1;
