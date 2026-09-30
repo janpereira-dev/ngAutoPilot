@@ -13,6 +13,7 @@ import path from 'node:path';
 import { loadAdapterManifest } from './adapter-core.mjs';
 import { safeReadSourceFile } from './safe-fs.mjs';
 import { resolveProjectRoot } from './install-roots.mjs';
+import { isLocalOnlySourcePath } from '../../lib/local-only.mjs';
 
 export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, agent, scope, cwd, home }) {
   const catalog = JSON.parse(safeReadSourceFile(sourceRoot, catalogPath));
@@ -117,6 +118,7 @@ function skillResources(directory, sourceRoot) {
   const visit = current => {
     for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
       const source = path.join(current, entry.name);
+      if (isLocalOnlySourcePath(path.relative(sourceRoot, source))) continue;
       const stat = fs.lstatSync(source);
       if (stat.isSymbolicLink()) throw new Error(`symbolic skill resource is not supported: ${source}`);
       if (stat.isDirectory()) {

@@ -76,6 +76,30 @@ test('install preserves the supporting Jest/RxJS reference and tracks it through
   assert.equal(applyPlan(planFor(workdir)).ok, false);
   assert.ok(loadManifest(workdir).files.some(file => file.path === reference.path));
 });
+test('install planning excludes private and VCS skill resources while preserving public examples', (t) => {
+  const sourceRoot = makeWorkdir();
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(sourceRoot, { recursive: true, force: true }));
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  fs.cpSync(path.join(REPO, 'adapters'), path.join(sourceRoot, 'adapters'), { recursive: true });
+  const directory = path.join(sourceRoot, 'skills/_core/example');
+  fs.mkdirSync(directory, { recursive: true });
+  fs.mkdirSync(path.join(sourceRoot, 'packs'));
+  fs.writeFileSync(path.join(directory, 'SKILL.md'), '# Public skill\n');
+  fs.writeFileSync(path.join(sourceRoot, 'catalog.json'), JSON.stringify({ skills: [{ id: '_core.example', path: 'skills/_core/example/SKILL.md' }] }));
+  fs.writeFileSync(path.join(sourceRoot, 'packs/ngautopilot-core.json'), JSON.stringify({ id: 'ngautopilot-core', includes: { skills: ['_core.'] } }));
+  for (const relative of ['.env.local', '.npmrc', '.git/config', 'references/capture.private.json', 'raw-prompts/private.md', '.cache/private.json']) {
+    fs.mkdirSync(path.dirname(path.join(directory, relative)), { recursive: true });
+    fs.writeFileSync(path.join(directory, relative), 'PRIVATE_LOCAL_DATA');
+  }
+  fs.writeFileSync(path.join(directory, '.env.example'), 'PUBLIC_FIXTURE');
+  const plan = buildPlan({ sourceRoot, adaptersRoot: path.join(sourceRoot, 'adapters'), catalogPath: path.join(sourceRoot, 'catalog.json'), packPath: path.join(sourceRoot, 'packs/ngautopilot-core.json'), agent: 'codex', scope: 'project', cwd: workdir, home: workdir });
+  assert.equal(applyPlan(plan).ok, true);
+  const manifest = loadManifest(workdir);
+  for (const file of manifest.files) assert.equal(fs.readFileSync(path.join(workdir, file.path)).includes(Buffer.from('PRIVATE_LOCAL_DATA')), false, file.path);
+  assert.equal(fs.readFileSync(path.join(workdir, '.agents/skills/_core/example/.env.example'), 'utf8'), 'PUBLIC_FIXTURE');
+});
+
 test('binary resources survive install, conflict checks, backup and restore byte-for-byte', (t) => {
   const workdir = makeWorkdir();
   t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));

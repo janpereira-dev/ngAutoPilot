@@ -49,6 +49,28 @@ describe('exact-commit Sage packet', () => {
     fs.appendFileSync(path.join(sourceRoot, '.npmrc'), '//evil.example/:_authToken=${NODE_AUTH_TOKEN}\n');
     expect(() => verifySagePacket({ sourceRoot, packetRoot: output, commit })).toThrow(/file mismatch/);
   });
+  it('includes the effective npm shrinkwrap lockfile and rejects changes after review', () => {
+    const sourceRoot = fixture();
+    const relative = 'npm-shrinkwrap.json';
+    fs.writeFileSync(path.join(sourceRoot, relative), '{"name":"fixture","lockfileVersion":3,"packages":{}}\n');
+    const commit = 'a'.repeat(40);
+    const { output, manifest } = buildSagePacket({ sourceRoot, commit });
+    expect(manifest.files.map(file => file.path)).toContain(relative);
+    expect(fs.readFileSync(path.join(output, relative))).toEqual(fs.readFileSync(path.join(sourceRoot, relative)));
+    fs.appendFileSync(path.join(sourceRoot, relative), '\nChanged dependency graph\n');
+    expect(() => verifySagePacket({ sourceRoot, packetRoot: output, commit })).toThrow(/file mismatch/);
+  });
+  it('keeps hidden reviewed files in both upload workflows and verifies a real CI download', () => {
+    const repository = path.resolve(import.meta.dirname, '../..');
+    for (const filename of ['release.yml', 'sage-review.yml']) {
+      const source = fs.readFileSync(path.join(repository, '.github/workflows', filename), 'utf8');
+      const upload = source.match(/uses: actions\/upload-artifact@[^\n]+\n\s+with:\n([\s\S]*?)(?=\n\s+- (?:name|uses):|\n\n  [a-z]|$)/)?.[1];
+      expect(upload).toMatch(/include-hidden-files: true/);
+    }
+    const source = fs.readFileSync(path.join(repository, '.github/workflows/sage-review.yml'), 'utf8');
+    expect(source).toContain('actions/download-artifact@');
+    expect(source).toContain('verifySagePacket');
+  });
   it('includes published root instruction files and detects their semantic changes', () => {
     const sourceRoot = fixture();
     fs.writeFileSync(path.join(sourceRoot, 'SKILL.md'), '# Public root skill\n');

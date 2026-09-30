@@ -138,7 +138,7 @@ test('native export excludes private local skill resources but preserves public 
   fs.writeFileSync(path.join(directory, 'SKILL.md'), '---\nname: Example\ndescription: Export fixture.\n---\n\nPublic skill.\n');
   fs.writeFileSync(path.join(sourceRoot, 'catalog.json'), JSON.stringify({ skills: [{ id: '_core.example', path: 'skills/_core/example/SKILL.md', version: '0.9.0', description: 'Export fixture.' }] }));
   fs.writeFileSync(path.join(sourceRoot, 'packs/ngautopilot-core.json'), JSON.stringify({ id: 'ngautopilot-core', includes: { skills: ['_core.'] } }));
-  for (const relative of ['.env', '.env.local', '.npmrc', 'references/capture.private.json', 'provider.local.yaml', 'raw-prompts/private.md', 'raw-responses/private.json', 'node_modules/secret.json', '.cache/secret.json', 'runtime.log']) {
+  for (const relative of ['.env', '.env.local', '.npmrc', '.git/config', '.hg/hgrc', '.svn/private', '.bzr/private', 'references/capture.private.json', 'provider.local.yaml', 'raw-prompts/private.md', 'raw-responses/private.json', 'node_modules/secret.json', '.cache/secret.json', 'runtime.log']) {
     fs.mkdirSync(path.dirname(path.join(directory, relative)), { recursive: true });
     fs.writeFileSync(path.join(directory, relative), 'PRIVATE_LOCAL_DATA');
   }

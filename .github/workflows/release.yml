@@ -47,6 +47,7 @@ jobs:
         with:
           name: release-security-packet
           path: dist/review/sage
+          include-hidden-files: true
           if-no-files-found: error
           retention-days: 30
 
