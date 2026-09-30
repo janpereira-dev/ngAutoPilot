@@ -25,7 +25,7 @@ Escalate confirmed HIGH/CRITICAL prompt-injection, supply-chain, and malware fin
 npm run review:sage:pack
 ```
 
-Inspect `dist/review/sage/REVIEW.md`, `manifest.json`, and the included source. The manifest records the exact Git commit, dirty-tree state, review scope, every file's SHA-256/size, and a digest bound to the identity and complete inventory. Source README content is preserved. Symlinked sources/output parents and escaping paths fail before the old packet is replaced.
+Inspect `dist/review/sage/REVIEW.md`, `manifest.json`, and the included source. The manifest records the exact Git commit, dirty-tree state, review scope, every file's SHA-256/size, and a digest bound to the identity and complete inventory. Source README content is preserved. Local environment/registry credentials, private captures, runtime logs, Python caches, virtual environments, and Skill Lab cache/run output are excluded; public source fixtures remain reviewable. Symlinked sources/output parents and escaping paths fail before the old packet is replaced.
 
 A dirty local packet is useful for development review but **cannot** satisfy release verification. After committing, regenerate the packet and review the exact clean revision.
 

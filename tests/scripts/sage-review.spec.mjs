@@ -15,6 +15,19 @@ function fixture() {
   return root;
 }
 describe('exact-commit Sage packet', () => {
+  it('does not include local credentials, private captures, caches, or runtime logs', () => {
+    const sourceRoot = fixture();
+    for (const relative of ['bin/.env', 'bin/.npmrc', 'bin/evidence.private.json', 'bin/provider.local.yaml', 'skill-lab/runs/private/evidence.jsonl', 'skill-lab/.cache/prompts.json']) {
+      const target = path.join(sourceRoot, relative);
+      fs.mkdirSync(path.dirname(target), { recursive: true });
+      fs.writeFileSync(target, 'PRIVATE_LOCAL_DATA');
+    }
+    const { output, manifest } = buildSagePacket({ sourceRoot, commit: 'a'.repeat(40), includePaths: ['README.md', 'bin', 'skill-lab'] });
+    expect(manifest.files).toHaveLength(2);
+    expect(fs.existsSync(path.join(output, 'bin/.env'))).toBe(false);
+    expect(fs.existsSync(path.join(output, 'skill-lab/runs'))).toBe(false);
+    expect(verifySagePacket({ sourceRoot, packetRoot: output, commit: 'a'.repeat(40) }).files).toHaveLength(2);
+  });
   it('verifies commit and every byte before publishing; tampering fails closed', () => {
     const sourceRoot = fixture();
     const options = { sourceRoot, commit: 'a'.repeat(40), includePaths: ['README.md', 'bin'] };
