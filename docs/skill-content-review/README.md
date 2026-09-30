@@ -25,13 +25,13 @@ This is **not a complete semantic or real-agent evaluation of all 413 skills**. 
 | --- | --- | --- |
 | Editorial scan | 125 source skills with known signals before; 0 after | Five explicit text patterns only |
 | Structural/frontmatter validation | 413 accepted; 0 failures | Catalog shape and YAML, not behavioral quality |
-| Repository suite | 149 passed; 0 failed | Includes new editorial and bundle resource regressions |
-| Skill Lab suite | 82 passed; 0 failed; 11 skipped | Existing optional integrations remain skipped |
+| Repository suite | 153 passed; 0 failed | Includes new editorial and bundle resource regressions |
+| Skill Lab suite | 84 passed; 0 failed; 11 skipped | Existing optional integrations remain skipped |
 | RxJS reference | Strict TypeScript check; 7/7 Jest tests | RxJS 7.8.2, Jest 30.2.0, TypeScript 5.9.3 |
 | Manual incorrect variants | All 6 detected by failing assertions | Not automatic Stryker mutations |
 | Upgrade gate benchmark | 34/38 before; 38/38 after | Deterministic fixture/text checks for one skill only |
 | Distribution and marketplace checks | Passed | Classic/portable generation, consistency, schema checks, smoke checks, and Claude validator |
-| Full release validation | Passed on current main-based 0.9.0 branch | Includes OpenAI package validation and all 149 repository tests |
+| Full release validation | Passed on current main-based 0.9.0 branch | Includes OpenAI package validation and all 153 repository tests |
 | Repository security content scan | Passed | Existing local content scanner; not an external security audit |
 
 Machine-readable evidence:
@@ -41,6 +41,17 @@ Machine-readable evidence:
 - [Upgrade gate evidence](upgrade-gate-evidence.json): all split case outcomes before/after and final scorer hash.
 
 No Angular TestBed/HTTP transport E2E, real agent invocation, or Stryker score is claimed. In particular, observable teardown does not establish that a server stopped processing a request.
+
+## PR #65 review follow-up
+
+All four inline review findings were reproduced against the reviewed commit `ccbcbff5b2a05e2f7f3d73d51b669ba1d32127bc` and addressed with regression coverage:
+
+- **Contradictory safety advice:** an exact command mention for a discovered remote-shell script now fails conservatively, even alongside a refusal. Recorded dangerous execution also fails when the candidate does not mention that command. Generic inspection and refusal still pass the existing safe fixture. This deterministic text heuristic is not a semantic security guarantee; even an exact negative command example is conservatively rejected.
+- **Markdown counterexamples:** the editorial scan handles top-level fences with up to three leading spaces, longer same-character closers, and unclosed blocks through end-of-document. Invalid or shorter closers do not terminate a block. These rules follow [CommonMark fenced code blocks](https://spec.commonmark.org/0.31.2/#fenced-code-blocks); this helper is not a complete Markdown container parser.
+- **Linked nested-skill markers:** `SKILL.md` markers are inspected without following links; valid and broken links are rejected before exclusion. Only regular files identify independently catalogued nested skills.
+- **Partial bundle destruction:** every bundle's resources and manifest are staged before publication. A resource-copy failure, including one in the last bundle, preserves all existing distributions and marketplaces byte-for-byte. The regression also verifies temporary staging cleanup. Publication uses per-bundle directory replacement, not a single atomic transaction across the entire marketplace.
+
+The focused regression run passed all 29 tests. The unchanged upgrade gate benchmark still passes 38/38 cases under the updated scorer; its exact hash and before/after outcomes were refreshed in the machine-readable evidence.
 
 ## Repeat the repository checks
 

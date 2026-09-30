@@ -138,67 +138,86 @@ const sourceSkills = findSkillFiles(sourceRoot).map((file) => {
   };
 });
 
-for (const bundle of bundleDefinitions) {
-  const pluginDir = path.join(pluginRoot, bundle.name);
-  const skillsDir = path.join(pluginDir, 'skills');
-  const manifestDir = path.join(pluginDir, '.codex-plugin');
-  const selectedSkills = sourceSkills
-    .filter((skill) => bundle.include(skill))
-    .sort((left, right) => left.metadata.id.localeCompare(right.metadata.id));
-
-  if (selectedSkills.length === 0) {
-    throw new Error(`${bundle.name}: no skills selected`);
-  }
-
-  fs.rmSync(skillsDir, { recursive: true, force: true });
-  fs.mkdirSync(skillsDir, { recursive: true });
-  fs.mkdirSync(manifestDir, { recursive: true });
-
-  for (const skill of selectedSkills) {
-    const slug = skill.metadata.id.replaceAll('.', '--');
-    const targetDir = path.join(skillsDir, slug);
-    copyContainedDirectory(path.dirname(skill.sourcePath), targetDir, { excludeNestedSkills: true });
-  }
-
-  const pluginManifest = {
-    name: bundle.name,
-    version: '0.9.0',
-    description: bundle.description,
-    author,
-    homepage: repository,
-    repository,
-    license: 'MIT',
-    keywords: bundle.keywords,
-    skills: './skills/',
-  };
-
-  fs.writeFileSync(
-    path.join(manifestDir, 'plugin.json'),
-    `${JSON.stringify(pluginManifest, null, 2)}\n`,
-    'utf8',
-  );
-
-  console.log(`${bundle.name}: synced ${selectedSkills.length} skills`);
-}
-
-writeMarketplaceFiles(bundleDefinitions);
-
-const covered = new Set();
-for (const skill of sourceSkills) {
-  for (const bundle of bundleDefinitions) {
-    if (bundle.include(skill)) {
-      covered.add(skill.relativePath);
-      break;
-    }
-  }
-}
-
-const uncovered = sourceSkills.filter((skill) => !covered.has(skill.relativePath));
+const uncovered = sourceSkills.filter((skill) => !bundleDefinitions.some((bundle) => bundle.include(skill)));
 if (uncovered.length > 0) {
   throw new Error(`Uncovered skills:\n${uncovered.map((skill) => `- ${skill.relativePath}`).join('\n')}`);
 }
 
+// Finish every resource copy before touching any existing distribution.
+const stagingRoot = fs.mkdtempSync(path.resolve('.plugin-sync-'));
+try {
+  stageBundles(stagingRoot);
+  publishBundles(stagingRoot);
+  writeMarketplaceFiles(bundleDefinitions);
+} finally {
+  fs.rmSync(stagingRoot, { recursive: true, force: true });
+}
+
 console.log(`Plugin bundle coverage OK for ${sourceSkills.length} source skills.`);
+
+function stageBundles(stagingRoot) {
+  for (const bundle of bundleDefinitions) {
+    const pluginDir = path.join(stagingRoot, bundle.name);
+    const skillsDir = path.join(pluginDir, 'skills');
+    const manifestDir = path.join(pluginDir, '.codex-plugin');
+    const selectedSkills = sourceSkills
+      .filter((skill) => bundle.include(skill))
+      .sort((left, right) => left.metadata.id.localeCompare(right.metadata.id));
+
+    if (selectedSkills.length === 0) {
+      throw new Error(`${bundle.name}: no skills selected`);
+    }
+
+    fs.mkdirSync(skillsDir, { recursive: true });
+    fs.mkdirSync(manifestDir, { recursive: true });
+
+    for (const skill of selectedSkills) {
+      const slug = skill.metadata.id.replaceAll('.', '--');
+      const targetDir = path.join(skillsDir, slug);
+      copyContainedDirectory(path.dirname(skill.sourcePath), targetDir, { excludeNestedSkills: true });
+    }
+
+    const pluginManifest = {
+      name: bundle.name,
+      version: '0.9.0',
+      description: bundle.description,
+      author,
+      homepage: repository,
+      repository,
+      license: 'MIT',
+      keywords: bundle.keywords,
+      skills: './skills/',
+    };
+
+    fs.writeFileSync(
+      path.join(manifestDir, 'plugin.json'),
+      `${JSON.stringify(pluginManifest, null, 2)}\n`,
+      'utf8',
+    );
+
+    console.log(`${bundle.name}: staged ${selectedSkills.length} skills`);
+  }
+}
+
+function publishBundles(stagingRoot) {
+  for (const bundle of bundleDefinitions) {
+    const pluginDir = path.join(pluginRoot, bundle.name);
+    const skillsDir = path.join(pluginDir, 'skills');
+    const backup = path.join(stagingRoot, `${bundle.name}.previous`);
+    const hadSkills = fs.existsSync(skillsDir);
+    fs.mkdirSync(pluginDir, { recursive: true });
+    if (hadSkills) fs.renameSync(skillsDir, backup);
+    try {
+      fs.renameSync(path.join(stagingRoot, bundle.name, 'skills'), skillsDir);
+    } catch (error) {
+      if (hadSkills) fs.renameSync(backup, skillsDir);
+      throw error;
+    }
+    const manifestDir = path.join(pluginDir, '.codex-plugin');
+    fs.mkdirSync(manifestDir, { recursive: true });
+    fs.copyFileSync(path.join(stagingRoot, bundle.name, '.codex-plugin', 'plugin.json'), path.join(manifestDir, 'plugin.json'));
+  }
+}
 
 function writeMarketplaceFiles(bundles) {
   const codexMarketplace = {

@@ -26,7 +26,7 @@ export function inspectSkillContent(content) {
   if (!description) throw new Error(`${id}: missing description`);
   const body = normalized.slice(frontmatter[0].length);
   // Do not mistake deliberately bad code examples for editorial defects.
-  const prose = body.replace(/^(`{3,}|~{3,})[^\n]*\n[\s\S]*?^\1\s*$/gm, '');
+  const prose = withoutFencedCode(body);
   const issues = editorialChecks.filter(([, pattern]) => pattern.test(`${description}\n${prose}`))
     .map(([rule]) => rule);
   return {
@@ -35,6 +35,21 @@ export function inspectSkillContent(content) {
     words: normalized.trim().split(/\s+/).length,
     issues,
   };
+}
+
+function withoutFencedCode(body) {
+  let fence;
+  return body.split('\n').filter((line) => {
+    if (fence) {
+      const closer = line.match(/^ {0,3}(`{3,}|~{3,})[ \t]*$/);
+      if (closer && closer[1][0] === fence.character && closer[1].length >= fence.length) fence = undefined;
+      return false;
+    }
+    const opener = line.match(/^ {0,3}(`{3,}|~{3,})(.*)$/);
+    if (!opener || (opener[1][0] === '`' && opener[2].includes('`'))) return true;
+    fence = { character: opener[1][0], length: opener[1].length };
+    return false;
+  }).join('\n');
 }
 
 export function auditSkillContent({ root = process.cwd() } = {}) {

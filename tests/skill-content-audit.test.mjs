@@ -29,6 +29,30 @@ test('supports inline descriptions and folded multiline descriptions', () => {
     inspectSkillContent(skill()).descriptionCharacters);
 });
 
+test('ignores valid indented, longer, and unclosed Markdown fences', () => {
+  const counterexample = 'State the angular.testing.example diagnosis';
+  for (const body of [
+    `   \`\`\`txt\n${counterexample}\n  \`\`\`\``,
+    ` ~~~txt\n${counterexample}\n   ~~~~~`,
+    `\`\`\`txt\n${counterexample}`,
+    `\`\`\`\`txt\n\`\`\`\n${counterexample}\n\`\`\`\``,
+    `~~~txt\n\`\`\`\n${counterexample}\n~~~`,
+  ]) {
+    assert.deepEqual(inspectSkillContent(skill(body)).issues, [], body);
+  }
+});
+
+test('scans prose after valid closers and does not accept invalid fence openers', () => {
+  const issue = 'State the angular.testing.example diagnosis';
+  for (const body of [
+    `  ~~~txt\nExample\n   ~~~~\n${issue}`,
+    `\`\`\`txt with \` invalid info\n${issue}`,
+    `    \`\`\`txt\n${issue}`,
+  ]) {
+    assert.deepEqual(inspectSkillContent(skill(body)).issues, ['internal-id-in-output'], body);
+  }
+});
+
 test('rejects missing metadata instead of silently counting incomplete skills', () => {
   assert.throws(() => inspectSkillContent('No metadata'), /frontmatter/);
   assert.throws(() => inspectSkillContent('---\ndescription: Test\n---\n'), /skill id/);

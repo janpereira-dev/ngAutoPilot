@@ -5,6 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
+import { copyContainedDirectory } from '../lib/agent-plugins/path-safety.mjs';
 
 const script = fileURLToPath(new URL('../scripts/sync-plugin-bundles.mjs', import.meta.url));
 
@@ -58,4 +59,43 @@ test('classic plugin sync rejects linked skill resources instead of copying outs
   assert.match(run.stderr, /symbolic links are not supported/);
   const leaked = path.join(root, 'plugins', 'ngautopilot-angular', 'skills', 'angular--testing--example', 'references', 'linked', 'private.txt');
   assert.equal(fs.existsSync(leaked), false);
+});
+
+test('nested-skill exclusion rejects linked and broken markers', (t) => {
+  const root = fixture(t);
+  const source = path.join(root, 'marker-source');
+  const nested = path.join(source, 'references');
+  fs.mkdirSync(nested, { recursive: true });
+  const outside = path.join(root, 'outside-marker');
+  fs.mkdirSync(outside);
+  // A junction named SKILL.md also exercises Windows without file-symlink privileges.
+  const marker = path.join(nested, 'SKILL.md');
+  fs.symlinkSync(outside, marker, process.platform === 'win32' ? 'junction' : 'dir');
+  assert.throws(() => copyContainedDirectory(source, path.join(root, 'target'), { excludeNestedSkills: true }), /symbolic links/);
+  fs.rmdirSync(outside);
+  assert.throws(() => copyContainedDirectory(source, path.join(root, 'broken-target'), { excludeNestedSkills: true }), /symbolic links/);
+});
+
+test('a late resource failure preserves every existing bundle and marketplace', (t) => {
+  const root = fixture(t);
+  const initial = spawnSync(process.execPath, [script], { cwd: root, encoding: 'utf8' });
+  assert.equal(initial.status, 0, initial.stderr);
+  const snapshot = () => Object.fromEntries(['plugins', '.agents', '.claude-plugin'].flatMap((directory) =>
+    fs.readdirSync(path.join(root, directory), { recursive: true, withFileTypes: true })
+      .filter((entry) => entry.isFile())
+      .map((entry) => {
+        const file = path.join(entry.parentPath, entry.name);
+        return [path.relative(root, file), fs.readFileSync(file).toString('base64')];
+      })));
+  const before = snapshot();
+  fs.writeFileSync(path.join(root, 'skills', '_core', 'example', 'references', 'guide.md'), 'New unpublished content');
+  const outside = path.join(root, 'outside');
+  fs.mkdirSync(outside);
+  fs.symlinkSync(outside, path.join(root, 'skills', 'typescript', 'strict-types', 'example', 'references', 'linked'),
+    process.platform === 'win32' ? 'junction' : 'dir');
+  const run = spawnSync(process.execPath, [script], { cwd: root, encoding: 'utf8' });
+  assert.notEqual(run.status, 0);
+  assert.match(run.stderr, /symbolic links are not supported/);
+  assert.deepEqual(snapshot(), before);
+  assert.equal(fs.readdirSync(root).some((name) => name.startsWith('.plugin-sync-')), false);
 });

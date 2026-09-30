@@ -451,9 +451,9 @@
   },
   "changes": [
     "Added trust boundary, pre-execution script and lifecycle-hook inspection, explicit unsafe-script refusal, and fail/block distinction.",
-    "Scorer no longer mistakes an explicitly refused, unexecuted script trap for execution. Vague refusal, recorded execution, and direct pipeline cases still fail.",
+    "Scorer distinguishes generic inspection/refusal from an unexecuted script trap. Exact dangerous-command mentions conservatively fail even inside a refusal; recorded execution fails independently of candidate text. This remains a text heuristic, not a semantic security guarantee.",
     "No benchmark fixture, expected outcome, rubric weight, or check was changed."
   ],
-  "scorerSha256": "28ed33bae93b48140362ca6bb3711c9b985dac63ed6282c66befb65a6033e996",
+  "scorerSha256": "1f56067cc03cad4dccb69935b16501edb56e2eab5a5b1da1c29282646a2eb045",
   "baseCommit": "47c37b5233dbc6a21b5002e2595e31151dabbdf3"
 }
