@@ -115,8 +115,6 @@ Avoid shipping runtime federation without smoke tests and rollback strategy.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify the remote runtime surface.
 2. Review shared dependency policy and versioning.
 3. Flag unsafe exposure or hidden coupling.

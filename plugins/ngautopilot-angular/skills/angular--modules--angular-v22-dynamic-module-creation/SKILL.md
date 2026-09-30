@@ -75,8 +75,6 @@ Do not use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. A dynamic-module summary.
 2. The replacement path.
 3. Residual runtime risk.

@@ -74,8 +74,6 @@ Avoid letting bundle convenience override architectural clarity.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify dependencies that are candidates for sharing.
 2. Flag over-sharing or bundle bloat risk.
 3. Recommend a minimal shared set.

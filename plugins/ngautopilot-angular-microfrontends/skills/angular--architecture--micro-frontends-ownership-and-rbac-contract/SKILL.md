@@ -106,8 +106,6 @@ Avoid duplicating access rules without a clear source of truth.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Map remotes to owners.
 2. Review route and capability access rules.
 3. Flag unclear or overly broad permissions.

@@ -76,8 +76,6 @@ Do not use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. A measured performance summary.
 2. The chosen optimization.
 3. Validation evidence.

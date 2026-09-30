@@ -84,8 +84,6 @@ Avoid using this skill to replace the specialized skills.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Recommend the right primitive sequence.
 2. Route to the specialized skills.
 3. Consider runtime-specific variants when needed.

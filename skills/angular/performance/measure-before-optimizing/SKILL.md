@@ -101,8 +101,6 @@ Avoid optimizing cold paths while the user-visible bottleneck is elsewhere.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. State the symptom and available evidence.
 2. Identify missing measurements if evidence is weak.
 3. Form a technical hypothesis.

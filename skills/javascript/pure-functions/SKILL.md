@@ -107,8 +107,6 @@ Avoid extracting tiny functions that make the code harder to read.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify side effects.
 2. Make dependencies explicit.
 3. Keep computation separate from effects.

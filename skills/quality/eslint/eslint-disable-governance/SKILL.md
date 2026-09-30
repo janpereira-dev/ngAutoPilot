@@ -81,8 +81,6 @@ Avoid changing behavior accidentally while removing a disable.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Inventory suppressions.
 2. Classify their legitimacy.
 3. Remove unnecessary disables.

@@ -2,7 +2,7 @@
 id: angular.upgrades.di.angular-v22-root-provider-lazy-boundary-gate
 name: Angular v22 Root Provider Lazy Boundary Gate
 description: >
-  Use this skill for Prevent injectAsync usage where services are not auto-provided or cross the wrong provider boundary. Use when Angular 22 work needs concern-first routing, explicit validation, and no invented APIs.
+  Prevent injectAsync usage where services are not auto-provided or cross the wrong provider boundary. For Angular 22 projects and 21-to-22 upgrade planning.
 stack:
   - Angular
   - TypeScript
@@ -32,7 +32,7 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 
 ## When to Use
 
-- The task specifically involves prevent injectasync usage where services are not auto-provided or cross the wrong provider boundary.
+- The task is to prevent injectasync usage where services are not auto-provided or cross the wrong provider boundary.
 - The project is on Angular 22 or planning the Angular 22 hop.
 - A narrower concern-first skill is better than a generic v22 baseline skill.
 
@@ -45,10 +45,6 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 ## Why This Matters
 
 Angular 22 changes dependency injection behavior enough that agents need a narrow checklist instead of a generic v22 bucket. The goal is to make the risk visible, testable, and reviewable.
-
-## Non-developer explanation
-
-This skill helps separate a real upgrade risk from general cleanup. It gives the team a clear reason for the work, the evidence to check, and the point where the change is safe to stop.
 
 ## Inputs Expected
 

@@ -2,7 +2,7 @@
 id: angular.upgrades.versioning.angular-21-to-22-index
 name: Angular 21 to 22 Index
 description: >
-  Use this skill for Route Angular 21 to 22 upgrade work to the hop, preflight, breaking-change, validation, and satellite skills. Use when Angular 22 work needs concern-first routing, explicit validation, and no invented APIs.
+  Route Angular 21 to 22 upgrade work to the hop, preflight, breaking-change, validation, and satellite skills. For Angular 22 projects and 21-to-22 upgrade planning.
 stack:
   - Angular
   - TypeScript
@@ -44,10 +44,6 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 ## Why This Matters
 
 Angular 22 changes versioning behavior enough that agents need a narrow checklist instead of a generic v22 bucket. The goal is to make the risk visible, testable, and reviewable.
-
-## Non-developer explanation
-
-This skill helps separate a real upgrade risk from general cleanup. It gives the team a clear reason for the work, the evidence to check, and the point where the change is safe to stop.
 
 ## Inputs Expected
 

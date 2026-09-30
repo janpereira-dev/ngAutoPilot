@@ -250,8 +250,6 @@ Recommendation: use @for with track for new code. Do not introduce NgFor for new
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Classify compatibility profile.
 2. Identify safe and unsafe APIs.
 3. Provide compatible code or guidance.

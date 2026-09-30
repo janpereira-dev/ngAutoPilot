@@ -102,8 +102,6 @@ Avoid index tracking for lists that reorder, filter, insert, or delete in the mi
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Detect whether the project uses legacy or modern Angular templates.
 2. Add `trackBy` or `@for track` using a stable identifier.
 3. Avoid changing list behavior beyond identity tracking.

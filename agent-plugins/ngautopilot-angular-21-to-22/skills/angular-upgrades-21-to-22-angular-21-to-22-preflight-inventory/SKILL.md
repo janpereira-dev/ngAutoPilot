@@ -1,6 +1,6 @@
 ---
 name: angular-upgrades-21-to-22-angular-21-to-22-preflight-inventory
-description: "Use this skill for Inventory Angular 21 project risks before changing dependencies. Use when Angular 22 work needs concern-first routing, explicit validation, and no invented APIs."
+description: "Inventory Angular 21 project risks before changing dependencies. For Angular 22 projects and 21-to-22 upgrade planning."
 license: MIT
 metadata:
   ngautopilot-id: "angular.upgrades.21-to-22.angular-21-to-22-preflight-inventory"
@@ -32,10 +32,6 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 ## Why This Matters
 
 Angular 22 changes hop 21 to 22 behavior enough that agents need a narrow checklist instead of a generic v22 bucket. The goal is to make the risk visible, testable, and reviewable.
-
-## Non-developer explanation
-
-This skill helps separate a real upgrade risk from general cleanup. It gives the team a clear reason for the work, the evidence to check, and the point where the change is safe to stop.
 
 ## Inputs Expected
 

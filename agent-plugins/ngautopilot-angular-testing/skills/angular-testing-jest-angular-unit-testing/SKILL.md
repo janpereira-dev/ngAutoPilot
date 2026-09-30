@@ -1,6 +1,6 @@
 ---
 name: angular-testing-jest-angular-unit-testing
-description: "Designs and reviews Angular unit testing with Jest, focusing on TestBed usage, mocking strategy, component and service tests, and maintainable enterprise test patterns."
+description: "Write or review Angular tests in existing Jest projects, with narrow typed mocks, deterministic async behavior, and assertions that catch regressions."
 license: MIT
 metadata:
   ngautopilot-id: "angular.testing.jest-angular-unit-testing"
@@ -51,6 +51,14 @@ Assert behavior, not implementation details.
 
 Prefer focused test names that describe user or service intent.
 
+Use TestBed when injection, templates, or Angular lifecycle behavior is part of the contract. For a pure function or a class with explicit constructor dependencies, direct construction can keep the test smaller; do not cast a partial mock to a full service to bypass its type contract.
+
+For timed RxJS flows, choose one clock owner: Jest fake timers or RxJS `TestScheduler`. Do not combine either with Angular `fakeAsync` in the same test. Subscribe before sending input, recreate mocks per test, and release subscriptions and restore timers in `afterEach` so a failing assertion cannot contaminate later tests.
+
+Assert the time boundary and debounce reset, normalized arguments, duplicate suppression, obsolete response rejection, and error recovery. After a fallback emission, send a successful request through the same subscription; a single error assertion cannot prove the stream stayed usable.
+
+For a search using `debounceTime` and `switchMap`, read [the search contract example](references/rxjs-search-contract.md). It distinguishes delayed cancellation from immediate invalidation and includes teardown assertions, not just output checks.
+
 ## Do Not
 
 Avoid rewriting the entire test stack during a local fix.
@@ -61,6 +69,8 @@ Avoid overspecifying internal method calls when DOM or service behavior is the r
 
 Avoid mixing unrelated framework migrations into the testing work.
 
+Do not replace time-boundary assertions with `runAllTimers()`, or treat a mocked `Subject` as proof that the real HTTP transport aborts a request. Verify transport cancellation separately when that is a requirement.
+
 ## Review Checklist
 
 - [ ] The project actually uses Jest.
@@ -68,13 +78,15 @@ Avoid mixing unrelated framework migrations into the testing work.
 - [ ] Mocks are minimal and readable.
 - [ ] Tests verify behavior, not private implementation details.
 - [ ] The test suite remains maintainable.
+- [ ] Timer boundaries, debounce reset, and stale responses are covered when relevant.
+- [ ] Error fallback is followed by a successful request on the same stream.
+- [ ] Mocks, subscriptions, and clock state are isolated between tests.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Inspect the Jest-based test setup.
 2. Recommend a maintainable TestBed strategy.
 3. Define a minimal mocking approach.
 4. Flag brittle or overspecified tests.
 5. Produce focused test examples or refactors.
+6. Report the tests actually run and any unverified transport or framework behavior.

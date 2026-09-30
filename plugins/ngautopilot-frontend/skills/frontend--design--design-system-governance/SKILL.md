@@ -59,8 +59,6 @@ Route Angular Material implementation and migration work to the existing Angular
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Describe the reusable contract and its intended consumers.
 2. Separate platform-neutral decisions from framework implementation work.
 3. List adoption, migration, and validation evidence.

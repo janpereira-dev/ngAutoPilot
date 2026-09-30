@@ -86,8 +86,6 @@ Avoid skipping migration or compatibility risk when the matrix spans several maj
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Map Angular versions to teachable capabilities.
 2. Mark features as mandatory, optional, or blocked.
 3. Identify version-related migration risks.

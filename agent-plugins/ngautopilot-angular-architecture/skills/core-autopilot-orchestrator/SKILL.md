@@ -179,8 +179,6 @@ Route: project-intake -> skill-router -> angular.architecture.angular-patterns-s
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify the task type and project context.
 2. Select the smallest applicable skill.
 3. Apply version and risk guardrails.

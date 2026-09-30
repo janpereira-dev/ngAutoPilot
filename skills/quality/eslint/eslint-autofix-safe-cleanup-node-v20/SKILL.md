@@ -59,8 +59,6 @@ Avoid mixing Node behavior changes with lint cleanup.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Decide whether autofix is safe in Node code.
 2. Apply only mechanical changes.
 3. Preserve process behavior.

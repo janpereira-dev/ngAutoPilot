@@ -57,8 +57,6 @@ Use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Produce a compact task-flow and state inventory.
 2. List decisions, assumptions, and unanswered product questions.
 3. Define testable frontend acceptance criteria.

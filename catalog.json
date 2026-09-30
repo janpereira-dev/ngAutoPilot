@@ -29,7 +29,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 750
+        "wordCount": 702
       }
     },
     {
@@ -58,7 +58,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 745
+        "wordCount": 697
       }
     },
     {
@@ -87,7 +87,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 738
+        "wordCount": 690
       }
     },
     {
@@ -116,7 +116,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 740
+        "wordCount": 692
       }
     },
     {
@@ -145,7 +145,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 733
+        "wordCount": 685
       }
     },
     {
@@ -179,7 +179,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 416
+        "wordCount": 408
       }
     },
     {
@@ -212,7 +212,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 443
+        "wordCount": 435
       }
     },
     {
@@ -246,7 +246,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 439
+        "wordCount": 431
       }
     },
     {
@@ -281,7 +281,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 1001
+        "wordCount": 993
       }
     },
     {
@@ -311,7 +311,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 595
+        "wordCount": 587
       }
     },
     {
@@ -345,7 +345,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 445
+        "wordCount": 437
       }
     },
     {
@@ -434,7 +434,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 452
+        "wordCount": 444
       }
     },
     {
@@ -490,7 +490,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 485
+        "wordCount": 477
       }
     },
     {
@@ -551,7 +551,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 911
+        "wordCount": 903
       }
     },
     {
@@ -590,7 +590,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 800
+        "wordCount": 792
       }
     },
     {
@@ -625,7 +625,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 475
+        "wordCount": 467
       }
     },
     {
@@ -659,7 +659,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 382
+        "wordCount": 374
       }
     },
     {
@@ -693,7 +693,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 400
+        "wordCount": 392
       }
     },
     {
@@ -727,7 +727,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 399
+        "wordCount": 391
       }
     },
     {
@@ -761,7 +761,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 403
+        "wordCount": 395
       }
     },
     {
@@ -795,7 +795,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 381
+        "wordCount": 373
       }
     },
     {
@@ -831,7 +831,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 436
+        "wordCount": 428
       }
     },
     {
@@ -865,7 +865,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 405
+        "wordCount": 397
       }
     },
     {
@@ -901,7 +901,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 442
+        "wordCount": 434
       }
     },
     {
@@ -935,7 +935,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 563
+        "wordCount": 555
       }
     },
     {
@@ -974,7 +974,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 712
+        "wordCount": 704
       }
     },
     {
@@ -1009,7 +1009,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 614
+        "wordCount": 606
       }
     },
     {
@@ -1090,7 +1090,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 344
+        "wordCount": 336
       }
     },
     {
@@ -1118,7 +1118,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 317
+        "wordCount": 309
       }
     },
     {
@@ -1147,7 +1147,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 520
+        "wordCount": 512
       }
     },
     {
@@ -1193,7 +1193,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 901
+        "wordCount": 893
       }
     },
     {
@@ -1225,7 +1225,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 1594
+        "wordCount": 1586
       }
     },
     {
@@ -1383,7 +1383,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 729
+        "wordCount": 681
       }
     },
     {
@@ -1412,7 +1412,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 722
+        "wordCount": 674
       }
     },
     {
@@ -1441,7 +1441,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 724
+        "wordCount": 676
       }
     },
     {
@@ -1470,7 +1470,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 729
+        "wordCount": 681
       }
     },
     {
@@ -1493,7 +1493,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 514
+        "wordCount": 492
       }
     },
     {
@@ -1541,7 +1541,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 526
+        "wordCount": 510
       }
     },
     {
@@ -1566,7 +1566,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 526
+        "wordCount": 506
       }
     },
     {
@@ -1646,7 +1646,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 350
+        "wordCount": 342
       }
     },
     {
@@ -1677,7 +1677,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 386
+        "wordCount": 378
       }
     },
     {
@@ -1708,7 +1708,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 415
+        "wordCount": 407
       }
     },
     {
@@ -1736,7 +1736,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 297
+        "wordCount": 289
       }
     },
     {
@@ -1759,7 +1759,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 522
+        "wordCount": 503
       }
     },
     {
@@ -1782,7 +1782,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 514
+        "wordCount": 492
       }
     },
     {
@@ -1805,7 +1805,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 525
+        "wordCount": 503
       }
     },
     {
@@ -1828,7 +1828,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 519
+        "wordCount": 502
       }
     },
     {
@@ -1851,7 +1851,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 521
+        "wordCount": 506
       }
     },
     {
@@ -1952,7 +1952,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 520
+        "wordCount": 499
       }
     },
     {
@@ -1975,7 +1975,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 518
+        "wordCount": 494
       }
     },
     {
@@ -1998,7 +1998,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 518
+        "wordCount": 493
       }
     },
     {
@@ -2206,7 +2206,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 516
+        "wordCount": 507
       }
     },
     {
@@ -2230,7 +2230,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 523
+        "wordCount": 514
       }
     },
     {
@@ -2254,7 +2254,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 520
+        "wordCount": 511
       }
     },
     {
@@ -2278,7 +2278,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 517
+        "wordCount": 508
       }
     },
     {
@@ -2302,7 +2302,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 520
+        "wordCount": 511
       }
     },
     {
@@ -2326,7 +2326,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 521
+        "wordCount": 512
       }
     },
     {
@@ -2350,7 +2350,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 524
+        "wordCount": 515
       }
     },
     {
@@ -2791,7 +2791,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 340
+        "wordCount": 332
       }
     },
     {
@@ -2953,7 +2953,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 308
+        "wordCount": 300
       }
     },
     {
@@ -2976,7 +2976,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 516
+        "wordCount": 490
       }
     },
     {
@@ -2999,7 +2999,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 524
+        "wordCount": 499
       }
     },
     {
@@ -3027,7 +3027,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 314
+        "wordCount": 306
       }
     },
     {
@@ -3050,7 +3050,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 519
+        "wordCount": 496
       }
     },
     {
@@ -3076,7 +3076,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 503
+        "wordCount": 495
       }
     },
     {
@@ -3104,7 +3104,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 487
+        "wordCount": 479
       }
     },
     {
@@ -3133,7 +3133,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 582
+        "wordCount": 574
       }
     },
     {
@@ -3162,7 +3162,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 470
+        "wordCount": 462
       }
     },
     {
@@ -3192,7 +3192,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 487
+        "wordCount": 479
       }
     },
     {
@@ -3244,7 +3244,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 506
+        "wordCount": 498
       }
     },
     {
@@ -3272,7 +3272,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 577
+        "wordCount": 569
       }
     },
     {
@@ -3300,7 +3300,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 513
+        "wordCount": 505
       }
     },
     {
@@ -3329,7 +3329,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 509
+        "wordCount": 501
       }
     },
     {
@@ -3359,7 +3359,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 578
+        "wordCount": 721
       }
     },
     {
@@ -3387,7 +3387,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 517
+        "wordCount": 509
       }
     },
     {
@@ -3414,7 +3414,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 510
+        "wordCount": 502
       }
     },
     {
@@ -3441,7 +3441,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 321
+        "wordCount": 313
       }
     },
     {
@@ -3467,7 +3467,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 521
+        "wordCount": 498
       }
     },
     {
@@ -3490,7 +3490,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 520
+        "wordCount": 497
       }
     },
     {
@@ -3513,7 +3513,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 518
+        "wordCount": 495
       }
     },
     {
@@ -3536,7 +3536,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 520
+        "wordCount": 499
       }
     },
     {
@@ -3564,7 +3564,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 320
+        "wordCount": 312
       }
     },
     {
@@ -3592,7 +3592,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 470
+        "wordCount": 578
       }
     },
     {
@@ -3622,7 +3622,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 482
+        "wordCount": 539
       }
     },
     {
@@ -3645,7 +3645,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 518
+        "wordCount": 494
       }
     },
     {
@@ -3668,7 +3668,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 511
+        "wordCount": 487
       }
     },
     {
@@ -3691,7 +3691,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 525
+        "wordCount": 501
       }
     },
     {
@@ -3714,7 +3714,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 521
+        "wordCount": 499
       }
     },
     {
@@ -3742,7 +3742,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 336
+        "wordCount": 328
       }
     },
     {
@@ -3765,7 +3765,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 519
+        "wordCount": 497
       }
     },
     {
@@ -3820,7 +3820,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 466
+        "wordCount": 458
       }
     },
     {
@@ -3846,7 +3846,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 523
+        "wordCount": 514
       }
     },
     {
@@ -3871,7 +3871,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 521
+        "wordCount": 498
       }
     },
     {
@@ -3896,7 +3896,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 518
+        "wordCount": 497
       }
     },
     {
@@ -3925,7 +3925,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 320
+        "wordCount": 312
       }
     },
     {
@@ -3987,7 +3987,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 363
+        "wordCount": 355
       }
     },
     {
@@ -4018,7 +4018,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 388
+        "wordCount": 380
       }
     },
     {
@@ -4046,7 +4046,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 279
+        "wordCount": 271
       }
     },
     {
@@ -4069,7 +4069,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 521
+        "wordCount": 496
       }
     },
     {
@@ -4118,7 +4118,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 530
+        "wordCount": 507
       }
     },
     {
@@ -4141,7 +4141,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 525
+        "wordCount": 503
       }
     },
     {
@@ -4169,7 +4169,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 307
+        "wordCount": 299
       }
     },
     {
@@ -4199,7 +4199,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 588
+        "wordCount": 580
       }
     },
     {
@@ -4245,7 +4245,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 522
+        "wordCount": 500
       }
     },
     {
@@ -4268,7 +4268,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 519
+        "wordCount": 493
       }
     },
     {
@@ -4296,7 +4296,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 336
+        "wordCount": 328
       }
     },
     {
@@ -4327,7 +4327,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 364
+        "wordCount": 356
       }
     },
     {
@@ -4355,7 +4355,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 304
+        "wordCount": 296
       }
     },
     {
@@ -4383,7 +4383,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 326
+        "wordCount": 318
       }
     },
     {
@@ -4411,7 +4411,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 288
+        "wordCount": 280
       }
     },
     {
@@ -4441,7 +4441,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 377
+        "wordCount": 455
       }
     },
     {
@@ -4469,7 +4469,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 264
+        "wordCount": 256
       }
     },
     {
@@ -4483,16 +4483,16 @@
       "status": "stable",
       "version": "0.9.0",
       "triggers": [
-        "test strategy",
+        "choose Angular test runner",
         "vitest jest karma",
-        "testing router"
+        "testing migration strategy"
       ],
       "compatibility": {},
       "contentSignals": {
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 523
+        "wordCount": 474
       }
     },
     {
@@ -4546,7 +4546,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 324
+        "wordCount": 316
       }
     },
     {
@@ -4573,7 +4573,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 454
+        "wordCount": 446
       }
     },
     {
@@ -4605,7 +4605,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 370
+        "wordCount": 607
       }
     },
     {
@@ -4639,7 +4639,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 473
+        "wordCount": 465
       }
     },
     {
@@ -4756,7 +4756,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 909
+        "wordCount": 1106
       }
     },
     {
@@ -7100,7 +7100,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 741
+        "wordCount": 693
       }
     },
     {
@@ -7129,7 +7129,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 739
+        "wordCount": 691
       }
     },
     {
@@ -7158,7 +7158,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 724
+        "wordCount": 676
       }
     },
     {
@@ -7188,7 +7188,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 745
+        "wordCount": 697
       }
     },
     {
@@ -7217,7 +7217,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 740
+        "wordCount": 692
       }
     },
     {
@@ -7246,7 +7246,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 747
+        "wordCount": 699
       }
     },
     {
@@ -7275,7 +7275,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 740
+        "wordCount": 692
       }
     },
     {
@@ -7304,7 +7304,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 731
+        "wordCount": 683
       }
     },
     {
@@ -7333,7 +7333,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 733
+        "wordCount": 685
       }
     },
     {
@@ -7362,7 +7362,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 726
+        "wordCount": 678
       }
     },
     {
@@ -7391,7 +7391,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 741
+        "wordCount": 693
       }
     },
     {
@@ -7420,7 +7420,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 733
+        "wordCount": 685
       }
     },
     {
@@ -7449,7 +7449,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 742
+        "wordCount": 694
       }
     },
     {
@@ -7478,7 +7478,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 744
+        "wordCount": 696
       }
     },
     {
@@ -7507,7 +7507,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 720
+        "wordCount": 672
       }
     },
     {
@@ -7536,7 +7536,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 724
+        "wordCount": 676
       }
     },
     {
@@ -7565,7 +7565,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 731
+        "wordCount": 683
       }
     },
     {
@@ -7594,7 +7594,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 718
+        "wordCount": 670
       }
     },
     {
@@ -7623,7 +7623,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 734
+        "wordCount": 686
       }
     },
     {
@@ -7652,7 +7652,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 732
+        "wordCount": 684
       }
     },
     {
@@ -7681,7 +7681,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 730
+        "wordCount": 682
       }
     },
     {
@@ -7710,7 +7710,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 740
+        "wordCount": 692
       }
     },
     {
@@ -7739,7 +7739,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 734
+        "wordCount": 686
       }
     },
     {
@@ -7768,7 +7768,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 742
+        "wordCount": 694
       }
     },
     {
@@ -7797,7 +7797,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 730
+        "wordCount": 682
       }
     },
     {
@@ -7826,7 +7826,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 740
+        "wordCount": 692
       }
     },
     {
@@ -7855,7 +7855,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 741
+        "wordCount": 693
       }
     },
     {
@@ -7884,7 +7884,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 735
+        "wordCount": 687
       }
     },
     {
@@ -7913,7 +7913,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 740
+        "wordCount": 692
       }
     },
     {
@@ -7942,7 +7942,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 747
+        "wordCount": 699
       }
     },
     {
@@ -7971,7 +7971,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 754
+        "wordCount": 706
       }
     },
     {
@@ -8000,7 +8000,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 747
+        "wordCount": 699
       }
     },
     {
@@ -8326,7 +8326,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 751
+        "wordCount": 703
       }
     },
     {
@@ -8355,7 +8355,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 750
+        "wordCount": 702
       }
     },
     {
@@ -8384,7 +8384,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 744
+        "wordCount": 696
       }
     },
     {
@@ -8413,7 +8413,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 735
+        "wordCount": 687
       }
     },
     {
@@ -8442,7 +8442,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 726
+        "wordCount": 678
       }
     },
     {
@@ -8471,7 +8471,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 721
+        "wordCount": 673
       }
     },
     {
@@ -8500,7 +8500,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 723
+        "wordCount": 675
       }
     },
     {
@@ -8529,7 +8529,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 736
+        "wordCount": 688
       }
     },
     {
@@ -8558,7 +8558,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 720
+        "wordCount": 672
       }
     },
     {
@@ -8587,7 +8587,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 713
+        "wordCount": 665
       }
     },
     {
@@ -8616,7 +8616,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 714
+        "wordCount": 666
       }
     },
     {
@@ -8645,7 +8645,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 742
+        "wordCount": 694
       }
     },
     {
@@ -8674,7 +8674,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 729
+        "wordCount": 681
       }
     },
     {
@@ -8703,7 +8703,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 742
+        "wordCount": 694
       }
     },
     {
@@ -8732,7 +8732,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 736
+        "wordCount": 688
       }
     },
     {
@@ -8761,7 +8761,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 734
+        "wordCount": 686
       }
     },
     {
@@ -8790,7 +8790,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 747
+        "wordCount": 699
       }
     },
     {
@@ -8819,7 +8819,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 743
+        "wordCount": 695
       }
     },
     {
@@ -8848,7 +8848,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 728
+        "wordCount": 680
       }
     },
     {
@@ -8877,7 +8877,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 735
+        "wordCount": 687
       }
     },
     {
@@ -8906,7 +8906,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 745
+        "wordCount": 697
       }
     },
     {
@@ -8935,7 +8935,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 742
+        "wordCount": 694
       }
     },
     {
@@ -8962,7 +8962,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 280
+        "wordCount": 272
       }
     },
     {
@@ -8991,7 +8991,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 725
+        "wordCount": 677
       }
     },
     {
@@ -9020,7 +9020,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 739
+        "wordCount": 691
       }
     },
     {
@@ -9049,7 +9049,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 733
+        "wordCount": 685
       }
     },
     {
@@ -9078,7 +9078,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 723
+        "wordCount": 675
       }
     },
     {
@@ -9107,7 +9107,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 723
+        "wordCount": 675
       }
     },
     {
@@ -9136,7 +9136,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 724
+        "wordCount": 676
       }
     },
     {
@@ -9165,7 +9165,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 733
+        "wordCount": 685
       }
     },
     {
@@ -9194,7 +9194,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 726
+        "wordCount": 678
       }
     },
     {
@@ -9223,7 +9223,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 727
+        "wordCount": 679
       }
     },
     {
@@ -9252,7 +9252,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 738
+        "wordCount": 690
       }
     },
     {
@@ -9281,7 +9281,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 745
+        "wordCount": 697
       }
     },
     {
@@ -9310,7 +9310,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 740
+        "wordCount": 692
       }
     },
     {
@@ -9339,7 +9339,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 741
+        "wordCount": 693
       }
     },
     {
@@ -9368,7 +9368,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 745
+        "wordCount": 697
       }
     },
     {
@@ -9397,7 +9397,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 748
+        "wordCount": 700
       }
     },
     {
@@ -9425,7 +9425,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 734
+        "wordCount": 686
       }
     },
     {
@@ -9454,7 +9454,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 743
+        "wordCount": 695
       }
     },
     {
@@ -9477,7 +9477,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 524
+        "wordCount": 504
       }
     },
     {
@@ -9502,7 +9502,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 537
+        "wordCount": 528
       }
     },
     {
@@ -9525,7 +9525,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 522
+        "wordCount": 500
       }
     },
     {
@@ -9553,7 +9553,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 716
+        "wordCount": 668
       }
     },
     {
@@ -9581,7 +9581,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 716
+        "wordCount": 668
       }
     },
     {
@@ -9609,7 +9609,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 719
+        "wordCount": 671
       }
     },
     {
@@ -9642,7 +9642,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 786
+        "wordCount": 778
       }
     },
     {
@@ -9672,7 +9672,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 717
+        "wordCount": 709
       }
     },
     {
@@ -9701,7 +9701,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 574
+        "wordCount": 566
       }
     },
     {
@@ -9729,7 +9729,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 323
+        "wordCount": 315
       }
     },
     {
@@ -9757,7 +9757,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 345
+        "wordCount": 337
       }
     },
     {
@@ -9784,7 +9784,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 834
+        "wordCount": 826
       }
     },
     {
@@ -9812,7 +9812,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 1113
+        "wordCount": 1105
       }
     },
     {
@@ -9839,7 +9839,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 714
+        "wordCount": 706
       }
     },
     {
@@ -9867,7 +9867,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 762
+        "wordCount": 754
       }
     },
     {
@@ -9894,7 +9894,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 731
+        "wordCount": 723
       }
     },
     {
@@ -9922,7 +9922,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 761
+        "wordCount": 753
       }
     },
     {
@@ -9972,7 +9972,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 404
+        "wordCount": 396
       }
     },
     {
@@ -9998,7 +9998,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 376
+        "wordCount": 368
       }
     },
     {
@@ -10210,7 +10210,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 413
+        "wordCount": 405
       }
     },
     {
@@ -10396,7 +10396,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 375
+        "wordCount": 367
       }
     },
     {
@@ -10552,7 +10552,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 386
+        "wordCount": 378
       }
     },
     {
@@ -10579,7 +10579,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 396
+        "wordCount": 388
       }
     },
     {
@@ -10608,7 +10608,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 646
+        "wordCount": 638
       }
     },
     {
@@ -10636,7 +10636,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 264
+        "wordCount": 256
       }
     },
     {
@@ -10664,7 +10664,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 280
+        "wordCount": 272
       }
     },
     {
@@ -10692,7 +10692,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 283
+        "wordCount": 275
       }
     },
     {
@@ -10720,7 +10720,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 287
+        "wordCount": 279
       }
     },
     {
@@ -10746,7 +10746,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 430
+        "wordCount": 422
       }
     },
     {
@@ -10773,7 +10773,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 410
+        "wordCount": 402
       }
     },
     {
@@ -10802,7 +10802,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 550
+        "wordCount": 542
       }
     },
     {
@@ -10831,7 +10831,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 462
+        "wordCount": 454
       }
     },
     {
@@ -10857,7 +10857,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 261
+        "wordCount": 253
       }
     },
     {
@@ -10882,7 +10882,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 243
+        "wordCount": 235
       }
     },
     {
@@ -10907,7 +10907,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 252
+        "wordCount": 244
       }
     },
     {
@@ -10934,7 +10934,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 296
+        "wordCount": 288
       }
     },
     {
@@ -10959,7 +10959,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 242
+        "wordCount": 234
       }
     },
     {
@@ -10986,7 +10986,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 275
+        "wordCount": 267
       }
     },
     {
@@ -11013,7 +11013,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 401
+        "wordCount": 393
       }
     },
     {
@@ -11039,7 +11039,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 356
+        "wordCount": 348
       }
     },
     {
@@ -11065,7 +11065,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 243
+        "wordCount": 235
       }
     },
     {
@@ -11091,7 +11091,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 513
+        "wordCount": 505
       }
     },
     {
@@ -11117,7 +11117,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 257
+        "wordCount": 249
       }
     },
     {
@@ -11143,7 +11143,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 266
+        "wordCount": 258
       }
     },
     {
@@ -11169,7 +11169,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 237
+        "wordCount": 229
       }
     },
     {
@@ -11195,7 +11195,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 246
+        "wordCount": 409
       }
     },
     {
@@ -11221,7 +11221,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 248
+        "wordCount": 240
       }
     },
     {
@@ -11246,7 +11246,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 253
+        "wordCount": 245
       }
     },
     {
@@ -11273,7 +11273,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 321
+        "wordCount": 313
       }
     },
     {
@@ -11299,7 +11299,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 241
+        "wordCount": 233
       }
     },
     {
@@ -11325,7 +11325,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 251
+        "wordCount": 243
       }
     },
     {
@@ -11351,7 +11351,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 417
+        "wordCount": 409
       }
     },
     {
@@ -11378,7 +11378,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 400
+        "wordCount": 392
       }
     },
     {
@@ -11404,7 +11404,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 501
+        "wordCount": 493
       }
     },
     {
@@ -11429,7 +11429,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 281
+        "wordCount": 273
       }
     }
   ]

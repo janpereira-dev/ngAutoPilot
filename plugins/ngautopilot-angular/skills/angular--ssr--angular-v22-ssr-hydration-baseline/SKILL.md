@@ -76,8 +76,6 @@ Do not use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. An SSR and hydration summary.
 2. The changed server behavior.
 3. Validation evidence.

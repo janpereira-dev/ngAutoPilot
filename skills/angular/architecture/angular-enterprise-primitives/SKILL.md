@@ -95,8 +95,6 @@ Avoid mixing several reactive models without a documented policy.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Recommend the right primitive sequence.
 2. Gate adoption by Angular version.
 3. Keep the scope at architecture and learning-path level.

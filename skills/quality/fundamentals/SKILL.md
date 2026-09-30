@@ -83,8 +83,6 @@ Avoid using this skill to replace the specialized skills.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Recommend the right quality primitive sequence.
 2. Route to the specialized skills.
 3. Keep the scope at architecture and cleanup-path level.

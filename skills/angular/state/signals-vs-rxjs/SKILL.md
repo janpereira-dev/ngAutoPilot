@@ -119,8 +119,6 @@ Avoid mixing Signals and Observables in the same feature without explaining owne
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Detect Angular version and existing state style.
 2. Classify the state problem by lifetime and synchronicity.
 3. Choose Signals, RxJS, a facade, or a store based on the decision policy.

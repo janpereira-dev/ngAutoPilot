@@ -60,8 +60,6 @@ Avoid broad type assertions that bypass compiler value.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Confirm strict compiler mode.
 2. Recommend strict-safe narrowing patterns.
 3. Flag broad assertions and unsafe `any`.

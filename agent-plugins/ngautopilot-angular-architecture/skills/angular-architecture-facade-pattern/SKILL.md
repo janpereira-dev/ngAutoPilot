@@ -117,8 +117,6 @@ Avoid mixing UI formatting, API calls, permissions, and unrelated business domai
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify coupling between components and low-level services.
 2. Decide whether a facade creates real value.
 3. Propose a bounded facade API.

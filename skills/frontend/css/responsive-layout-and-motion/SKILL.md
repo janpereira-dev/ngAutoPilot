@@ -56,8 +56,6 @@ Use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Describe the component constraints and responsive states.
 2. Identify CSS features that need progressive enhancement or fallback.
 3. Provide viewport, container, zoom, and reduced-motion validation evidence.

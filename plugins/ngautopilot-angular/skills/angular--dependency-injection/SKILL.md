@@ -434,8 +434,6 @@ Override the component provider or read the component-scoped service from fixtur
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Detect Angular version and DI architecture style.
 2. Identify the intended dependency lifecycle.
 3. Recommend the narrowest correct provider scope.

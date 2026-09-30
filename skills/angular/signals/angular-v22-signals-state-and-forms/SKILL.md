@@ -77,8 +77,6 @@ Do not use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. A signal-state summary.
 2. The chosen reactive model.
 3. Any remaining migration risks.

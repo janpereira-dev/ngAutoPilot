@@ -59,8 +59,6 @@ Route Angular component primitives to `angular.material.angular-aria-headless-pa
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. State the affected flow and the users or assistive scenarios considered.
 2. List semantic, keyboard, feedback, and responsive changes separately.
 3. Provide reproducible automated or manual validation evidence.

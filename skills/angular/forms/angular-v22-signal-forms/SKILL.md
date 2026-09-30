@@ -75,8 +75,6 @@ Do not use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. A form migration summary.
 2. The chosen form model.
 3. Any remaining diagnostics.

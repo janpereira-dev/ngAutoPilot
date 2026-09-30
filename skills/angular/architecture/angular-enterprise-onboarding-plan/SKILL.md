@@ -109,8 +109,6 @@ Avoid treating onboarding as a one-time checklist instead of a progressive path.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Define the onboarding phases.
 2. Identify repository-specific conventions.
 3. Include architecture and testing milestones.

@@ -62,8 +62,6 @@ Avoid coupling tests to internals.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Confirm the 17+ baseline.
 2. Recommend contract-focused component tests.
 3. Keep markup coupling low.

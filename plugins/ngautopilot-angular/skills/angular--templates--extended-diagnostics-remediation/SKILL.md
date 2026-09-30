@@ -86,8 +86,6 @@ Avoid changing business fallbacks casually.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify the reported diagnostic.
 2. Apply the smallest safe correction.
 3. Preserve behavior.

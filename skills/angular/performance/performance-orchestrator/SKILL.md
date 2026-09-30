@@ -92,8 +92,6 @@ Avoid recommending `@for`, `@defer`, signals, or `takeUntilDestroyed` as mandato
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify the project version and performance symptom.
 2. Select one primary performance skill and optional secondary skills.
 3. Explain why the selected skill applies.

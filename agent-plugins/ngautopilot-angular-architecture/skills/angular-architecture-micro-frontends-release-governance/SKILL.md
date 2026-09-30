@@ -84,8 +84,6 @@ Avoid approving releases only on the basis of build success.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify the release model.
 2. Check ownership and version policy.
 3. Flag compatibility risks.

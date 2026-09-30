@@ -114,8 +114,6 @@ Avoid assuming a component inside `@defer` is actually split if it is also refer
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify what is loaded at startup and why.
 2. Select route, component, visual defer, or preloading strategy.
 3. Provide code compatible with the detected Angular version.

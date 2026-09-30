@@ -104,8 +104,6 @@ Avoid telemetry contracts that only exist in one remote and not the shell.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify required telemetry events.
 2. Separate shell and remote observability concerns.
 3. Flag blind spots in failure visibility.

@@ -76,8 +76,6 @@ Do not use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. A router contract summary.
 2. The changed defaults or APIs.
 3. Validation evidence.

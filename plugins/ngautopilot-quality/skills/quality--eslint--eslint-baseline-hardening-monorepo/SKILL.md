@@ -64,8 +64,6 @@ Avoid ignoring project-specific quality boundaries.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Inspect the workspace lint setup.
 2. Identify shared versus local rules.
 3. Propose phased hardening.

@@ -84,8 +84,6 @@ Avoid fallback behavior that hides the fact that a remote is broken.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify failure scenarios.
 2. Define fallback tiers.
 3. Specify rollback readiness requirements.

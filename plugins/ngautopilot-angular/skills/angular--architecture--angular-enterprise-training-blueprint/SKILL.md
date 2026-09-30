@@ -196,8 +196,6 @@ Avoid producing a training plan that lacks artifacts or validation.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify the target audience, Angular version, and training goal.
 2. Build a capability matrix for the team.
 3. Design a continuous enterprise case study.

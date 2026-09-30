@@ -178,8 +178,6 @@ Secondary skill: core.compatibility-router
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Read the catalog.
 2. Select one primary skill.
 3. Apply compatibility and risk filters.

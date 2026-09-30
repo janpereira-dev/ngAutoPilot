@@ -123,8 +123,6 @@ CI workflow files
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. State the current Angular version and target direction.
 2. Name the compatibility gate used.
 3. Name the selected hop skill or satellite skill.

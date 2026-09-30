@@ -62,8 +62,6 @@ Avoid version-agnostic recommendations that ignore Angular 14+ capabilities.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Confirm typed forms are available.
 2. Recommend typed reactive form patterns.
 3. Keep mapping and validation explicit.

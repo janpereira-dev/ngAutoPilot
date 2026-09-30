@@ -111,8 +111,6 @@ Avoid memoization when the cache invalidation rules are unclear or memory growth
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Classify the transformation by purity, cost, and reuse.
 2. Select pure pipe, computed, memoization, or view model mapping.
 3. Avoid introducing side effects into rendering paths.

@@ -76,8 +76,6 @@ Do not use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. A build-migration summary.
 2. The updated builder path.
 3. Any remaining CI or CLI risks.

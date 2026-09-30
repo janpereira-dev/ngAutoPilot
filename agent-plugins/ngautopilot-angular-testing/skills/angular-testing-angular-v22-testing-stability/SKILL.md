@@ -64,8 +64,6 @@ Do not use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. A test-stability summary.
 2. The changed expectation or harness.
 3. Residual risk if any remains.
