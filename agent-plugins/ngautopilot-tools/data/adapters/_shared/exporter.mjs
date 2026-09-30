@@ -66,9 +66,12 @@ function bundleExternalReferences(body, sourceDir, targetDir, sourceRoot) {
       const suffix = reference.slice(resource.length);
       return `](${path.relative(destination, localTarget).split(path.sep).join('/')}${suffix})`;
     }
+    const relative = path.relative(sourceRoot, absolute).split(path.sep).join('/');
+    // A source-root boundary alone would still allow a malicious Markdown link
+    // to copy adjacent repository credentials into a distributable snapshot.
+    if (!/^(?:docs|assets|skills)\//.test(relative) || /(?:^|\/)(?:\.env(?:\.[^/]*)?|\.npmrc|info|node_modules|dist|raw-prompts|raw-responses)(?:\/|$)/.test(relative) || /\.(?:private\.json|local\.ya?ml)$/.test(relative)) throw new Error(`external skill reference is not public documentation: ${reference}`);
     // Reads also verify repository containment and reject symlinked sources.
     const bytes = safeReadSourceFile(sourceRoot, absolute);
-    const relative = path.relative(sourceRoot, absolute).split(path.sep).join('/');
     const bundled = path.join(targetDir, 'references', 'ngautopilot-source', relative);
     if (!copied.has(absolute)) {
       copied.add(absolute);

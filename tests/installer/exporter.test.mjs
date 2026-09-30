@@ -104,6 +104,20 @@ test('export rejects a different adapter ownership record instead of adopting it
   assert.throws(() => exportAdapter({ sourceRoot: root, agent: 'pi', packId: 'ngautopilot-core', output }), /record does not match/);
   assert.deepEqual(fs.readFileSync(path.join(output, '.ngautopilot-export.json')), before);
 });
+test('external Markdown links cannot export adjacent repository credentials', (t) => {
+  const sourceRoot = temporary(t);
+  const output = temporary(t);
+  fs.cpSync(path.join(root, 'adapters'), path.join(sourceRoot, 'adapters'), { recursive: true });
+  fs.mkdirSync(path.join(sourceRoot, 'packs'));
+  fs.mkdirSync(path.join(sourceRoot, 'skills/_core/example'), { recursive: true });
+  fs.writeFileSync(path.join(sourceRoot, 'skills/_core/example/SKILL.md'), '---\nid: _core.example\nname: Example\ndescription: Test a public source boundary.\nversion: 0.9.0\n---\n\n[Credentials](../../../.env)\n');
+  fs.writeFileSync(path.join(sourceRoot, '.env'), 'PRIVATE_CREDENTIAL_DATA');
+  fs.writeFileSync(path.join(sourceRoot, 'catalog.json'), JSON.stringify({ skills: [{ id: '_core.example', path: 'skills/_core/example/SKILL.md', version: '0.9.0' }] }));
+  fs.writeFileSync(path.join(sourceRoot, 'packs/ngautopilot-core.json'), JSON.stringify({ id: 'ngautopilot-core', includes: { skills: ['_core.'] } }));
+  assert.throws(() => exportAdapter({ sourceRoot, agent: 'generic', packId: 'ngautopilot-core', output }), /not public documentation/);
+  assert.deepEqual(fs.readdirSync(output), []);
+  assert.equal(fs.readFileSync(path.join(sourceRoot, '.env'), 'utf8'), 'PRIVATE_CREDENTIAL_DATA');
+});
 test('full export bundles external documentation without changing the source catalog', (t) => {
   const output = temporary(t);
   const before = sha256(fs.readFileSync(path.join(root, 'catalog.json')));

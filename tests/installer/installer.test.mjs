@@ -48,6 +48,59 @@ test('adapter registry lists 10 adapters', () => {
     assert.ok(ids.includes(id), `missing adapter: ${id}`);
   }
 });
+test('installation metadata uses the tool version, not the receiving application version', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  fs.writeFileSync(path.join(workdir, 'package.json'), JSON.stringify({ version: '99.0.0' }));
+  const cwd = process.cwd();
+  try {
+    process.chdir(workdir);
+    assert.equal(applyPlan(planFor(workdir)).ok, true);
+    const expected = JSON.parse(fs.readFileSync(path.join(REPO, 'package.json'), 'utf8')).version;
+    assert.equal(loadManifest(workdir).ngautopilotVersion, expected);
+  } finally {
+    process.chdir(cwd);
+  }
+});
+test('install preserves the supporting Jest/RxJS reference and tracks it through pack removal', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  const plan = planForPack(workdir, 'ngautopilot-angular-testing');
+  const reference = plan.files.find(file => file.path.endsWith('/references/rxjs-search-contract.md'));
+  assert.ok(reference, 'the plan must include supporting resources, not only entrypoints');
+  assert.equal(applyPlan(plan).ok, true);
+  assert.deepEqual(fs.readFileSync(path.join(workdir, reference.path)), fs.readFileSync(reference.source));
+  assert.equal(verifyInstall(plan).ok, true);
+  fs.appendFileSync(path.join(workdir, reference.path), '\nLocal reference note\n');
+  assert.equal(applyPlan(planFor(workdir)).ok, false);
+  assert.ok(loadManifest(workdir).files.some(file => file.path === reference.path));
+});
+test('binary resources survive install, conflict checks, backup and restore byte-for-byte', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  const sourceRoot = path.join(workdir, 'source');
+  const installRoot = path.join(workdir, 'install');
+  fs.mkdirSync(sourceRoot);
+  const bytes = Buffer.from([0, 255, 128, 13, 10, 254, 1]);
+  const source = path.join(sourceRoot, 'asset.bin');
+  fs.writeFileSync(source, bytes);
+  const plan = { sourceRoot, installRoot, agent: 'generic', scope: 'project', pack: 'ngautopilot-core', files: [{ path: 'skills/example/assets/asset.bin', source, action: 'create' }], warnings: [] };
+  assert.equal(applyPlan(plan).ok, true);
+  const target = path.join(installRoot, plan.files[0].path);
+  assert.deepEqual(fs.readFileSync(target), bytes);
+  assert.equal(verifyInstall(plan).ok, true);
+  assert.equal(applyPlan(plan).skipped, 1);
+  const edited = Buffer.from([0, 255, 127, 254, 13, 10, 2]);
+  fs.writeFileSync(target, edited);
+  assert.equal(applyPlan(plan, { dryRun: true }).ok, false);
+  assert.equal(applyPlan(plan).ok, false);
+  const saved = backup(plan, { backupDir: path.join(workdir, 'backups') });
+  assert.equal(applyPlan(plan, { force: true }).ok, true);
+  assert.deepEqual(fs.readFileSync(target), bytes);
+  assert.equal(restore(saved, installRoot).ok, true);
+  assert.deepEqual(fs.readFileSync(target), edited);
+  assert.equal(uninstall(plan).ok, false);
+});
 test('pack removal preserves malformed bounded instructions even with force', (t) => {
   const workdir = makeWorkdir();
   t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));

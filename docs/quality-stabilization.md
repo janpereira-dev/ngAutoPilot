@@ -40,3 +40,14 @@ claude plugin validate .
 ```
 
 Final evidence and remaining external requirements must be recorded before declaring completion.
+
+## Verified implementation findings
+
+- Owned files previously could be overwritten after local edits; unchanged exclusion checks also dropped ownership of retained edits. Both paths now preserve the original baseline.
+- Legacy export copied entrypoints without native layout, supporting resources, or a real export record. Native snapshots now have a separate, scoped checksum/index contract.
+- The release-version scanner misclassified transitive dependency versions in mirrored lockfiles as old NgAutoPilot releases. Explicit package version checks remain; dependency versions no longer trigger that heuristic.
+- Esbuild output was immediately reopened and rewritten from another process; the Windows run returned UNKNOWN on that path. Normalization now happens in memory before one write, with identical bundle bytes and the existing generation regressions retained.
+- Install planning omitted supporting skill resources, and text-only I/O would corrupt binary assets. Resources now follow the same ownership, verification, backup, and restore path byte-for-byte.
+- Installation metadata previously read the receiving project\'s version rather than the installed tool\'s version; the package-relative source is now authoritative.
+
+The protected npm credential is still a manual activation requirement: GitHub exposes secret names, not values. Do not claim all publication paths secured while the historical repository-wide credential remains usable. Required human PR approval is another external requirement, not something the agent can fabricate.

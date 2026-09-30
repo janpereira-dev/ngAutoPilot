@@ -110,15 +110,16 @@ export function safeStat(guard, rel) {
  * Read a file inside the guard. Rejects escapes and symlink escapes.
  * @param {ReturnType<createRootGuard>} guard
  * @param {string} rel
- * @returns {string} UTF-8 content.
+ * @param {BufferEncoding|null} [encoding='utf8'] Null returns original bytes.
+ * @returns {string|Buffer} UTF-8 content or original bytes.
  */
-export function safeReadFile(guard, rel) {
+export function safeReadFile(guard, rel, encoding = 'utf8') {
   const absPath = guard.resolve(rel);
   assertNoSymlinkParents(guard, absPath);
   if (isSymlink(absPath)) {
     resolveSymlinkInside(guard, absPath);
   }
-  return fs.readFileSync(absPath, 'utf8');
+  return fs.readFileSync(absPath, encoding);
 }
 
 /**
@@ -128,9 +129,10 @@ export function safeReadFile(guard, rel) {
  * after planning.
  * @param {string} sourceRoot
  * @param {string} sourcePath
- * @returns {string}
+ * @param {BufferEncoding|null} [encoding='utf8'] Null returns original bytes.
+ * @returns {string|Buffer}
  */
-export function safeReadSourceFile(sourceRoot, sourcePath) {
+export function safeReadSourceFile(sourceRoot, sourcePath, encoding = 'utf8') {
   if (typeof sourceRoot !== 'string' || typeof sourcePath !== 'string') {
     throw new SafeFsError('source_invalid', 'source root and path must be strings');
   }
@@ -149,7 +151,7 @@ export function safeReadSourceFile(sourceRoot, sourcePath) {
   if (stat.isSymbolicLink() || !stat.isFile()) {
     throw new SafeFsError('source_not_regular_file', `source is not a regular file: ${sourcePath}`);
   }
-  return fs.readFileSync(protectedSource, 'utf8');
+  return fs.readFileSync(protectedSource, encoding);
 }
 
 /**
@@ -157,7 +159,7 @@ export function safeReadSourceFile(sourceRoot, sourcePath) {
  * Idempotent: if existing content matches (same checksum) no write is performed.
  * @param {ReturnType<createRootGuard>} guard
  * @param {string} rel
- * @param {string} content
+ * @param {string|Buffer} content
  * @returns {{wrote: boolean, checksum: string}}
  */
 export function safeWriteFile(guard, rel, content) {
@@ -170,7 +172,7 @@ export function safeWriteFile(guard, rel, content) {
   fs.mkdirSync(path.dirname(absPath), { recursive: true });
   const checksum = sha256(content);
   if (fs.existsSync(absPath)) {
-    const existing = fs.readFileSync(absPath, 'utf8');
+    const existing = fs.readFileSync(absPath);
     if (sha256(existing) === checksum) {
       return { wrote: false, checksum };
     }
@@ -304,8 +306,8 @@ export function safePruneManagedDir(guard, dirRel, managedRel) {
 }
 
 /**
- * SHA-256 hex checksum of UTF-8 content.
- * @param {string} content
+ * SHA-256 hex checksum of UTF-8 content or original bytes.
+ * @param {string|Buffer} content
  * @returns {string}
  */
 export function sha256(content) {
@@ -321,7 +323,7 @@ export function sha256(content) {
  */
 export function verifyChecksum(guard, rel, expectedChecksum) {
   try {
-    const content = safeReadFile(guard, rel);
+    const content = safeReadFile(guard, rel, null);
     return sha256(content) === expectedChecksum;
   } catch {
     return false;

@@ -55,6 +55,12 @@ export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, age
       action: fs.existsSync(path.join(installRoot, destRel)) ? 'update' : 'create',
       checksum: undefined,
     });
+    // References/scripts/assets are part of the skill contract, not optional
+    // catalog entries. Preserve relative paths without copying nested skills.
+    for (const resource of skillResources(path.dirname(sourcePath), sourceRoot)) {
+      const resourcePath = path.posix.join(path.posix.dirname(destRel), resource.relative);
+      files.push({ path: resourcePath, source: resource.source, action: fs.existsSync(path.join(installRoot, resourcePath)) ? 'update' : 'create', checksum: undefined });
+    }
   }
 
   // Adapter templates are named independently from their installed instruction file.
@@ -103,6 +109,29 @@ export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, age
   }
 
   return { agent, scope, pack: pack.id, installRoot, manifestPath, legacyInstallRoot, sourceRoot, files, warnings };
+}
+
+function skillResources(directory, sourceRoot) {
+  safeReadSourceFile(sourceRoot, path.join(directory, 'SKILL.md'));
+  const resources = [];
+  const visit = current => {
+    for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
+      const source = path.join(current, entry.name);
+      const stat = fs.lstatSync(source);
+      if (stat.isSymbolicLink()) throw new Error(`symbolic skill resource is not supported: ${source}`);
+      if (stat.isDirectory()) {
+        const marker = fs.lstatSync(path.join(source, 'SKILL.md'), { throwIfNoEntry: false });
+        if (marker?.isSymbolicLink()) throw new Error(`symbolic skill marker is not supported: ${source}`);
+        if (marker?.isFile()) continue;
+        visit(source);
+      } else if (stat.isFile() && entry.name !== 'SKILL.md') {
+        safeReadSourceFile(sourceRoot, source, null);
+        resources.push({ source, relative: toPosixPath(path.relative(directory, source)) });
+      } else if (!stat.isFile()) throw new Error(`unsupported skill resource: ${source}`);
+    }
+  };
+  visit(directory);
+  return resources;
 }
 
 function resolvePacks(sourceRoot, packPath, resolving = new Set()) {

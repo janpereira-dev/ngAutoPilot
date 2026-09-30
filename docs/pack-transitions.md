@@ -30,3 +30,5 @@ Backup is an explicit command, not an automatic promise or authorization to over
 Native exports follow a separate, stricter rule: conflict preflight refuses the entire content update and leaves the old export record intact. There is no export `--force` shortcut. Use a new output directory after reviewing conflicts.
 
 Behavioral regression coverage lives in `tests/installer/installer.test.mjs` and `tests/installer/exporter.test.mjs`: core/full round trips, retries, excluded ownership, dry runs, bounded instructions, explicit force, backup, and byte-exact restore.
+
+Supporting references, scripts, and assets inside selected skill directories participate in the same ownership checks. Binary assets are hashed, backed up, and restored as original bytes, never decoded/re-encoded as text. The recorded tool version comes from the installed NgAutoPilot package, not the receiving application\'s package.json. Native exports additionally bundle linked public documentation; canonical source installs preserve their original source layout.
