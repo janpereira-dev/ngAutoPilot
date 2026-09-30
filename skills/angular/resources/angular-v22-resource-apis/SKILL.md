@@ -76,8 +76,6 @@ Do not use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. A resource-API summary.
 2. The chosen async model.
 3. Timing-related risks.

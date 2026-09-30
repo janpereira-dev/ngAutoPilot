@@ -34,6 +34,8 @@ A skill can be accepted when it:
 - Does not contradict existing stable skills.
 - Passes `npm run skills:validate`.
 
+Follow [the skill authoring guide](docs/skill-authoring.md) for precise routing, natural instructions, progressive disclosure, and behavior-based evidence. `node scripts/audit-skill-content.mjs` reports known editorial signals across source skills; it is advisory and does not replace domain review or behavioral testing.
+
 ## Naming Convention
 
 Use kebab-case for folders:
@@ -96,13 +98,7 @@ Compatibility-aware skills may also include:
 
 Use these fields when a recommendation changes by Angular, TypeScript, RxJS, Node, framework syntax, or tooling version. Do not recommend a modern pattern unless the metadata and skill body explain the fallback for older projects.
 
-Allowed statuses:
-
-- `draft`
-- `review`
-- `stable`
-- `deprecated`
-- `experimental`
+Accepted source and distribution status: `stable`. The creation template starts at `draft` for authoring, but drafts are not accepted by `skills:validate`; finish review and replace scaffold text before promotion.
 
 ## Public Content Rules
 

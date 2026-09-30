@@ -160,8 +160,6 @@ Avoid putting feature-specific exceptions into the global rule unless they are d
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Read project tags and ESLint boundary rules.
 2. Detect missing or inconsistent tag dimensions.
 3. Recommend a bounded-context taxonomy.

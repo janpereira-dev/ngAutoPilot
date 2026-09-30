@@ -2,7 +2,7 @@
 id: angular.upgrades.templates.angular-v22-template-spread-rest-syntax
 name: Angular v22 Template Spread Rest Syntax
 description: >
-  Use this skill for Use spread/rest in templates only for simple, readable, non-expensive expressions. Use when Angular 22 work needs concern-first routing, explicit validation, and no invented APIs.
+  Use spread/rest in templates only for simple, readable, non-expensive expressions. For Angular 22 projects and 21-to-22 upgrade planning.
 stack:
   - Angular
   - TypeScript
@@ -32,7 +32,7 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 
 ## When to Use
 
-- The task specifically involves use spread/rest in templates only for simple, readable, non-expensive expressions.
+- The task is to use spread/rest in templates only for simple, readable, non-expensive expressions.
 - The project is on Angular 22 or planning the Angular 22 hop.
 - A narrower concern-first skill is better than a generic v22 baseline skill.
 
@@ -45,10 +45,6 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 ## Why This Matters
 
 Angular 22 changes templates / compiler behavior enough that agents need a narrow checklist instead of a generic v22 bucket. The goal is to make the risk visible, testable, and reviewable.
-
-## Non-developer explanation
-
-This skill helps separate a real upgrade risk from general cleanup. It gives the team a clear reason for the work, the evidence to check, and the point where the change is safe to stop.
 
 ## Inputs Expected
 

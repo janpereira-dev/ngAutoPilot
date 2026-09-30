@@ -98,8 +98,6 @@ Avoid shipping runtime federation without at least smoke coverage for each integ
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify integration boundaries that need coverage.
 2. Propose a layered E2E strategy.
 3. Include failure-path validation.

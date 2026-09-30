@@ -106,8 +106,6 @@ Avoid communication patterns that cannot be traced in debugging or tests.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Classify the communication need.
 2. Recommend the narrowest viable pattern.
 3. Define event or URL contracts explicitly.

@@ -140,8 +140,6 @@ Dockerfile
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Report detected Angular, TypeScript, RxJS, Node and tooling versions when available.
 2. Select a compatibility profile.
 3. List APIs that are safe to use.

@@ -73,8 +73,6 @@ Avoid broad API rewrites while cleaning one export.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Verify usage.
 2. Confirm API impact.
 3. Remove only dead exports.

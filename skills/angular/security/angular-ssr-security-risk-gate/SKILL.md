@@ -18,7 +18,7 @@ triggers:
 
 ## Purpose
 
-Use this skill to handle Angular security review for angular ssr security risk gate in Angular projects without mixing it with unrelated migration, modernization, or cleanup work.
+Gate SSR changes with host validation, proxy trust, and server-side security boundaries.
 
 This skill keeps the security decision explicit: identify the current state, choose the smallest safe action, document compatibility evidence, and leave a validation path that another agent or maintainer can repeat.
 
@@ -74,9 +74,7 @@ Changing framework version, architecture, tests, and cleanup policy in one unrev
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
-1. State the angular.security.angular-ssr-security-risk-gate diagnosis in one concise paragraph.
+1. Summarize the finding in one concise paragraph.
 2. List the files, APIs, or project boundaries affected.
 3. Provide the smallest safe implementation or decision.
 4. Explain compatibility and risk assumptions.

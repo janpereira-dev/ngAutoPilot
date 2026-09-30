@@ -212,8 +212,6 @@ Replace shared RxJS state service with Signals in a library consumed by unknown 
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Classify the change risk.
 2. Propose a small reversible plan.
 3. Identify validation steps.

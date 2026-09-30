@@ -18,7 +18,7 @@ triggers:
 
 ## Purpose
 
-Use this skill to handle Angular governance classification for angular validation contract in Angular projects without mixing it with unrelated migration, modernization, or cleanup work.
+Define the minimum validation contract for a change, such as build, unit tests, lint, e2e, bundle, or SSR validation.
 
 This skill keeps the governance decision explicit: identify the current state, choose the smallest safe action, document compatibility evidence, and leave a validation path that another agent or maintainer can repeat.
 
@@ -74,9 +74,7 @@ Changing framework version, architecture, tests, and cleanup policy in one unrev
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
-1. State the angular.governance.angular-validation-contract diagnosis in one concise paragraph.
+1. Summarize the finding in one concise paragraph.
 2. List the files, APIs, or project boundaries affected.
 3. Provide the smallest safe implementation or decision.
 4. Explain compatibility and risk assumptions.

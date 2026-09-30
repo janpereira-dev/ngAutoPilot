@@ -171,8 +171,6 @@ Avoid exposing app-specific environment or deployment details as hard-coded beha
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Classify the library as shared data-access, feature, domain, or mixed.
 2. Inspect imports, injected dependencies, and public API shape.
 3. Flag boundary leakage into UI, router, or feature orchestration.

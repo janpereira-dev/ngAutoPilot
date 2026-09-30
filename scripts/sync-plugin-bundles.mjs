@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
+import { copyContainedDirectory } from '../lib/agent-plugins/path-safety.mjs';
+
 const repository = 'https://github.com/janpereira-dev/ngAutoPilot';
 const author = {
   name: 'Jan Pereira',
@@ -155,8 +157,7 @@ for (const bundle of bundleDefinitions) {
   for (const skill of selectedSkills) {
     const slug = skill.metadata.id.replaceAll('.', '--');
     const targetDir = path.join(skillsDir, slug);
-    fs.mkdirSync(targetDir, { recursive: true });
-    fs.writeFileSync(path.join(targetDir, 'SKILL.md'), skill.content, 'utf8');
+    copyContainedDirectory(path.dirname(skill.sourcePath), targetDir, { excludeNestedSkills: true });
   }
 
   const pluginManifest = {

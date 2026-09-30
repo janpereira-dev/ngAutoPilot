@@ -67,8 +67,6 @@ Avoid browser guidance that assumes Node-style process control.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Review browser-facing failure paths.
 2. Recommend safe fallbacks and retry behavior.
 3. Preserve error context for telemetry.

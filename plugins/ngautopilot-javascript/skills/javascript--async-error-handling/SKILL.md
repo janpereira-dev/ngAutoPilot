@@ -160,8 +160,6 @@ Avoid masking authentication or authorization failures as empty data.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify async boundaries.
 2. Choose a clear error contract.
 3. Preserve stack and context.

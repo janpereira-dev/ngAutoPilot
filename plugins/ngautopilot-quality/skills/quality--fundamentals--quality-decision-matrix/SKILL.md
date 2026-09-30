@@ -82,8 +82,6 @@ Avoid broad refactors when the decision matrix is enough.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Classify the quality problem.
 2. Choose the smallest viable quality primitive.
 3. Explain why the other options were rejected.

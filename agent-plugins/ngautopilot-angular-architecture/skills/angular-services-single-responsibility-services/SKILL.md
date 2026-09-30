@@ -121,8 +121,6 @@ Avoid splitting into many files if the service is already cohesive and small.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify current service responsibilities.
 2. Highlight unrelated methods and dependencies.
 3. Propose a role-based service split.

@@ -21,7 +21,7 @@ compatibility:
 
 ## Purpose
 
-Use this skill to handle Angular router design for angular functional guards resolvers in Angular projects without mixing it with unrelated migration, modernization, or cleanup work.
+Use modern functional guards and resolvers with explicit contracts and testable behavior.
 
 This skill keeps the router decision explicit: identify the current state, choose the smallest safe action, document compatibility evidence, and leave a validation path that another agent or maintainer can repeat.
 
@@ -77,9 +77,7 @@ Changing framework version, architecture, tests, and cleanup policy in one unrev
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
-1. State the angular.router.angular-functional-guards-resolvers diagnosis in one concise paragraph.
+1. Summarize the finding in one concise paragraph.
 2. List the files, APIs, or project boundaries affected.
 3. Provide the smallest safe implementation or decision.
 4. Explain compatibility and risk assumptions.

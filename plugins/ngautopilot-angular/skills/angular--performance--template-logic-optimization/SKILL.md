@@ -114,8 +114,6 @@ When the project uses signals, prefer `computed` for local derived state; otherw
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify expensive, impure, or repeated template logic.
 2. Choose a compatible replacement pattern.
 3. Preserve output while reducing repeated work.

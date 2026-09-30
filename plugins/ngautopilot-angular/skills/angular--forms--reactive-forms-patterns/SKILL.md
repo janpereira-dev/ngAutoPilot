@@ -107,8 +107,6 @@ Avoid side effects in validators.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Inspect the form workflow and state shape.
 2. Recommend a reactive form structure.
 3. Separate validation, mapping, and orchestration concerns.

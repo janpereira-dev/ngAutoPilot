@@ -60,8 +60,6 @@ Avoid skipping validation when the payload is untrusted.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify Node DTO boundaries.
 2. Recommend validation plus mapping.
 3. Keep contracts separate from internal models.

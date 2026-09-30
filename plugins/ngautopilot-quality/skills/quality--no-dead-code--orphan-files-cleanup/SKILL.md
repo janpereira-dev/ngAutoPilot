@@ -97,8 +97,6 @@ Avoid mixing dead-file cleanup with unrelated refactors.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Verify the file is orphaned.
 2. Check dynamic loading paths.
 3. Remove dead files safely.

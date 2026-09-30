@@ -112,8 +112,6 @@ Avoid turning containers into business-rule monoliths.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Diagnose the current architecture problem.
 2. Select the smallest relevant micro-skill.
 3. Explain version compatibility and APIs to avoid.

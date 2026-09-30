@@ -65,8 +65,6 @@ Avoid swallowing process-level failures that should stop the job.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Review Node-specific async failure boundaries.
 2. Recommend process-safe error handling.
 3. Keep rejection behavior explicit.

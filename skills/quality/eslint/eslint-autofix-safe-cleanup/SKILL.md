@@ -70,8 +70,6 @@ Avoid using autofix when the rule change is ambiguous.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Decide whether autofix is safe.
 2. Apply only mechanical changes.
 3. Review the diff.

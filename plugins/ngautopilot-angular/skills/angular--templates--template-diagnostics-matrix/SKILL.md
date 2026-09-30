@@ -72,8 +72,6 @@ Avoid using the matrix to suppress diagnostics.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Group diagnostics by root cause.
 2. Route each group to a fix strategy.
 3. Keep the triage actionable.

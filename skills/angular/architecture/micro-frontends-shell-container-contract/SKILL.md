@@ -114,8 +114,6 @@ Avoid using the shell as a dumping ground for every shared helper.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Inspect shell responsibilities.
 2. Separate composition from domain logic.
 3. Define route and remote ownership clearly.

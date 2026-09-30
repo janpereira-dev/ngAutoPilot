@@ -166,8 +166,6 @@ Avoid DTO shape leakage when a stable business concept is needed instead.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Classify the library as shared domain, feature, data-access, UI, or mixed.
 2. Identify leaked transport or UI concerns.
 3. Recommend pure domain abstractions where needed.

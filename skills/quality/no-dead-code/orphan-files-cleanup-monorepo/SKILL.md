@@ -65,8 +65,6 @@ Avoid ignoring generators or convention-based paths.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Verify the file is orphaned in the workspace graph.
 2. Check dynamic loading paths.
 3. Remove dead files safely.

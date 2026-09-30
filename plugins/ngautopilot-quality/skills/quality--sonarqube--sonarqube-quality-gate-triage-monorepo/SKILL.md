@@ -63,8 +63,6 @@ Avoid mixing one project's cleanup with workspace-wide triage.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify workspace-wide blockers.
 2. Separate local cleanup.
 3. Prioritize the gate impact.

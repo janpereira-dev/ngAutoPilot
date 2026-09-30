@@ -55,6 +55,12 @@ Distinguish:
 
 Raise coverage where branches and contracts matter.
 
+Turn each meaningful gap into an observable regression: state the behavior, the input that could break it, and the assertion that would fail. For async searches, cover normalization, the debounce boundary and reset, duplicate suppression, stale responses, teardown, and a successful request after an error fallback.
+
+Keep line/branch coverage separate from behavioral evidence. A suite can execute both requests without detecting that an obsolete response overwrites the current result. Use assertions that distinguish the incorrect implementation, not extra executions added only to move the coverage percentage.
+
+When mutation testing is already configured, report generated, killed, surviving, and untested mutants from its actual output. Inspect the installed Stryker version and enabled mutators before claiming a transformation is generated. Replacing `switchMap` with `mergeMap` is a useful manual counterexample, not a guaranteed automatic Stryker mutation. Do not install mutation tooling or invent scores merely to complete a coverage fix.
+
 ## Do Not
 
 Avoid abstractions that are worse than the duplication.
@@ -67,10 +73,10 @@ Avoid coverage-only tests that do not assert behavior.
 - [ ] Coverage gaps are meaningful.
 - [ ] Tests assert behavior.
 - [ ] No unnecessary abstraction was introduced.
+- [ ] Each new test names a regression it would detect.
+- [ ] Coverage, manual counterexamples, and executed mutation results are reported separately.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify real duplication.
 2. Raise meaningful coverage.

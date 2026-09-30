@@ -57,8 +57,6 @@ Use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. State the journey, risks, and chosen validation layers.
 2. List detected capabilities and the exact commands or manual procedure used.
 3. Report behavioral, accessibility, and visual evidence separately.

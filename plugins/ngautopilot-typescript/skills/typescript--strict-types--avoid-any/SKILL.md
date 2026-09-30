@@ -122,8 +122,6 @@ Use temporary `any` only when there is a clear boundary, migration reason, and f
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Locate unsafe `any` usage and identify the data boundary.
 2. Replace `any` with the narrowest practical type.
 3. Use `unknown` plus narrowing for untrusted input.

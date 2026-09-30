@@ -93,8 +93,6 @@ Avoid using the assessment to justify unnecessary training complexity.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify capability gaps and current maturity.
 2. Separate foundational, intermediate, and enterprise-level gaps.
 3. Recommend follow-up skills and training priorities.

@@ -77,8 +77,6 @@ Avoid treating a version mismatch as a UI-only problem.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Read the shell and remote version contract.
 2. Identify allowed and blocked combinations.
 3. Flag dependency drift or exposed contract mismatch.

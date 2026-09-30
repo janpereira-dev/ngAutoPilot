@@ -63,8 +63,6 @@ Avoid broad suppressions to hide new compiler feedback.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Capture the diagnostics baseline.
 2. Classify new warnings and errors.
 3. Keep the upgrade scope bounded.

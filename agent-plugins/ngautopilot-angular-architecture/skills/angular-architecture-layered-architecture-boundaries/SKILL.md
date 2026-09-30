@@ -157,8 +157,6 @@ Do not recommend broad folder reshuffles when a small boundary fix solves the re
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Detect Angular version, workspace style, and current architectural organization.
 2. Build a short layer inventory for the relevant feature, app, or libraries.
 3. Flag boundary violations such as UI-owned HTTP, smart shared components, DTO leakage, circular dependencies, and deep imports.

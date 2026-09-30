@@ -76,8 +76,6 @@ Avoid forcing a strict baseline before the repo is ready.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Inspect the lint baseline.
 2. Classify rule gaps.
 3. Propose phased hardening.

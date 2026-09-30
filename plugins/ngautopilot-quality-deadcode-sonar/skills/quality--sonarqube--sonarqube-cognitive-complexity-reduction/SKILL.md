@@ -68,8 +68,6 @@ Avoid refactors without tests.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify the complexity drivers.
 2. Simplify the branches safely.
 3. Keep behavior covered.

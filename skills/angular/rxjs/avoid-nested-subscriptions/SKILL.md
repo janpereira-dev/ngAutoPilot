@@ -80,6 +80,10 @@ saveClicks
   .subscribe();
 ```
 
+For search or route changes, verify which source emission reaches `switchMap`. An upstream debounce or filter can delay or prevent cancellation. In a search test, emit an old response after the replacement request starts and assert that it is ignored; also assert teardown when cancellation itself is required. For write operations, do not choose `switchMap` merely to remove nesting if cancellation would lose intended work.
+
+If a failed inner request should not stop future input, handle its error inside the flattening operator. Test a failure followed by success through the same subscription, rather than recreating the stream after the error.
+
 In Angular components, prefer `async` in templates or use `takeUntilDestroyed` for imperative subscriptions:
 
 ```ts
@@ -124,10 +128,9 @@ this.form.valueChanges.subscribe((value) => {
 - [ ] `forkJoin` is used for one-time parallel completion.
 - [ ] Component subscriptions use `async` or `takeUntilDestroyed`.
 - [ ] Error handling remains explicit after the refactor.
+- [ ] Cancellation, ordering, and continued operation after errors are tested at the public boundary.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify nested subscriptions and lifecycle risks.
 2. Determine the correct RxJS operator based on cancellation, ordering, and combination semantics.
