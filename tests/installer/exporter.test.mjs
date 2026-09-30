@@ -123,6 +123,29 @@ test('full export bundles external documentation without changing the source cat
   const before = sha256(fs.readFileSync(path.join(root, 'catalog.json')));
   assert.equal(exportAdapter({ sourceRoot: root, agent: 'generic', packId: 'ngautopilot-full', output }).ok, true);
   assert.equal(snapshot(output).files.filter(file => /^skills\/[^/]+\/SKILL\.md$/.test(file.path)).length, JSON.parse(fs.readFileSync(path.join(root, 'catalog.json'), 'utf8')).skills.length);
+  assert.equal(snapshot(output).files.filter(file => file.path.endsWith('/SKILL.md')).length, JSON.parse(fs.readFileSync(path.join(root, 'catalog.json'), 'utf8')).skills.length, 'nested skills must not be duplicated under a parent');
   assert.ok(snapshot(output).files.some(file => file.path.includes('/references/ngautopilot-source/docs/')));
   assert.equal(sha256(fs.readFileSync(path.join(root, 'catalog.json'))), before);
+});
+
+test('native export excludes private local skill resources but preserves public fixtures and binary assets', (t) => {
+  const sourceRoot = temporary(t);
+  const output = temporary(t);
+  fs.cpSync(path.join(root, 'adapters'), path.join(sourceRoot, 'adapters'), { recursive: true });
+  const directory = path.join(sourceRoot, 'skills/_core/example');
+  fs.mkdirSync(directory, { recursive: true });
+  fs.mkdirSync(path.join(sourceRoot, 'packs'));
+  fs.writeFileSync(path.join(directory, 'SKILL.md'), '---\nname: Example\ndescription: Export fixture.\n---\n\nPublic skill.\n');
+  fs.writeFileSync(path.join(sourceRoot, 'catalog.json'), JSON.stringify({ skills: [{ id: '_core.example', path: 'skills/_core/example/SKILL.md', version: '0.9.0', description: 'Export fixture.' }] }));
+  fs.writeFileSync(path.join(sourceRoot, 'packs/ngautopilot-core.json'), JSON.stringify({ id: 'ngautopilot-core', includes: { skills: ['_core.'] } }));
+  for (const relative of ['.env', '.env.local', '.npmrc', 'references/capture.private.json', 'provider.local.yaml', 'raw-prompts/private.md', 'raw-responses/private.json', 'node_modules/secret.json', '.cache/secret.json', 'runtime.log']) {
+    fs.mkdirSync(path.dirname(path.join(directory, relative)), { recursive: true });
+    fs.writeFileSync(path.join(directory, relative), 'PRIVATE_LOCAL_DATA');
+  }
+  fs.writeFileSync(path.join(directory, '.env.example'), 'PUBLIC_FIXTURE');
+  fs.writeFileSync(path.join(directory, 'asset.bin'), Buffer.from([0, 255, 128, 1]));
+  assert.equal(exportAdapter({ sourceRoot, agent: 'generic', packId: 'ngautopilot-core', output }).ok, true);
+  for (const file of snapshot(output).files) assert.equal(fs.readFileSync(path.join(output, file.path)).includes(Buffer.from('PRIVATE_LOCAL_DATA')), false, file.path);
+  assert.equal(fs.readFileSync(path.join(output, 'skills/core-example/.env.example'), 'utf8'), 'PUBLIC_FIXTURE');
+  assert.deepEqual(fs.readFileSync(path.join(output, 'skills/core-example/asset.bin')), Buffer.from([0, 255, 128, 1]));
 });

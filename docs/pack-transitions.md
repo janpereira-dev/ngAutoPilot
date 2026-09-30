@@ -30,6 +30,8 @@ ngautopilot verify --agent codex --json
 
 Backup is an explicit command, not an automatic promise or authorization to overwrite. Store the returned path securely: backups can contain local project instructions. Restoring edited bytes also restores their old ownership baseline, so a mismatch afterward can be expected rather than a restore failure.
 
+Restore preflights the entire snapshot and current installation. It removes unchanged current-manifest-owned files created after the backup, so a full-to-core rollback does not leave discovered skills unowned. Edited post-backup files, unmanaged destination conflicts, unsafe paths, and missing snapshot files refuse the whole restore before any content or manifest changes. User prose outside a managed instruction section is preserved. Resolve conflicts explicitly before retrying; restore has no force shortcut.
+
 Native exports follow a separate, stricter rule: conflict preflight refuses the entire content update and leaves the old export record intact. There is no export `--force` shortcut. Use a new output directory after reviewing conflicts.
 
 Behavioral regression coverage lives in `tests/installer/installer.test.mjs` and `tests/installer/exporter.test.mjs`: core/full round trips, retries, excluded ownership, dry runs, bounded instructions, explicit force, backup, and byte-exact restore.

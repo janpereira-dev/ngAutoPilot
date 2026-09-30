@@ -2,6 +2,7 @@ import { describe, it, expect, afterEach } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { buildSagePacket, verifySagePacket } from '../../lib/sage-review.mjs';
 import { sha256 } from '../../adapters/_shared/safe-fs.mjs';
 const roots = [];
@@ -30,6 +31,23 @@ describe('exact-commit Sage packet', () => {
     expect(fs.existsSync(path.join(output, 'skill-lab/benchmarks/custom/evidence.jsonl'))).toBe(false);
     expect(fs.readFileSync(path.join(output, 'bin/.env.example'), 'utf8')).toBe('PUBLIC_CONFIGURATION_EXAMPLE');
     expect(verifySagePacket({ sourceRoot, packetRoot: output, commit: 'a'.repeat(40) }).files).toHaveLength(3);
+  });
+  it('reviews committed npm configuration but never copies untracked local registry credentials', () => {
+    const sourceRoot = fixture();
+    const git = (...args) => execFileSync('git', args, { cwd: sourceRoot, encoding: 'utf8' }).trim();
+    git('init', '--quiet');
+    fs.writeFileSync(path.join(sourceRoot, '.npmrc'), 'registry=https://registry.npmjs.org/\n');
+    fs.writeFileSync(path.join(sourceRoot, 'bin/.npmrc'), '//registry.example/:_authToken=LOCAL_SECRET\n');
+    git('add', 'README.md', '.npmrc', 'bin/cli.mjs');
+    git('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '--quiet', '-m', 'test: npm configuration fixture');
+    const commit = git('rev-parse', 'HEAD');
+    const { output, manifest } = buildSagePacket({ sourceRoot, commit });
+    expect(manifest.files.map(file => file.path)).toContain('.npmrc');
+    expect(fs.readFileSync(path.join(output, '.npmrc'), 'utf8')).toBe('registry=https://registry.npmjs.org/\n');
+    expect(fs.existsSync(path.join(output, 'bin/.npmrc'))).toBe(false);
+    expect(verifySagePacket({ sourceRoot, packetRoot: output, commit }).commit).toBe(commit);
+    fs.appendFileSync(path.join(sourceRoot, '.npmrc'), '//evil.example/:_authToken=${NODE_AUTH_TOKEN}\n');
+    expect(() => verifySagePacket({ sourceRoot, packetRoot: output, commit })).toThrow(/file mismatch/);
   });
   it('includes published root instruction files and detects their semantic changes', () => {
     const sourceRoot = fixture();

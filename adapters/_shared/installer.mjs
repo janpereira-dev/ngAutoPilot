@@ -601,7 +601,7 @@ export function restore(backupRef, installRootOverride) {
     return { ok: false, restoredFiles: 0, warnings: ['backup path missing'] };
   }
   const backupGuard = guard(backupPath);
-  if (!safeExists(backupGuard, MANIFEST_NAME)) {
+  if (!preflightDestinationExists(backupGuard, MANIFEST_NAME)) {
     return { ok: false, restoredFiles: 0, warnings: ['backup manifest missing'] };
   }
   const manifest = JSON.parse(safeReadFile(backupGuard, MANIFEST_NAME));
@@ -610,13 +610,55 @@ export function restore(backupRef, installRootOverride) {
     return { ok: false, restoredFiles: 0, warnings: ['installRoot not provided and not in backup manifest'] };
   }
   const guardRoot = guard(installRoot);
-  let restoredFiles = 0;
+  const current = preflightDestinationExists(guardRoot, MANIFEST_NAME) ? loadManifest(installRoot) : null;
+  const warnings = [];
+  if (current && (current.agent !== manifest.agent || current.scope !== manifest.scope || current.installationId !== manifest.installationId)) {
+    return { ok: false, restoredFiles: 0, removedFiles: 0, warnings: ['backup does not belong to the current installation'] };
+  }
+  const owned = new Map((current?.files ?? []).map(entry => [entry.path, entry]));
+  const desired = new Set(manifest.files.map(entry => entry.path));
+  const writes = new Map();
+  const removals = new Map();
+  // Preflight the complete restore, including post-backup owned extras. Never
+  // discard their ownership by saving the old manifest over an edited file.
+  for (const entry of current?.files ?? []) {
+    if (desired.has(entry.path) || !preflightDestinationExists(guardRoot, entry.path)) continue;
+    const content = safeReadFile(guardRoot, entry.path, entry.managedSection ? 'utf8' : null);
+    if (entryChecksum(content, entry) !== entry.checksum) {
+      warnings.push(`refuse to remove user-modified post-backup file: ${entry.path}`);
+    } else removals.set(entry.path, entry.managedSection ? removeManagedSection(content) : null);
+  }
   for (const entry of manifest.files) {
-    if (!safeExists(backupGuard, entry.path)) continue;
-    const content = safeReadFile(backupGuard, entry.path, null);
-    safeWriteFile(guardRoot, entry.path, content);
+    if (!preflightDestinationExists(backupGuard, entry.path)) {
+      warnings.push(`backup file missing: ${entry.path}`);
+      continue;
+    }
+    let content = safeReadFile(backupGuard, entry.path, null);
+    if (preflightDestinationExists(guardRoot, entry.path)) {
+      const existing = safeReadFile(guardRoot, entry.path, null);
+      const baseline = owned.get(entry.path);
+      if (!existing.equals(content) && (!baseline || entryChecksum(baseline.managedSection ? existing.toString('utf8') : existing, baseline) !== baseline.checksum)) {
+        warnings.push(`refuse to overwrite user-modified or unmanaged file during restore: ${entry.path}`);
+        continue;
+      }
+      if (entry.managedSection && baseline?.managedSection) {
+        const section = extractManagedSection(content.toString('utf8'));
+        if (!section) { warnings.push(`backup managed section missing: ${entry.path}`); continue; }
+        content = Buffer.from(mergeManagedSection(existing.toString('utf8'), section.body));
+      }
+    }
+    writes.set(entry.path, content);
+  }
+  if (warnings.length) return { ok: false, restoredFiles: 0, removedFiles: 0, warnings };
+  for (const [relative, remaining] of removals) {
+    if (remaining?.trim()) safeWriteFile(guardRoot, relative, remaining);
+    else safeRemoveFile(guardRoot, relative);
+  }
+  let restoredFiles = 0;
+  for (const [relative, content] of writes) {
+    safeWriteFile(guardRoot, relative, content);
     restoredFiles += 1;
   }
-  saveManifest(installRoot, manifest);
-  return { ok: true, restoredFiles, warnings: [] };
+  saveManifest(installRoot, { ...manifest, installRoot });
+  return { ok: true, restoredFiles, removedFiles: removals.size, warnings: [] };
 }

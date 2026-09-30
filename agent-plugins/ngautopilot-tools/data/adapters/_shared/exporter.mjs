@@ -6,6 +6,7 @@ import { listAdapters, loadAdapterManifest } from './adapter-core.mjs';
 import { createRootGuard, assertNoSymlinkParents, safeReadSourceFile, safeRemoveFile, sha256 } from './safe-fs.mjs';
 import { resolvePackSkills } from '../../lib/agent-plugins/pack-resolver.mjs';
 import { ensureUniquePortableNames, renderPortableSkill } from '../../lib/agent-plugins/portable-skill.mjs';
+import { isLocalOnlySourcePath } from '../../lib/local-only.mjs';
 
 const RECORD = '.ngautopilot-export.json';
 
@@ -37,7 +38,9 @@ export function exportAdapter({ sourceRoot, agent, packId, output }) {
     for (const skill of skills) {
       const target = path.join(staging, names.get(skill.id));
       const sourceDir = path.dirname(path.join(sourceRoot, skill.path));
-      renderPortableSkill({ sourceDir, targetDir: target, skill: { ...skill, portableName: names.get(skill.id) }, transformBody: body => bundleExternalReferences(body, sourceDir, target, sourceRoot) });
+      renderPortableSkill({ sourceDir, targetDir: target, skill: { ...skill, portableName: names.get(skill.id) },
+        copyOptions: { excludeNestedSkills: true, filter: source => !isLocalOnlySourcePath(path.relative(sourceRoot, source)) },
+        transformBody: body => bundleExternalReferences(body, sourceDir, target, sourceRoot) });
       collectFiles(target, path.posix.join(layout.skills, names.get(skill.id)), desired);
     }
     const catalogFile = 'NGAUTOPILOT-CATALOG.json';
@@ -69,7 +72,7 @@ function bundleExternalReferences(body, sourceDir, targetDir, sourceRoot) {
     const relative = path.relative(sourceRoot, absolute).split(path.sep).join('/');
     // A source-root boundary alone would still allow a malicious Markdown link
     // to copy adjacent repository credentials into a distributable snapshot.
-    if (!/^(?:docs|assets|skills)\//.test(relative) || /(?:^|\/)(?:\.env(?:\.[^/]*)?|\.npmrc|info|node_modules|dist|raw-prompts|raw-responses)(?:\/|$)/.test(relative) || /\.(?:private\.json|local\.ya?ml)$/.test(relative)) throw new Error(`external skill reference is not public documentation: ${reference}`);
+    if (!/^(?:docs|assets|skills)\//.test(relative) || isLocalOnlySourcePath(relative) || /(?:^|\/)(?:info|dist)(?:\/|$)/.test(relative)) throw new Error(`external skill reference is not public documentation: ${reference}`);
     // Reads also verify repository containment and reject symlinked sources.
     const bytes = safeReadSourceFile(sourceRoot, absolute);
     const bundled = path.join(targetDir, 'references', 'ngautopilot-source', relative);

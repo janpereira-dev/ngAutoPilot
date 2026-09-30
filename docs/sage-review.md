@@ -27,7 +27,7 @@ npm run review:sage:pack
 
 Inspect `dist/review/sage/REVIEW.md`, `manifest.json`, and the included source. The manifest records the exact Git commit, dirty-tree state, review scope, every file's SHA-256/size, and a digest bound to the identity and complete inventory. Source README content is preserved. Local environment/registry credentials, private captures, runtime logs, Python caches, virtual environments, and Skill Lab cache/run output are excluded; public source fixtures remain reviewable. Symlinked sources/output parents and escaping paths fail before the old packet is replaced.
 
-Authoritative root test-gate configuration (`vitest.config.mjs`) and published runtime `config/` files are part of the inventory, alongside package scripts and workflows. Changes to test selection or runtime defaults must not be hidden from the approval packet.
+Authoritative root test-gate configuration (`vitest.config.mjs`) and published runtime `config/` files are part of the inventory, alongside package scripts and workflows. Changes to test selection or runtime defaults must not be hidden from the approval packet. Every `.npmrc` tracked in the exact Git commit is also reviewed and byte-verified, including root npm configuration controlling dependency installation or registry publication. Untracked local `.npmrc` credentials remain excluded; a credential committed to Git must be revoked, not hidden from release reviewers.
 
 A dirty local packet is useful for development review but **cannot** satisfy release verification. After committing, regenerate the packet and review the exact clean revision.
 

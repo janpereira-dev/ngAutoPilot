@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
+import { spawnSync } from 'node:child_process';
 import { buildPlan } from '../../adapters/_shared/planner.mjs';
 import { applyPlan, verifyInstall, uninstall, backup, restore, loadManifest } from '../../adapters/_shared/installer.mjs';
 import { listAdapters } from '../../adapters/_shared/adapter-core.mjs';
@@ -282,6 +283,22 @@ test('pack preflight rejects contained and dangling leaf symlinks rather than tr
   }
 });
 
+test('preflight rejects dangling destination parents before modifying the manifest or instructions', (t) => {
+  const workdir = makeWorkdir();
+  const outside = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  t.after(() => fs.rmSync(outside, { recursive: true, force: true }));
+  fs.symlinkSync(outside, path.join(workdir, '.agents'), process.platform === 'win32' ? 'junction' : 'dir');
+  fs.rmdirSync(outside);
+  fs.writeFileSync(path.join(workdir, 'AGENTS.md'), 'User instructions\n');
+  const plan = planFor(workdir);
+  for (const dryRun of [true, false]) for (const force of [false, true]) {
+    assert.throws(() => applyPlan(plan, { dryRun, force }), /symlink_parent/);
+    assert.equal(fs.readFileSync(path.join(workdir, 'AGENTS.md'), 'utf8'), 'User instructions\n');
+    assert.equal(fs.existsSync(path.join(workdir, '.ngautopilot-manifest.json')), false);
+  }
+});
+
 test('missing replacement source fails before removing any previously owned file', (t) => {
   const workdir = makeWorkdir();
   t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
@@ -407,6 +424,95 @@ test('uninstall refuses user-modified files without force', () => {
   const uForce = uninstall(plan, { force: true });
   assert.ok(uForce.ok, 'force must succeed');
   fs.rmSync(workdir, { recursive: true, force: true });
+});
+
+test('real CLI update honors an explicit pack and otherwise retains the recorded pack', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  assert.equal(applyPlan(planFor(workdir)).ok, true);
+  const run = (...args) => {
+    const result = spawnSync(process.execPath, [path.join(REPO, 'bin/ngautopilot.mjs'), 'update', '--agent', 'codex', '--json', ...args], { cwd: workdir, encoding: 'utf8' });
+    assert.equal(result.status, 0, result.stderr);
+    return JSON.parse(result.stdout);
+  };
+  assert.equal(run('--pack', 'ngautopilot-full', '--dry-run').pack, 'ngautopilot-full');
+  assert.equal(loadManifest(workdir).pack, 'ngautopilot-core');
+  assert.equal(run('--pack', 'ngautopilot-full').pack, 'ngautopilot-full');
+  assert.equal(loadManifest(workdir).pack, 'ngautopilot-full');
+  assert.equal(run().pack, 'ngautopilot-full');
+  assert.equal(run('--pack', 'ngautopilot-core').pack, 'ngautopilot-core');
+  assert.equal(loadManifest(workdir).pack, 'ngautopilot-core');
+  assert.equal(verifyInstall(planFor(workdir)).ok, true);
+});
+
+test('transition restore removes unchanged post-backup files without orphaning discovered skills', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  const core = planFor(workdir);
+  const full = planForPack(workdir, 'ngautopilot-full');
+  applyPlan(core);
+  const saved = backup(core, { backupDir: path.join(workdir, '.backups') });
+  const paths = new Set(core.files.map(file => file.path));
+  const extras = full.files.filter(file => !paths.has(file.path));
+  assert.ok(extras.length);
+  assert.equal(applyPlan(full, { force: true }).ok, true);
+  const result = restore(saved, workdir);
+  assert.equal(result.ok, true, result.warnings.join('\n'));
+  assert.equal(result.removedFiles, extras.length);
+  assert.equal(loadManifest(workdir).pack, 'ngautopilot-core');
+  for (const file of extras) assert.equal(fs.existsSync(path.join(workdir, file.path)), false, file.path);
+  assert.equal(verifyInstall(core).ok, true);
+});
+
+test('transition restore refuses edited post-backup files before changing any bytes or manifest', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  const core = planFor(workdir);
+  const full = planForPack(workdir, 'ngautopilot-full');
+  applyPlan(core);
+  const saved = backup(core, { backupDir: path.join(workdir, '.backups') });
+  applyPlan(full);
+  const paths = new Set(core.files.map(file => file.path));
+  const extra = full.files.find(file => !paths.has(file.path));
+  fs.appendFileSync(path.join(workdir, extra.path), '\nUser post-backup edit\n');
+  const before = new Map([...full.files.map(file => file.path), '.ngautopilot-manifest.json'].map(file => [file, fs.readFileSync(path.join(workdir, file))]));
+  const result = restore(saved, workdir);
+  assert.equal(result.ok, false);
+  assert.equal(result.restoredFiles, 0);
+  assert.match(result.warnings.join('\n'), /user-modified/);
+  for (const [file, bytes] of before) assert.deepEqual(fs.readFileSync(path.join(workdir, file)), bytes);
+});
+
+test('restore preflights missing snapshot files and edited destinations without any partial write', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  const plan = planFor(workdir);
+  applyPlan(plan);
+  const saved = backup(plan, { backupDir: path.join(workdir, '.backups') });
+  const file = plan.files.find(entry => !entry.managedSection);
+  fs.appendFileSync(path.join(workdir, file.path), '\nUser later edit\n');
+  const before = new Map([...plan.files.map(entry => entry.path), '.ngautopilot-manifest.json'].map(relative => [relative, fs.readFileSync(path.join(workdir, relative))]));
+  const edited = restore(saved, workdir);
+  assert.equal(edited.ok, false);
+  assert.equal(edited.restoredFiles, 0);
+  for (const [relative, bytes] of before) assert.deepEqual(fs.readFileSync(path.join(workdir, relative)), bytes);
+  fs.unlinkSync(path.join(saved.backupPath, file.path));
+  const missing = restore(saved, workdir);
+  assert.equal(missing.ok, false);
+  assert.match(missing.warnings.join('\n'), /backup file missing/);
+  for (const [relative, bytes] of before) assert.deepEqual(fs.readFileSync(path.join(workdir, relative)), bytes);
+});
+
+test('restore preserves post-backup user prose outside the managed instruction section', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  const plan = planFor(workdir);
+  applyPlan(plan);
+  const saved = backup(plan, { backupDir: path.join(workdir, '.backups') });
+  fs.appendFileSync(path.join(workdir, 'AGENTS.md'), '\nUser post-backup footer\n');
+  assert.equal(restore(saved, workdir).ok, true);
+  assert.match(fs.readFileSync(path.join(workdir, 'AGENTS.md'), 'utf8'), /User post-backup footer/);
+  assert.equal(verifyInstall(plan).ok, true);
 });
 
 test('backup and restore roundtrip', () => {

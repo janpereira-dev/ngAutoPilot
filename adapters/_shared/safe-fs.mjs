@@ -365,7 +365,7 @@ export function safeExists(guard, rel) {
 export function assertNoSymlinkParents(guard, absPath) {
   let current = path.dirname(absPath);
   while (current !== guard.root) {
-    if (fs.existsSync(current) && isSymlink(current)) {
+    if (isSymlink(current)) {
       throw new SafeFsError('symlink_parent', `path has symlinked parent: ${absPath}`);
     }
     const parent = path.dirname(current);

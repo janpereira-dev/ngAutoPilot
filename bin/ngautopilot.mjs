@@ -254,10 +254,11 @@ function updateCmd(args) {
   const manifest = loadInstallationManifest(agent, installRoot);
   if (!manifest) { console.error(`No NgAutoPilot installation found for ${agent} (${scope}) at ${installRoot}`); process.exitCode = 1; return; }
 
-  const plan = buildPlan({ catalogPath, packPath: findPack(manifest.pack || args.pack), adaptersRoot, sourceRoot: packageRoot, agent, scope, cwd: process.cwd(), home: safeHome() });
+  const packId = args.pack || manifest.pack;
+  const plan = buildPlan({ catalogPath, packPath: findPack(packId), adaptersRoot, sourceRoot: packageRoot, agent, scope, cwd: process.cwd(), home: safeHome() });
   const result = applyPlan(plan, { dryRun, force, yes: true });
-  if (args.json) jsonOut({ ok: result.ok, agent, scope, dryRun, created: result.created, updated: result.updated, skipped: result.skipped, warnings: result.warnings });
-  else console.log(`Updated ${manifest.pack} for ${agent} (${scope}): ${result.created} created, ${result.updated} updated, ${result.skipped} skipped`);
+  if (args.json) jsonOut({ ok: result.ok, agent, pack: packId, scope, dryRun, created: result.created, updated: result.updated, skipped: result.skipped, warnings: result.warnings });
+  else console.log(`Updated ${packId} for ${agent} (${scope}): ${result.created} created, ${result.updated} updated, ${result.skipped} skipped`);
   if (!result.ok) process.exitCode = 1;
 }
 
