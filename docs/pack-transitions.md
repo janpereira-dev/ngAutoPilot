@@ -1,5 +1,7 @@
 # Safe pack transitions
 
+All known source and destination conflicts are preflighted before any removal or content write. A failed preflight leaves every installed file and the old manifest untouched, rather than partially switching packs. This is not a claim of transactional rollback for arbitrary operating-system failures.
+
 The previous installation checksum is the ownership baseline. Being listed in a manifest is **not** permission to overwrite a local edit.
 
 | Transition | Default behavior |

@@ -17,16 +17,29 @@ function fixture() {
 describe('exact-commit Sage packet', () => {
   it('does not include local credentials, private captures, caches, or runtime logs', () => {
     const sourceRoot = fixture();
-    for (const relative of ['bin/.env', 'bin/.npmrc', 'bin/evidence.private.json', 'bin/provider.local.yaml', 'skill-lab/runs/private/evidence.jsonl', 'skill-lab/.cache/prompts.json']) {
+    for (const relative of ['bin/.env', 'bin/.npmrc', 'bin/evidence.private.json', 'bin/provider.local.yaml', 'skill-lab/runs/private/evidence.jsonl', 'skill-lab/.cache/prompts.json', 'skill-lab/evidence.jsonl', 'skill-lab/benchmarks/custom/evidence.jsonl']) {
       const target = path.join(sourceRoot, relative);
       fs.mkdirSync(path.dirname(target), { recursive: true });
       fs.writeFileSync(target, 'PRIVATE_LOCAL_DATA');
     }
+    fs.writeFileSync(path.join(sourceRoot, 'bin/.env.example'), 'PUBLIC_CONFIGURATION_EXAMPLE');
     const { output, manifest } = buildSagePacket({ sourceRoot, commit: 'a'.repeat(40), includePaths: ['README.md', 'bin', 'skill-lab'] });
-    expect(manifest.files).toHaveLength(2);
+    expect(manifest.files).toHaveLength(3);
     expect(fs.existsSync(path.join(output, 'bin/.env'))).toBe(false);
     expect(fs.existsSync(path.join(output, 'skill-lab/runs'))).toBe(false);
-    expect(verifySagePacket({ sourceRoot, packetRoot: output, commit: 'a'.repeat(40) }).files).toHaveLength(2);
+    expect(fs.existsSync(path.join(output, 'skill-lab/benchmarks/custom/evidence.jsonl'))).toBe(false);
+    expect(fs.readFileSync(path.join(output, 'bin/.env.example'), 'utf8')).toBe('PUBLIC_CONFIGURATION_EXAMPLE');
+    expect(verifySagePacket({ sourceRoot, packetRoot: output, commit: 'a'.repeat(40) }).files).toHaveLength(3);
+  });
+  it('includes published root instruction files and detects their semantic changes', () => {
+    const sourceRoot = fixture();
+    fs.writeFileSync(path.join(sourceRoot, 'SKILL.md'), '# Public root skill\n');
+    fs.writeFileSync(path.join(sourceRoot, 'AGENTS.md'), '# Public root agent guidance\n');
+    const { output, manifest } = buildSagePacket({ sourceRoot, commit: 'a'.repeat(40) });
+    expect(manifest.files.map(file => file.path)).toContain('SKILL.md');
+    expect(manifest.files.map(file => file.path)).toContain('AGENTS.md');
+    fs.appendFileSync(path.join(sourceRoot, 'SKILL.md'), 'Changed authority\n');
+    expect(() => verifySagePacket({ sourceRoot, packetRoot: output, commit: 'a'.repeat(40) })).toThrow(/file mismatch/);
   });
   it('verifies commit and every byte before publishing; tampering fails closed', () => {
     const sourceRoot = fixture();

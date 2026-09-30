@@ -208,6 +208,36 @@ test('core -> full -> core preserves modified shared skills and original ownersh
     assert.ok(verifyInstall(plan).hashMismatches.includes(file.path));
   }
 });
+test('full-to-core conflict preflight leaves every full-only file and the original manifest untouched', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  const full = planForPack(workdir, 'ngautopilot-full');
+  const core = planFor(workdir);
+  assert.equal(applyPlan(full).ok, true);
+  const shared = core.files.find(file => !file.managedSection);
+  fs.appendFileSync(path.join(workdir, shared.path), '\nUser shared edit\n');
+  const manifest = fs.readFileSync(path.join(workdir, '.ngautopilot-manifest.json'));
+  const before = new Map(full.files.map(file => [file.path, fs.readFileSync(path.join(workdir, file.path))]));
+  for (const dryRun of [true, false]) {
+    const result = applyPlan(core, { dryRun });
+    assert.equal(result.ok, false);
+    if (!dryRun) assert.equal(result.removed, 0);
+    assert.deepEqual(fs.readFileSync(path.join(workdir, '.ngautopilot-manifest.json')), manifest);
+    for (const [relative, bytes] of before) assert.deepEqual(fs.readFileSync(path.join(workdir, relative)), bytes);
+  }
+});
+test('missing replacement source fails before removing any previously owned file', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  const plan = planFor(workdir);
+  applyPlan(plan);
+  const manifest = fs.readFileSync(path.join(workdir, '.ngautopilot-manifest.json'));
+  const before = new Map(plan.files.map(file => [file.path, fs.readFileSync(path.join(workdir, file.path))]));
+  const replacement = { ...plan, files: [{ path: 'new/SKILL.md', source: path.join(REPO, 'skills/missing/SKILL.md'), action: 'create' }] };
+  assert.throws(() => applyPlan(replacement));
+  assert.deepEqual(fs.readFileSync(path.join(workdir, '.ngautopilot-manifest.json')), manifest);
+  for (const [relative, bytes] of before) assert.deepEqual(fs.readFileSync(path.join(workdir, relative)), bytes);
+});
 
 test('pack downgrade retains modified excluded skills in the manifest for safe retry/uninstall', (t) => {
   const workdir = makeWorkdir();

@@ -37,6 +37,7 @@ export function loadManifest(installRoot) {
 
 function readPlanSource(plan, file) {
   if (!file.source) return '';
+  if (plan.preflightSources?.has(file)) return plan.preflightSources.get(file);
   if (!plan.sourceRoot) {
     throw new SafeFsError('source_root_missing', 'installation plan does not declare a source root');
   }
@@ -197,7 +198,7 @@ function computeDryRun(plan, force) {
   let wouldUpdate = 0;
   let wouldSkip = 0;
   let wouldRemove = 0;
-  const warnings = [];
+  const warnings = [...(plan.warnings ?? [])];
   const guardRoot = guard(plan.installRoot);
 
   for (const entry of existing?.files || []) {
@@ -256,12 +257,21 @@ function computeDryRun(plan, force) {
 
 export function applyPlan(plan, opts = {}) {
   const { dryRun = false, force = false } = opts;
+  // Read/validate all immutable source bytes and all destination conflicts before
+  // the first removal or write. A known conflict must not partially downgrade.
+  const preflightSources = new Map();
+  for (const file of plan.files) if (file.source) preflightSources.set(file, readPlanSource(plan, file));
+  plan = { ...plan, preflightSources };
+  const preflight = computeDryRun(plan, force);
+  if (dryRun) return preflight;
+  if (!preflight.ok) {
+    const warnings = preflight.warnings.map(warning => warning.replace(/^would /, ''));
+    if (loadInstallation(plan)?.legacy) warnings.push('legacy Codex file was preserved because its new destination was not installed; preflight left the whole installation unchanged');
+    return { ...preflight, created: 0, updated: 0, skipped: plan.files.length, removed: 0, warnings };
+  }
   // In dry-run mode do not create the install root or guard.
   if (!dryRun && !fs.existsSync(plan.installRoot)) {
     fs.mkdirSync(plan.installRoot, { recursive: true });
-  }
-  if (dryRun) {
-    return computeDryRun(plan, force);
   }
   const guardRoot = guard(plan.installRoot);
   const existing = loadManifest(plan.installRoot);
