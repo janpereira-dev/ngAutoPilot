@@ -84,6 +84,24 @@ test('export preserves unmanaged instructions and reports nonzero CLI status', (
   assert.equal(JSON.parse(result.stdout).ok, false);
   assert.deepEqual(fs.readdirSync(output), ['AGENTS.md']);
 });
+
+test('native export refuses unrecorded discovery-root files before creating or updating a snapshot', (t) => {
+  for (const previouslyExported of [false, true]) {
+    const output = temporary(t);
+    if (previouslyExported) exportAdapter({ sourceRoot: root, agent: 'codex', packId: 'ngautopilot-core', output });
+    const unmanaged = path.join(output, '.agents/skills/unmanaged/SKILL.md');
+    fs.mkdirSync(path.dirname(unmanaged), { recursive: true });
+    fs.writeFileSync(unmanaged, '# User-owned skill outside the requested pack\n');
+    const record = previouslyExported ? fs.readFileSync(path.join(output, '.ngautopilot-export.json')) : null;
+    const result = exportAdapter({ sourceRoot: root, agent: 'codex', packId: 'ngautopilot-angular-testing', output });
+    assert.equal(result.ok, false);
+    assert.equal(result.exported, 0);
+    assert.match(result.warnings.join('\n'), /unmanaged.*discovery/);
+    assert.equal(fs.readFileSync(unmanaged, 'utf8'), '# User-owned skill outside the requested pack\n');
+    if (record) assert.deepEqual(fs.readFileSync(path.join(output, '.ngautopilot-export.json')), record);
+    else assert.equal(fs.existsSync(path.join(output, 'NGAUTOPILOT-CATALOG.json')), false);
+  }
+});
 test('legacy export entrypoint uses the same ten-adapter engine', (t) => {
   const output = temporary(t);
   const result = JSON.parse(execFileSync(process.execPath, ['scripts/export-adapter.mjs', 'hermes', 'ngautopilot-core', output], { cwd: root, encoding: 'utf8' }));
@@ -138,7 +156,7 @@ test('native export excludes private local skill resources but preserves public 
   fs.writeFileSync(path.join(directory, 'SKILL.md'), '---\nname: Example\ndescription: Export fixture.\n---\n\nPublic skill.\n');
   fs.writeFileSync(path.join(sourceRoot, 'catalog.json'), JSON.stringify({ skills: [{ id: '_core.example', path: 'skills/_core/example/SKILL.md', version: '0.9.0', description: 'Export fixture.' }] }));
   fs.writeFileSync(path.join(sourceRoot, 'packs/ngautopilot-core.json'), JSON.stringify({ id: 'ngautopilot-core', includes: { skills: ['_core.'] } }));
-  for (const relative of ['.env', '.env.local', '.npmrc', '.git/config', '.hg/hgrc', '.svn/private', '.bzr/private', '.atl/private.json', '.codegraph/private.json', 'dist/private.json', 'references/capture.private.json', 'provider.local.yaml', 'raw-prompts/private.md', 'raw-responses/private.json', 'node_modules/secret.json', '.cache/secret.json', 'runtime.log']) {
+  for (const relative of ['.env', '.env.local', '.npmrc', '.git/config', '.hg/hgrc', '.svn/private', '.bzr/private', '.jj/repo/store/git/config', '.pijul/config', '_darcs/private', 'CVS/Root', '.fslckout', '_FOSSIL_', '.atl/private.json', '.codegraph/private.json', 'dist/private.json', 'references/capture.private.json', 'provider.local.yaml', 'raw-prompts/private.md', 'raw-responses/private.json', 'node_modules/secret.json', '.cache/secret.json', 'runtime.log']) {
     fs.mkdirSync(path.dirname(path.join(directory, relative)), { recursive: true });
     fs.writeFileSync(path.join(directory, relative), 'PRIVATE_LOCAL_DATA');
   }

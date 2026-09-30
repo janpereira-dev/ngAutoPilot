@@ -49,7 +49,7 @@ export function exportAdapter({ sourceRoot, agent, packId, output }) {
     desired.set(layout.instructions, Buffer.from(safeReadSourceFile(sourceRoot, templatePath).replaceAll('{{catalog}}', catalogReference)));
     desired.set(catalogFile, Buffer.from(JSON.stringify({ agent, pack: packId, skills: skills.map(skill => ({ id: skill.id, name: names.get(skill.id), description: skill.description, path: path.posix.join(layout.skills, names.get(skill.id), 'SKILL.md'), compatibility: skill.compatibility ?? null })) }, null, 2) + '\n'));
     desired.set('NGAUTOPILOT-EXPORT.md', Buffer.from(`# NgAutoPilot native export\n\nAdapter: ${agent}\nPack: ${packId}\nSkills: ${layout.skills}/<portable-name>/SKILL.md\nInstructions: ${layout.instructions}\n\n${layout.caveat ?? 'Merge the instruction file with your existing project guidance after reviewing it.'}\n\nThis snapshot contains skills and instructions, not native subagent configuration.\nReview files before copying them. Export does not install, grant trust, or change host configuration.\nThe export record is not an installation manifest; do not use uninstall on this snapshot.\nLegacy install paths remain separate pending an explicit migration.\n`));
-    return applyExport(path.resolve(output), desired, agent, packId);
+    return applyExport(path.resolve(output), desired, agent, packId, layout.skills);
   } finally {
     // Only remove the known, independently-created temporary staging directory.
     fs.rmSync(staging, { recursive: true, force: true });
@@ -97,7 +97,7 @@ function collectFiles(directory, prefix, files) {
   }
 }
 
-function applyExport(output, desired, agent, pack) {
+function applyExport(output, desired, agent, pack, skillsRoot) {
   const guard = createRootGuard(output);
   const read = (relative) => {
     const target = guard.resolve(relative);
@@ -112,6 +112,18 @@ function applyExport(output, desired, agent, pack) {
   if (previous && (previous.version !== 1 || previous.agent !== agent || !Array.isArray(previous.files))) throw new Error('export record does not match this adapter');
   const owned = new Map((previous?.files ?? []).map(file => [file.path, file.checksum]));
   const warnings = [];
+  const inspectDiscoveryRoot = relative => {
+    const target = guard.resolve(relative);
+    assertNoSymlinkParents(guard, target);
+    const stat = fs.lstatSync(target, { throwIfNoEntry: false });
+    if (!stat) return;
+    if (stat.isSymbolicLink()) throw new Error(`export discovery path is a symbolic link: ${relative}`);
+    if (stat.isDirectory()) {
+      for (const name of fs.readdirSync(target)) inspectDiscoveryRoot(path.posix.join(relative, name));
+    } else if (!stat.isFile()) throw new Error(`export discovery path is not a regular file: ${relative}`);
+    else if (!desired.has(relative) && !owned.has(relative)) warnings.push(`refuse unmanaged file in export discovery root: ${relative}`);
+  };
+  inspectDiscoveryRoot(skillsRoot);
   for (const [relative, bytes] of desired) {
     const current = read(relative);
     if (current && !current.equals(bytes) && sha256(current) !== owned.get(relative)) warnings.push(`refuse to overwrite locally modified or unmanaged export: ${relative}`);

@@ -88,7 +88,7 @@ test('install planning excludes private and VCS skill resources while preserving
   fs.writeFileSync(path.join(directory, 'SKILL.md'), '# Public skill\n');
   fs.writeFileSync(path.join(sourceRoot, 'catalog.json'), JSON.stringify({ skills: [{ id: '_core.example', path: 'skills/_core/example/SKILL.md' }] }));
   fs.writeFileSync(path.join(sourceRoot, 'packs/ngautopilot-core.json'), JSON.stringify({ id: 'ngautopilot-core', includes: { skills: ['_core.'] } }));
-  for (const relative of ['.env.local', '.npmrc', '.git/config', 'references/capture.private.json', 'raw-prompts/private.md', '.cache/private.json']) {
+  for (const relative of ['.env.local', '.npmrc', '.git/config', '.jj/repo/store/git/config', '.pijul/config', '_darcs/private', 'CVS/Root', '.fslckout', '_FOSSIL_', 'references/capture.private.json', 'raw-prompts/private.md', '.cache/private.json']) {
     fs.mkdirSync(path.dirname(path.join(directory, relative)), { recursive: true });
     fs.writeFileSync(path.join(directory, relative), 'PRIVATE_LOCAL_DATA');
   }

@@ -51,6 +51,42 @@ test('release version checks distinguish dependency versions from project releas
   expect(runScript(root, 'check-release-version.mjs').status).toBe(1);
 });
 
+test('optional shrinkwrap is version-checked and bumped without changing dependency versions', () => {
+  const root = fixture();
+  const write = (relative, content) => {
+    const target = path.join(root, relative);
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.writeFileSync(target, content);
+  };
+  const lock = { version: '0.9.0', packages: { '': { version: '0.9.0' }, 'node_modules/example': { version: '0.9.0' }, 'node_modules/older': { version: '0.3.31' } } };
+  write('package.json', JSON.stringify({ version: '0.9.0' }));
+  write('package-lock.json', JSON.stringify(lock));
+  write('npm-shrinkwrap.json', JSON.stringify({ ...lock, version: '0.8.0' }));
+  write('agent-plugins/tools/data/npm-shrinkwrap.json', JSON.stringify({ version: lock.version, packages: { '': lock.packages[''], 'node_modules/example': lock.packages['node_modules/example'] } }));
+  write('catalog.json', JSON.stringify({ version: '0.9.0', skills: [] }));
+  write('openai/plugin.json', JSON.stringify({ version: '0.9.0' }));
+  fs.mkdirSync(path.join(root, 'openai/submission/0.9.0'), { recursive: true });
+  for (const file of ['.agents/plugins/marketplace.json', '.claude-plugin/marketplace.json']) write(file, JSON.stringify({ plugins: [] }));
+  write('skill-lab/python/pyproject.toml', 'version = "0.9.0"\n');
+  write('skill-lab/python/ngautopilot_skillopt/__init__.py', '__version__ = "0.9.0"\n');
+  expect(runScript(root, 'check-release-version.mjs').status).toBe(1);
+  write('npm-shrinkwrap.json', JSON.stringify({ ...lock, packages: { ...lock.packages, '': { version: '0.8.0' } } }));
+  expect(runScript(root, 'check-release-version.mjs').status).toBe(1);
+  write('npm-shrinkwrap.json', JSON.stringify(lock));
+  write('agent-plugins/tools/data/npm-shrinkwrap.json', JSON.stringify(lock));
+  expect(runScript(root, 'check-release-version.mjs').status).toBe(0);
+  const result = spawnSync(process.execPath, [path.join(repository, 'scripts/bump-release-version.mjs'), '0.9.1'], { cwd: root, encoding: 'utf8' });
+  expect(result.status, result.stderr).toBe(0);
+  for (const relative of ['package-lock.json', 'npm-shrinkwrap.json', 'agent-plugins/tools/data/npm-shrinkwrap.json']) {
+    const updated = JSON.parse(fs.readFileSync(path.join(root, relative), 'utf8'));
+    expect(updated.version).toBe('0.9.1');
+    expect(updated.packages[''].version).toBe('0.9.1');
+    expect(updated.packages['node_modules/example'].version).toBe('0.9.0');
+    expect(updated.packages['node_modules/older'].version).toBe('0.3.31');
+  }
+  expect(runScript(root, 'check-release-version.mjs').status).toBe(0);
+});
+
 describe('catalog processing', () => {
   test('preserves major/minor compatibility and emits stable ordering without mutating source', () => {
     const root = fixture();
