@@ -41,6 +41,22 @@ describe('exact-commit Sage packet', () => {
     fs.appendFileSync(path.join(sourceRoot, 'SKILL.md'), 'Changed authority\n');
     expect(() => verifySagePacket({ sourceRoot, packetRoot: output, commit: 'a'.repeat(40) })).toThrow(/file mismatch/);
   });
+  it('binds authoritative test-gate and published runtime configuration to the review', () => {
+    const sourceRoot = fixture();
+    fs.writeFileSync(path.join(sourceRoot, 'vitest.config.mjs'), 'export default { test: { include: ["tests/scripts/**/*.spec.mjs"] } };\n');
+    fs.mkdirSync(path.join(sourceRoot, 'config'));
+    fs.writeFileSync(path.join(sourceRoot, 'config/defaults.json'), '{"safe":true}\n');
+    const options = { sourceRoot, commit: 'a'.repeat(40) };
+    const { output, manifest } = buildSagePacket(options);
+    for (const relative of ['vitest.config.mjs', 'config/defaults.json']) {
+      expect(manifest.files.map(file => file.path)).toContain(relative);
+      const original = fs.readFileSync(path.join(sourceRoot, relative));
+      expect(fs.readFileSync(path.join(output, relative))).toEqual(original);
+      fs.appendFileSync(path.join(sourceRoot, relative), '\nChanged gate\n');
+      expect(() => verifySagePacket({ sourceRoot, packetRoot: output, commit: options.commit })).toThrow(/file mismatch/);
+      fs.writeFileSync(path.join(sourceRoot, relative), original);
+    }
+  });
   it('verifies commit and every byte before publishing; tampering fails closed', () => {
     const sourceRoot = fixture();
     const options = { sourceRoot, commit: 'a'.repeat(40), includePaths: ['README.md', 'bin'] };

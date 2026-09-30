@@ -226,6 +226,62 @@ test('full-to-core conflict preflight leaves every full-only file and the origin
     for (const [relative, bytes] of before) assert.deepEqual(fs.readFileSync(path.join(workdir, relative)), bytes);
   }
 });
+test('pack preflight rejects desired, removed and manifest leaf symlinks before any mutation', (t) => {
+  for (const leaf of ['desired', 'removed', 'instructions', 'manifest']) {
+    const workdir = makeWorkdir();
+    const outside = makeWorkdir();
+    t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+    t.after(() => fs.rmSync(outside, { recursive: true, force: true }));
+    const full = planForPack(workdir, 'ngautopilot-full');
+    const core = planFor(workdir);
+    assert.equal(applyPlan(full).ok, true);
+    const desired = new Set(core.files.map(file => file.path));
+    const relative = leaf === 'manifest' ? '.ngautopilot-manifest.json'
+      : leaf === 'instructions' ? 'AGENTS.md'
+        : leaf === 'desired' ? core.files.find(file => !file.managedSection).path
+          : full.files.find(file => !desired.has(file.path)).path;
+    const target = path.join(workdir, relative);
+    const external = path.join(outside, 'external.md');
+    fs.writeFileSync(external, 'External user bytes\n');
+    fs.unlinkSync(target);
+    fs.symlinkSync(process.platform === 'win32' ? outside : external, target, process.platform === 'win32' ? 'junction' : 'file');
+    const before = new Map([...full.files.map(file => file.path), '.ngautopilot-manifest.json']
+      .filter(file => file !== relative).map(file => [file, fs.readFileSync(path.join(workdir, file))]));
+    for (const dryRun of [true, false]) for (const force of [false, true]) {
+      assert.throws(() => applyPlan(core, { dryRun, force }), /symlink_destination/);
+      assert.ok(fs.lstatSync(target).isSymbolicLink());
+      assert.equal(fs.readFileSync(external, 'utf8'), 'External user bytes\n');
+      for (const [file, bytes] of before) assert.deepEqual(fs.readFileSync(path.join(workdir, file)), bytes);
+    }
+  }
+});
+
+test('pack preflight rejects contained and dangling leaf symlinks rather than treating them as missing', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  const plan = planFor(workdir);
+  assert.equal(applyPlan(plan).ok, true);
+  const target = path.join(workdir, plan.files.find(file => !file.managedSection).path);
+  const internal = path.join(workdir, 'internal');
+  fs.mkdirSync(internal);
+  const externalFile = path.join(internal, 'bytes.md');
+  fs.writeFileSync(externalFile, 'User bytes\n');
+  fs.unlinkSync(target);
+  fs.symlinkSync(process.platform === 'win32' ? internal : externalFile, target, process.platform === 'win32' ? 'junction' : 'file');
+  const manifest = fs.readFileSync(path.join(workdir, '.ngautopilot-manifest.json'));
+  for (const dangling of [false, true]) {
+    if (dangling) {
+      fs.unlinkSync(externalFile);
+      fs.rmdirSync(internal);
+    }
+    for (const dryRun of [true, false]) for (const force of [false, true]) {
+      assert.throws(() => applyPlan(plan, { dryRun, force }), /symlink_destination/);
+      assert.deepEqual(fs.readFileSync(path.join(workdir, '.ngautopilot-manifest.json')), manifest);
+      assert.ok(fs.lstatSync(target).isSymbolicLink());
+    }
+  }
+});
+
 test('missing replacement source fails before removing any previously owned file', (t) => {
   const workdir = makeWorkdir();
   t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));

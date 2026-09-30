@@ -12,7 +12,8 @@ The previous installation checksum is the ownership baseline. Being listed in a 
 | Full to core, excluded file locally edited | Preserve it **and its ownership record**, warn, return unsuccessful |
 | Managed instruction section edited | Preserve it and warn; unrelated surrounding prose remains user-owned |
 | Dry run | Report the same conflicts without writing content or manifests |
-| Explicit `--force` | Permit replacing edited content; malformed section markers still fail safely |
+| Linked destination or manifest | Reject before any removal or write, including contained and dangling leaf links |
+| Explicit `--force` | Permit replacing edited content; malformed section markers and unsafe paths still fail safely |
 
 Preserved conflicts remain visible to `verify` as mismatches. Repeating an update must not adopt the edited bytes as a new canonical baseline. Uninstall also refuses to remove edited owned files unless explicitly forced.
 

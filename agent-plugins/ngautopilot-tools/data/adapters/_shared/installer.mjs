@@ -190,8 +190,26 @@ export function backup(plan, options = {}) {
  * Apply an InstallPlan. Idempotent. Updates the install manifest.
  * Refuses to overwrite files NgAutoPilot does not own unless force.
  */
+function preflightDestinationExists(guardRoot, relative) {
+  const absolute = guardRoot.resolve(relative);
+  assertNoSymlinkParents(guardRoot, absolute);
+  let stat;
+  try {
+    stat = fs.lstatSync(absolute);
+  } catch (error) {
+    if (error.code === 'ENOENT') return false;
+    throw error;
+  }
+  // A linked leaf, including a contained or dangling target, is not a missing
+  // destination. Never let an existence probe turn an unsafe path into a write.
+  if (stat.isSymbolicLink()) throw new SafeFsError('symlink_destination', `installation destination is a symbolic link: ${relative}`);
+  if (!stat.isFile()) throw new SafeFsError('destination_not_regular_file', `installation destination is not a regular file: ${relative}`);
+  return true;
+}
+
 function computeDryRun(plan, force) {
-  const existing = fs.existsSync(plan.installRoot) ? loadManifest(plan.installRoot) : null;
+  const guardRoot = guard(plan.installRoot);
+  const existing = preflightDestinationExists(guardRoot, MANIFEST_NAME) ? loadManifest(plan.installRoot) : null;
   const existingOwned = new Map((existing?.files || []).map((f) => [f.path, f]));
   const desiredPaths = new Set(plan.files.map((file) => file.path));
   let wouldCreate = 0;
@@ -199,10 +217,9 @@ function computeDryRun(plan, force) {
   let wouldSkip = 0;
   let wouldRemove = 0;
   const warnings = [...(plan.warnings ?? [])];
-  const guardRoot = guard(plan.installRoot);
 
   for (const entry of existing?.files || []) {
-    if (!desiredPaths.has(entry.path) && safeExists(guardRoot, entry.path)) {
+    if (!desiredPaths.has(entry.path) && preflightDestinationExists(guardRoot, entry.path)) {
       const currentChecksum = entryChecksum(safeReadFile(guardRoot, entry.path, entry.managedSection ? 'utf8' : null), entry);
       if (entry.managedSection && currentChecksum === undefined) warnings.push(`would refuse to remove invalid managed instructions: ${entry.path}`);
       else if (currentChecksum === entry.checksum || force) wouldRemove += 1;
@@ -211,9 +228,7 @@ function computeDryRun(plan, force) {
   }
 
   for (const file of plan.files) {
-    const destAbs = guardRoot.resolve(file.path);
-    assertNoSymlinkParents(guardRoot, destAbs);
-    const exists = safeExists(guardRoot, file.path);
+    const exists = preflightDestinationExists(guardRoot, file.path);
     if (file.managedSection) {
       try {
         const currentContent = exists ? safeReadFile(guardRoot, file.path) : '';
