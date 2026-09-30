@@ -58,8 +58,6 @@ Use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. State detected Angular and test capabilities.
 2. Define the journey, risk, and selected functional, accessibility, and visual checks.
 3. Provide reproducible runner output or a manual validation procedure.

@@ -62,8 +62,6 @@ Avoid treating `effect` as a substitute for stream orchestration.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Confirm Signals are version-appropriate.
 2. Recommend local-state patterns.
 3. Separate derivation from side effects.

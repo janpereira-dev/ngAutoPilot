@@ -110,8 +110,6 @@ Avoid turning unrelated services, global stores, or routing state into an OnPush
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Inspect the component data flow before adding `OnPush`.
 2. Identify mutation or side-effect risks.
 3. Apply the smallest safe change needed for rendering performance.

@@ -183,8 +183,6 @@ Avoid pretending distributed code is independent when all modules share one rele
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Classify whether Micro-frontends are warranted.
 2. Identify domain boundaries, ownership, and delivery constraints.
 3. Recommend the simplest viable integration pattern.

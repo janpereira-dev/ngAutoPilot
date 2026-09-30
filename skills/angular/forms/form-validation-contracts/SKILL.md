@@ -103,8 +103,6 @@ Avoid validators with side effects.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify validation rules and their scope.
 2. Recommend reusable validators or policy helpers.
 3. Define field, cross-field, and server error handling.

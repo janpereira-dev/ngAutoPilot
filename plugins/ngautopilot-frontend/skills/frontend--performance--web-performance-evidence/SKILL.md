@@ -59,8 +59,6 @@ For Angular-specific budgets and framework optimizations, route to the existing 
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Summarize the user-path baseline and target.
 2. List contributors, changes, and expected trade-offs.
 3. Provide reproducible measurement evidence and conditions.

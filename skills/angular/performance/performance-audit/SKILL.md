@@ -108,8 +108,6 @@ Avoid proposing syntax that the Angular version cannot support.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Provide a concise diagnosis.
 2. List findings in priority order.
 3. Recommend concrete next actions.

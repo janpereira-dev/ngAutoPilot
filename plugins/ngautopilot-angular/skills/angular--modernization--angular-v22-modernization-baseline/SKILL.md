@@ -78,8 +78,6 @@ Do not use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. A v22 modernization summary.
 2. The selected modernization slice.
 3. Validation notes and risks.

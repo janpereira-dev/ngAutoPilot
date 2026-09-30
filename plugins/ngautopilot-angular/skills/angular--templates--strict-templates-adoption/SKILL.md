@@ -89,8 +89,6 @@ Avoid silencing all diagnostics to get a green build.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Assess readiness for strictTemplates.
 2. Recommend a staged rollout.
 3. Record the baseline diagnostics.

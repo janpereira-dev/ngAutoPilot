@@ -201,8 +201,6 @@ Avoid: introducing new NgFor code for new list rendering.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Detect stack versions from repository evidence.
 2. Distinguish exact versions from ranges.
 3. Identify adopted framework features.

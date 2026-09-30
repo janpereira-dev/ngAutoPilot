@@ -59,8 +59,6 @@ Avoid mixing browser mapping with server-only concerns.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify browser DTO boundaries.
 2. Recommend view-model mapping.
 3. Keep mapping pure.

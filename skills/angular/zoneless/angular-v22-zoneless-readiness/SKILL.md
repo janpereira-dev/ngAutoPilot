@@ -77,8 +77,6 @@ Do not use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. A zoneless-readiness summary.
 2. The remaining zone assumptions.
 3. The validated migration slice.

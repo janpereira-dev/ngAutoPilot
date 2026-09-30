@@ -58,8 +58,6 @@ Route project-wide risk decisions through `core.compatibility-router` and use th
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Classify the risk as standard, host, toolchain, dependency, or polyfill related.
 2. State the supported environment evidence and unresolved assumptions.
 3. Recommend the smallest compatible action and focused validation.

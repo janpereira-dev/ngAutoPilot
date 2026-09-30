@@ -78,9 +78,7 @@ Changing framework version, architecture, tests, and cleanup policy in one unrev
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
-1. State the angular.signals.angular-rxjs-signals-interop diagnosis in one concise paragraph.
+1. Summarize the finding in one concise paragraph.
 2. List the files, APIs, or project boundaries affected.
 3. Provide the smallest safe implementation or decision.
 4. Explain compatibility and risk assumptions.

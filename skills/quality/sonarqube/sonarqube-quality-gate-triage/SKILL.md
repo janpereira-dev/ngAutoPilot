@@ -72,8 +72,6 @@ Avoid fixing low-value smells before blockers.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Triage Sonar findings.
 2. Separate blockers from cleanup.
 3. Recommend a priority order.

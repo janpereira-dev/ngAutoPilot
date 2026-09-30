@@ -76,8 +76,6 @@ Do not use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. A security boundary summary.
 2. The risky surface that changed.
 3. The safer replacement path.

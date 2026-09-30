@@ -100,8 +100,6 @@ Avoid track keys that change between renders, such as random values, timestamps,
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Find Angular lists that lack stable identity tracking.
 2. Select the safest available item identifier.
 3. Add `trackBy` for `*ngFor` or `track` for `@for`.

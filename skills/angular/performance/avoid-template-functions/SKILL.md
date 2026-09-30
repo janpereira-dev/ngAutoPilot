@@ -108,8 +108,6 @@ Avoid using template calls as an escape hatch for derivation that belongs in com
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Find method calls and expensive expressions in Angular templates.
 2. Determine which calls can cause repeated work during change detection.
 3. Replace risky calls with precomputed values, view models, pure pipes, or computed signals.

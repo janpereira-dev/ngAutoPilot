@@ -104,8 +104,6 @@ Avoid putting large business orchestration into a container template.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify current component responsibilities.
 2. Decide whether a split is justified.
 3. Propose container and presentational boundaries.

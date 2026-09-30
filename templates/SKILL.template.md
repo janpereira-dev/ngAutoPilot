@@ -17,7 +17,7 @@ triggers:
 
 ## Purpose
 
-Explain the exact problem this skill solves.
+Explain the exact problem this skill solves. Name the observable outcome and the constraint that makes this guidance useful.
 
 ## When to Use
 
@@ -32,7 +32,7 @@ Use this skill when:
 Recommended pattern:
 
 ```ts
-// Good example
+// Show the recommended behavior and the contract it protects.
 ```
 
 ## Do Not
@@ -40,21 +40,15 @@ Recommended pattern:
 Avoid:
 
 ```ts
-// Bad example
+// Show a plausible shortcut that breaks the same contract.
 ```
 
 ## Review Checklist
 
-- [ ] Rule 1.
-- [ ] Rule 2.
-- [ ] Rule 3.
+- [ ] The input or project evidence confirms this skill applies.
+- [ ] The proposed action preserves the stated contract and scope.
+- [ ] A domain-specific check distinguishes the intended behavior from the counterexample.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
-1. Analyze the current code.
-2. Apply the smallest safe change.
-3. Avoid unrelated refactors.
-4. Explain relevant risks.
-5. Add or update tests when behavior changes.
+Describe the concrete finding, change, or decision this skill should produce. Include the evidence needed to verify it and any checks that could not run. Match detail to the task; do not require a long report for a small fix or implementation for a read-only review.

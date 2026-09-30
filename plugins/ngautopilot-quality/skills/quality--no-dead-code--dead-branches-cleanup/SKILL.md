@@ -68,8 +68,6 @@ Avoid broad refactors that are unrelated to the dead branch.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Prove the branch is dead.
 2. Remove it safely.
 3. Keep compatibility in view.

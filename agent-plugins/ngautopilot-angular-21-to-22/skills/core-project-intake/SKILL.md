@@ -170,8 +170,6 @@ Intake focus: Angular version, state libraries, affected feature folders, existi
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify the minimum project context needed.
 2. Report project type, tooling, and relevant constraints.
 3. Avoid unsupported assumptions.

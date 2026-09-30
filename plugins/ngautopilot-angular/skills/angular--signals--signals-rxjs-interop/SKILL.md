@@ -90,8 +90,6 @@ Avoid using experimental APIs as a default unless the project has explicitly acc
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify where interop is actually needed.
 2. Define the conversion boundary.
 3. Preserve RxJS for async workflows.

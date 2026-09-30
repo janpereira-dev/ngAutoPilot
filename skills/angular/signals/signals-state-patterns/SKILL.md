@@ -94,8 +94,6 @@ Avoid mixing multiple state models without a reason.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Classify the state lifetime and synchronicity.
 2. Recommend signal-based local state where appropriate.
 3. Separate derivation from mutation.

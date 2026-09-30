@@ -98,8 +98,6 @@ Avoid hidden coupling between the design system and remote data flows.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Identify the shared visual and interaction language.
 2. Separate tokens and base components from domain code.
 3. Recommend reusable patterns for remotes and shell.

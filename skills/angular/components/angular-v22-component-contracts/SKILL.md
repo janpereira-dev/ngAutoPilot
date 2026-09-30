@@ -77,8 +77,6 @@ Do not use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. A component-contract summary.
 2. The removed API replacement.
 3. Remaining component risks.

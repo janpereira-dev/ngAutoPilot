@@ -1,6 +1,6 @@
 ---
 name: angular-upgrades-21-to-22-angular-21-to-22-breaking-changes-gate
-description: "Use this skill for Gate Angular 22 compiler, core, forms, HTTP, router, platform-server, and upgrade breaking changes. Use when Angular 22 work needs concern-first routing, explicit validation, and no invented APIs."
+description: "Gate Angular 22 compiler, core, forms, HTTP, router, platform-server, and upgrade breaking changes. For Angular 22 projects and 21-to-22 upgrade planning."
 license: MIT
 metadata:
   ngautopilot-id: "angular.upgrades.21-to-22.angular-21-to-22-breaking-changes-gate"
@@ -32,10 +32,6 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 ## Why This Matters
 
 Angular 22 changes hop 21 to 22 behavior enough that agents need a narrow checklist instead of a generic v22 bucket. The goal is to make the risk visible, testable, and reviewable.
-
-## Non-developer explanation
-
-This skill helps separate a real upgrade risk from general cleanup. It gives the team a clear reason for the work, the evidence to check, and the point where the change is safe to stop.
 
 ## Inputs Expected
 

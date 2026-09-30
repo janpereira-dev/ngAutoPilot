@@ -77,8 +77,6 @@ Do not use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. A template-strictness summary.
 2. The exact diagnostics that changed.
 3. The updated template fix.

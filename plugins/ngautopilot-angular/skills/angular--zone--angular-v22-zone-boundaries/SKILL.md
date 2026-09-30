@@ -77,8 +77,6 @@ Do not use this skill when:
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. A zone-boundary summary.
 2. The explicit change-detection choice.
 3. Any remaining third-party risk.

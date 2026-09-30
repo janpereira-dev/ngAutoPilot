@@ -77,8 +77,6 @@ Avoid mixing debt cleanup with unrelated feature work.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Record the debt ledger entry.
 2. Clean only the safe portion.
 3. Defer and explain the rest.

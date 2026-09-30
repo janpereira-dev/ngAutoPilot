@@ -130,8 +130,6 @@ Avoid broad file moves when a narrow fix is sufficient.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Detect the module system.
 2. Keep module style consistent.
 3. Make exports explicit.

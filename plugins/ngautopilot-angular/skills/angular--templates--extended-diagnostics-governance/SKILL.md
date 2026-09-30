@@ -90,8 +90,6 @@ Avoid mixing diagnostics policy with general lint style policy.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Inspect compiler configuration.
 2. Classify current diagnostics policy.
 3. Recommend a safe severity strategy.

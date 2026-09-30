@@ -107,8 +107,6 @@ Avoid recommending `OnPush` as a magic solution for unclear state ownership or b
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
 1. Diagnose the change detection issue before changing code.
 2. Select the compatible pattern for the detected Angular version.
 3. Apply `OnPush` only when data flow supports it.
