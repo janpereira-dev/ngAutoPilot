@@ -18,7 +18,7 @@ function fixture() {
 describe('exact-commit Sage packet', () => {
   it('does not include local credentials, private captures, caches, or runtime logs', () => {
     const sourceRoot = fixture();
-    for (const relative of ['bin/.env', 'bin/.npmrc', 'bin/evidence.private.json', 'bin/provider.local.yaml', 'skill-lab/runs/private/evidence.jsonl', 'skill-lab/.cache/prompts.json', 'skill-lab/evidence.jsonl', 'skill-lab/benchmarks/custom/evidence.jsonl']) {
+    for (const relative of ['bin/.env', 'bin/.npmrc', 'bin/.sl/store/private', 'bin/evidence.private.json', 'bin/provider.local.yaml', 'skill-lab/runs/private/evidence.jsonl', 'skill-lab/.cache/prompts.json', 'skill-lab/evidence.jsonl', 'skill-lab/benchmarks/custom/evidence.jsonl']) {
       const target = path.join(sourceRoot, relative);
       fs.mkdirSync(path.dirname(target), { recursive: true });
       fs.writeFileSync(target, 'PRIVATE_LOCAL_DATA');
@@ -27,6 +27,7 @@ describe('exact-commit Sage packet', () => {
     const { output, manifest } = buildSagePacket({ sourceRoot, commit: 'a'.repeat(40), includePaths: ['README.md', 'bin', 'skill-lab'] });
     expect(manifest.files).toHaveLength(3);
     expect(fs.existsSync(path.join(output, 'bin/.env'))).toBe(false);
+    expect(fs.existsSync(path.join(output, 'bin/.sl'))).toBe(false);
     expect(fs.existsSync(path.join(output, 'skill-lab/runs'))).toBe(false);
     expect(fs.existsSync(path.join(output, 'skill-lab/benchmarks/custom/evidence.jsonl'))).toBe(false);
     expect(fs.readFileSync(path.join(output, 'bin/.env.example'), 'utf8')).toBe('PUBLIC_CONFIGURATION_EXAMPLE');
@@ -70,6 +71,17 @@ describe('exact-commit Sage packet', () => {
     const source = fs.readFileSync(path.join(repository, '.github/workflows/sage-review.yml'), 'utf8');
     expect(source).toContain('actions/download-artifact@');
     expect(source).toContain('verifySagePacket');
+  });
+  it('includes repository ownership policy and rejects post-packet policy changes', () => {
+    const sourceRoot = fixture();
+    fs.mkdirSync(path.join(sourceRoot, '.github'));
+    fs.writeFileSync(path.join(sourceRoot, '.github/CODEOWNERS'), '* @fixture-owner\n');
+    const commit = 'a'.repeat(40);
+    const { output, manifest } = buildSagePacket({ sourceRoot, commit });
+    expect(manifest.files.map(file => file.path)).toContain('.github/CODEOWNERS');
+    expect(fs.readFileSync(path.join(output, '.github/CODEOWNERS'), 'utf8')).toBe('* @fixture-owner\n');
+    fs.appendFileSync(path.join(sourceRoot, '.github/CODEOWNERS'), 'Relaxed ownership\n');
+    expect(() => verifySagePacket({ sourceRoot, packetRoot: output, commit })).toThrow(/file mismatch/);
   });
   it('includes published root instruction files and detects their semantic changes', () => {
     const sourceRoot = fixture();

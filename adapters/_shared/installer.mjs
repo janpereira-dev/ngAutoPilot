@@ -637,12 +637,17 @@ export function restore(backupRef, installRootOverride) {
     if (preflightDestinationExists(guardRoot, entry.path)) {
       const existing = safeReadFile(guardRoot, entry.path, null);
       const baseline = owned.get(entry.path);
-      if (!existing.equals(content) && (!baseline || entryChecksum(baseline.managedSection ? existing.toString('utf8') : existing, baseline) !== baseline.checksum)) {
+      const section = entry.managedSection ? extractManagedSection(content.toString('utf8')) : null;
+      // Clean uninstall deliberately retains pre-existing user prose while
+      // removing ownership. Only that exact deterministic state may be merged
+      // without a current baseline; different unmanaged bytes still conflict.
+      const cleanUninstall = !current && !baseline && section
+        && existing.equals(Buffer.from(removeManagedSection(content.toString('utf8'))));
+      if (!existing.equals(content) && !cleanUninstall && (!baseline || entryChecksum(baseline.managedSection ? existing.toString('utf8') : existing, baseline) !== baseline.checksum)) {
         warnings.push(`refuse to overwrite user-modified or unmanaged file during restore: ${entry.path}`);
         continue;
       }
-      if (entry.managedSection && baseline?.managedSection) {
-        const section = extractManagedSection(content.toString('utf8'));
+      if (entry.managedSection && (baseline?.managedSection || cleanUninstall)) {
         if (!section) { warnings.push(`backup managed section missing: ${entry.path}`); continue; }
         content = Buffer.from(mergeManagedSection(existing.toString('utf8'), section.body));
       }

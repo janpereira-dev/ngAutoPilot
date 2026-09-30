@@ -88,7 +88,7 @@ test('install planning excludes private and VCS skill resources while preserving
   fs.writeFileSync(path.join(directory, 'SKILL.md'), '# Public skill\n');
   fs.writeFileSync(path.join(sourceRoot, 'catalog.json'), JSON.stringify({ skills: [{ id: '_core.example', path: 'skills/_core/example/SKILL.md' }] }));
   fs.writeFileSync(path.join(sourceRoot, 'packs/ngautopilot-core.json'), JSON.stringify({ id: 'ngautopilot-core', includes: { skills: ['_core.'] } }));
-  for (const relative of ['.env.local', '.npmrc', '.git/config', '.jj/repo/store/git/config', '.pijul/config', '_darcs/private', 'CVS/Root', '.fslckout', '_FOSSIL_', 'references/capture.private.json', 'raw-prompts/private.md', '.cache/private.json']) {
+  for (const relative of ['.env.local', '.npmrc', '.git/config', '.jj/repo/store/git/config', '.sl/store/private', '.pijul/config', '_darcs/private', 'CVS/Root', 'SCCS/private', 'RCS/private', 'BitKeeper/private', '.fslckout', '_FOSSIL_', 'references/capture.private.json', 'raw-prompts/private.md', '.cache/private.json']) {
     fs.mkdirSync(path.dirname(path.join(directory, relative)), { recursive: true });
     fs.writeFileSync(path.join(directory, relative), 'PRIVATE_LOCAL_DATA');
   }
@@ -537,6 +537,41 @@ test('restore preserves post-backup user prose outside the managed instruction s
   assert.equal(restore(saved, workdir).ok, true);
   assert.match(fs.readFileSync(path.join(workdir, 'AGENTS.md'), 'utf8'), /User post-backup footer/);
   assert.equal(verifyInstall(plan).ok, true);
+});
+
+test('restore recognizes the exact clean-uninstall state of pre-existing managed instructions', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  fs.writeFileSync(path.join(workdir, 'AGENTS.md'), 'Existing user-owned guidance\n');
+  const plan = planFor(workdir);
+  applyPlan(plan);
+  const saved = backup(plan, { backupDir: path.join(workdir, '.backups') });
+  const installed = fs.readFileSync(path.join(workdir, 'AGENTS.md'));
+  assert.equal(uninstall(plan).ok, true);
+  assert.equal(loadManifest(workdir), null);
+  assert.equal(fs.readFileSync(path.join(workdir, 'AGENTS.md'), 'utf8').trim(), 'Existing user-owned guidance');
+  const result = restore(saved, workdir);
+  assert.equal(result.ok, true, result.warnings.join('\n'));
+  assert.deepEqual(fs.readFileSync(path.join(workdir, 'AGENTS.md')), installed);
+  assert.equal(verifyInstall(plan).ok, true);
+});
+
+test('restore refuses changed surviving user prose instead of adopting an unmanaged instruction file', (t) => {
+  const workdir = makeWorkdir();
+  t.after(() => fs.rmSync(workdir, { recursive: true, force: true }));
+  fs.writeFileSync(path.join(workdir, 'AGENTS.md'), 'Existing user-owned guidance\n');
+  const plan = planFor(workdir);
+  applyPlan(plan);
+  const saved = backup(plan, { backupDir: path.join(workdir, '.backups') });
+  uninstall(plan);
+  fs.appendFileSync(path.join(workdir, 'AGENTS.md'), '\nLater user guidance\n');
+  const before = fs.readFileSync(path.join(workdir, 'AGENTS.md'));
+  const result = restore(saved, workdir);
+  assert.equal(result.ok, false);
+  assert.equal(result.restoredFiles, 0);
+  assert.deepEqual(fs.readFileSync(path.join(workdir, 'AGENTS.md')), before);
+  assert.equal(loadManifest(workdir), null);
+  assert.equal(fs.existsSync(path.join(workdir, plan.files.find(file => !file.managedSection).path)), false);
 });
 
 test('backup and restore roundtrip', () => {
