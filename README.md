@@ -348,3 +348,12 @@ ngAutoPilot/
 ## License
 
 NgAutoPilot is released under the MIT license.
+
+## Maintenance and contribution contracts
+
+- [Contributing skills, guardrails, subagents, and adapters](CONTRIBUTING.md)
+- [Architecture and compatibility data flow](docs/ecosystem-architecture.md)
+- [Quarterly adapter review and native exports](docs/adapter-maintenance.md)
+- [Safe pack transitions and recovery](docs/pack-transitions.md)
+- [Exact-commit Sage review and release approval](docs/sage-review.md)
+- [Quality stabilization evidence contract](docs/quality-stabilization.md)
