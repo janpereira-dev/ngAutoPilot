@@ -35,6 +35,10 @@ Verification enforces mandatory execution and governance roots independently of 
 
 Privacy exclusions are case-insensitive, including `.ENV`, `.NPMRC`, private JSON/local YAML suffixes, and file-based VCS credentials (`.git-credentials`, `.p4config`, `.p4tickets`). Tracked npm configuration remains reviewable regardless of filename casing. The verifier deduplicates overlapping scopes before comparing inventories.
 
+The shared exclusion also covers `.netrc`/`_netrc`, `.cvspass`, other named VCS/authentication stores, and SSH/GPG/cloud credential directories. Source-snapshot publication now copies only public inputs from the same explicit review recipe, not arbitrary new repository-root paths. New publication roots must be added to the recipe and reviewed before shipping; symlinked/special source files and redirected output parents fail before previous artifacts are replaced. Generated submission metadata and listing READMEs are governed by the reviewed publisher code.
+
+The packet digest binds the manifest version, repository identity, exact commit, dirty state, scope, fixed `NOT_APPROVED` marker, and file inventory. Verification rejects changed repository/approval markers even if somebody recomputes a digest. The generation timestamp is informational, not an approval identity.
+
 The mandatory-scope policy is not an external trust anchor: changes to the verifier, collector, workflow, ownership policy, or protection settings require review of the full PR diff as well as the packet. A malicious replacement of the verifier itself cannot be authenticated by executing that same replacement. Human review and protected environment settings remain required.
 
 A dirty local packet is useful for development review but **cannot** satisfy release verification. After committing, regenerate the packet and review the exact clean revision.

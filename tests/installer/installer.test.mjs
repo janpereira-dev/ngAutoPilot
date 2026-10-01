@@ -88,7 +88,7 @@ test('install planning excludes private and VCS skill resources while preserving
   fs.writeFileSync(path.join(directory, 'SKILL.md'), '# Public skill\n');
   fs.writeFileSync(path.join(sourceRoot, 'catalog.json'), JSON.stringify({ skills: [{ id: '_core.example', path: 'skills/_core/example/SKILL.md' }] }));
   fs.writeFileSync(path.join(sourceRoot, 'packs/ngautopilot-core.json'), JSON.stringify({ id: 'ngautopilot-core', includes: { skills: ['_core.'] } }));
-  for (const relative of ['.env.local', '.npmrc', '.git-credentials', '.p4config', '.p4tickets', '.git/config', '.jj/repo/store/git/config', '.sl/store/private', '.pijul/config', '_darcs/private', 'CVS/Root', 'SCCS/private', 'RCS/private', 'BitKeeper/private', '.fslckout', '_FOSSIL_', 'references/casing/.ENV', 'references/casing/.Env.local', 'references/casing/.NPMRC', 'references/casing/capture.PRIVATE.JSON', 'references/casing/provider.LOCAL.YAML', 'references/capture.private.json', 'raw-prompts/private.md', '.cache/private.json']) {
+  for (const relative of ['.env.local', '.npmrc', '.git-credentials', '.p4config', '.p4tickets', '.git/config', '.jj/repo/store/git/config', '.sl/store/private', '.pijul/config', '_darcs/private', 'CVS/Root', 'SCCS/private', 'RCS/private', 'BitKeeper/private', '.fslckout', '_FOSSIL_', '.netrc', '_netrc', '.cvspass', '.NETRC', 'references/casing/.ENV', 'references/casing/.Env.local', 'references/casing/.NPMRC', 'references/casing/capture.PRIVATE.JSON', 'references/casing/provider.LOCAL.YAML', 'references/capture.private.json', 'raw-prompts/private.md', '.cache/private.json']) {
     fs.mkdirSync(path.dirname(path.join(directory, relative)), { recursive: true });
     fs.writeFileSync(path.join(directory, relative), 'PRIVATE_LOCAL_DATA');
   }

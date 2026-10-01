@@ -18,7 +18,7 @@ function fixture() {
 describe('exact-commit Sage packet', () => {
   it('does not include local credentials, private captures, caches, or runtime logs', () => {
     const sourceRoot = fixture();
-    for (const relative of ['bin/.env', 'bin/.npmrc', 'bin/.git-credentials', 'bin/.p4config', 'bin/.p4tickets', 'bin/uppercase/.ENV', 'bin/uppercase/.Env.local', 'bin/uppercase/.NPMRC', 'bin/uppercase/capture.PRIVATE.JSON', 'bin/uppercase/provider.LOCAL.YAML', 'bin/.sl/store/private', 'bin/evidence.private.json', 'bin/provider.local.yaml', 'skill-lab/runs/private/evidence.jsonl', 'skill-lab/.cache/prompts.json', 'skill-lab/evidence.jsonl', 'skill-lab/benchmarks/custom/evidence.jsonl']) {
+    for (const relative of ['bin/.env', 'bin/.npmrc', 'bin/.git-credentials', 'bin/.p4config', 'bin/.p4tickets', 'bin/.netrc', 'bin/_netrc', 'bin/.cvspass', 'bin/uppercase/.NETRC', 'bin/uppercase/.ENV', 'bin/uppercase/.Env.local', 'bin/uppercase/.NPMRC', 'bin/uppercase/capture.PRIVATE.JSON', 'bin/uppercase/provider.LOCAL.YAML', 'bin/.sl/store/private', 'bin/evidence.private.json', 'bin/provider.local.yaml', 'skill-lab/runs/private/evidence.jsonl', 'skill-lab/.cache/prompts.json', 'skill-lab/evidence.jsonl', 'skill-lab/benchmarks/custom/evidence.jsonl']) {
       const target = path.join(sourceRoot, relative);
       fs.mkdirSync(path.dirname(target), { recursive: true });
       fs.writeFileSync(target, 'PRIVATE_LOCAL_DATA');
@@ -95,6 +95,20 @@ describe('exact-commit Sage packet', () => {
       fs.writeFileSync(path.join(sourceRoot, 'package.json'), JSON.stringify({ files }));
       const { output } = buildSagePacket({ sourceRoot, commit });
       expect(() => verifySagePacket({ sourceRoot, packetRoot: output, commit })).toThrow(/mandatory review scope/);
+    }
+  });
+  it('rejects altered approval or repository identity even with a recomputed digest', () => {
+    const sourceRoot = fixture();
+    const commit = 'a'.repeat(40);
+    const { output, manifest } = buildSagePacket({ sourceRoot, commit });
+    for (const change of [{ approval: 'APPROVED' }, { repository: 'other/repository' }]) {
+      const altered = { ...manifest, ...change };
+      fs.writeFileSync(path.join(output, 'manifest.json'), JSON.stringify(altered));
+      expect(() => verifySagePacket({ sourceRoot, packetRoot: output, commit })).toThrow(/identity mismatch/);
+      const { packetSha256, generatedAt, ...identity } = altered;
+      altered.packetSha256 = sha256(JSON.stringify(identity));
+      fs.writeFileSync(path.join(output, 'manifest.json'), JSON.stringify(altered));
+      expect(() => verifySagePacket({ sourceRoot, packetRoot: output, commit })).toThrow(/identity mismatch/);
     }
   });
   it('includes the effective npm shrinkwrap lockfile and rejects changes after review', () => {

@@ -122,6 +122,17 @@ test('export rejects a different adapter ownership record instead of adopting it
   assert.throws(() => exportAdapter({ sourceRoot: root, agent: 'pi', packId: 'ngautopilot-core', output }), /record does not match/);
   assert.deepEqual(fs.readFileSync(path.join(output, '.ngautopilot-export.json')), before);
 });
+test('export refuses a symlink used as the output root before any external write', (t) => {
+  const parent = temporary(t);
+  const outside = temporary(t);
+  const output = path.join(parent, 'redirected-output');
+  fs.writeFileSync(path.join(outside, 'keep.txt'), 'User-owned content');
+  fs.symlinkSync(outside, output, process.platform === 'win32' ? 'junction' : 'dir');
+  assert.throws(() => exportAdapter({ sourceRoot: root, agent: 'codex', packId: 'ngautopilot-core', output }), /symbolic link/);
+  assert.throws(() => exportAdapter({ sourceRoot: root, agent: 'codex', packId: 'ngautopilot-core', output: path.join(output, 'new-child') }), /symbolic link/);
+  assert.deepEqual(fs.readdirSync(outside), ['keep.txt']);
+  assert.equal(fs.readFileSync(path.join(outside, 'keep.txt'), 'utf8'), 'User-owned content');
+});
 test('external Markdown links cannot export adjacent repository credentials', (t) => {
   const sourceRoot = temporary(t);
   const output = temporary(t);
@@ -156,7 +167,7 @@ test('native export excludes private local skill resources but preserves public 
   fs.writeFileSync(path.join(directory, 'SKILL.md'), '---\nname: Example\ndescription: Export fixture.\n---\n\nPublic skill.\n');
   fs.writeFileSync(path.join(sourceRoot, 'catalog.json'), JSON.stringify({ skills: [{ id: '_core.example', path: 'skills/_core/example/SKILL.md', version: '0.9.0', description: 'Export fixture.' }] }));
   fs.writeFileSync(path.join(sourceRoot, 'packs/ngautopilot-core.json'), JSON.stringify({ id: 'ngautopilot-core', includes: { skills: ['_core.'] } }));
-  for (const relative of ['.env', '.env.local', '.npmrc', '.git-credentials', '.p4config', '.p4tickets', '.git/config', '.hg/hgrc', '.svn/private', '.bzr/private', '.jj/repo/store/git/config', '.sl/store/private', '.pijul/config', '_darcs/private', 'CVS/Root', 'SCCS/private', 'RCS/private', 'BitKeeper/private', '.fslckout', '_FOSSIL_', '.atl/private.json', '.codegraph/private.json', 'dist/private.json', 'references/capture.private.json', 'references/casing/.ENV', 'references/casing/.Env.local', 'references/casing/.NPMRC', 'references/casing/capture.PRIVATE.JSON', 'references/casing/provider.LOCAL.YAML', 'provider.local.yaml', 'raw-prompts/private.md', 'raw-responses/private.json', 'node_modules/secret.json', '.cache/secret.json', 'runtime.log']) {
+  for (const relative of ['.env', '.env.local', '.npmrc', '.git-credentials', '.p4config', '.p4tickets', '.git/config', '.hg/hgrc', '.svn/private', '.bzr/private', '.jj/repo/store/git/config', '.sl/store/private', '.pijul/config', '_darcs/private', 'CVS/Root', 'SCCS/private', 'RCS/private', 'BitKeeper/private', '.fslckout', '_FOSSIL_', '.atl/private.json', '.codegraph/private.json', 'dist/private.json', 'references/capture.private.json', '.netrc', '_netrc', '.cvspass', '.NETRC', 'references/casing/.ENV', 'references/casing/.Env.local', 'references/casing/.NPMRC', 'references/casing/capture.PRIVATE.JSON', 'references/casing/provider.LOCAL.YAML', 'provider.local.yaml', 'raw-prompts/private.md', 'raw-responses/private.json', 'node_modules/secret.json', '.cache/secret.json', 'runtime.log']) {
     fs.mkdirSync(path.dirname(path.join(directory, relative)), { recursive: true });
     fs.writeFileSync(path.join(directory, relative), 'PRIVATE_LOCAL_DATA');
   }

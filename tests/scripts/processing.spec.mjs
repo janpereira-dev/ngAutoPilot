@@ -3,6 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { afterEach, describe, expect, test } from 'vitest';
+import { buildSagePacket, verifySagePacket } from '../../lib/sage-review.mjs';
 
 const repository = path.resolve(import.meta.dirname, '../..');
 const roots = [];
@@ -24,6 +25,53 @@ function writeSkill(root, directory, id, compatibility = '') {
 function runScript(root, name) {
   return spawnSync(process.execPath, [path.join(repository, 'scripts', name)], { cwd: root, encoding: 'utf8' });
 }
+
+test('source snapshots publish only reviewed public roots and never local credentials', () => {
+  const root = fixture();
+  for (const [relative, content] of Object.entries({
+    'catalog.json': '{"skills":[]}', 'README.md': '# Source', 'bin/public.mjs': 'export const safe = true;',
+    'examples/unreviewed.mjs': 'NEW_UNREVIEWED_ROOT', '.hidden-payload/secret': 'NEW_UNREVIEWED_ROOT',
+    'bin/.NETRC': 'PRIVATE_LOCAL_DATA', 'bin/.cvspass': 'PRIVATE_LOCAL_DATA',
+    '.agents/public/instructions.md': '# Reviewed hidden instructions',
+  })) {
+    const target = path.join(root, relative);
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.writeFileSync(target, content);
+  }
+  const commit = 'a'.repeat(40);
+  const { output } = buildSagePacket({ sourceRoot: root, commit });
+  const reviewed = verifySagePacket({ sourceRoot: root, packetRoot: output, commit });
+  const result = runScript(root, 'build-publish-bundles.mjs');
+  expect(result.status, result.stderr).toBe(0);
+  for (const site of fs.readdirSync(path.join(root, 'dist/publish'))) {
+    const snapshot = path.join(root, 'dist/publish', site);
+    for (const relative of ['examples', '.hidden-payload', 'bin/.NETRC', 'bin/.cvspass']) expect(fs.existsSync(path.join(snapshot, relative))).toBe(false);
+    expect(fs.readFileSync(path.join(snapshot, 'bin/public.mjs'), 'utf8')).toBe('export const safe = true;');
+    expect(fs.readFileSync(path.join(snapshot, '.agents/public/instructions.md'), 'utf8')).toBe('# Reviewed hidden instructions');
+    for (const file of reviewed.files) {
+      if (file.path === 'README.md') continue; // Generated listing README is governed by the reviewed publisher.
+      expect(fs.readFileSync(path.join(snapshot, file.path))).toEqual(fs.readFileSync(path.join(output, file.path)));
+    }
+  }
+});
+
+test('snapshot publication rejects source and output symlinks before replacing previous artifacts', () => {
+  const root = fixture();
+  const outside = fixture();
+  fs.writeFileSync(path.join(root, 'catalog.json'), '{"skills":[]}');
+  fs.mkdirSync(path.join(root, 'dist/publish'), { recursive: true });
+  fs.writeFileSync(path.join(root, 'dist/publish/keep.txt'), 'Previous artifact');
+  fs.writeFileSync(path.join(outside, 'private.txt'), 'External content');
+  const linkedSource = path.join(root, 'bin');
+  fs.symlinkSync(outside, linkedSource, process.platform === 'win32' ? 'junction' : 'dir');
+  expect(runScript(root, 'build-publish-bundles.mjs').status).not.toBe(0);
+  expect(fs.readFileSync(path.join(root, 'dist/publish/keep.txt'), 'utf8')).toBe('Previous artifact');
+  fs.unlinkSync(linkedSource);
+  fs.renameSync(path.join(root, 'dist'), path.join(root, 'previous-dist'));
+  fs.symlinkSync(outside, path.join(root, 'dist'), process.platform === 'win32' ? 'junction' : 'dir');
+  expect(runScript(root, 'build-publish-bundles.mjs').status).not.toBe(0);
+  expect(fs.readdirSync(outside)).toEqual(['private.txt']);
+});
 
 test('release version checks distinguish dependency versions from project release references', () => {
   const root = fixture();
