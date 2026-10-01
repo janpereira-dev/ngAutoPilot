@@ -19,6 +19,8 @@ All notable changes to NgAutoPilot will be documented in this file.
 
 ### Security and release
 
+- Enforced explicit CLI approval for install, update and uninstall; force is never approval. Standalone Angular MCP resolution uses bundled compatibility metadata and npm-semver toolchain ranges.
+- Bounded HTTPS client retention and revalidated migration/work evidence against the actual owning workspace, including peer-only Angular libraries. Checkpoint commands no longer contradict their generated execution boundary.
 - Integrated the later main security and quality fixes, preserving source containment, user edits, binary resources, bounded review packets and protected approvals.
 - GitHub release events now publish the exact packed npm artifact after protected approval; retries require identical integrity and cannot downgrade latest.
 - Public directory submission, real-host verification and the protected npm credential remain explicit owner requirements, not automatic success claims.

@@ -79,6 +79,58 @@ test('rejects a plan whose evidence root escapes the execution project', (t) => 
   assert.equal(fs.existsSync(path.join(project, '.ngautopilot', 'migration-run.json')), false);
 });
 
+test('setup, run, and resume use the same ancestor package root', (t) => {
+  const project = projectFixture(t);
+  const nested = path.join(project, 'src', 'feature');
+  fs.mkdirSync(nested, { recursive: true });
+  const setup = run(nested, 'migrate', 'setup', '--from', '12', '--to', '14', '--agent', 'codex', '--yes', '--json');
+  assert.equal(setup.status, 0, setup.stderr);
+  const planPath = path.join(project, '.ngautopilot', 'migration-plan.json');
+  const plan = JSON.parse(fs.readFileSync(planPath, 'utf8'));
+  assert.deepEqual(plan.executionBoundary.supportedCheckpointCommands, ['migrate run', 'migrate resume']);
+  assert.deepEqual(plan.executionBoundary.unsupportedCommands, []);
+  assert.equal(plan.executionBoundary.sourceTransformExecutor, 'unavailable');
+  for (const explicitPlan of [[], ['--plan', planPath]]) {
+    fs.rmSync(path.join(project, '.ngautopilot', 'migration-run.json'), { force: true });
+    const result = run(nested, 'migrate', 'run', ...explicitPlan, '--agent', 'codex', '--yes', '--json');
+    assert.equal(result.status, 1, result.stderr);
+    const output = JSON.parse(result.stdout);
+    assert.equal(output.reason.code, 'awaiting-executor');
+    const resume = run(nested, 'migrate', 'resume', '--run', output.run.runId, ...explicitPlan, '--agent', 'codex', '--yes', '--json');
+    assert.equal(resume.status, 1, resume.stderr);
+    assert.equal(JSON.parse(resume.stdout).reason.code, 'awaiting-executor');
+  }
+  assert.equal(fs.existsSync(path.join(nested, '.ngautopilot')), false);
+});
+
+test('workspace checkpoints verify the owning root lockfile and reject forged ownership', (t) => {
+  const workspace = projectFixture(t);
+  fs.writeFileSync(path.join(workspace, 'package.json'), JSON.stringify({ private: true, workspaces: ['packages/*'] }));
+  const project = path.join(workspace, 'packages', 'app');
+  fs.mkdirSync(project, { recursive: true });
+  fs.writeFileSync(path.join(project, 'package.json'), JSON.stringify({ dependencies: { '@angular/core': '^12.1.0' } }));
+  fs.writeFileSync(path.join(workspace, 'package-lock.json'), JSON.stringify({ lockfileVersion: 3,
+    packages: { 'packages/app': {}, 'node_modules/@angular/core': { version: '12.2.17' } } }));
+  const setup = run(project, 'migrate', 'setup', '--from', '12', '--to', '14', '--agent', 'codex', '--yes', '--json');
+  assert.equal(setup.status, 0, setup.stderr);
+  const planPath = path.join(project, '.ngautopilot', 'migration-plan.json');
+  const original = fs.readFileSync(planPath, 'utf8');
+  const plan = JSON.parse(original);
+  assert.equal(plan.evidence.lockfile.workspaceRoot, workspace);
+  assert.equal(plan.evidence.workspacePackageJson.path, path.join(workspace, 'package.json'));
+  const result = run(project, 'migrate', 'run', '--agent', 'codex', '--yes', '--json');
+  assert.equal(JSON.parse(result.stdout).reason.code, 'awaiting-executor');
+  fs.rmSync(path.join(project, '.ngautopilot', 'migration-run.json'));
+  plan.evidence.lockfile.workspaceRoot = path.dirname(workspace);
+  fs.writeFileSync(planPath, JSON.stringify(plan));
+  const forged = run(project, 'migrate', 'run', '--agent', 'codex', '--yes', '--json');
+  assert.equal(JSON.parse(forged.stdout).reason.code, 'lockfile_evidence_path_unsafe');
+  fs.writeFileSync(planPath, original);
+  fs.appendFileSync(path.join(workspace, 'package.json'), ' ');
+  const stale = run(project, 'migrate', 'run', '--agent', 'codex', '--yes', '--json');
+  assert.equal(JSON.parse(stale.stdout).reason.code, 'workspace_evidence_stale');
+});
+
 function projectFixture(t) {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-run-'));
   t.after(() => fs.rmSync(dir, { recursive: true, force: true }));

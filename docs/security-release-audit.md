@@ -23,6 +23,8 @@
 
 ## Required before publication
 
+The subsequent PR review findings were reproduced and covered by focused regressions: source-free standalone MCP resolution, compound toolchain ranges, explicit CLI approval (including install and uninstall), package-root checkpoints, owning-workspace lockfile boundaries, peer-only Angular work plans, bounded rate-limit retention and the checkpoint execution contract. `semver` 7.8.5 is pinned as a required runtime dependency to use npm's maintained range grammar rather than extending the intentionally restricted Angular parser. The focused tests and final current-head CI must pass before closing those review threads.
+
 - Run the final current-head release and Skill Lab gates; record remote CI independently from local results.
 - Inspect the exact-commit security packet and obtain human PR/environment approval. The packet remains NOT_APPROVED; no external Sage execution or SkillSpector audit is claimed.
 - Configure the protected npm credential and rotate/revoke the historical repository-wide token. An empty release-security secret-name response is a release blocker, not permission to reuse a less protected credential.

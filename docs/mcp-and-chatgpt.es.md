@@ -44,6 +44,8 @@ El repositorio no proporciona un servidor HTTP desplegado ni un flujo de registr
 
 Existe una **factoría HTTPS opcional y sin enlazar** para `POST /v1/angular/resolve`, documentada en [`openapi.yaml`](../openapi.yaml). Un integrador debe aportar TLS y autorización que deniega por defecto. No constituye despliegue ni registro de conector; admite el snapshot minimizado, aplica límites y no abre acceso al workspace.
 
+Los valores HTTPS predeterminados son un cuerpo de 32 KiB, 5 segundos de espera de lectura, 30 solicitudes por dirección en ventanas de 60 segundos y como máximo 10.000 direcciones registradas (`maxClients`). Las ventanas expiradas se limpian al recibir solicitudes. Una caché llena rechaza nuevas direcciones con 429 en lugar de eliminar límites activos; en reposo solo retiene estado acotado. Todos los límites deben ser enteros seguros positivos. Estos límites de aplicación no sustituyen los controles de red del despliegue.
+
 ## Registro en la CLI de Codex
 
 Instalar un pack no registra MCP. Primero instala el paquete donde pueda localizarse el servidor:

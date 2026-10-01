@@ -39,7 +39,7 @@ import { buildPlan } from '../adapters/_shared/planner.mjs';
 import { resolveProjectRoot } from '../adapters/_shared/install-roots.mjs';
 import { applyPlan, verifyInstall, uninstall, backup, restore, loadManifest, saveManifest } from '../adapters/_shared/installer.mjs';
 import { listAdapters, loadAdapterManifest, createRootGuard, safeWriteFile, safeCopyDirInto, resolveUserRoot, SafeFsError } from '../adapters/_shared/adapter-core.mjs';
-import { catalogQuality, platformInventory, resolveAngularInstallation } from '../lib/agent-plugins/repository.mjs';
+import { catalogQuality, platformInventory, resolveAngularInstallation, resolveAngularProjectRoot } from '../lib/agent-plugins/repository.mjs';
 import { createMigrationPlan, writeMigrationPlan } from '../lib/migration-plan.mjs';
 import { runMigration, resumeMigration } from '../lib/migration-runner.mjs';
 import { createWorkPlan, writeWorkPlan } from '../lib/work-plan.mjs';
@@ -254,7 +254,8 @@ function installCmd(args) {
     if (plan.warnings.length) console.log(`  warnings: ${plan.warnings.join('; ')}`);
   }
 
-  const result = applyPlan(plan, { dryRun, force, yes });
+  if (!yes) return requireApproval(args, { agent, pack: plan.pack, scope, ...(selection ? { selection } : {}) });
+  const result = applyPlan(plan, { dryRun, force });
   if (args.json) {
     jsonOut({ ok: result.ok, agent, pack: plan.pack, scope, dryRun, created: result.created, updated: result.updated, skipped: result.skipped, warnings: result.warnings, ...(selection ? { selection } : {}) });
   } else {
@@ -285,7 +286,8 @@ function updateCmd(args) {
   const plan = selection
     ? buildAngularPlan({ agent, scope, selection })
     : buildPlan({ catalogPath, packPath: findPack(args.pack || manifest.pack), adaptersRoot, sourceRoot: packageRoot, agent, scope, cwd: process.cwd(), home: safeHome() });
-  const result = applyPlan(plan, { dryRun, force, yes: true });
+  if (!args.yes && !dryRun) return requireApproval(args, { agent, pack: plan.pack, scope, ...(selection ? { selection } : {}) });
+  const result = applyPlan(plan, { dryRun, force });
   if (args.json) jsonOut({ ok: result.ok, agent, pack: plan.pack, scope, dryRun, created: result.created, updated: result.updated, skipped: result.skipped, warnings: result.warnings, ...(selection ? { selection } : {}) });
   else console.log(`Updated ${plan.pack} for ${agent} (${scope}): ${result.created} created, ${result.updated} updated, ${result.skipped} skipped`);
   if (!result.ok) process.exitCode = 1;
@@ -327,6 +329,12 @@ function buildAngularPlan({ agent, scope, selection }) {
   };
 }
 
+function requireApproval(args, details) {
+  if (args.json) jsonOut({ ok: false, status: 'approval-required', ...details });
+  else console.log('No files were changed. Inspect with --dry-run, then rerun with --yes to approve.');
+  process.exitCode = 1;
+}
+
 function uninstallCmd(args) {
   const agent = args.agent;
   const scope = args.scope || 'project';
@@ -335,6 +343,7 @@ function uninstallCmd(args) {
   if (!agent) throw new Error('--agent is required');
   const installRoot = resolveScopeRoot(agent, scope, process.cwd());
   const plan = { installRoot, agent, scope };
+  if (!args.yes && !dryRun) return requireApproval(args, { agent, scope });
   const result = uninstall(plan, { dryRun, force });
   if (args.json) jsonOut({ ok: result.ok, agent, scope, dryRun, removed: result.removed, refused: result.refused, warnings: result.warnings || [] });
   else {
@@ -433,7 +442,7 @@ function migrateCmd(args) {
 
 function migrationRunCmd(args) {
   if (!args.agent) throw new Error('--agent is required');
-  const result = runMigration({ projectRoot: process.cwd(), planPath: args.plan, agent: args.agent, approved: !!args.yes });
+  const result = runMigration({ projectRoot: resolveAngularProjectRoot(process.cwd()), planPath: args.plan, agent: args.agent, approved: !!args.yes });
   if (args.json) jsonOut(result); else console.log(result.status === 'blocked' ? `Migration checkpoint blocked: ${result.reason.message}` : result.status);
   if (!result.ok) process.exitCode = 1;
 }
@@ -441,7 +450,7 @@ function migrationRunCmd(args) {
 function migrationResumeCmd(args) {
   if (!args.agent) throw new Error('--agent is required');
   if (!args.run) throw new Error('--run is required');
-  const result = resumeMigration({ projectRoot: process.cwd(), runId: args.run, planPath: args.plan, agent: args.agent, approved: !!args.yes });
+  const result = resumeMigration({ projectRoot: resolveAngularProjectRoot(process.cwd()), runId: args.run, planPath: args.plan, agent: args.agent, approved: !!args.yes });
   if (args.json) jsonOut(result); else console.log(`${result.status}: ${result.reason.message}`);
   if (!result.ok) process.exitCode = 1;
 }

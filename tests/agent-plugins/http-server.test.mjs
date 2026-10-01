@@ -59,6 +59,27 @@ test('returns structured errors for routing, content type, and malformed JSON', 
   assert.equal(malformed.body.error.code, 'malformed_json');
 });
 
+test('bounds address retention, expires windows, and never evicts active limits', async (t) => {
+  t.mock.timers.enable({ apis: ['Date'], now: 0 });
+  const handler = createAngularResolveHandler({ root, authorize: async () => true,
+    limits: { maxClients: 2, requestsPerWindow: 1, windowMs: 100 } });
+  assert.equal((await invoke(handler, { address: 'a' })).status, 200);
+  assert.equal((await invoke(handler, { address: 'b' })).status, 200);
+  for (let i = 0; i < 20; i++) assert.equal((await invoke(handler, { address: `new-${i}` })).status, 429);
+  assert.equal((await invoke(handler, { address: 'a' })).status, 429);
+  t.mock.timers.tick(101);
+  assert.equal((await invoke(handler, { address: 'c' })).status, 200);
+  assert.equal((await invoke(handler, { address: 'd' })).status, 200);
+  assert.equal((await invoke(handler, { address: 'e' })).status, 429);
+  assert.equal((await invoke(handler, { address: 'c' })).status, 429);
+});
+
+test('rejects disabled or unbounded limiter configuration', () => {
+  for (const limits of [{ maxClients: 0 }, { maxClients: Infinity }, { windowMs: -1 }, { requestsPerWindow: 0 }]) {
+    assert.throws(() => createAngularResolveHandler({ root, authorize: () => true, limits }), /positive integer/);
+  }
+});
+
 test('secure factory refuses missing TLS or authorization and OpenAPI is endpoint-scoped', () => {
   assert.throws(() => createSecureAngularResolveServer({ root, authorize: () => true }), /TLS/);
   assert.throws(() => createSecureAngularResolveServer({ root, tls: { key: 'key', cert: 'cert' } }), /authorization/);

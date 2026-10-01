@@ -11,13 +11,18 @@ import { StdioClientTransport } from '@modelcontextprotocol/client/stdio';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
 test('exposes the complete read-only MCP catalog and platform tools', async (t) => {
+  const standalone = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-standalone-tools-'));
+  fs.cpSync(path.join(root, 'agent-plugins', 'ngautopilot-tools'), path.join(standalone, 'tools'), { recursive: true });
   const client = new Client({ name: 'ngautopilot-test', version: '0.6.0' });
   const transport = new StdioClientTransport({
     command: process.execPath,
-    args: [path.join(root, 'agent-plugins', 'ngautopilot-tools', 'bin', 'server.mjs')],
-    cwd: root,
+    args: [path.join(standalone, 'tools', 'bin', 'server.mjs')],
+    cwd: standalone,
   });
-  t.after(async () => client.close());
+  t.after(async () => {
+    await client.close();
+    fs.rmSync(standalone, { recursive: true, force: true });
+  });
 
   await client.connect(transport);
   const { tools } = await client.listTools();

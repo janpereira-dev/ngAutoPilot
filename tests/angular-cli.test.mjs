@@ -53,11 +53,39 @@ test('updates the persisted Angular selection without activating migration hops'
   assert.deepEqual(initialManifest.angularSelection, { target: { major: 12, minor: 2 }, profile: 'migration', capabilities: [] });
   assert.equal(initialManifest.files.some((file) => file.path.includes('upgrades/hops') || file.path.includes('upgrades/angularjs')), false);
 
-  const update = run(projectRoot, 'update', '--agent', 'codex', '--json');
+  const update = run(projectRoot, 'update', '--agent', 'codex', '--yes', '--json');
   assert.equal(update.status, 0, update.stderr);
   const updatedManifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
   assert.deepEqual(updatedManifest.angularSelection, initialManifest.angularSelection);
   assert.equal(updatedManifest.files.some((file) => file.path.includes('upgrades/hops') || file.path.includes('upgrades/angularjs')), false);
+});
+
+test('install, update, and uninstall require explicit approval even with force', (t) => {
+  const projectRoot = createAngularProject(t, '12.2.17');
+  const pending = run(projectRoot, 'install', '--agent', 'codex', '--pack', 'ngautopilot-core', '--force', '--json');
+  assert.equal(pending.status, 1, pending.stderr);
+  assert.equal(JSON.parse(pending.stdout).status, 'approval-required');
+  const manifestPath = path.join(projectRoot, '.ngautopilot-manifest.json');
+  assert.equal(fs.existsSync(manifestPath), false);
+  assert.equal(fs.existsSync(path.join(projectRoot, '.agents')), false);
+  const installed = run(projectRoot, 'install', '--agent', 'codex', '--pack', 'ngautopilot-core', '--yes', '--json');
+  assert.equal(installed.status, 0, installed.stderr);
+  const before = fs.readFileSync(manifestPath, 'utf8');
+  const manifest = JSON.parse(before);
+  const firstSkill = path.join(projectRoot, manifest.files.find(file => file.path.endsWith('SKILL.md')).path);
+  fs.appendFileSync(firstSkill, '\nUser customization\n');
+  const edited = fs.readFileSync(firstSkill, 'utf8');
+  for (const command of ['update', 'uninstall']) {
+    const result = run(projectRoot, command, '--agent', 'codex', '--force', '--json');
+    assert.equal(result.status, 1, result.stderr);
+    assert.equal(JSON.parse(result.stdout).status, 'approval-required');
+    assert.equal(fs.readFileSync(manifestPath, 'utf8'), before);
+    assert.equal(fs.readFileSync(firstSkill, 'utf8'), edited);
+    const preview = run(projectRoot, command, '--agent', 'codex', '--dry-run', '--force', '--json');
+    assert.equal(preview.status, 0, preview.stderr);
+    assert.equal(fs.readFileSync(manifestPath, 'utf8'), before);
+    assert.equal(fs.readFileSync(firstSkill, 'utf8'), edited);
+  }
 });
 
 function createAngularProject(t, angularVersion) {

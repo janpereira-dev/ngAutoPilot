@@ -5,7 +5,7 @@ import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
-import { resolveAngularInstallation } from '../lib/agent-plugins/repository.mjs';
+import { resolveAngularInstallation, resolveAngularSnapshot } from '../lib/agent-plugins/repository.mjs';
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -66,6 +66,24 @@ test('uses the nearest nested package root and records workspace markers', (t) =
   assert.equal(evidence.packageJson, path.join(projectRoot, 'apps', 'shell', 'package.json'));
   assert.equal(evidence.workspace.files.workspaceJson, true);
   assert.equal(evidence.workspace.files.angularJson, false);
+});
+
+test('accepts compound npm toolchain ranges and rejects contradictory locked versions', (t) => {
+  const toolchain = { typescript: '>=4.8.2 <5.0', rxjs: '^6.5.3 || ^7.4.0', jest: '29.x' };
+  const lockVersions = { typescript: '4.9.5', rxjs: '7.8.1', jest: '29.7.0' };
+  const projectRoot = createProject(t, '15.2.10', { toolchain, lockVersions });
+  const resolved = resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: 15 });
+  assert.equal(resolved.evidence.toolchain.typescript.status, 'lockfile-confirmed');
+  assert.equal(resolved.evidence.toolchain.rxjs.locked, '7.8.1');
+  const snapshot = { manifest: { dependencies: { '@angular/core': '^15.2.10', ...toolchain } },
+    lockfile: { kind: 'npm', packages: { '@angular/core': '15.2.10', ...lockVersions } } };
+  assert.equal(resolveAngularSnapshot({ root: repositoryRoot, snapshot, target: 15 }).evidence.toolchain.typescript.locked, '4.9.5');
+  snapshot.lockfile.packages.typescript = '5.0.1';
+  assert.throws(() => resolveAngularSnapshot({ root: repositoryRoot, snapshot, target: 15 }), error => error.code === 'toolchain-lock-mismatch');
+  snapshot.manifest.dependencies.typescript = 'not-a-range';
+  assert.throws(() => resolveAngularSnapshot({ root: repositoryRoot, snapshot, target: 15 }), /toolchain dependency range/);
+  const declaredOnly = createProject(t, '15.2.10', { toolchain, lockfile: false });
+  assert.equal(resolveAngularInstallation({ root: repositoryRoot, projectRoot: declaredOnly, target: 15 }).evidence.toolchain.typescript.status, 'declared-only');
 });
 
 function createProject(t, angularVersion, {

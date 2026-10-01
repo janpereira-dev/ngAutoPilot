@@ -23,6 +23,8 @@
 
 ## Obligatorio antes de publicar
 
+Los hallazgos posteriores de la PR se reprodujeron y quedaron cubiertos por regresiones específicas: resolución MCP autónoma sin árbol fuente, rangos compuestos del toolchain, aprobación explícita en CLI (también instalación y desinstalación), checkpoints desde la raíz de paquete, límites del lockfile del workspace propietario, planes de bibliotecas Angular con solo peerDependencies, retención acotada del limitador y contrato de checkpoints. Se fija `semver` 7.8.5 como dependencia de ejecución necesaria para usar la gramática npm mantenida, sin ampliar el parser Angular deliberadamente restringido. Las pruebas específicas y el CI del HEAD final deben aprobar antes de cerrar esos hilos de revisión.
+
 - Ejecutar los gates finales del HEAD y Skill Lab; registrar CI remoto aparte de resultados locales.
 - Inspeccionar expediente exacto y obtener aprobación humana de PR y entorno. El expediente sigue NOT_APPROVED; no se afirma ejecución Sage externa ni auditoría SkillSpector.
 - Configurar credencial npm protegida y rotar/revocar token histórico del repositorio. El entorno vacío bloquea el release; no autoriza usar otra credencial más amplia.

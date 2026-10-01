@@ -54,6 +54,34 @@ test('rejects missing and oversized goals, validates optional agent, and support
   assert.equal(JSON.parse(nonAngular.stdout).plan.evidence.angular, undefined);
 });
 
+test('derives work evidence from an owning workspace lockfile rather than a declaration floor', (t) => {
+  const workspace = fixture(t, { name: 'workspace', angular: '^12.2.17' });
+  fs.writeFileSync(path.join(workspace, 'package.json'), JSON.stringify({ private: true, workspaces: ['packages/*'] }));
+  const project = path.join(workspace, 'packages', 'app');
+  fs.mkdirSync(project, { recursive: true });
+  fs.writeFileSync(path.join(project, 'package.json'), JSON.stringify({ dependencies: { '@angular/core': '^12.1.0' } }));
+  fs.writeFileSync(path.join(workspace, 'package-lock.json'), JSON.stringify({ lockfileVersion: 3,
+    packages: { 'packages/app': {}, 'node_modules/@angular/core': { version: '12.2.17' } } }));
+  const result = run(project, 'work', 'plan', '--goal', 'Inspect compatibility', '--yes', '--json');
+  assert.equal(result.status, 0, result.stderr);
+  const evidence = JSON.parse(result.stdout).plan.evidence;
+  assert.equal(evidence.angular.angular.version, '12.2.17');
+  assert.equal(evidence.angular.angular.source, 'package.json + lockfile');
+  assert.equal(evidence.lockfile.path, path.join(workspace, 'package-lock.json'));
+  assert.equal(evidence.package.packageManager, 'npm');
+});
+
+test('Angular peer-only library plans retain compatibility evidence', (t) => {
+  const project = fixture(t, { name: 'angular-library' });
+  fs.writeFileSync(path.join(project, 'package.json'), JSON.stringify({ name: 'angular-library', peerDependencies: { '@angular/core': '^15.2.0' } }));
+  const result = run(project, 'work', 'plan', '--goal', 'Inspect library API', '--yes', '--json');
+  assert.equal(result.status, 0, result.stderr);
+  const evidence = JSON.parse(result.stdout).plan.evidence;
+  assert.equal(evidence.angular.angular.major, 15);
+  assert.equal(evidence.angular.angular.source, 'package.json');
+  assert.equal(evidence.angular.lockfile, undefined);
+});
+
 function fixture(t, { name, angular }) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-work-plan-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));

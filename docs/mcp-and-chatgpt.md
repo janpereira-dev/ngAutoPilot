@@ -32,6 +32,8 @@ npm run agent-plugins:smoke
 
 This repository does not ship an HTTP MCP server or a ChatGPT connector registration flow. ChatGPT web cannot connect to this local stdio process. It includes an **opt-in, unbound HTTPS factory** for `POST /v1/angular/resolve`, documented in [`openapi.yaml`](../openapi.yaml), for an integrator that explicitly supplies TLS key/cert material and deny-by-default authorization. The factory is not a deployment or a connector registration; it accepts only the same minimized snapshot input as `angular.resolve`, applies request limits, and never opens workspace access.
 
+HTTPS defaults are a 32 KiB body, a 5-second read timeout, 30 requests per address per 60-second window and at most 10,000 tracked addresses (`maxClients`). Expired windows are cleaned during requests. A full cache refuses new addresses with 429 instead of evicting active limits; idle handlers retain only bounded state. All limit settings must be positive safe integers. These application limits do not replace the deployment's network controls.
+
 ## Codex CLI registration
 
 Installing a pack does not register an MCP server. First install the npm package where the server can be resolved, then register its root MCP entry point with Codex:
