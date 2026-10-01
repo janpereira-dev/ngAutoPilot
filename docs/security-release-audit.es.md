@@ -23,6 +23,10 @@
 
 ## Obligatorio antes de publicar
 
+La evidencia Python es independiente de npm: una auditoría aislada con Python 3.12.7 y pip-audit 2.10.1 resolvió 38 dependencias de Skill Lab y no encontró vulnerabilidades conocidas el 2026-10-02. Usó advisories de PyPI, recolección estricta y resolución solo de wheels, sin instalar Skill Lab ni usar credenciales de proveedores. Es una instantánea de resolución sin lock y específica de plataforma, no prueba de todas las versiones antiguas permitidas ni una evaluación del runtime Python. Los gates protegidos repiten ahora esta auditoría; el inventario registra aparte hashes fuente Python y el estado explícito INTERNAL_NOT_PYPI.
+
+Para repetirla, activa un entorno aislado Python 3.12, instala `python -m pip install --only-binary=:all: pip-audit==2.10.1` y ejecuta `python scripts/audit-python-dependencies.py`. El informe JSON queda en `dist/security/python-dependency-audit.json`; un resultado distinto de cero bloquea el release. El workflow protegido lo adjunta al release GitHub. El auditor es una herramienta de validación, no una nueva dependencia de ejecución de Skill Lab.
+
 Los hallazgos posteriores de la PR se reprodujeron y quedaron cubiertos por regresiones específicas: resolución MCP autónoma sin árbol fuente, rangos compuestos del toolchain, aprobación explícita en CLI (también instalación y desinstalación), checkpoints desde la raíz de paquete, límites del lockfile del workspace propietario, planes de bibliotecas Angular con solo peerDependencies, retención acotada del limitador y contrato de checkpoints. Se fija `semver` 7.8.5 como dependencia de ejecución necesaria para usar la gramática npm mantenida, sin ampliar el parser Angular deliberadamente restringido. Las pruebas específicas y el CI del HEAD final deben aprobar antes de cerrar esos hilos de revisión.
 
 - Ejecutar los gates finales del HEAD y Skill Lab; registrar CI remoto aparte de resultados locales.

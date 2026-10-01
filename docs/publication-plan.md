@@ -13,7 +13,7 @@
 
 [Publication target register](../config/publication-targets.json) tracks 21 requested surfaces. `npm run release:inventory` produces `dist/release/release-inventory.json`: all canonical skill IDs/paths, packs, npm member paths and integrity, archive checksums, exact commit and target readiness. `ngautopilot platform --json` provides the broader source asset inventory. These are inventories, not proof of remote visibility.
 
-Pi is an npm-based harness. The internal Python Skill Lab module is not a supported PyPI product. A future Python distribution needs a separate package contract, tests and owner decision; it is not silently uploaded as part of this release.
+Pi is an npm-based harness. The internal Python Skill Lab module is not a supported PyPI product. The release inventory lists all tracked Python source/packaging files, hashes and whether each is present in npm; release gates separately audit its resolved dependency tree with pinned pip-audit on Python 3.12, without source builds. A future PyPI distribution needs a separate package contract, tests and owner decision; it is not silently uploaded as part of this release.
 
 ## P0 — Security and the first complete release
 

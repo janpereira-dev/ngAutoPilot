@@ -42,11 +42,30 @@ if (process.argv.includes('--require-bundles')) {
   if (artifacts.filter(artifact => artifact.path.startsWith('dist/publish/') && artifact.path.endsWith('.tar.gz')).length !== 5) throw new Error('Expected all five directory submission archives');
 }
 const targets = readJson('config/publication-targets.json');
+const pythonReportPath = 'dist/security/python-dependency-audit.json';
+let pythonAudit;
+if (fs.existsSync(root.resolve(pythonReportPath))) {
+  const reportBytes = safeReadSourceFile(root.root, root.resolve(pythonReportPath), null);
+  const report = JSON.parse(reportBytes);
+  if (!Array.isArray(report.dependencies) || !report.dependencies.length
+    || report.dependencies.some(dependency => !Array.isArray(dependency.vulns) || dependency.vulns.length || dependency.skip_reason)) {
+    throw new Error('Python audit report must contain a complete dependency resolution without known vulnerabilities');
+  }
+  pythonAudit = { path: pythonReportPath, sha256: crypto.createHash('sha256').update(reportBytes).digest('hex'),
+    status: 'RESOLVED_DEPENDENCY_SNAPSHOT', dependencyCount: report.dependencies.length };
+} else if (process.argv.includes('--require-bundles')) throw new Error('Complete release inventory requires the Python dependency audit report');
+const pythonSources = execFileSync('git', ['ls-files', '-z', '--', '*.py', '**/pyproject.toml', '**/requirements*.txt'], { encoding: 'utf8' })
+  .split('\0').filter(Boolean).sort().map(sourcePath => {
+    const bytes = safeReadSourceFile(root.root, root.resolve(sourcePath), null);
+    return { path: sourcePath, bytes: bytes.length,
+      sha256: crypto.createHash('sha256').update(bytes).digest('hex'), includedInNpm: packedPaths.has(sourcePath) };
+  });
 const manifest = {
   schemaVersion: 1, version: pkg.version,
   commit: execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(),
   publicationStatus: 'BUILT_NOT_PUBLISHED',
   npm: { name: pkg.name, version: pkg.version, filename: packed.filename, integrity: packed.integrity, files: packed.files },
+  python: { publicationStatus: 'INTERNAL_NOT_PYPI', manifest: 'skill-lab/python/pyproject.toml', files: pythonSources, audit: pythonAudit },
   catalog: { skills: catalog.skills.map(({ id, path: sourcePath }) => ({ id, path: sourcePath })), packs: fs.readdirSync(root.resolve('packs')).filter(name => name.endsWith('.json')).sort() },
   artifacts, targets: targets.targets,
 };

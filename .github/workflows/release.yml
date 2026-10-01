@@ -87,6 +87,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Set up Python audit runtime
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.12'
+
+      - name: Audit internal Python dependencies without source builds
+        run: |
+          python -m pip install --only-binary=:all: pip-audit==2.10.1
+          python scripts/audit-python-dependencies.py
+
       - name: Scan skill content
         run: npm run security:scan
 
@@ -165,3 +175,4 @@ jobs:
             dist/agent-plugins/*
             dist/openai-plugin/*
             dist/release/*
+            dist/security/python-dependency-audit.json

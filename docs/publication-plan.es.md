@@ -13,7 +13,7 @@
 
 El [registro de destinos](../config/publication-targets.json) incluye 21 superficies solicitadas. `npm run release:inventory` genera `dist/release/release-inventory.json`: IDs/rutas de todas las skills, packs, miembros e integridad npm, checksums de archivos, commit exacto y preparación por destino. `ngautopilot platform --json` ofrece el inventario general. Ninguno demuestra visibilidad remota.
 
-Pi es un harness basado en npm. El módulo Python interno de Skill Lab no es un producto PyPI soportado. Publicarlo requeriría contrato, pruebas y decisión del propietario independientes; no se sube silenciosamente.
+Pi es un harness basado en npm. El módulo Python interno de Skill Lab no es un producto PyPI soportado. El inventario del release lista todos los archivos Python fuente/empaquetado rastreados, sus hashes y si están en npm; los gates auditan aparte su árbol de dependencias resuelto con pip-audit fijado sobre Python 3.12, sin builds fuente. Publicar en PyPI requeriría contrato, pruebas y decisión del propietario independientes; no se sube silenciosamente.
 
 ## P0 — Seguridad y primer release completo
 

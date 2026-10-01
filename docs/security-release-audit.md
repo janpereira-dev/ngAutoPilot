@@ -23,6 +23,10 @@
 
 ## Required before publication
 
+Python dependency evidence is separate from npm: an isolated Python 3.12.7 audit with pip-audit 2.10.1 resolved 38 Skill Lab dependencies and reported no known vulnerabilities on 2026-10-02. It used PyPI advisories, strict collection and wheel-only resolution without installing Skill Lab or using provider credentials. This is an unlocked, platform-specific resolution snapshot, not proof about every allowed older version or a Python runtime evaluation. Protected release gates now repeat this audit; publication inventory separately records Python source hashes and the explicit INTERNAL_NOT_PYPI state.
+
+To repeat it, activate an isolated Python 3.12 environment, install `python -m pip install --only-binary=:all: pip-audit==2.10.1`, then run `python scripts/audit-python-dependencies.py`. The JSON report is written to `dist/security/python-dependency-audit.json`; nonzero audit results block the release. The protected workflow attaches this report to the GitHub release. The auditor is a validation tool, not a new Skill Lab runtime dependency.
+
 The subsequent PR review findings were reproduced and covered by focused regressions: source-free standalone MCP resolution, compound toolchain ranges, explicit CLI approval (including install and uninstall), package-root checkpoints, owning-workspace lockfile boundaries, peer-only Angular work plans, bounded rate-limit retention and the checkpoint execution contract. `semver` 7.8.5 is pinned as a required runtime dependency to use npm's maintained range grammar rather than extending the intentionally restricted Angular parser. The focused tests and final current-head CI must pass before closing those review threads.
 
 - Run the final current-head release and Skill Lab gates; record remote CI independently from local results.

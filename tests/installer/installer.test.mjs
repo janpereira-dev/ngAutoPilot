@@ -461,10 +461,10 @@ test('real CLI update honors an explicit pack and otherwise retains the recorded
   };
   assert.equal(run('--pack', 'ngautopilot-full', '--dry-run').pack, 'ngautopilot-full');
   assert.equal(loadManifest(workdir).pack, 'ngautopilot-core');
-  assert.equal(run('--pack', 'ngautopilot-full').pack, 'ngautopilot-full');
+  assert.equal(run('--pack', 'ngautopilot-full', '--yes').pack, 'ngautopilot-full');
   assert.equal(loadManifest(workdir).pack, 'ngautopilot-full');
-  assert.equal(run().pack, 'ngautopilot-full');
-  assert.equal(run('--pack', 'ngautopilot-core').pack, 'ngautopilot-core');
+  assert.equal(run('--yes').pack, 'ngautopilot-full');
+  assert.equal(run('--pack', 'ngautopilot-core', '--yes').pack, 'ngautopilot-core');
   assert.equal(loadManifest(workdir).pack, 'ngautopilot-core');
   assert.equal(verifyInstall(planFor(workdir)).ok, true);
 });
