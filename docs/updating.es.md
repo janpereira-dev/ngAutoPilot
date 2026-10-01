@@ -5,7 +5,7 @@
 
 <!-- docs:navigation:end -->
 
-**Importante:** esta rama actualiza archivos seleccionados registrados en el manifiesto aunque hayan sido editados. Conserva archivos obsoletos modificados al cambiar de pack salvo que se fuerce su eliminación, pero es otra operación. No confíes en la actualización para proteger personalizaciones.
+**Importante:** las actualizaciones preservan archivos seleccionados u obsoletos editados y sus checksums originales, comunican conflictos y fallan antes de escribir. Crea un respaldo antes de elegir `--force`.
 
 ## 1. Conserva la selección actual
 

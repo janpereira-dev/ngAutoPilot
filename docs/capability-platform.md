@@ -1,5 +1,10 @@
 # NgAutoPilot Capability Platform
 
+<!-- docs:navigation:start -->
+[Español](capability-platform.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
 NgAutoPilot is a version-aware capability platform, not a flat list of prompts.
 It has five deliberately separate surfaces:
 
@@ -49,8 +54,7 @@ Current profiles are `core`, `essentials`, `architecture`, `performance`,
 `runtime`, `state`, `testing`, and `ui`. A resolver is a filtered selection
 report, not an installer plan: its `sourcePacks` explain where skills came from,
 but remain unfiltered and must not be installed directly when the report has
-exclusions. The installer remains explicitly pack-based so it never silently
-combines migration or modernization work with daily-work guidance.
+exclusions. The CLI also supports `install --angular <major.minor> --profile <name>` to build a plan from the filtered skills rather than unfiltered source packs. Explicit upgrade-hop packs remain separate.
 
 ## Naming Contract
 

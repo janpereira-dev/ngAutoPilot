@@ -7,7 +7,7 @@
 
 ![Delivery routes have different contracts; verify host discovery, publication and MCP integration separately.](../../assets/distribution-routes.svg)
 
-**Generate an artifact, then prove that the target host can discover it.** NgAutoPilot `0.6.0` generates Agent Plugins 1.0 from canonical `skills/` and pack policy in `packs/`. Packaging is not installation evidence.
+**Generate an artifact, then prove that the target host can discover it.** NgAutoPilot `0.10.0` generates Agent Plugins 1.0 from canonical `skills/` and pack policy in `packs/`. Packaging is not installation evidence.
 
 ## What is included?
 
@@ -19,7 +19,7 @@
 | `ngautopilot-angular-21-to-22` | Bounded upgrade guidance |
 | `ngautopilot-tools` | Separate stdio MCP inspection server |
 
-Focused skill plugins include transitive Core skills. The tools plugin registers **ten** inspection tools in this checkout: `catalog.search`, `pack.list`, `pack.resolve`, `project.inspect`, `stack.detect`, `skill.route`, `compatibility.check`, `upgrade.plan`, `angular.resolve`, and `repository.validate`.
+Focused skill plugins include transitive Core skills. The tools plugin registers **thirteen** inspection tools in this checkout: `catalog.search`, `pack.list`, `pack.resolve`, `project.inspect`, `stack.detect`, `skill.route`, `compatibility.check`, `upgrade.plan`, `angular.resolve`, `angular.installation.resolve`, `platform.inventory`, `catalog.quality`, and `repository.validate`.
 
 These tools do not apply upgrades, change dependencies or edit Git state. `angular.resolve` accepts a caller-supplied snapshot, rather than reading the caller's application files.
 

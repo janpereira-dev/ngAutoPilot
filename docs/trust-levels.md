@@ -49,7 +49,7 @@ and restore reads that snapshot; backups are not read-only operations.
 | --- | --- |
 | Bounded paths | `safe-fs.mjs` resolves paths through `createRootGuard` and rejects escapes from the intended root. |
 | No symlink escape | `safe-fs.mjs` uses `lstatSync` and `realpathSync` with containment checks. |
-| Unmanaged-file overwrite protection | Installer refuses unmanaged files without `--force`; desired managed files can be refreshed even if edited. Back up before update. |
+| Unmanaged-file overwrite protection | Installer refuses unmanaged files without `--force`; desired managed files are preserved when locally edited unless explicitly forced. Back up before update. |
 | Idempotent | Re-running `install` skips identical files (SHA-256 match). |
 | Reversible | `uninstall` removes only manifest-owned files. |
 | Managed-file snapshot | `backup` snapshots managed files; it is not a backup of the entire application. |

@@ -35,7 +35,7 @@ Only after inspecting the plan, repeat with `--yes` instead of `--dry-run`.
 
 ## Verification or uninstall warnings
 
-`verify` checks files against the manifest, not application tests. Missing files and edited contents are different problems. Back up before reinstalling or updating: desired managed files can be refreshed even if edited in this branch.
+`verify` checks files against the manifest, not application tests. Missing files and edited contents are different problems. Back up before reinstalling or updating: desired managed files are preserved when locally edited unless explicitly forced.
 
 Uninstall refuses modified managed files without force. Keep them, copy the modifications elsewhere, or deliberately remove them with `--yes --force` after backup. [Updating](updating.md) · [Uninstalling](uninstalling.md).
 

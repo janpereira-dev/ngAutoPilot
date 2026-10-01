@@ -1,12 +1,13 @@
 # Agent installation matrix
 
-> Legacy install layouts are not the native export contract. See [adapter maintenance](adapter-maintenance.md) for the current source-backed export paths and explicit host-verification limits. No matrix entry alone proves runtime discovery.
-
-
 <!-- docs:navigation:start -->
 [Español](agent-installation-matrix.es.md) · [Map](README.md) · [Home](../README.md)
 
 <!-- docs:navigation:end -->
+
+> Legacy install layouts are not the native export contract. See [adapter maintenance](adapter-maintenance.md) for the current source-backed export paths and explicit host-verification limits. No matrix entry alone proves runtime discovery.
+
+
 
 ![CLI, native marketplace, Agent Plugins Preview and discovery routes have different contracts and separate host checks.](../assets/distribution-routes.svg)
 
@@ -56,6 +57,6 @@ MCP registration is separate from installing a pack. See [MCP and ChatGPT Integr
 - Use `ngautopilot-angular-upgrades` for the complete upgrade guidance set.
 - Use `ngautopilot export --agent generic --pack <id> --output <dir>` when the client lacks a native adapter.
 
-Pack switching removes unchanged obsolete managed files. Modified obsolete files are preserved and reported unless forced. Desired files can be refreshed even if edited in this branch; back up before switching or updating.
+Pack switching removes unchanged obsolete managed files. Modified obsolete files are preserved and reported unless forced. Desired files are preserved when locally edited unless explicitly forced; back up before switching or updating.
 
 Client references: [Codex skills](https://learn.chatgpt.com/docs/build-skills) and [Codex MCP](https://learn.chatgpt.com/docs/extend/mcp?surface=cli), reviewed on 2026-10-01.

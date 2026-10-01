@@ -14,7 +14,7 @@
 - This checkout requires Node.js >= 24.0.0 and < 25.
 - Work from the receiving project's root.
 - Inspect available IDs with `ngautopilot adapters` and `ngautopilot packs`.
-- Back up an existing installation before updating or switching packs. This branch can refresh edited files that remain in the managed selection.
+- Back up an existing installation before updating or switching packs. Updates preserve edited managed files by default and report conflicts before writing.
 - The examples below use a published npm package. Pin an exact release in automation; inspect local branch features with `node bin/ngautopilot.mjs help` in this repository.
 
 ## 1. Choose one pack and preview
@@ -62,7 +62,7 @@ ngautopilot install --agent codex --angular 22 --profile essentials --scope proj
 
 For example, inspect an OpenCode user installation with `ngautopilot install --agent opencode --pack ngautopilot-angular-state --scope user --dry-run`, then repeat with `--yes` after review.
 
-One managed selection exists per agent and scope. Switching packs can remove unchanged files no longer selected. Modified obsolete files are preserved and reported unless forced. **Files still selected can be refreshed even if edited** in this branch; save customizations outside managed files/sections and create a backup first.
+One managed selection exists per agent and scope. Switching packs can remove unchanged files no longer selected. Modified obsolete files are preserved and reported unless forced. **Files still selected are preserved when locally edited unless explicitly forced**; save customizations outside managed files/sections and create a backup first.
 
 ## How files are selected
 
@@ -72,7 +72,7 @@ One managed selection exists per agent and scope. Switching packs can remove unc
 4. Copy selected files and merge the managed instruction section.
 5. Record managed ownership and SHA-256 checksums in `.ngautopilot-manifest.json`.
 
-Repeated identical installation skips matching contents. Idempotency does not make edited managed files immune to updates.
+Repeated identical installation skips matching contents. Locally edited managed files retain their original ownership checksum; updates refuse replacement unless explicitly forced.
 
 ## Update, remove, back up
 

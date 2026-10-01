@@ -40,6 +40,10 @@ function documentationFiles() {
 }
 
 function read(file) { return fs.readFileSync(path.join(root, file), 'utf8').replace(/^\uFEFF/, ''); }
+function writeIfChanged(file, content) {
+  const target = path.join(root, file);
+  if (!fs.existsSync(target) || fs.readFileSync(target, 'utf8') !== content) fs.writeFileSync(target, content);
+}
 function spanish(file) { return file.replace(/\.md$/, '.es.md'); }
 function historical(file) { return /^(?:CHANGELOG|skill-lab\/CHANGELOG)|^docs\/(?:specs|superpowers)\/|^openai\/submission\/|^docs\/angular-caniuse\/|^docs\/new-skills-audit\.md$/.test(file); }
 function prose(content) {
@@ -151,7 +155,7 @@ function navigation() {
       const block = `<!-- docs:navigation:start -->\n${toggle} · [${isSpanish ? 'Mapa' : 'Map'}](${relative(edition, isSpanish ? 'docs/README.es.md' : 'docs/README.md')}) · [${isSpanish ? 'Inicio' : 'Home'}](${relative(edition, isSpanish ? 'README.es.md' : 'README.md')})\n\n${note}<!-- docs:navigation:end -->\n`;
       let content = read(edition).replace(/<!-- docs:navigation:start -->[\s\S]*?<!-- docs:navigation:end -->\n?/g, '');
       content = content.replace(/^(# .+)\r?\n(?:[ \t]*\r?\n)*/m, `$1\n\n${block}\n`);
-      fs.writeFileSync(path.join(root, edition), content.replace(/\r\n/g, '\n').trimEnd() + '\n');
+      writeIfChanged(edition, content.replace(/\r\n/g, '\n').trimEnd() + '\n');
     }
   }
 }

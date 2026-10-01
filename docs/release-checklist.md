@@ -44,7 +44,7 @@ Inspect the tarball list, not just its exit code:
 
 ## 3. Publish only with authorization
 
-Use the project's approved release process. The current `.github/workflows/release.yml` builds artifacts on a published GitHub release event. **Its npm publish step runs only for `workflow_dispatch` with `publish=true`**, not merely because a release exists.
+The protected `.github/workflows/release.yml` publishes npm and builds artifacts for `release.published` or a manual retry with `publish=true` on the exact version tag. The tag must match package.json and its commit must belong to main history. Human approval remains mandatory. See [the publication plan](publication-plan.md).
 
 The current workflow uses a configured npm credential; do not claim Trusted Publishing is enabled without reviewing and implementing that separate configuration. Never paste tokens or one-time codes into docs, logs, issues, or chat.
 

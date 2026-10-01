@@ -17,6 +17,8 @@ NgAutoPilot ships a read-only stdio Model Context Protocol server as part of the
 - `skill.route`, `compatibility.check`, and `upgrade.plan` — select relevant guidance.
 - `angular.resolve` — resolve Angular guidance from a minimized caller-supplied package manifest, optional npm lockfile evidence, and optional workspace-marker snapshot. It never accepts a project path or reads caller files.
 - `repository.validate` — validate catalog and pack consistency.
+- `angular.installation.resolve` — read local project evidence; keep this separate from caller snapshots.
+- `platform.inventory` and `catalog.quality` — source inventory and deterministic structural signals.
 
 ## Supported transport
 

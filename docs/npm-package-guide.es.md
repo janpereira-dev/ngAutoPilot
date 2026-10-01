@@ -50,7 +50,7 @@ ngautopilot install --agent codex --angular 22 --profile essentials --scope proj
 
 Los perfiles son `essentials`, `architecture`, `performance`, `testing`, `migration` y `core`. Puedes elegir capacidades específicas, por ejemplo `--profile testing --capabilities ui,testing`, revisando primero un dry-run de esa misma selección. `--profile` y `--capabilities` requieren `--angular` y no se combinan con `--pack`. `--dry-run` no escribe; `--yes` aprueba la escritura.
 
-Haz una copia de los archivos gestionados que hayas editado antes de actualizar o cambiar packs: la reinstalación puede refrescar contenido gestionado. Consulta [actualización](updating.es.md).
+Haz una copia de los archivos gestionados que hayas editado antes de actualizar o cambiar packs: la reinstalación rechaza reemplazar cambios locales salvo force explícito. Consulta [actualización](updating.es.md).
 
 ## Migración y planificación
 

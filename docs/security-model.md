@@ -42,7 +42,7 @@ model without reviewing the selected provider and data-egress policy.
 - Symlink escape is blocked: `lstatSync` + `realpathSync` with containment checks.
 - Unmanaged files are never overwritten without `--force`.
 - Apply and uninstall use adapter-declared roots; backups use a separate temporary destination. For Codex, project skills use `.agents/skills/` and instructions use root `AGENTS.md`; user skills use `~/.agents/skills/` and instructions use `~/.codex/AGENTS.md`.
-- Desired manifest-owned files and the managed instruction section can be refreshed even if edited in this branch. Modified obsolete files and uninstall have different refusal rules. Back up customizations before update; ownership is not edit protection.
+- Edited manifest-owned files and managed instruction sections are preserved by default. Conflicts retain their original checksum and refuse the update before writing; only explicit `--force` authorizes replacement.
 - No `postinstall` script in `package.json`.
 - No shell execution; the installer uses `node:fs` exclusively.
 - The install manifest (`.ngautopilot-manifest.json`) tracks every file with a SHA-256 checksum.

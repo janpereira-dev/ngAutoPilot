@@ -5,7 +5,7 @@
 
 <!-- docs:navigation:end -->
 
-**La vista previa describe un formato, no certifica agentes.** Los artefactos de NgAutoPilot `0.6.0` tienen como destino Agent Plugins 1.0 y las reglas de nombres de Agent Skills. El servidor MCP incluido utiliza stdio local.
+**La vista previa describe un formato, no certifica agentes.** Los artefactos de NgAutoPilot `0.10.0` tienen como destino Agent Plugins 1.0 y las reglas de nombres de Agent Skills. El servidor MCP incluido utiliza stdio local.
 
 ## Registro de evidencias
 

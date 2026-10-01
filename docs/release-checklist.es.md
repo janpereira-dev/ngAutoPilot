@@ -44,7 +44,7 @@ Revisa la lista del paquete, no solo su código de salida:
 
 ## 3. Publica solo con autorización
 
-Utiliza el procedimiento aprobado del proyecto. El workflow actual `.github/workflows/release.yml` construye recursos ante una publicación GitHub. **El paso de publicación npm solo se ejecuta con `workflow_dispatch` y `publish=true`**, no simplemente porque exista una publicación.
+El workflow protegido publica npm y archivos con `release.published` o reintento manual `publish=true` desde el tag exacto. El tag debe coincidir con package.json y el commit pertenecer a main. Sigue requiriendo aprobación humana. Consulta el [plan de publicación](publication-plan.es.md).
 
 El workflow actual utiliza una credencial npm configurada; no afirmes que Trusted Publishing está activado sin revisar e implementar esa configuración por separado. No pegues tokens ni códigos de un solo uso en documentación, registros, incidencias o chats.
 

@@ -48,7 +48,7 @@ El MCP y la factoría HTTPS opcional tienen contratos separados; esta orientaci�
 | Rutas acotadas | `createRootGuard` comprueba que no escapen de la raíz |
 | Enlaces simbólicos | Comprobación de destinos con `lstatSync` y `realpathSync` |
 | Archivos no gestionados | Se rechaza sobrescritura sin `--force` |
-| Archivos gestionados | Los todavía seleccionados pueden actualizarse aunque estén editados; respaldar antes |
+| Archivos gestionados | Los todavía seleccionados se conservan si están editados salvo autorización explícita con `--force`; respaldar antes |
 | Idempotencia | Se omiten contenidos idénticos por SHA-256 |
 | Eliminación acotada | `uninstall` utiliza la propiedad del manifiesto |
 | Respaldo | `backup` toma una copia de archivos gestionados; no de toda la aplicación |

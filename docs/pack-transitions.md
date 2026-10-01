@@ -1,5 +1,10 @@
 # Safe pack transitions
 
+<!-- docs:navigation:start -->
+[Español](pack-transitions.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
 All known source and destination conflicts are preflighted before any removal or content write. A failed preflight leaves every installed file and the old manifest untouched, rather than partially switching packs. This is not a claim of transactional rollback for arbitrary operating-system failures.
 
 The previous installation checksum is the ownership baseline. Being listed in a manifest is **not** permission to overwrite a local edit.

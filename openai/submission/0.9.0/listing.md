@@ -1,5 +1,12 @@
 # NgAutoPilot Skills
 
+<!-- docs:navigation:start -->
+[Español](listing.es.md) · [Map](../../../docs/README.md) · [Home](../../../README.md)
+
+> Historical record: original decisions and dates are retained; this is not proof of current release or implementation state.
+
+<!-- docs:navigation:end -->
+
 ## Listing copy
 
 NgAutoPilot Skills is a skills-only package for safer Angular and frontend engineering. It provides version-aware procedures for project intake, Angular upgrades, architecture, testing, TypeScript, JavaScript, frontend quality, and release validation. It has no MCP server, no connected app, and no independent external service connection; it provides guidance to the host agent when repository context is supplied by the user or host.

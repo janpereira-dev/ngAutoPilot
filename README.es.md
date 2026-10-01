@@ -52,7 +52,7 @@ Con Codex, las skills quedan en `.agents/skills/`, las instrucciones gestionadas
 | Accesibilidad y UX independientes del framework | `ngautopilot-frontend` |
 | Un único salto de versión mayor Angular | `ngautopilot-angular-<from>-to-<to>` |
 
-Los packs específicos incluyen Core mediante dependencias. Cambiar de pack para el mismo agente y ámbito **sustituye la selección gestionada**, en lugar de acumular todos los packs anteriores. Los archivos gestionados obsoletos sin cambios pueden eliminarse; los obsoletos modificados se conservan y notifican salvo que se fuerce. Los archivos todavía seleccionados pueden actualizarse aunque estén editados. Guarda tus personalizaciones e inspecciona cada cambio.
+Los packs específicos incluyen Core mediante dependencias. Cambiar de pack para el mismo agente y ámbito **sustituye la selección gestionada**, en lugar de acumular todos los packs anteriores. Los archivos gestionados obsoletos sin cambios pueden eliminarse; los obsoletos modificados se conservan y notifican salvo que se fuerce. Los archivos todavía seleccionados se conservan si están editados salvo autorización explícita con `--force`. Guarda tus personalizaciones e inspecciona cada cambio.
 
 `ngautopilot-angular` y `ngautopilot-full` son opciones amplias deliberadas, no recomendaciones para principiantes. [Packs y saltos históricos](docs/packs.es.md).
 
@@ -125,7 +125,7 @@ En este checkout, `doctor` muestra **36 packs y 10 adaptadores**. Ejecuta `docto
 
 Identificadores: `claude`, `codex`, `copilot`, `cursor`, `gemini`, `generic`, `hermes`, `openclaw`, `opencode`, `pi`. Nativo, adaptado, experimental y no verificado son estados distintos. [Matriz de instalación](docs/agent-installation-matrix.es.md).
 
-El expediente OpenAI de esta rama contiene **solo skills**, **no se ha enviado** y **no está verificado por OpenAI**. Las declaraciones humanas siguen siendo acciones humanas. Esta rama tiene metadatos del futuro paquete; no anuncies `openai:validate` si no aparece en el `package.json` de esa versión. [Límites de publicación](docs/openai-marketplace-release.es.md).
+El expediente OpenAI de esta rama contiene **solo skills**, **no se ha enviado** y **no está verificado por OpenAI**. Las declaraciones humanas siguen siendo acciones humanas. Ejecuta `npm run openai:validate` y `npm run openai:pack` para el paquete actual. [Límites de publicación](docs/openai-marketplace-release.es.md).
 
 ## 📚 Elige el siguiente capítulo
 
@@ -164,3 +164,7 @@ La [lista de publicación](docs/release-checklist.es.md) cubre la validación y 
 ## Licencia y comunidad
 
 MIT · [Licencia](LICENSE) · [Avisos de seguridad](SECURITY.es.md) · [Código de conducta](CODE_OF_CONDUCT.es.md) · [Historial](CHANGELOG.es.md) · [Hoja de ruta](ROADMAP.es.md)
+
+## Ruta de release y publicación
+
+[Tareas de release y publicación 0.10.0](docs/publication-plan.es.md) · [Plataforma](docs/capability-platform.es.md) · [Exportaciones nativas](docs/adapter-maintenance.es.md) · [Transiciones seguras](docs/pack-transitions.es.md)

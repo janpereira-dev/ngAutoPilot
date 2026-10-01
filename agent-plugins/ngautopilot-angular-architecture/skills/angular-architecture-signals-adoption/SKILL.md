@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.signals-adoption"
   ngautopilot-source: "skills/angular/architecture/signals-adoption/SKILL.md"
-  ngautopilot-version: "0.9.0"
+  ngautopilot-version: "0.10.0"
 ---
 
 

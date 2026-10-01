@@ -52,7 +52,7 @@ For Codex, expect skills in `.agents/skills/`, managed instructions in the root 
 | Framework-neutral accessibility and UX | `ngautopilot-frontend` |
 | Exactly one Angular major hop | `ngautopilot-angular-<from>-to-<to>` |
 
-Focused packs include Core through dependencies. Changing packs at the same agent and scope **switches the managed selection**, rather than accumulating all previous packs. Unchanged obsolete managed files may be removed; modified obsolete files are preserved and reported unless forced. Files still selected can be refreshed even if edited. Back up customizations and inspect every switch.
+Focused packs include Core through dependencies. Changing packs at the same agent and scope **switches the managed selection**, rather than accumulating all previous packs. Unchanged obsolete managed files may be removed; modified obsolete files are preserved and reported unless forced. Files still selected are preserved when locally edited unless explicitly forced. Back up customizations and inspect every switch.
 
 `ngautopilot-angular` and `ngautopilot-full` are deliberate broad choices, not beginner defaults. [All packs and historical hops](docs/packs.md).
 
@@ -125,7 +125,7 @@ This checkout's `doctor` reports **36 packs and 10 adapters**. Run `doctor`, `pa
 
 Adapter IDs: `claude`, `codex`, `copilot`, `cursor`, `gemini`, `generic`, `hermes`, `openclaw`, `opencode`, `pi`. Native, adapter, experimental, and unverified are different statuses. [Installation matrix](docs/agent-installation-matrix.md).
 
-The OpenAI packet in this branch is **skills-only**, **not submitted**, and **not OpenAI verified**. Human attestations remain human actions. This branch has future-package metadata; do not advertise `openai:validate` unless the version's `package.json` includes it. [Release boundary](docs/openai-marketplace-release.md).
+The OpenAI packet in this branch is **skills-only**, **not submitted**, and **not OpenAI verified**. Human attestations remain human actions. Run `npm run openai:validate` and `npm run openai:pack` for the current skills-only package. [Release boundary](docs/openai-marketplace-release.md).
 
 ## 📚 Choose your next chapter
 
@@ -164,3 +164,7 @@ The [release checklist](docs/release-checklist.md) covers the full validation an
 ## License and community
 
 MIT · [License](LICENSE) · [Security reporting](SECURITY.md) · [Code of conduct](CODE_OF_CONDUCT.md) · [Changelog](CHANGELOG.md) · [Roadmap](ROADMAP.md)
+
+## Release and publication roadmap
+
+[0.10.0 release and publication tasks](docs/publication-plan.md) · [Capability platform](docs/capability-platform.md) · [Native exports](docs/adapter-maintenance.md) · [Safe pack transitions](docs/pack-transitions.md)

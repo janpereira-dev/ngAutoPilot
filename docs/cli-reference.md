@@ -102,7 +102,7 @@ ngautopilot install --agent codex --angular 22 --profile essentials --yes
 
 Dependencies are resolved automatically. Installing a different pack at the same agent and scope removes prior unchanged obsolete managed files; modified obsolete files are preserved and reported unless forced. Desired managed files can still be refreshed even if edited.
 
-`--dry-run` never writes. Without `--yes`, an install that needs confirmation reports an approval requirement and does not write; `--yes` applies the approved plan. Desired managed files can be refreshed even if edited in this branch. Back up before reinstalling or updating. Modified obsolete-file removal and desired-file refresh have different policies.
+`--dry-run` never writes. Without `--yes`, an install that needs confirmation reports an approval requirement and does not write; `--yes` applies the approved plan. Desired managed files are preserved when locally edited unless explicitly forced. Back up before reinstalling or updating. Modified obsolete-file removal and desired-file refresh have different policies.
 
 ### `ngautopilot update`
 

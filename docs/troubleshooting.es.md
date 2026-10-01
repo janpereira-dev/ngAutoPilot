@@ -35,7 +35,7 @@ Después de revisar el plan, repite con `--yes` en lugar de `--dry-run`.
 
 ## Avisos de verificación o desinstalación
 
-`verify` compara archivos con el manifiesto, no ejecuta las pruebas de la aplicación. Los archivos ausentes y los contenidos editados son problemas distintos. Crea una copia antes de reinstalar o actualizar: esta rama puede actualizar archivos gestionados seleccionados aunque estén editados.
+`verify` compara archivos con el manifiesto, no ejecuta las pruebas de la aplicación. Los archivos ausentes y los contenidos editados son problemas distintos. Crea una copia antes de reinstalar o actualizar: se preservan archivos gestionados editados y se comunican los conflictos antes de escribir.
 
 La desinstalación rechaza archivos gestionados modificados salvo que se fuerce. Consérvalos, copia las modificaciones a otro lugar o elimínalos deliberadamente con `--yes --force` después de respaldarlos. [Actualización](updating.es.md) · [Desinstalación](uninstalling.es.md).
 

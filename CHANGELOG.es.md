@@ -9,6 +9,57 @@
 
 Este archivo documenta los cambios destacados de NgAutoPilot.
 
+## 0.10.0 - Sin publicar
+
+### Añadido
+
+- Documentación completa EN/ES, pares SVG accesibles y validación estricta de cobertura y enlaces.
+- Instalaciones Angular filtradas, planes de trabajo acotados, migración por checkpoints y resolución por instantáneas con factoría HTTPS optativa autenticada.
+- Inventario unificado de skills, packs, miembros npm y hashes; plan ordenado de 21 destinos.
+
+### Seguridad y release
+
+- Integración de protecciones recientes de main: contención fuente, ediciones locales, binarios, expedientes exactos y aprobaciones protegidas.
+- Los releases GitHub publican el tarball npm exacto tras aprobación; reintentos con integridad idéntica y sin retroceder latest.
+- Envío público, invocación real y credencial npm protegida siguen pendientes del responsable.
+
+## 0.9.0 - 2026-09-17
+
+### Seguridad
+
+- Actions de release fijadas por SHA, sin credenciales persistidas y permisos predeterminados de lectura.
+- Fuentes de instalación limitadas al paquete; rechazo de traversal, enlaces y archivos no regulares antes de leer, copiar, respaldar o restaurar.
+- Carga segura de manifiestos de packs y adaptadores.
+
+### Cambiado
+
+- Compatibilidad major/minor: guards funcionales desde 14.2 y Signals desde 16.
+- Informes filtrados no instalables directamente como packs; CLI muestra destino efectivo.
+
+## 0.8.1 - 2026-09-16
+
+### Seguridad
+
+- Parser literal estricto en lugar de evaluación dinámica de datos Angular Can I Use; CSV protegido frente a fórmulas.
+- Sin instalación automática de hooks ni limpieza recursiva de Skill Lab en el paquete público.
+- Prueba de enlace del binario ngautopilot tras instalación npm.
+
+### Cambiado
+
+- Eliminado always-auth no soportado; catálogo, packs, plugins, marketplaces y expediente OpenAI sincronizados a 0.8.1.
+
+## 0.8.0 - 2026-09-15
+
+### Añadido
+
+- Gates cerrados ante fallos de padres de salida, SemVer, manifiestos y copia pública allowlist OpenAI.
+- Seguridad determinista ampliada a todo texto publicable, SVG y instantáneas anidadas.
+- Regresiones de enlaces de salida, tipos inválidos, NUL y contenido publicable anidado.
+
+### Cambiado
+
+- Paquete, catálogo, 413 skills, packs, bundles, marketplaces y expediente a 0.8.0; lockfile e instantáneas alineados.
+
 ## 0.6.0 - 2026-08-09
 
 ### Añadido

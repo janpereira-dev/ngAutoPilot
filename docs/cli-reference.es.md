@@ -56,7 +56,7 @@ Primero revisa el plan y después aplica la misma selección. Para pruebas/UI pu
 | `--force` | Permitir sobrescrituras no gestionadas y eliminación de archivos gestionados obsoletos modificados. No sustituye la aprobación. |
 | `--json` | Mostrar JSON. |
 
-Las dependencias se resuelven automáticamente. Al cambiar de pack se eliminan archivos obsoletos sin cambios; los modificados se notifican y se conservan salvo que se fuerce. Los archivos gestionados todavía seleccionados pueden actualizarse aunque estén editados en esta rama. Crea una copia antes.
+Las dependencias se resuelven automáticamente. Al cambiar de pack se eliminan archivos obsoletos sin cambios; los modificados se notifican y se conservan salvo que se fuerce. Los archivos gestionados todavía seleccionados se conservan si están editados salvo autorización explícita con `--force`. Crea una copia antes.
 
 Sin `--yes`, una instalación que necesita aprobación no escribe. `--dry-run` nunca escribe.
 

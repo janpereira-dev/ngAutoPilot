@@ -55,4 +55,4 @@ Fuentes del cliente: [skills de Codex](https://learn.chatgpt.com/docs/build-skil
 - `ngautopilot-angular-upgrades` contiene las guías de todos los saltos.
 - Para un cliente sin integración nativa, exporta con `ngautopilot export --agent generic --pack <id> --output <dir>`.
 
-Al cambiar de pack, los archivos obsoletos sin cambios pueden eliminarse. Los obsoletos modificados se conservan salvo que se fuerce. Los archivos todavía seleccionados pueden actualizarse aunque estén editados: respáldalos antes. [Instalación](installation.es.md).
+Al cambiar de pack, los archivos obsoletos sin cambios pueden eliminarse. Los obsoletos modificados se conservan salvo que se fuerce. Los archivos todavía seleccionados se conservan si están editados salvo autorización explícita con `--force`: respáldalos antes. [Instalación](installation.es.md).

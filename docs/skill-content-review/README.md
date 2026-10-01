@@ -1,5 +1,10 @@
 # Skill content review — 2026-09-30
 
+<!-- docs:navigation:start -->
+[Español](README.es.md) · [Map](../README.md) · [Home](../../README.md)
+
+<!-- docs:navigation:end -->
+
 ## Scope and status
 
 Prepared on `codex/skills-natural-behavior` against `main` at commit `47c37b5233dbc6a21b5002e2595e31151dabbdf3` (package version 0.9.0). Only this improvement was rebased onto the current release line; the ten unrelated commits from the original local branch are not included. The original checkout's existing security changes remain untouched. Publishing this PR does not release or install the plugins.

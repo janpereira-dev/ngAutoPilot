@@ -30,6 +30,20 @@ test('rejects contradictory pack and Angular selection', (t) => {
   assert.match(result.stderr, /mutually exclusive/);
 });
 
+test('filtered Angular installation cannot reintroduce skills excluded by source packs', (t) => {
+  const projectRoot = createAngularProject(t, '14.1.3');
+  const result = run(projectRoot, 'install', '--agent', 'codex', '--angular', '14.1', '--profile', 'essentials', '--capabilities', 'ui,state', '--yes', '--json');
+  assert.equal(result.status, 0, result.stderr);
+  const output = JSON.parse(result.stdout);
+  const manifest = JSON.parse(fs.readFileSync(path.join(projectRoot, '.ngautopilot-manifest.json'), 'utf8'));
+  const catalog = JSON.parse(fs.readFileSync(path.join(repositoryRoot, 'catalog.json'), 'utf8'));
+  for (const excluded of output.selection.excluded.filter(item => item.type === 'skill')) {
+    const skill = catalog.skills.find(skill => skill.id === excluded.id);
+    if (skill) assert.equal(manifest.files.some(file => file.path.endsWith(skill.path.slice('skills/'.length))), false, excluded.id);
+  }
+  assert.equal(manifest.files.some(file => /functional-guards|signals-fundamentals/.test(file.path)), false);
+});
+
 test('updates the persisted Angular selection without activating migration hops', (t) => {
   const projectRoot = createAngularProject(t, '12.2.17');
   const install = run(projectRoot, 'install', '--agent', 'codex', '--angular', '12.2', '--profile', 'migration', '--yes', '--json');

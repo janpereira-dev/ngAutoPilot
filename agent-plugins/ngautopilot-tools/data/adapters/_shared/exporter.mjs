@@ -70,11 +70,25 @@ function bundleExternalReferences(body, sourceDir, targetDir, sourceRoot) {
       return `](${path.relative(destination, localTarget).split(path.sep).join('/')}${suffix})`;
     }
     const relative = path.relative(sourceRoot, absolute).split(path.sep).join('/');
+    const publicDirectory = (/^(?:docs|assets|skills)(?:\/|$)/.test(relative) || /^openai\/submission\/\d+\.\d+\.\d+$/.test(relative)) && reference.endsWith('/');
+    if (publicDirectory && !isLocalOnlySourcePath(relative)) {
+      const version = JSON.parse(safeReadSourceFile(sourceRoot, path.join(sourceRoot, 'package.json'))).version;
+      return `](https://github.com/janpereira-dev/ngAutoPilot/tree/v${encodeURIComponent(version)}/${relative})`;
+    }
     // A source-root boundary alone would still allow a malicious Markdown link
     // to copy adjacent repository credentials into a distributable snapshot.
     const publicRootDocument = /^(?:README|CONTRIBUTING|SECURITY|CODE_OF_CONDUCT|ROADMAP|CHANGELOG)(?:\.es)?\.md$/.test(relative) || relative === 'openapi.yaml';
     const checkoutOnlyDocument = /^skill-lab\/(?:README|POLICY|CHANGELOG)(?:\.es)?\.md$/.test(relative)
       || /^openai\/submission\/\d+\.\d+\.\d+\/[a-z-]+(?:\.es)?\.md$/.test(relative);
+    // Reader navigation may link to operational source. Link to the release
+    // repository rather than turning documentation export into a code copier.
+    const publicSourceLink = /^(?:scripts|lib|adapters|agents|mcp|schemas|packs|plugins|agent-plugins|tests|config)\//.test(relative)
+      || /^(?:\.agents\/plugins|\.claude-plugin)\//.test(relative)
+      || ['package.json', 'catalog.json', 'SKILL.md', 'openai/plugin.json', 'LICENSE'].includes(relative);
+    if (publicSourceLink && !isLocalOnlySourcePath(relative)) {
+      const version = JSON.parse(safeReadSourceFile(sourceRoot, path.join(sourceRoot, 'package.json'))).version;
+      return `](https://github.com/janpereira-dev/ngAutoPilot/blob/v${encodeURIComponent(version)}/${relative}${reference.slice(resource.length)})`;
+    }
     if (!(publicRootDocument || checkoutOnlyDocument || /^(?:docs|assets|skills)\//.test(relative)) || isLocalOnlySourcePath(relative) || /(?:^|\/)(?:info|dist)(?:\/|$)/.test(relative)) throw new Error(`external skill reference is not public documentation: ${reference}`);
     if (checkoutOnlyDocument && !fs.existsSync(absolute)) {
       const version = JSON.parse(safeReadSourceFile(sourceRoot, path.join(sourceRoot, 'package.json'))).version;

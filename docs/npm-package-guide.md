@@ -55,7 +55,7 @@ Profiles are `essentials`, `architecture`, `performance`, `testing`,
 they cannot be combined with `--pack`. `--dry-run` never writes, and `--yes`
 is required to approve a write.
 
-For narrower testing/UI guidance, select `--profile testing --capabilities ui,testing` and review a dry-run with that same selection first. Back up edited managed files before updating or switching packs: reinstalling can refresh managed content. See [Updating](updating.md).
+For narrower testing/UI guidance, select `--profile testing --capabilities ui,testing` and review a dry-run with that same selection first. Back up edited managed files before updating or switching packs: reinstalling refuses locally edited managed content unless explicitly forced. See [Updating](updating.md).
 
 Migration commands are controlled evidence gates, not source transformers:
 

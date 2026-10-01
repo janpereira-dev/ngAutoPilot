@@ -19,7 +19,7 @@ npm exec --package=ngautopilot -- ngautopilot packs
 npm exec --package=ngautopilot -- ngautopilot install --agent opencode --pack ngautopilot-angular-foundations --dry-run
 ```
 
-Every focused pack resolves `ngautopilot-core` transitively. Install one pack per agent and scope. Changing packs removes obsolete files owned by the previous pack when unchanged; modified obsolete files are preserved and reported unless forced. Desired managed files can be refreshed even if edited in this branch. Back up, inspect with `--dry-run`, then approve with `--yes`.
+Every focused pack resolves `ngautopilot-core` transitively. Install one pack per agent and scope. Changing packs removes obsolete files owned by the previous pack when unchanged; modified obsolete files are preserved and reported unless forced. Desired managed files are preserved when locally edited unless explicitly forced. Back up, inspect with `--dry-run`, then approve with `--yes`.
 
 ## Daily Development
 
@@ -95,7 +95,7 @@ Each pack is a JSON file in `packs/<pack-id>.json`, validated against `schemas/p
 {
   "id": "ngautopilot-core",
   "name": "NgAutoPilot Core",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "status": "stable",
   "description": "...",
   "audience": "Everyone",

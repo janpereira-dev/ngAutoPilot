@@ -14,7 +14,7 @@
 - Este checkout requiere Node.js >= 24.0.0 y < 25.
 - Trabaja desde la raíz del proyecto receptor.
 - Consulta los identificadores con `ngautopilot adapters` y `ngautopilot packs`.
-- Crea una copia de seguridad antes de actualizar o cambiar de pack. Esta rama puede actualizar archivos editados que sigan dentro de la selección gestionada.
+- Crea una copia de seguridad antes de actualizar o cambiar de pack. La actualización conserva cambios locales y comunica conflictos antes de escribir.
 - Los ejemplos usan un paquete publicado en npm. Fija una versión exacta en automatizaciones; consulta funciones locales con `node bin/ngautopilot.mjs help` dentro de este repositorio.
 
 ## 1. Elige un pack y revisa el plan
@@ -62,7 +62,7 @@ ngautopilot install --agent codex --angular 22 --profile essentials --scope proj
 
 Por ejemplo, inspecciona la instalación para el usuario OpenCode con `ngautopilot install --agent opencode --pack ngautopilot-angular-state --scope user --dry-run` y repite con `--yes` después de revisarla.
 
-Existe una selección gestionada por agente y ámbito. Cambiar de pack puede eliminar archivos sin cambios que ya no estén seleccionados. Los archivos obsoletos modificados se conservan y se notifican salvo que se fuerce su eliminación. **Los archivos que siguen seleccionados pueden actualizarse aunque estén editados** en esta rama; conserva tus personalizaciones fuera de archivos o secciones gestionadas y crea primero una copia de seguridad.
+Existe una selección gestionada por agente y ámbito. Cambiar de pack puede eliminar archivos sin cambios que ya no estén seleccionados. Los archivos obsoletos modificados se conservan y se notifican salvo que se fuerce su eliminación. **Los archivos que siguen seleccionados se conservan si están editados salvo autorización explícita con `--force`**; conserva tus personalizaciones fuera de archivos o secciones gestionadas y crea primero una copia de seguridad.
 
 ## Cómo se seleccionan los archivos
 
@@ -72,7 +72,7 @@ Existe una selección gestionada por agente y ámbito. Cambiar de pack puede eli
 4. Copiar archivos seleccionados e integrar la sección gestionada de instrucciones.
 5. Registrar propiedad y sumas SHA-256 en `.ngautopilot-manifest.json`.
 
-Una instalación idéntica omite contenidos coincidentes. La idempotencia no protege los archivos gestionados editados frente a actualizaciones.
+Una instalación idéntica omite contenidos coincidentes. Los archivos gestionados editados conservan el checksum original; se rechaza reemplazarlos salvo force explícito.
 
 ## Actualizar, eliminar y respaldar
 

@@ -22,11 +22,11 @@ Ese trabajo debe añadir un validador de solo lectura para manifiesto, URLs lega
 ## Ruta de versión y etiqueta
 
 1. Ejecutar la validación de la rama elegida y revisar cambios generados.
-2. Crear una etiqueta anotada o firmada `v0.6.0`, según la política del responsable, solo cuando proceda.
+2. Crear una etiqueta anotada o firmada `v0.10.0`, según la política del responsable, solo cuando proceda.
 3. Construir y adjuntar ZIP y suma a la publicación GitHub correspondiente.
 4. Enviar mediante el procedimiento OpenAI aplicable después de que el responsable complete la declaración humana.
 
-El expediente [`openai/submission/0.6.0/`](../openai/submission/0.6.0/) conserva su contexto de versión: **no enviado** y **no verificado por OpenAI**. No afirma aprobación de portal ni verificación del desarrollador.
+El expediente [`openai/submission/0.10.0/`](../openai/submission/0.10.0/) conserva su contexto de versión: **no enviado** y **no verificado por OpenAI**. No afirma aprobación de portal ni verificación del desarrollador.
 
 ## Separación de distribuciones
 

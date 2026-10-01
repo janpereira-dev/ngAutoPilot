@@ -5,7 +5,7 @@
 
 <!-- docs:navigation:end -->
 
-**Preview is a format claim, not a host certification.** Generated artifacts in NgAutoPilot `0.6.0` target Agent Plugins 1.0 and Agent Skills naming requirements. The bundled MCP server uses local stdio.
+**Preview is a format claim, not a host certification.** Generated artifacts in NgAutoPilot `0.10.0` target Agent Plugins 1.0 and Agent Skills naming requirements. The bundled MCP server uses local stdio.
 
 ## Evidence ledger
 

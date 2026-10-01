@@ -39,7 +39,7 @@ La revisión externa opcional mediante [NVIDIA SkillSpector](https://github.com/
 - Los archivos no gestionados no se sobrescriben sin `--force`.
 - La aplicación y eliminación se limitan a las raíces del adaptador; las copias de seguridad tienen un destino temporal separado.
 - Codex: proyecto `.agents/skills/` y `AGENTS.md` raíz; usuario `~/.agents/skills/` y `~/.codex/AGENTS.md`.
-- Los archivos gestionados todavía seleccionados y la sección de instrucciones pueden actualizarse aunque estén editados. Los obsoletos modificados y la desinstalación tienen reglas de rechazo distintas. Crea una copia antes.
+- Se conservan archivos gestionados y secciones editadas salvo force explícito; se informa el conflicto y se retiene el checksum original.
 - No hay `postinstall` en `package.json`; la instalación usa APIs de archivos Node, no shell.
 - `.ngautopilot-manifest.json` registra propiedad y sumas SHA-256; la desinstalación utiliza ese manifiesto.
 

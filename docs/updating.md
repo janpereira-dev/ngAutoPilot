@@ -5,7 +5,7 @@
 
 <!-- docs:navigation:end -->
 
-**Important:** this branch refreshes selected manifest-owned files even when edited. It preserves modified obsolete files during pack switching unless forced, but that is a different operation. Do not rely on update as customization protection.
+**Important:** updates preserve edited selected files and obsolete files, retain their original checksums, report conflicts and return unsuccessful before any write. Use an explicit backup before choosing `--force`.
 
 ## 1. Keep the current selection
 

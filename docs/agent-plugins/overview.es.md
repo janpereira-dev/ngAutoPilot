@@ -7,7 +7,7 @@
 
 ![Las rutas de entrega tienen contratos distintos; verifica por separado descubrimiento, publicación e integración MCP.](../../assets/distribution-routes.es.svg)
 
-**Genera el artefacto y después demuestra que el agente de destino lo descubre.** NgAutoPilot `0.6.0` genera Agent Plugins 1.0 desde `skills/` y la política de packs de `packs/`. Empaquetar no demuestra instalación.
+**Genera el artefacto y después demuestra que el agente de destino lo descubre.** NgAutoPilot `0.10.0` genera Agent Plugins 1.0 desde `skills/` y la política de packs de `packs/`. Empaquetar no demuestra instalación.
 
 ## ¿Qué incluye?
 
@@ -19,7 +19,7 @@
 | `ngautopilot-angular-21-to-22` | Guía de actualización acotada |
 | `ngautopilot-tools` | Servidor separado de inspección MCP por stdio |
 
-Los plugins específicos incluyen las skills Core transitivas. El plugin de herramientas registra **diez** herramientas en este checkout: `catalog.search`, `pack.list`, `pack.resolve`, `project.inspect`, `stack.detect`, `skill.route`, `compatibility.check`, `upgrade.plan`, `angular.resolve` y `repository.validate`.
+Los plugins específicos incluyen las skills Core transitivas. El plugin de herramientas registra **trece** herramientas en este checkout: `catalog.search`, `pack.list`, `pack.resolve`, `project.inspect`, `stack.detect`, `skill.route`, `compatibility.check`, `upgrade.plan`, `angular.resolve`, `angular.installation.resolve`, `platform.inventory`, `catalog.quality` y `repository.validate`.
 
 Estas herramientas no aplican actualizaciones, modifican dependencias ni editan Git. `angular.resolve` recibe una instantánea aportada por quien llama, en lugar de leer los archivos de su aplicación.
 

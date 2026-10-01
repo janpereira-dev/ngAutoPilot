@@ -27,6 +27,7 @@ Este índice cubre documentación para lectores: políticas raíz, todo Markdown
 | [Hoja de ruta de NgAutoPilot 🧭](../ROADMAP.es.md) | Guía / política | [English](../ROADMAP.md) |
 | [Política de seguridad 🛡️](../SECURITY.es.md) | Guía / política | [English](../SECURITY.md) |
 | [Registro de subagentes NgAutoPilot](../agents/ngautopilot/README.es.md) | Guía / política | [English](../agents/ngautopilot/README.md) |
+| [Mantenimiento de adaptadores y exportaciones nativas](adapter-maintenance.es.md) | Guía / política | [English](adapter-maintenance.md) |
 | [Matriz de instalación por agente 🧭](agent-installation-matrix.es.md) | Guía / política | [English](agent-installation-matrix.md) |
 | [Agent Plugins: evidencias de compatibilidad](agent-plugins/compatibility.es.md) | Guía / política | [English](agent-plugins/compatibility.md) |
 | [Agent Plugins en vista previa 📦](agent-plugins/overview.es.md) | Guía / política | [English](agent-plugins/overview.md) |
@@ -36,6 +37,7 @@ Este índice cubre documentación para lectores: políticas raíz, todo Markdown
 | [Catálogo Angular: elige una ruta 🧭](angular-roadmap-guide.es.md) | Guía / política | [English](angular-roadmap-guide.md) |
 | [Mapa de carpetas Angular por épocas](angular-version-era-map.es.md) | Guía / política | [English](angular-version-era-map.md) |
 | [Cobertura de versiones Angular 🧭](angular-version-support.es.md) | Guía / política | [English](angular-version-support.md) |
+| [Plataforma de capacidades NgAutoPilot](capability-platform.es.md) | Guía / política | [English](capability-platform.md) |
 | [Referencia de la CLI de NgAutoPilot 🛠️](cli-reference.es.md) | Guía / política | [English](cli-reference.md) |
 | [Uso multiplataforma 🖥️](cross-platform.es.md) | Guía / política | [English](cross-platform.md) |
 | [Guía de calidad de diseño 🎨](design-excellence-guide.es.md) | Guía / política | [English](design-excellence-guide.md) |
@@ -48,11 +50,17 @@ Este índice cubre documentación para lectores: políticas raíz, todo Markdown
 | [Auditoría histórica de nuevas skills](new-skills-audit.es.md) | Registro histórico | [English](new-skills-audit.md) |
 | [Guía del paquete npm 📦](npm-package-guide.es.md) | Guía / política | [English](npm-package-guide.md) |
 | [Preparación de publicación OpenAI 📦](openai-marketplace-release.es.md) | Guía / política | [English](openai-marketplace-release.md) |
+| [Transiciones seguras entre packs](pack-transitions.es.md) | Guía / política | [English](pack-transitions.md) |
 | [Packs de NgAutoPilot 🎒](packs.es.md) | Guía / política | [English](packs.md) |
 | [Prompts y guardrails: de la petición a una revisión útil 🧭](prompts-and-guardrails.es.md) | Guía / política | [English](prompts-and-guardrails.md) |
+| [Plan de release y distribución: 0.10.0](publication-plan.es.md) | Guía / política | [English](publication-plan.md) |
+| [Entrega de estabilización de calidad](quality-stabilization.es.md) | Guía / política | [English](quality-stabilization.md) |
 | [Lista de publicación: evidencia local antes de distribuir 📦](release-checklist.es.md) | Guía / política | [English](release-checklist.md) |
 | [Revisión orientada a Sage: primero expediente, después revisión externa](sage-review.es.md) | Guía / política | [English](sage-review.md) |
 | [Modelo de seguridad de NgAutoPilot 🛡️](security-model.es.md) | Guía / política | [English](security-model.md) |
+| [Evidencia de seguridad del candidato 0.10.0](security-release-audit.es.md) | Guía / política | [English](security-release-audit.md) |
+| [Escribe skills que cambien decisiones](skill-authoring.es.md) | Guía / política | [English](skill-authoring.md) |
+| [Revisión del contenido de skills — 2026-09-30](skill-content-review/README.es.md) | Guía / política | [English](skill-content-review/README.md) |
 | [Diseño histórico de correcciones de revisión de Skill Lab](specs/2026-08-07-skill-lab-review-remediation-design.es.md) | Registro histórico | [English](specs/2026-08-07-skill-lab-review-remediation-design.md) |
 | [Ciclo histórico de optimización de skills NgAutoPilot](specs/skill-optimization-loop.es.md) | Registro histórico | [English](specs/skill-optimization-loop.md) |
 | [Plan histórico de correcciones de revisión de Skill Lab](superpowers/plans/2026-08-07-skill-lab-review-remediation.es.md) | Registro histórico | [English](superpowers/plans/2026-08-07-skill-lab-review-remediation.md) |
@@ -62,10 +70,26 @@ Este índice cubre documentación para lectores: políticas raíz, todo Markdown
 | [Niveles de confianza: clasifica la acción 🔐](trust-levels.es.md) | Guía / política | [English](trust-levels.md) |
 | [Desinstala sin borrar tu propio trabajo 🧹](uninstalling.es.md) | Guía / política | [English](uninstalling.md) |
 | [Actualiza con seguridad: crea una copia antes 🔄](updating.es.md) | Guía / política | [English](updating.md) |
+| [NgAutoPilot Skills](../openai/submission/0.10.0/listing.es.md) | Registro histórico | [English](../openai/submission/0.10.0/listing.md) |
+| [Declaración de políticas](../openai/submission/0.10.0/policy-attestation.es.md) | Registro histórico | [English](../openai/submission/0.10.0/policy-attestation.md) |
+| [Notas de versión y disponibilidad](../openai/submission/0.10.0/release-notes.es.md) | Registro histórico | [English](../openai/submission/0.10.0/release-notes.md) |
+| [Casos de prueba del envío](../openai/submission/0.10.0/test-cases.es.md) | Registro histórico | [English](../openai/submission/0.10.0/test-cases.md) |
 | [NgAutoPilot Skills](../openai/submission/0.6.0/listing.es.md) | Registro histórico | [English](../openai/submission/0.6.0/listing.md) |
 | [Declaración de cumplimiento](../openai/submission/0.6.0/policy-attestation.es.md) | Registro histórico | [English](../openai/submission/0.6.0/policy-attestation.md) |
 | [Notas de release y disponibilidad](../openai/submission/0.6.0/release-notes.es.md) | Registro histórico | [English](../openai/submission/0.6.0/release-notes.md) |
 | [Casos de prueba del envío](../openai/submission/0.6.0/test-cases.es.md) | Registro histórico | [English](../openai/submission/0.6.0/test-cases.md) |
+| [NgAutoPilot Skills](../openai/submission/0.8.0/listing.es.md) | Registro histórico | [English](../openai/submission/0.8.0/listing.md) |
+| [Declaración de políticas](../openai/submission/0.8.0/policy-attestation.es.md) | Registro histórico | [English](../openai/submission/0.8.0/policy-attestation.md) |
+| [Notas de versión y disponibilidad](../openai/submission/0.8.0/release-notes.es.md) | Registro histórico | [English](../openai/submission/0.8.0/release-notes.md) |
+| [Casos de prueba del envío](../openai/submission/0.8.0/test-cases.es.md) | Registro histórico | [English](../openai/submission/0.8.0/test-cases.md) |
+| [NgAutoPilot Skills](../openai/submission/0.8.1/listing.es.md) | Registro histórico | [English](../openai/submission/0.8.1/listing.md) |
+| [Declaración de políticas](../openai/submission/0.8.1/policy-attestation.es.md) | Registro histórico | [English](../openai/submission/0.8.1/policy-attestation.md) |
+| [Notas de versión y disponibilidad](../openai/submission/0.8.1/release-notes.es.md) | Registro histórico | [English](../openai/submission/0.8.1/release-notes.md) |
+| [Casos de prueba del envío](../openai/submission/0.8.1/test-cases.es.md) | Registro histórico | [English](../openai/submission/0.8.1/test-cases.md) |
+| [NgAutoPilot Skills](../openai/submission/0.9.0/listing.es.md) | Registro histórico | [English](../openai/submission/0.9.0/listing.md) |
+| [Declaración de políticas](../openai/submission/0.9.0/policy-attestation.es.md) | Registro histórico | [English](../openai/submission/0.9.0/policy-attestation.md) |
+| [Notas de versión y disponibilidad](../openai/submission/0.9.0/release-notes.es.md) | Registro histórico | [English](../openai/submission/0.9.0/release-notes.md) |
+| [Casos de prueba del envío](../openai/submission/0.9.0/test-cases.es.md) | Registro histórico | [English](../openai/submission/0.9.0/test-cases.md) |
 | [Historial de cambios de Skill Lab](../skill-lab/CHANGELOG.es.md) | Registro histórico | [English](../skill-lab/CHANGELOG.md) |
 | [Política de Skill Lab](../skill-lab/POLICY.es.md) | Guía / política | [English](../skill-lab/POLICY.md) |
 | [Skill Lab de NgAutoPilot 🧪](../skill-lab/README.es.md) | Guía / política | [English](../skill-lab/README.md) |

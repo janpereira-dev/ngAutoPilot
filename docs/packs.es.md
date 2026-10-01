@@ -23,7 +23,7 @@ Los ejemplos utilizan npm publicado. Fija una versión exacta en automatizacione
 
 ## 2. Instala solo lo relevante
 
-Todos los packs específicos resuelven Core mediante dependencias. Hay una selección por agente y ámbito. Cambiar de pack puede eliminar archivos obsoletos sin cambios; conserva y notifica los obsoletos modificados salvo que se fuerce. Los archivos todavía seleccionados pueden actualizarse aunque estén editados. Crea una copia antes de cambiar, revisa con `--dry-run` y aplica con `--yes`.
+Todos los packs específicos resuelven Core mediante dependencias. Hay una selección por agente y ámbito. Cambiar de pack puede eliminar archivos obsoletos sin cambios; conserva y notifica los obsoletos modificados salvo que se fuerce. Los archivos todavía seleccionados se conservan si están editados salvo autorización explícita con `--force`. Crea una copia antes de cambiar, revisa con `--dry-run` y aplica con `--yes`.
 
 ## Desarrollo diario
 
@@ -101,7 +101,7 @@ Cada pack es JSON en `packs/<pack-id>.json`, con esquema `schemas/pack.schema.js
 {
   "id": "ngautopilot-core",
   "name": "NgAutoPilot Core",
-  "version": "0.6.0",
+  "version": "0.10.0",
   "status": "stable",
   "description": "...",
   "audience": "Everyone",
