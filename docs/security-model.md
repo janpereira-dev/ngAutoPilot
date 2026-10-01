@@ -46,11 +46,12 @@ model without reviewing the selected provider and data-egress policy.
 - No `postinstall` script in `package.json`.
 - No shell execution; the installer uses `node:fs` exclusively.
 - The install manifest (`.ngautopilot-manifest.json`) tracks every file with a SHA-256 checksum.
+- Angular selections also retain the original resolved package root. Updates re-read that project's evidence, never the invocation directory. Legacy selections without this binding must be reinstalled from the original project; an unavailable original `package.json` blocks the update without writes.
 - `uninstall` removes only manifest-owned files.
 
 ### 3. Dependencies
 
-- The CLI and installer use Node.js built-ins. The optional bundled MCP plugin adds runtime dependencies `@modelcontextprotocol/server` and `zod`.
+- The CLI and installer use Node.js built-ins for file operations. The CLI also requires pinned `semver` 7.8.5 through the shared Angular resolver to interpret npm toolchain dependency ranges; it is not optional. The bundled MCP plugin adds runtime dependencies `@modelcontextprotocol/server` and `zod`.
 - Development tooling adds `@modelcontextprotocol/client`, `esbuild`, and `yazl` for MCP integration tests and reproducible Agent Plugin archives.
 - No `postinstall`, no `preinstall`, no `prepare` scripts.
 

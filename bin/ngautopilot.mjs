@@ -278,11 +278,18 @@ function updateCmd(args) {
   if (!manifest) { console.error(`No NgAutoPilot installation found for ${agent} (${scope}) at ${installRoot}`); process.exitCode = 1; return; }
 
   if (manifest.angularSelection && args.pack) throw new Error('this installation uses an Angular selection; rerun update without --pack to preserve it');
+  const angularProjectRoot = manifest.angularSelection?.projectRoot;
+  if (manifest.angularSelection && (typeof angularProjectRoot !== 'string' || !path.isAbsolute(angularProjectRoot))) {
+    throw new Error('Angular installation has no original project root; rerun install --angular from the original project to bind its evidence before updating');
+  }
+  if (angularProjectRoot && !fs.existsSync(path.join(angularProjectRoot, 'package.json'))) {
+    throw new Error('Original Angular project package.json is unavailable; update cannot use another project as a fallback');
+  }
   const selection = manifest.angularSelection ? resolveAngularSelection({
     angular: formatAngularTarget(manifest.angularSelection.target),
     profile: manifest.angularSelection.profile,
     ...(manifest.angularSelection.capabilities.length ? { capabilities: manifest.angularSelection.capabilities.join(',') } : {}),
-  }) : undefined;
+  }, angularProjectRoot) : undefined;
   const plan = selection
     ? buildAngularPlan({ agent, scope, selection })
     : buildPlan({ catalogPath, packPath: findPack(args.pack || manifest.pack), adaptersRoot, sourceRoot: packageRoot, agent, scope, cwd: process.cwd(), home: safeHome() });
@@ -293,10 +300,10 @@ function updateCmd(args) {
   if (!result.ok) process.exitCode = 1;
 }
 
-function resolveAngularSelection(args) {
+function resolveAngularSelection(args, projectRoot = process.cwd()) {
   if (!args.profile || typeof args.profile !== 'string') throw new Error('--profile is required with --angular');
   const capabilities = parseCapabilities(args.capabilities);
-  return resolveAngularInstallation({ root: packageRoot, projectRoot: process.cwd(), target: args.angular, profile: args.profile, capabilities });
+  return resolveAngularInstallation({ root: packageRoot, projectRoot, target: args.angular, profile: args.profile, capabilities });
 }
 
 function parseCapabilities(value) {
@@ -322,6 +329,7 @@ function buildAngularPlan({ agent, scope, selection }) {
     files,
     warnings: [...new Set(plans.flatMap((plan) => plan.warnings))].sort(),
     angularSelection: {
+      projectRoot: selection.projectRoot,
       target: selection.target,
       profile: selection.profile,
       capabilities: selection.capabilities,

@@ -44,12 +44,13 @@ La revisión externa opcional mediante [NVIDIA SkillSpector](https://github.com/
 - Se conservan archivos gestionados y secciones editadas salvo force explícito; se informa el conflicto y se retiene el checksum original.
 - No hay `postinstall` en `package.json`; la instalación usa APIs de archivos Node, no shell.
 - `.ngautopilot-manifest.json` registra propiedad y sumas SHA-256; la desinstalación utiliza ese manifiesto.
+- Las selecciones Angular conservan la raíz resuelta del paquete original. La actualización consulta ese proyecto, no el directorio de invocación. Las selecciones antiguas sin esa vinculación requieren reinstalación desde el proyecto original; si su `package.json` no está disponible, se bloquea la actualización sin escribir.
 
 La propiedad de un archivo no protege sus personalizaciones frente a una actualización.
 
 ## 3. Dependencias
 
-CLI e instalador usan APIs integradas Node. El MCP opcional añade `@modelcontextprotocol/server` y `zod`. Las herramientas de desarrollo incluyen `@modelcontextprotocol/client`, `esbuild` y `yazl` para pruebas y archivos reproducibles.
+CLI e instalador usan APIs integradas Node para operaciones de archivos. El CLI también requiere `semver` 7.8.5 fijado, mediante el resolver Angular compartido, para interpretar rangos npm de dependencias del toolchain; no es opcional. El plugin MCP incluido añade `@modelcontextprotocol/server` y `zod`. Las herramientas de desarrollo incluyen `@modelcontextprotocol/client`, `esbuild` y `yazl` para pruebas y archivos reproducibles.
 
 El paquete no define `postinstall`, `preinstall` ni `prepare`. Esto no elimina la necesidad de revisar dependencias y scripts de otras herramientas.
 

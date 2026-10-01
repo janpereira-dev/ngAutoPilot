@@ -50,7 +50,7 @@ test('updates the persisted Angular selection without activating migration hops'
   assert.equal(install.status, 0, install.stderr);
   const manifestPath = path.join(projectRoot, '.ngautopilot-manifest.json');
   const initialManifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-  assert.deepEqual(initialManifest.angularSelection, { target: { major: 12, minor: 2 }, profile: 'migration', capabilities: [] });
+  assert.deepEqual(initialManifest.angularSelection, { projectRoot, target: { major: 12, minor: 2 }, profile: 'migration', capabilities: [] });
   assert.equal(initialManifest.files.some((file) => file.path.includes('upgrades/hops') || file.path.includes('upgrades/angularjs')), false);
 
   const update = run(projectRoot, 'update', '--agent', 'codex', '--yes', '--json');
@@ -99,3 +99,53 @@ function createAngularProject(t, angularVersion) {
 function run(cwd, ...args) {
   return spawnSync(process.execPath, [cli, ...args], { cwd, encoding: 'utf8' });
 }
+
+test('workspace-root update reuses the original nested Angular package', (t) => {
+  const root = createAngularProject(t, '22.0.0');
+  fs.mkdirSync(path.join(root, '.git'));
+  const nested = path.join(root, 'packages', 'legacy');
+  fs.mkdirSync(nested, { recursive: true });
+  for (const file of ['package.json', 'package-lock.json']) {
+    fs.writeFileSync(path.join(nested, file), fs.readFileSync(path.join(createAngularProject(t, '12.2.17'), file)));
+  }
+  const install = run(nested, 'install', '--agent', 'codex', '--angular', '12.2', '--profile', 'testing', '--yes', '--json');
+  assert.equal(install.status, 0, install.stderr);
+  const update = run(root, 'update', '--agent', 'codex', '--yes', '--json');
+  assert.equal(update.status, 0, update.stderr);
+  assert.equal(JSON.parse(update.stdout).selection.projectRoot, nested);
+  assert.equal(JSON.parse(update.stdout).selection.evidence.angular.version, '12.2.17');
+  const manifest = JSON.parse(fs.readFileSync(path.join(root, '.ngautopilot-manifest.json'), 'utf8'));
+  assert.equal(manifest.angularSelection.projectRoot, nested);
+});
+
+test('user-scope update from another project retains original Angular evidence', (t) => {
+  const original = createAngularProject(t, '12.2.17');
+  const other = createAngularProject(t, '22.0.0');
+  const home = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-angular-home-'));
+  t.after(() => fs.rmSync(home, { recursive: true, force: true }));
+  const invoke = (cwd, ...args) => spawnSync(process.execPath, [cli, ...args], {
+    cwd, encoding: 'utf8', env: { ...process.env, USERPROFILE: home, HOME: home },
+  });
+  const install = invoke(original, 'install', '--agent', 'codex', '--scope', 'user', '--angular', '12.2', '--profile', 'testing', '--yes', '--json');
+  assert.equal(install.status, 0, install.stderr);
+  const update = invoke(other, 'update', '--agent', 'codex', '--scope', 'user', '--yes', '--json');
+  assert.equal(update.status, 0, update.stderr);
+  assert.equal(JSON.parse(update.stdout).selection.projectRoot, original);
+  assert.equal(JSON.parse(update.stdout).selection.evidence.angular.version, '12.2.17');
+});
+
+test('unbound and unavailable Angular project evidence fails without changing installation', (t) => {
+  const root = createAngularProject(t, '12.2.17');
+  assert.equal(run(root, 'install', '--agent', 'codex', '--angular', '12.2', '--profile', 'testing', '--yes', '--json').status, 0);
+  const manifestPath = path.join(root, '.ngautopilot-manifest.json');
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  for (const projectRoot of [undefined, path.join(root, 'missing')]) {
+    manifest.angularSelection.projectRoot = projectRoot;
+    const before = `${JSON.stringify(manifest, null, 2)}\n`;
+    fs.writeFileSync(manifestPath, before);
+    const update = run(root, 'update', '--agent', 'codex', '--force', '--yes', '--json');
+    assert.equal(update.status, 1);
+    assert.match(update.stderr, /original project root|Original Angular project/);
+    assert.equal(fs.readFileSync(manifestPath, 'utf8'), before);
+  }
+});
