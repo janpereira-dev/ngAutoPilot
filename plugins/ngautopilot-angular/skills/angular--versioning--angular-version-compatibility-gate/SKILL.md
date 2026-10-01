@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: versioning
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - angular version
@@ -157,8 +157,6 @@ Dockerfile
 - [ ] Validation commands are listed.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Report detected Angular, TypeScript, RxJS, Node and tooling versions when available.
 2. Select a compatibility profile.

@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: quality
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - quality decision matrix
@@ -81,8 +81,6 @@ Avoid broad refactors when the decision matrix is enough.
 - [ ] The output is actionable.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Classify the quality problem.
 2. Choose the smallest viable quality primitive.

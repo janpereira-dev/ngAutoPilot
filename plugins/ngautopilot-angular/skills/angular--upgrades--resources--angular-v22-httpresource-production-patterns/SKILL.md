@@ -2,13 +2,13 @@
 id: angular.upgrades.resources.angular-v22-httpresource-production-patterns
 name: Angular v22 HttpResource Production Patterns
 description: >
-  Use this skill for Use httpResource() for declarative HTTP fetching with explicit typing, params, errors, and reload behavior. Use when Angular 22 work needs concern-first routing, explicit validation, and no invented APIs.
+  Use httpResource() for declarative HTTP fetching with explicit typing, params, errors, and reload behavior. For Angular 22 projects and 21-to-22 upgrade planning.
 stack:
   - Angular
   - TypeScript
 category: resources
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - httpResource
@@ -32,7 +32,7 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 
 ## When to Use
 
-- The task specifically involves use httpresource() for declarative http fetching with explicit typing, params, errors, and reload behavior.
+- The task is to use httpresource() for declarative http fetching with explicit typing, params, errors, and reload behavior.
 - The project is on Angular 22 or planning the Angular 22 hop.
 - A narrower concern-first skill is better than a generic v22 baseline skill.
 
@@ -45,10 +45,6 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 ## Why This Matters
 
 Angular 22 changes resources / http behavior enough that agents need a narrow checklist instead of a generic v22 bucket. The goal is to make the risk visible, testable, and reviewable.
-
-## Non-developer explanation
-
-This skill helps separate a real upgrade risk from general cleanup. It gives the team a clear reason for the work, the evidence to check, and the point where the change is safe to stop.
 
 ## Inputs Expected
 

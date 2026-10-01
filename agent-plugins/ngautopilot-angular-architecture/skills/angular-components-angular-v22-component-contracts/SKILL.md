@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.components.angular-v22-component-contracts"
   ngautopilot-source: "skills/angular/components/angular-v22-component-contracts/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -64,8 +64,6 @@ Do not use this skill when:
 - [ ] Component tests still pass.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. A component-contract summary.
 2. The removed API replacement.

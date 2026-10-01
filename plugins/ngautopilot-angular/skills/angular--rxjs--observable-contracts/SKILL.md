@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: rxjs
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - Observable as contract
@@ -81,6 +81,8 @@ readonly users = this.usersSignal.asReadonly();
 
 Keep Observables for async flows that need cancellation, retries, composition, or multiple emissions over time.
 
+Specify the temporal contract as well as the emitted type: when input takes effect, whether duplicate values trigger work, which overlapping response may survive, and whether an error completes the stream or allows another command. Keep empty, loading, and failure states distinguishable when consumers depend on that distinction.
+
 ## Do Not
 
 Avoid exposing writable subjects:
@@ -115,10 +117,9 @@ Avoid exposing API DTO streams directly to reusable UI components when a view mo
 - [ ] Error and loading states are part of the contract when relevant.
 - [ ] DTO, domain, and view model boundaries are clear.
 - [ ] Shared contracts remain compatible with target Angular versions.
+- [ ] Tests cover emission timing, obsolete work, and post-error behavior where the contract requires them.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Find mutable public reactive state.
 2. Replace public subjects with readonly Observable contracts.

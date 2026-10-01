@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.micro-frontends-communication-patterns"
   ngautopilot-source: "skills/angular/architecture/micro-frontends-communication-patterns/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -105,8 +105,6 @@ Avoid communication patterns that cannot be traced in debugging or tests.
 - [ ] The chosen pattern is testable and observable.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Classify the communication need.
 2. Recommend the narrowest viable pattern.

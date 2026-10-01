@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: no-dead-code
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - orphan files monorepo
@@ -64,8 +64,6 @@ Avoid ignoring generators or convention-based paths.
 - [ ] Build and tests still pass.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Verify the file is orphaned in the workspace graph.
 2. Check dynamic loading paths.

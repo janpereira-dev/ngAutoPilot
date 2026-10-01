@@ -8,7 +8,7 @@ stack:
   - Frontend
 category: design
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - product intake
@@ -56,8 +56,6 @@ Use this skill when:
 - [ ] Product decisions are separated from implementation choices.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Produce a compact task-flow and state inventory.
 2. List decisions, assumptions, and unanswered product questions.

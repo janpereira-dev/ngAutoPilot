@@ -8,7 +8,7 @@ stack:
   - Frontend
 category: design
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - design system
@@ -58,8 +58,6 @@ Route Angular Material implementation and migration work to the existing Angular
 - [ ] Framework-specific work is routed to the applicable implementation skill.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Describe the reusable contract and its intended consumers.
 2. Separate platform-neutral decisions from framework implementation work.

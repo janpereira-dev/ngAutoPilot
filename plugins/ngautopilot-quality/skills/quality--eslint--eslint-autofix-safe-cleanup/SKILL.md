@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: eslint
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - eslint autofix
@@ -69,8 +69,6 @@ Avoid using autofix when the rule change is ambiguous.
 - [ ] Validation passed.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Decide whether autofix is safe.
 2. Apply only mechanical changes.

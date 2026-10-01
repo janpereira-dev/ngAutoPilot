@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: javascript
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - async error handling
@@ -159,8 +159,6 @@ Avoid masking authentication or authorization failures as empty data.
 - [ ] No unrelated async refactor was introduced.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify async boundaries.
 2. Choose a clear error contract.

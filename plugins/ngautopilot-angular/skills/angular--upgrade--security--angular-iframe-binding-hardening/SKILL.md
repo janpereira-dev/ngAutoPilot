@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: security
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - iframe binding
@@ -26,7 +26,7 @@ compatibility:
 
 Use this skill to review iframe bindings and host bindings for Angular 15-era security hardening.
 
-## When to Use This Skill
+## When to Use
 
 - The app binds iframe `src`, `sandbox`, `allow`, or `referrerPolicy`.
 - Host bindings control iframe attributes.

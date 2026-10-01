@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.versioning.angular-versioning-index"
   ngautopilot-source: "skills/angular/versioning/angular-versioning-index/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -109,8 +109,6 @@ CI workflow files
 - [ ] Modernization is separated from upgrade work.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. State the current Angular version and target direction.
 2. Name the compatibility gate used.

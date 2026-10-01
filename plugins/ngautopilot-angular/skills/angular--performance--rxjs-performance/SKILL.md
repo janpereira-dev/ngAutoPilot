@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: performance
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - RxJS performance
@@ -78,6 +78,10 @@ readonly results$ = this.searchControl.valueChanges.pipe(
 );
 ```
 
+Define when a search becomes obsolete before choosing the operator order. Here, `switchMap` sees only debounced, distinct terms: the old request remains active during the 300 ms wait. If new input must invalidate it immediately, move the cancellation boundary to the raw-input stream and delay the new request inside that boundary. Define whether clearing input also clears results immediately; do not change that behavior as an incidental optimization.
+
+Keep recoverable request errors inside the inner request when later searches must continue. Test the fallback and a later success on the same subscription. Verify the 299/300 ms boundary, a second input resetting the wait, normalized arguments, duplicate suppression, stale response rejection, and request teardown. A call-count assertion alone does not prove a race is fixed.
+
 Use lifecycle-safe cleanup for imperative subscriptions:
 
 ```ts
@@ -124,10 +128,10 @@ Avoid using `Subject` as an improvised global state layer when a simpler observa
 - [ ] Sensitive or rapidly changing data is not cached by default.
 - [ ] Subscription cleanup matches the Angular version.
 - [ ] Error, loading, and empty states remain explicit.
+- [ ] Cancellation timing and empty-input behavior match the intended contract.
+- [ ] Tests distinguish the intended concurrency strategy and verify recovery after an error.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify stream-level performance and lifecycle risks.
 2. Choose operators based on cancellation, ordering, and concurrency.

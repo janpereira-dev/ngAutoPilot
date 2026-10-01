@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: forms
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - form validation
@@ -102,8 +102,6 @@ Avoid validators with side effects.
 - [ ] Validation logic is testable in isolation.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify validation rules and their scope.
 2. Recommend reusable validators or policy helpers.

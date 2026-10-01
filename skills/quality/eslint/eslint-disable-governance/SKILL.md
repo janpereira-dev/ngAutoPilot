@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: eslint
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - eslint disable governance
@@ -80,8 +80,6 @@ Avoid changing behavior accidentally while removing a disable.
 - [ ] Behavior is preserved.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Inventory suppressions.
 2. Classify their legitimacy.

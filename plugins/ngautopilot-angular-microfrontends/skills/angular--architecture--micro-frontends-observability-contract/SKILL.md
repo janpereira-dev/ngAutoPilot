@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - micro fronts observability
@@ -103,8 +103,6 @@ Avoid telemetry contracts that only exist in one remote and not the shell.
 - [ ] Release version is visible in support workflows.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify required telemetry events.
 2. Separate shell and remote observability concerns.

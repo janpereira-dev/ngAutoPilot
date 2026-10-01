@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: di
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - constructor DI
@@ -26,7 +26,7 @@ compatibility:
 
 Use this skill to review classes that inherit Angular DI or lifecycle behavior for Angular 15 hardening.
 
-## When to Use This Skill
+## When to Use
 
 - Base classes are used by components/directives.
 - Constructor DI or lifecycle hooks are inherited.

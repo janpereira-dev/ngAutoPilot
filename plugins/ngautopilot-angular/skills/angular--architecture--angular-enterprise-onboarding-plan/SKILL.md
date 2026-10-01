@@ -10,7 +10,7 @@ stack:
   - Nx
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - angular onboarding plan
@@ -108,8 +108,6 @@ Avoid treating onboarding as a one-time checklist instead of a progressive path.
 - [ ] Angular version constraints are explicit.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Define the onboarding phases.
 2. Identify repository-specific conventions.

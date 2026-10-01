@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "core.compatibility-router"
   ngautopilot-source: "skills/_core/compatibility-router/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -238,8 +238,6 @@ Recommendation: use @for with track for new code. Do not introduce NgFor for new
 ```
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Classify compatibility profile.
 2. Identify safe and unsafe APIs.

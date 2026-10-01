@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.layered-architecture-boundaries"
   ngautopilot-source: "skills/angular/architecture/layered-architecture-boundaries/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -156,8 +156,6 @@ Do not recommend broad folder reshuffles when a small boundary fix solves the re
 - [ ] Existing project validation commands are identified and used when available.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Detect Angular version, workspace style, and current architectural organization.
 2. Build a short layer inventory for the relevant feature, app, or libraries.

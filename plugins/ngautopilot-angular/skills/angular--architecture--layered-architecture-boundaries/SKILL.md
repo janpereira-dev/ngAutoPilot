@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - layered architecture
@@ -177,8 +177,6 @@ Do not recommend broad folder reshuffles when a small boundary fix solves the re
 - [ ] Existing project validation commands are identified and used when available.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Detect Angular version, workspace style, and current architectural organization.
 2. Build a short layer inventory for the relevant feature, app, or libraries.

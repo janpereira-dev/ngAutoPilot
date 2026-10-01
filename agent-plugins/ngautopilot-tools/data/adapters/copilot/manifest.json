@@ -1,0 +1,17 @@
+{
+  "id": "copilot",
+  "name": "GitHub Copilot",
+  "status": "adapter",
+  "scope": ["project"],
+  "paths": {
+    "project": ".github/copilot",
+    "user": "Documents/.github/copilot"
+  },
+  "formats": {
+    "skills": "markdown-directory",
+    "instructions": "copilot-instructions.md",
+    "agents": "markdown-directory"
+  },
+  "requirements": ["GitHub Copilot"],
+  "notes": "Project-scoped only; user-scope is best-effort."
+}

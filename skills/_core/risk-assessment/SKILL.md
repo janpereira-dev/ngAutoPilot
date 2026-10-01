@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: core
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - assess risk
@@ -211,8 +211,6 @@ Replace shared RxJS state service with Signals in a library consumed by unknown 
 ```
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Classify the change risk.
 2. Propose a small reversible plan.

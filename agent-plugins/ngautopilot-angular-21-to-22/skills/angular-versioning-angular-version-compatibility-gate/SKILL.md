@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.versioning.angular-version-compatibility-gate"
   ngautopilot-source: "skills/angular/versioning/angular-version-compatibility-gate/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -139,8 +139,6 @@ Dockerfile
 - [ ] Validation commands are listed.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Report detected Angular, TypeScript, RxJS, Node and tooling versions when available.
 2. Select a compatibility profile.

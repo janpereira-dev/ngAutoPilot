@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - micro frontends communication
@@ -126,8 +126,6 @@ Avoid communication patterns that cannot be traced in debugging or tests.
 - [ ] The chosen pattern is testable and observable.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Classify the communication need.
 2. Recommend the narrowest viable pattern.

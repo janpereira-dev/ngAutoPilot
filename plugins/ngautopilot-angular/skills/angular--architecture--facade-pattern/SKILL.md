@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - facade pattern
@@ -132,8 +132,6 @@ Avoid mixing UI formatting, API calls, permissions, and unrelated business domai
 - [ ] Signals are only exposed when the Angular version and project style support them.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify coupling between components and low-level services.
 2. Decide whether a facade creates real value.

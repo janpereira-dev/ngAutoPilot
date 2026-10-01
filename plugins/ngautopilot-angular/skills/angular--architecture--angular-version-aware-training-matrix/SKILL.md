@@ -10,7 +10,7 @@ stack:
   - Nx
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - angular version aware training
@@ -105,8 +105,6 @@ Avoid skipping migration or compatibility risk when the matrix spans several maj
 - [ ] The matrix is tied to project constraints.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Map Angular versions to teachable capabilities.
 2. Mark features as mandatory, optional, or blocked.

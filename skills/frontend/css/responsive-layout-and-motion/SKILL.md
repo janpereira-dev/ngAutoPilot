@@ -7,7 +7,7 @@ stack:
   - HTML
 category: styles
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - responsive layout
@@ -55,8 +55,6 @@ Use this skill when:
 - [ ] New browser-dependent CSS has a documented support decision or fallback.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Describe the component constraints and responsive states.
 2. Identify CSS features that need progressive enhancement or fallback.

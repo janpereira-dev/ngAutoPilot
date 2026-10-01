@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: templates
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - template diagnostics matrix
@@ -71,8 +71,6 @@ Avoid using the matrix to suppress diagnostics.
 - [ ] The result stays actionable.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Group diagnostics by root cause.
 2. Route each group to a fix strategy.

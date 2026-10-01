@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: signals
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - signals v16
@@ -61,8 +61,6 @@ Avoid treating `effect` as a substitute for stream orchestration.
 - [ ] RxJS still handles async flows.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Confirm Signals are version-appropriate.
 2. Recommend local-state patterns.

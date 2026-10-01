@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: zone
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - Zone.js
@@ -76,8 +76,6 @@ Do not use this skill when:
 - [ ] The interactive behavior was validated.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. A zone-boundary summary.
 2. The explicit change-detection choice.

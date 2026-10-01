@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: dependency-injection
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - dependency injection
@@ -433,8 +433,6 @@ Override the component provider or read the component-scoped service from fixtur
 ```
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Detect Angular version and DI architecture style.
 2. Identify the intended dependency lifecycle.

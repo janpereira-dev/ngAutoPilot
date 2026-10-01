@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.micro-frontends-shell-container-contract"
   ngautopilot-source: "skills/angular/architecture/micro-frontends-shell-container-contract/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -91,8 +91,6 @@ Avoid using the shell as a dumping ground for every shared helper.
 - [ ] The shell does not become a hidden monolith.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Inspect shell responsibilities.
 2. Separate composition from domain logic.

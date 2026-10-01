@@ -8,7 +8,7 @@ stack:
   - Node.js
 category: dto-mappers
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - node dto mapping
@@ -59,8 +59,6 @@ Avoid skipping validation when the payload is untrusted.
 - [ ] Mapping remains deterministic.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify Node DTO boundaries.
 2. Recommend validation plus mapping.

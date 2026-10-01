@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
@@ -17,6 +18,28 @@ test('generates pack-driven portable skill plugins without native manifest field
   assert.equal(manifest.skills, undefined);
   assert.match(manifest.$schema, /plugin\.schema\.json$/);
   assert.equal(validateAgentPlugins({ root }).errors.length, 0);
+});
+
+test('keeps the committed MCP bundle synchronized with the lock-resolved Zod dependency', () => {
+  const bundlePath = 'agent-plugins/ngautopilot-tools/bin/server.mjs';
+  const lock = JSON.parse(fs.readFileSync(path.join(root, 'package-lock.json'), 'utf8'));
+  const installedZod = JSON.parse(fs.readFileSync(path.join(root, 'node_modules/zod/package.json'), 'utf8'));
+  assert.equal(installedZod.version, lock.packages['node_modules/zod'].version);
+
+  syncAgentPlugins({ root });
+  assert.equal(
+    execFileSync('git', ['ls-files', '--error-unmatch', '--', bundlePath], { cwd: root, encoding: 'utf8' }).trim(),
+    bundlePath,
+  );
+  assert.deepEqual(
+    fs.readFileSync(path.join(root, bundlePath)),
+    execFileSync('git', ['show', `HEAD:${bundlePath}`], { cwd: root, maxBuffer: 8 * 1024 * 1024 }),
+  );
+  assert.doesNotThrow(() => execFileSync(
+    'git',
+    ['diff', '--exit-code', '--', bundlePath],
+    { cwd: root, stdio: 'pipe' },
+  ));
 });
 
 test('removes stale generated plugins and snapshots package manager metadata', () => {

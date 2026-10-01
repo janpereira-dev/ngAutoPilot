@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.micro-frontends-dependency-sharing-policy"
   ngautopilot-source: "skills/angular/architecture/micro-frontends-dependency-sharing-policy/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -73,8 +73,6 @@ Avoid letting bundle convenience override architectural clarity.
 - [ ] Shared configuration is documented and enforced.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify dependencies that are candidates for sharing.
 2. Flag over-sharing or bundle bloat risk.

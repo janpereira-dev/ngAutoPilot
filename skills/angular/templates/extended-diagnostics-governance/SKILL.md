@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: templates
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - extended diagnostics governance
@@ -89,8 +89,6 @@ Avoid mixing diagnostics policy with general lint style policy.
 - [ ] CI/build impact is understood.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Inspect compiler configuration.
 2. Classify current diagnostics policy.

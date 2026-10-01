@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "core.risk-assessment"
   ngautopilot-source: "skills/_core/risk-assessment/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -200,8 +200,6 @@ Replace shared RxJS state service with Signals in a library consumed by unknown 
 ```
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Classify the change risk.
 2. Propose a small reversible plan.

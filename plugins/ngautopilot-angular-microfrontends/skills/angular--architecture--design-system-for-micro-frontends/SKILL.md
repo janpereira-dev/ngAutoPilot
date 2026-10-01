@@ -10,7 +10,7 @@ stack:
   - Design System
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - design system for micro frontends
@@ -117,8 +117,6 @@ Avoid hidden coupling between the design system and remote data flows.
 - [ ] Remotes consume the design system consistently.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify the shared visual and interaction language.
 2. Separate tokens and base components from domain code.

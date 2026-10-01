@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: technical-debt
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - debt ledger
@@ -76,8 +76,6 @@ Avoid mixing debt cleanup with unrelated feature work.
 - [ ] No unrelated refactor was introduced.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Record the debt ledger entry.
 2. Clean only the safe portion.

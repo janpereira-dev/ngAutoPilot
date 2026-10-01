@@ -8,7 +8,7 @@ stack:
   - JavaScript
 category: performance
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - core web vitals
@@ -58,8 +58,6 @@ For Angular-specific budgets and framework optimizations, route to the existing 
 - [ ] Remaining uncertainty distinguishes lab and field evidence.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Summarize the user-path baseline and target.
 2. List contributors, changes, and expected trade-offs.

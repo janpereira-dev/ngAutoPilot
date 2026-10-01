@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "core.skill-router"
   ngautopilot-source: "skills/_core/skill-router/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -177,8 +177,6 @@ Secondary skill: core.compatibility-router
 ```
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Read the catalog.
 2. Select one primary skill.

@@ -1,5 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { REVIEW_PATHS } from '../lib/sage-review.mjs';
+import { isLocalOnlySourcePath } from '../lib/local-only.mjs';
+import { createRootGuard, assertNoSymlinkParents } from '../adapters/_shared/safe-fs.mjs';
 
 const repository = 'janpereira-dev/ngAutoPilot';
 const outputRoot = path.join('dist', 'publish');
@@ -52,28 +55,37 @@ const sites = [
   },
 ];
 
-fs.rmSync(outputRoot, { recursive: true, force: true });
+// Publish only the explicit review recipe, never arbitrary repository-root
+// additions. Release verification independently enforces mandatory scope.
+const source = createRootGuard(process.cwd());
+const contents = new Map();
+const collect = relative => {
+  if (isLocalOnlySourcePath(relative)) return;
+  const candidate = source.resolve(relative);
+  assertNoSymlinkParents(source, candidate);
+  const stat = fs.lstatSync(candidate, { throwIfNoEntry: false });
+  if (!stat) return;
+  if (stat.isSymbolicLink()) throw new Error(`publish source refuses symbolic links: ${relative}`);
+  if (stat.isDirectory()) for (const name of fs.readdirSync(candidate).sort()) collect(`${relative}/${name}`);
+  else if (stat.isFile()) contents.set(relative, fs.readFileSync(candidate));
+  else throw new Error(`publish source refuses special files: ${relative}`);
+};
+for (const relative of REVIEW_PATHS) collect(relative);
+if (!contents.has('catalog.json')) throw new Error('publish source requires the reviewed catalog');
+const output = source.resolve(outputRoot);
+assertNoSymlinkParents(source, output);
+if (fs.lstatSync(output, { throwIfNoEntry: false })?.isSymbolicLink()) throw new Error('publish output must not be a symbolic link');
+fs.rmSync(output, { recursive: true, force: true });
 fs.mkdirSync(outputRoot, { recursive: true });
 
 for (const site of sites) {
   const siteDir = path.join(outputRoot, site.slug);
   fs.mkdirSync(siteDir, { recursive: true });
 
-  for (const entry of fs.readdirSync('.')) {
-    if (entry === 'dist' || entry === '.git' || entry === 'node_modules') {
-      continue;
-    }
-
-    const sourcePath = path.join('.', entry);
-    const targetPath = path.join(siteDir, entry);
-
-    const stat = fs.statSync(sourcePath);
-    if (stat.isDirectory()) {
-      fs.cpSync(sourcePath, targetPath, { recursive: true, force: true });
-      continue;
-    }
-
-    fs.copyFileSync(sourcePath, targetPath);
+  for (const [relative, bytes] of contents) {
+    const targetPath = path.join(siteDir, relative);
+    fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+    fs.writeFileSync(targetPath, bytes);
   }
 
   const manifest = {
@@ -99,7 +111,6 @@ for (const site of sites) {
   fs.writeFileSync(path.join(siteDir, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
   fs.writeFileSync(path.join(siteDir, 'listing.md'), listing, 'utf8');
   fs.writeFileSync(path.join(siteDir, 'README.md'), buildBundleReadme(site), 'utf8');
-  fs.copyFileSync('catalog.json', path.join(siteDir, 'catalog.json'));
 }
 
 console.log(`Prepared publish bundles in ${toPosixPath(outputRoot)}`);

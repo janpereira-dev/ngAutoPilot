@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.micro-frontends-observability-contract"
   ngautopilot-source: "skills/angular/architecture/micro-frontends-observability-contract/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -83,8 +83,6 @@ Avoid telemetry contracts that only exist in one remote and not the shell.
 - [ ] Release version is visible in support workflows.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify required telemetry events.
 2. Separate shell and remote observability concerns.

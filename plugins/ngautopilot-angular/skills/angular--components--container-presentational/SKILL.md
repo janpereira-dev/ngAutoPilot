@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: components
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - container presentational
@@ -118,8 +118,6 @@ Avoid putting large business orchestration into a container template.
 - [ ] Tests can mock the presentational component or facade simply.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify current component responsibilities.
 2. Decide whether a split is justified.

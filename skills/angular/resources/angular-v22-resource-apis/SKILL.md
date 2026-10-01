@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: resources
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - resource
@@ -75,8 +75,6 @@ Do not use this skill when:
 - [ ] Tests still match the runtime behavior.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. A resource-API summary.
 2. The chosen async model.

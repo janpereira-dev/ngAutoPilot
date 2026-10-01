@@ -10,7 +10,7 @@ stack:
   - RxJS
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - shared data access
@@ -195,8 +195,6 @@ Avoid exposing app-specific environment or deployment details as hard-coded beha
 - [ ] The library is named to reflect a reusable contract.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Classify the library as shared data-access, feature, domain, or mixed.
 2. Inspect imports, injected dependencies, and public API shape.

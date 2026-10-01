@@ -2,13 +2,13 @@
 id: angular.upgrades.accessibility.angular-v22-headless-component-a11y-governance
 name: Angular v22 Headless Component A11y Governance
 description: >
-  Use this skill for Separate accessible interaction contracts from styling and design-system implementation. Use when Angular 22 work needs concern-first routing, explicit validation, and no invented APIs.
+  Separate accessible interaction contracts from styling and design-system implementation. For Angular 22 projects and 21-to-22 upgrade planning.
 stack:
   - Angular
   - TypeScript
 category: accessibility
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - headless component
@@ -32,7 +32,7 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 
 ## When to Use
 
-- The task specifically involves separate accessible interaction contracts from styling and design-system implementation.
+- The task is to separate accessible interaction contracts from styling and design-system implementation.
 - The project is on Angular 22 or planning the Angular 22 hop.
 - A narrower concern-first skill is better than a generic v22 baseline skill.
 
@@ -45,10 +45,6 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 ## Why This Matters
 
 Angular 22 changes accessibility / angular aria behavior enough that agents need a narrow checklist instead of a generic v22 bucket. The goal is to make the risk visible, testable, and reviewable.
-
-## Non-developer explanation
-
-This skill helps separate a real upgrade risk from general cleanup. It gives the team a clear reason for the work, the evidence to check, and the point where the change is safe to stop.
 
 ## Inputs Expected
 

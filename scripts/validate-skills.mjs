@@ -66,7 +66,7 @@ for (const file of skillFiles) {
   }
 
   for (const section of requiredSections) {
-    if (!content.includes(section)) {
+    if (!hasExactHeading(content, section)) {
       errors.push(`${file}: missing section "${section}"`);
     }
   }
@@ -181,4 +181,8 @@ function isMissing(value) {
 
 function toPosixPath(value) {
   return value.replaceAll(path.sep, '/');
+}
+
+function hasExactHeading(content, heading) {
+  return content.split(/\r?\n/).some((line) => line.trimEnd() === heading);
 }

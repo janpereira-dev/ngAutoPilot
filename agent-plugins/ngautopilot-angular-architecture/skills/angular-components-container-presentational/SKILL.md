@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.components.container-presentational"
   ngautopilot-source: "skills/angular/components/container-presentational/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -103,8 +103,6 @@ Avoid putting large business orchestration into a container template.
 - [ ] Tests can mock the presentational component or facade simply.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify current component responsibilities.
 2. Decide whether a split is justified.

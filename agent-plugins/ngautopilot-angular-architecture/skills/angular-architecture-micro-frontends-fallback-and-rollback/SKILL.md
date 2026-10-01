@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.micro-frontends-fallback-and-rollback"
   ngautopilot-source: "skills/angular/architecture/micro-frontends-fallback-and-rollback/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -83,8 +83,6 @@ Avoid fallback behavior that hides the fact that a remote is broken.
 - [ ] Recovery steps are documented.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify failure scenarios.
 2. Define fallback tiers.

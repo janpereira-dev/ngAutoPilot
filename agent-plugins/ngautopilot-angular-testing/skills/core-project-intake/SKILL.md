@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "core.project-intake"
   ngautopilot-source: "skills/_core/project-intake/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -169,8 +169,6 @@ Intake focus: Angular version, state libraries, affected feature folders, existi
 ```
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify the minimum project context needed.
 2. Report project type, tooling, and relevant constraints.

@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: sonarqube
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - sonar triage
@@ -71,8 +71,6 @@ Avoid fixing low-value smells before blockers.
 - [ ] Cleanup items are prioritized after blockers.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Triage Sonar findings.
 2. Separate blockers from cleanup.

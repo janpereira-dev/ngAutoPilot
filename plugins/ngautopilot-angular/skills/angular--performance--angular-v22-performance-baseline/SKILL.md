@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - performance
@@ -75,8 +75,6 @@ Do not use this skill when:
 - [ ] The result was revalidated.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. A measured performance summary.
 2. The chosen optimization.

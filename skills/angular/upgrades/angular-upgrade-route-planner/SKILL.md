@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: upgrades
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - Angular upgrade route
@@ -30,7 +30,7 @@ Use this skill to build the Angular upgrade route one major at a time and select
 
 This skill does not change code. It converts version evidence into an ordered hop plan and hands the next hop to the appropriate executor.
 
-## When to Use This Skill
+## When to Use
 
 Use this skill when:
 

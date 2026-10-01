@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - ngFor
@@ -99,8 +99,6 @@ Avoid track keys that change between renders, such as random values, timestamps,
 - [ ] List-local forms, child component state, and selection state are preserved after refresh.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Find Angular lists that lack stable identity tracking.
 2. Select the safest available item identifier.

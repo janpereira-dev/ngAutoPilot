@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: signals
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - signals state
@@ -93,8 +93,6 @@ Avoid mixing multiple state models without a reason.
 - [ ] The state boundary is explicit.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Classify the state lifetime and synchronicity.
 2. Recommend signal-based local state where appropriate.

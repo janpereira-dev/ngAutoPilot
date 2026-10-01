@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: eslint
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - eslint baseline hardening
@@ -75,8 +75,6 @@ Avoid forcing a strict baseline before the repo is ready.
 - [ ] The change is bounded and safe.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Inspect the lint baseline.
 2. Classify rule gaps.

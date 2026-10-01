@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - list rendering
@@ -101,8 +101,6 @@ Avoid index tracking for lists that reorder, filter, insert, or delete in the mi
 - [ ] Backend pagination is considered when frontend rendering is not the only bottleneck.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Detect whether the project uses legacy or modern Angular templates.
 2. Add `trackBy` or `@for track` using a stable identifier.

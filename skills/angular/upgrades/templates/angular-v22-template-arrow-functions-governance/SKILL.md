@@ -2,13 +2,13 @@
 id: angular.upgrades.templates.angular-v22-template-arrow-functions-governance
 name: Angular v22 Template Arrow Functions Governance
 description: >
-  Use this skill for Allow inline template arrow functions only when they are trivial and performance-safe. Use when Angular 22 work needs concern-first routing, explicit validation, and no invented APIs.
+  Allow inline template arrow functions only when they are trivial and performance-safe. For Angular 22 projects and 21-to-22 upgrade planning.
 stack:
   - Angular
   - TypeScript
 category: templates
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - arrow functions
@@ -32,7 +32,7 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 
 ## When to Use
 
-- The task specifically involves allow inline template arrow functions only when they are trivial and performance-safe.
+- The task is to allow inline template arrow functions only when they are trivial and performance-safe.
 - The project is on Angular 22 or planning the Angular 22 hop.
 - A narrower concern-first skill is better than a generic v22 baseline skill.
 
@@ -45,10 +45,6 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 ## Why This Matters
 
 Angular 22 changes templates / compiler behavior enough that agents need a narrow checklist instead of a generic v22 bucket. The goal is to make the risk visible, testable, and reviewable.
-
-## Non-developer explanation
-
-This skill helps separate a real upgrade risk from general cleanup. It gives the team a clear reason for the work, the evidence to check, and the point where the change is safe to stop.
 
 ## Inputs Expected
 

@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: no-dead-code
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - dead branches
@@ -67,8 +67,6 @@ Avoid broad refactors that are unrelated to the dead branch.
 - [ ] Tests still describe the intended behavior.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Prove the branch is dead.
 2. Remove it safely.

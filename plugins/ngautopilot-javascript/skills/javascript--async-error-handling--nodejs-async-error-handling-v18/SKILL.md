@@ -9,7 +9,7 @@ stack:
   - Node.js
 category: javascript
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - node async error handling
@@ -64,8 +64,6 @@ Avoid swallowing process-level failures that should stop the job.
 - [ ] Logs and exit codes are intentional.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Review Node-specific async failure boundaries.
 2. Recommend process-safe error handling.

@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: forms
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - ControlValueAccessor
@@ -25,7 +25,7 @@ compatibility:
 
 Use this skill to review custom `ControlValueAccessor` implementations for Angular 15 `setDisabledState` behavior.
 
-## When to Use This Skill
+## When to Use
 
 - The project contains custom CVAs.
 - Form controls have custom disabled behavior.

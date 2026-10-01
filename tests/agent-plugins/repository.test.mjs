@@ -5,10 +5,9 @@ import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
-import { createRepositoryTools, resolveAngularInstallation } from '../../lib/agent-plugins/repository.mjs';
+import { catalogQuality, createRepositoryTools } from '../../lib/agent-plugins/repository.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const packagedDataRoot = path.join(root, 'agent-plugins', 'ngautopilot-tools', 'data');
 
 test('searches catalog and resolves packs without writes', () => {
   const tools = createRepositoryTools({ root });
@@ -29,73 +28,82 @@ test('derives stack, route, compatibility, and upgrade data from repository file
   assert.throws(() => tools.upgradePlan({ from: 2, to: 3 }), /Angular 3/);
 });
 
-test('resolves a locked Angular snapshot through the CLI selection core without caller paths', (t) => {
-  const projectRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-mcp-angular-'));
-  t.after(() => fs.rmSync(projectRoot, { recursive: true, force: true }));
-  const snapshot = {
-    manifest: {
-      dependencies: {
-        '@angular/core': '^16.2.12',
-        '@angular/common': '^16.2.12',
-        typescript: '~5.1.6',
-      },
-    },
-    lockfile: {
-      kind: 'npm',
-      packages: {
-        '@angular/core': '16.2.12',
-        '@angular/common': '16.2.12',
-        typescript: '5.1.6',
-      },
-    },
-    workspace: { angularJson: true },
-  };
-  fs.writeFileSync(path.join(projectRoot, 'package.json'), JSON.stringify(snapshot.manifest));
-  fs.writeFileSync(path.join(projectRoot, 'package-lock.json'), JSON.stringify({
-    lockfileVersion: 3,
-    packages: Object.fromEntries(Object.entries(snapshot.lockfile.packages).map(([name, version]) => [`node_modules/${name}`, { version }])),
-  }));
-  fs.writeFileSync(path.join(projectRoot, 'angular.json'), '{}');
-
-  const cli = resolveAngularInstallation({ root, projectRoot, target: '16.2', profile: 'testing', capabilities: ['ui'] });
-  const mcp = createRepositoryTools({ root }).angularResolve({ snapshot, target: '16.2', profile: 'testing', capabilities: ['ui'] });
-
-  assert.deepEqual(
-    { target: mcp.target, profile: mcp.profile, capabilities: mcp.capabilities, included: mcp.included, excluded: mcp.excluded },
-    { target: cli.target, profile: cli.profile, capabilities: cli.capabilities, included: cli.included, excluded: cli.excluded },
-  );
-  assert.equal('projectRoot' in mcp, false);
-  assert.deepEqual(mcp.evidence.packageJson, { provenance: 'snapshot.manifest' });
-  assert.equal(mcp.evidence.lockfile.provenance, 'snapshot.lockfile');
-  assert.equal(mcp.evidence.workspace.provenance, 'snapshot.workspace');
-});
-
-test('resolves a snapshot from the packaged data root without caller paths', () => {
-  const result = createRepositoryTools({ root: packagedDataRoot }).angularResolve({
-    snapshot: {
-      manifest: { dependencies: { '@angular/core': '^16.2.12' } },
-      lockfile: { kind: 'npm', packages: { '@angular/core': '16.2.12' } },
-    },
-    target: 16,
-  });
-
-  assert.equal(result.target.major, 16);
-  assert.ok(result.included.some(({ id }) => id === 'ngautopilot-core'));
-  assert.equal('projectRoot' in result, false);
-  assert.deepEqual(result.evidence.packageJson, { provenance: 'snapshot.manifest' });
-});
-
-test('fails closed for unlocked or malformed Angular snapshots', () => {
+test('reports platform assets and deterministic content signals without semantic-quality claims', () => {
   const tools = createRepositoryTools({ root });
-  assert.throws(() => tools.angularResolve({
-    snapshot: {
-      manifest: { dependencies: { '@angular/core': '^16.2.12' } },
-      lockfile: { kind: 'npm', packages: {} },
-    },
-    target: 16,
-  }), /@angular\/core is not recorded in snapshot lockfile/);
-  assert.throws(() => tools.angularResolve({
-    snapshot: { manifest: { dependencies: { '@angular/core': '^16.2.12' } }, projectRoot: 'C:\\private' },
-    target: 16,
-  }), /Angular snapshot contains unsupported fields/);
+  const inventory = tools.platformInventory();
+  const quality = tools.catalogQuality();
+
+  assert.equal(inventory.skills.count, 413);
+  assert.equal(inventory.angular.unsupportedMajor.includes(3), true);
+  assert.equal(inventory.angular.upgradeHops.some(({ from, to }) => from === 2 && to === 4), true);
+  assert.equal(inventory.adapters.length, 10);
+  assert.equal(inventory.subagents.length, 8);
+  assert.ok(inventory.subagents.some(({ id }) => id === 'athenian-angular-architect'));
+  assert.equal(inventory.subagents.some(({ id }) => /^\d+-/.test(id)), false);
+  assert.equal(inventory.distribution.mcpServer.availability, 'npm-and-agent-plugin');
+  assert.equal(inventory.distribution.openaiPackage.availability, 'source-only');
+  const mirroredTools = createRepositoryTools({ root: path.join(root, 'agent-plugins', 'ngautopilot-tools', 'data') });
+  assert.deepEqual(mirroredTools.platformInventory().distribution, inventory.distribution);
+  assert.equal(quality.summary.skillCount, 413);
+  assert.match(quality.semanticEvaluation, /does not claim semantic value/);
+  assert.ok(quality.skills.every(({ signals }) => signals.requiredSections));
+});
+
+test('reports cached missing required sections and falls back to local source when detail is absent', (t) => {
+  const temporaryRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-catalog-quality-'));
+  t.after(() => fs.rmSync(temporaryRoot, { recursive: true, force: true }));
+  const legacySkillPath = path.join(temporaryRoot, 'skills', 'core', 'legacy-incomplete', 'SKILL.md');
+  fs.mkdirSync(path.dirname(legacySkillPath), { recursive: true });
+  fs.writeFileSync(legacySkillPath, `## Purpose
+
+Fixture.
+
+## When to Use
+
+Fixture.
+
+## Do Not
+
+Fixture.
+
+## Review Checklist
+
+- [ ] Fixture.
+
+## Expected Output
+
+Fixture.
+`);
+  fs.writeFileSync(path.join(temporaryRoot, 'catalog.json'), `${JSON.stringify({
+    skills: [
+      {
+        id: 'core.incomplete',
+        path: 'skills/core/incomplete/SKILL.md',
+        contentSignals: {
+          requiredSections: false,
+          missingRequiredSections: ['## Do'],
+          hasProcedure: false,
+          hasRisks: false,
+          wordCount: 12,
+        },
+      },
+      {
+        id: 'core.legacy-incomplete',
+        path: 'skills/core/legacy-incomplete/SKILL.md',
+        contentSignals: {
+          requiredSections: false,
+          hasProcedure: false,
+          hasRisks: false,
+          wordCount: 12,
+        },
+      },
+    ],
+  }, null, 2)}\n`);
+
+  const quality = catalogQuality(temporaryRoot);
+
+  assert.equal(quality.summary.reviewNeededCount, 2);
+  assert.deepEqual(quality.skills.find(({ id }) => id === 'core.incomplete').missingSections, ['## Do']);
+  assert.deepEqual(quality.skills.find(({ id }) => id === 'core.legacy-incomplete').missingSections, ['## Do']);
+  assert.deepEqual(quality.skills[0].reviewNeeded, ['missing-required-sections']);
 });

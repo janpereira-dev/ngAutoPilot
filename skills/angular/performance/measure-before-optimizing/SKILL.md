@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: performance
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - measure before optimizing
@@ -100,8 +100,6 @@ Avoid optimizing cold paths while the user-visible bottleneck is elsewhere.
 - [ ] Added complexity is justified by measurable benefit.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. State the symptom and available evidence.
 2. Identify missing measurements if evidence is weak.

@@ -9,7 +9,7 @@ stack:
   - Nx
 category: components
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - shared ui library
@@ -279,8 +279,6 @@ Avoid reimplementing low-level interaction behavior that Angular CDK already pro
 - [ ] Public API exports only reusable contracts.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Classify the library as shared UI, feature, data-access, domain, util, or mixed.
 2. Inspect imports, injected dependencies, and public API shape.

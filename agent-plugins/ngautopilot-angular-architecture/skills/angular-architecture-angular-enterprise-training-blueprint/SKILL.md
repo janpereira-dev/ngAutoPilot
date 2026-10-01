@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.angular-enterprise-training-blueprint"
   ngautopilot-source: "skills/angular/architecture/angular-enterprise-training-blueprint/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -174,8 +174,6 @@ Avoid producing a training plan that lacks artifacts or validation.
 - [ ] The next skills to invoke are identified.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify the target audience, Angular version, and training goal.
 2. Build a capability matrix for the team.

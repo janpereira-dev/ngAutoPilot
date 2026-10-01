@@ -2,13 +2,13 @@
 id: angular.upgrades.testing.angular-v22-signal-forms-testing
 name: Angular v22 Signal Forms Testing
 description: >
-  Use this skill for Test Signal Forms field state, validation, touched/dirty, errors, and submit behavior. Use when Angular 22 work needs concern-first routing, explicit validation, and no invented APIs.
+  Test Signal Forms field state, validation, touched/dirty, errors, and submit behavior. For Angular 22 projects and 21-to-22 upgrade planning.
 stack:
   - Angular
   - TypeScript
 category: testing
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - Signal Forms testing
@@ -32,7 +32,7 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 
 ## When to Use
 
-- The task specifically involves test signal forms field state, validation, touched/dirty, errors, and submit behavior.
+- The task is to test signal forms field state, validation, touched/dirty, errors, and submit behavior.
 - The project is on Angular 22 or planning the Angular 22 hop.
 - A narrower concern-first skill is better than a generic v22 baseline skill.
 
@@ -45,10 +45,6 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 ## Why This Matters
 
 Angular 22 changes testing behavior enough that agents need a narrow checklist instead of a generic v22 bucket. The goal is to make the risk visible, testable, and reviewable.
-
-## Non-developer explanation
-
-This skill helps separate a real upgrade risk from general cleanup. It gives the team a clear reason for the work, the evidence to check, and the point where the change is safe to stop.
 
 ## Inputs Expected
 

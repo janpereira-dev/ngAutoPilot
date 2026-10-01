@@ -9,9 +9,56 @@
 
 All notable changes to NgAutoPilot will be documented in this file.
 
+## 0.9.0 - 2026-09-17
+
+### Security
+
+- Pinned release workflow actions to immutable commit SHAs, disabled persisted checkout credentials, and reduced default workflow permissions to read-only.
+- Bound adapter installation sources to the declared package root, rejecting traversal, symlinked, and non-regular files before they can be read, copied, backed up, or restored.
+- Hardened pack and adapter manifest loading against path traversal and untrusted source-file inclusion.
+
+### Changed
+
+- Added major-minor Angular compatibility metadata so functional guards resolve from Angular 14.2 and Signals guidance resolves from Angular 16.
+- Resolver output now marks filtered selections as non-installable and displays the effective Angular target in human-readable CLI output.
+
+## 0.8.1 - 2026-09-16
+
+### Security
+
+- Replaced dynamic evaluation of downloaded Angular Can I Use data with a strict data-literal parser and sanitized the shipped CSV against spreadsheet formula interpretation.
+- Removed automatic Git hook configuration and the recursive Skill Lab cleanup command from the published package.
+- Added package-install coverage that verifies the public `ngautopilot` binary is linked for consumers.
+
+### Changed
+
+- Removed the unsupported `always-auth` input from the Node setup action and synchronized generated release metadata, catalogs, packs, plugins, marketplaces, and OpenAI submission assets to version `0.8.1`.
+
+## 0.8.0 - 2026-09-15
+
+### Added
+
+- Added fail-closed release checks for OpenAI package output parents, SemVer path inputs, base manifest contracts, and allowlisted public resource copying.
+- Expanded deterministic security scanning to every publishable UTF-8 text input, including top-level metadata, SVG assets, and nested source-snapshot directories.
+- Added regression coverage for symlinked output parents, invalid manifest types, NUL-bearing text files, and nested publishable content.
+
+### Changed
+
+- Updated the package, catalog, 413 source skills, packs, plugin bundles, Agent Plugins, marketplaces, and OpenAI submission packet to version `0.8.0`.
+- Updated package-lock metadata and generated Agent Plugin snapshots to match the release version.
+
 ## 0.6.0 - 2026-08-09
 
 ### Added
+
+- Added the reproducible `ngautopilot-skills` OpenAI public package source, a skills-only manifest, branding asset, bounded archive builder, read-only validation gate, and versioned submission packet.
+- Added required presentation metadata to all ten generated local Codex marketplace plugin manifests while preserving the ten separate bundles.
+- Added documented openai:validate and openai:pack release commands; validation is read-only and packing produces the local ZIP plus checksum without claiming OpenAI submission.
+
+### Changed
+
+- Updated the direct `zod` dependency to `4.5.4` for the release branch.
+- Corrected the Angular 12-to-13 source skill's mojibake quotation; generated bundles now inherit the fixed source text.
 
 - Added Agent Plugins 1.0 Preview generation for core, Angular architecture, Angular testing, and Angular 21-to-22 packs.
 - Added `ngautopilot-tools`, a bundled stdio MCP plugin with nine schema-validated read-only inspection tools.

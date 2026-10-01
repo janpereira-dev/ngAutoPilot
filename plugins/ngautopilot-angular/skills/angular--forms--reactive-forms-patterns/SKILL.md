@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: forms
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - reactive forms
@@ -106,8 +106,6 @@ Avoid side effects in validators.
 - [ ] The form does not own unrelated business orchestration.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Inspect the form workflow and state shape.
 2. Recommend a reactive form structure.

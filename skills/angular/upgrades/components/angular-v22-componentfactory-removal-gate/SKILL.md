@@ -2,13 +2,13 @@
 id: angular.upgrades.components.angular-v22-componentfactory-removal-gate
 name: Angular v22 ComponentFactory Removal Gate
 description: >
-  Use this skill for Remove ComponentFactoryResolver and ComponentFactory usage from dynamic component flows. Use when Angular 22 work needs concern-first routing, explicit validation, and no invented APIs.
+  Remove ComponentFactoryResolver and ComponentFactory usage from dynamic component flows. For Angular 22 projects and 21-to-22 upgrade planning.
 stack:
   - Angular
   - TypeScript
 category: components
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - ComponentFactoryResolver
@@ -32,7 +32,7 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 
 ## When to Use
 
-- The task specifically involves remove componentfactoryresolver and componentfactory usage from dynamic component flows.
+- The task is to remove componentfactoryresolver and componentfactory usage from dynamic component flows.
 - The project is on Angular 22 or planning the Angular 22 hop.
 - A narrower concern-first skill is better than a generic v22 baseline skill.
 
@@ -45,10 +45,6 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 ## Why This Matters
 
 Angular 22 changes components / host directives behavior enough that agents need a narrow checklist instead of a generic v22 bucket. The goal is to make the risk visible, testable, and reviewable.
-
-## Non-developer explanation
-
-This skill helps separate a real upgrade risk from general cleanup. It gives the team a clear reason for the work, the evidence to check, and the point where the change is safe to stop.
 
 ## Inputs Expected
 

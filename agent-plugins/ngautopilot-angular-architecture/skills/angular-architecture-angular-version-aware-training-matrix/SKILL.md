@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.angular-version-aware-training-matrix"
   ngautopilot-source: "skills/angular/architecture/angular-version-aware-training-matrix/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -85,8 +85,6 @@ Avoid skipping migration or compatibility risk when the matrix spans several maj
 - [ ] The matrix is tied to project constraints.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Map Angular versions to teachable capabilities.
 2. Mark features as mandatory, optional, or blocked.

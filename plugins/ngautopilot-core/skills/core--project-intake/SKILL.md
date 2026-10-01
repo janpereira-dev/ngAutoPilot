@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: core
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - project intake
@@ -179,8 +179,6 @@ Intake focus: Angular version, state libraries, affected feature folders, existi
 ```
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify the minimum project context needed.
 2. Report project type, tooling, and relevant constraints.

@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - pure pipe
@@ -110,8 +110,6 @@ Avoid memoization when the cache invalidation rules are unclear or memory growth
 - [ ] Memoization has clear cache keys and bounded lifetime.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Classify the transformation by purity, cost, and reuse.
 2. Select pure pipe, computed, memoization, or view model mapping.

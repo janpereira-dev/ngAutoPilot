@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - heavy template logic
@@ -113,8 +113,6 @@ When the project uses signals, prefer `computed` for local derived state; otherw
 - [ ] Tests cover changed derived values when behavior changes.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify expensive, impure, or repeated template logic.
 2. Choose a compatible replacement pattern.

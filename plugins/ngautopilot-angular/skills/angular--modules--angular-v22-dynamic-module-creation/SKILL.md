@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: modules
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - createNgModuleRef
@@ -74,8 +74,6 @@ Do not use this skill when:
 - [ ] Runtime behavior was validated.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. A dynamic-module summary.
 2. The replacement path.

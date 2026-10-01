@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.shared-domain-library-contract"
   ngautopilot-source: "skills/angular/architecture/shared-domain-library-contract/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -144,8 +144,6 @@ Avoid DTO shape leakage when a stable business concept is needed instead.
 - [ ] Nx tags and boundaries prevent infrastructure or UI dependencies from leaking in.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Classify the library as shared domain, feature, data-access, UI, or mixed.
 2. Identify leaked transport or UI concerns.

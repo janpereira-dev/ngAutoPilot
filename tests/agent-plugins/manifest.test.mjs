@@ -14,6 +14,7 @@ test('creates a closed Agent Plugins manifest', () => {
 
 test('rejects unsupported manifest fields and invalid names', () => {
   assert.match(validatePluginManifest({ $schema: 'x', name: 'bad--name' }).join('\n'), /invalid plugin name/);
+  assert.match(validatePluginManifest({ $schema: 'x', name: 123 }).join('\n'), /invalid plugin name/);
   assert.match(validatePluginManifest({ $schema: 'https://agent-plugins.org/schemas/1.0.0/plugin.schema.json', name: 'valid', skills: './skills' }).join('\n'), /unknown manifest field/);
 });
 

@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: testing
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - testing
@@ -75,8 +75,6 @@ Do not use this skill when:
 - [ ] The impacted suite passes again.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. A test-stability summary.
 2. The changed expectation or harness.

@@ -12,10 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
 
       - name: Set up Node
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
           node-version: 24
 
@@ -26,8 +28,18 @@ jobs:
         run: npm run review:sage:pack
 
       - name: Upload review packet
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: ngautopilot-sage-review-packet
           path: dist/review/sage
+          include-hidden-files: true
           if-no-files-found: error
+
+      - name: Download the packet from this run to verify transport completeness
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        with:
+          name: ngautopilot-sage-review-packet
+          path: dist/review/downloaded
+
+      - name: Verify every downloaded source byte including hidden instructions and workflows
+        run: node --input-type=module -e "import {execFileSync} from 'node:child_process'; import {verifySagePacket} from './lib/sage-review.mjs'; verifySagePacket({sourceRoot:process.cwd(),packetRoot:'dist/review/downloaded',commit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim()});"

@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "core.stack-version-detection"
   ngautopilot-source: "skills/_core/stack-version-detection/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -189,8 +189,6 @@ Avoid: introducing new NgFor code for new list rendering.
 ```
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Detect stack versions from repository evidence.
 2. Distinguish exact versions from ranges.

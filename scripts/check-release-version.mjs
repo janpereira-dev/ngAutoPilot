@@ -26,6 +26,9 @@ const errors = [];
 
 for (const entry of roots) {
   for (const file of findTextFiles(entry)) {
+    // Transitive dependency versions are not references to NgAutoPilot releases.
+    // Root lockfile identity is checked explicitly below; mirrored locks preserve it.
+    if (['package-lock.json', 'npm-shrinkwrap.json'].includes(path.basename(file))) continue;
     const content = fs.readFileSync(file, 'utf8');
     const matches = [...content.matchAll(forbiddenVersionPattern)];
 
@@ -39,6 +42,14 @@ for (const entry of roots) {
 const catalog = JSON.parse(fs.readFileSync('catalog.json', 'utf8'));
 if (catalog.version !== currentVersion) {
   errors.push(`catalog.json version ${catalog.version} does not match package.json ${currentVersion}`);
+}
+
+for (const file of ['package-lock.json', 'npm-shrinkwrap.json']) {
+  if (file === 'npm-shrinkwrap.json' && !fs.existsSync(file)) continue;
+  const lockfile = JSON.parse(fs.readFileSync(file, 'utf8'));
+  if (lockfile.version !== currentVersion || lockfile.packages?.['']?.version !== currentVersion) {
+    errors.push(`${file} root version must match ${currentVersion}`);
+  }
 }
 
 for (const skill of catalog.skills ?? []) {

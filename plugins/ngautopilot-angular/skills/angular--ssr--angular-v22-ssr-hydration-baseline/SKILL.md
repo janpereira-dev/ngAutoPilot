@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: ssr
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - SSR
@@ -75,8 +75,6 @@ Do not use this skill when:
 - [ ] Server transport is on the supported path.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. An SSR and hydration summary.
 2. The changed server behavior.

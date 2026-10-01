@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: core
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - detect stack version
@@ -200,8 +200,6 @@ Avoid: introducing new NgFor code for new list rendering.
 ```
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Detect stack versions from repository evidence.
 2. Distinguish exact versions from ranges.

@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: versioning
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - Angular version compatibility
@@ -136,8 +136,6 @@ Avoid using migration syntax in shared libraries consumed by older Angular apps.
 - [ ] The recommendation includes a migration path when modern APIs are not available.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Report detected Angular, TypeScript, RxJS, Node, and tooling versions when available.
 2. Select a compatibility profile.

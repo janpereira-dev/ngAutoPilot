@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: no-dead-code
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - unused exports
@@ -72,8 +72,6 @@ Avoid broad API rewrites while cleaning one export.
 - [ ] Barrel behavior is preserved or updated safely.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Verify usage.
 2. Confirm API impact.

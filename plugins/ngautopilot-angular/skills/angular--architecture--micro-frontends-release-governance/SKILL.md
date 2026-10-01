@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - micro frontends release governance
@@ -103,8 +103,6 @@ Avoid approving releases only on the basis of build success.
 - [ ] The release policy matches the actual team topology.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify the release model.
 2. Check ownership and version policy.

@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - Angular performance
@@ -91,8 +91,6 @@ Avoid recommending `@for`, `@defer`, signals, or `takeUntilDestroyed` as mandato
 - [ ] Broad refactors are deferred unless the evidence justifies them.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify the project version and performance symptom.
 2. Select one primary performance skill and optional secondary skills.

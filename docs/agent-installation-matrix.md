@@ -1,4 +1,7 @@
-# Agent Installation Matrix
+# Agent installation matrix
+
+> Legacy install layouts are not the native export contract. See [adapter maintenance](adapter-maintenance.md) for the current source-backed export paths and explicit host-verification limits. No matrix entry alone proves runtime discovery.
+
 
 <!-- docs:navigation:start -->
 [Español](agent-installation-matrix.es.md) · [Map](README.md) · [Home](../README.md)
@@ -32,13 +35,13 @@ For a multi-major migration, install and validate each named hop in order. This 
 | GitHub Copilot | `copilot` | adapter | `.github/copilot/` | `copilot-instructions.md` |
 | Cursor | `cursor` | adapter | `.cursor/` | `.cursorrules` |
 | Gemini CLI | `gemini` | adapter | `.gemini/` | `GEMINI.md` |
-| OpenCode | `opencode` | native | `.opencode/` | `opencode.json` |
-| OpenClaw | `openclaw` | experimental | `.openclaw/` | `openclaw.json` |
+| OpenCode | `opencode` | native | `.opencode/` | `AGENTS.md` inside `.opencode/` (legacy) |
+| OpenClaw | `openclaw` | experimental | `.openclaw/` | `AGENTS.md` inside `.openclaw/` (legacy) |
 | Pi | `pi` | unverified | `.pi/` | `PI.md` |
 | Hermes Agent | `hermes` | unverified | `.hermes/` | `HERMES.md` |
 | Generic Markdown client | `generic` | export-only | chosen export directory | `AGENTS.md` |
 
-Treat `ngautopilot adapters --json` as the machine-readable source of truth. Experimental and unverified adapters require host-specific verification before team-wide use.
+Treat `ngautopilot adapters --json` as the machine-readable **legacy installer** descriptor; native export paths are recorded separately in `adapters/native-layouts.json`. Experimental and unverified adapters require host-specific verification before team-wide use.
 
 ## Codex paths and MCP
 

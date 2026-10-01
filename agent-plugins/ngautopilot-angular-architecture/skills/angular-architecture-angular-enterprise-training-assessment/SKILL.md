@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.angular-enterprise-training-assessment"
   ngautopilot-source: "skills/angular/architecture/angular-enterprise-training-assessment/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -92,8 +92,6 @@ Avoid using the assessment to justify unnecessary training complexity.
 - [ ] The result routes to follow-up skills or actions.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify capability gaps and current maturity.
 2. Separate foundational, intermediate, and enterprise-level gaps.

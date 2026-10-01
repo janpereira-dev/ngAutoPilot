@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.testing.angular-component-testing-patterns"
   ngautopilot-source: "skills/angular/testing/angular-component-testing-patterns/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -38,11 +38,23 @@ Use this skill when:
 Assert the rendered DOM and event emission:
 
 ```ts
-it("emits save when clicked", () => {
-  component.save.emit();
-  expect(spy).toHaveBeenCalled();
+it('emits save when the user clicks the button', () => {
+  const onSave = jest.fn();
+  const outputSubscription = fixture.componentInstance.save.subscribe(onSave);
+  try {
+    fixture.detectChanges();
+    const button: HTMLButtonElement | null =
+      fixture.nativeElement.querySelector('button[data-testid="save"]');
+    if (!button) throw new Error('Save button was not rendered');
+    button.click();
+    expect(onSave).toHaveBeenCalledTimes(1);
+  } finally {
+    outputSubscription.unsubscribe();
+  }
 });
 ```
+
+This example assumes an existing Jest fixture and a save button with the shown test ID. Use the project's equivalent spy API in other runners; do not migrate the runner to use the example. Calling `save.emit()` directly would bypass the template event binding and leave a broken click handler undetected.
 
 Use a host component when parent-driven input/output behavior matters.
 
@@ -69,8 +81,6 @@ Avoid duplicate assertions that do not add contract value.
 - [ ] The test focuses on public contract behavior.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify the component contract.
 2. Choose a suitable test style.

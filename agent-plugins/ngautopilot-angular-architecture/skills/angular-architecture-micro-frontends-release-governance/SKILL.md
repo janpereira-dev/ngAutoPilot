@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.micro-frontends-release-governance"
   ngautopilot-source: "skills/angular/architecture/micro-frontends-release-governance/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -83,8 +83,6 @@ Avoid approving releases only on the basis of build success.
 - [ ] The release policy matches the actual team topology.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify the release model.
 2. Check ownership and version policy.

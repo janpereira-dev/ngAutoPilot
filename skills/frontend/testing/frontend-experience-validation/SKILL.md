@@ -8,7 +8,7 @@ stack:
   - Accessibility
 category: testing
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - visual regression
@@ -56,8 +56,6 @@ Use this skill when:
 - [ ] Evidence includes failures, mitigations, and remaining gaps.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. State the journey, risks, and chosen validation layers.
 2. List detected capabilities and the exact commands or manual procedure used.

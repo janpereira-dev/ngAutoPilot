@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.services.single-responsibility-services"
   ngautopilot-source: "skills/angular/services/single-responsibility-services/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -120,8 +120,6 @@ Avoid splitting into many files if the service is already cohesive and small.
 - [ ] The split is incremental and preserves behavior.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify current service responsibilities.
 2. Highlight unrelated methods and dependencies.

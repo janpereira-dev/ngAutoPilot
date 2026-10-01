@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - module federation runtime
@@ -114,8 +114,6 @@ Avoid shipping runtime federation without smoke tests and rollback strategy.
 - [ ] The runtime boundary is smaller than the application boundary it replaces.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify the remote runtime surface.
 2. Review shared dependency policy and versioning.

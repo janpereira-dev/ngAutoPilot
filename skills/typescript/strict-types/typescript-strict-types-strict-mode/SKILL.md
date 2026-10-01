@@ -7,7 +7,7 @@ stack:
   - TypeScript
 category: strict-types
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - strict mode typescript
@@ -59,8 +59,6 @@ Avoid broad type assertions that bypass compiler value.
 - [ ] Boundary contracts are explicit.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Confirm strict compiler mode.
 2. Recommend strict-safe narrowing patterns.

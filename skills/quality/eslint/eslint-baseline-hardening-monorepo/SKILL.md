@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: eslint
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - eslint baseline hardening monorepo
@@ -63,8 +63,6 @@ Avoid ignoring project-specific quality boundaries.
 - [ ] The baseline change is phased.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Inspect the workspace lint setup.
 2. Identify shared versus local rules.

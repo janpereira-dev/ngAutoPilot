@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.testing.micro-frontends-e2e-validation"
   ngautopilot-source: "skills/angular/testing/micro-frontends-e2e-validation/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -97,8 +97,6 @@ Avoid shipping runtime federation without at least smoke coverage for each integ
 - [ ] The E2E suite is small enough to run regularly.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify integration boundaries that need coverage.
 2. Propose a layered E2E strategy.

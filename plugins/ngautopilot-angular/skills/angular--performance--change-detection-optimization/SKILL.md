@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - change detection optimization
@@ -106,8 +106,6 @@ Avoid recommending `OnPush` as a magic solution for unclear state ownership or b
 - [ ] Tests or manual checks cover the affected rendering path.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Diagnose the change detection issue before changing code.
 2. Select the compatible pattern for the detected Angular version.

@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: forms
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - reactive forms v14
@@ -61,8 +61,6 @@ Avoid version-agnostic recommendations that ignore Angular 14+ capabilities.
 - [ ] Mapping is separate from form state.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Confirm typed forms are available.
 2. Recommend typed reactive form patterns.

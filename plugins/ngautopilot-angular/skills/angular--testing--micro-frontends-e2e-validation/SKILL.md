@@ -10,7 +10,7 @@ stack:
   - Testing
 category: testing
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - micro frontends e2e
@@ -117,8 +117,6 @@ Avoid shipping runtime federation without at least smoke coverage for each integ
 - [ ] The E2E suite is small enough to run regularly.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify integration boundaries that need coverage.
 2. Propose a layered E2E strategy.

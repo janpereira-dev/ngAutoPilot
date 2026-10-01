@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.angular-enterprise-onboarding-plan"
   ngautopilot-source: "skills/angular/architecture/angular-enterprise-onboarding-plan/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -88,8 +88,6 @@ Avoid treating onboarding as a one-time checklist instead of a progressive path.
 - [ ] Angular version constraints are explicit.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Define the onboarding phases.
 2. Identify repository-specific conventions.

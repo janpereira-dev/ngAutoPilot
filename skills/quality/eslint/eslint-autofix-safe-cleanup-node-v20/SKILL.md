@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: eslint
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - eslint autofix node
@@ -58,8 +58,6 @@ Avoid mixing Node behavior changes with lint cleanup.
 - [ ] The diff is bounded.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Decide whether autofix is safe in Node code.
 2. Apply only mechanical changes.

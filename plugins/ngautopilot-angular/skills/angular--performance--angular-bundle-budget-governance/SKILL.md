@@ -6,7 +6,7 @@ stack:
   - Angular
 category: performance
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - bundle budget
@@ -18,7 +18,7 @@ triggers:
 
 ## Purpose
 
-Use this skill to handle Angular performance governance for angular bundle budget governance in Angular projects without mixing it with unrelated migration, modernization, or cleanup work.
+Govern Angular build budgets and prevent silent performance regressions.
 
 This skill keeps the performance decision explicit: identify the current state, choose the smallest safe action, document compatibility evidence, and leave a validation path that another agent or maintainer can repeat.
 
@@ -74,9 +74,7 @@ Changing framework version, architecture, tests, and cleanup policy in one unrev
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
-1. State the angular.performance.angular-bundle-budget-governance diagnosis in one concise paragraph.
+1. Summarize the finding in one concise paragraph.
 2. List the files, APIs, or project boundaries affected.
 3. Provide the smallest safe implementation or decision.
 4. Explain compatibility and risk assumptions.

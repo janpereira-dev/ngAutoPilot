@@ -1,11 +1,11 @@
 ---
 name: angular-versioning-angular-v22-roadmap-alignment
-description: "Use this skill for Align Angular 22 recommendations with official roadmap status and avoid premature adoption of unfinished work. Use when Angular 22 work needs concern-first routing, explicit validation, and no invented APIs."
+description: "Align Angular 22 recommendations with official roadmap status and avoid premature adoption of unfinished work. For Angular 22 projects and 21-to-22 upgrade planning."
 license: MIT
 metadata:
   ngautopilot-id: "angular.versioning.angular-v22-roadmap-alignment"
   ngautopilot-source: "skills/angular/versioning/angular-v22-roadmap-alignment/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -19,7 +19,7 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 
 ## When to Use
 
-- The task specifically involves align angular 22 recommendations with official roadmap status and avoid premature adoption of unfinished work.
+- The task is to align angular 22 recommendations with official roadmap status and avoid premature adoption of unfinished work.
 - The project is on Angular 22 or planning the Angular 22 hop.
 - A narrower concern-first skill is better than a generic v22 baseline skill.
 
@@ -32,10 +32,6 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 ## Why This Matters
 
 Angular 22 changes versioning behavior enough that agents need a narrow checklist instead of a generic v22 bucket. The goal is to make the risk visible, testable, and reviewable.
-
-## Non-developer explanation
-
-This skill helps separate a real upgrade risk from general cleanup. It gives the team a clear reason for the work, the evidence to check, and the point where the change is safe to stop.
 
 ## Inputs Expected
 

@@ -6,19 +6,22 @@ stack:
   - Angular
 category: forms
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - typed forms
   - forms governance
   - null safety
+compatibility:
+  angular:
+    min: "14"
 ---
 
 # Angular Typed Forms Governance
 
 ## Purpose
 
-Use this skill to handle Angular forms governance for angular typed forms governance in Angular projects without mixing it with unrelated migration, modernization, or cleanup work.
+Govern the move to typed forms with a bounded migration plan and explicit rollback point.
 
 This skill keeps the forms decision explicit: identify the current state, choose the smallest safe action, document compatibility evidence, and leave a validation path that another agent or maintainer can repeat.
 
@@ -74,9 +77,7 @@ Changing framework version, architecture, tests, and cleanup policy in one unrev
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
-1. State the angular.forms.angular-typed-forms-governance diagnosis in one concise paragraph.
+1. Summarize the finding in one concise paragraph.
 2. List the files, APIs, or project boundaries affected.
 3. Provide the smallest safe implementation or decision.
 4. Explain compatibility and risk assumptions.

@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - Angular performance audit
@@ -107,8 +107,6 @@ Avoid proposing syntax that the Angular version cannot support.
 - [ ] The selected follow-up skill is the smallest existing skill that matches the evidence.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Provide a concise diagnosis.
 2. List findings in priority order.

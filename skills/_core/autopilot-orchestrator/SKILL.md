@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: core
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - autopilot workflow
@@ -188,8 +188,6 @@ Route: project-intake -> skill-router -> angular.architecture.angular-patterns-s
 ```
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify the task type and project context.
 2. Select the smallest applicable skill.

@@ -10,7 +10,7 @@ stack:
   - Testing
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - angular enterprise primitives
@@ -94,8 +94,6 @@ Avoid mixing several reactive models without a documented policy.
 - [ ] Architecture review is included.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Recommend the right primitive sequence.
 2. Gate adoption by Angular version.

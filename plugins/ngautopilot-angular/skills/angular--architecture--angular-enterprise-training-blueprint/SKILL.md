@@ -10,7 +10,7 @@ stack:
   - Nx
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - angular enterprise training
@@ -195,8 +195,6 @@ Avoid producing a training plan that lacks artifacts or validation.
 - [ ] The next skills to invoke are identified.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify the target audience, Angular version, and training goal.
 2. Build a capability matrix for the team.

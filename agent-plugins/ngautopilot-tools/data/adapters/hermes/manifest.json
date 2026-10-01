@@ -1,0 +1,17 @@
+{
+  "id": "hermes",
+  "name": "Hermes Agent",
+  "status": "unverified",
+  "scope": ["project"],
+  "paths": {
+    "project": ".hermes",
+    "user": ".hermes"
+  },
+  "formats": {
+    "skills": "markdown-directory",
+    "instructions": "HERMES.md",
+    "agents": "markdown-directory"
+  },
+  "requirements": [],
+  "notes": "Status unverified until the official Hermes agent documents skill loading."
+}

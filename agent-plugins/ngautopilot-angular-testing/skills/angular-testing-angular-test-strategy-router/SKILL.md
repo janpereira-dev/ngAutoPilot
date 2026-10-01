@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.testing.angular-test-strategy-router"
   ngautopilot-source: "skills/angular/testing/angular-test-strategy-router/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -13,67 +13,41 @@ metadata:
 
 ## Purpose
 
-Use this skill to handle Angular test strategy for angular test strategy router in Angular projects without mixing it with unrelated migration, modernization, or cleanup work.
-
-This skill keeps the testing decision explicit: identify the current state, choose the smallest safe action, document compatibility evidence, and leave a validation path that another agent or maintainer can repeat.
+Choose a testing path that fits the existing Angular project. Keep a local test fix separate from a deliberate runner migration.
 
 ## When to Use
 
-Use this skill when:
+- The team needs to choose or migrate between Vitest, Jest, and Karma.
+- The current runner or async testing model is unclear.
+- A proposed testing change depends on Angular, Zone.js, or runner compatibility.
 
-- the task mentions angular test strategy router, test strategy, TestBed, component tests, or validation gates;
-- an Angular codebase needs a scoped testing decision before implementation;
-- compatibility, risk, or ownership is unclear and should be made explicit;
-- the output must be reusable by another agent, reviewer, or release owner.
+For a single failing assertion in a known runner, use its focused testing guidance rather than reopening the runner decision.
 
 ## Do
 
-- Inspect the current Angular version, TypeScript version, build tooling, and affected files before recommending changes.
-- Keep the change bounded to the requested workflow and preserve separate upgrade, modernization, and cleanup tracks.
-- Prefer documented Angular APIs and local project conventions over new abstractions.
-- Record assumptions, compatibility evidence, validation commands, and rollback notes.
-- Add or update focused tests when the workflow changes runtime behavior.
+Inspect the resolved Angular version, package and lockfile, test scripts, runner configuration, setup files, and representative specs. Record whether the suite depends on Zone.js, runner-specific mocks, snapshots, or Angular async helpers.
 
-Recommended workflow:
+For a local fix, preserve the runner and use its existing assertion and mock APIs. For an explicitly requested migration, verify the target's compatibility and list the affected setup, test helpers, reporting, and CI integration before changing configuration.
 
-```txt
-1. Identify the affected Angular feature area and version constraints.
-2. Classify the change as migration, modernization, architecture, validation, or cleanup.
-3. Apply the smallest reversible implementation or write the decision artifact.
-4. Validate with the project test, lint, build, or review command that matches the risk.
-5. Summarize remaining risks and the next safe checkpoint.
-```
+Choose one owner of virtual time per test: the runner's fake timers, Angular async helpers where supported, or RxJS `TestScheduler`. Check the installed setup before recommending a helper. Do not layer several clock mechanisms together to make a test pass.
+
+For timed or concurrent streams, require tests of the public temporal contract: boundaries, debounce reset, obsolete work, cleanup, and continued operation after an error. Route Jest examples to the existing Jest skill; do not install Jest into a Vitest or Karma project solely to copy an example.
 
 ## Do Not
 
-- Do not combine this workflow with an unrelated Angular major-version hop.
-- Do not invent compatibility data, CLI flags, or framework behavior.
-- Do not introduce dependencies unless the local implementation requires them.
-- Do not rewrite a complete architecture layer when a targeted boundary or decision is enough.
-- Do not mark the work complete without a concrete validation or a clear reason validation could not run.
-
-Avoid:
-
-```txt
-Changing framework version, architecture, tests, and cleanup policy in one unreviewable step.
-```
+- Do not replace the runner just because another runner is newer.
+- Do not prescribe Jest mock syntax for every Angular project.
+- Do not mix a runner migration with an unrelated Angular major-version hop.
+- Do not count compilation or structural skill validation as proof that the target suite runs.
 
 ## Review Checklist
 
-- [ ] The Angular and tooling versions are known or explicitly called out as unknown.
-- [ ] The testing scope is isolated from unrelated work.
-- [ ] The recommendation uses documented APIs or existing project patterns.
-- [ ] Compatibility evidence is included when version-specific behavior matters.
-- [ ] Tests, build, lint, or manual validation steps are listed.
-- [ ] Rollback or follow-up notes exist for risky changes.
+- [ ] Resolved Angular and runner versions, configuration, and async setup are known.
+- [ ] A local fix or a deliberate migration has been selected explicitly.
+- [ ] Existing test conventions are preserved unless migration is requested.
+- [ ] Each async test has one clock owner and a cleanup path.
+- [ ] Validation uses available project scripts and records unavailable checks.
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
-1. State the angular.testing.angular-test-strategy-router diagnosis in one concise paragraph.
-2. List the files, APIs, or project boundaries affected.
-3. Provide the smallest safe implementation or decision.
-4. Explain compatibility and risk assumptions.
-5. Provide validation commands or review checks.
-6. Separate follow-up work from the current scope.
+State the selected runner path and why it fits the project. For a fix, identify the focused testing guidance and the check to run. For a migration, describe compatibility evidence, setup changes, representative suite results, and any remaining blockers. Do not imply that a recommended migration has already been executed.

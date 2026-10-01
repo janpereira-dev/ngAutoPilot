@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: sonarqube
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - sonar monorepo triage
@@ -62,8 +62,6 @@ Avoid mixing one project's cleanup with workspace-wide triage.
 - [ ] Blockers are prioritized.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify workspace-wide blockers.
 2. Separate local cleanup.

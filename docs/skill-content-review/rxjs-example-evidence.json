@@ -1,0 +1,111 @@
+{
+  "date": "2026-09-30",
+  "scope": "The exact TypeScript fence in the Jest search reference; no Angular TestBed, HTTP transport, Stryker, or agent-runtime validation.",
+  "versions": {
+    "node": "v24.17.0",
+    "rxjs": "7.8.2",
+    "jest": "30.2.0",
+    "typescript": "5.9.3"
+  },
+  "exampleSha256": "0d0195f2d2b895de8bddedf9a1bbd82c56088499064ba61a0d52fdec90a02c29",
+  "strictTypecheck": "PASS",
+  "baseline": {
+    "passedTests": 7,
+    "failedTests": 0,
+    "tests": [
+      {
+        "name": "returns empty results without calling the API for a trimmed empty term",
+        "status": "passed"
+      },
+      {
+        "name": "waits until 300 ms and sends the normalized argument",
+        "status": "passed"
+      },
+      {
+        "name": "restarts the debounce wait when another term arrives",
+        "status": "passed"
+      },
+      {
+        "name": "does not repeat a request for the same normalized term",
+        "status": "passed"
+      },
+      {
+        "name": "tears down the obsolete request and ignores its late response",
+        "status": "passed"
+      },
+      {
+        "name": "keeps the old request active until the new term passes the debounce",
+        "status": "passed"
+      },
+      {
+        "name": "emits a fallback and accepts the next search on the same subscription",
+        "status": "passed"
+      }
+    ]
+  },
+  "manualCounterexamples": [
+    {
+      "name": "no-normalization",
+      "type": "manual counterexample, not an automatic Stryker mutation",
+      "passedTests": 4,
+      "failedTests": 3,
+      "detectedBy": [
+        "returns empty results without calling the API for a trimmed empty term",
+        "waits until 300 ms and sends the normalized argument",
+        "does not repeat a request for the same normalized term"
+      ]
+    },
+    {
+      "name": "zero-delay",
+      "type": "manual counterexample, not an automatic Stryker mutation",
+      "passedTests": 3,
+      "failedTests": 4,
+      "detectedBy": [
+        "waits until 300 ms and sends the normalized argument",
+        "restarts the debounce wait when another term arrives",
+        "tears down the obsolete request and ignores its late response",
+        "keeps the old request active until the new term passes the debounce"
+      ]
+    },
+    {
+      "name": "no-debounce",
+      "type": "manual counterexample, not an automatic Stryker mutation",
+      "passedTests": 3,
+      "failedTests": 4,
+      "detectedBy": [
+        "waits until 300 ms and sends the normalized argument",
+        "restarts the debounce wait when another term arrives",
+        "tears down the obsolete request and ignores its late response",
+        "keeps the old request active until the new term passes the debounce"
+      ]
+    },
+    {
+      "name": "no-deduplication",
+      "type": "manual counterexample, not an automatic Stryker mutation",
+      "passedTests": 6,
+      "failedTests": 1,
+      "detectedBy": [
+        "does not repeat a request for the same normalized term"
+      ]
+    },
+    {
+      "name": "concurrent-inner-requests",
+      "type": "manual counterexample, not an automatic Stryker mutation",
+      "passedTests": 5,
+      "failedTests": 2,
+      "detectedBy": [
+        "tears down the obsolete request and ignores its late response",
+        "keeps the old request active until the new term passes the debounce"
+      ]
+    },
+    {
+      "name": "outer-error-fallback",
+      "type": "manual counterexample, not an automatic Stryker mutation",
+      "passedTests": 6,
+      "failedTests": 1,
+      "detectedBy": [
+        "emits a fallback and accepts the next search on the same subscription"
+      ]
+    }
+  ]
+}

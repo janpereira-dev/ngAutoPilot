@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.testing.angular-v22-testing-stability"
   ngautopilot-source: "skills/angular/testing/angular-v22-testing-stability/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -63,8 +63,6 @@ Do not use this skill when:
 - [ ] The impacted suite passes again.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. A test-stability summary.
 2. The changed expectation or harness.

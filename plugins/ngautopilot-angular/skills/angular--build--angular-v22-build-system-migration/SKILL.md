@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: build
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - build system
@@ -75,8 +75,6 @@ Do not use this skill when:
 - [ ] Any removed CLI entry points were addressed.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. A build-migration summary.
 2. The updated builder path.

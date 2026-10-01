@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - micro fronts fallback
@@ -103,8 +103,6 @@ Avoid fallback behavior that hides the fact that a remote is broken.
 - [ ] Recovery steps are documented.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify failure scenarios.
 2. Define fallback tiers.

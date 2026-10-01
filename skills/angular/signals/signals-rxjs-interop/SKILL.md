@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: signals
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - signals rxjs interop
@@ -89,8 +89,6 @@ Avoid using experimental APIs as a default unless the project has explicitly acc
 - [ ] The Angular version supports the APIs being used.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify where interop is actually needed.
 2. Define the conversion boundary.

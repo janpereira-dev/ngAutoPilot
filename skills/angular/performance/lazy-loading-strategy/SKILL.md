@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - lazy loading
@@ -113,8 +113,6 @@ Avoid assuming a component inside `@defer` is actually split if it is also refer
 - [ ] Bundle output is measured after the change.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify what is loaded at startup and why.
 2. Select route, component, visual defer, or preloading strategy.

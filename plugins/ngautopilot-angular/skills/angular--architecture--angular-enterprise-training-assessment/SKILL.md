@@ -10,7 +10,7 @@ stack:
   - Nx
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - angular training assessment
@@ -112,8 +112,6 @@ Avoid using the assessment to justify unnecessary training complexity.
 - [ ] The result routes to follow-up skills or actions.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify capability gaps and current maturity.
 2. Separate foundational, intermediate, and enterprise-level gaps.

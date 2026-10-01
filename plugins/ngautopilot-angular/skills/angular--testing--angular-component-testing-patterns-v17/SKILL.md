@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: testing
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - component testing v17
@@ -61,8 +61,6 @@ Avoid coupling tests to internals.
 - [ ] Host testing is used when helpful.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Confirm the 17+ baseline.
 2. Recommend contract-focused component tests.

@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.nx-bounded-context-contract"
   ngautopilot-source: "skills/angular/architecture/nx-bounded-context-contract/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -139,8 +139,6 @@ Avoid putting feature-specific exceptions into the global rule unless they are d
 - [ ] Exceptions are explicit and minimal.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Read project tags and ESLint boundary rules.
 2. Detect missing or inconsistent tag dimensions.

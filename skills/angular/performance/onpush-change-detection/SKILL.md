@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - OnPush
@@ -109,8 +109,6 @@ Avoid turning unrelated services, global stores, or routing state into an OnPush
 - [ ] Tests or manual verification cover the affected rendering path.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Inspect the component data flow before adding `OnPush`.
 2. Identify mutation or side-effect risks.

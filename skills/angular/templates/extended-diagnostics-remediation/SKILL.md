@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: templates
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - extended diagnostics remediation
@@ -85,8 +85,6 @@ Avoid changing business fallbacks casually.
 - [ ] No unrelated file changed.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify the reported diagnostic.
 2. Apply the smallest safe correction.

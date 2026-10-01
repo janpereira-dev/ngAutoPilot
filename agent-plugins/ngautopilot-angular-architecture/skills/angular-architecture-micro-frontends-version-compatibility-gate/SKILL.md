@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.micro-frontends-version-compatibility-gate"
   ngautopilot-source: "skills/angular/architecture/micro-frontends-version-compatibility-gate/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -76,8 +76,6 @@ Avoid treating a version mismatch as a UI-only problem.
 - [ ] Compatibility checks run before runtime exposure.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Read the shell and remote version contract.
 2. Identify allowed and blocked combinations.

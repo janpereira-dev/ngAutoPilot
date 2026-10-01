@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.micro-frontends-ownership-and-rbac-contract"
   ngautopilot-source: "skills/angular/architecture/micro-frontends-ownership-and-rbac-contract/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -85,8 +85,6 @@ Avoid duplicating access rules without a clear source of truth.
 - [ ] Ownership is operationally meaningful, not just documented.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Map remotes to owners.
 2. Review route and capability access rules.

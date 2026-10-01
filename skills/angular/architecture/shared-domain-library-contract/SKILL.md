@@ -9,7 +9,7 @@ stack:
   - Nx
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - shared domain
@@ -165,8 +165,6 @@ Avoid DTO shape leakage when a stable business concept is needed instead.
 - [ ] Nx tags and boundaries prevent infrastructure or UI dependencies from leaking in.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Classify the library as shared domain, feature, data-access, UI, or mixed.
 2. Identify leaked transport or UI concerns.

@@ -7,7 +7,7 @@ stack:
   - TypeScript
 category: strict-types
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - typescript strict types
@@ -83,8 +83,6 @@ Avoid using this skill to replace the specialized skills.
 - [ ] The skill is used as routing and coordination, not implementation detail.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Recommend the right strictness sequence.
 2. Route to the specialized skills.

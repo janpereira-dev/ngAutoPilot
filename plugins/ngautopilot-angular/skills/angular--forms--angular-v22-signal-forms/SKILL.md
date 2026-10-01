@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: forms
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - Signal Forms
@@ -74,8 +74,6 @@ Do not use this skill when:
 - [ ] Templates compile cleanly under v22 rules.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. A form migration summary.
 2. The chosen form model.

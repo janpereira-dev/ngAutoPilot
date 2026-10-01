@@ -2,13 +2,13 @@
 id: angular.ai.angular-v22-agent-skills-integration
 name: Angular v22 Agent Skills Integration
 description: >
-  Use this skill for Use official Angular Agent Skills as reference material without copying them blindly or replacing NgAutoPilot routing. Use when Angular 22 work needs concern-first routing, explicit validation, and no invented APIs.
+  Use official Angular Agent Skills as reference material without copying them blindly or replacing NgAutoPilot routing. For Angular 22 projects and 21-to-22 upgrade planning.
 stack:
   - Angular
   - TypeScript
 category: ai
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - Angular Agent Skills
@@ -32,7 +32,7 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 
 ## When to Use
 
-- The task specifically involves use official angular agent skills as reference material without copying them blindly or replacing ngautopilot routing.
+- The task is to use official angular agent skills as reference material without copying them blindly or replacing ngautopilot routing.
 - The project is on Angular 22 or planning the Angular 22 hop.
 - A narrower concern-first skill is better than a generic v22 baseline skill.
 
@@ -45,10 +45,6 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 ## Why This Matters
 
 Angular 22 changes ai / mcp / webmcp behavior enough that agents need a narrow checklist instead of a generic v22 bucket. The goal is to make the risk visible, testable, and reviewable.
-
-## Non-developer explanation
-
-This skill helps separate a real upgrade risk from general cleanup. It gives the team a clear reason for the work, the evidence to check, and the point where the change is safe to stop.
 
 ## Inputs Expected
 

@@ -9,7 +9,7 @@ stack:
   - JavaScript
 category: core
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - route skill
@@ -187,8 +187,6 @@ Secondary skill: core.compatibility-router
 ```
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Read the catalog.
 2. Select one primary skill.

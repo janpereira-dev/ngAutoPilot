@@ -2,13 +2,13 @@
 id: angular.upgrades.build.angular-v22-typescript-6-compatibility-gate
 name: Angular v22 TypeScript 6 Compatibility Gate
 description: >
-  Use this skill for Verify TypeScript 6 compatibility and diagnostics from the official Angular compatibility matrix before upgrading. Use when Angular 22 work needs concern-first routing, explicit validation, and no invented APIs.
+  Verify TypeScript 6 compatibility and diagnostics from the official Angular compatibility matrix before upgrading. For Angular 22 projects and 21-to-22 upgrade planning.
 stack:
   - Angular
   - TypeScript
 category: build
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - TypeScript 6
@@ -32,7 +32,7 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 
 ## When to Use
 
-- The task specifically involves verify typescript 6 compatibility and diagnostics from the official angular compatibility matrix before upgrading.
+- The task is to verify typescript 6 compatibility and diagnostics from the official angular compatibility matrix before upgrading.
 - The project is on Angular 22 or planning the Angular 22 hop.
 - A narrower concern-first skill is better than a generic v22 baseline skill.
 
@@ -45,10 +45,6 @@ Keep the work concern-first: this skill handles one risk area and does not repla
 ## Why This Matters
 
 Angular 22 changes build / tooling behavior enough that agents need a narrow checklist instead of a generic v22 bucket. The goal is to make the risk visible, testable, and reviewable.
-
-## Non-developer explanation
-
-This skill helps separate a real upgrade risk from general cleanup. It gives the team a clear reason for the work, the evidence to check, and the point where the change is safe to stop.
 
 ## Inputs Expected
 

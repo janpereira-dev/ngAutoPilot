@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: templates
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - extended diagnostics upgrade gate
@@ -62,8 +62,6 @@ Avoid broad suppressions to hide new compiler feedback.
 - [ ] No broad modernization was mixed into the upgrade.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Capture the diagnostics baseline.
 2. Classify new warnings and errors.

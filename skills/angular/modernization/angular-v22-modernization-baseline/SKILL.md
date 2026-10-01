@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: modernization
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - Angular 22 modernization
@@ -77,8 +77,6 @@ Do not use this skill when:
 - [ ] Template and test impact were checked.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. A v22 modernization summary.
 2. The selected modernization slice.

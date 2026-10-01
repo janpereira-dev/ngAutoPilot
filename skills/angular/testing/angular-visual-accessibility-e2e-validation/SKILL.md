@@ -8,7 +8,7 @@ stack:
   - Testing
 category: testing
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - Angular E2E
@@ -57,8 +57,6 @@ Use this skill when:
 - [ ] Commands, observations, and remaining gaps are recorded separately.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. State detected Angular and test capabilities.
 2. Define the journey, risk, and selected functional, accessibility, and visual checks.

@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.micro-frontends-architecture"
   ngautopilot-source: "skills/angular/architecture/micro-frontends-architecture/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -182,8 +182,6 @@ Avoid pretending distributed code is independent when all modules share one rele
 - [ ] The chosen architecture is simpler than the alternatives it replaces.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Classify whether Micro-frontends are warranted.
 2. Identify domain boundaries, ownership, and delivery constraints.

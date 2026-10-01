@@ -13,32 +13,85 @@ on:
         type: boolean
 
 permissions:
-  contents: write
+  contents: read
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  RELEASE_TAG: ${{ github.event.release.tag_name || github.ref_name }}
 
 concurrency:
   group: release-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
+  security-packet:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && inputs.publish == true)
+    outputs:
+      commit: ${{ steps.identity.outputs.commit }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 24
+      - name: Bind review to the checked-out commit on main history
+        id: identity
+        run: |
+          node --input-type=module -e "import fs from 'node:fs'; import {verifyReleaseTag} from './lib/release-publication.mjs'; verifyReleaseTag(JSON.parse(fs.readFileSync('package.json')).version, process.env.RELEASE_TAG);"
+          git merge-base --is-ancestor HEAD origin/main
+          echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Build exact-commit security packet (not an approval)
+        run: npm run review:sage:pack
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: release-security-packet
+          path: dist/review/sage
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 30
+
   publish:
+    needs: security-packet
+    environment: release-security
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     if: github.event_name == 'release' || (github.event_name == 'workflow_dispatch' && inputs.publish == true)
     steps:
       - name: Check out repo
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
 
       - name: Set up Node
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
-          always-auth: true
+
+      - name: Download the reviewed packet from this workflow run
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7
+        with:
+          name: release-security-packet
+          path: dist/review/approved
+
+      - name: Verify approval targets the exact checked-out commit
+        env:
+          REVIEWED_COMMIT: ${{ needs.security-packet.outputs.commit }}
+        run: |
+          node --input-type=module -e "import {execFileSync} from 'node:child_process'; import {verifySagePacket} from './lib/sage-review.mjs'; const head=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(); if(head!==process.env.REVIEWED_COMMIT) throw new Error('Review/source identity mismatch'); verifySagePacket({sourceRoot:process.cwd(),packetRoot:'dist/review/approved',commit:head});"
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Scan skill content
+        run: npm run security:scan
+
+      - name: Audit dependencies and bilingual documentation
+        run: npm audit --audit-level=high && npm run docs:validate && npm run docs:graphics:check
 
       - name: Validate skills
         run: npm run skills:validate
@@ -58,6 +111,9 @@ jobs:
       - name: Sync Agent Plugins
         run: npm run agent-plugins:sync
 
+      - name: Validate OpenAI public package
+        run: npm run openai:validate
+
       - name: Check generated drift
         run: git diff --exit-code -- catalog.json plugins agent-plugins .agents/plugins/marketplace.json .claude-plugin/marketplace.json
 
@@ -68,13 +124,19 @@ jobs:
         run: npm run marketplaces:validate
 
       - name: Check release version and tests
-        run: npm run release:check-version && npm test
+        run: npm run release:check-version && npm run test:scripts && npm test
+
+      - name: Verify reviewed source bytes again after tests and generation
+        run: node --input-type=module -e "import {execFileSync} from 'node:child_process'; import {verifySagePacket} from './lib/sage-review.mjs'; verifySagePacket({sourceRoot:process.cwd(),packetRoot:'dist/review/approved',commit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim()});"
 
       - name: Build publish bundles
         run: npm run skills:publish:pack
 
       - name: Build Agent Plugin archives
         run: npm run agent-plugins:pack
+
+      - name: Build OpenAI public package
+        run: npm run openai:pack
 
       - name: Validate publish bundles
         run: npm run publish:validate
@@ -87,15 +149,19 @@ jobs:
             tar -czf "${name}.tar.gz" "${name}"
           done
 
-      - name: Publish to npm
-        if: github.event_name == 'workflow_dispatch' && inputs.publish == true
-        run: npm publish --access public
+      - name: Inventory all release surfaces and pack exact npm archive
+        run: npm run release:inventory
+
+      - name: Publish or verify the exact immutable npm archive
+        run: npm run release:publish:npm
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.RELEASE_NPM_TOKEN }}
 
       - name: Publish release artifacts
-        uses: softprops/action-gh-release@v3
+        uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64 # v3
         with:
           files: |
             dist/publish/*.tar.gz
             dist/agent-plugins/*
+            dist/openai-plugin/*
+            dist/release/*

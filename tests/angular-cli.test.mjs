@@ -18,7 +18,7 @@ test('Angular 12 dry-run returns selection evidence without migration hops', (t)
   assert.equal(output.dryRun, true);
   assert.equal(output.selection.profile, 'testing');
   assert.deepEqual(output.selection.capabilities, ['testing', 'ui']);
-  assert.ok(output.selection.included.some((item) => item.type === 'pack' && item.id === 'ngautopilot-angular-testing'));
+  assert.ok(output.selection.selection.sourcePacks.some(item => item.id === 'ngautopilot-angular-testing'));
   assert.ok(output.selection.excluded.some((item) => item.selector === 'angular.upgrade.hops.*'));
   assert.equal(output.selection.included.some((item) => item.id.includes('angular.upgrade.hops')), false);
 });

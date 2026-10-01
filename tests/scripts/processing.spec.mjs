@@ -1,0 +1,189 @@
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { spawnSync } from 'node:child_process';
+import { afterEach, describe, expect, test } from 'vitest';
+import { buildSagePacket, verifySagePacket } from '../../lib/sage-review.mjs';
+
+const repository = path.resolve(import.meta.dirname, '../..');
+const roots = [];
+afterEach(() => { for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true, force: true }); });
+
+function fixture() {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ngap-script-unit-'));
+  roots.push(root);
+  return root;
+}
+
+function writeSkill(root, directory, id, compatibility = '') {
+  const target = path.join(root, 'skills', directory);
+  fs.mkdirSync(target, { recursive: true });
+  fs.writeFileSync(path.join(target, 'SKILL.md'), `---\nid: ${id}\nname: Focused skill\ndescription: Verify one contract.\nstack:\n  - Angular\ncategory: testing\nstatus: stable\nversion: 0.9.0\nowner: NgAutoPilot\ntriggers:\n  - focused test\n${compatibility}---\n\n${['Purpose', 'When to Use', 'Do', 'Do Not', 'Review Checklist', 'Expected Output'].map((section) => `## ${section}\n\nA specific contract.\n`).join('\n')}`);
+  return target;
+}
+
+function runScript(root, name) {
+  return spawnSync(process.execPath, [path.join(repository, 'scripts', name)], { cwd: root, encoding: 'utf8' });
+}
+
+test('source snapshots publish only reviewed public roots and never local credentials', () => {
+  const root = fixture();
+  for (const [relative, content] of Object.entries({
+    'catalog.json': '{"skills":[]}', 'README.md': '# Source', 'bin/public.mjs': 'export const safe = true;',
+    'examples/unreviewed.mjs': 'NEW_UNREVIEWED_ROOT', '.hidden-payload/secret': 'NEW_UNREVIEWED_ROOT',
+    'bin/.NETRC': 'PRIVATE_LOCAL_DATA', 'bin/.cvspass': 'PRIVATE_LOCAL_DATA',
+    '.agents/public/instructions.md': '# Reviewed hidden instructions',
+  })) {
+    const target = path.join(root, relative);
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.writeFileSync(target, content);
+  }
+  const commit = 'a'.repeat(40);
+  const { output } = buildSagePacket({ sourceRoot: root, commit });
+  const reviewed = verifySagePacket({ sourceRoot: root, packetRoot: output, commit });
+  const result = runScript(root, 'build-publish-bundles.mjs');
+  expect(result.status, result.stderr).toBe(0);
+  for (const site of fs.readdirSync(path.join(root, 'dist/publish'))) {
+    const snapshot = path.join(root, 'dist/publish', site);
+    for (const relative of ['examples', '.hidden-payload', 'bin/.NETRC', 'bin/.cvspass']) expect(fs.existsSync(path.join(snapshot, relative))).toBe(false);
+    expect(fs.readFileSync(path.join(snapshot, 'bin/public.mjs'), 'utf8')).toBe('export const safe = true;');
+    expect(fs.readFileSync(path.join(snapshot, '.agents/public/instructions.md'), 'utf8')).toBe('# Reviewed hidden instructions');
+    for (const file of reviewed.files) {
+      if (file.path === 'README.md') continue; // Generated listing README is governed by the reviewed publisher.
+      expect(fs.readFileSync(path.join(snapshot, file.path))).toEqual(fs.readFileSync(path.join(output, file.path)));
+    }
+  }
+});
+
+test('snapshot publication rejects source and output symlinks before replacing previous artifacts', () => {
+  const root = fixture();
+  const outside = fixture();
+  fs.writeFileSync(path.join(root, 'catalog.json'), '{"skills":[]}');
+  fs.mkdirSync(path.join(root, 'dist/publish'), { recursive: true });
+  fs.writeFileSync(path.join(root, 'dist/publish/keep.txt'), 'Previous artifact');
+  fs.writeFileSync(path.join(outside, 'private.txt'), 'External content');
+  const linkedSource = path.join(root, 'bin');
+  fs.symlinkSync(outside, linkedSource, process.platform === 'win32' ? 'junction' : 'dir');
+  expect(runScript(root, 'build-publish-bundles.mjs').status).not.toBe(0);
+  expect(fs.readFileSync(path.join(root, 'dist/publish/keep.txt'), 'utf8')).toBe('Previous artifact');
+  fs.unlinkSync(linkedSource);
+  fs.renameSync(path.join(root, 'dist'), path.join(root, 'previous-dist'));
+  fs.symlinkSync(outside, path.join(root, 'dist'), process.platform === 'win32' ? 'junction' : 'dir');
+  expect(runScript(root, 'build-publish-bundles.mjs').status).not.toBe(0);
+  expect(fs.readdirSync(outside)).toEqual(['private.txt']);
+});
+
+test('release version checks distinguish dependency versions from project release references', () => {
+  const root = fixture();
+  const write = (relative, content) => {
+    const file = path.join(root, relative);
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, content);
+  };
+  const lock = { version: '0.9.0', packages: { '': { version: '0.9.0' }, 'node_modules/example': { version: '0.3.31' } } };
+  write('package.json', JSON.stringify({ version: '0.9.0' }));
+  write('package-lock.json', JSON.stringify(lock));
+  write('agent-plugins/tools/data/package-lock.json', JSON.stringify(lock));
+  write('catalog.json', JSON.stringify({ version: '0.9.0', skills: [] }));
+  write('openai/plugin.json', JSON.stringify({ version: '0.9.0' }));
+  fs.mkdirSync(path.join(root, 'openai/submission/0.9.0'), { recursive: true });
+  for (const file of ['.agents/plugins/marketplace.json', '.claude-plugin/marketplace.json']) write(file, JSON.stringify({ plugins: [] }));
+  write('skill-lab/python/pyproject.toml', 'version = "0.9.0"\n');
+  write('skill-lab/python/ngautopilot_skillopt/__init__.py', '__version__ = "0.9.0"\n');
+  expect(runScript(root, 'check-release-version.mjs').status).toBe(0);
+  write('docs/stale.md', 'Install ngautopilot 0.3.31');
+  expect(runScript(root, 'check-release-version.mjs').status).toBe(1);
+  fs.unlinkSync(path.join(root, 'docs/stale.md'));
+  lock.packages[''].version = '0.8.0';
+  write('package-lock.json', JSON.stringify(lock));
+  expect(runScript(root, 'check-release-version.mjs').status).toBe(1);
+});
+
+test('optional shrinkwrap is version-checked and bumped without changing dependency versions', () => {
+  const root = fixture();
+  const write = (relative, content) => {
+    const target = path.join(root, relative);
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.writeFileSync(target, content);
+  };
+  const lock = { version: '0.9.0', packages: { '': { version: '0.9.0' }, 'node_modules/example': { version: '0.9.0' }, 'node_modules/older': { version: '0.3.31' } } };
+  write('package.json', JSON.stringify({ version: '0.9.0' }));
+  write('package-lock.json', JSON.stringify(lock));
+  write('npm-shrinkwrap.json', JSON.stringify({ ...lock, version: '0.8.0' }));
+  write('agent-plugins/tools/data/npm-shrinkwrap.json', JSON.stringify({ version: lock.version, packages: { '': lock.packages[''], 'node_modules/example': lock.packages['node_modules/example'] } }));
+  write('catalog.json', JSON.stringify({ version: '0.9.0', skills: [] }));
+  write('openai/plugin.json', JSON.stringify({ version: '0.9.0' }));
+  fs.mkdirSync(path.join(root, 'openai/submission/0.9.0'), { recursive: true });
+  for (const file of ['.agents/plugins/marketplace.json', '.claude-plugin/marketplace.json']) write(file, JSON.stringify({ plugins: [] }));
+  write('skill-lab/python/pyproject.toml', 'version = "0.9.0"\n');
+  write('skill-lab/python/ngautopilot_skillopt/__init__.py', '__version__ = "0.9.0"\n');
+  expect(runScript(root, 'check-release-version.mjs').status).toBe(1);
+  write('npm-shrinkwrap.json', JSON.stringify({ ...lock, packages: { ...lock.packages, '': { version: '0.8.0' } } }));
+  expect(runScript(root, 'check-release-version.mjs').status).toBe(1);
+  write('npm-shrinkwrap.json', JSON.stringify(lock));
+  write('agent-plugins/tools/data/npm-shrinkwrap.json', JSON.stringify(lock));
+  expect(runScript(root, 'check-release-version.mjs').status).toBe(0);
+  const result = spawnSync(process.execPath, [path.join(repository, 'scripts/bump-release-version.mjs'), '0.9.1'], { cwd: root, encoding: 'utf8' });
+  expect(result.status, result.stderr).toBe(0);
+  for (const relative of ['package-lock.json', 'npm-shrinkwrap.json', 'agent-plugins/tools/data/npm-shrinkwrap.json']) {
+    const updated = JSON.parse(fs.readFileSync(path.join(root, relative), 'utf8'));
+    expect(updated.version).toBe('0.9.1');
+    expect(updated.packages[''].version).toBe('0.9.1');
+    expect(updated.packages['node_modules/example'].version).toBe('0.9.0');
+    expect(updated.packages['node_modules/older'].version).toBe('0.3.31');
+  }
+  expect(runScript(root, 'check-release-version.mjs').status).toBe(0);
+});
+
+describe('catalog processing', () => {
+  test('preserves major/minor compatibility and emits stable ordering without mutating source', () => {
+    const root = fixture();
+    const skill = writeSkill(root, 'angular/z', 'angular.testing.z', 'compatibility:\n  angular:\n    min: "16.1"\n    max: "21"\n');
+    writeSkill(root, 'angular/a', 'angular.testing.a');
+    const before = fs.readFileSync(path.join(skill, 'SKILL.md'));
+    expect(runScript(root, 'generate-catalog.mjs').status).toBe(0);
+    const output = fs.readFileSync(path.join(root, 'catalog.json'), 'utf8');
+    const catalog = JSON.parse(output);
+    expect(catalog.skills.map((entry) => entry.id)).toEqual(['angular.testing.a', 'angular.testing.z']);
+    expect(catalog.skills[1].compatibility).toEqual({ min: 16, minMinor: 1, max: 21 });
+    expect(catalog.skills[1].contentSignals.requiredSections).toBe(true);
+    expect(fs.readFileSync(path.join(skill, 'SKILL.md'))).toEqual(before);
+    expect(runScript(root, 'generate-catalog.mjs').status).toBe(0);
+    expect(fs.readFileSync(path.join(root, 'catalog.json'), 'utf8')).toBe(output);
+  });
+
+  test('rejects missing frontmatter without replacing a previous valid catalog', () => {
+    const root = fixture();
+    const source = writeSkill(root, 'angular/example', 'angular.testing.example');
+    expect(runScript(root, 'generate-catalog.mjs').status).toBe(0);
+    const before = fs.readFileSync(path.join(root, 'catalog.json'));
+    fs.writeFileSync(path.join(source, 'SKILL.md'), 'No metadata');
+    const result = runScript(root, 'generate-catalog.mjs');
+    expect(result.status).not.toBe(0);
+    expect(result.stderr).toContain('missing frontmatter');
+    expect(fs.readFileSync(path.join(root, 'catalog.json'))).toEqual(before);
+  });
+});
+
+test('bundle processing generates ten consistent manifests and retains reference assets', () => {
+  const root = fixture();
+  for (const directory of ['_core', 'angular/testing', 'angular/microfrontends', 'angular/styles', 'frontend/testing', 'javascript/modules', 'quality/eslint', 'quality/sonarqube', 'typescript/types']) {
+    const source = writeSkill(root, `${directory}/example`, `${directory.replaceAll('/', '.').replace('_core', 'core')}.example`);
+    fs.mkdirSync(path.join(source, 'references'));
+    fs.writeFileSync(path.join(source, 'references', 'contract.md'), '# Verified resource\n');
+  }
+  fs.mkdirSync(path.join(root, '.agents/plugins'), { recursive: true });
+  fs.mkdirSync(path.join(root, '.claude-plugin'));
+  const result = runScript(root, 'sync-plugin-bundles.mjs');
+  expect(result.status, result.stderr).toBe(0);
+  const codex = JSON.parse(fs.readFileSync(path.join(root, '.agents/plugins/marketplace.json')));
+  const claude = JSON.parse(fs.readFileSync(path.join(root, '.claude-plugin/marketplace.json')));
+  expect(codex.plugins).toHaveLength(10);
+  expect(codex.plugins.map((plugin) => plugin.name)).toEqual(claude.plugins.map((plugin) => plugin.name));
+  for (const plugin of codex.plugins) {
+    const manifest = JSON.parse(fs.readFileSync(path.join(root, plugin.source.path, '.codex-plugin/plugin.json')));
+    expect(manifest.name).toBe(plugin.name);
+    expect(manifest.version).toBe('0.9.0');
+  }
+  expect(fs.readFileSync(path.join(root, 'plugins/ngautopilot-angular/skills/angular--testing--example/references/contract.md'), 'utf8')).toBe('# Verified resource\n');
+});

@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: state
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - Signals vs RxJS
@@ -118,8 +118,6 @@ Avoid mixing Signals and Observables in the same feature without explaining owne
 - [ ] The feature does not use multiple state models without a policy.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Detect Angular version and existing state style.
 2. Classify the state problem by lifetime and synchronicity.

@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: templates
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - templates
@@ -76,8 +76,6 @@ Do not use this skill when:
 - [ ] The affected templates compile cleanly.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. A template-strictness summary.
 2. The exact diagnostics that changed.

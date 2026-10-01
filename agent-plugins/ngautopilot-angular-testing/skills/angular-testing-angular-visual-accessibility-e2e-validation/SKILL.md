@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.testing.angular-visual-accessibility-e2e-validation"
   ngautopilot-source: "skills/angular/testing/angular-visual-accessibility-e2e-validation/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -48,8 +48,6 @@ Use this skill when:
 - [ ] Commands, observations, and remaining gaps are recorded separately.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. State detected Angular and test capabilities.
 2. Define the journey, risk, and selected functional, accessibility, and visual checks.

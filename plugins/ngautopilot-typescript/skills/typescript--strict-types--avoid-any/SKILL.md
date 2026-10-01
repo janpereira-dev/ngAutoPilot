@@ -7,7 +7,7 @@ stack:
   - TypeScript
 category: strict-types
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - any
@@ -121,8 +121,6 @@ Use temporary `any` only when there is a clear boundary, migration reason, and f
 - [ ] Tests cover mapper or guard behavior when runtime data can vary.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Locate unsafe `any` usage and identify the data boundary.
 2. Replace `any` with the narrowest practical type.

@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: zoneless
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - zoneless
@@ -76,8 +76,6 @@ Do not use this skill when:
 - [ ] The main interactions were validated.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. A zoneless-readiness summary.
 2. The remaining zone assumptions.

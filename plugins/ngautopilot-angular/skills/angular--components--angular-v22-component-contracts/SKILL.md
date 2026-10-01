@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: components
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - ComponentFactoryResolver
@@ -76,8 +76,6 @@ Do not use this skill when:
 - [ ] Component tests still pass.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. A component-contract summary.
 2. The removed API replacement.

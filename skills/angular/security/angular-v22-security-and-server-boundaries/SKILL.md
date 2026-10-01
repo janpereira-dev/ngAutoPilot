@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: security
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - security
@@ -75,8 +75,6 @@ Do not use this skill when:
 - [ ] The security impact was validated.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. A security boundary summary.
 2. The risky surface that changed.

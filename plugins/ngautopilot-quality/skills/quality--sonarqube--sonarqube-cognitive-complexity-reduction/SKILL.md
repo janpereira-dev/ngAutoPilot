@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: sonarqube
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - cognitive complexity
@@ -67,8 +67,6 @@ Avoid refactors without tests.
 - [ ] The refactor improved readability.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify the complexity drivers.
 2. Simplify the branches safely.

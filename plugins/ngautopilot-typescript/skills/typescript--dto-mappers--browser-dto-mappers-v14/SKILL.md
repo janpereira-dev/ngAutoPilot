@@ -8,7 +8,7 @@ stack:
   - Browser
 category: dto-mappers
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - browser dto mapping
@@ -58,8 +58,6 @@ Avoid mixing browser mapping with server-only concerns.
 - [ ] Mapping is pure and testable.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify browser DTO boundaries.
 2. Recommend view-model mapping.

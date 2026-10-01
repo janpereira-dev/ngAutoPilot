@@ -2,6 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
+import { escapeCsvCell } from "./csv-safety.mjs";
+import { parseDataLiteral } from "./data-literal-parser.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outputDir = __dirname;
@@ -347,7 +349,7 @@ function extractJsArray(source, startNeedle, endNeedle, prefixLength) {
   const end = source.indexOf(endNeedle, start);
   if (end < 0) throw new Error(`Could not find end needle: ${endNeedle}`);
   const expression = source.slice(start + prefixLength, end + 1);
-  return Function(`"use strict"; return (${expression});`)();
+  return parseDataLiteral(expression);
 }
 
 function collectLinks(item) {
@@ -376,13 +378,9 @@ function writeJson(name, data) {
 }
 
 function writeCsv(name, rows, headers) {
-  const escape = (value) => {
-    const text = String(value ?? "");
-    return /[",\n\r]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
-  };
   const lines = [headers.join(",")];
   for (const row of rows) {
-    lines.push(headers.map((header) => escape(row[header])).join(","));
+    lines.push(headers.map((header) => escapeCsvCell(row[header])).join(","));
   }
   fs.writeFileSync(path.join(outputDir, name), `${lines.join("\n")}\n`, "utf8");
 }

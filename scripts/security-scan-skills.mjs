@@ -4,27 +4,11 @@ import path from 'node:path';
 import { scanCandidateSecurity } from '../skill-lab/lib/candidate-security.mjs';
 
 const root = process.cwd();
-const scanRoots = ['skills', 'agents', 'adapters', 'agent-plugins', 'mcp', 'packs', 'scripts', 'docs', '.github/workflows', 'skill-lab'];
-const rootFiles = ['SKILL.md', 'README.md', 'SECURITY.md', 'package.json'];
-const allowedExtensions = new Set(['.json', '.md', '.mjs', '.py', '.toml', '.yml', '.yaml']);
 const excludedSkillLabDirectories = new Set(['skill-lab/.cache', 'skill-lab/.venv', 'skill-lab/runs']);
+const excludedDirectoryNames = new Set(['.git', 'dist', 'node_modules']);
 const findings = [];
 
-for (const relativeRoot of scanRoots) {
-  const directory = path.join(root, relativeRoot);
-
-  if (fs.existsSync(directory)) {
-    scanDirectory(directory);
-  }
-}
-
-for (const relativeFile of rootFiles) {
-  const file = path.join(root, relativeFile);
-
-  if (fs.existsSync(file)) {
-    scanFile(file);
-  }
-}
+scanDirectory(root);
 
 if (findings.length > 0) {
   console.error('Security content scan failed:\n');
@@ -51,19 +35,44 @@ function scanDirectory(directory) {
       continue;
     }
 
-    if (entry.isFile() && allowedExtensions.has(path.extname(entry.name))) {
-      scanFile(target);
+    if (entry.isFile()) {
+      scanFileIfText(target);
     }
   }
 }
 
 function isExcludedDirectory(directory, name) {
+  if (path.resolve(directory) === root && excludedDirectoryNames.has(name)) return true;
   const relative = toPosixPath(path.relative(root, path.join(directory, name)));
-  return excludedSkillLabDirectories.has(relative);
+  return isExcludedSkillLabPath(relative);
 }
 
-function scanFile(file) {
-  const content = fs.readFileSync(file, 'utf8');
+function isExcludedSkillLabPath(relative) {
+  return excludedSkillLabDirectories.has(relative) ||
+    (relative.startsWith('skill-lab/python/') && relative.split('/').includes('__pycache__'));
+}
+
+function scanFileIfText(file) {
+  const content = fs.readFileSync(file);
+  const relative = toPosixPath(path.relative(root, file));
+  const knownBinary = isKnownBinaryFile(relative);
+  if (content.includes(0)) {
+    if (!knownBinary) findings.push(`${relative}: must be valid UTF-8 text without NUL bytes`);
+    return;
+  }
+
+  try {
+    scanTextFile(file, new TextDecoder('utf-8', { fatal: true }).decode(content));
+  } catch {
+    if (!knownBinary) findings.push(`${relative}: must be valid UTF-8 text`);
+  }
+}
+
+function isKnownBinaryFile(relative) {
+  return new Set(['.bin', '.gif', '.ico', '.jpeg', '.jpg', '.png', '.webp', '.woff', '.woff2', '.zip']).has(path.extname(relative).toLowerCase());
+}
+
+function scanTextFile(file, content) {
   const relative = toPosixPath(path.relative(root, file));
 
   for (const finding of scanCandidateSecurity(content, {

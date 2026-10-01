@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - micro frontends ownership
@@ -105,8 +105,6 @@ Avoid duplicating access rules without a clear source of truth.
 - [ ] Ownership is operationally meaningful, not just documented.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Map remotes to owners.
 2. Review route and capability access rules.

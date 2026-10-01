@@ -8,7 +8,7 @@ stack:
   - JavaScript
 category: accessibility
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - accessibility review
@@ -58,8 +58,6 @@ Route Angular component primitives to `angular.material.angular-aria-headless-pa
 - [ ] Automated and manual evidence are separated in the review record.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. State the affected flow and the users or assistive scenarios considered.
 2. List semantic, keyboard, feedback, and responsive changes separately.

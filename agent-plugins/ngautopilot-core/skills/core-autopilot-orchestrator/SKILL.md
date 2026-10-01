@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "core.autopilot-orchestrator"
   ngautopilot-source: "skills/_core/autopilot-orchestrator/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -178,8 +178,6 @@ Route: project-intake -> skill-router -> angular.architecture.angular-patterns-s
 ```
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify the task type and project context.
 2. Select the smallest applicable skill.

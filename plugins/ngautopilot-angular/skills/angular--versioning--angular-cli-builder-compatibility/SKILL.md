@@ -6,7 +6,7 @@ stack:
   - Angular
 category: versioning
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - cli builder compatibility
@@ -18,7 +18,7 @@ triggers:
 
 ## Purpose
 
-Use this skill to handle Angular version compatibility for angular cli builder compatibility in Angular projects without mixing it with unrelated migration, modernization, or cleanup work.
+Detect and gate the Angular CLI builder path, including browser, browser-esbuild, application, and custom builders.
 
 This skill keeps the versioning decision explicit: identify the current state, choose the smallest safe action, document compatibility evidence, and leave a validation path that another agent or maintainer can repeat.
 
@@ -74,9 +74,7 @@ Changing framework version, architecture, tests, and cleanup policy in one unrev
 
 ## Expected Output
 
-When this skill is used, the agent should:
-
-1. State the angular.versioning.angular-cli-builder-compatibility diagnosis in one concise paragraph.
+1. Summarize the finding in one concise paragraph.
 2. List the files, APIs, or project boundaries affected.
 3. Provide the smallest safe implementation or decision.
 4. Explain compatibility and risk assumptions.

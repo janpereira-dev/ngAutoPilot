@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.testing.angular-component-testing-patterns-v17"
   ngautopilot-source: "skills/angular/testing/angular-component-testing-patterns-v17/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -48,8 +48,6 @@ Avoid coupling tests to internals.
 - [ ] Host testing is used when helpful.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Confirm the 17+ baseline.
 2. Recommend contract-focused component tests.

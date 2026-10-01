@@ -10,7 +10,7 @@ stack:
   - Module Federation
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - micro frontends
@@ -207,8 +207,6 @@ Avoid pretending distributed code is independent when all modules share one rele
 - [ ] The chosen architecture is simpler than the alternatives it replaces.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Classify whether Micro-frontends are warranted.
 2. Identify domain boundaries, ownership, and delivery constraints.

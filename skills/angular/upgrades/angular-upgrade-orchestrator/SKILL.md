@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: upgrades
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - Angular upgrade
@@ -31,7 +31,7 @@ Use this skill to coordinate an Angular 2+ upgrade path by detecting the current
 
 This skill does not perform the full upgrade itself. It plans the path one major at a time and stops after selecting the next hop.
 
-## When to Use This Skill
+## When to Use
 
 Use this skill when:
 

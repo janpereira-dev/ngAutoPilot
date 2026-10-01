@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.angular-enterprise-primitives"
   ngautopilot-source: "skills/angular/architecture/angular-enterprise-primitives/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -75,8 +75,6 @@ Avoid mixing several reactive models without a documented policy.
 - [ ] Architecture review is included.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Recommend the right primitive sequence.
 2. Gate adoption by Angular version.

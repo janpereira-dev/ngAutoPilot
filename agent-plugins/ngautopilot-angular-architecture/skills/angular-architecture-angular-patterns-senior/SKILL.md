@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.architecture.angular-patterns-senior"
   ngautopilot-source: "skills/angular/architecture/angular-patterns-senior/SKILL.md"
-  ngautopilot-version: "0.6.0"
+  ngautopilot-version: "0.9.0"
 ---
 
 
@@ -93,8 +93,6 @@ Avoid turning containers into business-rule monoliths.
 - [ ] The proposed split reduces coupling instead of adding ceremony.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Diagnose the current architecture problem.
 2. Select the smallest relevant micro-skill.

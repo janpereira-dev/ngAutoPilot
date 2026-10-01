@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: templates
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - strictTemplates adoption
@@ -88,8 +88,6 @@ Avoid silencing all diagnostics to get a green build.
 - [ ] The rollout is bounded.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Assess readiness for strictTemplates.
 2. Recommend a staged rollout.

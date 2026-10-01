@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: router
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - router behavior
@@ -26,7 +26,7 @@ compatibility:
 
 Use this skill to review Angular Router behavior and test assumptions around Angular 15.
 
-## When to Use This Skill
+## When to Use
 
 - Router timing or outlet availability is sensitive.
 - Tests rely on navigation internals.

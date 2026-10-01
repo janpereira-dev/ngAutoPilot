@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: signals
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - signals
@@ -76,8 +76,6 @@ Do not use this skill when:
 - [ ] Tests cover the changed behavior.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. A signal-state summary.
 2. The chosen reactive model.

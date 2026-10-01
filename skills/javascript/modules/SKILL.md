@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: javascript
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - javascript modules
@@ -129,8 +129,6 @@ Avoid broad file moves when a narrow fix is sufficient.
 - [ ] The diff is small and reversible.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Detect the module system.
 2. Keep module style consistent.

@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: performance
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - template function
@@ -107,8 +107,6 @@ Avoid using template calls as an escape hatch for derivation that belongs in com
 - [ ] Broad template-expression refactors are delegated to `template-logic-optimization` when the issue is not specifically a method call.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Find method calls and expensive expressions in Angular templates.
 2. Determine which calls can cause repeated work during change detection.

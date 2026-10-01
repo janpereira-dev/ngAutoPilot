@@ -7,7 +7,7 @@ stack:
   - ECMAScript
 category: compatibility
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - ECMAScript compatibility
@@ -57,8 +57,6 @@ Route project-wide risk decisions through `core.compatibility-router` and use th
 - [ ] The existing compatibility router or appropriate gate is referenced in the decision.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Classify the risk as standard, host, toolchain, dependency, or polyfill related.
 2. State the supported environment evidence and unresolved assumptions.

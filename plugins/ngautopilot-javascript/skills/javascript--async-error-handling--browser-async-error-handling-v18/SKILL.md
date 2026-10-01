@@ -9,7 +9,7 @@ stack:
   - Browser
 category: javascript
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - browser async error handling
@@ -66,8 +66,6 @@ Avoid browser guidance that assumes Node-style process control.
 - [ ] Error context is preserved.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Review browser-facing failure paths.
 2. Recommend safe fallbacks and retry behavior.

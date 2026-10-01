@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: upgrades
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - Angular 7 to 8
@@ -31,7 +31,7 @@ Use this skill to upgrade an Angular 7.x application to Angular 8.2.x in one bou
 
 This skill upgrades only from Angular 7 to Angular 8.2. It must not continue to Angular 9 or later. The next hop must be handled by a dedicated follow-up skill.
 
-## When to Use This Skill
+## When to Use
 
 Use this skill when:
 

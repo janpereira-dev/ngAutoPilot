@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: upgrades
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - major hop executor
@@ -30,7 +30,7 @@ Use this skill to execute exactly one Angular major-version hop in a controlled 
 
 This skill applies the bounded dependency and code changes for one hop, then stops. It does not plan the full route and does not begin the next hop automatically.
 
-## When to Use This Skill
+## When to Use
 
 Use this skill when:
 

@@ -9,7 +9,7 @@ stack:
   - Nx
 category: architecture
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - nx bounded context
@@ -159,8 +159,6 @@ Avoid putting feature-specific exceptions into the global rule unless they are d
 - [ ] Exceptions are explicit and minimal.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Read project tags and ESLint boundary rules.
 2. Detect missing or inconsistent tag dimensions.

@@ -8,7 +8,7 @@ stack:
   - TypeScript
 category: javascript
 status: stable
-version: 0.6.0
+version: 0.9.0
 owner: NgAutoPilot
 triggers:
   - pure functions
@@ -106,8 +106,6 @@ Avoid extracting tiny functions that make the code harder to read.
 - [ ] The abstraction is justified.
 
 ## Expected Output
-
-When this skill is used, the agent should:
 
 1. Identify side effects.
 2. Make dependencies explicit.
