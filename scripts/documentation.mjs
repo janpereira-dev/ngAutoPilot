@@ -54,7 +54,16 @@ function relative(from, to) { return path.relative(path.dirname(path.join(root, 
 function anchors(content) {
   const seen = new Map();
   return new Set([...prose(content).matchAll(/^#{1,6}\s+(.+)$/gm)].map(match => {
-    const base = match[1].toLowerCase().replace(/<[^>]*>/g, '').replace(/[^\p{L}\p{N}\p{M}_\-\s]/gu, '').replace(/\s/g, '-');
+    // Slugs are comparison keys, never HTML. Parse tag spans separately and
+    // allowlist each emitted character so malformed tags cannot emit markup.
+    let inTag = false;
+    const characters = [];
+    for (const character of match[1].toLowerCase()) {
+      if (character === '<') { inTag = true; continue; }
+      if (inTag) { if (character === '>') inTag = false; continue; }
+      if (/^[\p{L}\p{N}\p{M}_\-\s]$/u.test(character)) characters.push(/\s/u.test(character) ? '-' : character);
+    }
+    const base = characters.join('');
     const count = seen.get(base) ?? 0;
     seen.set(base, count + 1);
     return count ? `${base}-${count}` : base;

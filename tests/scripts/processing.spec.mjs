@@ -183,7 +183,7 @@ test('bundle processing generates ten consistent manifests and retains reference
   for (const plugin of codex.plugins) {
     const manifest = JSON.parse(fs.readFileSync(path.join(root, plugin.source.path, '.codex-plugin/plugin.json')));
     expect(manifest.name).toBe(plugin.name);
-    expect(manifest.version).toBe('0.9.0');
+    expect(manifest.version).toBe(JSON.parse(fs.readFileSync(path.join(repository, 'package.json'))).version);
   }
   expect(fs.readFileSync(path.join(root, 'plugins/ngautopilot-angular/skills/angular--testing--example/references/contract.md'), 'utf8')).toBe('# Verified resource\n');
 });

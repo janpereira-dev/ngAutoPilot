@@ -45,6 +45,13 @@ test('strict validation fails for missing Spanish editions', t => {
   assert.match(result.stderr, /Missing Spanish edition/);
 });
 
+test('anchor comparison allowlists output from normal and malformed HTML tag spans', t => {
+  const f = fixture(t);
+  f.write('docs/example.md', '# Example\n\n[Normal](#ready) [Malformed](#tone)\n\n## <em>Ready</em>\n\n## <scrip<script>t>One</script>\n');
+  const result = f.run('validate', '--allow-incomplete');
+  assert.equal(result.status, 0, result.stderr);
+});
+
 test('Spanish index prioritizes translated headings and links', t => {
   const f = fixture(t);
   f.write('docs/example.es.md', '# Ejemplo traducido\n');

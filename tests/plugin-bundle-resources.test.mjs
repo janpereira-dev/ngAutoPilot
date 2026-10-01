@@ -9,6 +9,21 @@ import { copyContainedDirectory } from '../lib/agent-plugins/path-safety.mjs';
 
 const script = fileURLToPath(new URL('../scripts/sync-plugin-bundles.mjs', import.meta.url));
 
+test('unchanged generated skills retain directory identity while manifests are refreshed', t => {
+  const root = fixture(t);
+  const run = () => spawnSync(process.execPath, [script], { cwd: root, encoding: 'utf8' });
+  const initial = run();
+  assert.equal(initial.status, 0, initial.stderr);
+  const directory = path.join(root, 'plugins/ngautopilot-core/skills');
+  const before = fs.statSync(directory);
+  const manifest = path.join(root, 'plugins/ngautopilot-core/.codex-plugin/plugin.json');
+  fs.writeFileSync(manifest, '{}\n');
+  const again = run();
+  assert.equal(again.status, 0, again.stderr);
+  assert.equal(fs.statSync(directory).ino, before.ino);
+  assert.equal(JSON.parse(fs.readFileSync(manifest)).name, 'ngautopilot-core');
+});
+
 function fixture(t) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-bundle-resources-'));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
