@@ -47,7 +47,19 @@ function writeIfChanged(file, content) {
 function spanish(file) { return file.replace(/\.md$/, '.es.md'); }
 function historical(file) { return /^(?:CHANGELOG|skill-lab\/CHANGELOG)|^docs\/(?:specs|superpowers)\/|^openai\/submission\/|^docs\/angular-caniuse\/|^docs\/new-skills-audit\.md$/.test(file); }
 function prose(content) {
-  return content.replace(/^(?:```|~~~)[\s\S]*?^(?:```|~~~)\s*$/gm, '');
+  let fence;
+  return content.split(/\r?\n/).map(line => {
+    const marker = line.match(/^ {0,3}(`{3,}|~{3,})(.*)$/);
+    if (fence) {
+      if (marker && marker[1][0] === fence[0] && marker[1].length >= fence.length && !marker[2].trim()) fence = undefined;
+      return '';
+    }
+    if (marker && (marker[1][0] !== '`' || !marker[2].includes('`'))) {
+      fence = marker[1];
+      return '';
+    }
+    return line;
+  }).join('\n');
 }
 function title(file) { return read(file).match(/^#\s+(.+)$/m)?.[1] ?? file; }
 function relative(from, to) { return path.relative(path.dirname(path.join(root, from)), path.join(root, to)).split(path.sep).join('/'); }
@@ -70,10 +82,16 @@ function anchors(content) {
   }));
 }
 
-function generateIndex() {
+function generateIndex(checkOnly = false) {
+  const stale = [];
+  const save = (file, content) => {
+    if (checkOnly) {
+      if (!fs.existsSync(path.join(root, file)) || read(file).replace(/\r\n/g, '\n') !== content) stale.push(`Stale documentation index: ${file}; run npm run docs:index`);
+    } else writeIfChanged(file, content);
+  };
   const sources = documentationFiles();
   for (const source of sources) if (!fs.existsSync(path.join(root, source))) throw new Error(`Missing recorded English source: ${source}`);
-  fs.writeFileSync(inventoryPath, JSON.stringify({ version: 1, scope: 'reader-documentation', sources }, null, 2) + '\n');
+  save('docs/documentation-map.json', JSON.stringify({ version: 1, scope: 'reader-documentation', sources }, null, 2) + '\n');
   for (const language of ['en', 'es']) {
     const file = language === 'en' ? 'docs/README.md' : 'docs/README.es.md';
     const heading = language === 'en' ? '# Documentation map 🗺️' : '# Mapa de documentación 🗺️';
@@ -103,8 +121,9 @@ function generateIndex() {
     const footer = language === 'en'
       ? 'A link means an edition exists, not that its technical claims are automatically verified. `node scripts/documentation.mjs validate` checks pair coverage, local Markdown links/anchors, UTF-8 replacement and invisible/bidirectional controls, unresolved translation tokens, stale fallbacks, and balanced fenced blocks. It does not certify prose quality, external URLs, HTML rendering, or actual agent execution. Use `--allow-incomplete` only during ongoing work; it reports missing editions without treating coverage as complete.'
       : 'Un enlace indica que existe una edición, no que sus afirmaciones se hayan verificado automáticamente. `node scripts/documentation.mjs validate` comprueba pares, enlaces y anclas Markdown locales, sustitución UTF-8, controles invisibles/bidireccionales, marcadores de traducción sin resolver, referencias provisionales obsoletas y bloques delimitados equilibrados. No certifica calidad de redacción, enlaces externos, renderizado HTML ni ejecución del agente. Utiliza `--allow-incomplete` solo durante el trabajo: informa de ediciones ausentes sin considerar la cobertura completa.';
-    fs.writeFileSync(path.join(root, file), `${heading}\n\n[English](README.md) · [Español](README.es.md) · [${language === 'en' ? 'Project' : 'Proyecto'}](../${language === 'en' ? 'README.md' : 'README.es.md'})\n\n${intro}${graphic}\n\n## ${language === 'en' ? 'Quick route' : 'Ruta rápida'}\n\n${route}\n\n## ${language === 'en' ? 'Scope and historical context' : 'Alcance y contexto histórico'}\n\n${scope}\n\n## ${language === 'en' ? 'Every document' : 'Todos los documentos'}\n\n${header}\n| --- | --- | --- |\n${rows.join('\n')}\n\n## ${language === 'en' ? 'Validation boundary' : 'Límites de validación'}\n\n${footer}\n`);
+    save(file, `${heading}\n\n[English](README.md) · [Español](README.es.md) · [${language === 'en' ? 'Project' : 'Proyecto'}](../${language === 'en' ? 'README.md' : 'README.es.md'})\n\n${intro}${graphic}\n\n## ${language === 'en' ? 'Quick route' : 'Ruta rápida'}\n\n${route}\n\n## ${language === 'en' ? 'Scope and historical context' : 'Alcance y contexto histórico'}\n\n${scope}\n\n## ${language === 'en' ? 'Every document' : 'Todos los documentos'}\n\n${header}\n| --- | --- | --- |\n${rows.join('\n')}\n\n## ${language === 'en' ? 'Validation boundary' : 'Límites de validación'}\n\n${footer}\n`);
   }
+  return stale;
 }
 
 function validate() {
@@ -127,10 +146,10 @@ function validate() {
       if (content.includes('EN; traducción pendiente')) errors.push(`Stale translation fallback: ${edition}`);
       let fence = null;
       for (const line of content.split(/\r?\n/)) {
-        const match = line.match(/^\s{0,3}(`{3,}|~{3,})/);
+        const match = line.match(/^ {0,3}(`{3,}|~{3,})(.*)$/);
         if (!match) continue;
-        if (!fence) fence = match[1];
-        else if (match[1][0] === fence[0] && match[1].length >= fence.length) fence = null;
+        if (!fence && (match[1][0] !== '`' || !match[2].includes('`'))) fence = match[1];
+        else if (fence && match[1][0] === fence[0] && match[1].length >= fence.length && !match[2].trim()) fence = null;
       }
       if (fence) errors.push(`Unclosed code fence: ${edition}`);
       for (const match of prose(content).matchAll(/!?\[[^\]\n]*\]\(([^\s)]+)(?:\s+"[^"\n]*")?\)/g)) {
@@ -144,6 +163,7 @@ function validate() {
       }
     }
   }
+  if (!allowIncomplete && !errors.some(error => error.startsWith('Missing recorded English'))) errors.push(...generateIndex(true));
   console.log(`Documentation: ${files.length} English sources, ${files.length - missing} Spanish editions, ${missing} pending; ${links} local links inspected.`);
   if (errors.length) { console.error(errors.join('\n')); process.exitCode = 1; }
   else if (missing) console.log('INCOMPLETE: pair coverage is not complete; this is a progress check only.');

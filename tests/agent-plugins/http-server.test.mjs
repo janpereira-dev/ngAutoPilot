@@ -88,3 +88,22 @@ test('secure factory refuses missing TLS or authorization and OpenAPI is endpoin
   assert.match(openapi, /bearerAuth:/);
   assert.doesNotMatch(openapi, /projectRoot|command|https?:\/\//);
 });
+
+test('omitted HTTPS targets use shared inference and peer-only libraries retain evidence', async () => {
+  const handler = createAngularResolveHandler({ root, authorize: () => true });
+  const inferred = await invoke(handler, { body: { snapshot: {
+    manifest: { dependencies: { '@angular/core': '^12.1.0', '@angular/common': '>12.1' } },
+  } } });
+  assert.equal(inferred.status, 200);
+  assert.deepEqual(inferred.body.target, { major: 12, minor: 2 });
+  const peer = await invoke(handler, { body: { snapshot: {
+    manifest: { peerDependencies: { '@angular/core': '^16.2.0' } },
+  } } });
+  assert.equal(peer.status, 200);
+  assert.equal(peer.body.evidence.angular.major, 16);
+  const contradictory = await invoke(handler, { body: { snapshot: {
+    manifest: { dependencies: { '@angular/core': '^16.2.0', '@angular/common': '^16.2.0' } },
+    lockfile: { kind: 'npm', packages: { '@angular/core': '16.2.12', '@angular/common': '15.2.10' } },
+  } } });
+  assert.equal(contradictory.status, 400);
+});

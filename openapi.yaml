@@ -58,6 +58,7 @@ components:
               type: object
               additionalProperties: false
               properties:
+                peerDependencies: { $ref: '#/components/schemas/PackageVersions' }
                 dependencies: { $ref: '#/components/schemas/PackageVersions' }
                 devDependencies: { $ref: '#/components/schemas/PackageVersions' }
             lockfile:

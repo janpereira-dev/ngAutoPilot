@@ -70,4 +70,14 @@ test('exposes the complete read-only MCP catalog and platform tools', async (t) 
     snapshot: { manifest: { dependencies: { '@angular/core': '^16.2.12' } }, projectRoot: 'C:\\private' }, target: 16,
   } });
   assert.equal(invalidSnapshot.isError, true);
+  const peerSnapshot = await client.callTool({ name: 'angular.resolve', arguments: {
+    snapshot: { manifest: { peerDependencies: { '@angular/core': '^16.2.0' } } },
+  } });
+  assert.equal(peerSnapshot.isError, undefined);
+  assert.equal(JSON.parse(peerSnapshot.content[0].text).evidence.angular.major, 16);
+  const contradictory = await client.callTool({ name: 'angular.resolve', arguments: {
+    snapshot: { manifest: { dependencies: { '@angular/core': '^16.2.0', '@angular/common': '^16.2.0' } },
+      lockfile: { kind: 'npm', packages: { '@angular/core': '16.2.12', '@angular/common': '15.2.10' } } },
+  } });
+  assert.equal(contradictory.isError, true);
 });

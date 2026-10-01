@@ -35,7 +35,7 @@ jobs:
 
       - name: Audit internal Python dependencies without source builds
         run: |
-          python -m pip install --only-binary=:all: pip-audit==2.10.1
+          python -m pip install --only-binary=:all: pip-audit==2.10.1 PyYAML==6.0.3
           python scripts/audit-python-dependencies.py
 
       - name: Audit dependencies and bilingual documentation

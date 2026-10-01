@@ -56,7 +56,7 @@ prove external publication.
 
 - `ci.yml` regenerates the catalog and plugin bundles, checks drift, builds publish bundles, and validates those bundles.
 - `release-gates.yml` validates skills, plugin coverage, consistency, marketplaces, and package dry runs.
-- `release.yml` prepares release artifacts and only publishes to npm when manually dispatched with publish enabled.
+- `release.yml` publishes the exact npm tarball and complete release artifacts on `release.published` or a manual dispatch with publish enabled. Both routes require the exact reviewed main-history tag, the protected `release-security` approval and its `RELEASE_NPM_TOKEN`; approving a GitHub-release run is approval to publish npm, not an artifacts-only action.
 - Marketplace workflows validate the Claude Code and Codex manifests and the packaged plugin roots.
 
 ## Documentation Boundaries

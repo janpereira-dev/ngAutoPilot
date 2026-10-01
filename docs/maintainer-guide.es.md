@@ -58,7 +58,7 @@ Revisa el diff generado. Para publicar utiliza también el control amplio `npm r
 
 - `ci.yml`: generar catálogo y bundles, revisar diferencias, construir y validar paquetes.
 - `release-gates.yml`: validar fuentes, cobertura, consistencia, marketplaces y empaquetado.
-- `release.yml`: construir recursos; publicación npm únicamente por ejecución manual con la opción de publicar.
+- `release.yml`: publica el tarball npm exacto y todos los recursos con `release.published` o ejecución manual con publicación habilitada. Ambas rutas exigen el tag revisado del historial de main, la aprobación protegida `release-security` y su `RELEASE_NPM_TOKEN`; aprobar una ejecución de release GitHub autoriza publicar en npm, no es una acción solo de recursos.
 - Workflows de marketplace: validar manifiestos y raíces empaquetadas.
 
 Verifica el archivo actual antes de afirmar que un paso se ejecuta: la configuración y el resultado real son evidencias distintas.

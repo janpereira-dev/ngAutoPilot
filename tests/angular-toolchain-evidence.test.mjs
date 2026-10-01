@@ -86,6 +86,16 @@ test('accepts compound npm toolchain ranges and rejects contradictory locked ver
   assert.equal(resolveAngularInstallation({ root: repositoryRoot, projectRoot: declaredOnly, target: 15 }).evidence.toolchain.typescript.status, 'declared-only');
 });
 
+test('validates each supplied Angular lock entry rather than substituting core evidence', (t) => {
+  const projectRoot = createProject(t, '16.2.12', { lockVersions: { '@angular/common': '15.2.10' } });
+  assert.throws(() => resolveAngularInstallation({ root: repositoryRoot, projectRoot, target: 16 }), /lockfile @angular\/common/);
+  const snapshot = { manifest: { dependencies: { '@angular/core': '^16.2.0', '@angular/common': '^16.2.0' } },
+    lockfile: { kind: 'npm', packages: { '@angular/core': '16.2.12', '@angular/common': '15.2.10' } } };
+  assert.throws(() => resolveAngularSnapshot({ root: repositoryRoot, snapshot }), /lockfile @angular\/common/);
+  snapshot.lockfile.packages['@angular/common'] = '16.2.12';
+  assert.equal(resolveAngularSnapshot({ root: repositoryRoot, snapshot }).validation.level, 'lockfile-confirmed');
+});
+
 function createProject(t, angularVersion, {
   lockfile = true,
   toolchain = {},

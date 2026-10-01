@@ -37,6 +37,8 @@ Los hallazgos posteriores de la PR se reprodujeron y quedaron cubiertos por regr
 
 ## Límites
 
+Las regresiones posteriores cubren también inferencia HTTPS sin target, instantáneas MCP/HTTPS con solo peerDependencies, cada entrada lock Angular proporcionada, fences Markdown con sangría e índices documentales generados obsoletos. La guía de mantenimiento avisa expresamente de que aprobar un evento de release GitHub autoriza publicar en npm. El entorno de auditoría Python instala explícitamente PyYAML para el validador de frontmatter, sin depender de paquetes preinstalados en el Python anterior del runner.
+
 No se afirma certificación universal de hosts, puntuación semántica del catálogo, auditoría externa completa, declaraciones del portal, aceptación de marketplaces ni enforcement global de hooks. Fixtures y registros históricos conservan su alcance. Publicar no concede permiso para ejecutar instrucciones, reemplazar personalizaciones ni subir contexto privado.
 
 Consulta las [tareas ordenadas](publication-plan.es.md) para acciones del responsable y evidencia de cierre por destino.

@@ -49,6 +49,7 @@ function isExcludedDirectory(directory, name) {
 
 function isExcludedSkillLabPath(relative) {
   return excludedSkillLabDirectories.has(relative) ||
+    (relative.startsWith('scripts/') && relative.split('/').includes('__pycache__')) ||
     (relative.startsWith('skill-lab/python/') && relative.split('/').includes('__pycache__'));
 }
 

@@ -37,6 +37,8 @@ The subsequent PR review findings were reproduced and covered by focused regress
 
 ## Limits
 
+Later regressions also cover HTTPS omitted-target inference, peer-only MCP/HTTPS snapshots, each supplied Angular lock entry, indented Markdown fences and stale generated documentation indexes. The maintainer guide now explicitly warns that protected approval of a GitHub release event authorizes npm publication. Python audit setup installs the frontmatter validator's PyYAML dependency explicitly; it does not rely on packages preinstalled in a runner's former Python runtime.
+
 No universal real-host certification, full-catalog semantic score, external vulnerability certification, portal attestation, marketplace approval or global hook enforcement is claimed. Local fixtures and historical audit reports retain their original scope. Public update does not grant an agent permission to run instructions, replace user edits or upload private context.
 
 See the ordered [publication tasks](publication-plan.md) for owner actions and each target's closing evidence.

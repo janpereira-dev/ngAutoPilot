@@ -23,6 +23,7 @@ function fixture(t) {
   write('scripts/documentation.mjs', fs.readFileSync(path.join(sourceRoot, 'scripts/documentation.mjs'), 'utf8'));
   for (const file of ['README.md', 'CONTRIBUTING.md', 'SECURITY.md', 'CODE_OF_CONDUCT.md', 'ROADMAP.md', 'CHANGELOG.md', 'agents/ngautopilot/README.md', 'skill-lab/README.md', 'skill-lab/POLICY.md', 'skill-lab/CHANGELOG.md', 'skills/angular/upgrades/21-to-22/README.md']) write(file, '# Guide\n\n## Details\n\nReader guidance.\n');
   write('docs/example.md', '# Example\n');
+  for (const guide of ['getting-started', 'packs', 'troubleshooting']) write(`docs/${guide}.md`, `# ${guide}\n`);
   const run = (...args) => spawnSync(process.execPath, [path.join(root, 'scripts/documentation.mjs'), ...args], { cwd: root, encoding: 'utf8' });
   return { root, write, run };
 }
@@ -125,6 +126,35 @@ test('unresolved translation tokens and invisible controls fail validation', t =
   assert.match(result.stderr, /Unresolved translation placeholder/);
   assert.match(result.stderr, /Stale translation fallback/);
   assert.match(result.stderr, /Invisible or bidirectional Unicode control/);
+});
+
+test('indented fences suppress example links while matching marker lengths and types', t => {
+  const f = fixture(t);
+  for (const indentation of ['', ' ', '  ', '   ']) {
+    f.write('docs/example.md', '# Example\n\n' + indentation + '````md\n[Example](not-a-file.md)\n```\n~~~\n[Example](also-not-a-file.md)\n' + indentation + '````\n');
+    const result = f.run('validate', '--allow-incomplete');
+    assert.equal(result.status, 0, result.stderr);
+  }
+  f.write('docs/example.md', '# Example\n\n   ~~~md\n[Example](not-a-file.md)\n   ~~~\n[Live](missing.md)\n');
+  assert.match(f.run('validate', '--allow-incomplete').stderr, /Missing link/);
+});
+
+test('strict validation rejects stale discovery inventories and generated navigation tables without rewriting', t => {
+  const f = fixture(t);
+  assert.equal(f.run('index').status, 0);
+  let map = JSON.parse(fs.readFileSync(path.join(f.root, 'docs/documentation-map.json'), 'utf8'));
+  for (const source of map.sources) f.write(source.replace(/\.md$/, '.es.md'), '# Guía\n');
+  assert.equal(f.run('index').status, 0);
+  assert.equal(f.run('validate').status, 0);
+  const before = fs.readFileSync(path.join(f.root, 'docs/documentation-map.json'), 'utf8');
+  f.write('docs/new.md', '# New guide\n');
+  f.write('docs/new.es.md', '# Nueva guía\n');
+  assert.match(f.run('validate').stderr, /Stale documentation index/);
+  assert.equal(fs.readFileSync(path.join(f.root, 'docs/documentation-map.json'), 'utf8'), before);
+  assert.equal(f.run('index').status, 0);
+  assert.equal(f.run('validate').status, 0);
+  fs.appendFileSync(path.join(f.root, 'docs/README.md'), '\nStale generated content.\n');
+  assert.match(f.run('validate').stderr, /Stale documentation index: docs\/README.md/);
 });
 
 test('all generated diagrams have complete localized pairs and accessible static content', () => {

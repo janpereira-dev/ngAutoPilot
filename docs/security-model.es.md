@@ -30,6 +30,8 @@ No deben recomendar ejecución de scripts remotos no confiables, paquetes no rev
 
 `security:scan` es un control determinista sobre fuentes, agentes, adaptadores, packs, scripts, documentación y workflows. Detecta marcadores de conflicto, controles Unicode invisibles o bidireccionales, ejecución remota mediante pipelines shell/PowerShell, material con forma de credencial o clave privada y permisos shell demasiado amplios en frontmatter. Es defensa adicional, no prueba de seguridad semántica de toda la prosa.
 
+Se excluyen metadatos Git, dependencias, salidas `dist/`, cachés/runs locales de Skill Lab y bytecode generado en `skill-lab/python/**/__pycache__/` y `scripts/**/__pycache__/`. Los builders fuente omiten esos mismos cachés; npm tiene además reglas de exclusión propias. Los scripts fuente publicables siguen bajo revisión, incluidos archivos con bytes NUL.
+
 La revisión externa opcional mediante [NVIDIA SkillSpector](https://github.com/NVIDIA/skillspector) debe respetar el proveedor y la política de salida de datos. Comprueba las opciones de su versión instalada. No envíes contenido sensible o sin publicar a un modelo externo sin revisión explícita.
 
 ## 2. Instalación
