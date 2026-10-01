@@ -206,17 +206,35 @@ function publishBundles(stagingRoot) {
     const backup = path.join(stagingRoot, `${bundle.name}.previous`);
     const hadSkills = fs.existsSync(skillsDir);
     fs.mkdirSync(pluginDir, { recursive: true });
-    if (hadSkills) fs.renameSync(skillsDir, backup);
-    try {
-      fs.renameSync(path.join(stagingRoot, bundle.name, 'skills'), skillsDir);
-    } catch (error) {
-      if (hadSkills) fs.renameSync(backup, skillsDir);
-      throw error;
+    // An unchanged generation must not churn hundreds of files. Besides being
+    // idempotent, this avoids transient Windows file-indexer locks on no-op sync.
+    const unchanged = hadSkills && sameRegularTree(skillsDir, path.join(stagingRoot, bundle.name, 'skills'));
+    if (!unchanged) {
+      if (hadSkills) fs.renameSync(skillsDir, backup);
+      try {
+        fs.renameSync(path.join(stagingRoot, bundle.name, 'skills'), skillsDir);
+      } catch (error) {
+        if (hadSkills) fs.renameSync(backup, skillsDir);
+        throw error;
+      }
     }
     const manifestDir = path.join(pluginDir, '.codex-plugin');
     fs.mkdirSync(manifestDir, { recursive: true });
     fs.copyFileSync(path.join(stagingRoot, bundle.name, '.codex-plugin', 'plugin.json'), path.join(manifestDir, 'plugin.json'));
   }
+}
+
+function sameRegularTree(left, right) {
+  const a = fs.readdirSync(left, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name));
+  const b = fs.readdirSync(right, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name));
+  if (a.length !== b.length) return false;
+  return a.every((entry, index) => {
+    const other = b[index];
+    if (entry.name !== other.name || entry.isSymbolicLink() || other.isSymbolicLink()) return false;
+    const x = path.join(left, entry.name), y = path.join(right, other.name);
+    if (entry.isDirectory() && other.isDirectory()) return sameRegularTree(x, y);
+    return entry.isFile() && other.isFile() && fs.readFileSync(x).equals(fs.readFileSync(y));
+  });
 }
 
 function writeMarketplaceFiles(bundles) {
