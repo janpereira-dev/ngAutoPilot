@@ -98,6 +98,14 @@ function collectFiles(directory, prefix, files) {
 }
 
 function applyExport(output, desired, agent, pack, skillsRoot) {
+  // Check the user's original path before realpath normalization can conceal
+  // a redirect, including a linked ancestor of a not-yet-created output root.
+  for (let current = output; ; current = path.dirname(current)) {
+    const stat = fs.lstatSync(current, { throwIfNoEntry: false });
+    if (stat?.isSymbolicLink()) throw new Error('export output root or parent must not be a symbolic link');
+    if (stat && !stat.isDirectory()) throw new Error('export output root or parent must be a directory');
+    if (path.dirname(current) === current) break;
+  }
   const guard = createRootGuard(output);
   const read = (relative) => {
     const target = guard.resolve(relative);
