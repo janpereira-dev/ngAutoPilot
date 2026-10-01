@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { buildSagePacket, verifySagePacket } from '../../lib/sage-review.mjs';
+import { buildSagePacket, verifySagePacket, REVIEW_PATHS } from '../../lib/sage-review.mjs';
 import { sha256 } from '../../adapters/_shared/safe-fs.mjs';
 const roots = [];
 afterEach(() => { for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true, force: true }); });
@@ -18,13 +18,13 @@ function fixture() {
 describe('exact-commit Sage packet', () => {
   it('does not include local credentials, private captures, caches, or runtime logs', () => {
     const sourceRoot = fixture();
-    for (const relative of ['bin/.env', 'bin/.npmrc', 'bin/.sl/store/private', 'bin/evidence.private.json', 'bin/provider.local.yaml', 'skill-lab/runs/private/evidence.jsonl', 'skill-lab/.cache/prompts.json', 'skill-lab/evidence.jsonl', 'skill-lab/benchmarks/custom/evidence.jsonl']) {
+    for (const relative of ['bin/.env', 'bin/.npmrc', 'bin/.git-credentials', 'bin/.p4config', 'bin/.p4tickets', 'bin/uppercase/.ENV', 'bin/uppercase/.Env.local', 'bin/uppercase/.NPMRC', 'bin/uppercase/capture.PRIVATE.JSON', 'bin/uppercase/provider.LOCAL.YAML', 'bin/.sl/store/private', 'bin/evidence.private.json', 'bin/provider.local.yaml', 'skill-lab/runs/private/evidence.jsonl', 'skill-lab/.cache/prompts.json', 'skill-lab/evidence.jsonl', 'skill-lab/benchmarks/custom/evidence.jsonl']) {
       const target = path.join(sourceRoot, relative);
       fs.mkdirSync(path.dirname(target), { recursive: true });
       fs.writeFileSync(target, 'PRIVATE_LOCAL_DATA');
     }
     fs.writeFileSync(path.join(sourceRoot, 'bin/.env.example'), 'PUBLIC_CONFIGURATION_EXAMPLE');
-    const { output, manifest } = buildSagePacket({ sourceRoot, commit: 'a'.repeat(40), includePaths: ['README.md', 'bin', 'skill-lab'] });
+    const { output, manifest } = buildSagePacket({ sourceRoot, commit: 'a'.repeat(40), includePaths: REVIEW_PATHS });
     expect(manifest.files).toHaveLength(3);
     expect(fs.existsSync(path.join(output, 'bin/.env'))).toBe(false);
     expect(fs.existsSync(path.join(output, 'bin/.sl'))).toBe(false);
@@ -33,22 +33,69 @@ describe('exact-commit Sage packet', () => {
     expect(fs.readFileSync(path.join(output, 'bin/.env.example'), 'utf8')).toBe('PUBLIC_CONFIGURATION_EXAMPLE');
     expect(verifySagePacket({ sourceRoot, packetRoot: output, commit: 'a'.repeat(40) }).files).toHaveLength(3);
   });
+  it('rejects collector recipes that omit mandatory execution or governance roots', () => {
+    const sourceRoot = fixture();
+    const commit = 'a'.repeat(40);
+    const includePaths = REVIEW_PATHS.filter(relative => !['lib', '.github'].includes(relative));
+    const { output } = buildSagePacket({ sourceRoot, commit, includePaths });
+    expect(() => verifySagePacket({ sourceRoot, packetRoot: output, commit })).toThrow(/mandatory review scope/);
+    expect(JSON.parse(fs.readFileSync(path.join(output, 'manifest.json'), 'utf8')).approval).toBe('NOT_APPROVED');
+  });
+  it('requires newly published package scopes and includes all hidden plugin payloads', () => {
+    const sourceRoot = fixture();
+    const commit = 'a'.repeat(40);
+    for (const relative of ['.agents/payload/instructions.md', '.claude-plugin/payload.json']) {
+      fs.mkdirSync(path.dirname(path.join(sourceRoot, relative)), { recursive: true });
+      fs.writeFileSync(path.join(sourceRoot, relative), 'PUBLIC_PUBLISHED_PAYLOAD');
+    }
+    let packet = buildSagePacket({ sourceRoot, commit });
+    for (const relative of ['.agents/payload/instructions.md', '.claude-plugin/payload.json']) {
+      expect(packet.manifest.files.map(file => file.path)).toContain(relative);
+      expect(fs.readFileSync(path.join(packet.output, relative), 'utf8')).toBe('PUBLIC_PUBLISHED_PAYLOAD');
+    }
+    expect(verifySagePacket({ sourceRoot, packetRoot: packet.output, commit }).commit).toBe(commit);
+    fs.writeFileSync(path.join(sourceRoot, 'package.json'), JSON.stringify({ files: ['bin', 'extra-payload'] }));
+    fs.mkdirSync(path.join(sourceRoot, 'extra-payload'));
+    fs.writeFileSync(path.join(sourceRoot, 'extra-payload/runtime.mjs'), 'export const publicPayload = true;\n');
+    packet = buildSagePacket({ sourceRoot, commit });
+    expect(() => verifySagePacket({ sourceRoot, packetRoot: packet.output, commit })).toThrow(/mandatory review scope/);
+    packet = buildSagePacket({ sourceRoot, commit, includePaths: [...REVIEW_PATHS, 'extra-payload'] });
+    expect(verifySagePacket({ sourceRoot, packetRoot: packet.output, commit }).commit).toBe(commit);
+  });
   it('reviews committed npm configuration but never copies untracked local registry credentials', () => {
     const sourceRoot = fixture();
     const git = (...args) => execFileSync('git', args, { cwd: sourceRoot, encoding: 'utf8' }).trim();
     git('init', '--quiet');
     fs.writeFileSync(path.join(sourceRoot, '.npmrc'), 'registry=https://registry.npmjs.org/\n');
+    fs.mkdirSync(path.join(sourceRoot, 'mcp'));
+    fs.writeFileSync(path.join(sourceRoot, 'mcp/.npmrc'), 'registry=https://registry.npmjs.org/\n');
+    fs.mkdirSync(path.join(sourceRoot, 'adapters'));
+    fs.writeFileSync(path.join(sourceRoot, 'adapters/.NPMRC'), 'registry=https://registry.npmjs.org/\n');
     fs.writeFileSync(path.join(sourceRoot, 'bin/.npmrc'), '//registry.example/:_authToken=LOCAL_SECRET\n');
-    git('add', 'README.md', '.npmrc', 'bin/cli.mjs');
+    git('add', 'README.md', '.npmrc', 'mcp/.npmrc', 'adapters/.NPMRC', 'bin/cli.mjs');
     git('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '--quiet', '-m', 'test: npm configuration fixture');
     const commit = git('rev-parse', 'HEAD');
     const { output, manifest } = buildSagePacket({ sourceRoot, commit });
     expect(manifest.files.map(file => file.path)).toContain('.npmrc');
+    expect(manifest.files.map(file => file.path).filter(relative => relative === 'mcp/.npmrc')).toHaveLength(1);
     expect(fs.readFileSync(path.join(output, '.npmrc'), 'utf8')).toBe('registry=https://registry.npmjs.org/\n');
     expect(fs.existsSync(path.join(output, 'bin/.npmrc'))).toBe(false);
     expect(verifySagePacket({ sourceRoot, packetRoot: output, commit }).commit).toBe(commit);
-    fs.appendFileSync(path.join(sourceRoot, '.npmrc'), '//evil.example/:_authToken=${NODE_AUTH_TOKEN}\n');
-    expect(() => verifySagePacket({ sourceRoot, packetRoot: output, commit })).toThrow(/file mismatch/);
+    for (const relative of ['.npmrc', 'mcp/.npmrc', 'adapters/.NPMRC']) {
+      const original = fs.readFileSync(path.join(sourceRoot, relative));
+      fs.appendFileSync(path.join(sourceRoot, relative), '//evil.example/:_authToken=${NODE_AUTH_TOKEN}\n');
+      expect(() => verifySagePacket({ sourceRoot, packetRoot: output, commit })).toThrow(/file mismatch/);
+      fs.writeFileSync(path.join(sourceRoot, relative), original);
+    }
+  });
+  it('fails closed when publication scope is implicit, escaping, or uses unsupported patterns', () => {
+    const sourceRoot = fixture();
+    const commit = 'a'.repeat(40);
+    for (const files of [undefined, [], ['../outside'], ['bin/**'], ['!lib'], ['C:/outside'], ['bin/../lib']]) {
+      fs.writeFileSync(path.join(sourceRoot, 'package.json'), JSON.stringify({ files }));
+      const { output } = buildSagePacket({ sourceRoot, commit });
+      expect(() => verifySagePacket({ sourceRoot, packetRoot: output, commit })).toThrow(/mandatory review scope/);
+    }
   });
   it('includes the effective npm shrinkwrap lockfile and rejects changes after review', () => {
     const sourceRoot = fixture();
@@ -67,6 +114,7 @@ describe('exact-commit Sage packet', () => {
       const source = fs.readFileSync(path.join(repository, '.github/workflows', filename), 'utf8');
       const upload = source.match(/uses: actions\/upload-artifact@[^\n]+\n\s+with:\n([\s\S]*?)(?=\n\s+- (?:name|uses):|\n\n  [a-z]|$)/)?.[1];
       expect(upload).toMatch(/include-hidden-files: true/);
+      expect(source).not.toContain('requireMandatoryScope');
     }
     const source = fs.readFileSync(path.join(repository, '.github/workflows/sage-review.yml'), 'utf8');
     expect(source).toContain('actions/download-artifact@');
@@ -111,7 +159,7 @@ describe('exact-commit Sage packet', () => {
   });
   it('verifies commit and every byte before publishing; tampering fails closed', () => {
     const sourceRoot = fixture();
-    const options = { sourceRoot, commit: 'a'.repeat(40), includePaths: ['README.md', 'bin'] };
+    const options = { sourceRoot, commit: 'a'.repeat(40), includePaths: REVIEW_PATHS };
     const { output } = buildSagePacket(options);
     expect(verifySagePacket({ sourceRoot, packetRoot: output, commit: options.commit }).commit).toBe(options.commit);
     expect(() => verifySagePacket({ sourceRoot, packetRoot: output, commit: 'b'.repeat(40) })).toThrow();
@@ -126,7 +174,7 @@ describe('exact-commit Sage packet', () => {
   });
   it('preserves source bytes and records hashes without claiming approval', () => {
     const sourceRoot = fixture();
-    const options = { sourceRoot, commit: 'a'.repeat(40), workingTreeDirty: false, includePaths: ['README.md', 'bin'] };
+    const options = { sourceRoot, commit: 'a'.repeat(40), workingTreeDirty: false, includePaths: REVIEW_PATHS };
     const first = buildSagePacket(options);
     expect(first.manifest.approval).toBe('NOT_APPROVED');
     expect(first.manifest.files).toHaveLength(2);

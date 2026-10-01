@@ -31,6 +31,12 @@ Authoritative root test-gate configuration (`vitest.config.mjs`), both effective
 
 Both packet upload workflows explicitly retain hidden reviewed files. The PR packet job downloads its own artifact and verifies the entire inventory against the clean source, proving transport completeness without requiring or claiming release approval.
 
+Verification enforces mandatory execution and governance roots independently of the collector recipe, plus every explicit `package.json` publication path. It includes the complete `.agents/` and `.claude-plugin/` trees, not just marketplace manifests. Narrowing the collector cannot make a partial packet eligible for release. Publication paths must be plain, contained relative paths; missing allowlists, globs, negations, and traversal fail closed until explicitly supported. Partial packets can be generated for development, but the verifier has no reduced-scope approval mode.
+
+Privacy exclusions are case-insensitive, including `.ENV`, `.NPMRC`, private JSON/local YAML suffixes, and file-based VCS credentials (`.git-credentials`, `.p4config`, `.p4tickets`). Tracked npm configuration remains reviewable regardless of filename casing. The verifier deduplicates overlapping scopes before comparing inventories.
+
+The mandatory-scope policy is not an external trust anchor: changes to the verifier, collector, workflow, ownership policy, or protection settings require review of the full PR diff as well as the packet. A malicious replacement of the verifier itself cannot be authenticated by executing that same replacement. Human review and protected environment settings remain required.
+
 A dirty local packet is useful for development review but **cannot** satisfy release verification. After committing, regenerate the packet and review the exact clean revision.
 
 ## Release approval boundary
