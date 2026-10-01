@@ -35,7 +35,7 @@ const collect = relative => {
 };
 for (const relative of ['dist/release', 'dist/publish', 'dist/agent-plugins', 'dist/openai-plugin']) collect(relative);
 if (process.argv.includes('--require-bundles')) {
-  const names = readJson('agent-plugins.config.json').filter(plugin => plugin.enabled).map(plugin => plugin.name);
+  const names = readJson('agent-plugins.config.json').plugins.filter(plugin => plugin.enabled).map(plugin => plugin.name);
   const paths = new Set(artifacts.map(artifact => artifact.path));
   for (const name of names) if (!paths.has(`dist/agent-plugins/${name}-${pkg.version}.zip`)) throw new Error(`Missing agent plugin archive: ${name}`);
   if (!paths.has(`dist/openai-plugin/ngautopilot-skills-${pkg.version}.zip`)) throw new Error('Missing OpenAI skills archive');
