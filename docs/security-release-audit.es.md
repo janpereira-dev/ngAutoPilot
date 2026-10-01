@@ -14,6 +14,13 @@
 - Las exportaciones probaron diez layouts, rechazo de conflictos y límites fuente. La exportación completa maneja la navegación bilingüe sin copiar código operativo ni credenciales adyacentes; los documentos exclusivos del checkout usan enlaces al tag cuando faltan en npm.
 - La instalación Angular usa las skills realmente incluidas, no los packs fuente sin filtrar. La regresión cubre exclusiones Angular 14.1; las instantáneas comparten compatibilidad/rangos y rechazan campos de rutas del cliente.
 
+## Verificación posterior del 2026-10-02
+
+- El candidato `45eb9a1c` de la PR #68 superó los doce checks publicados en la PR, incluidos CodeQL, los dos gates protegidos y Socket. La validación remota aprobó 239 pruebas del repositorio y 22 pruebas de scripts; Skill Lab reportó 96 pruebas sin fallos. Es evidencia de ese candidato, no aprobación de un commit posterior.
+- CodeQL encontró inicialmente sanitización incompleta de varios caracteres al procesar encabezados de documentación. La corrección usa un recorrido con estado de etiquetas y una lista permitida de caracteres emitidos, con regresión de etiquetas malformadas. La última ejecución de CodeQL aprobó y el hilo original está resuelto y obsoleto. Las consultas paginadas actualizadas de alertas abiertas de Dependabot, secret scanning y code scanning devolvieron listas vacías.
+- La ejecución adicional **Code scanning AI findings** de GitHub falló antes de revisar por cuota mensual agotada. Que CodeQL apruebe no significa que esta revisión opcional con IA haya terminado. Restaurar la cuota del propietario y repetir si se requiere esa revisión; no eludir ningún check obligatorio.
+- Una invocación real de Codex 0.156.1 rechazó el modelo configurado `gpt-6.1-sol` para la cuenta ChatGPT activa. Una invocación aislada de Claude Code 2.1.226 no produjo resultado dentro del plazo de observación y se detuvo. Ningún intento prueba descubrimiento de Components/Skills ni invocación exitosa. No se sustituyeron el modelo/proveedor configurados ni ajustes globales. Los logs completos del host permanecen como evidencia privada local.
+
 ## Obligatorio antes de publicar
 
 - Ejecutar los gates finales del HEAD y Skill Lab; registrar CI remoto aparte de resultados locales.

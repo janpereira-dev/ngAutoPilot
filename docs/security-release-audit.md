@@ -14,6 +14,13 @@
 - Native exports exercised all ten layouts, conflict refusal and source-path boundaries. Full export now handles bilingual reader navigation without copying operational source or adjacent credentials. Repository-only documents become pinned release links when absent from npm.
 - Filtered Angular installation uses the resolver's actual included skills, not all skills from its unfiltered source packs. Regression evidence covers Angular 14.1 exclusions; snapshot resolution shares compatibility/range checks and rejects caller path fields.
 
+## Follow-up verification on 2026-10-02
+
+- PR #68's candidate `45eb9a1c` passed all twelve reported PR checks, including CodeQL, both protected release gates and Socket. Remote release validation passed 239 repository tests and 22 script tests; Skill Lab reported 96 tests with zero failures. This is candidate evidence, not approval of a later commit.
+- CodeQL initially found incomplete multi-character sanitization in documentation heading processing. The fix uses an explicit tag-state scan and an emitted-character allowlist, with malformed-tag regression coverage. The latest CodeQL run passed; the original review thread is resolved and outdated. Fresh paginated Dependabot, secret-scanning and code-scanning open-alert responses were empty.
+- GitHub's separate **Code scanning AI findings** run failed before review because its monthly quota was exhausted. CodeQL success does not imply this optional AI review completed. Restore the owner's quota and rerun if that review is required; do not bypass a required check.
+- An actual Codex 0.156.1 invocation rejected the configured `gpt-6.1-sol` model for the signed-in ChatGPT account. An isolated Claude Code 2.1.226 invocation produced no result within the bounded observation window and was stopped. Neither attempt proves Components/Skills discovery or successful invocation. No configured model/provider or global settings were replaced. Raw host logs remain private local evidence.
+
 ## Required before publication
 
 - Run the final current-head release and Skill Lab gates; record remote CI independently from local results.
