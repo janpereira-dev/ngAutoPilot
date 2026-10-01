@@ -1,54 +1,37 @@
-# Sage Review Layer
+# Sage-oriented review: packet first, external review second
 
-NgAutoPilot uses a Sage-oriented review packet for agent code, workflow files, and publish automation.
+<!-- docs:navigation:start -->
+[Español](sage-review.es.md) · [Map](README.md) · [Home](../README.md)
 
-Sage is an Agent Detection & Response layer from Gen Digital. It checks high-risk actions such as:
+<!-- docs:navigation:end -->
 
-- shell commands
-- file writes
-- URL fetches
-- package installs
+NgAutoPilot can generate a review packet for agent instructions, workflow files and publication automation. **Generating that packet does not run an external reviewer or certify safety.**
 
-## When to use
+## When to use it
 
-Use Sage when reviewing changes to:
+Review changes to `skills/**/SKILL.md`, `adapters/**`, `.github/workflows/**`, `scripts/*.mjs`, `catalog.json`, publish bundles and release automation.
 
-- `skills/**/SKILL.md`
-- `adapters/**`
-- `.github/workflows/**`
-- `scripts/*.mjs`
-- `catalog.json`
-- publish bundles and release automation
+Look for unsafe shell execution, hidden provider lock-in, broad file copying, secret exposure in workflows, unintended published files and overly permissive instructions. Review file writes, URL access and package installation as separate trust boundaries.
 
-## What Sage should look for
+## Three steps
 
-- unsafe shell execution
-- hidden provider lock-in
-- broad file-copy patterns
-- workflow commands that leak secrets
-- publish artifacts that include unintended files
-- agent instructions that are too permissive
-
-## How to run it
-
-1. Generate the review packet:
+1. Generate from the repository:
 
    ```bash
    npm run review:sage:pack
    ```
 
-2. Open `dist/review/sage/`.
-3. Feed the packet into Sage in the agent environment you use locally.
+2. Inspect `dist/review/sage/`. Check contents and remove sensitive information before sharing with an external service.
+3. If you use Sage, submit the packet through an installed, authorized integration. Verify its current host support and data policy; this repository does not install or authenticate that service.
 
-## Platforms
+Record the external review outcome separately from packet creation. A missing integration is an unmet review step, not an automatic pass.
 
-Sage currently supports Claude Code, Cursor, VS Code, OpenClaw, and OpenCode through its official plugin and extension surfaces.
+## Keep deterministic validation
 
-## Review policy
+Sage or another external reviewer supplements, not replaces:
 
-Sage is a reviewer, not a replacement for validation.
+- `npm run skills:validate`
+- `npm run skills:catalog`
+- `npm run skills:publish:pack` when published content changes
 
-- Keep `npm run skills:validate` in the loop.
-- Keep `npm run skills:catalog` in the loop.
-- Keep `npm run skills:publish:pack` in the loop when publish content changes.
-- Use Sage to catch risky behavior in the agent layer before it reaches a PR.
+Use findings to inspect concrete risky behavior before a PR. Do not assume a provider verdict is a security certification.

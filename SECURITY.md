@@ -1,6 +1,14 @@
 # Security Policy
 
-## Supported Versions
+<!-- docs:navigation:start -->
+[Español](SECURITY.es.md) · [Map](docs/README.md) · [Home](README.md)
+
+<!-- docs:navigation:end -->
+
+**Do not disclose security-sensitive details in a public issue.** Use an
+available private reporting channel and share only necessary, sanitized evidence.
+
+## Policy scope
 
 NgAutoPilot is a documentation and skill catalog repository. Security guidance applies to:
 
@@ -18,7 +26,12 @@ Use one of these channels instead:
 
 - GitHub Security Advisory, if enabled for the repository
 - a private maintainer contact path
-- a private repository message if available in your GitHub setup
+- an existing private contact channel supplied by maintainers
+
+Do not assume GitHub provides generic private repository messaging or invent a
+contact address. If no private channel is visible, ask for a contact method
+without revealing the vulnerability. This policy does not define a guaranteed
+version-support window or response deadline.
 
 Include:
 

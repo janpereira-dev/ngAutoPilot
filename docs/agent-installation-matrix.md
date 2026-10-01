@@ -1,5 +1,12 @@
 # Agent Installation Matrix
 
+<!-- docs:navigation:start -->
+[Español](agent-installation-matrix.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
+![CLI, native marketplace, Agent Plugins Preview and discovery routes have different contracts and separate host checks.](../assets/distribution-routes.svg)
+
 NgAutoPilot uses one catalog and pack policy across supported clients. The adapter controls destination layout and instruction filenames; it does not configure the host client itself.
 
 ## Recommended flow
@@ -14,7 +21,7 @@ npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngaut
 npm exec --package=ngautopilot -- ngautopilot verify --agent codex --scope project
 ```
 
-For a multi-major migration, install and validate each named hop in order; the CLI does not currently accept an Angular-version or upgrade-range selector.
+For a multi-major migration, install and validate each named hop in order. This branch also provides `--angular` profile selection and `migrate` planning/gates; check your installed version's help. A plan or installed hop guide is not an automatic source transformation.
 
 ## Compatibility matrix
 
@@ -46,4 +53,6 @@ MCP registration is separate from installing a pack. See [MCP and ChatGPT Integr
 - Use `ngautopilot-angular-upgrades` for the complete upgrade guidance set.
 - Use `ngautopilot export --agent generic --pack <id> --output <dir>` when the client lacks a native adapter.
 
-Pack switching removes only unchanged managed files. Modified managed files are preserved and reported unless `--force` is used explicitly.
+Pack switching removes unchanged obsolete managed files. Modified obsolete files are preserved and reported unless forced. Desired files can be refreshed even if edited in this branch; back up before switching or updating.
+
+Client references: [Codex skills](https://learn.chatgpt.com/docs/build-skills) and [Codex MCP](https://learn.chatgpt.com/docs/extend/mcp?surface=cli), reviewed on 2026-10-01.

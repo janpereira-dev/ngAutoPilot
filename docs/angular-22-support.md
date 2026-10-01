@@ -1,74 +1,56 @@
-# Angular v22 Support
+# Angular 22: use the right API, not just the newest one 🔎
 
-## Verification
+<!-- docs:navigation:start -->
+[Español](angular-22-support.es.md) · [Map](README.md) · [Home](../README.md)
 
-Verified against Context7 (official angular.dev documentation) on 2026-07-16.
+<!-- docs:navigation:end -->
 
-## Stable APIs (production ready)
+**Detect the exact version first.** A skill gated at major 22 does not prove that every API exists in 22.0. Use the [version policy](angular-version-support.md) and the official API page before implementation.
 
-| API | Status | Source |
-| --- | --- | --- |
-| Signal Forms | stable | angular.dev/guide/forms/signals |
-| Resource API | stable | angular.dev/roadmap |
-| httpResource | stable | angular.dev/roadmap |
-| Asynchronous Signals | stable | angular.dev/events/v22 |
-| Angular Aria | stable | angular.dev/events/v22 |
-| Zoneless change detection | stable | angular.dev/roadmap |
-| Linked Signal API | stable | angular.dev/roadmap |
-| Incremental hydration | stable | angular.dev/roadmap |
-| Effect API | stable | angular.dev/roadmap |
-| Event replay (SSR) | stable | angular.dev/roadmap |
-| Route-level render mode | stable | angular.dev/roadmap |
-| OnPush (default for new apps) | stable | angular.dev/best-practices |
-| ChangeDetectionStrategy.Eager (renamed from Default) | stable | angular.dev |
+## Verified reference points
 
-## New APIs (v22)
+Reviewed against official Angular documentation on **2026-10-01**. These are API-specific observations, not a blanket production-readiness guarantee.
 
-| API | Status | Notes |
-| --- | --- | --- |
-| `@Service()` decorator | stable | Replacement for `@Injectable({ providedIn: 'root' })` |
-| `injectAsync()` | stable | Lazy DI; service must be auto-provided |
-| Template spread/rest syntax | stable | Object, array, function calls |
-| Template arrow functions | stable | Short inline functions |
-| Multi-case `@switch` | stable | Shared output across cases |
-| Exhaustive `@switch` (never) | stable | Compile-time error for unhandled unions |
-| HTML element-level comments | stable | `// comment` and `/* comment */` in templates |
-| Host directive de-duplication | stable | Template match wins over host match |
-
-## Experimental APIs
-
-| API | Status | Notes |
-| --- | --- | --- |
-| `@boundary` / `@error` | developer preview (Q3 2026) | Error boundaries in templates |
-| WebMCP | experimental | Tools for agents to interact with the app |
-| `withExperimentalPlatformNavigation` | experimental | Browser Navigation API integration |
-| `withExperimentalAutoCleanupInjectors` | experimental | Auto-destroy route injectors |
-| `destroyDetachedRouteHandle` | stable | Public API for custom reuse strategy cleanup |
-
-## Deprecated
-
-| Feature | Notes |
+| Topic | Evidence and boundary |
 | --- | --- |
-| Webpack builders | `@angular-devkit/build-angular`, `@ngtools/webpack` deprecated; TSGo application builder is the focus |
+| Signal Forms | [FormField](https://angular.dev/api/forms/signals/FormField) is marked stable since 22.0; still validate form behavior and migration scope |
+| Resource / HTTP resource | [resource](https://angular.dev/api/core/resource) and [httpResource](https://angular.dev/api/common/http/httpResource) are marked stable since 22.0 |
+| Lazy dependency injection | [injectAsync](https://angular.dev/api/core/injectAsync) is stable since 22.0; the service must be auto-provided |
+| Service decorator | [Service](https://angular.dev/api/core/Service) documents automatic DI registration; it also supports `autoProvided: false`, so do not rewrite every provider mechanically |
+| Change detection | [ChangeDetectionStrategy](https://angular.dev/api/core/ChangeDetectionStrategy) documents OnPush as default and `Default` as a deprecated alias of `Eager`; inspect existing components and tests |
+| Detached route cleanup | [destroyDetachedRouteHandle](https://angular.dev/api/router/destroyDetachedRouteHandle) is stable **since 22.2**, not a general 22.0 guarantee |
+| Debouncing Signals | [debounced](https://angular.dev/guide/signals/debounced) remains experimental; do not label all asynchronous Signals stable |
+| Browser navigation integration | [withExperimentalPlatformNavigation](https://angular.dev/api/router/withExperimentalPlatformNavigation) remains experimental and its documentation warns against production use |
+| Injector cleanup | [withExperimentalAutoCleanupInjectors](https://angular.dev/api/router/withExperimentalAutoCleanupInjectors) is now deprecated; follow the replacement linked by the API reference |
 
-## TypeScript support
+## Other topics: check their individual contracts
 
-TypeScript 6.x is supported in v22.
+Angular Aria, linked Signals, effects, zoneless execution, event replay, incremental hydration and route-level rendering are separate features. Review their official guide/API and your version; one stable API does not establish the maturity of its neighbors.
 
-## NgAutoPilot skill coverage
+Template spread/rest syntax, arrow functions, multi-case or exhaustive `@switch`, element-level comments and host-directive matching must be checked against the [expression reference](https://angular.dev/guide/templates/expression-syntax) and the corresponding template/component guide. Do not treat a roadmap announcement as a compiler guarantee.
 
-NgAutoPilot ships Angular 22-specific skills under `skills/angular/ai/angular-v22-*`:
-- `angular-v22-agent-skills-integration` — use Angular Agent Skills as reference
-- `angular-v22-ai-tutor-safe-usage` — safe AI tutor usage
-- `angular-v22-angular-mcp-agent-workflow` — Angular MCP devserver workflow
-- `angular-v22-devserver-self-healing-loop` — self-healing build loop
-- `angular-v22-webmcp-tool-exposure` — WebMCP experimental exposure
+For `@boundary` / `@error`, WebMCP, and builder changes, verify the exact release and current [roadmap](https://angular.dev/roadmap). This guide does not promise a release quarter or authorize replacing a working builder. Keep experimental adoption in a separately approved task.
 
-All v22 skills use `compatibility.angular.min: "22"` frontmatter gate.
+## Toolchain
 
-## Rules
+Use the exact rows in the [official compatibility matrix](https://angular.dev/reference/versions), not “TypeScript 6.x” as an unlimited range. Angular 22.0.x requires TypeScript `>=6.0.0 <6.1.0`; the CLI's Node requirement and the Angular application's Node requirement are different.
 
-- Do not declare an experimental API stable.
-- Do not recommend Angular 22 in a project without detecting its version.
-- Keep upgrade hops major-by-major.
-- Separate upgrade work from modernization, remediation, and optimization.
+## NgAutoPilot AI skill coverage
+
+The following source skills are under `skills/angular/ai/` and use a major-22 minimum gate:
+
+- `angular-v22-agent-skills-integration`: Angular Agent Skills as a reference.
+- `angular-v22-ai-tutor-safe-usage`: safe tutor usage.
+- `angular-v22-angular-mcp-agent-workflow`: Angular MCP development workflow.
+- `angular-v22-devserver-self-healing-loop`: bounded build-feedback loop.
+- `angular-v22-webmcp-tool-exposure`: experimental WebMCP exposure.
+
+The gate is routing metadata, not proof of installed tooling, successful runtime execution, exact-minor availability or authorization to expose application tools.
+
+## Safe route
+
+1. Detect package and lockfile versions.
+2. Complete the [21 → 22 hop](../skills/angular/upgrades/21-to-22/README.md) if still on 21.
+3. Select one concern-specific skill, check the API source and toolchain.
+4. Validate behavior, build and tests.
+5. Keep modernization, remediation and optimization outside the upgrade scope.

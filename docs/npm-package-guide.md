@@ -1,6 +1,13 @@
 # npm Package Guide
 
+<!-- docs:navigation:start -->
+[Español](npm-package-guide.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
 The npm package is the cross-agent distribution. It contains the CLI, catalog, packs, adapters, skills, Agent Plugin artifacts, MCP entry point, and public documentation required to inspect or install NgAutoPilot without cloning this repository.
+
+Unversioned examples use the package available in the registry. Features described here belong to this documented checkout; verify the exact published version before assuming availability.
 
 ## One-off and global use
 
@@ -22,7 +29,7 @@ npm pack --dry-run --json
 
 The `package.json#files` allowlist controls the result. Confirm the JSON includes `bin/`, `lib/`, `mcp/`, `skills/`, `packs/`, `adapters/`, `agent-plugins/`, `docs/`, and release metadata. It must not include `skill-lab/`.
 
-For an end-to-end local check, create the tarball outside fixture directories, install it in a temporary project, and run `npx ngautopilot doctor`. Do not commit tarballs or `node_modules/`.
+For an end-to-end local check, create the tarball outside fixture directories, install it in a temporary project, and run `npm exec -- ngautopilot doctor` there. Do not commit tarballs or `node_modules/`. Inspect both public documentation editions in the archive.
 
 ## Install a focused pack
 
@@ -40,13 +47,15 @@ Angular installation, use the mutually exclusive `--angular` mode:
 
 ```bash
 ngautopilot install --agent codex --angular 22 --profile essentials --scope project --dry-run
-ngautopilot install --agent codex --angular 22 --profile testing --capabilities ui,testing --scope project --yes
+ngautopilot install --agent codex --angular 22 --profile essentials --scope project --yes
 ```
 
 Profiles are `essentials`, `architecture`, `performance`, `testing`,
 `migration`, and `core`. `--profile` and `--capabilities` require `--angular`;
 they cannot be combined with `--pack`. `--dry-run` never writes, and `--yes`
 is required to approve a write.
+
+For narrower testing/UI guidance, select `--profile testing --capabilities ui,testing` and review a dry-run with that same selection first. Back up edited managed files before updating or switching packs: reinstalling can refresh managed content. See [Updating](updating.md).
 
 Migration commands are controlled evidence gates, not source transformers:
 

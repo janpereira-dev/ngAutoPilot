@@ -1,264 +1,73 @@
-# Angular Roadmap Guide
+# Angular catalog: choose one route 🧭
 
-This guide is a fast map of the Angular skill catalog added in this roadmap.
+<!-- docs:navigation:start -->
+[Español](angular-roadmap-guide.es.md) · [Map](README.md) · [Home](../README.md)
 
-## How To Use The Catalog
+<!-- docs:navigation:end -->
 
-Use this order:
+**Detect → gate → one hop → validate.** This is a navigation guide to source skills, not a promise that installing a pack migrates an application.
 
-1. Detect stack and versions.
-2. Run the Angular version compatibility gate.
-3. Pick the next hop only.
-4. Add satellite skills only when the hop or repo risk requires them.
-5. Keep modernization separate from upgrade hops.
+## Start here
 
-For a version-era map of the current folder layout, see
-[`angular-version-era-map.md`](angular-version-era-map.md).
+1. Gather project context with `skills/_core/project-intake/SKILL.md`.
+2. Detect stack and versions with `skills/_core/stack-version-detection/SKILL.md`.
+3. Route through `skills/angular/versioning/angular-versioning-index/SKILL.md`.
+4. Apply `skills/angular/versioning/angular-version-compatibility-gate/SKILL.md`.
+5. Choose only the next hop and satellites required by actual risk.
+6. Validate build, tests, routing, SSR and Material where present. Commit only if authorized.
+7. Repeat only after the slice is stable; modernize in a separate task.
 
-If an agent is doing the work, the best approach is:
+See the [era folder map](angular-version-era-map.md) and [version policy](angular-version-support.md) for location and support boundaries.
 
-- start with `skills/_core/project-intake/SKILL.md`
-- detect versions with `skills/_core/stack-version-detection/SKILL.md`
-- route through `skills/angular/versioning/angular-versioning-index/SKILL.md`
-- decide with `skills/angular/versioning/angular-version-compatibility-gate/SKILL.md`
-- execute one hop at a time
-- validate build, tests, SSR, Material, and routing where relevant
+## Versioning: three jobs, not three competing answers
 
-## Core Versioning Skills
+| Skill | Job | Expected evidence |
+| --- | --- | --- |
+| `angular.versioning.angular-version-gates` | Lightweight compatibility routing | Detected profile, allowed APIs, future path when modern APIs are unavailable |
+| `angular.versioning.angular-version-compatibility-gate` | Formal compatibility decision | Node, TypeScript, RxJS, CLI and browser ranges; blockers, satellites and next safe hop |
+| `angular.versioning.angular-versioning-index` | Master navigation | Clear next skill and separation between gates, hops and modernization |
 
-### `angular.versioning.angular-version-gates`
+## Upgrade hops
 
-Lightweight compatibility helper for choosing safe Angular APIs.
+`angular.upgrade.hops.angular-2-to-4` through `angular.upgrade.hops.angular-20-to-21` guide the historical major-hop path. They are procedures for an authorized agent, **not executable source transformers**. Angular 2 → 4 is the historical numbering exception; otherwise move one major at a time, stop at the target, document blockers and validate before the next hop.
 
-Gets:
-- a quick compatibility profile
-- safe APIs for the detected version
-- a future migration path when modern APIs are not available
+For **21 → 22**, use `skills/angular/upgrades/21-to-22/angular-21-to-22-upgrade-orchestrator/SKILL.md`. Complete preflight and the breaking-change gate before applying an authorized upgrade; collect post-upgrade evidence afterwards. The [hop README](../skills/angular/upgrades/21-to-22/README.md) gives the reading order.
 
-### `angular.versioning.angular-version-compatibility-gate`
+## Satellite map: add only what the project needs
 
-Formal Angular compatibility gate.
+| Area / source family | What to inspect | Outcome |
+| --- | --- | --- |
+| `angular.upgrade.angularjs.*` | Legacy inventory; hybrid bootstrap; templates, controllers, services, directives, filters and routing; upgrade/downgrade APIs | Staged AngularJS exit, explicit hybrid boundaries and removal criteria |
+| `angular.upgrade.workspace.angular-cli-workspace-migration-v6` | Old workspace configuration → `angular.json` | Usable workspace baseline for Angular 6+ |
+| `angular.upgrade.rxjs.angular-rxjs-5-to-6-bridge` | RxJS 5 → 6 transition | Fewer legacy package blockers |
+| `angular.upgrade.http.angular-httpclient-migration-v6` | `Http` / `HttpModule` → `HttpClient` | Supported HTTP baseline |
+| `angular.upgrade.ivy.*`; `angular.upgrade.libraries.angular-view-engine-library-audit-v13`; `angular.upgrade.libraries.angular-ngcc-view-engine-removal-v16`; `angular.upgrade.i18n.angular-localize-v9-migration` | Ivy readiness, View Engine/ngcc dependencies and localize tooling | Explicit library risks for Angular 9+, 13+ and 16+ |
+| `angular.upgrade.router.*` | Dynamic-import lazy routes, public APIs, redirects, errors, resolvers and route validation | Target-version navigation without hidden regressions |
+| `angular.upgrade.ssr.*`; `angular.upgrade.service-worker.*` | Server rendering, transfer state, platform-server and update flows | Explicit SSR and service-worker compatibility |
+| `angular.upgrade.testing.*` | TestBed, timing, change detection, router, SSR, animations and fakeAsync | Less brittle tests; evidence beyond a green build |
+| `angular.upgrade.forms.*` | Typed/untyped bridge, ngModel writes, numeric validation and form arrays | Type safety and bounded form migration |
+| `angular.upgrade.material.*` | MDC inventory, themes, density, overlays, harnesses and visual regression | Bounded Material change with visual evidence |
+| `angular.upgrade.zone.*`; `angular.upgrade.zoneless.*` | Zone.js imports, root providers and renamed/prepared zoneless APIs | Correct runtime configuration |
+| `angular.upgrade.signals.*`; `angular.upgrade.resources.*` | Signal mutation and resource/rxResource API changes | Supported reactivity contracts |
+| `angular.upgrade.templates.*`; `angular.upgrade.components.*` | Template operators, dynamic creation and projectable nodes | Target-version template/component behavior |
+| `angular.upgrade.di.*`; `angular.upgrade.debug.*` | Deprecated DI and debug-attribute dependencies | Removal of unsupported assumptions |
 
-Gets:
-- allowed Node, TypeScript, RxJS, Angular CLI, and browser ranges
-- blocking issues
-- required satellite skills
-- the next safe hop
+## Modernization comes afterwards
 
-### `angular.versioning.angular-versioning-index`
+`angular.modernization.*` covers control flow, `@defer`, standalone-first and zoneless preparation. API eligibility still depends on the project version. Do not expand a compatibility upgrade merely because a newer pattern exists.
 
-Master navigation point for Angular version work.
+## Already on Angular 22?
 
-Gets:
-- a single entry point for agents
-- a clear next skill or hop
-- separation between gating, hopping, and modernization
+Read the [API-specific support guide](angular-22-support.md), then choose a narrow `angular-v22-*` skill in the relevant concern:
 
-## Angular Upgrade Hops
+`skills/angular/build/`, `components/`, `forms/`, `modules/`, `resources/`, `router/`, `security/`, `signals/`, `ssr/`, `templates/`, `testing/`, `zone/`, or `zoneless/` (all under `skills/angular/`).
 
-These are the major-hop executors.
+Use versioning indices for feature routing, risk matrix and roadmap alignment. Do not create a generic `skills/angular/v22/` tree or assume that a major-22 gate proves every minor-version API exists.
 
-### `angular.upgrade.hops.angular-2-to-4` through `angular.upgrade.hops.angular-20-to-21`
+## Completion check
 
-What they do:
-- move one Angular major at a time
-- stop at the next major
-- route to satellites for version-specific risks
-
-What you get:
-- a controlled major upgrade
-- version-specific blockers called out
-- validation gates before the next hop
-
-## AngularJS and Hybrid Migration
-
-### `angular.upgrade.angularjs.*`
-
-What they do:
-- inventory legacy AngularJS code
-- bootstrap hybrid apps
-- migrate templates, controllers, services, directives, filters, and routing
-- bridge downgrade and upgrade APIs
-- decide when AngularJS can be removed
-
-What you get:
-- a staged path out of AngularJS
-- explicit hybrid boundaries
-- decommission criteria
-
-## Workspace, RxJS, and HttpClient
-
-### `angular.upgrade.workspace.angular-cli-workspace-migration-v6`
-### `angular.upgrade.rxjs.angular-rxjs-5-to-6-bridge`
-### `angular.upgrade.http.angular-httpclient-migration-v6`
-
-What they do:
-- move old CLI workspace config to `angular.json`
-- bridge RxJS 5 to RxJS 6
-- replace legacy `Http`/`HttpModule` with `HttpClient`
-
-What you get:
-- a usable baseline for Angular 6+ and later hops
-- fewer legacy package blockers
-
-## Ivy, Libraries, and Localize
-
-### `angular.upgrade.ivy.*`
-### `angular.upgrade.libraries.angular-view-engine-library-audit-v13`
-### `angular.upgrade.libraries.angular-ngcc-view-engine-removal-v16`
-### `angular.upgrade.i18n.angular-localize-v9-migration`
-
-What they do:
-- check Ivy readiness
-- block View Engine and ngcc dependencies
-- move i18n to modern localize tooling
-
-What you get:
-- clearer compatibility for Angular 9+ and Angular 13+ and Angular 16+
-- explicit library risk
-
-## Router
-
-### `angular.upgrade.router.*`
-
-What they do:
-- move lazy routes to dynamic imports
-- review router public APIs
-- handle redirects, error handlers, resolvers, and route validation
-
-What you get:
-- router behavior that matches the target Angular major
-- fewer hidden navigation regressions
-
-## SSR and Service Worker
-
-### `angular.upgrade.ssr.*`
-### `angular.upgrade.service-worker.*`
-
-What they do:
-- modernize server rendering APIs
-- review transfer state and platform-server changes
-- update service worker update flows
-
-What you get:
-- explicit SSR compatibility
-- safer server-side update behavior
-
-## Testing
-
-### `angular.upgrade.testing.*`
-
-What they do:
-- update TestBed APIs
-- review timing and change detection behavior
-- align tests with router, SSR, animations, and fakeAsync changes
-
-What you get:
-- less brittle tests
-- fewer upgrade surprises hidden behind green builds
-
-## Forms
-
-### `angular.upgrade.forms.*`
-
-What they do:
-- move to typed forms or use a temporary untyped bridge
-- review ngModel template writes
-- check numeric validation and form-array conflicts
-
-What you get:
-- stronger type safety
-- clearer form migration boundaries
-
-## Material
-
-### `angular.upgrade.material.*`
-
-What they do:
-- orchestrate MDC migration
-- inventory components
-- review theming, density, overlays, harnesses, and visual regressions
-
-What you get:
-- a bounded Material migration with visual validation
-
-## Zone, Zoneless, Signals, Resources, Templates, Components, DI, Debug
-
-### `angular.upgrade.zone.*`
-### `angular.upgrade.zoneless.*`
-### `angular.upgrade.signals.*`
-### `angular.upgrade.resources.*`
-### `angular.upgrade.templates.*`
-### `angular.upgrade.components.*`
-### `angular.upgrade.di.*`
-### `angular.upgrade.debug.*`
-
-What they do:
-- normalize Zone.js imports and root providers
-- prepare or rename zoneless APIs
-- move signal mutation patterns to supported forms
-- migrate resource/rxResource APIs
-- handle template operator changes
-- handle dynamic component creation and projectable nodes
-- clean up deprecated DI APIs
-- remove debug attribute dependencies
-
-What you get:
-- modern Angular behavior without mixing modernization into the hop itself
-
-## Post-Upgrade Modernization
-
-### `angular.modernization.*`
-
-What they do:
-- adopt control flow
-- adopt `@defer`
-- move toward standalone-first
-- prepare for zoneless execution
-
-What you get:
-- modernization after the hop is already stable
-
-## Angular 22 Route Map
-
-Angular 22 adds stable forms, accessibility, async resource APIs, and stricter
-template, build, router, SSR, and change-detection contracts.
-
-When you are already on Angular 22, route area-specific work to:
-
-- `skills/angular/build/`
-- `skills/angular/components/`
-- `skills/angular/forms/`
-- `skills/angular/modules/`
-- `skills/angular/resources/`
-- `skills/angular/router/`
-- `skills/angular/security/`
-- `skills/angular/signals/`
-- `skills/angular/ssr/`
-- `skills/angular/templates/`
-- `skills/angular/testing/`
-- `skills/angular/zone/`
-- `skills/angular/zoneless/`
-
-## Best Agent Strategy
-
-If I were an agent using this catalog, I would do this:
-
-1. Detect the current stack with the core detectors.
-2. Run the compatibility gate.
-3. Select only the next hop.
-4. Add satellites only for detected risks.
-5. Validate the slice.
-6. Commit.
-7. Repeat for the next hop.
-
-That gives the smallest safe change, the least cross-talk between skills, and the cleanest upgrade path.
-
-
-### Angular 21 -> 22 Hop
-
-Use `skills/angular/upgrades/21-to-22/angular-21-to-22-upgrade-orchestrator/SKILL.md` for the bounded hop. Run preflight first, then the breaking-change gate, then post-upgrade validation. Route Angular 22 feature adoption to the concern-first satellite skill instead of expanding the hop.
-
-### Angular 22 Satellite Routing
-
-Prefer narrow `angular-v22-*` satellites under the relevant domain. Use the versioning indices for feature routing, risk matrix, and roadmap alignment. Do not create a generic `skills/angular/v22/` folder.
+- [ ] Project and target versions are evidenced.
+- [ ] One hop and only required satellites are selected.
+- [ ] Upgrade and modernization remain separate.
+- [ ] Relevant application checks ran; skipped/blocked checks are explicit.
+- [ ] Any commit, push or publication is separately authorized.

@@ -1,6 +1,15 @@
 # Angular Can I Use Extraction Report
 
+<!-- docs:navigation:start -->
+[Español](README.es.md) · [Map](../README.md) · [Home](../../README.md)
+
+> Historical record: original decisions and dates are retained; this is not proof of current release or implementation state.
+
+<!-- docs:navigation:end -->
+
 Generated at: 2026-07-05T19:48:27.842Z
+
+This is a historical secondary-source snapshot, not Angular's official compatibility matrix or a current API verification.
 
 ## Counts
 
@@ -38,4 +47,4 @@ npx playwright install chromium
 node docs/angular-caniuse/scrape-angular-caniuse.mjs
 ```
 
-If you do not want to keep Playwright in the repo, run the script from a temporary clone or revert dependency files after the refresh.
+Prefer a dedicated temporary clone. If refreshing in your checkout, review only dependency changes introduced by this refresh; never revert pre-existing or unrelated work.

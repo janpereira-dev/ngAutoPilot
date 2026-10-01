@@ -1,5 +1,12 @@
 # NgAutoPilot Skill Optimization Loop
 
+<!-- docs:navigation:start -->
+[Español](skill-optimization-loop.es.md) · [Map](../README.md) · [Home](../../README.md)
+
+> Historical record: original decisions and dates are retained; this is not proof of current release or implementation state.
+
+<!-- docs:navigation:end -->
+
 NgAutoPilot will use a governed `skill-lab/` to evaluate and optimize skills without giving SkillOpt direct write access to the canonical catalog.
 
 ## Decision

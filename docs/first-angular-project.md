@@ -1,103 +1,57 @@
-# First Angular Project with NgAutoPilot
+# Your first Angular task with NgAutoPilot 🚀
 
-## Objective
+<!-- docs:navigation:start -->
+[Español](first-angular-project.es.md) · [Map](README.md) · [Home](../README.md)
 
-A new developer installs NgAutoPilot, selects an agent and pack, and runs a first Angular task in under 5 minutes.
+<!-- docs:navigation:end -->
 
-## Step 1: Install
+![Inspect, choose, approve, validate and report evidence and limits.](../assets/learning-route.svg)
 
-```bash
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-core --scope project
-```
+**Goal:** inspect a real Angular project, install focused guidance, and complete one small reviewed task. There is no guaranteed five-minute execution time; package downloads, project size, and agent availability vary.
 
-This creates `.agents/skills/` with the Core skills and writes `AGENTS.md` at the repository root.
+## 1. Start in your existing Angular project
 
-## Step 2: Install Angular pack
+Check the project root and `package.json`. You need a supported Node version for the NgAutoPilot release you use. Do not create or replace the application's dependencies just to follow this guide.
 
-```bash
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular --scope project
-```
+## 2. Install one focused pack
 
-This adds the full Angular catalog (signals, router, forms, Material, SSR, testing, performance, security, AI/MCP).
-
-## Step 3: Verify
+For the routing exercise below, choose the UI pack. Core is included automatically; no separate Core install is needed.
 
 ```bash
+npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-ui --scope project --dry-run
+npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-ui --scope project --yes
 npm exec --package=ngautopilot -- ngautopilot verify --agent codex --scope project
 ```
 
-## Step 4: Doctor
+Review the dry run before approval. For reproducibility, pin an exact published npm version. For Codex, check `.agents/skills/` and root `AGENTS.md`.
 
-```bash
-npm exec --package=ngautopilot -- ngautopilot doctor
-```
+## 3. Open the agent and try this task
 
-## Step 5: Open your agent
+> Inspect my routing and the Angular/toolchain versions. Identify installed guidance for lazy loading. Propose the smallest compatible change; keep unrelated modernization out of scope. After approval, validate with the existing project checks and report missing evidence.
 
-Open Codex (or Claude Code, OpenCode, Cursor, Gemini) in your Angular project. The agent reads `AGENTS.md` (or `CLAUDE.md`, etc.) and discovers the NgAutoPilot skills.
+Expected workflow: intake → detect versions → route to matching guidance → check compatibility → bounded edit → validation. A role file is not an automatically running reviewer.
 
-## Step 6: First prompt
+## 4. Check the result
 
-```
-I need to add lazy loading to my Angular routes. Check my routing and suggest the safest change.
-```
+- [ ] The agent found the actual Angular version.
+- [ ] It identified an installed relevant skill.
+- [ ] The diff only addresses the routing task.
+- [ ] Available tests/build checks ran, or limitations were reported.
+- [ ] You reviewed the code and behavior.
 
-The agent:
-1. Reads `_core/project-intake` to understand the repo.
-2. Detects Angular version.
-3. Routes to `angular.router.lazy-loading` or the relevant v22 satellite.
-4. Applies `compatibility-router` to verify the API is safe for the detected version.
-5. Makes the smallest reversible change.
-6. Validates with available commands.
+`doctor` checks the catalog, packs, and adapters. It does not replace your application's tests.
 
-## Step 7: Update
+## 5. Try another mission
 
-```bash
-npm exec --package=ngautopilot -- ngautopilot update --agent codex --scope project
-```
+| Task | Focused pack | Example request |
+| --- | --- | --- |
+| Angular 21 → 22 upgrade | `ngautopilot-angular-21-to-22` | Detect toolchain compatibility and plan only this hop |
+| Accessibility review | `ngautopilot-frontend` | Review keyboard navigation and form errors |
+| Microfrontend boundaries | `ngautopilot-angular-microfrontends` | Inspect boundaries before proposing federation configuration |
+| Reliable component tests | `ngautopilot-angular-testing` | Review TestBed and asynchronous behavior without changing the runner |
 
-## Step 8: Uninstall
+Switching packs changes the managed selection. Back up first, preview the switch, then approve. Migration setup is a plan, not an executable code upgrade.
 
-```bash
-npm exec --package=ngautopilot -- ngautopilot uninstall --agent codex --scope project
-```
+## 6. Maintain or remove
 
-## Migration scenario
-
-For an Angular upgrade (e.g. v21 → v22):
-
-```bash
-ngautopilot install --agent codex --pack ngautopilot-angular-upgrades --scope project
-```
-
-Then prompt:
-
-```
-I need to upgrade from Angular 21 to 22. Start with the compatibility check.
-```
-
-## Frontend scenario
-
-For accessibility or performance work:
-
-```bash
-ngautopilot install --agent codex --pack ngautopilot-frontend --scope project
-```
-
-Then prompt:
-
-```
-Review my product page for accessibility issues. Focus on keyboard navigation and form errors.
-```
-
-## Microfrontend scenario
-
-```bash
-ngautopilot install --agent codex --pack ngautopilot-angular-microfrontends --scope project
-```
-
-Then prompt:
-
-```
-I need to set up Native Federation for two Angular apps. What is the minimum configuration?
-```
+Follow [updating](updating.md) and [uninstalling](uninstalling.md), which include backup, preview, approval, and verification. [Complete documentation map](README.md).

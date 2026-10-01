@@ -1,5 +1,12 @@
 # Changelog
 
+<!-- docs:navigation:start -->
+[Español](CHANGELOG.es.md) · [Map](docs/README.md) · [Home](README.md)
+
+> Historical record: original decisions and dates are retained; this is not proof of current release or implementation state.
+
+<!-- docs:navigation:end -->
+
 All notable changes to NgAutoPilot will be documented in this file.
 
 ## 0.6.0 - 2026-08-09

@@ -1,5 +1,10 @@
 # NgAutoPilot Skill Lab
 
+<!-- docs:navigation:start -->
+[Español](README.es.md) · [Map](../docs/README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
 `skill-lab/` is the governed evaluation laboratory for NgAutoPilot skills.
 
 It answers one question before any optimized skill reaches `skills/**`:
@@ -9,6 +14,8 @@ Is this skill actually better, and did it regress anything critical?
 ```
 
 ## Quick Path
+
+Read [Policy](POLICY.md) before model-backed runs. This lab belongs to the repository, not the public npm package. Multiline examples below use Bash: in PowerShell, use one line per command or native continuation, not a trailing backslash. Replace `<run-id>` and `<harness>` placeholders deliberately. Optimization can incur provider costs and requires separate authorization/configuration.
 
 ```bash
 python -m pip install -e skill-lab/python
@@ -33,6 +40,8 @@ npm run skill-lab:optimize -- \
 
 Skill Lab defaults to OpenAI API model id `gpt-4.1-mini` for both roles:
 
+These are checkout configuration defaults, not a claim of current account availability or pricing. Verify provider access before a paid run.
+
 | Role | Default | Why |
 |------|---------|-----|
 | Optimizer | `gpt-4.1-mini` | Low-cost instruction and code-oriented edits for small skill benchmarks. |
@@ -45,6 +54,8 @@ Credential setup depends on the SkillOpt backend. For the default OpenAI-compati
 ```bash
 export OPENAI_API_KEY=<your-key>
 ```
+
+PowerShell equivalent: `$env:OPENAI_API_KEY = "<your-key>"`. Configure real credentials privately; never put them in docs, shared history, fixtures or pull requests.
 
 Override models when needed:
 
@@ -65,6 +76,8 @@ Equivalent environment variables:
 export SKILL_LAB_OPTIMIZER_MODEL=gpt-4.1-mini
 export SKILL_LAB_TARGET_MODEL=gpt-4.1-mini
 ```
+
+PowerShell equivalents: `$env:SKILL_LAB_OPTIMIZER_MODEL = "gpt-4.1-mini"` and `$env:SKILL_LAB_TARGET_MODEL = "gpt-4.1-mini"`.
 
 ## Complete Local Workflow
 
@@ -109,6 +122,8 @@ Run repository validation against a temporary promoted copy of the candidate and
 ```bash
 npm run release:validate
 ```
+
+The report must carry the active candidate hash; stale evidence from another candidate is not a passing gate.
 
 ## Agentic Gate Evidence
 

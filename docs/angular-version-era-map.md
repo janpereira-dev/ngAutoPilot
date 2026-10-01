@@ -1,5 +1,10 @@
 # Angular Version Era Folder Map
 
+<!-- docs:navigation:start -->
+[Español](angular-version-era-map.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
 This repository is organized primarily by concern, not by Angular major version.
 The map below groups the current Angular skill folders by the version era they
 most commonly serve.
@@ -89,6 +94,7 @@ Primary upgrade path currently available:
 
 - `skills/angular/upgrades/hops/angular-19-to-20/`
 - `skills/angular/upgrades/hops/angular-20-to-21/`
+- `skills/angular/upgrades/21-to-22/`
 
 Angular 22 now has dedicated concern-first skills in:
 
@@ -121,7 +127,9 @@ The older upgrade satellites still live under:
 - `skills/angular/upgrades/zone/`
 - `skills/angular/upgrades/zoneless/`
 
-## Angular 22 Gap Still Open
+## Angular 21 to 22: dedicated hop
 
-The catalog still does not include an `angular-21-to-22` hop skill yet.
-That hop should be created next if the upgrade path itself is needed.
+The dedicated hop exists under `skills/angular/upgrades/21-to-22/`.
+Use `ngautopilot-angular-21-to-22` for this bounded upgrade and verify toolchain
+compatibility before editing. Concern-specific Angular 22 guidance is separate;
+catalog presence does not prove application migration or runtime compatibility.

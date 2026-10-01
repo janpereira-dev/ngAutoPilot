@@ -1,8 +1,16 @@
 # NgAutoPilot Trust Levels
 
+<!-- docs:navigation:start -->
+[Español](trust-levels.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
 ## Classification
 
 Every NgAutoPilot capability is classified by risk:
+
+This table is review guidance, not an automatic permission system. Host policy
+and user authorization remain the actual control boundary.
 
 | Level | Description | Default policy |
 | --- | --- | --- |
@@ -16,30 +24,35 @@ Every NgAutoPilot capability is classified by risk:
 
 ## Skill risk assessment
 
-All NgAutoPilot skills are `documentation` or `local-readonly` by design. They are Markdown files that provide guidance to AI agents. No skill executes code, makes network requests, or modifies files directly. The agent reads the skill and decides what to do.
+The skill files themselves are Markdown guidance; they do not directly execute
+code or make requests. The operations they recommend may involve local writes,
+network access, or publishing. Classify the intended action, not just its
+Markdown container. The host's permissions and the user's authorization remain
+the actual control boundary.
 
-The installer (`bin/ngautopilot.mjs`) is `local-write`. It creates files inside the declared install root only. It never writes outside the project directory or user-scope install base.
+The installer (`bin/ngautopilot.mjs`) is `local-write`. Apply/uninstall use
+adapter-declared roots. Backup snapshots use a separate temporary destination
+and restore reads that snapshot; backups are not read-only operations.
 
-## What NgAutoPilot does NOT do
+## Installer and package behavior
 
 - No `postinstall` script in `package.json`.
-- No `curl | sh` patterns.
-- No bundled binaries.
-- No network access during install (offline mode available with `--offline` concept via `ngautopilot export`).
+- Guidance must not recommend untrusted remote execution pipelines.
+- The installer reads packaged sources locally. Acquiring npm packages may require the network. Use `export` for an offline snapshot; this branch has no `--offline` flag.
 - No telemetry.
-- No credential handling.
+- No embedded credentials. The optional HTTPS integration has a separate caller-supplied TLS/authorization contract.
 - No remote code execution.
 
 ## Installer safety guarantees
 
 | Guarantee | How |
 | --- | --- |
-| No path traversal | `safe-fs.mjs` resolves all paths through `createRootGuard`; `..` segments are rejected. |
+| Bounded paths | `safe-fs.mjs` resolves paths through `createRootGuard` and rejects escapes from the intended root. |
 | No symlink escape | `safe-fs.mjs` uses `lstatSync` and `realpathSync` with containment checks. |
-| No overwrite of user files | Installer reads `.ngautopilot-manifest.json`; refuses unmanaged files without `--force`. |
+| Unmanaged-file overwrite protection | Installer refuses unmanaged files without `--force`; desired managed files can be refreshed even if edited. Back up before update. |
 | Idempotent | Re-running `install` skips identical files (SHA-256 match). |
 | Reversible | `uninstall` removes only manifest-owned files. |
-| Backup before modify | `backup` command snapshots the install before destructive operations. |
+| Managed-file snapshot | `backup` snapshots managed files; it is not a backup of the entire application. |
 | Restore | `restore` command re-applies a backup snapshot. |
 
 ## What to audit

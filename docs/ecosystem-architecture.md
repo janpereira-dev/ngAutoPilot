@@ -1,5 +1,12 @@
 # NgAutoPilot Ecosystem Architecture
 
+<!-- docs:navigation:start -->
+[Español](ecosystem-architecture.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
+![Canonical sources feed generated catalog, native bundles and portable packages; edit sources, not generated copies.](../assets/catalog-map.svg)
+
 ## Single source of truth
 
 ```text
@@ -64,10 +71,10 @@ packs/<pack-id>.json
                                     │
                     ┌───────────────┼───────────────┐
                     ▼               ▼               ▼
-              .codex/         .claude/        .opencode/
-              (project)       (project)       (project)
+           .agents/skills/    .claude/        .opencode/
+           (Codex project)   (project)       (project)
                     │               │               │
-                    └──── manifest.json ────────────┘
+            .ngautopilot-manifest.json in each selected install root
 ```
 
 ## Adapter contract

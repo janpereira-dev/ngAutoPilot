@@ -1,94 +1,54 @@
-# Getting Started
+# Getting started: your first safe task 🧭
 
-NgAutoPilot is distributed as the `ngautopilot` npm package and exposes the `ngautopilot` CLI.
+<!-- docs:navigation:start -->
+[Español](getting-started.es.md) · [Map](README.md) · [Home](../README.md)
 
-## First Run
+<!-- docs:navigation:end -->
 
-Use `npm exec` when you want a deterministic one-off invocation without a global install:
+![Four checkpoints: choose IDs, preview without writes, approve, verify files; then check host discovery.](../assets/first-run.svg)
+
+**Outcome:** install one relevant pack and confirm that your agent can find its guidance. Start in an existing project; NgAutoPilot does not create an Angular application.
+
+## 1. Check your tools
+
+This checkout requires Node.js >= 24.0.0 and < 25. Run `node --version`, then:
 
 ```bash
 npm exec --package=ngautopilot -- ngautopilot help
-npm exec --package=ngautopilot -- ngautopilot packs
 npm exec --package=ngautopilot -- ngautopilot adapters
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-foundations --dry-run
-npm exec --package=ngautopilot -- ngautopilot doctor
+npm exec --package=ngautopilot -- ngautopilot packs
 ```
 
-You can also install it globally:
+These commands inspect a published version. For this branch, use `node bin/ngautopilot.mjs help` from the NgAutoPilot repository. Pin an exact released package version in automation.
+
+## 2. Inspect, then approve
+
+Run from the receiving project's root:
 
 ```bash
-npm install -g ngautopilot
-ngautopilot help
+npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-foundations --scope project --dry-run
+npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-foundations --scope project --yes
+npm exec --package=ngautopilot -- ngautopilot verify --agent codex --scope project
 ```
 
-## What `install` Creates
+Review the first command before running the second. `--yes` approves writes; without it an operation needing approval does not write. `verify` checks files, not host discovery.
 
-`ngautopilot install --agent <id> --pack <id>` writes an explicit named pack,
-while `ngautopilot install --agent <id> --angular <major[.minor]> --profile
-<name>` resolves Angular/toolchain evidence and composes a compatible profile.
-The two selection modes are mutually exclusive. Both record managed files in
-`.ngautopilot-manifest.json` within the selected install root.
+## 3. Ask a bounded question
 
-- Use `--dry-run` to inspect the plan without writing files.
-- Use `--yes` to approve a write; without it, commands that require approval do
-  not write.
-- Use `ngautopilot export --agent <id> --pack <id> --output <dir>` for a portable snapshot.
+Open your agent in the project and ask:
 
-`init` remains a deprecated compatibility command; new integrations should use explicit `install` or `export` commands.
+> Inspect the stack and versions. Find the installed NgAutoPilot guidance for reviewing component boundaries. Explain a small plan before editing and report the existing checks you can run.
 
-## Suggested Operating Flow
+The intended route is intake → stack detection → skill selection → compatibility/risk review → bounded change → validation. No need to load every skill or reviewer.
 
-1. Choose one focused pack from [packs.md](./packs.md) and run `ngautopilot install --agent <id> --pack <pack-id> --scope project` in the target repository.
-2. Start with `skills/_core/project-intake/SKILL.md`.
-3. Continue with `skills/_core/stack-version-detection/SKILL.md`.
-4. Route into `skills/_core/skill-router/SKILL.md` and `skills/_core/compatibility-router/SKILL.md`.
-5. For Angular work, check `skills/angular/versioning/` before touching upgrade hops.
-6. Keep modernization work separate from major-version upgrades.
+## 4. Know your next step
 
-For a controlled Angular migration, prepare a plan first:
+| Need | Guide |
+| --- | --- |
+| Complete Angular exercise | [First Angular project](first-angular-project.md) |
+| Different agent, scope, or offline use | [Installation](installation.md) |
+| Choose a specific task pack | [Packs](packs.md) |
+| Command details or migration gates | [CLI reference](cli-reference.md) |
+| Something did not work | [Troubleshooting](troubleshooting.md) |
 
-```bash
-ngautopilot migrate setup --from 12 --to 22 --agent codex --yes
-ngautopilot migrate run --plan .ngautopilot/migration-plan.json --agent codex --yes
-```
-
-Setup is not code migration. Run validates at most one hop and stops at
-`awaiting-executor` when no authorized transformer exists; `migrate resume`
-rechecks the checkpoint and cannot bypass a failed gate. For a separate bounded
-read-only assignment, use `ngautopilot work plan --goal "Inspect Angular tests"`.
-
-## Example Routes
-
-Angular upgrade:
-
-```txt
-_core/project-intake
-_core/stack-version-detection
-angular/versioning/angular-version-compatibility-gate
-angular/upgrades/hops/angular-14-to-15
-_core/risk-assessment
-```
-
-Performance audit:
-
-```txt
-_core/project-intake
-angular/performance/angular-core-web-vitals-audit
-angular/performance/onpush-change-detection
-```
-
-Quality cleanup:
-
-```txt
-_core/project-intake
-quality/eslint
-quality/sonarqube
-```
-
-## Where To Go Next
-
-- CLI details: [cli-reference.md](./cli-reference.md)
-- Pack selection and Angular hop batches: [packs.md](./packs.md)
-- Angular roadmap: [angular-roadmap-guide.md](./angular-roadmap-guide.md)
-- Maintainer workflows: [maintainer-guide.md](./maintainer-guide.md)
-- Release flow: [release-checklist.md](./release-checklist.md)
+`init` is deprecated. Prefer explicit `install` or `export`. Migration setup prepares a plan, not source transformations; a run can stop at `awaiting-executor` and cannot bypass a blocked gate.

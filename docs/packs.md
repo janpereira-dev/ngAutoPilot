@@ -1,5 +1,12 @@
 # NgAutoPilot Packs
 
+<!-- docs:navigation:start -->
+[Español](packs.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
+![Task map: Core, foundations, state, UI, runtime, testing, frontend, and a single Angular upgrade hop.](../assets/pack-map.svg)
+
 Packs are agent-neutral, declarative installation batches. They select source skills, role definitions, prompts, and guardrails. Adapters then place that selected batch in the layout for Claude Code, Codex, Copilot, Cursor, Gemini, Hermes, OpenClaw, OpenCode, Pi, or generic Markdown consumers.
 
 `skills.sh.json` groups only the skills.sh web page. Marketplace plugins distribute source skills. Neither replaces pack selection through `ngautopilot install`.
@@ -12,7 +19,7 @@ npm exec --package=ngautopilot -- ngautopilot packs
 npm exec --package=ngautopilot -- ngautopilot install --agent opencode --pack ngautopilot-angular-foundations --dry-run
 ```
 
-Every focused pack resolves `ngautopilot-core` transitively. Install one pack per agent and scope. Changing packs removes files owned by prior pack when unchanged; user-modified files are left in place and reported rather than overwritten.
+Every focused pack resolves `ngautopilot-core` transitively. Install one pack per agent and scope. Changing packs removes obsolete files owned by the previous pack when unchanged; modified obsolete files are preserved and reported unless forced. Desired managed files can be refreshed even if edited in this branch. Back up, inspect with `--dry-run`, then approve with `--yes`.
 
 ## Daily Development
 

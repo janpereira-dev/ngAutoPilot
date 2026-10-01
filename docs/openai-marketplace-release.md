@@ -1,5 +1,10 @@
 # OpenAI Marketplace Release Preparation
 
+<!-- docs:navigation:start -->
+[Español](openai-marketplace-release.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
 The repository prepares one public skills-only package: `ngautopilot-skills`. Its source manifest is [`openai/plugin.json`](../openai/plugin.json); the canonical [`skills/`](../skills/) tree is transformed into a flattened public catalog during packaging, so the repository does not maintain a second editable skill catalog.
 
 ## Validate and package

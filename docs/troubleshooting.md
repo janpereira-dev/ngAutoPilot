@@ -1,81 +1,69 @@
-# Troubleshooting
+# Troubleshooting: find the failing layer 🔧
 
-## `init` is deprecated
+<!-- docs:navigation:start -->
+[Español](troubleshooting.es.md) · [Map](README.md) · [Home](../README.md)
 
-Use `install` instead:
+<!-- docs:navigation:end -->
+
+![Inspect, choose, approve, validate, report evidence and limits.](../assets/learning-route.svg)
+
+Start with the exact command, installed version, agent, scope, and error output. Do not hide a conflict by adding `--force`.
+
+## Quick diagnosis
+
+| Symptom | Check first | Safe next action |
+| --- | --- | --- |
+| Command not found | Global vs local vs one-off CLI | Use the matching `npm exec` invocation or local binary |
+| Unsupported Node | Installed package's engine requirement | Use a supported environment; do not change app dependencies blindly |
+| No files after install | Approval or `--dry-run` | Inspect the plan, then use `--yes` |
+| Missing/unknown agent or pack | `adapters` and `packs` output | Copy an exact listed ID |
+| Unsupported user scope | Adapter's scope list | Use project scope or a supported adapter |
+| Verification mismatch | Edited managed files | Back up and compare; do not immediately overwrite |
+| Missing files | Manifest-listed paths | Preview a reinstall using the same selection |
+| Agent cannot find skills | Installed destination and host discovery | Check adapter paths and reopen/reload as required by the host |
+| Migration blocked | Checkpoint and evidence | Resolve the actual gate; `resume` cannot skip it |
+
+## Install did not write
+
+`--dry-run` never writes. An operation needing approval without `--yes` returns an approval requirement. Old `init` examples are deprecated; use:
 
 ```bash
-ngautopilot install --agent codex --pack ngautopilot-core --scope project
+ngautopilot install --agent codex --pack ngautopilot-core --scope project --dry-run
 ```
 
-## `Error: --agent is required`
+Only after inspecting the plan, repeat with `--yes` instead of `--dry-run`.
 
-List available agents:
+## Verification or uninstall warnings
 
-```bash
-ngautopilot adapters
-```
+`verify` checks files against the manifest, not application tests. Missing files and edited contents are different problems. Back up before reinstalling or updating: desired managed files can be refreshed even if edited in this branch.
 
-## `Error: --pack is required`
+Uninstall refuses modified managed files without force. Keep them, copy the modifications elsewhere, or deliberately remove them with `--yes --force` after backup. [Updating](updating.md) · [Uninstalling](uninstalling.md).
 
-List available packs:
+## Codex discovery and MCP
 
-```bash
-ngautopilot packs
-```
+Project skills: `.agents/skills/`; instructions: root `AGENTS.md`. User skills: `~/.agents/skills/`; instructions: `~/.codex/AGENTS.md`. This installer does not use `.codex/skills/` as its destination.
 
-## `Error: Adapter "X" does not support scope "user"`
+MCP registration is separate. Installing a skill pack does not register its server. [MCP registration](mcp-and-chatgpt.md#codex-cli-registration).
 
-Not all adapters support user scope. Check the adapter matrix:
+## Maintainer consistency failures
 
-```bash
-ngautopilot adapters
-```
-
-Adapters with `scope=project` only (Copilot, Cursor, Pi, Hermes, OpenClaw) cannot install to user scope.
-
-## `uninstall refused: user modified since install`
-
-The file was edited after NgAutoPilot installed it. The installer refuses to delete user-modified files. Options:
-
-- Keep the file: ignore the warning.
-- Force removal: `ngautopilot uninstall --agent <id> --force`.
-- Backup first: `ngautopilot backup --agent <id>` before `--force`.
-
-## `verify failed: missing files`
-
-Files listed in the manifest were deleted after install. Re-run `install` to restore them.
-
-## `verify failed: mismatches`
-
-Files were modified after install. Re-run `install` to update them, or `update` to refresh.
-
-## Codex does not discover installed skills
-
-For a project-scoped Codex install, skills must be under `.agents/skills/` and the managed instruction file is `AGENTS.md` at the repository root. For a user install, skills are under `~/.agents/skills/` and instructions are in `~/.codex/AGENTS.md`. Re-run the current installer if an older release placed skills under `.codex/skills/`.
-
-MCP registration is independent of skill installation. Register the bundled stdio server with `codex mcp add`; see [MCP and ChatGPT Integration](mcp-and-chatgpt.md#codex-cli-registration).
-
-## No namespace conflicts
-
-If `npm run consistency:validate` fails, a skill exists in the catalog but not in any plugin bundle, or vice versa. Run:
+Read the validation output; possible causes include mismatched catalog counts, missing bundle coverage, invalid manifests, draft skills, or scaffold placeholders. For source changes:
 
 ```bash
 npm run skills:catalog
 npm run plugins:sync
+npm run agent-plugins:sync
 npm run consistency:validate
 ```
 
-## Pre-commit hook fails on Windows
+Inspect generated diffs. Do not edit generated copies by hand.
 
-`.githooks/pre-commit` is a Bash script. On Windows, it requires Git Bash (bundled with Git for Windows). Alternatively:
+## Windows hooks
 
-```bash
-npm run hooks:install
-```
+The pre-commit hook is Bash and requires Git Bash on Windows. `npm run hooks:install` configures Git's hook path; it **does not convert the hook into Node.js**. If that runtime is unavailable, run the validation commands manually and report the limitation. [Cross-platform guide](cross-platform.md).
 
-This installs the hooks via Node.js where available.
+## Stop-hook errors
 
-## Stop hook error (`invalid stop hook JSON output`)
+NgAutoPilot does not ship a stop hook. Inspect the host's hook configuration and logs before attributing a stop-hook JSON error to this package. Do not delete global configuration or expose tokens while diagnosing.
 
-This is **not** a NgAutoPilot issue. NgAutoPilot does not ship a stop hook. The error originates from your AI agent's global configuration (e.g. `~/.config/opencode/tui.json`). Check for missing or broken TUI plugin references in your agent config.
+**Still stuck?** Provide a sanitized command, version, scope, and error—not credentials or private project files.

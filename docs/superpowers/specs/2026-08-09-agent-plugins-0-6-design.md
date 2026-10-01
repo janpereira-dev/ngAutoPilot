@@ -1,5 +1,12 @@
 # NgAutoPilot 0.6.0 Agent Plugins Design
 
+<!-- docs:navigation:start -->
+[Español](2026-08-09-agent-plugins-0-6-design.es.md) · [Map](../../README.md) · [Home](../../../README.md)
+
+> Historical record: original decisions and dates are retained; this is not proof of current release or implementation state.
+
+<!-- docs:navigation:end -->
+
 ## Goal
 
 Release a complete Agent Plugins 1.0 preview without replacing current client-specific bundles, adapters, or marketplaces. `skills/` remains canonical and `packs/` becomes the sole selection policy for portable plugins.

@@ -1,6 +1,15 @@
 # NgAutoPilot Security Model
 
+<!-- docs:navigation:start -->
+[Español](security-model.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
 ## Threat surface
+
+**Reading guidance does not authorize its recommended operations.** Classify
+the action, review paths and data, back up customizations, then validate the
+content and actual package. Report unavailable checks separately.
 
 NgAutoPilot is a catalog of Markdown guidance files plus a Node.js installer. The threat surface is:
 
@@ -18,18 +27,22 @@ NgAutoPilot is a catalog of Markdown guidance files plus a Node.js installer. Th
 - No skill should instruct the agent to execute `curl | sh`, download remote scripts, or run `npx` with untrusted packages.
 - No skill should hardcode secrets, tokens, or private URLs.
 - No skill should assume a specific OS, shell, or absolute path.
-- See `docs/trust-levels.md` for the risk classification.
+- See [trust levels](trust-levels.md) for the risk classification.
 
 `security:scan` is a deterministic release gate. It scans source skills, agents, adapters, packs, scripts, published documentation, and workflow definitions. It rejects unresolved merge markers, invisible or bidirectional Unicode controls, remote shell and PowerShell execution pipelines, private-key or credential-shaped material, and broad `allowed-tools` shell permissions in skill frontmatter. It is defense in depth, not proof that prose is safe.
 
-For an independent deep scan, maintainers can run [NVIDIA SkillSpector](https://github.com/NVIDIA/skillspector) locally with `--no-llm`. Do not enable its LLM mode for unpublished or sensitive content unless the selected provider and data-egress policy have been reviewed.
+For an optional external review, maintainers can inspect
+[NVIDIA SkillSpector](https://github.com/NVIDIA/skillspector). Check the installed
+version's options. Do not send unpublished or sensitive content to an external
+model without reviewing the selected provider and data-egress policy.
 
 ### 2. Installer
 
 - Path traversal is blocked: `adapters/_shared/safe-fs.mjs` resolves all paths through `createRootGuard` and rejects `..` escapes.
 - Symlink escape is blocked: `lstatSync` + `realpathSync` with containment checks.
 - Unmanaged files are never overwritten without `--force`.
-- The installer writes only inside the declared install root (project `.codex/`, user `~/.codex/`, etc.).
+- Apply and uninstall use adapter-declared roots; backups use a separate temporary destination. For Codex, project skills use `.agents/skills/` and instructions use root `AGENTS.md`; user skills use `~/.agents/skills/` and instructions use `~/.codex/AGENTS.md`.
+- Desired manifest-owned files and the managed instruction section can be refreshed even if edited in this branch. Modified obsolete files and uninstall have different refusal rules. Back up customizations before update; ownership is not edit protection.
 - No `postinstall` script in `package.json`.
 - No shell execution; the installer uses `node:fs` exclusively.
 - The install manifest (`.ngautopilot-manifest.json`) tracks every file with a SHA-256 checksum.
@@ -44,7 +57,7 @@ For an independent deep scan, maintainers can run [NVIDIA SkillSpector](https://
 ### 4. Distribution
 
 - `package.json` `files` array explicitly lists what ships in the tarball.
-- `.gitignore` excludes `.codegraph/`, `.atl/`, `tests/`, temp files, and editor config.
+- Git ignore rules and npm packaging rules serve different purposes. Inspect the actual tarball; do not infer package exclusion from `.gitignore` alone.
 - `.gitattributes` normalizes line endings (LF for source, CRLF for `.ps1`).
 - `npm pack --dry-run` should be run before any release to verify tarball contents.
 

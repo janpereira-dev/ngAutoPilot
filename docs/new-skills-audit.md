@@ -1,5 +1,12 @@
 # New Skills Staging Audit
 
+<!-- docs:navigation:start -->
+[Español](new-skills-audit.es.md) · [Map](README.md) · [Home](../README.md)
+
+> Historical record: original decisions and dates are retained; this is not proof of current release or implementation state.
+
+<!-- docs:navigation:end -->
+
 ## Scope and method
 
 The `new-skills/` staging area was reviewed completely before removal: **431 files** across the ECMA set (**124**), the frontend product-life pack (**64**), and all remaining sources (**243**). The review covered frontmatter, duplicate content, links, portability, company coupling, licensing signals, secret-like examples, tool assumptions, and overlap with the existing catalog.

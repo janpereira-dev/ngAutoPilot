@@ -1,5 +1,12 @@
 # Submission test cases
 
+<!-- docs:navigation:start -->
+[Español](test-cases.es.md) · [Map](../../../docs/README.md) · [Home](../../../README.md)
+
+> Historical record: original decisions and dates are retained; this is not proof of current release or implementation state.
+
+<!-- docs:navigation:end -->
+
 ### Positive: Route a bounded Angular task
 Prompt: "Inspect this Angular project and select the smallest relevant skill before changing code."
 Expected: The package routes through project intake and a specific skill without changing files.

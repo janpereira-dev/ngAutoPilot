@@ -1,5 +1,12 @@
 # Skill Lab Review Remediation Design
 
+<!-- docs:navigation:start -->
+[Español](2026-08-07-skill-lab-review-remediation-design.es.md) · [Map](../README.md) · [Home](../../README.md)
+
+> Historical record: original decisions and dates are retained; this is not proof of current release or implementation state.
+
+<!-- docs:navigation:end -->
+
 ## Scope
 
 Fix confirmed PR #33 review defects in Skill Lab workflows, promotion gates, evaluation evidence, security validation, and documentation. Preserve benchmark fixture semantics.

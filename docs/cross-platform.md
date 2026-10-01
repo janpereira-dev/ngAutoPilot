@@ -1,6 +1,11 @@
 # Cross-Platform Support
 
-NgAutoPilot works on Windows, macOS, and Linux.
+<!-- docs:navigation:start -->
+[Español](cross-platform.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
+The installer is designed around Node APIs for Windows, macOS, and Linux. Code portability is not a substitute for runtime evidence on each platform.
 
 ## Technical rules
 
@@ -10,7 +15,7 @@ NgAutoPilot works on Windows, macOS, and Linux.
 - No assumption of Bash, PowerShell, `/tmp`, `chmod`, symlinks, or `HOME` on Windows.
 - `.gitattributes` normalizes line endings (LF for source, CRLF only for `.ps1`).
 
-## What this means
+## Intended operations (not a fresh runtime certification)
 
 | Action | Windows | macOS | Linux |
 | --- | --- | --- | --- |
@@ -36,4 +41,4 @@ npm run consistency:validate
 
 - Symlinks are supported but not required. `safe-fs.mjs` detects and validates them.
 - The frontmatter validator (`scripts/validate-skill-frontmatter.py`) uses Python; a `.ps1` twin exists for Windows.
-- No CRLF/LF issues because `.gitattributes` enforces normalization.
+- Git attributes define normalization; inspect actual local files and diffs rather than assuming every line-ending issue is impossible.

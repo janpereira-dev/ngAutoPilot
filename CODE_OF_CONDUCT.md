@@ -1,5 +1,10 @@
 # Contributor Covenant Code of Conduct
 
+<!-- docs:navigation:start -->
+[Español](CODE_OF_CONDUCT.es.md) · [Map](docs/README.md) · [Home](README.md)
+
+<!-- docs:navigation:end -->
+
 ## Our Pledge
 
 We as members, contributors, and maintainers pledge to make participation in NgAutoPilot a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
@@ -34,7 +39,7 @@ This Code of Conduct applies within project spaces and when an individual is off
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the project maintainers through the repository's private contact channel or security/reporting process.
+For sensitive reports of abusive, harassing, or unacceptable behavior, follow the private-channel guidance in [Security reporting](SECURITY.md). If no private channel is available, ask a maintainer to arrange one without posting incident details or personal information publicly. This document does not claim an unconfigured private channel exists.
 
 ## Enforcement Guidelines
 

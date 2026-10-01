@@ -1,5 +1,12 @@
 # Skill Lab Review Remediation Implementation Plan
 
+<!-- docs:navigation:start -->
+[Español](2026-08-07-skill-lab-review-remediation.es.md) · [Map](../../README.md) · [Home](../../../README.md)
+
+> Historical record: original decisions and dates are retained; this is not proof of current release or implementation state.
+
+<!-- docs:navigation:end -->
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Make Skill Lab CI, candidate evaluation, promotion evidence, and security gates fail closed with reproducible evidence.

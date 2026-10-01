@@ -1,5 +1,12 @@
 # MCP and ChatGPT Integration
 
+<!-- docs:navigation:start -->
+[Español](mcp-and-chatgpt.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
+![Delivery routes have different contracts; verify host discovery, publication and MCP integration separately.](../assets/distribution-routes.svg)
+
 NgAutoPilot ships a read-only stdio Model Context Protocol server as part of the `ngautopilot-tools` Agent Plugin. It reads bundled catalog and pack metadata; it does not edit applications, install dependencies, run migrations, or change Git state.
 
 ## Available tools
@@ -30,7 +37,8 @@ Installing a pack does not register an MCP server. First install the npm package
 ```bash
 npm install --global ngautopilot
 # Replace <absolute-package-path> with the directory reported by `npm root -g` plus `/ngautopilot`.
-codex mcp add ngautopilot -- node <absolute-package-path>/mcp/server-entry.mjs
+codex mcp add ngautopilot -- node "<absolute-package-path>/mcp/server-entry.mjs"
+codex mcp list
 ```
 
 The command writes the equivalent user configuration to `~/.codex/config.toml`:
@@ -43,7 +51,7 @@ args = ["<absolute-package-path>/mcp/server-entry.mjs"]
 
 For a trusted project-specific configuration, put the same `[mcp_servers.ngautopilot]` block in `.codex/config.toml` and use an absolute server path appropriate for that project. The Agent Plugin's `mcp.json` describes MCP behavior for plugin-capable hosts; it does not register the npm package with Codex.
 
-For current OpenAI guidance on connectors and skills, see [Connect and test a ChatGPT app](https://developers.openai.com/plugins/deploy/connect-chatgpt) and [Build skills](https://learn.chatgpt.com/docs/build-skills).
+Official references reviewed on 2026-10-01: [Codex MCP](https://learn.chatgpt.com/docs/extend/mcp?surface=cli), [Connect and test a ChatGPT app](https://developers.openai.com/plugins/deploy/connect-chatgpt), and [Build skills](https://learn.chatgpt.com/docs/build-skills). Check both configuration and connection state; installing a pack or listing a configured server alone does not prove tool execution.
 
 ## Release check
 
