@@ -34,6 +34,13 @@ const collect = relative => {
   else if (stat.isFile() && /\.(?:tgz|tar\.gz|zip)$/.test(relative)) artifacts.push({ path: relative, bytes: stat.size, sha256: crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex') });
 };
 for (const relative of ['dist/release', 'dist/publish', 'dist/agent-plugins', 'dist/openai-plugin']) collect(relative);
+if (process.argv.includes('--require-bundles')) {
+  const names = readJson('agent-plugins.config.json').filter(plugin => plugin.enabled).map(plugin => plugin.name);
+  const paths = new Set(artifacts.map(artifact => artifact.path));
+  for (const name of names) if (!paths.has(`dist/agent-plugins/${name}-${pkg.version}.zip`)) throw new Error(`Missing agent plugin archive: ${name}`);
+  if (!paths.has(`dist/openai-plugin/ngautopilot-skills-${pkg.version}.zip`)) throw new Error('Missing OpenAI skills archive');
+  if (artifacts.filter(artifact => artifact.path.startsWith('dist/publish/') && artifact.path.endsWith('.tar.gz')).length !== 5) throw new Error('Expected all five directory submission archives');
+}
 const targets = readJson('config/publication-targets.json');
 const manifest = {
   schemaVersion: 1, version: pkg.version,

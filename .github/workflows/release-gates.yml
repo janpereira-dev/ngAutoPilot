@@ -72,3 +72,6 @@ jobs:
 
       - name: Dry-run package
         run: npm run pack:dry
+
+      - name: Validate actual npm member inventory and archive integrity
+        run: npm run release:inventory

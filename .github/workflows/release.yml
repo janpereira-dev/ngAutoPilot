@@ -150,7 +150,7 @@ jobs:
           done
 
       - name: Inventory all release surfaces and pack exact npm archive
-        run: npm run release:inventory
+        run: npm run release:inventory -- --require-bundles
 
       - name: Publish or verify the exact immutable npm archive
         run: npm run release:publish:npm
