@@ -148,3 +148,53 @@ Keep unrelated work in separate branches when it affects public docs, skill cont
 - [ ] `npm run skills:catalog` was run.
 - [ ] `npm run skills:publish:pack` was run when publish output changed.
 - [ ] `npm run review:sage:pack` was run when agent instructions or workflows changed.
+
+## Contributing guardrails, subagents, and adapters
+
+### Guardrail
+
+1. Place the narrowly-scoped source under `skills/` and follow the skill template; do not turn a guideline into a universal refusal rule.
+2. Define the risk boundary, authorized behavior, safe fallback, and concrete verification. Include an adversarial example and a legitimate task that must remain allowed.
+3. Declare version/stack compatibility with first-party evidence; preserve older-project fallbacks. Upgrade hops and modernization are separate concerns.
+4. Connect the capability to a pack only when its routing actually requires it. Add a behavior regression test for any executable enforcement.
+
+### Subagent or prompt
+
+1. Use canonical Markdown under `agents/ngautopilot/`, following an existing role's structure and filename conventions.
+2. Describe responsibility, inputs, evidence, output, limits, and handoff. Do not invent tools or grant permissions merely through prose.
+3. Add the role/prompt ID to the appropriate pack and prove dependency resolution. Native host schemas are adapter-specific; source role Markdown alone is not a verified host subagent.
+4. Test the routing boundary and expected result where executable logic changes. Keep independent human approval outside agent roles.
+
+### Adapter
+
+1. Add or change a declarative adapter manifest and scoped template; keep shared planning/filesystem behavior in `adapters/_shared/`.
+2. Review current first-party discovery, scope, naming, trust, and instruction documentation. Update `adapters/native-layouts.json` and its independent integration tests together.
+3. Follow [adapter maintenance](docs/adapter-maintenance.md). Do not copy Markdown into a JSON configuration or call an export test a real host invocation.
+4. If installation roots change, supply a checksum-preserving migration and backup/restore tests. Never silently orphan an old owned manifest or overwrite local edits.
+5. Keep new adapter counts, registry coverage, and distribution validation aligned; the present contract covers ten adapters.
+
+### CLI or processing script
+
+Use existing `node:test` tests for CLI/filesystem integration. Use Vitest in `tests/scripts/**/*.spec.mjs` for isolated processing fixtures. Cover success, deterministic reruns, malformed inputs, source integrity, and failure without partial destructive output. No production dependency is justified solely for test convenience.
+
+Before opening a PR:
+
+```bash
+npm run skills:validate
+npm run skills:catalog
+npm run plugins:sync
+npm run agent-plugins:sync
+npm run test:scripts
+npm run release:validate
+npm run skill-lab:ci
+npm run review:sage:pack
+claude plugin validate .
+```
+
+Run suites sequentially when they create temporary source fixtures. Review generated diffs; do not hand-edit the catalog or generated bundles. Follow [pack transitions](docs/pack-transitions.md) for filesystem changes and [Sage review](docs/sage-review.md) for high-risk operations. Packet creation is not security approval.
+
+## Required PR checks and review
+
+`validate-release` validates skills, catalog generation/drift, distribution, scripts, and integration tests on every PR. `validate-skill-lab` validates the behavioral lab and the full release contract. Both have unique, stable check names without path filters and are configured as required status checks with an up-to-date base branch. GitHub repository protection is an external setting; workflow YAML alone is insufficient.
+
+Required human/code-owner approval remains in force. Fix actionable reviewer threads, rerun checks after each relevant revision, and re-fetch review/check state before calling a PR merge-ready. Never forge an approval or weaken protection to make a status green. The [architecture diagrams](docs/ecosystem-architecture.md) explain the source, selection, compatibility, adapter, and publication boundaries.

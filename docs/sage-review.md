@@ -1,54 +1,73 @@
 # Sage Review Layer
 
-NgAutoPilot uses a Sage-oriented review packet for agent code, workflow files, and publish automation.
+The Sage-oriented packet is a reproducible security review input, **not** an approval. It can be examined with Sage or another compatible reviewer. NgAutoPilot does not pretend a packet generator invokes a proprietary reviewer or proves a host integration.
 
-Sage is an Agent Detection & Response layer from Gen Digital. It checks high-risk actions such as:
+## Risk coverage
 
-- shell commands
-- file writes
-- URL fetches
-- package installs
+Review the changed code and its execution path, not only its filenames:
 
-## When to use
+| Boundary | Required evidence |
+| --- | --- |
+| Install/update/uninstall and pack switches | Original checksums, user-edit preservation, retained ownership, bounded sections, explicit force, dry-run parity, rollback tests |
+| Export/resource packaging | Canonical source containment, symlink refusal, path traversal, portable name collisions, binary integrity, no writes on known conflicts |
+| Backup/restore | Contained paths, no arbitrary ownership adoption, precise restore target, local/private instruction exposure |
+| External commands and dependency changes | No untrusted shell interpolation, lifecycle-script review, lockfile provenance, production audit, no curl-to-shell execution |
+| Workflow changes | Least privilege, pinned changed actions, no fork/PR code with publishing secrets, no pull_request_target checkout of untrusted code |
+| Network, MCP, and agent routing | Explicit capabilities, no credentials in artifacts, no hidden provider fallback or authority escalation |
+| Skill and instruction changes | Prompt injection, invented permissions/APIs, source-versus-generated separation, version/compatibility gates, no unsupported runtime claims |
+| Release and marketplace publishing | Exact source commit, full packet digest/inventory, generated drift checks, approved security verdict, artifact scope, no approval inferred from upload |
 
-Use Sage when reviewing changes to:
+Escalate confirmed HIGH/CRITICAL prompt-injection, supply-chain, and malware findings. Other scanner heuristics are review notes after inspection, not invented security verdicts. Validation and domain review remain mandatory.
 
-- `skills/**/SKILL.md`
-- `adapters/**`
-- `.github/workflows/**`
-- `scripts/*.mjs`
-- `catalog.json`
-- publish bundles and release automation
+## Build and inspect
 
-## What Sage should look for
+```bash
+npm run review:sage:pack
+```
 
-- unsafe shell execution
-- hidden provider lock-in
-- broad file-copy patterns
-- workflow commands that leak secrets
-- publish artifacts that include unintended files
-- agent instructions that are too permissive
+Inspect `dist/review/sage/REVIEW.md`, `manifest.json`, and the included source. The manifest records the exact Git commit, dirty-tree state, review scope, every file's SHA-256/size, and a digest bound to the identity and complete inventory. Source README content is preserved. Local environment/registry credentials, private captures, runtime logs, Python caches, virtual environments, and Skill Lab cache/run output are excluded; public source fixtures remain reviewable. Symlinked sources/output parents and escaping paths fail before the old packet is replaced.
 
-## How to run it
+Authoritative root test-gate configuration (`vitest.config.mjs`), both effective npm lockfile conventions (`package-lock.json` and `npm-shrinkwrap.json` when present), and published runtime `config/` files are part of the inventory, alongside package scripts and workflows. Changes to test selection or runtime defaults must not be hidden from the approval packet. Every `.npmrc` tracked in the exact Git commit is also reviewed and byte-verified, including root npm configuration controlling dependency installation or registry publication. Untracked local `.npmrc` credentials remain excluded; a credential committed to Git must be revoked, not hidden from release reviewers.
 
-1. Generate the review packet:
+Both packet upload workflows explicitly retain hidden reviewed files. The PR packet job downloads its own artifact and verifies the entire inventory against the clean source, proving transport completeness without requiring or claiming release approval.
 
-   ```bash
-   npm run review:sage:pack
-   ```
+Verification enforces mandatory execution and governance roots independently of the collector recipe, plus every explicit `package.json` publication path. It includes the complete `.agents/` and `.claude-plugin/` trees, not just marketplace manifests. Narrowing the collector cannot make a partial packet eligible for release. Publication paths must be plain, contained relative paths; missing allowlists, globs, negations, and traversal fail closed until explicitly supported. Partial packets can be generated for development, but the verifier has no reduced-scope approval mode.
 
-2. Open `dist/review/sage/`.
-3. Feed the packet into Sage in the agent environment you use locally.
+Privacy exclusions are case-insensitive, including `.ENV`, `.NPMRC`, private JSON/local YAML suffixes, and file-based VCS credentials (`.git-credentials`, `.p4config`, `.p4tickets`). Tracked npm configuration remains reviewable regardless of filename casing. The verifier deduplicates overlapping scopes before comparing inventories.
 
-## Platforms
+The shared exclusion also covers `.netrc`/`_netrc`, `.cvspass`, other named VCS/authentication stores, and SSH/GPG/cloud credential directories. Source-snapshot publication now copies only public inputs from the same explicit review recipe, not arbitrary new repository-root paths. New publication roots must be added to the recipe and reviewed before shipping; symlinked/special source files and redirected output parents fail before previous artifacts are replaced. Generated submission metadata and listing READMEs are governed by the reviewed publisher code.
 
-Sage currently supports Claude Code, Cursor, VS Code, OpenClaw, and OpenCode through its official plugin and extension surfaces.
+The packet digest binds the manifest version, repository identity, exact commit, dirty state, scope, fixed `NOT_APPROVED` marker, and file inventory. Verification rejects changed repository/approval markers even if somebody recomputes a digest. The generation timestamp is informational, not an approval identity.
 
-## Review policy
+The mandatory-scope policy is not an external trust anchor: changes to the verifier, collector, workflow, ownership policy, or protection settings require review of the full PR diff as well as the packet. A malicious replacement of the verifier itself cannot be authenticated by executing that same replacement. Human review and protected environment settings remain required.
 
-Sage is a reviewer, not a replacement for validation.
+A dirty local packet is useful for development review but **cannot** satisfy release verification. After committing, regenerate the packet and review the exact clean revision.
 
-- Keep `npm run skills:validate` in the loop.
-- Keep `npm run skills:catalog` in the loop.
-- Keep `npm run skills:publish:pack` in the loop when publish content changes.
-- Use Sage to catch risky behavior in the agent layer before it reaches a PR.
+## Release approval boundary
+
+`.github/workflows/release.yml` first builds and uploads the packet in a read-only job for a commit on main history. The publishing job depends on that successful job and uses the protected GitHub environment `release-security`. No publishing step or npm token is available to that job until a required human reviewer approves it.
+
+The environment is configured separately in GitHub, not by YAML alone. Required reviewer: repository maintainer `janpereira-dev`; administrator bypass disabled. Self-review prevention is intentionally off because this repository currently has one human maintainer: that person may approve a run they requested, but the agent must never submit the human approval. Adding an independent security maintainer allows stricter separation later. Recheck environment protection before every release; deleting its rules would remove this boundary.
+
+### Credential activation and legacy workflows
+
+The new workflow uses **only** `RELEASE_NPM_TOKEN` and fails closed when it is absent. Store it as an environment secret in `release-security`, never as a repository-wide secret. There is no fallback to the historical `NPM_TOKEN`.
+
+The live settings audit found a repository-wide `NPM_TOKEN` and no environment secret. GitHub does not expose existing secret values, so the agent cannot safely migrate it or claim the credential boundary is closed. The maintainer must provision the protected environment credential and revoke/remove the old repository credential before npm release activation. Until then, npm publication through the new workflow is intentionally unavailable. Review historical/obsolete publisher workflows as well: an environment on current YAML does not retroactively protect an old workflow revision. Do not call the entire publication surface secured while a legacy repository credential remains usable.
+
+**Before approving**, the human reviewer must inspect the exact packet and record a security review on the release PR or linked audit issue:
+
+```text
+Commit: <40-character SHA>
+Packet SHA-256: <manifest packetSha256>
+Reviewer: <human identity and reviewer/tool used>
+Verdict: APPROVED / CHANGES_REQUIRED
+Findings: <resolved high-risk findings or none, with evidence>
+Validation: <links to checks and tests for this revision>
+```
+
+Only an APPROVED verdict for that exact revision authorizes the environment approval. A new commit, dirty tree, unresolved blocking finding, or changed digest requires a fresh review. Reject the deployment on CHANGES_REQUIRED; do not bypass the environment.
+
+After approval, the job downloads the artifact from the **same workflow run**, checks commit, digest, complete inventory, and every source/packet byte before installation and again after tests/generation. Publication still runs validation and drift checks. The manifest remains `NOT_APPROVED`: approval is evidenced by the human review and GitHub deployment record, not by silently changing a generated flag.
+
+GitHub's [environment protection documentation](https://docs.github.com/en/actions/reference/workflows-and-actions/deployments-and-environments) and [deployment review procedure](https://docs.github.com/en/actions/how-tos/managing-workflow-runs-and-deployments/managing-deployments/reviewing-deployments) describe this external approval mechanism. A PR's Sage packet upload does not mean a release has been approved or published.

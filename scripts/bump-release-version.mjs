@@ -26,6 +26,7 @@ const rootFiles = [
   'agent-plugins.config.json',
   'catalog.json',
   'package-lock.json',
+  'npm-shrinkwrap.json',
   'package.json',
   'README.md',
   'skill-lab/python/pyproject.toml',
@@ -52,7 +53,7 @@ fs.cpSync(previousPacket, nextPacket, { recursive: true });
 let touched = 0;
 
 for (const file of rootFiles) {
-  if (file === 'package-lock.json') {
+  if (['package-lock.json', 'npm-shrinkwrap.json'].includes(file)) {
     updateRootLockfileVersion(file, nextVersion);
   } else {
     replaceInFile(file, previousVersion, nextVersion);
@@ -61,7 +62,8 @@ for (const file of rootFiles) {
 
 for (const root of roots) {
   for (const file of findTextFiles(root)) {
-    replaceInFile(file, previousVersion, nextVersion);
+    if (['package-lock.json', 'npm-shrinkwrap.json'].includes(path.basename(file))) updateRootLockfileVersion(file, nextVersion);
+    else replaceInFile(file, previousVersion, nextVersion);
   }
 }
 
