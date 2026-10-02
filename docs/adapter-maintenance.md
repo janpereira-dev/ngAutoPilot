@@ -1,5 +1,10 @@
 # Adapter maintenance and native exports
 
+<!-- docs:navigation:start -->
+[Español](adapter-maintenance.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
 ## Authoritative contract
 
 `adapters/native-layouts.json` is the native **project/workspace export** contract for all ten registered adapters. Every entry links to first-party discovery and instruction documentation. The independent expectations in `tests/installer/exporter.test.mjs` exercise the actual CLI, portable frontmatter, supporting resources, hashes, repeated exports, and conflict refusal.

@@ -1,13 +1,21 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ngautopilot-skills",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "A skills-only package of NgAutoPilot engineering guidance.",
-  "author": { "name": "Jan Pereira", "url": "https://github.com/janpereira-dev" },
+  "author": {
+    "name": "Jan Pereira",
+    "url": "https://github.com/janpereira-dev"
+  },
   "homepage": "https://github.com/janpereira-dev/ngAutoPilot",
   "repository": "https://github.com/janpereira-dev/ngAutoPilot",
   "license": "MIT",
-  "keywords": ["angular", "agent-skills", "developer-tools", "ngautopilot"],
+  "keywords": [
+    "angular",
+    "agent-skills",
+    "developer-tools",
+    "ngautopilot"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
@@ -16,7 +24,9 @@
         "longDescription": "NgAutoPilot provides reusable, version-aware skills for Angular upgrades, architecture, testing, TypeScript, JavaScript, frontend quality, and release validation. This package contains skills only and has no MCP server or external service connection.",
         "developerName": "Jan Pereira",
         "category": "Developer Tools",
-        "capabilities": ["skills"],
+        "capabilities": [
+          "skills"
+        ],
         "defaultPrompt": "Use NgAutoPilot to identify the smallest relevant engineering skill and propose a bounded validation plan.",
         "brandColor": "#0F172A",
         "websiteURL": "https://github.com/janpereira-dev/ngAutoPilot",
@@ -25,6 +35,15 @@
         "termsOfServiceURL": "https://janpereira-dev.pages.dev/ngautopilot/terms",
         "logo": "./assets/ngautopilot-icon.svg",
         "composerIcon": "./assets/ngautopilot-icon.svg"
+      },
+      "publication": {
+        "release_notes": "Bilingual visual documentation, filtered Angular install profiles, bounded work and migration plans, consolidated security protections, and exact-archive release inventory. Public directory submission remains a separate owner action.",
+        "translations": {
+          "es-ES": {
+            "subtitle": "Skills de Angular y frontend",
+            "description": "Procedimientos reutilizables según la versión para Angular, arquitectura, pruebas, TypeScript, JavaScript, calidad frontend y validación. Este paquete incluye únicamente skills; no añade MCP ni conexiones externas."
+          }
+        }
       }
     }
   }

@@ -42,10 +42,15 @@ test('packed npm artifact installs Codex files into discoverable paths and serve
   const installedPackage = path.join(projectDirectory, 'node_modules', 'ngautopilot');
   const cli = path.join(installedPackage, 'bin', 'ngautopilot.mjs');
   const mcpEntry = path.join(installedPackage, 'mcp', 'server-entry.mjs');
+  const openApiContract = path.join(installedPackage, 'openapi.yaml');
   assert.ok(fs.existsSync(cli), 'packed CLI is missing');
   const binName = process.platform === 'win32' ? 'ngautopilot.cmd' : 'ngautopilot';
   assert.ok(fs.existsSync(path.join(projectDirectory, 'node_modules', '.bin', binName)), 'installed package must expose the ngautopilot binary');
   assert.ok(fs.existsSync(mcpEntry), 'packed root MCP entry point is missing');
+  assert.ok(fs.existsSync(openApiContract), 'packed OpenAPI contract is missing');
+  for (const relative of ['README.es.md', 'assets/first-run.svg', 'assets/first-run.es.svg', 'config/publication-targets.json']) {
+    assert.ok(fs.existsSync(path.join(installedPackage, relative)), `packed public resource missing: ${relative}`);
+  }
 
   const isolatedEnvironment = {
     ...process.env,
@@ -74,6 +79,14 @@ test('packed npm artifact installs Codex files into discoverable paths and serve
   const upgrade = await client.callTool({ name: 'upgrade.plan', arguments: { from: 12, to: 22 } });
   assert.equal(upgrade.isError, undefined);
   assert.ok(upgrade.content.some((entry) => entry.type === 'text' && entry.text.includes('12-to-13')), 'upgrade.plan must resolve ordered upgrade hops');
+
+  const listed = await client.listTools();
+  assert.equal(listed.tools.length, 13);
+  const snapshot = await client.callTool({ name: 'angular.resolve', arguments: {
+    snapshot: { manifest: { dependencies: { '@angular/core': '^14.1.3' } }, lockfile: { kind: 'npm', packages: { '@angular/core': '14.1.3' } } }, target: '14.1',
+  } });
+  assert.equal(snapshot.isError, undefined);
+  assert.equal(JSON.parse(snapshot.content[0].text).evidence.packageJson.provenance, 'snapshot.manifest');
 
 });
 

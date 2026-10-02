@@ -33,12 +33,14 @@ export function syncAgentPlugins({ root = process.cwd() } = {}) {
     const pluginDir = path.join(pluginsRoot, plugin.name);
     fs.mkdirSync(pluginDir, { recursive: true });
     fs.copyFileSync(path.join(root, 'LICENSE'), path.join(pluginDir, 'LICENSE'));
-    fs.writeFileSync(path.join(pluginDir, 'plugin.json'), `${JSON.stringify(buildPluginManifest({
+    const manifestPath = path.join(pluginDir, 'plugin.json');
+    const manifestBytes = `${JSON.stringify(buildPluginManifest({
       name: plugin.name,
       version,
       description: descriptions[plugin.name],
       keywords: ['angular', 'agent-skills', 'developer-tools', 'ngautopilot'],
-    }), null, 2)}\n`, 'utf8');
+    }), null, 2)}\n`;
+    if (!fs.existsSync(manifestPath) || fs.readFileSync(manifestPath, 'utf8') !== manifestBytes) fs.writeFileSync(manifestPath, manifestBytes, 'utf8');
 
     if (plugin.kind === 'mcp') {
       syncMcpPlugin({ root, pluginDir, version });

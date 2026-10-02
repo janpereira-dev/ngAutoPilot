@@ -7,7 +7,7 @@ stack:
   - ECMAScript
 category: compatibility
 status: stable
-version: 0.9.0
+version: 0.10.0
 owner: NgAutoPilot
 triggers:
   - ECMAScript compatibility

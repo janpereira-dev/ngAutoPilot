@@ -1,5 +1,12 @@
 # NgAutoPilot Ecosystem Architecture
 
+<!-- docs:navigation:start -->
+[Español](ecosystem-architecture.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
+![Canonical sources feed generated catalog, native bundles and portable packages; edit sources, not generated copies.](../assets/catalog-map.svg)
+
 ## Single source of truth
 
 ```text
@@ -59,15 +66,15 @@ packs/<pack-id>.json
                 ┌───────────────────────────────────────┐
                 │ Installer (safe-fs + adapter core)    │
                 │                                       │
-                │  plan → conflict check → apply → manifest     │
+                │  plan → backup → apply → manifest     │
                 └───────────────────┬───────────────────┘
                                     │
                     ┌───────────────┼───────────────┐
                     ▼               ▼               ▼
-              .agents/        .claude/        .opencode/
-              (project)       (project)       (project)
+           .agents/skills/    .claude/        .opencode/
+           (Codex project)   (project)       (project)
                     │               │               │
-                    └──── manifest.json ────────────┘
+            .ngautopilot-manifest.json in each selected install root
 ```
 
 ## Adapter contract
@@ -94,45 +101,3 @@ Plugins distribute.
 The catalog indexes.
 The installer applies.
 ```
-
-## Native export and compatibility boundaries
-
-```mermaid
-flowchart TD
-  Source[Canonical skills and role Markdown] --> Catalog[Validated generated catalog]
-  Catalog --> Packs[Pack dependency and prefix selection]
-  Project[Detected Angular version and project evidence] --> Gate[Compatibility resolver]
-  Packs --> Gate
-  Gate --> Decision[Compatible / source-only / excluded report]
-  Packs --> Plan[Installation planner]
-  Plan --> Adapter[Adapter manifest and scope layout]
-  Adapter --> Conflict[Checksum and bounded-section conflict checks]
-  Conflict --> Apply[Contained writes and owned manifest]
-  Conflict --> Preserve[Preserve local edits and return warnings]
-  Packs --> Portable[Portable skill renderer and referenced resources]
-  Layouts[Source-backed native export registry] --> Portable
-  Portable --> Preflight[Whole-export conflict preflight]
-  Preflight --> Export[Project-shaped snapshot and export checksum record]
-```
-
-`angular` provides the version-aware compatibility decision. A source pack or native export is **not** automatic project-version approval: catalog inclusion and host-format compatibility are separate from Angular API compatibility. The installer consumes pack selection; it does not silently run migrations or modernize the application.
-
-Export snapshots deliberately use a separate record from installations. Non-Codex legacy installation roots are not silently migrated by native export. See [adapter maintenance](adapter-maintenance.md) and [pack transitions](pack-transitions.md). Backup is an explicit recoverability step, not automatic permission to overwrite.
-
-## Validation and publication
-
-```mermaid
-flowchart LR
-  PR[Pull request revision] --> Checks[Required release and Skill Lab checks]
-  PR --> Human[Human and code-owner review]
-  Checks --> Merge[Eligible for merge only after approval]
-  Human --> Merge
-  Main[Release commit on main history] --> Packet[Exact-commit Sage packet and digest]
-  Packet --> Security[Human security verdict and protected environment approval]
-  Security --> Verify[Same-run packet / source inventory verification]
-  Verify --> Tests[Validation, tests, regeneration and drift checks]
-  Tests --> Recheck[Verify source bytes again]
-  Recheck --> Publish[Explicit npm publication or release artifact upload]
-```
-
-Packet generation, tests, approval, merge, and publication are different states. The release workflow does not approve itself. The scheduled quarterly adapter audit opens a tracking issue; documentation review and real host invocation remain explicit evidence levels.

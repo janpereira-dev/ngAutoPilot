@@ -116,6 +116,7 @@ test('skips binary files while scanning all text publish inputs', () => {
 test('skips generated Python bytecode omitted from source-snapshot bundles', () => {
   const result = scan({
     'skill-lab/python/example/__pycache__/bridge.cpython-311.pyc': Buffer.from([0, 255, 0, 1]),
+    'scripts/__pycache__/audit-python-dependencies.cpython-312.pyc': Buffer.from([0, 255, 0, 1]),
   });
 
   assert.equal(result.status, 0);

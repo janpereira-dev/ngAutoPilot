@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "angular.testing.angular-component-testing-patterns-v17"
   ngautopilot-source: "skills/angular/testing/angular-component-testing-patterns-v17/SKILL.md"
-  ngautopilot-version: "0.9.0"
+  ngautopilot-version: "0.10.0"
 ---
 
 

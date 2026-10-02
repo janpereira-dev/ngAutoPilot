@@ -1,5 +1,10 @@
 # Design Excellence Guide
 
+<!-- docs:navigation:start -->
+[Español](design-excellence-guide.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
 NgAutoPilot design excellence skills turn broad UI requests into bounded, evidence-based work. Start with product intent, select the dominant design risk, apply the smallest specialist set, then finish with one release gate.
 
 ## Routing
@@ -21,7 +26,7 @@ Load one primary skill, zero to three secondary skills, and one final gate. Do n
 ## Reference Baseline
 
 - [Angular accessibility guidance](https://angular.dev/best-practices/a11y)
-- [Angular Aria guides](https://angular.dev/guide/aria/guide/aria/menu)
+- [Angular Aria guides](https://angular.dev/guide/aria/menu)
 - [Angular component selectors](https://angular.dev/guide/components/selectors)
 - [WCAG 2.2: Animation from Interactions](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html)
 - [WCAG 2.2: Focus Appearance](https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html)

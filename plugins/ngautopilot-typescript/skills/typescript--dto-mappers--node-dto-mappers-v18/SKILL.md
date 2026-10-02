@@ -8,7 +8,7 @@ stack:
   - Node.js
 category: dto-mappers
 status: stable
-version: 0.9.0
+version: 0.10.0
 owner: NgAutoPilot
 triggers:
   - node dto mapping

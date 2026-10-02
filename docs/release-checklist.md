@@ -1,75 +1,67 @@
-# Release Checklist
+# Release checklist: local proof before public delivery 📦
 
-Use this checklist when preparing a public NgAutoPilot release.
+<!-- docs:navigation:start -->
+[Español](release-checklist.es.md) · [Map](README.md) · [Home](../README.md)
 
-## Pre-release
+<!-- docs:navigation:end -->
 
-1. Confirm `main` is clean and includes the latest validated merge.
-2. Confirm `package.json` has the intended release version.
-3. Run:
-   - `npm run skills:validate`
-   - `npm run skills:catalog`
-   - `npm run plugins:sync`
-   - `npm run consistency:validate`
-   - `npm run marketplaces:validate`
-   - `npm run skills:publish:pack`
-   - `npm run publish:validate`
-   - `npm pack --dry-run`
-4. Confirm the tarball includes:
-   - `bin/ngautopilot.mjs`
-   - `skills/`
-   - `adapters/`
-   - `agents/`
-   - `catalog.json`
-   - `README.md`
-   - `CHANGELOG.md`
+![Validate, index, sync, compare, then review the generated diff and full release checklist.](../assets/ngautopilot-flow.svg)
 
-## npm Publish
+**A green local check is preparation, not publication.** Use this checklist on the intended release branch. Tagging, pushing and publishing require release-owner authorization; this guide does not perform them.
 
-5. Sign in to npm:
-   - `npm login`
-   - `npm whoami`
-6. Publish the package:
-   - `npm publish`
-7. If npm requests an OTP:
-   - `npm publish --otp <code>`
+## 1. Confirm the release input
 
-## GitHub Release
+- [ ] The intended branch/commit includes reviewed changes.
+- [ ] Existing unrelated local work is preserved.
+- [ ] The version in `package.json`, manifests and catalog is intentional.
+- [ ] English and Spanish guides describe the same release capabilities.
+- [ ] The versioned submission packet records its actual external status.
 
-8. Create the release tag:
-   - `git tag vX.Y.Z`
-   - `git push origin vX.Y.Z`
-9. Create the GitHub Release:
-   - title: `NgAutoPilot vX.Y.Z`
-   - add release notes
-   - link the npm package
-   - document any breaking CLI or generated-path changes explicitly
+Do not reset a dirty checkout to make this list green. Use an isolated checkout when needed.
 
-## Post-release
-
-10. Verify the public package:
-    - `npm view ngautopilot`
-    - `npm exec --package=ngautopilot -- ngautopilot help`
-    - `npm exec --package=ngautopilot -- ngautopilot init`
-11. If you want automation:
-    - keep `.github/workflows/release.yml` for `release` published events
-    - keep `workflow_dispatch` as a manual fallback
-    - configure Trusted Publishing in npm
-
-## Release Gates
-
-Use this order before publishing:
+## 2. Validate and inspect generated differences
 
 ```bash
-npm run skills:validate
-npm run skills:catalog
-npm run plugins:sync
-npm run consistency:validate
-npm run marketplaces:validate
+npm run docs:index
+npm run docs:validate
+npm run release:validate
 npm run skills:publish:pack
 npm run publish:validate
-npm pack --dry-run
+npm run agent-plugins:pack
+npm pack --dry-run --json
 ```
 
-`skills:validate` stays strict. `plugins:sync` rebuilds marketplace bundles from `skills/`. `consistency:validate` is the main release gate and checks that every source skill is bundled, no skill remains in draft, and scaffold placeholders are gone.
+`release:validate` is the broad local gate listed in this branch's `package.json`. It validates sources, security, distribution, catalog, native/portable plugins, marketplaces, consistency, release version and tests. Some steps regenerate files or check for drift; review and resolve the diff rather than hiding it.
 
+For an individual catalog change, the core order is `skills:validate` → `skills:catalog` → `plugins:sync` → `agent-plugins:sync` → `consistency:validate`. These narrow checks do not replace the full release gate.
+
+Inspect the tarball list, not just its exit code:
+
+- CLI, installer support, MCP, source skills, packs and adapters must be present.
+- English/Spanish public documentation and release metadata must be present.
+- `skill-lab/`, local secrets, temporary files and development dependencies must not leak.
+- Inspect the JSON shape: npm versions can return an array or an object keyed by package name.
+
+## 3. Publish only with authorization
+
+The protected `.github/workflows/release.yml` publishes npm and builds artifacts for `release.published` or a manual retry with `publish=true` on the exact version tag. The tag must match package.json and its commit must belong to main history. Human approval remains mandatory. See [the publication plan](publication-plan.md).
+
+The current workflow uses a configured npm credential; do not claim Trusted Publishing is enabled without reviewing and implementing that separate configuration. Never paste tokens or one-time codes into docs, logs, issues, or chat.
+
+If the owner chooses manual npm publication, check identity with `npm whoami`, then follow the registry's authenticated publish flow. Create the intended version tag and GitHub release only once; inspect remote state first and never overwrite an existing release tag.
+
+## 4. Verify the public result
+
+- [ ] npm reports the intended exact version.
+- [ ] The GitHub tag and release point to the intended commit.
+- [ ] Release archives and checksums are attached and match.
+- [ ] A clean temporary receiving project can use that exact published package.
+- [ ] Skills are discovered by each host claimed as verified; schema validation is not enough.
+- [ ] Review and approval requirements are actually satisfied.
+- [ ] OpenAI submission/attestation remains pending unless there is real external confirmation.
+
+Run `help`, `doctor`, and a focused `install --dry-run` from the exact published version in a temporary project. Do not use the deprecated `init` or install a full catalog as a publication smoke test.
+
+## 5. Record the outcome
+
+Report **prepared**, **locally validated**, **published**, and **host verified** separately. Include version, commit, artifact paths and unresolved external steps. [Maintainer guide](maintainer-guide.md) · [OpenAI release boundary](openai-marketplace-release.md).

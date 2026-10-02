@@ -18,15 +18,28 @@ jobs:
 
     steps:
       - name: Check out repo
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Set up Node
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
         with:
           node-version: 24
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Set up Python audit runtime
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7
+        with:
+          python-version: '3.12'
+
+      - name: Audit internal Python dependencies without source builds
+        run: |
+          python -m pip install --only-binary=:all: pip-audit==2.10.1 PyYAML==6.0.3
+          python scripts/audit-python-dependencies.py
+
+      - name: Audit dependencies and bilingual documentation
+        run: npm audit --audit-level=high && npm run docs:validate && npm run docs:graphics:check
 
       - name: Validate skills
         run: npm run skills:validate
@@ -69,3 +82,6 @@ jobs:
 
       - name: Dry-run package
         run: npm run pack:dry
+
+      - name: Validate actual npm member inventory and archive integrity
+        run: npm run release:inventory

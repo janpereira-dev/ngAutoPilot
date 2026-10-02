@@ -1,6 +1,17 @@
 # Contributing to NgAutoPilot
 
+<!-- docs:navigation:start -->
+[Español](CONTRIBUTING.es.md) · [Map](docs/README.md) · [Home](README.md)
+
+<!-- docs:navigation:end -->
+
 NgAutoPilot is a catalog of small, public, agent-agnostic skills. Contributions should improve practical Angular, TypeScript, JavaScript, RxJS, testing, quality, architecture, or Git workflows.
+
+## Quick path
+
+1. Check whether a skill already solves the problem.
+2. Edit its canonical source and preserve compatibility boundaries.
+3. Validate, regenerate affected distributions, and show evidence in review.
 
 ## Proposing a Skill
 
@@ -100,6 +111,10 @@ Use these fields when a recommendation changes by Angular, TypeScript, RxJS, Nod
 
 Accepted source and distribution status: `stable`. The creation template starts at `draft` for authoring, but drafts are not accepted by `skills:validate`; finish review and replace scaffold text before promotion.
 
+These are metadata vocabulary, not release acceptance. The current publishable
+catalog requires stable skills. Structural validation alone does not prove
+successful behavior in an actual agent.
+
 ## Public Content Rules
 
 Do not include:
@@ -118,6 +133,8 @@ Provider-specific guidance belongs in `adapters/`, not in `skills/`.
 1. Create or update a skill.
 2. Run `npm run skills:validate`.
 3. Run `npm run skills:catalog`.
+   Regenerate affected bundles with `npm run plugins:sync` and
+   `npm run agent-plugins:sync`, then review the generated diff.
 4. Run `npm run skills:publish:pack` when the change affects public packaging.
 5. Run `npm run review:sage:pack` when the change touches agent instructions, workflows, or publish scripts.
 6. Confirm `catalog.json` contains the expected entry.
@@ -135,6 +152,16 @@ feat/marketplace-publish-bundles
 ```
 
 Keep unrelated work in separate branches when it affects public docs, skill content, or workflows.
+
+Codex-created branches default to `codex/`. Use conventional commits; do not
+add AI attribution or `Co-Authored-By` trailers.
+
+## Bilingual documentation
+
+Update the English original and its complete `.es.md` companion together.
+Run `npm run docs:index` and `npm run docs:validate`. Preserve runtime skill
+headings and IDs in their canonical language; translation does not create a
+second operational skill catalog. A partial edition is not complete coverage.
 
 ## Contribution Checklist
 

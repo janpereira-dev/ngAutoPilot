@@ -1,5 +1,10 @@
 # Write skills that change decisions
 
+<!-- docs:navigation:start -->
+[Español](skill-authoring.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
 A useful micro-skill names a specific problem, helps an agent make the right decision, and explains how to check the outcome. More text is not automatically more guidance.
 
 ## Start with the contract

@@ -15,7 +15,7 @@ import { safeReadSourceFile } from './safe-fs.mjs';
 import { resolveProjectRoot } from './install-roots.mjs';
 import { isLocalOnlySourcePath } from '../../lib/local-only.mjs';
 
-export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, agent, scope, cwd, home }) {
+export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, agent, scope, cwd, home, selectedSkillIds }) {
   const catalog = JSON.parse(safeReadSourceFile(sourceRoot, catalogPath));
   const packs = resolvePacks(sourceRoot, packPath);
   const pack = packs.at(-1);
@@ -37,7 +37,15 @@ export function buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot, age
     ? path.resolve(scopeRoot, manifest.paths[scope])
     : undefined;
 
-  const matches = uniqueById(packs.flatMap((candidate) => matchSkills(catalog.skills, candidate)));
+  const selected = selectedSkillIds === undefined ? undefined : new Set(selectedSkillIds);
+  if (selected && [...selected].some(id => !catalog.skills.some(skill => skill.id === id))) {
+    throw new Error('Angular selection contains an unknown catalog skill');
+  }
+  // A resolved Angular selection replaces the unfiltered pack skill set, while
+  // preserving adapter instructions and pack roles. Resources follow each skill.
+  const matches = selected
+    ? catalog.skills.filter(skill => selected.has(skill.id))
+    : uniqueById(packs.flatMap((candidate) => matchSkills(catalog.skills, candidate)));
   const files = [];
   const warnings = [];
 

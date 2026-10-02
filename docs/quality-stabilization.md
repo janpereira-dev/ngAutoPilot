@@ -1,5 +1,10 @@
 # Quality stabilization delivery
 
+<!-- docs:navigation:start -->
+[Español](quality-stabilization.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
 This change implements the five-phase repository quality plan. Source inspection,
 local tests, remote CI, reviewer resolution, and human approval are separate evidence.
 An installed adapter or generated review packet is not a host invocation or security approval.

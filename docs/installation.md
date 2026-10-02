@@ -1,113 +1,101 @@
-# NgAutoPilot Installation
+# Installation: inspect → approve → verify 🎒
 
-## Prerequisites
+<!-- docs:navigation:start -->
+[Español](installation.es.md) · [Map](README.md) · [Home](../README.md)
 
-- Node.js >= 24.0.0 and < 25
-- An AI agent with a matching adapter: Claude, Codex, Copilot, Cursor, Gemini, Hermes, OpenClaw, OpenCode, Pi, or generic Markdown export
+<!-- docs:navigation:end -->
 
-## Choose Installation Path
+![Four checkpoints: choose IDs, preview without writes, approve, verify files; then check host discovery.](../assets/first-run.svg)
 
-Use the NgAutoPilot CLI for bounded installation across supported adapters. `npx skills add janpereira-dev/ngAutoPilot` exposes the entire repository because the third-party `skills` CLI has no pack-selection contract; `skills.sh.json` affects only the web page.
+**Outcome:** place a focused selection of guidance in the right locations for your agent, without confusing installation with automatic execution.
 
-Start by listing exact adapters and packs:
+## Before you start
+
+- This checkout requires Node.js >= 24.0.0 and < 25.
+- Work from the receiving project's root.
+- Inspect available IDs with `ngautopilot adapters` and `ngautopilot packs`.
+- Back up an existing installation before updating or switching packs. Updates preserve edited managed files by default and report conflicts before writing.
+- The examples below use a published npm package. Pin an exact release in automation; inspect local branch features with `node bin/ngautopilot.mjs help` in this repository.
+
+## 1. Choose one pack and preview
 
 ```bash
 npm exec --package=ngautopilot -- ngautopilot adapters
 npm exec --package=ngautopilot -- ngautopilot packs
+npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-foundations --scope project --dry-run
 ```
 
-Read [Pack Selection](packs.md) before choosing an Angular version hop or domain pack.
+Expected: an installation plan, no files written. Check destinations and warnings. Use a named `ngautopilot-angular-<from>-to-<to>` pack for exactly one upgrade hop.
 
-## Quick Install: Project Scope
+## 2. Apply and check
 
 ```bash
-# Inspect Angular 21 to 22 plan for Codex
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-21-to-22 --scope project --dry-run
-
-# Apply the inspected plan
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-21-to-22 --scope project --yes
+npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-foundations --scope project --yes
+npm exec --package=ngautopilot -- ngautopilot verify --agent codex --scope project
 ```
 
-## Quick Install: User Scope
+`--yes` approves writing. `--force` is not approval: it permits overwriting unmanaged files and removing modified obsolete managed files. Do not use it to hide conflicts.
+
+For Codex, skills are in `.agents/skills/`, managed instructions are in root `AGENTS.md`, and the installation manifest is in the project root. The adapter can merge its marked instruction section into an existing file; text outside that section stays separate.
+
+## 3. Confirm host discovery
+
+Open the agent in the project. Ask it to identify the installed skill it would use for your task. A passing checksum check does not prove host discovery, tool registration, or invocation.
+
+## Alternative selection: Angular-aware profile
+
+Use this only when your installed version's help lists these options:
 
 ```bash
-# Install Signals and RxJS guidance for OpenCode globally
-npm exec --package=ngautopilot -- ngautopilot install --agent opencode --pack ngautopilot-angular-state --scope user --yes
+ngautopilot install --agent codex --angular 22 --profile essentials --scope project --dry-run
+ngautopilot install --agent codex --angular 22 --profile essentials --scope project --yes
 ```
 
-## What happens
+`--pack` and `--angular` are mutually exclusive. `--profile` and `--capabilities` require `--angular`. Profiles: `essentials`, `architecture`, `performance`, `testing`, `migration`, `core`. Detect real project/toolchain evidence; do not choose 22 just because it is mentioned here. [CLI reference](cli-reference.md).
 
-1. NgAutoPilot resolves selected pack and its dependencies from `packs/<pack-id>.json`.
-2. It matches skills from `catalog.json` by ID prefix.
-3. It computes the install root for selected adapter and scope.
-4. It removes unchanged files owned by prior selected pack at same location.
-5. It copies selected skill files into install root.
-6. It writes instruction file such as `AGENTS.md`, `CLAUDE.md`, or `PI.md` when adapter provides template.
-7. It writes `.ngautopilot-manifest.json` with SHA-256 checksum for every managed file.
+## Scope and pack switching
 
-## Switching Packs
+| Scope | Meaning |
+| --- | --- |
+| `project` | Install for this project; default |
+| `user` | Install for the user, only if the adapter supports it |
 
-Use one focused pack for current task. Installing a different pack for same agent and scope switches managed selection: files from prior pack are removed only when their checksum matches manifest. User-modified files are preserved and reported. Run `--dry-run` before every switch.
+For example, inspect an OpenCode user installation with `ngautopilot install --agent opencode --pack ngautopilot-angular-state --scope user --dry-run`, then repeat with `--yes` after review.
 
-## Idempotency
+One managed selection exists per agent and scope. Switching packs can remove unchanged files no longer selected. Modified obsolete files are preserved and reported unless forced. **Files still selected are preserved when locally edited unless explicitly forced**; save customizations outside managed files/sections and create a backup first.
 
-Re-running `install` with the same pack and agent is safe. Files with matching checksums are skipped. No duplication occurs.
+## How files are selected
 
-## Dry run
+1. Resolve `packs/<id>.json` and transitive dependencies.
+2. Match catalog skill ID prefixes and exclusions.
+3. Compute adapter/scope destinations.
+4. Copy selected files and merge the managed instruction section.
+5. Record managed ownership and SHA-256 checksums in `.ngautopilot-manifest.json`.
 
-```bash
-ngautopilot install --agent codex --pack ngautopilot-angular --dry-run
-```
+Repeated identical installation skips matching contents. Locally edited managed files retain their original ownership checksum; updates refuse replacement unless explicitly forced.
 
-Shows what would happen without writing any files.
-
-## Force
-
-```bash
-ngautopilot install --agent codex --pack ngautopilot-angular --force
-```
-
-Overwrites files that NgAutoPilot did not create. Use with caution.
-
-## Update
-
-```bash
-ngautopilot update --agent codex --scope project
-```
-
-Updates an existing installation with the latest skill sources. Preserves user-modified files unless `--force` is passed.
-
-## Uninstall
-
-```bash
-ngautopilot uninstall --agent codex --scope project
-```
-
-Removes only files listed in `.ngautopilot-manifest.json`. User-modified managed files are refused unless `--force` is passed. The manifest is removed when the last managed file is gone.
-
-## Verify
-
-```bash
-ngautopilot verify --agent codex --scope project
-```
-
-Checks every file in the manifest exists and its SHA-256 matches the recorded checksum.
-
-## Backup and restore
+## Update, remove, back up
 
 ```bash
 ngautopilot backup --agent codex --scope project
+ngautopilot update --agent codex --scope project --dry-run
+ngautopilot update --agent codex --scope project --yes
+ngautopilot verify --agent codex --scope project
+ngautopilot uninstall --agent codex --scope project --dry-run
+ngautopilot uninstall --agent codex --scope project --yes
 ngautopilot restore --backup <backup-path>
 ```
 
-## Export (for unsupported agents)
+Replace `<backup-path>` with the path returned by backup; do not paste placeholders literally. [Updating](updating.md) · [Uninstalling](uninstalling.md).
+
+## Portable or offline use
 
 ```bash
 ngautopilot export --agent generic --pack ngautopilot-core --output ./ngautopilot-export
 ```
 
-Produces a portable directory with skills, an instruction file, and a README. Copy it into your project manually.
+Review and copy the self-contained export manually. Package acquisition through npm can require network access; the installer itself reads packaged sources locally. There is **no `--offline` flag** in this branch.
 
-## Offline install
+## Migration is a different operation
 
-NgAutoPilot does not access the network during install. The `export` command produces a self-contained snapshot that can be copied to an offline machine.
+`migrate setup`/`migrador` creates an approved plan. `migrate run` checks at most one hop and stops at `awaiting-executor` when no authorized source transformer exists. `resume` rechecks evidence; it cannot skip blocked gates. `work plan` prepares a bounded read-only assignment, not arbitrary execution. [Commands and examples](cli-reference.md).

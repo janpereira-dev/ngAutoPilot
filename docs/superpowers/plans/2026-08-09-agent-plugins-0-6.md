@@ -1,5 +1,12 @@
 # Agent Plugins 0.6.0 Implementation Plan
 
+<!-- docs:navigation:start -->
+[Español](2026-08-09-agent-plugins-0-6.es.md) · [Map](../../README.md) · [Home](../../../README.md)
+
+> Historical record: original decisions and dates are retained; this is not proof of current release or implementation state.
+
+<!-- docs:navigation:end -->
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Ship pack-driven Agent Plugins 1.0 artifacts, reproducible ZIP distribution, and a tested read-only NgAutoPilot MCP server in release `0.6.0`.

@@ -1,6 +1,6 @@
 {
   "name": "ngautopilot",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "Agent-agnostic CLI and catalog of skills, subagents, prompts, guardrails, and packs for safe Angular, TypeScript, and frontend engineering.",
   "type": "module",
   "bin": {
@@ -21,15 +21,25 @@
     "scripts",
     "templates",
     "docs",
+    "assets",
     ".agents",
     ".claude-plugin",
     "catalog.json",
     "SKILL.md",
     "README.md",
+    "README.es.md",
     "LICENSE",
     "CHANGELOG.md",
     "CONTRIBUTING.md",
-    "SECURITY.md"
+    "CONTRIBUTING.es.md",
+    "SECURITY.md",
+    "SECURITY.es.md",
+    "CODE_OF_CONDUCT.es.md",
+    "CODE_OF_CONDUCT.md",
+    "ROADMAP.es.md",
+    "ROADMAP.md",
+    "CHANGELOG.es.md",
+    "openapi.yaml"
   ],
   "repository": {
     "type": "git",
@@ -43,6 +53,8 @@
     "node": ">=24.0.0 <25"
   },
   "scripts": {
+    "docs:index": "node scripts/documentation.mjs index && node scripts/documentation.mjs navigation",
+    "docs:validate": "node scripts/documentation.mjs validate",
     "skills:create": "node scripts/create-skill.mjs",
     "skills:finalize-placeholders": "node scripts/finalize-placeholder-skills.mjs",
     "release:bump-version": "node scripts/bump-release-version.mjs",
@@ -76,12 +88,16 @@
     "skill-lab:prepare-promotion": "node skill-lab/scripts/generate-promotion-packet.mjs",
     "skill-lab:ci": "npm run skill-lab:validate && npm run skill-lab:test",
     "test": "node --test --test-concurrency=1 tests/*.test.mjs tests/**/*.test.mjs",
-    "release:validate": "npm run skills:validate:frontmatter && npm run skills:validate && npm run security:scan && npm run distribution:validate && npm run skills:catalog && npm run plugins:sync && npm run agent-plugins:sync && git diff --exit-code -- agent-plugins && npm run agent-plugins:validate && npm run agent-plugins:smoke && npm run marketplaces:validate && npm run consistency:validate && npm run release:check-version && npm run openai:validate && npm run test:scripts && npm test",
+    "release:validate": "npm audit --audit-level=high && npm run docs:validate && npm run docs:graphics:check && npm run skills:validate:frontmatter && npm run skills:validate && npm run security:scan && npm run distribution:validate && npm run skills:catalog && npm run plugins:sync && npm run agent-plugins:sync && git diff --exit-code -- agent-plugins && npm run agent-plugins:validate && npm run agent-plugins:smoke && npm run marketplaces:validate && npm run consistency:validate && npm run release:check-version && npm run openai:validate && npm run test:scripts && npm test",
     "cli": "node bin/ngautopilot.mjs",
     "pack:dry": "npm pack --dry-run",
     "openai:validate": "node scripts/validate-openai-package.mjs",
     "openai:pack": "node scripts/build-openai-package.mjs",
-    "test:scripts": "vitest run"
+    "test:scripts": "vitest run",
+    "docs:graphics": "node scripts/documentation-graphics.mjs",
+    "docs:graphics:check": "node scripts/documentation-graphics.mjs --check",
+    "release:inventory": "node scripts/release-inventory.mjs",
+    "release:publish:npm": "node scripts/publish-release-npm.mjs"
   },
   "keywords": [
     "pi-package",
@@ -122,6 +138,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/server": "^2.0.0",
+    "semver": "7.8.5",
     "zod": "^4.5.4"
   },
   "devDependencies": {

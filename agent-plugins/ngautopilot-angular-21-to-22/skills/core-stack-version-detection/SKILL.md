@@ -5,7 +5,7 @@ license: MIT
 metadata:
   ngautopilot-id: "core.stack-version-detection"
   ngautopilot-source: "skills/_core/stack-version-detection/SKILL.md"
-  ngautopilot-version: "0.9.0"
+  ngautopilot-version: "0.10.0"
 ---
 
 

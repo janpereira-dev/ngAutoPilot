@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-10-01",
+  "statesAreSourceReadinessNotRemotePublication": true,
+  "taskGuide": "docs/publication-plan.md",
+  "targets": [
+    {
+      "id": "codex",
+      "channel": "repository-marketplace",
+      "state": "package-ready",
+      "hostInvocation": "not-verified",
+      "reference": "https://developers.openai.com/plugins/build/plugins"
+    },
+    {
+      "id": "openai-public",
+      "channel": "public-directory",
+      "state": "not-submitted",
+      "hostInvocation": "not-verified",
+      "reference": "https://developers.openai.com/plugins/deploy/submission"
+    },
+    {
+      "id": "claude-code",
+      "channel": "repository-marketplace",
+      "state": "package-ready",
+      "hostInvocation": "not-verified",
+      "reference": "https://code.claude.com/docs/en/plugin-marketplaces"
+    },
+    {
+      "id": "anthropic-public",
+      "channel": "public-directory",
+      "state": "not-submitted",
+      "hostInvocation": "not-verified",
+      "reference": "https://code.claude.com/docs/en/plugin-marketplaces"
+    },
+    {
+      "id": "skills-sh",
+      "channel": "telemetry-directory",
+      "state": "listing-not-verified",
+      "hostInvocation": "not-verified",
+      "reference": "https://www.skills.sh/docs/faq"
+    },
+    {
+      "id": "pi",
+      "channel": "npm-package",
+      "state": "package-ready",
+      "hostInvocation": "not-verified",
+      "reference": "https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/packages.md"
+    },
+    {
+      "id": "openclaw-clawhub",
+      "channel": "skill-registry",
+      "state": "not-submitted",
+      "hostInvocation": "not-verified",
+      "reference": "https://docs.openclaw.ai/clawhub/quickstart"
+    },
+    {
+      "id": "hermes",
+      "channel": "native-export",
+      "state": "export-ready",
+      "hostInvocation": "not-verified",
+      "reference": "https://hermes-agent.nousresearch.com/docs/guides/work-with-skills"
+    },
+    {
+      "id": "opencode",
+      "channel": "native-export",
+      "state": "export-ready",
+      "hostInvocation": "not-verified",
+      "reference": "https://opencode.ai/docs/skills/"
+    },
+    {
+      "id": "qwen-code",
+      "channel": "project-skills",
+      "state": "adapter-pending",
+      "hostInvocation": "not-verified",
+      "reference": "https://qwenlm.github.io/qwen-code-docs/en/users/features/skills/"
+    },
+    {
+      "id": "qoder",
+      "channel": "project-skills",
+      "state": "adapter-pending",
+      "hostInvocation": "not-verified",
+      "reference": "https://docs.qoder.com/cli/Skills"
+    },
+    {
+      "id": "z-ai",
+      "channel": "model-provider",
+      "state": "identity-unresolved",
+      "hostInvocation": "not-verified",
+      "reference": "https://docs.z.ai/devpack/tool/claude"
+    },
+    {
+      "id": "copilot",
+      "channel": "native-export",
+      "state": "export-ready",
+      "hostInvocation": "not-verified",
+      "reference": "https://docs.github.com/en/copilot/concepts/agents/about-agent-skills"
+    },
+    {
+      "id": "cursor",
+      "channel": "native-export",
+      "state": "export-ready",
+      "hostInvocation": "not-verified",
+      "reference": "https://cursor.com/docs/context/skills"
+    },
+    {
+      "id": "gemini",
+      "channel": "native-export",
+      "state": "export-ready",
+      "hostInvocation": "not-verified",
+      "reference": "https://geminicli.com/docs/cli/skills/"
+    },
+    {
+      "id": "autoskills-sh",
+      "channel": "public-directory",
+      "state": "submission-bundle-ready",
+      "hostInvocation": "not-verified",
+      "reference": "https://www.autoskills.sh/"
+    },
+    {
+      "id": "skillsmp",
+      "channel": "public-directory",
+      "state": "submission-bundle-ready",
+      "hostInvocation": "not-verified",
+      "reference": "https://skillsmp.com/"
+    },
+    {
+      "id": "skillsllm",
+      "channel": "public-directory",
+      "state": "submission-bundle-ready",
+      "hostInvocation": "not-verified",
+      "reference": "https://skillsllm.com/"
+    },
+    {
+      "id": "lobehub",
+      "channel": "public-directory",
+      "state": "submission-bundle-ready",
+      "hostInvocation": "not-verified",
+      "reference": "https://lobehub.com/skills"
+    },
+    {
+      "id": "mcpmarket",
+      "channel": "public-directory",
+      "state": "submission-bundle-ready",
+      "hostInvocation": "not-verified",
+      "reference": "https://mcpmarket.com/"
+    },
+    {
+      "id": "pypi",
+      "channel": "python-package",
+      "state": "not-applicable",
+      "hostInvocation": "not-verified",
+      "reference": "https://pypi.org/"
+    }
+  ]
+}

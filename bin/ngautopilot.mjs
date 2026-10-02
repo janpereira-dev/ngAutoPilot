@@ -9,7 +9,7 @@
 //   ngautopilot angular [--target <major[.minor]>] [--profile <profile>] [--capabilities <comma-list>] [--json]
 //   ngautopilot platform [--json]
 //   ngautopilot quality [--json]
-//   ngautopilot install --agent <id> --pack <id> [--scope project|user] [--dry-run] [--yes] [--force] [--json]
+//   ngautopilot install --agent <id> (--pack <id> | --angular <major[.minor]> --profile <name>) [--scope project|user] [--dry-run] [--yes] [--force] [--json]
 //   ngautopilot update --agent <id> [--pack <id>] [--scope project|user] [--dry-run] [--yes] [--force] [--json]
 //   ngautopilot uninstall --agent <id> [--scope project|user] [--dry-run] [--yes] [--force] [--json]
 //   ngautopilot verify --agent <id> [--scope project|user] [--json]
@@ -17,6 +17,9 @@
 //   ngautopilot doctor
 //   ngautopilot backup --agent <id> [--scope project|user] [--json]
 //   ngautopilot restore --backup <path> [--agent <id>] [--scope project|user] [--json]
+//   ngautopilot migrate setup --from <major> --to <major> --agent <id> [--yes] [--dry-run] [--json]
+//   ngautopilot migrador --from <major> --to <major> --agent <id> [--yes] [--dry-run] [--json]
+//   ngautopilot work plan --goal <text> [--agent <id>] [--yes] [--dry-run] [--json]
 //
 // Legacy (kept for compat, delegates to install):
 //   ngautopilot init
@@ -36,7 +39,10 @@ import { buildPlan } from '../adapters/_shared/planner.mjs';
 import { resolveProjectRoot } from '../adapters/_shared/install-roots.mjs';
 import { applyPlan, verifyInstall, uninstall, backup, restore, loadManifest, saveManifest } from '../adapters/_shared/installer.mjs';
 import { listAdapters, loadAdapterManifest, createRootGuard, safeWriteFile, safeCopyDirInto, resolveUserRoot, SafeFsError } from '../adapters/_shared/adapter-core.mjs';
-import { catalogQuality, platformInventory, resolveAngularInstallation } from '../lib/agent-plugins/repository.mjs';
+import { catalogQuality, platformInventory, resolveAngularInstallation, resolveAngularProjectRoot } from '../lib/agent-plugins/repository.mjs';
+import { createMigrationPlan, writeMigrationPlan } from '../lib/migration-plan.mjs';
+import { runMigration, resumeMigration } from '../lib/migration-runner.mjs';
+import { createWorkPlan, writeWorkPlan } from '../lib/work-plan.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const packageRoot = path.resolve(path.dirname(__filename), '..');
@@ -120,6 +126,9 @@ Usage:
   ngautopilot install                       Install a pack for an agent
     --agent <id>                            Agent adapter id (codex, claude, opencode, ...)
     --pack <id>                             Pack to install (ngautopilot-core, ngautopilot-angular, ...)
+    --angular <major[.minor]>                Resolve installed Angular evidence (cannot be combined with --pack)
+    --profile <name>                         Angular profile: essentials, architecture, performance, testing, migration, core
+    [--capabilities a,b]                     Additional supported Angular capabilities
     [--scope project|user]                  Install scope (default: project)
     [--dry-run]                             Show what would happen without writing
     [--yes]                                 Skip confirmation prompts
@@ -138,6 +147,15 @@ Usage:
     --agent <id>  [--scope project|user]  [--json]
   ngautopilot restore                       Restore from backup
     --backup <path>  [--agent <id>]  [--scope project|user]  [--json]
+  ngautopilot migrate setup                 Prepare an approved Angular major-hop plan; does not migrate code
+    --from <major>  --to <major>  --agent <id>  [--yes] [--dry-run] [--json]
+  ngautopilot migrate run                   Validate one approved hop and persist its execution gate
+    --plan <path>  --agent <id>  [--yes] [--json]
+  ngautopilot migrate resume                 Re-check a persisted migration gate; never skips a block
+    --run <id>  --agent <id>  [--plan <path>] [--yes] [--json]
+  ngautopilot migrador                      Alias for migrate setup
+  ngautopilot work plan                      Prepare a bounded, read-only work assignment
+    --goal <text>  [--agent <id>] [--yes] [--dry-run] [--json]
 
 Legacy (deprecated, delegate to install):
   ngautopilot init                          Copy whole tree to .ngautopilot/ (use 'install' instead)
@@ -220,10 +238,14 @@ function installCmd(args) {
   const yes = !!args.yes || dryRun;
   const force = !!args.force;
   if (!agent) throw new Error('--agent is required. Available: ' + listAdapters(adaptersRoot).join(', '));
-  if (!packId) throw new Error('--pack is required. Available: ' + fs.readdirSync(packsRoot).filter(f=>f.endsWith('.json')).map(f=>f.replace('.json','')).join(', '));
+  if (packId && args.angular) throw new Error('--pack and --angular are mutually exclusive; choose one installation selection method');
+  if (!packId && !args.angular) throw new Error('--pack or --angular is required');
+  if (!args.angular && (args.profile || args.capabilities)) throw new Error('--profile and --capabilities require --angular');
 
-  const packPath = findPack(packId);
-  const plan = buildPlan({ catalogPath, packPath, adaptersRoot, sourceRoot: packageRoot, agent, scope, cwd: process.cwd(), home: safeHome() });
+  const selection = args.angular ? resolveAngularSelection(args) : undefined;
+  const plan = selection
+    ? buildAngularPlan({ agent, scope, selection })
+    : buildPlan({ catalogPath, packPath: findPack(packId), adaptersRoot, sourceRoot: packageRoot, agent, scope, cwd: process.cwd(), home: safeHome() });
 
   if (!yes && !args.json) {
     console.log(`Plan: ${plan.files.length} files -> ${plan.installRoot}`);
@@ -232,12 +254,13 @@ function installCmd(args) {
     if (plan.warnings.length) console.log(`  warnings: ${plan.warnings.join('; ')}`);
   }
 
-  const result = applyPlan(plan, { dryRun, force, yes });
+  if (!yes) return requireApproval(args, { agent, pack: plan.pack, scope, ...(selection ? { selection } : {}) });
+  const result = applyPlan(plan, { dryRun, force });
   if (args.json) {
-    jsonOut({ ok: result.ok, agent, pack: packId, scope, dryRun, created: result.created, updated: result.updated, skipped: result.skipped, warnings: result.warnings });
+    jsonOut({ ok: result.ok, agent, pack: plan.pack, scope, dryRun, created: result.created, updated: result.updated, skipped: result.skipped, warnings: result.warnings, ...(selection ? { selection } : {}) });
   } else {
     if (dryRun) console.log(`Dry run: would create ${result.created}, update ${result.updated}, skip ${result.skipped}`);
-    else console.log(`Installed ${packId} for ${agent} (${scope}): ${result.created} created, ${result.updated} updated, ${result.skipped} skipped`);
+    else console.log(`Installed ${plan.pack} for ${agent} (${scope}): ${result.created} created, ${result.updated} updated, ${result.skipped} skipped`);
     if (result.warnings.length) for (const w of result.warnings) console.log(`  ⚠ ${w}`);
   }
   if (!result.ok) process.exitCode = 1;
@@ -254,12 +277,70 @@ function updateCmd(args) {
   const manifest = loadInstallationManifest(agent, installRoot);
   if (!manifest) { console.error(`No NgAutoPilot installation found for ${agent} (${scope}) at ${installRoot}`); process.exitCode = 1; return; }
 
-  const packId = args.pack || manifest.pack;
-  const plan = buildPlan({ catalogPath, packPath: findPack(packId), adaptersRoot, sourceRoot: packageRoot, agent, scope, cwd: process.cwd(), home: safeHome() });
-  const result = applyPlan(plan, { dryRun, force, yes: true });
-  if (args.json) jsonOut({ ok: result.ok, agent, pack: packId, scope, dryRun, created: result.created, updated: result.updated, skipped: result.skipped, warnings: result.warnings });
-  else console.log(`Updated ${packId} for ${agent} (${scope}): ${result.created} created, ${result.updated} updated, ${result.skipped} skipped`);
+  if (manifest.angularSelection && args.pack) throw new Error('this installation uses an Angular selection; rerun update without --pack to preserve it');
+  const angularProjectRoot = manifest.angularSelection?.projectRoot;
+  if (manifest.angularSelection && (typeof angularProjectRoot !== 'string' || !path.isAbsolute(angularProjectRoot))) {
+    throw new Error('Angular installation has no original project root; rerun install --angular from the original project to bind its evidence before updating');
+  }
+  if (angularProjectRoot && !fs.existsSync(path.join(angularProjectRoot, 'package.json'))) {
+    throw new Error('Original Angular project package.json is unavailable; update cannot use another project as a fallback');
+  }
+  const selection = manifest.angularSelection ? resolveAngularSelection({
+    angular: formatAngularTarget(manifest.angularSelection.target),
+    profile: manifest.angularSelection.profile,
+    ...(manifest.angularSelection.capabilities.length ? { capabilities: manifest.angularSelection.capabilities.join(',') } : {}),
+  }, angularProjectRoot) : undefined;
+  const plan = selection
+    ? buildAngularPlan({ agent, scope, selection })
+    : buildPlan({ catalogPath, packPath: findPack(args.pack || manifest.pack), adaptersRoot, sourceRoot: packageRoot, agent, scope, cwd: process.cwd(), home: safeHome() });
+  if (!args.yes && !dryRun) return requireApproval(args, { agent, pack: plan.pack, scope, ...(selection ? { selection } : {}) });
+  const result = applyPlan(plan, { dryRun, force });
+  if (args.json) jsonOut({ ok: result.ok, agent, pack: plan.pack, scope, dryRun, created: result.created, updated: result.updated, skipped: result.skipped, warnings: result.warnings, ...(selection ? { selection } : {}) });
+  else console.log(`Updated ${plan.pack} for ${agent} (${scope}): ${result.created} created, ${result.updated} updated, ${result.skipped} skipped`);
   if (!result.ok) process.exitCode = 1;
+}
+
+function resolveAngularSelection(args, projectRoot = process.cwd()) {
+  if (!args.profile || typeof args.profile !== 'string') throw new Error('--profile is required with --angular');
+  const capabilities = parseCapabilities(args.capabilities);
+  return resolveAngularInstallation({ root: packageRoot, projectRoot, target: args.angular, profile: args.profile, capabilities });
+}
+
+function parseCapabilities(value) {
+  if (value === undefined) return [];
+  if (typeof value !== 'string' || !value.trim()) throw new Error('--capabilities must be a comma-separated list');
+  const capabilities = value.split(',').map((item) => item.trim());
+  if (capabilities.some((item) => !item)) throw new Error('--capabilities must not contain empty values');
+  return capabilities;
+}
+
+function buildAngularPlan({ agent, scope, selection }) {
+  const packIds = selection.selection.sourcePacks.map(pack => pack.id);
+  if (!packIds.length) throw new Error('Angular selection has no source packs');
+  const selectedSkillIds = selection.included.filter(item => item.type === 'skill').map(item => item.id);
+  const plans = packIds.map((packId) => buildPlan({ catalogPath, packPath: findPack(packId), adaptersRoot, sourceRoot: packageRoot, agent, scope, cwd: process.cwd(), home: safeHome(), selectedSkillIds }));
+  const base = plans.at(0);
+  const files = [...new Map(plans.flatMap((plan) => plan.files)
+    .sort((left, right) => left.path.localeCompare(right.path))
+    .map((file) => [file.path, file])).values()];
+  return {
+    ...base,
+    pack: 'angular-selection',
+    files,
+    warnings: [...new Set(plans.flatMap((plan) => plan.warnings))].sort(),
+    angularSelection: {
+      projectRoot: selection.projectRoot,
+      target: selection.target,
+      profile: selection.profile,
+      capabilities: selection.capabilities,
+    },
+  };
+}
+
+function requireApproval(args, details) {
+  if (args.json) jsonOut({ ok: false, status: 'approval-required', ...details });
+  else console.log('No files were changed. Inspect with --dry-run, then rerun with --yes to approve.');
+  process.exitCode = 1;
 }
 
 function uninstallCmd(args) {
@@ -270,6 +351,7 @@ function uninstallCmd(args) {
   if (!agent) throw new Error('--agent is required');
   const installRoot = resolveScopeRoot(agent, scope, process.cwd());
   const plan = { installRoot, agent, scope };
+  if (!args.yes && !dryRun) return requireApproval(args, { agent, scope });
   const result = uninstall(plan, { dryRun, force });
   if (args.json) jsonOut({ ok: result.ok, agent, scope, dryRun, removed: result.removed, refused: result.refused, warnings: result.warnings || [] });
   else {
@@ -359,6 +441,76 @@ function restoreCmd(args) {
   if (!result.ok) process.exitCode = 1;
 }
 
+function migrateCmd(args) {
+  if (args._?.[0] === 'run') return migrationRunCmd(args);
+  if (args._?.[0] === 'resume') return migrationResumeCmd(args);
+  if (args._?.[0] !== 'setup') throw new Error('migrate setup, run, or resume is required');
+  migrationSetupCmd(args);
+}
+
+function migrationRunCmd(args) {
+  if (!args.agent) throw new Error('--agent is required');
+  const result = runMigration({ projectRoot: resolveAngularProjectRoot(process.cwd()), planPath: args.plan, agent: args.agent, approved: !!args.yes });
+  if (args.json) jsonOut(result); else console.log(result.status === 'blocked' ? `Migration checkpoint blocked: ${result.reason.message}` : result.status);
+  if (!result.ok) process.exitCode = 1;
+}
+
+function migrationResumeCmd(args) {
+  if (!args.agent) throw new Error('--agent is required');
+  if (!args.run) throw new Error('--run is required');
+  const result = resumeMigration({ projectRoot: resolveAngularProjectRoot(process.cwd()), runId: args.run, planPath: args.plan, agent: args.agent, approved: !!args.yes });
+  if (args.json) jsonOut(result); else console.log(`${result.status}: ${result.reason.message}`);
+  if (!result.ok) process.exitCode = 1;
+}
+
+function migrationSetupCmd(args) {
+  if (!args.agent) throw new Error('--agent is required');
+  if (!args.from || !args.to) throw new Error('--from and --to are required');
+  loadAdapterManifest(adaptersRoot, args.agent);
+  const plan = createMigrationPlan({ repositoryRoot: packageRoot, projectRoot: process.cwd(), from: args.from, to: args.to, agent: args.agent });
+  const dryRun = !!args['dry-run'];
+  const approved = !!args.yes;
+  if (!approved) {
+    if (args.json) jsonOut({ ok: false, status: 'approval-required', plan });
+    else console.log(`Migration plan ${plan.from}->${plan.to} is pending approval. Re-run with --yes to write ${plan.output.path}.`);
+    process.exitCode = 1;
+    return;
+  }
+  if (dryRun) {
+    if (args.json) jsonOut({ ok: true, status: 'dry-run', plan });
+    else console.log(`Dry run: would write ${plan.output.path}; no files were changed.`);
+    return;
+  }
+  const output = writeMigrationPlan(plan);
+  if (args.json) jsonOut({ ok: true, status: 'planned', plan, output });
+  else console.log(`Migration plan written to ${output.path}. It is pending and does not execute migrations.`);
+}
+
+function workCmd(args) {
+  if (args._?.[0] !== 'plan') throw new Error('work plan is required');
+  const plan = createWorkPlan({
+    repositoryRoot: packageRoot,
+    projectRoot: process.cwd(),
+    goal: args.goal,
+    agent: args.agent,
+    validateAgent: (agent) => loadAdapterManifest(adaptersRoot, agent),
+  });
+  if (!args.yes) {
+    if (args.json) jsonOut({ ok: false, status: 'approval-required', plan });
+    else console.log(`Work plan is pending approval. Re-run with --yes to write ${plan.output.path}.`);
+    process.exitCode = 1;
+    return;
+  }
+  if (args['dry-run']) {
+    if (args.json) jsonOut({ ok: true, status: 'dry-run', plan });
+    else console.log(`Dry run: would write ${plan.output.path}; no files were changed.`);
+    return;
+  }
+  const output = writeWorkPlan(plan);
+  if (args.json) jsonOut({ ok: true, status: 'planned', plan, output });
+  else console.log(`Work plan written to ${output.path}. It is pending and does not execute the goal.`);
+}
+
 // ── legacy commands ──────────────────────────────────────
 
 function initProject() {
@@ -391,12 +543,16 @@ try {
     case 'doctor': doctor(); break;
     case 'backup': backupCmd(args); break;
     case 'restore': restoreCmd(args); break;
+    case 'migrate': migrateCmd(args); break;
+    case 'migrador': migrationSetupCmd(args); break;
+    case 'work': workCmd(args); break;
     case 'init': initProject(); break;
     case 'add': throw new Error('"add" is deprecated. Use: ngautopilot install --pack <pack-id>');
     case 'adapter': throw new Error('"adapter" is deprecated. Use: ngautopilot install --agent <agent> --pack <pack-id>');
     default: console.error(`Unknown command: ${command}`); help(); process.exitCode = 1; break;
   }
 } catch (error) {
+  if (process.argv.includes('--json')) jsonOut({ ok: false, status: error.message?.includes('approval') ? 'approval-required' : 'failed', reason: { code: String(error.message).split(':', 1)[0], message: error.message } });
   console.error(`Error: ${error.message}`);
   process.exitCode = 1;
 }

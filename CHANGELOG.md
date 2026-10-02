@@ -1,6 +1,29 @@
 # Changelog
 
+<!-- docs:navigation:start -->
+[Español](CHANGELOG.es.md) · [Map](docs/README.md) · [Home](README.md)
+
+> Historical record: original decisions and dates are retained; this is not proof of current release or implementation state.
+
+<!-- docs:navigation:end -->
+
 All notable changes to NgAutoPilot will be documented in this file.
+
+## 0.10.0 - Unreleased
+
+### Added
+
+- Complete English/Spanish reader documentation with accessible explanatory SVG pairs and strict coverage/link validation.
+- Angular-aware filtered install profiles; bounded work plans, migration setup/checkpoint/resume workflows, snapshot resolution and an opt-in authenticated HTTPS factory.
+- Unified release inventory with every skill, pack, npm member and archive checksum, plus an ordered 21-target publication plan.
+
+### Security and release
+
+- Enforced explicit CLI approval for install, update and uninstall; force is never approval. Standalone Angular MCP resolution uses bundled compatibility metadata and npm-semver toolchain ranges.
+- Bounded HTTPS client retention and revalidated migration/work evidence against the actual owning workspace, including peer-only Angular libraries. Checkpoint commands no longer contradict their generated execution boundary.
+- Integrated the later main security and quality fixes, preserving source containment, user edits, binary resources, bounded review packets and protected approvals.
+- GitHub release events now publish the exact packed npm artifact after protected approval; retries require identical integrity and cannot downgrade latest.
+- Public directory submission, real-host verification and the protected npm credential remain explicit owner requirements, not automatic success claims.
 
 ## 0.9.0 - 2026-09-17
 

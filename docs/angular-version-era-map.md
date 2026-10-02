@@ -1,5 +1,10 @@
 # Angular Version Era Folder Map
 
+<!-- docs:navigation:start -->
+[Español](angular-version-era-map.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
 This repository is organized primarily by concern, not by Angular major version.
 The map below groups the current Angular skill folders by the version era they
 most commonly serve.
@@ -122,13 +127,9 @@ The older upgrade satellites still live under:
 - `skills/angular/upgrades/zone/`
 - `skills/angular/upgrades/zoneless/`
 
-## Extension Rule For The Next Major
+## Angular 21 to 22: dedicated hop
 
-Angular 3 was never released as a standalone major, so the historical path is
-`2 -> 4`, not `2 -> 3`. Every later supported major has a bounded, sequential
-hop.
-
-When a new Angular major is supported, add only its compatibility declaration,
-one bounded prior-major hop, concern-specific satellites where the public API
-actually changed, validation fixtures, and pack/docs references. Do not revise
-or silently modernize prior-version guidance as part of that addition.
+The dedicated hop exists under `skills/angular/upgrades/21-to-22/`.
+Use `ngautopilot-angular-21-to-22` for this bounded upgrade and verify toolchain
+compatibility before editing. Concern-specific Angular 22 guidance is separate;
+catalog presence does not prove application migration or runtime compatibility.

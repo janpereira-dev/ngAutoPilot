@@ -1,10 +1,20 @@
 # Agents and Subagents
 
+<!-- docs:navigation:start -->
+[Español](agents-and-subagents.es.md) · [Map](README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
+![A pack contains selected skills and optional roles; an adapter places them for the host; guardrails guide review, not permissions.](../assets/five-concepts.svg)
+
 ## Overview
 
 NgAutoPilot ships 8 canonical agent roles under `agents/ngautopilot/`. These are reference Markdown files — not executable agents. An AI agent reads the role definition and adopts the persona for a focused task.
 
 ## Invocation policy
+
+First select a skill, then choose a role that adds independent review value.
+Load it manually or through a verified host capability and record the results.
 
 ```text
 1 task → 1 orchestrator → max 3 primary subagents → helpers only under trigger
@@ -46,7 +56,10 @@ Each subagent file defines:
 
 ## How agents use them
 
-An AI agent (Codex, Claude Code, OpenCode) loads the subagent Markdown when a trigger matches. The agent adopts the role for the scope of that task. NgAutoPilot routes the skills; the subagent provides oversight.
+A host can read the matching role manually or through a supported capability.
+Installation alone does not prove automatic activation, parallel execution, or
+role adoption. NgAutoPilot routes guidance; the role adds focused oversight.
+The host's permissions and the user's authorization govern real delegation.
 
 ## Pack Assignment
 

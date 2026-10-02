@@ -1,10 +1,15 @@
 # NgAutoPilot Roadmap
 
+<!-- docs:navigation:start -->
+[Español](ROADMAP.es.md) · [Map](docs/README.md) · [Home](README.md)
+
+<!-- docs:navigation:end -->
+
 ## Current focus: Angular 22 coverage
 
 NgAutoPilot keeps Angular 22 coverage concern-first rather than version-first.
 
-Completed catalog direction:
+Existing catalog direction (not proof of a completed application migration):
 
 - Bounded Angular 21 -> 22 hop under `skills/angular/upgrades/21-to-22/`.
 - Angular 22 satellites grouped by risk domain: change detection, zoneless, forms, resources, HTTP, DI, router, templates, components, SSR, security, accessibility, testing, build/tooling, AI/MCP/WebMCP, and education.
@@ -24,3 +29,4 @@ Next release priorities:
 2. Validate marketplace manifests after every catalog expansion.
 3. Add more examples only where they improve routing or validation clarity.
 4. Keep broad v22 baseline skills as umbrella guidance, but prefer the new narrow satellites for execution.
+5. Keep complete English and Spanish documentation aligned in scope and limitations.

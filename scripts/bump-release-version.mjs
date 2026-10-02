@@ -29,6 +29,7 @@ const rootFiles = [
   'npm-shrinkwrap.json',
   'package.json',
   'README.md',
+  'README.es.md',
   'skill-lab/python/pyproject.toml',
   'skill-lab/python/ngautopilot_skillopt/__init__.py',
   'openai/plugin.json',
@@ -152,5 +153,5 @@ function findTextFiles(root) {
 
 function isHistoricalDocumentation(file) {
   const relative = file.split(path.sep).join('/');
-  return relative === 'docs/superpowers' || relative.startsWith('docs/superpowers/');
+  return relative === 'docs/superpowers' || relative.startsWith('docs/superpowers/') || relative === 'docs/specs' || relative.startsWith('docs/specs/') || relative.startsWith('docs/skill-content-review/');
 }

@@ -1,5 +1,10 @@
 # Skill Lab Policy
 
+<!-- docs:navigation:start -->
+[Español](POLICY.es.md) · [Map](../docs/README.md) · [Home](../README.md)
+
+<!-- docs:navigation:end -->
+
 These rules block promotion and model-backed runs.
 
 1. No auto-adopt.

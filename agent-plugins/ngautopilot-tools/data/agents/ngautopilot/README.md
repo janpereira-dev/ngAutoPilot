@@ -1,5 +1,10 @@
 # NgAutoPilot Subagents Registry
 
+<!-- docs:navigation:start -->
+[Español](README.es.md) · [Map](../../docs/README.md) · [Home](../../README.md)
+
+<!-- docs:navigation:end -->
+
 This directory is the stable registry path for the NgAutoPilot Subagents Pack. It contains **eight documented roles**, not a claim of fifteen executable agents.
 
 ## Policy
