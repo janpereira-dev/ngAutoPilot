@@ -104,6 +104,7 @@ function syncMcpPlugin({ root, pluginDir, version }) {
     // esbuild's output can fail with UNKNOWN/sharing errors on Windows.
     write: false,
     bundle: true,
+    metafile: true,
     platform: 'node',
     format: 'esm',
     target: 'node24',
@@ -112,6 +113,7 @@ function syncMcpPlugin({ root, pluginDir, version }) {
   });
   const bundlePath = path.join(binDir, 'server.mjs');
   fs.writeFileSync(bundlePath, bundle.outputFiles[0].text.replace(/[ \t]+\r?\n/g, '\n'), 'utf8');
+  syncBundledLicenses({ root, pluginDir, inputs: Object.keys(bundle.metafile.inputs) });
   fs.writeFileSync(path.join(pluginDir, 'mcp.json'), `${JSON.stringify({
     $schema: MCP_SCHEMA,
     mcpServers: {
@@ -124,6 +126,37 @@ function syncMcpPlugin({ root, pluginDir, version }) {
     },
   }, null, 2)}\n`, 'utf8');
   fs.writeFileSync(path.join(skillDir, 'SKILL.md'), `---\nname: ngautopilot-tooling\ndescription: Uses read-only NgAutoPilot MCP tools to inspect catalog skills, content signals, packs, adapters, subagents, stack metadata, Angular compatibility, upgrade hops, and repository consistency. Use when a task needs deterministic NgAutoPilot repository evidence.\nlicense: MIT\nmetadata:\n  ngautopilot-id: "tools.read-only-mcp"\n  ngautopilot-version: "${version}"\n---\n\nUse the ngautopilot MCP server for repository inspection. Tools do not modify repository files, dependencies, or Git state.\n`, 'utf8');
+}
+
+function syncBundledLicenses({ root, pluginDir, inputs }) {
+  const packageDirs = new Set();
+  for (const input of inputs) {
+    const parts = input.replaceAll('\\', '/').split('/');
+    const marker = parts.lastIndexOf('node_modules');
+    if (marker < 0) continue;
+    const packageEnd = marker + (parts[marker + 1].startsWith('@') ? 3 : 2);
+    packageDirs.add(parts.slice(0, packageEnd).join('/'));
+  }
+
+  const licensesDir = path.join(pluginDir, 'third-party');
+  fs.rmSync(licensesDir, { recursive: true, force: true });
+  fs.mkdirSync(licensesDir, { recursive: true });
+  const records = [];
+  for (const packageDir of [...packageDirs].sort()) {
+    const source = path.resolve(root, packageDir);
+    const { name, version, license } = JSON.parse(fs.readFileSync(path.join(source, 'package.json'), 'utf8'));
+    const files = fs.readdirSync(source, { withFileTypes: true })
+      .filter((entry) => entry.isFile() && /^(?:LICEN[CS]E|COPYING|NOTICE)(?:[._-].*)?$/i.test(entry.name))
+      .map((entry) => entry.name).sort();
+    if (!files.some((file) => /^(?:LICEN[CS]E|COPYING)/i.test(file))) {
+      throw new Error(`Missing bundled dependency license: ${name}@${version}`);
+    }
+    const directory = encodeURIComponent(`${name}@${version}`);
+    fs.mkdirSync(path.join(licensesDir, directory));
+    for (const file of files) fs.copyFileSync(path.join(source, file), path.join(licensesDir, directory, file));
+    records.push({ name, version, license: license ?? 'SEE LICENSE', files: files.map((file) => `${directory}/${file}`) });
+  }
+  fs.writeFileSync(path.join(licensesDir, 'licenses.json'), `${JSON.stringify(records, null, 2)}\n`, 'utf8');
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

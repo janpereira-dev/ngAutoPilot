@@ -1,0 +1,34 @@
+[
+  {
+    "name": "@modelcontextprotocol/core",
+    "version": "2.3.0",
+    "license": "Apache-2.0",
+    "files": [
+      "%40modelcontextprotocol%2Fcore%402.3.0/LICENSE"
+    ]
+  },
+  {
+    "name": "@modelcontextprotocol/server",
+    "version": "2.3.0",
+    "license": "Apache-2.0",
+    "files": [
+      "%40modelcontextprotocol%2Fserver%402.3.0/LICENSE"
+    ]
+  },
+  {
+    "name": "semver",
+    "version": "7.8.5",
+    "license": "ISC",
+    "files": [
+      "semver%407.8.5/LICENSE"
+    ]
+  },
+  {
+    "name": "zod",
+    "version": "4.6.5",
+    "license": "MIT",
+    "files": [
+      "zod%404.6.5/LICENSE"
+    ]
+  }
+]

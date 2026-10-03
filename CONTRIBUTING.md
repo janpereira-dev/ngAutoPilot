@@ -220,6 +220,18 @@ claude plugin validate .
 
 Run suites sequentially when they create temporary source fixtures. Review generated diffs; do not hand-edit the catalog or generated bundles. Follow [pack transitions](docs/pack-transitions.md) for filesystem changes and [Sage review](docs/sage-review.md) for high-risk operations. Packet creation is not security approval.
 
+## MCP dependency updates
+
+Update the MCP client and server together. Dependabot groups their minor/patch
+updates; major updates still require a separate compatibility review. After an
+upgrade, run `npm ci`, then `npm run agent-plugins:sync`, and commit the generated
+server bundle, mirrored package metadata, and `third-party/` license files with
+the root manifests. The generator copies complete upstream licenses/notices for
+dependencies actually included in the standalone bundle; the project's own
+license remains MIT. Never bypass generated-drift checks. Run the full release
+and Skill Lab gates, not only focused MCP tests. Publish changed distributions
+under a new release instead of replacing an existing release tag or assets.
+
 ## Required PR checks and review
 
 `validate-release` validates skills, catalog generation/drift, distribution, scripts, and integration tests on every PR. `validate-skill-lab` validates the behavioral lab and the full release contract. Both have unique, stable check names without path filters and are configured as required status checks with an up-to-date base branch. GitHub repository protection is an external setting; workflow YAML alone is insufficient.

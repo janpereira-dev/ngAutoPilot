@@ -10,6 +10,22 @@ import { StdioClientTransport } from '@modelcontextprotocol/client/stdio';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
+test('serves independent concurrent stdio sessions with separate server instances', async (t) => {
+  const clients = [0, 1].map((index) => new Client({ name: `ngautopilot-session-${index}`, version: '1.0.0' }));
+  for (const client of clients) t.after(() => client.close());
+  await Promise.all(clients.map((client) => client.connect(new StdioClientTransport({
+    command: process.execPath,
+    args: [path.join(root, 'agent-plugins/ngautopilot-tools/bin/server.mjs')],
+    cwd: root,
+  }))));
+  const results = await Promise.all(clients.map((client) => client.listTools()));
+  assert.deepEqual(results[0].tools.map(({ name }) => name), results[1].tools.map(({ name }) => name));
+  assert.ok(results[0].tools.some(({ name }) => name === 'catalog.search'));
+  await clients[0].close();
+  const remaining = await clients[1].callTool({ name: 'pack.list', arguments: {} });
+  assert.equal(remaining.isError, undefined);
+});
+
 test('exposes the complete read-only MCP catalog and platform tools', async (t) => {
   const standalone = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-standalone-tools-'));
   fs.cpSync(path.join(root, 'agent-plugins', 'ngautopilot-tools'), path.join(standalone, 'tools'), { recursive: true });

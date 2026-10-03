@@ -90,6 +90,19 @@ La orientación específica de un proveedor corresponde a `adapters/`, no al con
 
 Para documentación, actualiza tanto el original inglés como su compañero `.es.md`, ejecuta `npm run docs:index` y `npm run docs:validate`. No presentes una traducción parcial como completa.
 
+## Actualizaciones de dependencias MCP
+
+Actualiza el cliente y el servidor MCP juntos. Dependabot agrupa sus cambios
+menores y parches; las versiones mayores requieren una revisión de compatibilidad
+separada. Tras actualizar, ejecuta `npm ci` y `npm run agent-plugins:sync` e incluye
+en el commit el servidor generado, los manifiestos copiados y las licencias de
+`third-party/`, junto con los manifiestos originales. El generador copia las
+licencias y avisos completos de las dependencias incluidas en el bundle autónomo;
+la licencia propia del proyecto sigue siendo MIT. No desactives las comprobaciones
+de diferencias generadas. Ejecuta todas las validaciones de release y Skill Lab,
+no solo pruebas MCP acotadas. Publica las distribuciones modificadas en una nueva
+release, sin reemplazar etiquetas ni archivos de una release existente.
+
 ## Ramas y commits
 
 Utiliza nombres descriptivos; para ramas creadas por Codex, el prefijo predeterminado es `codex/`. Otros ejemplos del proyecto incluyen `feat/core-autopilot-operating-layer`, `feat/angular-dependency-injection-skill` y `feat/marketplace-publish-bundles`.
