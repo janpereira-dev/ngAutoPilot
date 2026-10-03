@@ -20,11 +20,15 @@ test('generates pack-driven portable skill plugins without native manifest field
   assert.equal(validateAgentPlugins({ root }).errors.length, 0);
 });
 
-test('keeps the committed MCP bundle synchronized with the lock-resolved Zod dependency', () => {
+test('keeps the committed MCP bundle synchronized with lock-resolved SDK and Zod dependencies', () => {
   const bundlePath = 'agent-plugins/ngautopilot-tools/bin/server.mjs';
   const lock = JSON.parse(fs.readFileSync(path.join(root, 'package-lock.json'), 'utf8'));
-  const installedZod = JSON.parse(fs.readFileSync(path.join(root, 'node_modules/zod/package.json'), 'utf8'));
-  assert.equal(installedZod.version, lock.packages['node_modules/zod'].version);
+  for (const dependency of ['@modelcontextprotocol/client', '@modelcontextprotocol/server', '@modelcontextprotocol/core', 'zod']) {
+    const installed = JSON.parse(fs.readFileSync(path.join(root, 'node_modules', dependency, 'package.json'), 'utf8'));
+    assert.equal(installed.version, lock.packages[`node_modules/${dependency}`].version, dependency);
+  }
+  assert.equal(lock.packages['node_modules/@modelcontextprotocol/client'].version,
+    lock.packages['node_modules/@modelcontextprotocol/server'].version);
 
   syncAgentPlugins({ root });
   assert.equal(
@@ -40,6 +44,23 @@ test('keeps the committed MCP bundle synchronized with the lock-resolved Zod dep
     ['diff', '--exit-code', '--', bundlePath],
     { cwd: root, stdio: 'pipe' },
   ));
+});
+
+test('ships exact upstream licenses for bundled dependencies, not the dev-only MCP client', () => {
+  syncAgentPlugins({ root });
+  const licensesDir = path.join(root, 'agent-plugins/ngautopilot-tools/third-party');
+  const records = JSON.parse(fs.readFileSync(path.join(licensesDir, 'licenses.json'), 'utf8'));
+  for (const name of ['@modelcontextprotocol/server', '@modelcontextprotocol/core', 'zod', 'semver']) {
+    const record = records.find((item) => item.name === name);
+    assert.ok(record, name);
+    const upstream = path.join(root, 'node_modules', name);
+    assert.equal(record.version, JSON.parse(fs.readFileSync(path.join(upstream, 'package.json'), 'utf8')).version);
+    for (const file of record.files) {
+      assert.deepEqual(fs.readFileSync(path.join(licensesDir, file)), fs.readFileSync(path.join(upstream, path.basename(file))));
+    }
+  }
+  assert.equal(records.some(({ name }) => name === '@modelcontextprotocol/client'), false);
+  assert.equal(records.find(({ name }) => name === '@modelcontextprotocol/server').license, 'Apache-2.0');
 });
 
 test('removes stale generated plugins and snapshots package manager metadata', () => {

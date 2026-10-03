@@ -8,3 +8,11 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    groups:
+      mcp-sdk:
+        patterns:
+          - "@modelcontextprotocol/client"
+          - "@modelcontextprotocol/server"
+        update-types:
+          - minor
+          - patch
