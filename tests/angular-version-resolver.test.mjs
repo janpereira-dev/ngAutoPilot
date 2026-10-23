@@ -440,6 +440,12 @@ test('maps declared profiles to existing packs and includes Angular 22 versionin
   );
 });
 
+test('catalog gates detached route destruction at Angular 22.2', () => {
+  const skillId = 'angular.upgrades.router.angular-v22-detached-route-handle-destroy';
+  const catalog = JSON.parse(fs.readFileSync(path.join(repositoryRoot, 'catalog.json'), 'utf8'));
+  assert.deepEqual(catalog.skills.find(({ id }) => id === skillId).compatibility, { min: 22, minMinor: 2 });
+});
+
 test('rejects unknown Angular evidence and contradictory targets', (t) => {
   const unknownProject = createProject(t, undefined);
   assert.throws(

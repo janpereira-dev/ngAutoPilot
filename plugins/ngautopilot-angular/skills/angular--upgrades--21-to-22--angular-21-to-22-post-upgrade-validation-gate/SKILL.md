@@ -59,6 +59,12 @@ Angular 22 changes hop 21 to 22 behavior enough that agents need a narrow checkl
 
 Angular 21.x and later where this Angular 22 behavior is relevant.
 
+## Angular 22.2 evidence and procedure
+
+If the actual target is 22.2, record that minor and selected patch. Check the feature-index 22.2 reference and run affected router disposal, template strictness, native Sass/watch, SSR/service-worker and runner compatibility checks. Report each as PASS, FAIL or SKIPPED with a reason. A 22.0 build does not prove 22.2 behavior.
+
+For an existing 22.0/22.1 application, perform a bounded minor update, not another 21-to-22 major hop. Preserve existing runner and architecture choices; adopt developer-preview @boundary/router resources only in a separately scoped task.
+
 ## Procedure
 
 1. Run the preflight inventory before changing dependencies.

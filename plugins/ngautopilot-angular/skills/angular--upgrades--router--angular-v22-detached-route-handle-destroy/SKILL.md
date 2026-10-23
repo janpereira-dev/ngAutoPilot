@@ -19,7 +19,7 @@ triggers:
   - Angular 22
 compatibility:
   angular:
-    min: "22"
+    min: "22.2"
 ---
 
 # Angular v22 Detached Route Handle Destroy
@@ -62,6 +62,14 @@ Angular 22 changes router behavior enough that agents need a narrow checklist in
 ## Version Scope
 
 Angular 22.x and later where this Angular 22 behavior is relevant.
+
+## Angular 22.2 evidence and procedure
+
+Require Angular 22.2+ before importing `destroyDetachedRouteHandle`. Its stable API is not available across all Angular 22 minors.
+
+Inspect the custom `RouteReuseStrategy` storage and eviction policy. On eviction, remove the stored reference and destroy that handle with the public helper; never reattach a destroyed handle. Prove service/component teardown and that retained handles still reattach. Pair this with `withAutoCleanupInjectors`, `shouldDestroyInjector` and `retrieveStoredRouteHandles` when route injector cleanup is enabled.
+
+Source: https://angular.dev/api/router/destroyDetachedRouteHandle (stable since 22.2; reviewed 2026-10-23).
 
 ## Procedure
 
