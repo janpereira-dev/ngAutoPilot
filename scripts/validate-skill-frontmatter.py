@@ -55,7 +55,7 @@ def iter_skill_files(roots: list[Path]) -> list[Path]:
     for root in roots:
         if root.exists():
             boundary = (REPO_ROOT / "skills" / "SKILL.md").resolve()
-            files.extend(path for path in sorted(root.rglob("SKILL.md")) if path.resolve() != boundary)
+            files.extend(path for path in sorted(root.rglob("SKILL.md")) if path.resolve() != boundary and path.resolve().parent.parent != boundary.parent)
     return files
 
 

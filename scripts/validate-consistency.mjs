@@ -104,7 +104,7 @@ for (const family of requiredFamilies) {
 
 validateMarketplace(claudeMarketplace, 'Claude Code', errors, {
   expectedEntries: expectedPluginEntries(),
-  localPathShape: (source) => source.startsWith('./plugins/'),
+  localPathShape: (source) => source?.source === 'git-subdir' && source.url === 'janpereira-dev/ngAutoPilot' && typeof source.path === 'string' && source.path.startsWith('plugins/'),
 });
 
 validateMarketplace(codexMarketplace, 'Codex', errors, {
@@ -135,7 +135,8 @@ function findSkillFiles(rootDir) {
     if (entry.isDirectory()) {
       files.push(...findSkillFiles(fullPath));
     } else if (entry.isFile() && entry.name === 'SKILL.md') {
-      if (path.resolve(fullPath) === path.resolve(root, 'skills', 'SKILL.md')) continue;
+      const relative = path.relative(path.join(root, 'skills'), fullPath).split(path.sep).join('/');
+      if (relative === 'SKILL.md' || /^[^/]+\/SKILL\.md$/.test(relative)) continue;
       files.push(fullPath);
     }
   }
@@ -172,7 +173,7 @@ function validateMarketplace(marketplace, label, errorsOut, options) {
 
     const pluginRoot = label === 'Codex'
       ? path.join(root, plugin.source.path)
-      : path.join(root, plugin.source);
+      : path.join(root, plugin.source.path);
 
     const manifestPath = path.join(pluginRoot, '.codex-plugin', 'plugin.json');
     if (!fs.existsSync(manifestPath)) {

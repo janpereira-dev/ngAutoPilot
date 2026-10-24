@@ -77,7 +77,8 @@ function findSkills(directory, boundary) {
     const target = path.join(directory, entry.name);
     if (entry.isSymbolicLink()) throw new Error(`source symlink is not supported: ${target}`);
     if (entry.isDirectory()) return findSkills(target, boundary);
-    return entry.isFile() && entry.name === 'SKILL.md' && path.resolve(target) !== path.resolve(boundary) ? [target] : [];
+    const relative = path.relative(path.dirname(boundary), target).split(path.sep).join('/');
+    return entry.isFile() && entry.name === 'SKILL.md' && relative !== 'SKILL.md' && !/^[^/]+\/SKILL\.md$/.test(relative) ? [target] : [];
   }).sort();
 }
 

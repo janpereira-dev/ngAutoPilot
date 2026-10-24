@@ -271,7 +271,7 @@ function writeMarketplaceFiles(bundles) {
     },
     plugins: bundles.map((bundle) => ({
       name: bundle.name,
-      source: `./plugins/${bundle.name}`,
+      source: { source: 'git-subdir', url: 'janpereira-dev/ngAutoPilot', path: `plugins/${bundle.name}` },
       description: bundle.description,
       version: '0.10.0',
       author: {
@@ -314,7 +314,8 @@ function findSkillFiles(root) {
     }
 
     if (entry.isFile() && entry.name === 'SKILL.md') {
-      if (path.resolve(fullPath) === path.resolve(sourceRoot, 'SKILL.md')) continue;
+      const relative = path.relative(sourceRoot, fullPath).split(path.sep).join('/');
+      if (relative === 'SKILL.md' || /^[^/]+\/SKILL\.md$/.test(relative)) continue;
       files.push(fullPath);
     }
   }
