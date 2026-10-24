@@ -39,7 +39,7 @@ jobs:
           python scripts/audit-python-dependencies.py
 
       - name: Audit dependencies and bilingual documentation
-        run: npm audit --audit-level=high && npm run docs:validate && npm run docs:graphics:check
+        run: npm audit --include=dev --audit-level=low && npm run docs:validate && npm run docs:graphics:check
 
       - name: Validate skills
         run: npm run skills:validate
