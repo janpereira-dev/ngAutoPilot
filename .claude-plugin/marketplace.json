@@ -11,7 +11,11 @@
   "plugins": [
     {
       "name": "ngautopilot-core",
-      "source": "./plugins/ngautopilot-core",
+      "source": {
+        "source": "git-subdir",
+        "url": "janpereira-dev/ngAutoPilot",
+        "path": "plugins/ngautopilot-core"
+      },
       "description": "Core NgAutoPilot workflows for project intake, stack detection, skill routing, compatibility gates, and risk assessment.",
       "version": "0.10.0",
       "author": {
@@ -30,7 +34,11 @@
     },
     {
       "name": "ngautopilot-angular",
-      "source": "./plugins/ngautopilot-angular",
+      "source": {
+        "source": "git-subdir",
+        "url": "janpereira-dev/ngAutoPilot",
+        "path": "plugins/ngautopilot-angular"
+      },
       "description": "Complete Angular-focused NgAutoPilot skills for upgrades, compatibility, architecture, testing, RxJS, performance, security, signals, and modernization.",
       "version": "0.10.0",
       "author": {
@@ -50,7 +58,11 @@
     },
     {
       "name": "ngautopilot-angular-microfrontends",
-      "source": "./plugins/ngautopilot-angular-microfrontends",
+      "source": {
+        "source": "git-subdir",
+        "url": "janpereira-dev/ngAutoPilot",
+        "path": "plugins/ngautopilot-angular-microfrontends"
+      },
       "description": "Focused Angular micro-frontends skills for shell contracts, compatibility gates, dependency sharing, ownership, observability, release governance, and rollback safety.",
       "version": "0.10.0",
       "author": {
@@ -70,7 +82,11 @@
     },
     {
       "name": "ngautopilot-css",
-      "source": "./plugins/ngautopilot-css",
+      "source": {
+        "source": "git-subdir",
+        "url": "janpereira-dev/ngAutoPilot",
+        "path": "plugins/ngautopilot-css"
+      },
       "description": "CSS and Angular style-boundary skills for content-aware layouts, selectors, and host custom properties.",
       "version": "0.10.0",
       "author": {
@@ -90,7 +106,11 @@
     },
     {
       "name": "ngautopilot-frontend",
-      "source": "./plugins/ngautopilot-frontend",
+      "source": {
+        "source": "git-subdir",
+        "url": "janpereira-dev/ngAutoPilot",
+        "path": "plugins/ngautopilot-frontend"
+      },
       "description": "Frontend-first skills for inclusive UI, responsive CSS, product UX, design-system governance, experience validation, and web performance evidence.",
       "version": "0.10.0",
       "author": {
@@ -110,7 +130,11 @@
     },
     {
       "name": "ngautopilot-javascript",
-      "source": "./plugins/ngautopilot-javascript",
+      "source": {
+        "source": "git-subdir",
+        "url": "janpereira-dev/ngAutoPilot",
+        "path": "plugins/ngautopilot-javascript"
+      },
       "description": "JavaScript-focused NgAutoPilot skills for fundamentals, modules, pure functions, and async error handling.",
       "version": "0.10.0",
       "author": {
@@ -130,7 +154,11 @@
     },
     {
       "name": "ngautopilot-quality",
-      "source": "./plugins/ngautopilot-quality",
+      "source": {
+        "source": "git-subdir",
+        "url": "janpereira-dev/ngAutoPilot",
+        "path": "plugins/ngautopilot-quality"
+      },
       "description": "Complete quality skills for ESLint, SonarQube, dead code, technical debt, and quality decision workflows.",
       "version": "0.10.0",
       "author": {
@@ -150,7 +178,11 @@
     },
     {
       "name": "ngautopilot-quality-lint",
-      "source": "./plugins/ngautopilot-quality-lint",
+      "source": {
+        "source": "git-subdir",
+        "url": "janpereira-dev/ngAutoPilot",
+        "path": "plugins/ngautopilot-quality-lint"
+      },
       "description": "Lint-focused quality skills for ESLint baseline hardening, disable governance, and safe autofix cleanup.",
       "version": "0.10.0",
       "author": {
@@ -169,7 +201,11 @@
     },
     {
       "name": "ngautopilot-quality-deadcode-sonar",
-      "source": "./plugins/ngautopilot-quality-deadcode-sonar",
+      "source": {
+        "source": "git-subdir",
+        "url": "janpereira-dev/ngAutoPilot",
+        "path": "plugins/ngautopilot-quality-deadcode-sonar"
+      },
       "description": "Dead-code and SonarQube skills for orphan files, unused exports, dead branches, complexity, duplication, coverage, and gate triage.",
       "version": "0.10.0",
       "author": {
@@ -188,7 +224,11 @@
     },
     {
       "name": "ngautopilot-typescript",
-      "source": "./plugins/ngautopilot-typescript",
+      "source": {
+        "source": "git-subdir",
+        "url": "janpereira-dev/ngAutoPilot",
+        "path": "plugins/ngautopilot-typescript"
+      },
       "description": "TypeScript-focused skills for strict typing, DTO mappers, fundamentals, and safe modernization.",
       "version": "0.10.0",
       "author": {
