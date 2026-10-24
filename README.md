@@ -37,6 +37,40 @@ For Codex, expect skills in `.agents/skills/`, managed instructions in the root 
 
 **Next:** [first Angular task](docs/first-angular-project.md) · [installation](docs/installation.md) · [troubleshooting](docs/troubleshooting.md).
 
+## 📦 Install through `npx skills`
+
+For broad discovery, NgAutoPilot exposes **15 curated gateway skills** instead of placing all 413 canonical micro-skills in the interactive selector:
+
+```bash
+# Interactive: choose one or more curated gateways
+npx skills add janpereira-dev/ngAutoPilot
+
+# Direct examples
+npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-angular-20-22
+npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-angular-upgrades
+npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-full
+```
+
+| Gateway | Scope |
+| --- | --- |
+| `ngautopilot-core` | Intake, stack detection, routing, compatibility, risk |
+| `ngautopilot-angular` | Complete Angular capability gateway |
+| `ngautopilot-angular-upgrades` | All bounded Angular upgrade routes |
+| `ngautopilot-angular-microfrontends` | Hosts, remotes, federation, contracts, rollback |
+| `ngautopilot-frontend` | UX, accessibility, responsive UI, design systems |
+| `ngautopilot-performance` | Angular/frontend performance and optimization |
+| `ngautopilot-quality` | Quality plus TypeScript/JavaScript/CSS safety routes |
+| `ngautopilot-angular-2-5` | Angular 2→4→5 legacy era; Angular 3 was never released |
+| `ngautopilot-angular-6-8` | Workspace, RxJS 6, HttpClient, pre-Ivy era |
+| `ngautopilot-angular-9-12` | Ivy, localize, testing, build and browser-policy era |
+| `ngautopilot-angular-13-15` | Ivy-only, typed forms, standalone start, Material MDC |
+| `ngautopilot-angular-16-17` | Signals, standalone, hydration, control flow, defer |
+| `ngautopilot-angular-18-19` | Runtime/testing changes and standalone-by-default |
+| `ngautopilot-angular-20-22` | Zoneless, resources, Signal Forms, SSR, AI/MCP |
+| `ngautopilot-full` | Explicit all-in routing gateway |
+
+These gateways are intentionally small routing surfaces. The **413 canonical skill bodies remain the source of truth** and are installed with the NgAutoPilot CLI when full procedure detail is required. This avoids both failure modes: a 400-item picker and a single root skill that hides every useful choice.
+
 ## 🎒 Pick the pack for today's job
 
 ![Task map: Core, foundations, state, UI, runtime, testing, frontend, and a single Angular upgrade hop.](assets/pack-map.svg)
@@ -109,7 +143,7 @@ This checkout's `doctor` reports **36 packs and 10 adapters**. Run `doctor`, `pa
 | `skills/frontend/`, `skills/css/` | Accessibility, UX, design, layout, performance |
 | `skills/typescript/`, `skills/javascript/`, `skills/quality/` | Cross-cutting language and quality procedures |
 
-`skills/` is canonical. `catalog.json`, `plugins/`, and `agent-plugins/` are generated distributions; do not hand-edit their copies. [Architecture](docs/ecosystem-architecture.md).
+`skills/` remains canonical. `skills/SKILL.md` is an internal discovery boundary, while `.agents/skills/` is the generated 15-gateway public surface for broad discovery. `catalog.json`, `plugins/`, and `agent-plugins/` are generated distributions; do not hand-edit their copies. [Architecture](docs/ecosystem-architecture.md).
 
 ## 🛤️ Choose the right distribution
 
@@ -118,10 +152,10 @@ This checkout's `doctor` reports **36 packs and 10 adapters**. Run `doctor`, `pa
 | Route | What it does | What it does not prove |
 | --- | --- | --- |
 | NgAutoPilot CLI | Focused packs or supported Angular profiles | Host discovery or invocation |
-| `npx skills add janpereira-dev/ngAutoPilot` | Third-party individual-skill discovery | Pack selection; `skills.sh.json` affects only the page |
+| `npx skills add janpereira-dev/ngAutoPilot` | 15 curated capability/version-era gateways | Full canonical procedures still come from the native pack installer |
 | Claude/Codex marketplace manifests | Native bundle descriptions | Publication, approval, universal compatibility |
 | Agent Plugins Preview | Portable skills plus separate read-only stdio MCP | End-to-end installation in every host |
-| Pi metadata | Package discovery | Verified runtime behavior |
+| Pi metadata | The same curated gateway surface from the npm package | Verified host runtime behavior |
 
 Adapter IDs: `claude`, `codex`, `copilot`, `cursor`, `gemini`, `generic`, `hermes`, `openclaw`, `opencode`, `pi`. Native, adapter, experimental, and unverified are different statuses. [Installation matrix](docs/agent-installation-matrix.md).
 
@@ -156,6 +190,8 @@ npm run skills:validate
 npm run skills:catalog
 npm run plugins:sync
 npm run agent-plugins:sync
+npm run npx-skills:sync
+npm run npx-skills:validate
 npm run consistency:validate
 ```
 
