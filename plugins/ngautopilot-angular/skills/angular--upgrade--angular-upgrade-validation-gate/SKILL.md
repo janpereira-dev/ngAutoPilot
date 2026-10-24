@@ -19,7 +19,7 @@ triggers:
 compatibility:
   angular:
     min: "2"
-    max: "21"
+    max: "22"
 ---
 
 # Angular Upgrade Validation Gate
@@ -48,7 +48,6 @@ Do not use this skill when:
 
 - No upgrade hop has been applied yet.
 - The task is only version detection or route planning.
-- The repository has no available validation commands.
 - The user wants code changes instead of a gate decision.
 
 ## Inputs Expected
@@ -69,6 +68,26 @@ Do not use this skill when:
 | Angular 5 -> 6 | Treat CLI workspace and RxJS bridge status as gate conditions | Fail closed if either is incomplete.          |
 
 If a version cannot be confirmed from the project files, mark it as `verify in project`.
+
+## Ecosystem acceptance evidence
+
+For an affected shared-library/host/MFE ecosystem, require an explicit applicability decision and owner for every row below before allowing advancement. Scope the checks to the changed surface; this is not a requirement that every Angular application has MFEs or a BFF.
+
+| Gate | Evidence to inspect |
+| --- | --- |
+| Compatibility/build | Exact runtime/compiler/CLI/peer ranges and real production build results for changed nodes |
+| Consumer impact | Public export/type/DTO/DI/shared dependency diff; affected direct/transitive consumers rebuilt against exact library artifacts |
+| Unit/Jest | Existing runner/preset compatibility and behavior assertions; preserve Jest when present rather than silently migrating it |
+| API/BFF contracts | Realistic fixtures and verified URL, headers, auth, proxy, baseHref, interceptors and payload continuity |
+| E2E | Pre/post results for affected user journeys and host/MFE integration |
+| Visual | Comparable pre/post browser/viewport/data captures; DOM snapshots are separate supporting evidence |
+| Security | Dependency/content/permission checks appropriate to the authorized change; preserve warnings and failures |
+
+For each applicable gate, record owner, repository/commit, artifact and fixture hashes, inspected command, exit status, report location and PASS/FAIL/BLOCKED. A not-applicable decision needs a concrete reason. A required skipped check, inaccessible consumer or missing baseline is BLOCKED, not PASS. Build and Jest success cannot waive missing required contract or visual evidence. Keep optional modernization separate.
+
+When validating the verifier itself, require known-valid and alternative-valid cases as well as seeded failures and held-out evidence. Neither an always-reject nor an always-accept verifier is acceptable. Route research/pilot design to `angular.upgrade.angular-upgrade-orchestrator`; do not claim this read-only gate implements a consumer runner or a benchmark engine.
+
+Overall decision precedence: any executed failing authorized check yields FAIL; otherwise missing or unsafe required evidence yields BLOCKED; only all applicable checks passing yields PASS. Preserve every per-check outcome even when the overall state is FAIL.
 
 ## Procedure
 

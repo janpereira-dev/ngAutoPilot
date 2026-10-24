@@ -446,6 +446,12 @@ test('catalog gates detached route destruction at Angular 22.2', () => {
   assert.deepEqual(catalog.skills.find(({ id }) => id === skillId).compatibility, { min: 22, minMinor: 2 });
 });
 
+test('catalog routes the generic upgrade validation gate through Angular 22', () => {
+  const catalog = JSON.parse(fs.readFileSync(path.join(repositoryRoot, 'catalog.json'), 'utf8'));
+  const skill = catalog.skills.find(({ id }) => id === 'angular.upgrade.angular-upgrade-validation-gate');
+  assert.deepEqual(skill.compatibility, { min: 2, max: 22 });
+});
+
 test('rejects unknown Angular evidence and contradictory targets', (t) => {
   const unknownProject = createProject(t, undefined);
   assert.throws(

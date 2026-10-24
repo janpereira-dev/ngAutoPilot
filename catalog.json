@@ -4698,7 +4698,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 1051
+        "wordCount": 1135
       }
     },
     {
@@ -4727,7 +4727,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 883
+        "wordCount": 963
       }
     },
     {
@@ -4750,13 +4750,13 @@
       ],
       "compatibility": {
         "min": 2,
-        "max": 21
+        "max": 22
       },
       "contentSignals": {
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 1106
+        "wordCount": 1402
       }
     },
     {
@@ -7129,7 +7129,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 777
+        "wordCount": 982
       }
     },
     {
@@ -9786,7 +9786,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 826
+        "wordCount": 908
       }
     },
     {

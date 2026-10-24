@@ -10,6 +10,8 @@ Verified 2026-10-23. Release presence and API maturity are separate evidence.
 - CLI patches have independent numbering; do not require framework and CLI patch equality.
 - Compatibility table: https://angular.dev/reference/versions. Its captured table lists 22.0.x, not a separate 22.2.x row: do not silently relabel it.
 - Exact 22.2 compiler contract: https://github.com/angular/angular/blob/v22.2.0/packages/compiler-cli/package.json declares TypeScript >=6.0 <6.1 and Node ^22.22.3 || ^24.15.0 || >=26.0.0. Also verify published CLI/build engines and all peer ranges; a permissive engine does not establish support for every future Node major.
+- The official 22.0.x row lists Node ^22.22.3 || ^24.15.0 || ^26.0.0, TypeScript >=6.0.0 <6.1.0 and RxJS ^6.5.3 || ^7.4.0. The tagged 22.2.0 core package also declares that RxJS peer range: https://github.com/angular/angular/blob/v22.2.0/packages/core/package.json.
+- Preserve the distinction between the matrix's ^26.0.0 and package engines' >=26.0.0: only the latter syntactically admits later majors. Apply the verified supported toolchain; do not widen policy from an engine check.
 - Keep NgAutoPilot's own Node >=24.0.0 <25 contract separate. Node 24.0 is insufficient for the Angular 22 compiler.
 
 ## Choose guidance by installed version
