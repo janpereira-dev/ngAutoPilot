@@ -1,29 +1,24 @@
-# Angular 18-19 — route index
+# Angular 18-19 — local canonical procedures
 
-Generated from `config/npx-skills.json`. This index describes routing boundaries; it does not duplicate canonical skill bodies.
+This gateway installs **17 complete canonical procedures**. Open only the one matching your task.
+Every link resolves to an installed file; no second download or CLI invocation is needed.
 
-## Angular era
-
-18-19
-
-## Source pack routes
-
-- `ngautopilot-angular-17-to-18`
-- `ngautopilot-angular-18-to-19`
-
-## Canonical ID prefixes
-
-- none
-
-## Full-fidelity native pack routes
-
-- `ngautopilot-angular-17-to-18`
-- `ngautopilot-angular-18-to-19`
-
-## Routing contract
-
-1. Inspect project evidence before choosing a route.
-2. Prefer the smallest matching pack or exact major hop.
-3. Keep Angular upgrade hops separate from modernization.
-4. Open canonical skill bodies when detailed procedure or compatibility evidence is required.
-5. Validate in the receiving repository and report what actually ran.
+| ID | Procedure | Category | Angular compatibility |
+| --- | --- | --- | --- |
+| angular.upgrade.hops.angular-17-to-18 | [Angular 17 to Angular 18 Upgrade](skills/angular--upgrade--hops--angular-17-to-18/procedure.md) | upgrade | 17..* |
+| angular.upgrade.hops.angular-18-to-19 | [Angular 18 to Angular 19 Upgrade](skills/angular--upgrade--hops--angular-18-to-19/procedure.md) | upgrade | 18..* |
+| angular.versioning.angular-cli-builder-compatibility | [Angular CLI Builder Compatibility](skills/angular--versioning--angular-cli-builder-compatibility/procedure.md) | versioning | - |
+| angular.versioning.angular-node-typescript-rxjs-matrix | [Angular Node TypeScript RxJS Matrix](skills/angular--versioning--angular-node-typescript-rxjs-matrix/procedure.md) | versioning | - |
+| angular.versioning.angular-peer-dependency-audit | [Angular Peer Dependency Audit](skills/angular--versioning--angular-peer-dependency-audit/procedure.md) | versioning | - |
+| angular.versioning.angular-v22-feature-index | [Angular v22 Feature Index](skills/angular--versioning--angular-v22-feature-index/procedure.md) | versioning | 22..* |
+| angular.versioning.angular-v22-risk-matrix | [Angular v22 Risk Matrix](skills/angular--versioning--angular-v22-risk-matrix/procedure.md) | versioning | 22..* |
+| angular.versioning.angular-v22-roadmap-alignment | [Angular v22 Roadmap Alignment](skills/angular--versioning--angular-v22-roadmap-alignment/procedure.md) | versioning | 22..* |
+| angular.versioning.angular-version-compatibility-gate | [Angular Version Compatibility Gate](skills/angular--versioning--angular-version-compatibility-gate/procedure.md) | versioning | 2..* |
+| angular.versioning.angular-version-gates | [Angular Version Gates](skills/angular--versioning--angular-version-gates/procedure.md) | versioning | 2..* |
+| angular.versioning.angular-versioning-index | [Angular Versioning Index](skills/angular--versioning--angular-versioning-index/procedure.md) | versioning | 2..* |
+| core.autopilot-orchestrator | [Autopilot Orchestrator](skills/core--autopilot-orchestrator/procedure.md) | core | - |
+| core.compatibility-router | [Compatibility Router](skills/core--compatibility-router/procedure.md) | core | - |
+| core.project-intake | [Project Intake](skills/core--project-intake/procedure.md) | core | - |
+| core.risk-assessment | [Risk Assessment](skills/core--risk-assessment/procedure.md) | core | - |
+| core.skill-router | [Skill Router](skills/core--skill-router/procedure.md) | core | - |
+| core.stack-version-detection | [Stack Version Detection](skills/core--stack-version-detection/procedure.md) | core | - |
