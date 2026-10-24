@@ -9,6 +9,30 @@
 
 **Build → validate → approve → merge → release → verify.** A complete source release is not automatic public-directory acceptance or a forced update to every user's installation.
 
+## PR 82: source security and installation boundaries
+
+Reviewed 2026-10-24. Both failed checks on the original PR head reached npm audit and stopped on Vite 8.3.1; Skill Lab's own 96 tests passed. Refresh the lockfile to patched Vite 8.3.5 and raise the Zod dependency floor to 4.6.7 for the newly reported advisory, then regenerate the bundled MCP and its license inventory. Do not suppress audit or weaken the protected checks. Audit results are point-in-time evidence, not a guarantee that every dependency is safe.
+
+| Target | Source route to validate | Publication boundary |
+| --- | --- | --- |
+| Skills CLI | `npx skills@1.7.4 add . --list` discovers the root entry only; use `npx skills@1.7.4 add ./agent-plugins/ngautopilot-angular-21-to-22 --list` for the focused portable pack | Discovery/install is separate from a skills.sh listing or audit verdict |
+| Pi | Keep npm `pi-package`, `pi.skills` and `pi.prompts`; `node bin/ngautopilot.mjs export --agent pi --pack ngautopilot-angular-21-to-22 --output /tmp/ngap-pi-review` produces portable skills under `.agents/skills` | npm release and Pi host invocation are separate checks |
+| OpenClaw | Export with `--agent openclaw`; output uses workspace `skills/` and `AGENTS.md`, not the legacy `.openclaw` config directory | Native export is distinct from ClawHub submission and executable plugins |
+| Codex | Export with `--agent codex` to `.agents/skills`; validate `.agents/plugins/marketplace.json` separately | No public-directory acceptance is implied |
+| Claude Code | Export with `--agent claude` to `.claude/skills`; validate `.claude-plugin/marketplace.json` separately | No Anthropic-directory acceptance is implied |
+
+Use a new, empty review directory per export; merge instructions with existing guidance after review. Local export tests check portable names, resources, overwrite refusal and path containment. A manifest validation is not a real agent invocation.
+
+For an install from GitHub after merge, use the explicit portable source when you want the 21-to-22 pack:
+
+```bash
+npx skills@1.7.4 add https://github.com/janpereira-dev/ngAutoPilot/tree/main/agent-plugins/ngautopilot-angular-21-to-22 --list
+```
+
+A local Skills CLI 1.7.4 installation of `angular-versioning-angular-v22-feature-index` from the portable pack into an isolated Codex project succeeded, including `references/angular-22.2.md`. This checks installation, not LLM invocation or remote indexing.
+
+Choose specific skills and agents in the installer rather than enabling the entire historical catalog. npm and Pi versioned installs still use the previously published bytes until a new reviewed release is published; never overwrite an existing npm version. Host invocation and remote listing remain unverified in the publication register until observed.
+
 ## One inventory, distinct states
 
 [Publication target register](../config/publication-targets.json) tracks 21 requested surfaces. `npm run release:inventory` produces `dist/release/release-inventory.json`: all canonical skill IDs/paths, packs, npm member paths and integrity, archive checksums, exact commit and target readiness. `ngautopilot platform --json` provides the broader source asset inventory. These are inventories, not proof of remote visibility.

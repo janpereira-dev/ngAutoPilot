@@ -87,7 +87,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 690
+        "wordCount": 788
       }
     },
     {
@@ -4698,7 +4698,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 1051
+        "wordCount": 1135
       }
     },
     {
@@ -4727,7 +4727,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 883
+        "wordCount": 963
       }
     },
     {
@@ -4750,13 +4750,13 @@
       ],
       "compatibility": {
         "min": 2,
-        "max": 21
+        "max": 22
       },
       "contentSignals": {
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 1106
+        "wordCount": 1402
       }
     },
     {
@@ -7129,7 +7129,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 691
+        "wordCount": 982
       }
     },
     {
@@ -7304,7 +7304,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 683
+        "wordCount": 831
       }
     },
     {
@@ -7333,7 +7333,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 685
+        "wordCount": 800
       }
     },
     {
@@ -7913,7 +7913,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 692
+        "wordCount": 767
       }
     },
     {
@@ -8494,13 +8494,14 @@
         "Angular 22"
       ],
       "compatibility": {
-        "min": 22
+        "min": 22,
+        "minMinor": 2
       },
       "contentSignals": {
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 675
+        "wordCount": 754
       }
     },
     {
@@ -8602,6 +8603,7 @@
       "status": "stable",
       "version": "0.10.0",
       "triggers": [
+        "withAutoCleanupInjectors",
         "withExperimentalAutoCleanupInjectors",
         "route injector",
         "cleanup",
@@ -8616,7 +8618,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 666
+        "wordCount": 798
       }
     },
     {
@@ -9368,7 +9370,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 697
+        "wordCount": 791
       }
     },
     {
@@ -9553,7 +9555,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 668
+        "wordCount": 796
       }
     },
     {
@@ -9784,7 +9786,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 826
+        "wordCount": 908
       }
     },
     {

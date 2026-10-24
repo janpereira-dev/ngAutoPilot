@@ -38,7 +38,7 @@ For a multi-major migration, install and validate each named hop in order. This 
 | Gemini CLI | `gemini` | adapter | `.gemini/` | `GEMINI.md` |
 | OpenCode | `opencode` | native | `.opencode/` | `AGENTS.md` inside `.opencode/` (legacy) |
 | OpenClaw | `openclaw` | experimental | `.openclaw/` | `AGENTS.md` inside `.openclaw/` (legacy) |
-| Pi | `pi` | unverified | `.pi/` | `PI.md` |
+| Pi | `pi` | export-only | `.pi/` | `PI.md` |
 | Hermes Agent | `hermes` | unverified | `.hermes/` | `HERMES.md` |
 | Generic Markdown client | `generic` | export-only | chosen export directory | `AGENTS.md` |
 

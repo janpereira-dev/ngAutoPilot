@@ -9,6 +9,30 @@
 
 **Construir → validar → aprobar → integrar → publicar → verificar.** Un release fuente completo no implica aceptación en todos los directorios ni actualización forzada de las instalaciones de usuarios.
 
+## PR 82: seguridad de la fuente y límites de instalación
+
+Revisión del 2026-10-24. Los dos checks fallidos del head original llegaron a npm audit y se detuvieron por Vite 8.3.1; las 96 pruebas propias de Skill Lab pasaron. Actualiza el lockfile a Vite 8.3.5 corregido y eleva el mínimo de Zod a 4.6.7 por el nuevo aviso; regenera después el MCP empaquetado y su inventario de licencias. Conserva la auditoría y los checks protegidos. El resultado de auditoría solo cubre los avisos conocidos en ese momento.
+
+| Destino | Ruta de fuente que se valida | Límite de publicación |
+| --- | --- | --- |
+| Skills CLI | `npx skills@1.7.4 add . --list` descubre solo la entrada raíz; utiliza `npx skills@1.7.4 add ./agent-plugins/ngautopilot-angular-21-to-22 --list` para el paquete portable específico | Descubrir/instalar no equivale a ficha ni auditoría favorable en skills.sh |
+| Pi | Conserva `pi-package`, `pi.skills` y `pi.prompts`; `node bin/ngautopilot.mjs export --agent pi --pack ngautopilot-angular-21-to-22 --output /tmp/ngap-pi-review` genera skills portables en `.agents/skills` | La publicación npm y la invocación en Pi son comprobaciones distintas |
+| OpenClaw | Exporta con `--agent openclaw`; genera `skills/` y `AGENTS.md` en el workspace, no en el directorio de configuración legado `.openclaw` | Exportar es distinto de enviar a ClawHub o crear plugins ejecutables |
+| Codex | Exporta con `--agent codex` a `.agents/skills`; valida por separado `.agents/plugins/marketplace.json` | No implica aceptación en el directorio público |
+| Claude Code | Exporta con `--agent claude` a `.claude/skills`; valida por separado `.claude-plugin/marketplace.json` | No implica aceptación en el directorio de Anthropic |
+
+Utiliza un directorio de revisión nuevo y vacío para cada exportación; combina las instrucciones con las existentes tras revisarlas. Las pruebas locales comprueban nombres portables, recursos, rechazo de sobrescrituras y contención de rutas. Validar un manifiesto no es invocar un agente real.
+
+Para instalar desde GitHub después del merge, utiliza la fuente portable explícita si quieres el paquete 21-to-22:
+
+```bash
+npx skills@1.7.4 add https://github.com/janpereira-dev/ngAutoPilot/tree/main/agent-plugins/ngautopilot-angular-21-to-22 --list
+```
+
+La instalación local con Skills CLI 1.7.4 de `angular-versioning-angular-v22-feature-index` desde el paquete portable en un proyecto Codex aislado pasó, incluyendo `references/angular-22.2.md`. Comprueba instalación, no invocación del LLM ni indexación remota.
+
+Selecciona skills y agentes concretos en el instalador en lugar de activar todo el catálogo histórico. Las instalaciones versionadas de npm y Pi mantienen los bytes ya publicados hasta publicar una nueva release revisada; no sobrescribas una versión npm existente. La invocación en hosts y las fichas remotas permanecen sin verificar en el registro hasta observarlas.
+
 ## Un inventario; estados diferentes
 
 El [registro de destinos](../config/publication-targets.json) incluye 21 superficies solicitadas. `npm run release:inventory` genera `dist/release/release-inventory.json`: IDs/rutas de todas las skills, packs, miembros e integridad npm, checksums de archivos, commit exacto y preparación por destino. `ngautopilot platform --json` ofrece el inventario general. Ninguno demuestra visibilidad remota.

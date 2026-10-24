@@ -122,7 +122,8 @@
     "claude-code",
     "github-copilot",
     "cursor",
-    "opencode"
+    "opencode",
+    "openclaw"
   ],
   "pi": {
     "skills": [
@@ -139,7 +140,7 @@
   "dependencies": {
     "@modelcontextprotocol/server": "^2.3.0",
     "semver": "7.8.5",
-    "zod": "^4.5.4"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@modelcontextprotocol/client": "^2.3.0",

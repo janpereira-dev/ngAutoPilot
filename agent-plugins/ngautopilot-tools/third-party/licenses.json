@@ -25,10 +25,10 @@
   },
   {
     "name": "zod",
-    "version": "4.6.5",
+    "version": "4.6.7",
     "license": "MIT",
     "files": [
-      "zod%404.6.5/LICENSE"
+      "zod%404.6.7/LICENSE"
     ]
   }
 ]

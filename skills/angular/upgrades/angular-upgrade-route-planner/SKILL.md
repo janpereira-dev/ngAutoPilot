@@ -78,6 +78,12 @@ If the route crosses Angular 6+, include these planning notes:
 - `HttpClient` migration may need its own bounded slice
 - validation gate must run before the next hop
 
+## Connected repository constraints
+
+For a library/host/MFE ecosystem, inventory dependency edges and consumers before selecting the next hop. Plan libraries → host → MFEs for that hop, ordering dependent libraries topologically. Unknown consumers, dependency cycles or failed library validation block dependent work. Attach baseline, exact rebuilt library artifacts, consumer impact, API/BFF, unit/E2E, visual and security evidence requirements to the handoff.
+
+Route detailed planning to `angular.upgrade.angular-upgrade-orchestrator` and its ecosystem modernization reference. This adds a planning contract, not an automatic multi-repository transformer.
+
 ## Procedure
 
 1. Read the detected source major.
