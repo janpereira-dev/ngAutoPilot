@@ -1,18 +1,18 @@
 [
   {
     "name": "@modelcontextprotocol/core",
-    "version": "2.3.0",
+    "version": "2.3.1",
     "license": "Apache-2.0",
     "files": [
-      "%40modelcontextprotocol%2Fcore%402.3.0/LICENSE"
+      "%40modelcontextprotocol%2Fcore%402.3.1/LICENSE"
     ]
   },
   {
     "name": "@modelcontextprotocol/server",
-    "version": "2.3.0",
+    "version": "2.3.1",
     "license": "Apache-2.0",
     "files": [
-      "%40modelcontextprotocol%2Fserver%402.3.0/LICENSE"
+      "%40modelcontextprotocol%2Fserver%402.3.1/LICENSE"
     ]
   },
   {
