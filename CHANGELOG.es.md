@@ -17,6 +17,8 @@ Este archivo documenta los cambios destacados de NgAutoPilot.
 - Instalaciones Angular filtradas, planes de trabajo acotados, migración por checkpoints y resolución por instantáneas con factoría HTTPS optativa autenticada.
 - Inventario unificado de skills, packs, miembros npm y hashes; plan ordenado de 21 destinos.
 
+- Se añadió una superficie pública curada de 15 gateways para `npx skills` y Pi, con eras Angular de 2 a 22, upgrades completos, Angular completo, frontend, rendimiento, calidad, microfrontends, Core y Full.
+
 ### Seguridad y release
 
 - Aprobación explícita en la CLI para instalar, actualizar y desinstalar; force nunca equivale a aprobación. La resolución Angular MCP autónoma usa metadatos incluidos y rangos npm-semver del toolchain.
