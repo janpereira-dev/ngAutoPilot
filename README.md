@@ -10,6 +10,8 @@ NgAutoPilot is a CLI and a catalog of small engineering guides (*skills*). It he
 
 ## 🧭 Start here: one command
 
+![Four checkpoints: choose IDs, preview without writes, approve, verify files; then check host discovery.](assets/first-run.svg)
+
 You only need **Node.js 22.20+**, npm and an existing project. No global NgAutoPilot installation is required for the recommended workflow.
 
 Run **inside the project you want to improve**:

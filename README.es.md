@@ -10,6 +10,8 @@ NgAutoPilot es una herramienta de línea de comandos (CLI) y un catálogo de peq
 
 ## 🧭 Empieza aquí: un único comando
 
+![Cuatro controles: elegir IDs, previsualizar sin escribir, autorizar y verificar archivos; después comprobar el descubrimiento en el host.](assets/first-run.es.svg)
+
 Solo necesitas **Node.js 22.20+**, npm y un proyecto existente. No hace falta instalar NgAutoPilot globalmente para el flujo recomendado.
 
 Ejecuta **dentro del proyecto que quieres mejorar**:

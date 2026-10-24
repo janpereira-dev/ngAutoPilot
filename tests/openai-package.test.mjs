@@ -184,7 +184,7 @@ test('standalone builder fails closed when a source skill contains a broken loca
   const output = path.join(temporary, 'dist', 'openai-plugin');
   try {
     for (const entry of ['package.json', 'LICENSE', 'skills', 'openai', 'docs']) fs.cpSync(path.join(root, entry), path.join(temporary, entry), { recursive: true });
-    const skillFile = path.join(temporary, 'skills', fs.readdirSync(path.join(temporary, 'skills'))[0], 'SKILL.md');
+    const skillFile = path.join(temporary, 'skills', '_core', 'project-intake', 'SKILL.md');
     fs.appendFileSync(skillFile, '\n[Broken local resource](./missing-resource.md)\n', 'utf8');
     await assert.rejects(
       () => buildOpenAiPackage({ root: temporary, outputRoot: output }),
@@ -202,8 +202,8 @@ test('does not copy arbitrary checkout files referenced by a source skill', asyn
     for (const entry of ['package.json', 'LICENSE', 'skills', 'openai', 'docs']) fs.cpSync(path.join(root, entry), path.join(temporary, entry), { recursive: true });
     fs.mkdirSync(path.join(temporary, '.git'), { recursive: true });
     fs.writeFileSync(path.join(temporary, '.git', 'config'), '[core]\nrepositoryformatversion = 0\n', 'utf8');
-    const skillFile = path.join(temporary, 'skills', fs.readdirSync(path.join(temporary, 'skills'))[0], 'SKILL.md');
-    fs.appendFileSync(skillFile, '\n[Private checkout metadata](../../.git/config)\n', 'utf8');
+    const skillFile = path.join(temporary, 'skills', '_core', 'project-intake', 'SKILL.md');
+    fs.appendFileSync(skillFile, '\n[Private checkout metadata](../../../.git/config)\n', 'utf8');
     await assert.rejects(
       () => buildOpenAiPackage({ root: temporary, outputRoot: output }),
       /not an approved public resource/,
@@ -219,10 +219,10 @@ test('places all supplementary files in an isolated resources namespace', async 
   const output = path.join(temporary, 'dist', 'openai-plugin');
   try {
     for (const entry of ['package.json', 'LICENSE', 'skills', 'openai', 'assets', 'docs']) fs.cpSync(path.join(root, entry), path.join(temporary, entry), { recursive: true });
-    const skillFile = path.join(temporary, 'skills', fs.readdirSync(path.join(temporary, 'skills'))[0], 'SKILL.md');
+    const skillFile = path.join(temporary, 'skills', '_core', 'project-intake', 'SKILL.md');
     fs.mkdirSync(path.join(temporary, 'skills', 'shared'), { recursive: true });
     fs.writeFileSync(path.join(temporary, 'skills', 'shared', 'guide.md'), '# Shared guide\n', 'utf8');
-    fs.appendFileSync(skillFile, '\n[Shared guide](../shared/guide.md)\n[Shared asset](../../assets/ngautopilot-hero.svg)\n', 'utf8');
+    fs.appendFileSync(skillFile, '\n[Shared guide](../../shared/guide.md)\n[Shared asset](../../../assets/ngautopilot-hero.svg)\n', 'utf8');
     const result = await buildOpenAiPackage({ root: temporary, outputRoot: output });
     assert.equal(fs.existsSync(path.join(output, 'ngautopilot-skills', 'skills', 'shared', 'guide.md')), false);
     assert.equal(fs.readFileSync(path.join(result.packageRoot, 'resources', 'skills', 'shared', 'guide.md'), 'utf8'), '# Shared guide\n');
