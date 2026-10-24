@@ -314,6 +314,7 @@ function findSkillFiles(root) {
     }
 
     if (entry.isFile() && entry.name === 'SKILL.md') {
+      if (path.resolve(fullPath) === path.resolve(sourceRoot, 'SKILL.md')) continue;
       files.push(fullPath);
     }
   }
