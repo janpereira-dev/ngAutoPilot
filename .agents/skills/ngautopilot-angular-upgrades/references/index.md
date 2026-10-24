@@ -8,7 +8,7 @@ Every link resolves to an installed file; no second download or CLI invocation i
 | angular.upgrade.angular-major-hop-executor | [Angular Major Hop Executor](skills/angular--upgrade--angular-major-hop-executor/procedure.md) | upgrades | 2..21 |
 | angular.upgrade.angular-upgrade-orchestrator | [Angular Upgrade Orchestrator](skills/angular--upgrade--angular-upgrade-orchestrator/procedure.md) | upgrades | 2..22 |
 | angular.upgrade.angular-upgrade-route-planner | [Angular Upgrade Route Planner](skills/angular--upgrade--angular-upgrade-route-planner/procedure.md) | upgrades | 2..22 |
-| angular.upgrade.angular-upgrade-validation-gate | [Angular Upgrade Validation Gate](skills/angular--upgrade--angular-upgrade-validation-gate/procedure.md) | upgrades | 2..21 |
+| angular.upgrade.angular-upgrade-validation-gate | [Angular Upgrade Validation Gate](skills/angular--upgrade--angular-upgrade-validation-gate/procedure.md) | upgrades | 2..22 |
 | angular.upgrade.angular-version-detector | [Angular Version Detector](skills/angular--upgrade--angular-version-detector/procedure.md) | upgrades | 2..21 |
 | angular.upgrade.angularjs.angularjs-controller-to-component-migration | [AngularJS Controller to Component Migration](skills/angular--upgrade--angularjs--angularjs-controller-to-component-migration/procedure.md) | angularjs | 2..* |
 | angular.upgrade.angularjs.angularjs-decommission-gate | [AngularJS Decommission Gate](skills/angular--upgrade--angularjs--angularjs-decommission-gate/procedure.md) | angularjs | 2..* |

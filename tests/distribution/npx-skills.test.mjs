@@ -136,6 +136,7 @@ test('public gateway generation is deterministic and repository validation is cl
   fs.cpSync(path.join(ROOT, 'agents'), path.join(temp, 'agents'), { recursive: true });
   fs.mkdirSync(path.join(temp, 'docs'));
   fs.copyFileSync(path.join(ROOT, 'docs', 'prompts-and-guardrails.md'), path.join(temp, 'docs', 'prompts-and-guardrails.md'));
+  fs.copyFileSync(path.join(ROOT, 'docs', 'design-excellence-guide.md'), path.join(temp, 'docs', 'design-excellence-guide.md'));
   fs.mkdirSync(path.join(temp, '.claude-plugin'));
   fs.copyFileSync(path.join(ROOT, '.claude-plugin', 'marketplace.json'), path.join(temp, '.claude-plugin', 'marketplace.json'));
 

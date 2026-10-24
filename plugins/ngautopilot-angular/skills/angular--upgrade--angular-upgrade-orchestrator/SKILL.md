@@ -95,6 +95,12 @@ For Angular 6+ planning, treat these as explicit route constraints:
 - `HttpClient` migration may be a separate bounded slice depending on scope.
 - A failed validation gate blocks the next major hop.
 
+## Ecosystem and research-backed planning
+
+For shared libraries, hosts and MFEs, read [the ecosystem modernization contract](references/ecosystem-modernization.md). Inventory dependency edges and validate libraries → host → MFEs within each major hop, with topological order among libraries and blockers for unknown consumers. Require consumer impact, API/BFF, behavioral and visual evidence where applicable.
+
+Use the reference to evaluate verified repair reuse and gate-quality calibration as proposed pilots. The research findings come from other environments; they do not certify Angular 22 or implement automatic repair/consumer execution in NgAutoPilot.
+
 ## Procedure
 
 1. Detect the installed Angular major.

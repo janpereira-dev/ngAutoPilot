@@ -2,7 +2,7 @@
 id: angular.upgrades.router.angular-v22-route-injector-auto-cleanup
 name: Angular v22 Route Injector Auto Cleanup
 description: >
-  Evaluate withExperimentalAutoCleanupInjectors for route-level providers and disposal safety. For Angular 22 projects and 21-to-22 upgrade planning.
+  Evaluate version-specific route injector cleanup, including stable withAutoCleanupInjectors since Angular 22.2 and the deprecated experimental name. For Angular 22 projects and 21-to-22 upgrade planning.
 stack:
   - Angular
   - TypeScript
@@ -11,6 +11,7 @@ status: stable
 version: 0.10.0
 owner: NgAutoPilot
 triggers:
+  - withAutoCleanupInjectors
   - withExperimentalAutoCleanupInjectors
   - route injector
   - cleanup
@@ -26,13 +27,13 @@ compatibility:
 
 ## Purpose
 
-Evaluate withExperimentalAutoCleanupInjectors for route-level providers and disposal safety.
+Evaluate version-specific route injector cleanup, including stable withAutoCleanupInjectors since Angular 22.2 and the deprecated experimental name.
 
 Keep the work concern-first: this skill handles one risk area and does not replace the Angular 21 to 22 hop orchestrator.
 
 ## When to Use
 
-- The task is to evaluate withexperimentalautocleanupinjectors for route-level providers and disposal safety.
+- The task concerns route-level provider disposal, custom route reuse or migration from the experimental cleanup name.
 - The project is on Angular 22 or planning the Angular 22 hop.
 - A narrower concern-first skill is better than a generic v22 baseline skill.
 
@@ -62,6 +63,18 @@ Angular 22 changes router behavior enough that agents need a narrow checklist in
 ## Version Scope
 
 Angular 22.x and later where this Angular 22 behavior is relevant.
+
+## Angular 22.2 evidence and procedure
+
+For Angular 22.2+, use `withAutoCleanupInjectors` (stable since 22.2). The old `withExperimentalAutoCleanupInjectors` name is deprecated. For 22.0/22.1, inspect that version's experimental contract and do not import the stable name.
+
+- This is opt-in: inspect `provideRouter` and existing behavior before enabling it.
+- A custom `RouteReuseStrategy` must return true from `shouldDestroyInjector` for routes to dispose.
+- When storing handles, implement `retrieveStoredRouteHandles` so retained routes keep their injectors alive.
+- Test deactivate/reactivate, detach/reattach, eviction and service teardown. Verify retained handles remain usable and evicted handles cannot reattach.
+- Route final handle disposal to the detached-handle skill; do not destroy injectors through private fields.
+
+Source: https://angular.dev/api/router/withAutoCleanupInjectors (reviewed 2026-10-23).
 
 ## Procedure
 

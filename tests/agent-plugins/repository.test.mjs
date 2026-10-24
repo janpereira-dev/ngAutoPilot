@@ -14,7 +14,10 @@ test('searches catalog and resolves packs without writes', () => {
 
   assert.ok(tools.catalogSearch({ query: 'typed forms' }).matches.some(({ id }) => id.includes('typed-forms')));
   assert.deepEqual(tools.packResolve({ packId: 'ngautopilot-angular-testing' }).packs, ['ngautopilot-core', 'ngautopilot-angular-testing']);
-  assert.equal(tools.repositoryValidate().mutatesRepository, false);
+  const validation = tools.repositoryValidate();
+  assert.equal(validation.mutatesRepository, false);
+  assert.equal(validation.valid, true);
+  assert.deepEqual(validation.errors, []);
 });
 
 test('derives stack, route, compatibility, and upgrade data from repository files', () => {

@@ -56,6 +56,17 @@ For **21 → 22**, use `skills/angular/upgrades/21-to-22/angular-21-to-22-upgrad
 
 `angular.modernization.*` covers control flow, `@defer`, standalone-first and zoneless preparation. API eligibility still depends on the project version. Do not expand a compatibility upgrade merely because a newer pattern exists.
 
+## Ecosystem evidence, agents and the October research radar
+
+Reviewed 2026-10-24. For a connected corporate ecosystem, plan each hop in dependency order: libraries → host → MFEs, with topological ordering among libraries. Unknown consumers or failed upstream validation block dependent work. This is an ecosystem policy, not a universal Angular requirement.
+
+The generic upgrade gate now covers Angular 22. Require applicability, owner and actual evidence for build/toolchain, consumer public contracts, Jest/unit, API/BFF, E2E, visual and security. A missing required check is BLOCKED even when build and unit tests pass. Distinguish DOM/component snapshots from visual browser comparisons.
+
+- [Ecosystem modernization reference](../skills/angular/upgrades/angular-upgrade-orchestrator/references/ecosystem-modernization.md): consumer-impact procedure, proposed verified-repair record, verifier-quality benchmark contract and versioned sources for RELAY, Refactoring Ripple, VerifierBench, snapshot testing and DynaCI. Their abstracts were checked; the studies were not reproduced and do not establish Angular 22 effect sizes.
+- [Agent governance reference](../skills/_core/autopilot-orchestrator/references/agent-governance.md): one accountable owner, bounded assignments, iteration/time budgets, independent acceptance and explicit stop conditions; permission/data/revocation review for GitHub secret monitoring, model usage metrics and enterprise Apps.
+
+Prioritize consumer evidence, verified repair reuse and gate calibration on a fixed set of real migrations. Measure regressions, false acceptance/rejection, manual interventions, elapsed time and model cost. Do not add more specialist agents to compensate for missing evidence. The current change adds procedural knowledge and pilot acceptance contracts, not an automatic cross-repository runner, repair registry service, telemetry collector or enterprise installation.
+
 ## Already on Angular 22?
 
 Read the [API-specific support guide](angular-22-support.md), then choose a narrow `angular-v22-*` skill in the relevant concern:

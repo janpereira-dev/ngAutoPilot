@@ -31,6 +31,22 @@ Template spread/rest syntax, arrow functions, multi-case or exhaustive `@switch`
 
 For `@boundary` / `@error`, WebMCP, and builder changes, verify the exact release and current [roadmap](https://angular.dev/roadmap). This guide does not promise a release quarter or authorize replacing a working builder. Keep experimental adoption in a separately approved task.
 
+## Verified Angular 22.2 refresh
+
+Reviewed **2026-10-23**. Angular 22.2.0 shipped on 2026-09-23. The catalog reference now covers the 22.2 line with minor-specific boundaries; runtime integrations still require evidence.
+
+| Change | Practical decision |
+| --- | --- |
+| `withAutoCleanupInjectors` stable since 22.2 | Replace the experimental name where applicable; test `shouldDestroyInjector`, `retrieveStoredRouteHandles`, retained handles and eviction |
+| Router resources and `@boundary` | Developer preview; keep adoption outside the required upgrade |
+| `strictUnclaimedEventNames` | An `angularCompilerOptions` option, false by default even with `strictTemplates`; review custom events |
+| Directive testing and Signal Forms | Verify `TestBed.createDirective`, permanent hidden fields and actual behavior; retain an existing Jest runner |
+| CLI/build 22.2 | Review `ng mcp --root`, native Sass on CI, Oxc linker, watch/cache, browser/server stats and SSR |
+
+Read the [22.2 operational reference](../skills/angular/versioning/angular-v22-feature-index/references/angular-22.2.md) for tagged sources, toolchain and acceptance criteria. The tagged 22.2.0 compiler-cli requires TypeScript `>=6.0 <6.1` and Node `^22.22.3 || ^24.15.0 || >=26.0.0`; also verify published packages and the official matrix, whose captured row is still labelled 22.0.x.
+
+Historical skills retain their era and patterns. A 22.1 → 22.2 update is a validated minor update; earlier majors retain sequential hops and gates. Shared libraries must respect their oldest consumer.
+
 ## Toolchain
 
 Use the exact rows in the [official compatibility matrix](https://angular.dev/reference/versions), not “TypeScript 6.x” as an unlimited range. Angular 22.0.x requires TypeScript `>=6.0.0 <6.1.0`; the CLI's Node requirement and the Angular application's Node requirement are different.

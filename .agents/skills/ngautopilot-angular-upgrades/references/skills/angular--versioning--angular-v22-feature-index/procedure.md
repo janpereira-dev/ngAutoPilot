@@ -58,6 +58,15 @@ Angular 22 changes versioning behavior enough that agents need a narrow checklis
 
 Angular 22.x and later where this Angular 22 behavior is relevant.
 
+## Angular 22.2 evidence and procedure
+
+Read [the Angular 22.2 baseline](references/angular-22.2.md) for exact-minor feature selection, maturity, source links and acceptance checks. Use this reference for Angular 22.1 → 22.2 updates as well as 21 → 22.2 planning.
+
+1. Record package and lockfile evidence for the installed and target minor; check the oldest consumer of shared libraries.
+2. For 22.0/22.1, retain the existing API until the 22.2 delta is validated. For Angular 2–21, use the historical version gate and sequential hops.
+3. Separate stable 22.2 router cleanup from developer-preview router resources and @boundary. Skill `status: stable` does not certify any Angular API.
+4. Route cleanup, builder, diagnostics, forms, tests and MCP to their satellites. Validate every selected concern; do not mark the entire platform supported from one successful build.
+
 ## Procedure
 
 1. Inspect the inputs and confirm the risk is present.

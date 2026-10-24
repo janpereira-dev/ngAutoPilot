@@ -95,6 +95,12 @@ Use this workflow:
 Task intake -> project intake -> version detection -> skill routing -> compatibility routing -> risk assessment -> implementation -> validation -> handoff
 ```
 
+## Bounded delegation and enterprise capabilities
+
+Read [the agent governance contract](references/agent-governance.md) when a task involves multiple agents, GitHub secret monitoring, model/agent usage reporting or enterprise app permissions. Assign one owner per check, set iteration/time budgets and observable stop conditions before delegating. Reconcile conflicting results through evidence and independent acceptance, not open-ended critic loops.
+
+Keep planning, authorized execution, validation and enterprise enablement separate. A GitHub announcement, a skill installation or a green check is not authorization to grant permissions or change organization policies.
+
 ## Subagent Registry
 
 When `agents/ngautopilot/subagents/` is available, treat it as the stable registry for focused reviewer and specialist roles. Invoke only the smallest relevant subagent after skill routing or at handoff; subagents provide oversight and do not replace NgAutoPilot skill selection.

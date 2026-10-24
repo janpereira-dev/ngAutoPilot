@@ -63,6 +63,14 @@ Angular 22 changes forms / signal forms behavior enough that agents need a narro
 
 Angular 22.x and later where this Angular 22 behavior is relevant.
 
+## Angular 22.2 evidence and procedure
+
+The 22.2 framework release adds permanent hidden fields in Signal Forms. Check the exact installed forms API before configuring them. Validate hidden-field model/submission behavior, validation, reset and async state with the project's real forms; avoid replacing working Reactive Forms during the version hop.
+
+WebMCP implicit Signal Forms also fixes `readOnlyHint` and `untrustedContentHint` values. These hints do not enforce server authorization or authorize exposing form actions.
+
+Source: https://github.com/angular/angular/releases/tag/v22.2.0 (reviewed 2026-10-23).
+
 ## Procedure
 
 1. Inspect the inputs and confirm the risk is present.

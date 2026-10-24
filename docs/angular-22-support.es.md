@@ -31,6 +31,22 @@ La sintaxis spread/rest, las funciones flecha, los `@switch` con varios casos o 
 
 Para `@boundary` / `@error`, WebMCP y cambios de builders, verifica la versión exacta y la [hoja de ruta actual](https://angular.dev/roadmap). Esta guía no promete un trimestre de lanzamiento ni autoriza sustituir un builder funcional. Separa la adopción experimental en una tarea aprobada.
 
+## Actualización verificada: Angular 22.2
+
+Revisión del **2026-10-23**. Angular 22.2.0 se publicó el 23 de septiembre de 2026. La referencia del catálogo incorpora la línea 22.2 y sus límites por minor; las integraciones necesitan validación propia.
+
+| Cambio | Decisión práctica |
+| --- | --- |
+| `withAutoCleanupInjectors` estable desde 22.2 | Sustituir el nombre experimental cuando corresponda; validar `shouldDestroyInjector`, `retrieveStoredRouteHandles` y handles retenidos/expulsados |
+| Router resources y `@boundary` | Son developer preview; mantener su adopción fuera del upgrade obligatorio |
+| `strictUnclaimedEventNames` | Opción de `angularCompilerOptions`, desactivada por defecto incluso con `strictTemplates`; revisar eventos personalizados |
+| Testing de directivas y Signal Forms | Verificar `TestBed.createDirective`, campos ocultos permanentes y comportamiento real; conservar Jest si es el runner del proyecto |
+| CLI/build 22.2 | Revisar `ng mcp --root`, Sass nativo en CI, linker Oxc, watch/caché, stats browser/server y SSR |
+
+Consulta la [referencia operativa 22.2](../skills/angular/versioning/angular-v22-feature-index/references/angular-22.2.md) para fuentes fijadas, toolchain y criterios de aceptación. El compiler-cli etiquetado 22.2.0 exige TypeScript `>=6.0 <6.1` y Node `^22.22.3 || ^24.15.0 || >=26.0.0`; verifica también los paquetes publicados y la matriz oficial, cuya fila capturada sigue rotulada 22.0.x.
+
+Las skills históricas conservan su versión y sus patrones. Para 22.1 → 22.2 basta una actualización minor validada; para Angular anteriores se mantiene el recorrido por majors y sus gates. Una librería compartida debe respetar la versión del consumidor más antiguo.
+
 ## Herramientas
 
 Utiliza las filas exactas de la [matriz oficial](https://angular.dev/reference/versions), no “TypeScript 6.x” como rango ilimitado. Angular 22.0.x exige TypeScript `>=6.0.0 <6.1.0`; el requisito de Node de esta CLI y el de la aplicación Angular son distintos.

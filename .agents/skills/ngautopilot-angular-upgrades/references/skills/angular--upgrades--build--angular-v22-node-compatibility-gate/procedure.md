@@ -64,6 +64,14 @@ Angular 22 changes build / tooling behavior enough that agents need a narrow che
 
 Angular 22.x and later where this Angular 22 behavior is relevant.
 
+## Angular 22.2 evidence and procedure
+
+For Angular 22.2.0, the tagged compiler-cli package declares Node `^22.22.3 || ^24.15.0 || >=26.0.0` and TypeScript `>=6.0 <6.1`. Verify published CLI/build engines, all peer ranges and official platform support as well. A permissive engine range does not certify every future Node release.
+
+Do not reuse Angular 19–21 Node pins such as 20.19.3 or 22.21.1 for this compiler. NgAutoPilot's own Node `>=24.0.0 <25` requirement is separate: 24.0 passes the tool's floor but fails Angular's. Check local shell, CI runner, containers and SSR production runtime, not just `.nvmrc`. The captured official compatibility table labels its row 22.0.x; do not silently report it as a verified 22.2.x row.
+
+Source: https://github.com/angular/angular/blob/v22.2.0/packages/compiler-cli/package.json (reviewed 2026-10-23).
+
 ## Procedure
 
 1. Inspect the inputs and confirm the risk is present.
