@@ -59,4 +59,4 @@ Define production Angular component contracts covering public API, support range
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)

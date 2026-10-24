@@ -53,4 +53,4 @@ Use motion only when it communicates cause, hierarchy, continuity, feedback, or 
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)

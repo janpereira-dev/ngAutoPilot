@@ -59,4 +59,4 @@ Build custom-branded Angular interactions without rebuilding keyboard, focus, AR
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)

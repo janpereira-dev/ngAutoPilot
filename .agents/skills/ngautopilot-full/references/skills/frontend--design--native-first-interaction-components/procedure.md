@@ -52,4 +52,4 @@ Preserve browser semantics, focus, forms, keyboard behavior, and assistive-techn
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)
