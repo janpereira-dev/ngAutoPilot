@@ -103,6 +103,22 @@ test('gateway bundles preserve canonical procedure bodies without exposing neste
   assert.equal(fullReferences.length, catalog.skills.length);
 });
 
+test('bundled design procedures preserve local access to referenced documentation', () => {
+  for (const bundle of ['ngautopilot-frontend', 'ngautopilot-full']) {
+    const location = path.join(PUBLIC_ROOT, bundle);
+    const source = path.join(ROOT, 'docs', 'design-excellence-guide.md');
+    const guide = path.join(location, 'references', 'docs', 'design-excellence-guide.md');
+    assert.equal(fs.existsSync(guide), true);
+    assert.deepEqual(fs.readFileSync(guide), fs.readFileSync(source));
+
+    const skill = path.join(location, 'references', 'skills',
+      'frontend--design--design-quality-orchestrator', 'procedure.md');
+    const content = fs.readFileSync(skill, 'utf8');
+    assert.match(content, /\]\(\.\.\/\.\.\/docs\/design-excellence-guide\.md\)/);
+    assert.equal(fs.existsSync(path.resolve(path.dirname(skill), '../../docs/design-excellence-guide.md')), true);
+  }
+});
+
 test('Pi consumes the same curated public surface', () => {
   const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
   assert.deepEqual(pkg.pi?.skills, ['./.agents/skills']);
