@@ -9,7 +9,25 @@
 
 Packs are agent-neutral, declarative installation batches. They select source skills, role definitions, prompts, and guardrails. Adapters then place that selected batch in the layout for Claude Code, Codex, Copilot, Cursor, Gemini, Hermes, OpenClaw, OpenCode, Pi, or generic Markdown consumers.
 
-`skills.sh.json` groups only the skills.sh web page. Marketplace plugins distribute source skills. Neither replaces pack selection through `ngautopilot install`.
+`skills.sh.json` groups the curated public gateway surface for skills.sh. Marketplace plugins distribute source skills. The 15 public gateways are discovery/routing entrypoints; full canonical procedures still use pack selection through `ngautopilot install`.
+
+## Public `npx skills` gateways
+
+`npx skills add janpereira-dev/ngAutoPilot` intentionally exposes 15 choices, not the 413 canonical micro-skills:
+
+- Core and all-in: `ngautopilot-core`, `ngautopilot-full`.
+- Angular capabilities: `ngautopilot-angular`, `ngautopilot-angular-upgrades`, `ngautopilot-angular-microfrontends`.
+- Angular eras: `ngautopilot-angular-2-5`, `6-8`, `9-12`, `13-15`, `16-17`, `18-19`, `20-22`.
+- Cross-cutting: `ngautopilot-frontend`, `ngautopilot-performance`, `ngautopilot-quality`.
+
+The era gateways group bounded hop packs for discovery; they do not change the rule that an actual upgrade executes **one major hop at a time**. Angular 3 never existed, so the legacy era starts with 2→4→5.
+
+The source tree remains under `skills/`. `skills/SKILL.md` is an internal discovery boundary and `.agents/skills/` contains the generated public gateways. Regenerate and validate them with:
+
+```bash
+npm run npx-skills:sync
+npm run npx-skills:validate
+```
 
 ## Start Here
 
