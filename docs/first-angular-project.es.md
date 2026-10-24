@@ -13,17 +13,16 @@
 
 Comprueba la raíz y `package.json`. Necesitas una versión de Node compatible con la versión de NgAutoPilot utilizada. No crees ni sustituyas dependencias de la aplicación solo para seguir esta guía.
 
-## 2. Instala un único pack específico
+## 2. Instala un paquete Angular con `npx skills`
 
-Para el ejercicio de rutas, elige el pack UI. Core se incluye automáticamente; no necesita una instalación separada.
+Desde la raíz del proyecto Angular:
 
 ```bash
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-ui --scope project --dry-run
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-ui --scope project --yes
-npm exec --package=ngautopilot -- ngautopilot verify --agent codex --scope project
+npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-angular -a codex
+npx skills list -a codex
 ```
 
-Revisa la simulación antes de aprobar. Para reproducibilidad, fija una versión exacta publicada en npm. Con Codex, comprueba `.agents/skills/` y el archivo raíz `AGENTS.md`.
+El paquete contiene los procedimientos Angular reales como referencias Markdown locales. El agente debe abrir `references/index.md` y escoger únicamente las guías compatibles con la versión detectada. No hace falta instalar globalmente ni ejecutar otra CLI.
 
 ## 3. Abre el agente y prueba esta tarea
 

@@ -9,29 +9,26 @@
 
 **Outcome:** install one relevant pack and confirm that your agent can find its guidance. Start in an existing project; NgAutoPilot does not create an Angular application.
 
-## 1. Check your tools
+## 1. Install the simplest way
 
-This checkout requires Node.js >= 24.0.0 and < 25. Run `node --version`, then:
-
-```bash
-npm exec --package=ngautopilot -- ngautopilot help
-npm exec --package=ngautopilot -- ngautopilot adapters
-npm exec --package=ngautopilot -- ngautopilot packs
-```
-
-These commands inspect a published version. For this branch, use `node bin/ngautopilot.mjs help` from the NgAutoPilot repository. Pin an exact released package version in automation.
-
-## 2. Inspect, then approve
-
-Run from the receiving project's root:
+From your receiving project (Node.js 22.20+):
 
 ```bash
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-foundations --scope project --dry-run
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-foundations --scope project --yes
-npm exec --package=ngautopilot -- ngautopilot verify --agent codex --scope project
+npx skills add janpereira-dev/ngAutoPilot
 ```
 
-Review the first command before running the second. `--yes` approves writes; without it an operation needing approval does not write. `verify` checks files, not host discovery.
+Choose the bundle for your Angular era or task. To preview choices first, use `npx skills add janpereira-dev/ngAutoPilot --list`. For a deterministic selection:
+
+```bash
+npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-angular -a codex
+npx skills list -a codex
+```
+
+The installed gateway includes **complete local procedures** under `references/skills/`, not just a pointer to another installer. Do not load every procedure; select the one that matches your project's version.
+
+## 2. Confirm installation, then run a task
+
+Check that `npx skills list` shows the chosen bundle. Ask the agent to open its `references/index.md` and read the specific local `procedure.md`. Files installed on disk do not prove the host activated the skill; verify by asking the agent which procedure it selected.
 
 ## 3. Ask a bounded question
 
@@ -51,4 +48,4 @@ The intended route is intake → stack detection → skill selection → compati
 | Command details or migration gates | [CLI reference](cli-reference.md) |
 | Something did not work | [Troubleshooting](troubleshooting.md) |
 
-`init` is deprecated. Prefer explicit `install` or `export`. Migration setup prepares a plan, not source transformations; a run can stop at `awaiting-executor` and cannot bypass a blocked gate.
+The native `ngautopilot init` command is deprecated; the recommended skill install is `npx skills add`. Advanced CLI operations use explicit `install` or `export`. Migration setup prepares a plan, not source transformations; a run can stop at `awaiting-executor` and cannot bypass a blocked gate.

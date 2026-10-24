@@ -13,17 +13,16 @@
 
 Check the project root and `package.json`. You need a supported Node version for the NgAutoPilot release you use. Do not create or replace the application's dependencies just to follow this guide.
 
-## 2. Install one focused pack
+## 2. Install one Angular bundle with `npx skills`
 
-For the routing exercise below, choose the UI pack. Core is included automatically; no separate Core install is needed.
+From the Angular project's root, run:
 
 ```bash
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-ui --scope project --dry-run
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-ui --scope project --yes
-npm exec --package=ngautopilot -- ngautopilot verify --agent codex --scope project
+npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-angular -a codex
+npx skills list -a codex
 ```
 
-Review the dry run before approval. For reproducibility, pin an exact published npm version. For Codex, check `.agents/skills/` and root `AGENTS.md`.
+This bundle includes the actual Angular procedures as local Markdown references. The agent should open its `references/index.md` and choose only version-compatible guidance. No global package install or second CLI is needed.
 
 ## 3. Open the agent and try this task
 

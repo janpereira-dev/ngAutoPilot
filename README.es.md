@@ -8,36 +8,27 @@ NgAutoPilot es una herramienta de línea de comandos (CLI) y un catálogo de peq
 
 ![Del catálogo a un pack útil, al proyecto y a la evidencia; tú diriges el proceso.](assets/ngautopilot-hero.es.svg)
 
-## 🧭 Primera ejecución
+## 🧭 Empieza aquí: un único comando
 
-![Cuatro controles: elegir IDs, previsualizar sin escribir, autorizar y verificar archivos; después comprobar el descubrimiento en el host.](assets/first-run.es.svg)
+Solo necesitas **Node.js 22.20+**, npm y un proyecto existente. No hace falta instalar NgAutoPilot globalmente para el flujo recomendado.
 
-Para este checkout necesitas **Node.js >= 24.0.0 y < 25**, npm, un agente compatible y un proyecto receptor. Comprueba los requisitos de la versión del paquete que instales.
-
-Ejecuta estos comandos **dentro del proyecto receptor**, no dentro de este catálogo:
+Ejecuta **dentro del proyecto que quieres mejorar**:
 
 ```bash
-npm exec --package=ngautopilot -- ngautopilot adapters
-npm exec --package=ngautopilot -- ngautopilot packs
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-foundations --scope project --dry-run
+npx skills add janpereira-dev/ngAutoPilot
 ```
 
-1. **Elige:** sustituye Codex y el pack de fundamentos por los identificadores que muestran los primeros comandos.
-2. **Inspecciona:** `--dry-run` muestra el plan sin escribir. Revisa rutas y conflictos.
-3. **Aprueba y verifica:** después de revisar el plan, ejecuta:
+Elige uno o varios de los 15 paquetes especializados. Cada paquete instala procedimientos canónicos completos como referencias Markdown locales, por lo que el agente puede utilizarlos sin instalar también la CLI de NgAutoPilot. Por ejemplo, para Angular:
 
 ```bash
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-foundations --scope project --yes
-npm exec --package=ngautopilot -- ngautopilot verify --agent codex --scope project
+npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-angular-20-22 -a codex
 ```
 
-Con Codex, las skills quedan en `.agents/skills/`, las instrucciones gestionadas en el archivo raíz `AGENTS.md` y el manifiesto `.ngautopilot-manifest.json` en la raíz de instalación seleccionada. La verificación comprueba archivos y sumas de comprobación; **no** demuestra que el agente haya descubierto las skills. Abre el agente en el proyecto receptor y pídele que identifique la skill aplicable antes de editar.
-
-> **Punto de control de versión:** `npm exec` utiliza un paquete publicado, no este checkout. Fija una versión publicada exacta y verificada para automatizaciones reproducibles. Comprueba los comandos propios de una rama con `node bin/ngautopilot.mjs help` dentro de este repositorio; no supongas que código sin integrar ya está en npm.
+Para ver las opciones sin instalar, usa `npx skills add janpereira-dev/ngAutoPilot --list`. Para comprobar lo instalado, ejecuta `npx skills list`. Revisa el agente y el ámbito antes de confirmar; instalar instrucciones no modifica ni migra automáticamente tu aplicación.
 
 **Siguiente paso:** [primera tarea Angular](docs/first-angular-project.es.md) · [instalación](docs/installation.es.md) · [solución de problemas](docs/troubleshooting.es.md).
 
-## 📦 Instalar con `npx skills`
+## 📦 Las 15 opciones de instalación
 
 Para el descubrimiento general, NgAutoPilot expone **15 gateway skills curadas** en lugar de colocar las 413 micro-skills canónicas en el selector interactivo:
 
@@ -69,7 +60,7 @@ npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-full
 | `ngautopilot-angular-20-22` | Zoneless, resources, Signal Forms, SSR y AI/MCP |
 | `ngautopilot-full` | Gateway explícito para routing de todo el catálogo |
 
-Estos gateways son superficies de routing deliberadamente pequeñas. Los **413 cuerpos canónicos siguen siendo la fuente de verdad** y se instalan con la CLI de NgAutoPilot cuando hace falta el procedimiento completo. Así se evitan los dos extremos: un selector con unas 400 opciones y una única skill raíz que oculte todas las alternativas útiles.
+Los gateways reducen el selector **e incluyen los procedimientos canónicos completos como archivos locales**. La CLI propia es opcional para operaciones avanzadas (planes exactos, copias, actualizaciones gestionadas o MCP independiente).
 
 ## 🎒 Elige el pack para la tarea de hoy
 
@@ -152,7 +143,7 @@ En este checkout, `doctor` muestra **36 packs y 10 adaptadores**. Ejecuta `docto
 | Ruta | Qué hace | Qué no demuestra |
 | --- | --- | --- |
 | CLI de NgAutoPilot | Packs específicos o perfiles Angular compatibles | Descubrimiento o ejecución en el cliente |
-| `npx skills add janpereira-dev/ngAutoPilot` | 15 gateways curados por capacidad y era de versión | Los procedimientos canónicos completos siguen usando el instalador nativo de packs |
+| `npx skills add janpereira-dev/ngAutoPilot` | 15 paquetes con procedimientos canónicos locales | No modifica código ni registra MCP automáticamente |
 | Manifiestos Claude/Codex | Descripciones de bundles nativos | Publicación, aprobación o compatibilidad universal |
 | Agent Plugins Preview | Skills portables y MCP stdio separado de solo lectura | Instalación completa en todos los clientes |
 | Metadatos Pi | La misma superficie curada de gateways desde el paquete npm | Comportamiento verificado del cliente en ejecución |

@@ -9,7 +9,7 @@
 
 Packs are agent-neutral, declarative installation batches. They select source skills, role definitions, prompts, and guardrails. Adapters then place that selected batch in the layout for Claude Code, Codex, Copilot, Cursor, Gemini, Hermes, OpenClaw, OpenCode, Pi, or generic Markdown consumers.
 
-`skills.sh.json` groups the curated public gateway surface for skills.sh. Marketplace plugins distribute source skills. The 15 public gateways are discovery/routing entrypoints; full canonical procedures still use pack selection through `ngautopilot install`.
+`skills.sh.json` groups the curated public gateway surface for skills.sh. Marketplace plugins distribute source skills. The 15 public gateways each include full canonical procedures as local Markdown references. The native CLI remains optional for advanced managed operations.
 
 ## Public `npx skills` gateways
 
@@ -22,14 +22,14 @@ Packs are agent-neutral, declarative installation batches. They select source sk
 
 The era gateways group bounded hop packs for discovery; they do not change the rule that an actual upgrade executes **one major hop at a time**. Angular 3 never existed, so the legacy era starts with 2→4→5.
 
-The source tree remains under `skills/`. `skills/SKILL.md` is an internal discovery boundary and `.agents/skills/` contains the generated public gateways. Regenerate and validate them with:
+The source tree remains under `skills/`. `skills/SKILL.md` and the seven family markers are internal discovery boundaries and `.agents/skills/` contains the generated public gateways. Regenerate and validate them with:
 
 ```bash
 npm run npx-skills:sync
 npm run npx-skills:validate
 ```
 
-## Start Here
+## Advanced: native pack installation
 
 ```bash
 npm exec --package=ngautopilot -- ngautopilot adapters

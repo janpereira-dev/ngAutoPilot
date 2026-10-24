@@ -9,6 +9,12 @@ The npm package is the cross-agent distribution. It contains the CLI, catalog, p
 
 Unversioned examples use the package available in the registry. Features described here belong to this documented checkout; verify the exact published version before assuming availability.
 
+## Recommended for developers: `npx skills`
+
+To install NgAutoPilot guidance in an agent-enabled project, use `npx skills add janpereira-dev/ngAutoPilot`. It presents 15 self-contained choices and requires only Node.js 22.20+ and npm. For example, `--skill ngautopilot-angular-upgrades -a codex` installs the full upgrade procedures locally.
+
+The npm `ngautopilot` binary below is **optional advanced tooling**, not a prerequisite for those installed skills. It provides managed installs, verification, plans and MCP-related operations, and follows the separate Node.js engine range declared by its package.
+
 ## One-off and global use
 
 ```bash
