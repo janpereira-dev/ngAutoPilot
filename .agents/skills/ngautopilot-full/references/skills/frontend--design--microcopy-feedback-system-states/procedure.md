@@ -53,4 +53,4 @@ Help users understand action, consequence, current state, and recovery without g
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)

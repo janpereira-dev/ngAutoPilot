@@ -53,4 +53,4 @@ Use native disclosure when it meets product needs, then enhance without destroyi
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)

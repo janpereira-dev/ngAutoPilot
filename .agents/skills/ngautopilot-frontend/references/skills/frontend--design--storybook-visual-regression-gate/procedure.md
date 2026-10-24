@@ -52,4 +52,4 @@ Make reusable component quality reviewable and prevent accidental visual drift w
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)

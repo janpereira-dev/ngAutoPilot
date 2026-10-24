@@ -52,4 +52,4 @@ Make responsive behavior a reusable component contract rather than a late page-l
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)

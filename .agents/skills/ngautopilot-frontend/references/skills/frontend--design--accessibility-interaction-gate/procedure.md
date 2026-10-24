@@ -52,4 +52,4 @@ Provide a blocking interactive accessibility review using manual task evidence a
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)

@@ -52,4 +52,4 @@ Treat typography as an information system so users can scan, understand, and act
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)

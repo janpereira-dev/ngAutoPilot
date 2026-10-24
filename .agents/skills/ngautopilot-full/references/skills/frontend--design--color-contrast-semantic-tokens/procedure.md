@@ -54,4 +54,4 @@ Use color for role, hierarchy, state, and brand without making it the sole carri
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)

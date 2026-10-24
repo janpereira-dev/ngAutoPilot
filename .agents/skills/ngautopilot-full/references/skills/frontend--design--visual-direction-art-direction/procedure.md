@@ -52,4 +52,4 @@ Create implementable visual direction that remains coherent for forms, tables, e
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)
