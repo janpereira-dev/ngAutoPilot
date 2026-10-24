@@ -68,6 +68,18 @@ jobs:
       - name: Check generated drift
         run: git diff --exit-code -- catalog.json plugins agent-plugins .agents/plugins/marketplace.json .claude-plugin/marketplace.json
 
+      - name: Verify npx skills discovery and real installation
+        env:
+          DISABLE_TELEMETRY: '1'
+        run: |
+          npm run npx-skills:validate
+          npm exec --yes --package=skills@1.7.4 -- skills add . --list > "$RUNNER_TEMP/ngautopilot-npx-list.txt"
+          node scripts/verify-npx-discovery.mjs "$RUNNER_TEMP/ngautopilot-npx-list.txt"
+          mkdir -p "$RUNNER_TEMP/npx-install-receiver"
+          cd "$RUNNER_TEMP/npx-install-receiver"
+          npm exec --yes --package=skills@1.7.4 -- skills add "$GITHUB_WORKSPACE" --skill ngautopilot-angular-13-15 -a codex --copy -y
+          test -f ".agents/skills/ngautopilot-angular-13-15/references/skills/angular--upgrade--hops--angular-14-to-15/procedure.md"
+
       - name: Validate Agent Plugins
         run: npm run agent-plugins:validate && npm run agent-plugins:smoke
 
