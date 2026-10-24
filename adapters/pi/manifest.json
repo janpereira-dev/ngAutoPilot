@@ -1,8 +1,10 @@
 {
   "id": "pi",
   "name": "Pi",
-  "status": "unverified",
-  "scope": ["project"],
+  "status": "export-only",
+  "scope": [
+    "project"
+  ],
   "paths": {
     "project": ".pi",
     "user": ".pi"
@@ -13,5 +15,5 @@
     "agents": "markdown-directory"
   },
   "requirements": [],
-  "notes": "Status unverified until the official Pi agent documents skill loading."
+  "notes": "Native export uses .agents/skills and AGENTS.md, verified against official Pi skill discovery documentation. npm package loading uses package.json#pi. Legacy install remains separate; live host invocation is not verified."
 }
