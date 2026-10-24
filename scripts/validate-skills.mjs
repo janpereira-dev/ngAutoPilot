@@ -105,6 +105,8 @@ function findSkillFiles(root) {
     }
 
     if (entry.isFile() && entry.name === 'SKILL.md') {
+      const relative = path.relative(skillsRoot, fullPath).split(path.sep).join('/');
+      if (relative === 'SKILL.md' || /^[^/]+\/SKILL\.md$/.test(relative)) continue;
       files.push(fullPath);
     }
   }

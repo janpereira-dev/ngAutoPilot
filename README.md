@@ -8,34 +8,61 @@ NgAutoPilot is a CLI and a catalog of small engineering guides (*skills*). It he
 
 ![From the catalog to a useful pack, to your project and evidence; you lead the process.](assets/ngautopilot-hero.svg)
 
-## 🧭 Your first run
+## 🧭 Start here: one command
 
 ![Four checkpoints: choose IDs, preview without writes, approve, verify files; then check host discovery.](assets/first-run.svg)
 
-You need **Node.js >= 24.0.0 and < 25** for this checkout, npm, a supported agent, and a receiving project. Check the requirements of the package version you install.
+You only need **Node.js 22.20+**, npm and an existing project. No global NgAutoPilot installation is required for the recommended workflow.
 
-Run these commands **inside the receiving project**, not inside this catalog:
-
-```bash
-npm exec --package=ngautopilot -- ngautopilot adapters
-npm exec --package=ngautopilot -- ngautopilot packs
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-foundations --scope project --dry-run
-```
-
-1. **Choose:** replace Codex and the foundations pack with IDs printed by the first two commands.
-2. **Inspect:** `--dry-run` shows the plan without writing. Review paths and file conflicts.
-3. **Approve and verify:** after reviewing the plan, run:
+Run **inside the project you want to improve**:
 
 ```bash
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-foundations --scope project --yes
-npm exec --package=ngautopilot -- ngautopilot verify --agent codex --scope project
+npx skills add janpereira-dev/ngAutoPilot
 ```
 
-For Codex, expect skills in `.agents/skills/`, managed instructions in the root `AGENTS.md`, and a `.ngautopilot-manifest.json` in the selected install root. Verification checks managed files and checksums; it does **not** prove agent discovery. Open your agent in the receiving project and ask it to identify the applicable installed skill before editing.
+Choose one or more of the 15 focused bundles. Each choice installs full canonical procedures as local Markdown references, so your agent can read them without installing the NgAutoPilot CLI. For a direct Angular example:
 
-> **Version checkpoint:** `npm exec` uses a published package, not this checkout. Pin an exact verified release for reproducible automation. Branch-specific commands must be checked with `node bin/ngautopilot.mjs help` in this repository; do not assume unmerged code is on npm.
+```bash
+npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-angular-20-22 -a codex
+```
+
+To inspect before installing, run `npx skills add janpereira-dev/ngAutoPilot --list`. To check installed entries, use `npx skills list`. Review the selected agent and installation scope before confirming; installing instructions does not edit or automatically migrate your app.
 
 **Next:** [first Angular task](docs/first-angular-project.md) · [installation](docs/installation.md) · [troubleshooting](docs/troubleshooting.md).
+
+## 📦 The 15 install choices
+
+For broad discovery, NgAutoPilot exposes **15 curated gateway skills** instead of placing all 413 canonical micro-skills in the interactive selector:
+
+```bash
+# Interactive: choose one or more curated gateways
+npx skills add janpereira-dev/ngAutoPilot
+
+# Direct examples
+npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-angular-20-22
+npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-angular-upgrades
+npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-full
+```
+
+| Gateway | Scope |
+| --- | --- |
+| `ngautopilot-core` | Intake, stack detection, routing, compatibility, risk |
+| `ngautopilot-angular` | Complete Angular capability gateway |
+| `ngautopilot-angular-upgrades` | All bounded Angular upgrade routes |
+| `ngautopilot-angular-microfrontends` | Hosts, remotes, federation, contracts, rollback |
+| `ngautopilot-frontend` | UX, accessibility, responsive UI, design systems |
+| `ngautopilot-performance` | Angular/frontend performance and optimization |
+| `ngautopilot-quality` | Quality plus TypeScript/JavaScript/CSS safety routes |
+| `ngautopilot-angular-2-5` | Angular 2→4→5 legacy era; Angular 3 was never released |
+| `ngautopilot-angular-6-8` | Workspace, RxJS 6, HttpClient, pre-Ivy era |
+| `ngautopilot-angular-9-12` | Ivy, localize, testing, build and browser-policy era |
+| `ngautopilot-angular-13-15` | Ivy-only, typed forms, standalone start, Material MDC |
+| `ngautopilot-angular-16-17` | Signals, standalone, hydration, control flow, defer |
+| `ngautopilot-angular-18-19` | Runtime/testing changes and standalone-by-default |
+| `ngautopilot-angular-20-22` | Zoneless, resources, Signal Forms, SSR, AI/MCP |
+| `ngautopilot-full` | Explicit all-in routing gateway |
+
+The gateways keep discovery small **and include the canonical procedure bodies locally**. Use the native CLI only for advanced operations (exact hop plans, backups, managed updates or the separate MCP). This avoids a 400-item picker without losing useful technical detail.
 
 ## 🎒 Pick the pack for today's job
 
@@ -109,7 +136,7 @@ This checkout's `doctor` reports **36 packs and 10 adapters**. Run `doctor`, `pa
 | `skills/frontend/`, `skills/css/` | Accessibility, UX, design, layout, performance |
 | `skills/typescript/`, `skills/javascript/`, `skills/quality/` | Cross-cutting language and quality procedures |
 
-`skills/` is canonical. `catalog.json`, `plugins/`, and `agent-plugins/` are generated distributions; do not hand-edit their copies. [Architecture](docs/ecosystem-architecture.md).
+`skills/` remains canonical. `skills/SKILL.md` is an internal discovery boundary, while `.agents/skills/` is the generated 15-gateway public surface for broad discovery. `catalog.json`, `plugins/`, and `agent-plugins/` are generated distributions; do not hand-edit their copies. [Architecture](docs/ecosystem-architecture.md).
 
 ## 🛤️ Choose the right distribution
 
@@ -118,10 +145,10 @@ This checkout's `doctor` reports **36 packs and 10 adapters**. Run `doctor`, `pa
 | Route | What it does | What it does not prove |
 | --- | --- | --- |
 | NgAutoPilot CLI | Focused packs or supported Angular profiles | Host discovery or invocation |
-| `npx skills add janpereira-dev/ngAutoPilot` | Third-party individual-skill discovery | Pack selection; `skills.sh.json` affects only the page |
+| `npx skills add janpereira-dev/ngAutoPilot` | 15 curated bundles with local canonical procedures | No automatic source edits or MCP registration |
 | Claude/Codex marketplace manifests | Native bundle descriptions | Publication, approval, universal compatibility |
 | Agent Plugins Preview | Portable skills plus separate read-only stdio MCP | End-to-end installation in every host |
-| Pi metadata | Package discovery | Verified runtime behavior |
+| Pi metadata | The same curated gateway surface from the npm package | Verified host runtime behavior |
 
 Adapter IDs: `claude`, `codex`, `copilot`, `cursor`, `gemini`, `generic`, `hermes`, `openclaw`, `opencode`, `pi`. Native, adapter, experimental, and unverified are different statuses. [Installation matrix](docs/agent-installation-matrix.md).
 
@@ -156,6 +183,8 @@ npm run skills:validate
 npm run skills:catalog
 npm run plugins:sync
 npm run agent-plugins:sync
+npm run npx-skills:sync
+npm run npx-skills:validate
 npm run consistency:validate
 ```
 

@@ -9,6 +9,12 @@
 
 Start with the exact command, installed version, agent, scope, and error output. Do not hide a conflict by adding `--force`.
 
+## Quick fix: too many skills in the picker
+
+Use `npx skills add janpereira-dev/ngAutoPilot --list` to see the public discovery surface: **15 bundled skills**, not hundreds of atomic procedures. If you still see around 400, check that you are using the updated repository commit after the PR is merged, clear any stale Git clone or CLI cache, and try again. Do not interpret the skills.sh web grouping as a CLI installer configuration.
+
+For the simplest install, run `npx skills add janpereira-dev/ngAutoPilot`. For one target, add `--skill ngautopilot-angular-upgrades -a codex`. If you need native backup/restore or MCP installation, use the separate advanced CLI instructions below.
+
 ## Quick diagnosis
 
 | Symptom | Check first | Safe next action |

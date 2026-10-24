@@ -9,6 +9,20 @@
 
 **Resultado:** colocar una selección específica de guías en las ubicaciones adecuadas para tu agente, sin confundir instalación con ejecución automática.
 
+## Recomendado: instala con `npx skills`
+
+Desde el proyecto receptor, con Node.js 22.20+:
+
+```bash
+npx skills add janpereira-dev/ngAutoPilot
+```
+
+El selector ofrece 15 paquetes comprensibles. Por ejemplo, `--skill ngautopilot-angular-upgrades -a codex` instala las guías de upgrade como archivos locales; ejecuta solo el salto compatible con la versión real del proyecto. Puedes ver todas las opciones con `npx skills add janpereira-dev/ngAutoPilot --list` y verificar lo instalado mediante `npx skills list`.
+
+**Esta es la vía principal.** La CLI nativa de más abajo es opcional para packs gestionados, backup/rollback o flujos MCP y requiere la versión de Node correspondiente al paquete `ngautopilot` publicado.
+
+## Avanzado: instalación mediante CLI nativa
+
 ## Antes de empezar
 
 - Este checkout requiere Node.js >= 24.0.0 y < 25.

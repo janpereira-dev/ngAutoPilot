@@ -25,7 +25,6 @@
     ".agents",
     ".claude-plugin",
     "catalog.json",
-    "SKILL.md",
     "README.md",
     "README.es.md",
     "LICENSE",
@@ -88,7 +87,7 @@
     "skill-lab:prepare-promotion": "node skill-lab/scripts/generate-promotion-packet.mjs",
     "skill-lab:ci": "npm run skill-lab:validate && npm run skill-lab:test",
     "test": "node --test --test-concurrency=1 tests/*.test.mjs tests/**/*.test.mjs",
-    "release:validate": "npm audit --audit-level=high && npm run docs:validate && npm run docs:graphics:check && npm run skills:validate:frontmatter && npm run skills:validate && npm run security:scan && npm run distribution:validate && npm run skills:catalog && npm run plugins:sync && npm run agent-plugins:sync && git diff --exit-code -- agent-plugins && npm run agent-plugins:validate && npm run agent-plugins:smoke && npm run marketplaces:validate && npm run consistency:validate && npm run release:check-version && npm run openai:validate && npm run test:scripts && npm test",
+    "release:validate": "npm audit --audit-level=high && npm run docs:validate && npm run docs:graphics:check && npm run skills:validate:frontmatter && npm run skills:validate && npm run security:scan && npm run distribution:validate && npm run npx-skills:sync && git diff --exit-code -- .agents/skills && npm run npx-skills:validate && npm run skills:catalog && npm run plugins:sync && npm run agent-plugins:sync && git diff --exit-code -- agent-plugins && npm run agent-plugins:validate && npm run agent-plugins:smoke && npm run marketplaces:validate && npm run consistency:validate && npm run release:check-version && npm run openai:validate && npm run test:scripts && npm test",
     "cli": "node bin/ngautopilot.mjs",
     "pack:dry": "npm pack --dry-run",
     "openai:validate": "node scripts/validate-openai-package.mjs",
@@ -97,7 +96,9 @@
     "docs:graphics": "node scripts/documentation-graphics.mjs",
     "docs:graphics:check": "node scripts/documentation-graphics.mjs --check",
     "release:inventory": "node scripts/release-inventory.mjs",
-    "release:publish:npm": "node scripts/publish-release-npm.mjs"
+    "release:publish:npm": "node scripts/publish-release-npm.mjs",
+    "npx-skills:sync": "node scripts/sync-npx-skills.mjs",
+    "npx-skills:validate": "node scripts/validate-npx-skills.mjs"
   },
   "keywords": [
     "pi-package",
@@ -127,7 +128,7 @@
   ],
   "pi": {
     "skills": [
-      "./skills"
+      "./.agents/skills"
     ],
     "prompts": [
       "./agents/ngautopilot/prompts"

@@ -54,7 +54,7 @@ function withoutFencedCode(body) {
 
 export function auditSkillContent({ root = process.cwd() } = {}) {
   const sourceRoot = path.join(root, 'skills');
-  const files = findSkills(sourceRoot);
+  const files = findSkills(sourceRoot, path.join(sourceRoot, 'SKILL.md'));
   if (files.length === 0) throw new Error(`${sourceRoot}: no skills found`);
   const skills = files.map((file) => ({
     path: path.relative(root, file).split(path.sep).join('/'),
@@ -72,12 +72,13 @@ export function auditSkillContent({ root = process.cwd() } = {}) {
   };
 }
 
-function findSkills(directory) {
+function findSkills(directory, boundary) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
     const target = path.join(directory, entry.name);
     if (entry.isSymbolicLink()) throw new Error(`source symlink is not supported: ${target}`);
-    if (entry.isDirectory()) return findSkills(target);
-    return entry.isFile() && entry.name === 'SKILL.md' ? [target] : [];
+    if (entry.isDirectory()) return findSkills(target, boundary);
+    const relative = path.relative(path.dirname(boundary), target).split(path.sep).join('/');
+    return entry.isFile() && entry.name === 'SKILL.md' && !/^\s+internal:\s*true\s*$/m.test(fs.readFileSync(target, 'utf8')) ? [target] : [];
   }).sort();
 }
 

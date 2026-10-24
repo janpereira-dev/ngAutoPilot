@@ -9,6 +9,12 @@
 
 Empieza por el comando exacto, la versión instalada, el agente, el ámbito y el error. No ocultes un conflicto añadiendo `--force`.
 
+## Solución rápida: aparecen cientos de skills
+
+Consulta `npx skills add janpereira-dev/ngAutoPilot --list`: el catálogo público debe mostrar **15 paquetes**, no cientos de procedimientos atómicos. Si sigues viendo unos 400, comprueba que la PR ya está integrada en la rama consultada, descarta una copia Git o caché antigua e inténtalo de nuevo. Agrupar la web skills.sh no reconfigura por sí solo el instalador.
+
+Para instalar fácilmente, ejecuta `npx skills add janpereira-dev/ngAutoPilot`. Para un área concreta, añade `--skill ngautopilot-angular-upgrades -a codex`. Las operaciones avanzadas de backup/restore o MCP siguen documentadas mediante la CLI propia.
+
 ## Diagnóstico rápido
 
 | Síntoma | Primera comprobación | Siguiente acción segura |

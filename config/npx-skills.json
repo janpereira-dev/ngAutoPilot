@@ -1,0 +1,230 @@
+{
+  "$schemaVersion": "1.0.0",
+  "bundles": [
+    {
+      "id": "ngautopilot-core",
+      "title": "NgAutoPilot Core",
+      "description": "Start here for repository intake, stack detection, routing, compatibility checks, risk assessment, and bounded validation.",
+      "packs": [
+        "ngautopilot-core"
+      ],
+      "nativePacks": [
+        "ngautopilot-core"
+      ]
+    },
+    {
+      "id": "ngautopilot-angular",
+      "title": "Angular Complete",
+      "description": "Gateway to the complete Angular catalog: architecture, components, forms, router, signals, RxJS, testing, SSR, security, performance, modernization, and upgrades.",
+      "packs": [
+        "ngautopilot-angular"
+      ],
+      "nativePacks": [
+        "ngautopilot-angular"
+      ]
+    },
+    {
+      "id": "ngautopilot-angular-upgrades",
+      "title": "Angular Upgrades",
+      "description": "All Angular major-by-major upgrade routes, compatibility gates, changelog risk review, and upgrade satellites from Angular 2 through Angular 22.",
+      "packs": [
+        "ngautopilot-angular-upgrades"
+      ],
+      "nativePacks": [
+        "ngautopilot-angular-upgrades"
+      ]
+    },
+    {
+      "id": "ngautopilot-angular-microfrontends",
+      "title": "Angular Microfrontends",
+      "description": "Angular microfrontend architecture, host and remote contracts, federation, dependency sharing, release governance, observability, and rollback safety.",
+      "packs": [
+        "ngautopilot-angular-microfrontends"
+      ],
+      "nativePacks": [
+        "ngautopilot-angular-microfrontends"
+      ]
+    },
+    {
+      "id": "ngautopilot-frontend",
+      "title": "Frontend Experience",
+      "description": "Framework-neutral frontend guidance for UX, accessibility, responsive design, design systems, visual validation, CSS, and web performance evidence.",
+      "packs": [
+        "ngautopilot-frontend"
+      ],
+      "nativePacks": [
+        "ngautopilot-frontend"
+      ]
+    },
+    {
+      "id": "ngautopilot-performance",
+      "title": "Performance and Optimization",
+      "description": "Measured Angular and frontend performance work covering Core Web Vitals, rendering, change detection, lists, lazy loading, images, RxJS, budgets, and zoneless readiness.",
+      "packs": [
+        "ngautopilot-core"
+      ],
+      "prefixes": [
+        "angular.performance.",
+        "frontend.performance."
+      ],
+      "nativePacks": [
+        "ngautopilot-angular-runtime",
+        "ngautopilot-frontend"
+      ]
+    },
+    {
+      "id": "ngautopilot-quality",
+      "title": "Engineering Quality",
+      "description": "Code-quality and language-safety guidance spanning ESLint, SonarQube, dead code, TypeScript strictness, JavaScript fundamentals, and CSS quality boundaries.",
+      "packs": [
+        "ngautopilot-quality",
+        "ngautopilot-typescript",
+        "ngautopilot-javascript",
+        "ngautopilot-css"
+      ],
+      "nativePacks": [
+        "ngautopilot-quality"
+      ]
+    },
+    {
+      "id": "ngautopilot-angular-2-5",
+      "title": "Angular 2-5",
+      "description": "Legacy Angular era gateway covering the real Angular 2 to 4 and 4 to 5 upgrade hops without inventing an Angular 3 release.",
+      "packs": [
+        "ngautopilot-angular-2-to-4",
+        "ngautopilot-angular-4-to-5"
+      ],
+      "nativePacks": [
+        "ngautopilot-angular-2-to-4",
+        "ngautopilot-angular-4-to-5"
+      ],
+      "angularRange": {
+        "min": 2,
+        "max": 5
+      }
+    },
+    {
+      "id": "ngautopilot-angular-6-8",
+      "title": "Angular 6-8",
+      "description": "Angular 6 to 8 era gateway covering CLI workspace migration, RxJS 6, HttpClient, compatibility gates, and the bounded hops into and through this era.",
+      "packs": [
+        "ngautopilot-angular-5-to-6",
+        "ngautopilot-angular-6-to-7",
+        "ngautopilot-angular-7-to-8"
+      ],
+      "nativePacks": [
+        "ngautopilot-angular-5-to-6",
+        "ngautopilot-angular-6-to-7",
+        "ngautopilot-angular-7-to-8"
+      ],
+      "angularRange": {
+        "min": 6,
+        "max": 8
+      }
+    },
+    {
+      "id": "ngautopilot-angular-9-12",
+      "title": "Angular 9-12",
+      "description": "Angular 9 to 12 era gateway for Ivy adoption, lazy-route modernization, localize, TestBed changes, IE11 governance, and bounded major hops.",
+      "packs": [
+        "ngautopilot-angular-8-to-9",
+        "ngautopilot-angular-9-to-10",
+        "ngautopilot-angular-10-to-11",
+        "ngautopilot-angular-11-to-12"
+      ],
+      "nativePacks": [
+        "ngautopilot-angular-8-to-9",
+        "ngautopilot-angular-9-to-10",
+        "ngautopilot-angular-10-to-11",
+        "ngautopilot-angular-11-to-12"
+      ],
+      "angularRange": {
+        "min": 9,
+        "max": 12
+      }
+    },
+    {
+      "id": "ngautopilot-angular-13-15",
+      "title": "Angular 13-15",
+      "description": "Angular 13 to 15 era gateway for Ivy-only libraries, typed forms, early standalone adoption, Material MDC, DI, router, and security changes.",
+      "packs": [
+        "ngautopilot-angular-12-to-13",
+        "ngautopilot-angular-13-to-14",
+        "ngautopilot-angular-14-to-15"
+      ],
+      "nativePacks": [
+        "ngautopilot-angular-12-to-13",
+        "ngautopilot-angular-13-to-14",
+        "ngautopilot-angular-14-to-15"
+      ],
+      "angularRange": {
+        "min": 13,
+        "max": 15
+      }
+    },
+    {
+      "id": "ngautopilot-angular-16-17",
+      "title": "Angular 16-17",
+      "description": "Angular 16 to 17 era gateway for ngcc removal, Signals, standalone-first architecture, hydration, control flow, defer, and zone changes.",
+      "packs": [
+        "ngautopilot-angular-15-to-16",
+        "ngautopilot-angular-16-to-17"
+      ],
+      "nativePacks": [
+        "ngautopilot-angular-15-to-16",
+        "ngautopilot-angular-16-to-17"
+      ],
+      "angularRange": {
+        "min": 16,
+        "max": 17
+      }
+    },
+    {
+      "id": "ngautopilot-angular-18-19",
+      "title": "Angular 18-19",
+      "description": "Angular 18 to 19 era gateway for testing stability, SSR and router changes, effects scheduling, and standalone-by-default compatibility.",
+      "packs": [
+        "ngautopilot-angular-17-to-18",
+        "ngautopilot-angular-18-to-19"
+      ],
+      "nativePacks": [
+        "ngautopilot-angular-17-to-18",
+        "ngautopilot-angular-18-to-19"
+      ],
+      "angularRange": {
+        "min": 18,
+        "max": 19
+      }
+    },
+    {
+      "id": "ngautopilot-angular-20-22",
+      "title": "Angular 20-22",
+      "description": "Modern Angular 20 to 22 gateway for zoneless APIs, resources, templates, DI, router, SSR, Signal Forms, MCP workflows, and bounded upgrade hops.",
+      "packs": [
+        "ngautopilot-angular-19-to-20",
+        "ngautopilot-angular-20-to-21",
+        "ngautopilot-angular-21-to-22"
+      ],
+      "nativePacks": [
+        "ngautopilot-angular-19-to-20",
+        "ngautopilot-angular-20-to-21",
+        "ngautopilot-angular-21-to-22"
+      ],
+      "angularRange": {
+        "min": 20,
+        "max": 22
+      }
+    },
+    {
+      "id": "ngautopilot-full",
+      "title": "NgAutoPilot Full",
+      "description": "Explicit all-in gateway to every canonical NgAutoPilot skill family. Use only when broad offline discovery is more important than a focused context window.",
+      "packs": [
+        "ngautopilot-full"
+      ],
+      "nativePacks": [
+        "ngautopilot-full"
+      ]
+    }
+  ]
+}

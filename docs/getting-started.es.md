@@ -9,29 +9,26 @@
 
 **Resultado:** instalar un pack relevante y comprobar que el agente encuentra sus guías. Empieza en un proyecto existente; NgAutoPilot no crea una aplicación Angular.
 
-## 1. Comprueba las herramientas
+## 1. Instala de la forma más sencilla
 
-Este checkout requiere Node.js >= 24.0.0 y < 25. Ejecuta `node --version` y después:
-
-```bash
-npm exec --package=ngautopilot -- ngautopilot help
-npm exec --package=ngautopilot -- ngautopilot adapters
-npm exec --package=ngautopilot -- ngautopilot packs
-```
-
-Estos comandos inspeccionan una versión publicada. Para esta rama, usa `node bin/ngautopilot.mjs help` desde el repositorio NgAutoPilot. En automatizaciones fija una versión publicada exacta.
-
-## 2. Inspecciona y después aprueba
-
-Ejecuta desde la raíz del proyecto receptor:
+Desde el proyecto receptor (Node.js 22.20+):
 
 ```bash
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-foundations --scope project --dry-run
-npm exec --package=ngautopilot -- ngautopilot install --agent codex --pack ngautopilot-angular-foundations --scope project --yes
-npm exec --package=ngautopilot -- ngautopilot verify --agent codex --scope project
+npx skills add janpereira-dev/ngAutoPilot
 ```
 
-Revisa el primer comando antes de ejecutar el segundo. `--yes` aprueba la escritura; sin él, una operación que requiere aprobación no escribe. `verify` comprueba archivos, no el descubrimiento en el cliente.
+Elige el paquete correspondiente a tu era Angular o tarea. Consulta las opciones con `npx skills add janpereira-dev/ngAutoPilot --list`. Para instalar uno concreto:
+
+```bash
+npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-angular -a codex
+npx skills list -a codex
+```
+
+El paquete incluye **procedimientos locales completos** en `references/skills/`, no una invitación a instalar otra herramienta. El agente debe abrir únicamente la guía compatible con el proyecto.
+
+## 2. Comprueba la instalación y ejecuta una tarea
+
+Verifica que `npx skills list` muestra el paquete elegido. Pide al agente que abra `references/index.md` y lea la `procedure.md` pertinente. Encontrar los archivos no demuestra por sí solo que el agente los active; pídele que indique qué procedimiento ha seleccionado.
 
 ## 3. Pide una tarea acotada
 
@@ -51,4 +48,4 @@ La ruta esperada es recepción → detección → selección de skill → compat
 | Comandos o controles de migración | [Referencia CLI](cli-reference.es.md) |
 | Algo no funcionó | [Solución de problemas](troubleshooting.es.md) |
 
-`init` está obsoleto. Utiliza `install` o `export` explícitos. La preparación de migraciones crea un plan, no transforma código; una ejecución puede detenerse en `awaiting-executor` y no permite omitir un bloqueo.
+El `init` de la CLI nativa está obsoleto; para instalar skills se recomienda `npx skills add`. Utiliza `install` o `export` explícitos. La preparación de migraciones crea un plan, no transforma código; una ejecución puede detenerse en `awaiting-executor` y no permite omitir un bloqueo.

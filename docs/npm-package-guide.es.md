@@ -9,6 +9,12 @@ El paquete npm es la distribución entre agentes. Incluye CLI, catálogo, packs,
 
 Los ejemplos sin versión utilizan el paquete disponible en el registro. Las funciones descritas corresponden al checkout documentado; no supongas que están publicadas sin verificar la versión exacta.
 
+## Recomendado: `npx skills`
+
+Para instalar las guías de NgAutoPilot en un proyecto con agentes, ejecuta `npx skills add janpereira-dev/ngAutoPilot`. Muestra 15 paquetes autocontenidos y solo necesita Node.js 22.20+ y npm. Por ejemplo, `--skill ngautopilot-angular-upgrades -a codex` instala localmente los procedimientos completos de actualización.
+
+El ejecutable npm `ngautopilot` de abajo es **una herramienta avanzada opcional**, no un requisito para las skills instaladas. Gestiona packs, verificaciones, planes y operaciones MCP, con su propio rango de Node.js declarado.
+
 ## Uso puntual y global
 
 ```bash

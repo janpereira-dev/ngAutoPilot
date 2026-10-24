@@ -3,20 +3,42 @@
   "notGrouped": "bottom",
   "groupings": [
     {
-      "title": "Angular",
-      "description": "Upgrades, architecture, runtime, forms, SSR, testing, and security.",
+      "title": "Start here",
+      "description": "Core routing and the explicit all-in bundle.",
       "skills": [
-        "angular-versioning-index",
-        "angular-upgrade-orchestrator",
-        "angular-21-to-22-upgrade-orchestrator"
+        "ngautopilot-core",
+        "ngautopilot-full"
       ]
     },
     {
-      "title": "Frontend Design",
-      "description": "Product UX, accessibility, responsive design, and UI quality.",
+      "title": "Angular by version era",
+      "description": "Curated Angular major-era gateways from Angular 2 through Angular 22. Angular 3 was never released.",
       "skills": [
-        "design-quality-orchestrator",
-        "accessibility-interaction-gate"
+        "ngautopilot-angular-2-5",
+        "ngautopilot-angular-6-8",
+        "ngautopilot-angular-9-12",
+        "ngautopilot-angular-13-15",
+        "ngautopilot-angular-16-17",
+        "ngautopilot-angular-18-19",
+        "ngautopilot-angular-20-22"
+      ]
+    },
+    {
+      "title": "Angular capabilities",
+      "description": "Full Angular, all upgrade routes, and microfrontend architecture.",
+      "skills": [
+        "ngautopilot-angular",
+        "ngautopilot-angular-upgrades",
+        "ngautopilot-angular-microfrontends"
+      ]
+    },
+    {
+      "title": "Frontend engineering",
+      "description": "Frontend UX/accessibility, measured performance, and engineering quality.",
+      "skills": [
+        "ngautopilot-frontend",
+        "ngautopilot-performance",
+        "ngautopilot-quality"
       ]
     }
   ]
