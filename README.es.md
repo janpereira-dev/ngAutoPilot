@@ -37,6 +37,40 @@ Con Codex, las skills quedan en `.agents/skills/`, las instrucciones gestionadas
 
 **Siguiente paso:** [primera tarea Angular](docs/first-angular-project.es.md) · [instalación](docs/installation.es.md) · [solución de problemas](docs/troubleshooting.es.md).
 
+## 📦 Instalar con `npx skills`
+
+Para el descubrimiento general, NgAutoPilot expone **15 gateway skills curadas** en lugar de colocar las 413 micro-skills canónicas en el selector interactivo:
+
+```bash
+# Interactivo: elige uno o varios gateways
+npx skills add janpereira-dev/ngAutoPilot
+
+# Ejemplos directos
+npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-angular-20-22
+npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-angular-upgrades
+npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-full
+```
+
+| Gateway | Alcance |
+| --- | --- |
+| `ngautopilot-core` | Intake, detección de stack, routing, compatibilidad y riesgo |
+| `ngautopilot-angular` | Gateway completo de capacidades Angular |
+| `ngautopilot-angular-upgrades` | Todas las rutas acotadas de upgrade Angular |
+| `ngautopilot-angular-microfrontends` | Hosts, remotes, federation, contratos y rollback |
+| `ngautopilot-frontend` | UX, accesibilidad, responsive UI y design systems |
+| `ngautopilot-performance` | Rendimiento y optimización Angular/frontend |
+| `ngautopilot-quality` | Calidad más rutas seguras de TypeScript/JavaScript/CSS |
+| `ngautopilot-angular-2-5` | Era Angular 2→4→5; Angular 3 nunca fue publicado |
+| `ngautopilot-angular-6-8` | Workspace, RxJS 6, HttpClient y era pre-Ivy |
+| `ngautopilot-angular-9-12` | Ivy, localize, testing, build y política de navegadores |
+| `ngautopilot-angular-13-15` | Ivy-only, typed forms, inicio standalone y Material MDC |
+| `ngautopilot-angular-16-17` | Signals, standalone, hydration, control flow y defer |
+| `ngautopilot-angular-18-19` | Cambios runtime/testing y standalone por defecto |
+| `ngautopilot-angular-20-22` | Zoneless, resources, Signal Forms, SSR y AI/MCP |
+| `ngautopilot-full` | Gateway explícito para routing de todo el catálogo |
+
+Estos gateways son superficies de routing deliberadamente pequeñas. Los **413 cuerpos canónicos siguen siendo la fuente de verdad** y se instalan con la CLI de NgAutoPilot cuando hace falta el procedimiento completo. Así se evitan los dos extremos: un selector con unas 400 opciones y una única skill raíz que oculte todas las alternativas útiles.
+
 ## 🎒 Elige el pack para la tarea de hoy
 
 ![Mapa de tareas: Core, fundamentos, estado, interfaz, ejecución, pruebas, frontend y un único salto de Angular.](assets/pack-map.es.svg)
@@ -118,10 +152,10 @@ En este checkout, `doctor` muestra **36 packs y 10 adaptadores**. Ejecuta `docto
 | Ruta | Qué hace | Qué no demuestra |
 | --- | --- | --- |
 | CLI de NgAutoPilot | Packs específicos o perfiles Angular compatibles | Descubrimiento o ejecución en el cliente |
-| `npx skills add janpereira-dev/ngAutoPilot` | Descubrimiento externo de skills individuales | Selección de packs; `skills.sh.json` solo afecta a la página |
+| `npx skills add janpereira-dev/ngAutoPilot` | 15 gateways curados por capacidad y era de versión | Los procedimientos canónicos completos siguen usando el instalador nativo de packs |
 | Manifiestos Claude/Codex | Descripciones de bundles nativos | Publicación, aprobación o compatibilidad universal |
 | Agent Plugins Preview | Skills portables y MCP stdio separado de solo lectura | Instalación completa en todos los clientes |
-| Metadatos Pi | Descubrimiento del paquete | Comportamiento verificado durante la ejecución |
+| Metadatos Pi | La misma superficie curada de gateways desde el paquete npm | Comportamiento verificado del cliente en ejecución |
 
 Identificadores: `claude`, `codex`, `copilot`, `cursor`, `gemini`, `generic`, `hermes`, `openclaw`, `opencode`, `pi`. Nativo, adaptado, experimental y no verificado son estados distintos. [Matriz de instalación](docs/agent-installation-matrix.es.md).
 
@@ -156,6 +190,8 @@ npm run skills:validate
 npm run skills:catalog
 npm run plugins:sync
 npm run agent-plugins:sync
+npm run npx-skills:sync
+npm run npx-skills:validate
 npm run consistency:validate
 ```
 
