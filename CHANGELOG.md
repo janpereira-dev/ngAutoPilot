@@ -16,6 +16,7 @@ All notable changes to NgAutoPilot will be documented in this file.
 - Complete English/Spanish reader documentation with accessible explanatory SVG pairs and strict coverage/link validation.
 - Angular-aware filtered install profiles; bounded work plans, migration setup/checkpoint/resume workflows, snapshot resolution and an opt-in authenticated HTTPS factory.
 - Unified release inventory with every skill, pack, npm member and archive checksum, plus an ordered 21-target publication plan.
+- Added a curated 15-gateway public discovery surface for `npx skills` and Pi, including Angular era gateways from 2 through 22, all-upgrades, full Angular, frontend, performance, quality, microfrontends, Core, and Full.
 
 ### Security and release
 
