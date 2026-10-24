@@ -9,7 +9,25 @@
 
 Un **pack** es una selección declarativa, independiente del agente, de skills, roles, prompts y reglas. Un adaptador coloca esa selección en el formato del cliente. No necesitas instalar todo el catálogo.
 
-`skills.sh.json` organiza la página de skills.sh; los plugins de marketplace distribuyen fuentes. Ninguno sustituye la selección de packs mediante la CLI.
+`skills.sh.json` organiza la superficie pública curada de gateways para skills.sh; los plugins de marketplace distribuyen fuentes. Los 15 gateways públicos sirven para descubrimiento y routing; los procedimientos canónicos completos siguen usando la selección de packs mediante la CLI.
+
+## Gateways públicos de `npx skills`
+
+`npx skills add janpereira-dev/ngAutoPilot` expone deliberadamente 15 opciones, no las 413 micro-skills canónicas:
+
+- Core y todo incluido: `ngautopilot-core`, `ngautopilot-full`.
+- Capacidades Angular: `ngautopilot-angular`, `ngautopilot-angular-upgrades`, `ngautopilot-angular-microfrontends`.
+- Eras Angular: `ngautopilot-angular-2-5`, `6-8`, `9-12`, `13-15`, `16-17`, `18-19`, `20-22`.
+- Transversales: `ngautopilot-frontend`, `ngautopilot-performance`, `ngautopilot-quality`.
+
+Los gateways por era agrupan packs de saltos acotados para facilitar el descubrimiento; no cambian la regla de ejecutar una actualización real **un major cada vez**. Angular 3 nunca existió, por eso la era legacy comienza 2→4→5.
+
+La fuente canónica permanece en `skills/`. `skills/SKILL.md` es un límite interno de descubrimiento y `.agents/skills/` contiene los gateways públicos generados. Regénéralos y valídalos con:
+
+```bash
+npm run npx-skills:sync
+npm run npx-skills:validate
+```
 
 ## 1. Consulta y elige
 
