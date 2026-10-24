@@ -31,7 +31,7 @@ Source packs:
 - `ngautopilot-angular-20-to-21`
 - `ngautopilot-angular-21-to-22`
 
-For the complete canonical procedures, use the NgAutoPilot CLI and install the narrowest matching native pack:
+Every canonical procedure selected by this gateway is **included locally** under `references/skills/`. No npm installation or network call is required after this skill is installed. Advanced users may also use the native NgAutoPilot CLI to install additional specialized packs:
 
 - `ngautopilot-angular-19-to-20`
 - `ngautopilot-angular-20-to-21`
@@ -47,10 +47,11 @@ Replace `<agent>` and `<pack-id>` with IDs returned by `ngautopilot adapters` an
 
 ## Progressive disclosure
 
-- Start with this gateway and `references/index.md`.
-- Do not load unrelated capability families merely because they exist in the repository.
-- This gateway is intentionally a routing layer, not a duplicate of the 413 canonical skill bodies.
-- If an exact version-specific procedure is required, install or open the corresponding canonical pack rather than inventing missing detail.
+- Start with `references/index.md`; it links to the exact local `references/skills/<id>/procedure.md` needed.
+- Those procedures are full copies of the canonical source, not pointers to another repository.
+- Activate only the single appropriate procedure or Angular major hop; never load all referenced files into context.
+- If the route requires a specialist, consult `references/agents/` and `references/prompts/` when present.
+- Do not load unrelated capability families merely because they are installed.
 
 ## Safety
 
