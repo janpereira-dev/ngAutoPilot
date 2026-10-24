@@ -1,7 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
+
+import { syncNpxSkills, validateNpxSkills } from '../../lib/npx-skills.mjs';
 
 const ROOT = path.resolve(path.join(import.meta.dirname, '..', '..'));
 const PUBLIC_ROOT = path.join(ROOT, '.agents', 'skills');
@@ -46,6 +49,7 @@ test('npx skills exposes exactly the curated public gateways', () => {
     const content = fs.readFileSync(skill, 'utf8');
     assert.match(content, new RegExp(`^name:\\s*["']?${id}["']?\\s*$`, 'm'), `${id} must expose its stable public name`);
     assert.equal(findNestedSkillFiles(path.join(PUBLIC_ROOT, id)).length, 1, `${id} must not leak nested SKILL.md entrypoints`);
+    assert.equal(fs.existsSync(path.join(PUBLIC_ROOT, id, 'references', 'index.md')), true, `${id} must include its route index`);
   }
 });
 
@@ -76,6 +80,35 @@ test('Angular era gateways cover every supported major hop without inventing Ang
   assert.equal(JSON.stringify(config).includes('angular-2-to-3'), false);
   assert.equal(JSON.stringify(config).includes('angular-3-to-4'), false);
 });
+
+test('Pi consumes the same curated public surface', () => {
+  const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
+  assert.deepEqual(pkg.pi?.skills, ['./.agents/skills']);
+  assert.equal(pkg.files.includes('SKILL.md'), false);
+});
+
+test('public gateway generation is deterministic and repository validation is clean', (t) => {
+  const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'ngautopilot-npx-skills-'));
+  t.after(() => fs.rmSync(temp, { recursive: true, force: true }));
+  fs.mkdirSync(path.join(temp, 'config'), { recursive: true });
+  fs.copyFileSync(CONFIG, path.join(temp, 'config', 'npx-skills.json'));
+
+  syncNpxSkills({ root: temp });
+  const snapshot = snapshotTree(path.join(temp, '.agents', 'skills'));
+  syncNpxSkills({ root: temp });
+  assert.deepEqual(snapshotTree(path.join(temp, '.agents', 'skills')), snapshot);
+
+  assert.deepEqual(validateNpxSkills({ root: ROOT }).errors, []);
+});
+
+function snapshotTree(directory) {
+  return Object.fromEntries(fs.readdirSync(directory, { recursive: true, withFileTypes: true })
+    .filter((entry) => entry.isFile())
+    .map((entry) => {
+      const file = path.join(entry.parentPath, entry.name);
+      return [path.relative(directory, file), fs.readFileSync(file, 'utf8')];
+    }));
+}
 
 function findNestedSkillFiles(directory) {
   if (!fs.existsSync(directory)) return [];
