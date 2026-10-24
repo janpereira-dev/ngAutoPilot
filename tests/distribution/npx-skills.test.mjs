@@ -54,12 +54,14 @@ test('npx skills exposes exactly the curated public gateways', () => {
   }
 });
 
-test('canonical micro-skills are hidden behind one internal discovery boundary', () => {
-  const boundaryPath = path.join(ROOT, 'skills', 'SKILL.md');
-  assert.equal(fs.existsSync(boundaryPath), true, 'skills/SKILL.md discovery boundary is required');
-  const boundary = fs.readFileSync(boundaryPath, 'utf8');
-  assert.match(boundary, /^name:\s*ngautopilot-internal-catalog\s*$/m);
-  assert.match(boundary, /^\s+internal:\s*true\s*$/m);
+test('all source families have internal discovery boundaries', () => {
+  for (const family of ['', '_core', 'angular', 'css', 'frontend', 'javascript', 'quality', 'typescript']) {
+    const boundary = path.join(ROOT, 'skills', family, 'SKILL.md');
+    assert.equal(fs.existsSync(boundary), true, `missing internal marker in ${family}`);
+    assert.match(fs.readFileSync(boundary, 'utf8'), /^\s+internal:\s*true\s*$/m);
+  }
+  const marketplace = JSON.parse(fs.readFileSync(path.join(ROOT, '.claude-plugin', 'marketplace.json'), 'utf8'));
+  assert.ok(marketplace.plugins.every(plugin => plugin.source?.source === 'git-subdir'));
 });
 
 test('Angular era gateways cover every supported major hop without inventing Angular 3', () => {
@@ -89,14 +91,15 @@ test('gateway bundles preserve canonical procedure bodies without exposing neste
     'ngautopilot-angular-13-15',
     'references',
     'skills',
-    'angular--upgrade--hops--angular-14-to-15.md',
+    'angular--upgrade--hops--angular-14-to-15',
+    'procedure.md',
   );
   assert.equal(fs.existsSync(bundled), true);
   assert.equal(fs.readFileSync(bundled, 'utf8'), fs.readFileSync(source, 'utf8'));
 
   const catalog = JSON.parse(fs.readFileSync(path.join(ROOT, 'catalog.json'), 'utf8'));
   const fullReferences = fs.readdirSync(path.join(PUBLIC_ROOT, 'ngautopilot-full', 'references', 'skills'))
-    .filter((name) => name.endsWith('.md'));
+    .filter((name) => fs.existsSync(path.join(PUBLIC_ROOT, 'ngautopilot-full', 'references', 'skills', name, 'procedure.md')));
   assert.equal(fullReferences.length, catalog.skills.length);
 });
 
@@ -114,6 +117,11 @@ test('public gateway generation is deterministic and repository validation is cl
   fs.copyFileSync(path.join(ROOT, 'catalog.json'), path.join(temp, 'catalog.json'));
   fs.cpSync(path.join(ROOT, 'packs'), path.join(temp, 'packs'), { recursive: true });
   fs.cpSync(path.join(ROOT, 'skills'), path.join(temp, 'skills'), { recursive: true });
+  fs.cpSync(path.join(ROOT, 'agents'), path.join(temp, 'agents'), { recursive: true });
+  fs.mkdirSync(path.join(temp, 'docs'));
+  fs.copyFileSync(path.join(ROOT, 'docs', 'prompts-and-guardrails.md'), path.join(temp, 'docs', 'prompts-and-guardrails.md'));
+  fs.mkdirSync(path.join(temp, '.claude-plugin'));
+  fs.copyFileSync(path.join(ROOT, '.claude-plugin', 'marketplace.json'), path.join(temp, '.claude-plugin', 'marketplace.json'));
 
   syncNpxSkills({ root: temp });
   const snapshot = snapshotTree(path.join(temp, '.agents', 'skills'));
