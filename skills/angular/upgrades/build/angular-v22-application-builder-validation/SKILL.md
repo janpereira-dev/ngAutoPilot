@@ -64,6 +64,18 @@ Angular 22 changes build / tooling behavior enough that agents need a narrow che
 
 Angular 22.x and later where this Angular 22 behavior is relevant.
 
+## Angular 22.2 evidence and procedure
+
+For a 22.2 target, inspect the actual builder before applying CLI release changes. The 22.2 build release moves linker internals to Oxc, changes watcher/cache behavior, uses native sass-embedded and separates browser/server stats. Do not install those internals manually or force a builder migration.
+
+- Record CI OS/architecture and runtime; run clean install, cold/warm production build and Sass compilation on that platform. Diagnose native compiler/fallback problems from logs.
+- Exercise TS and inline/external stylesheet edits in watch mode, including symlinked library consumers. Verify invalidation and source maps.
+- For SSR, test generated output, hydration and critical CSS. Update stats readers only when their actual output changes.
+- For service workers, test offline/update behavior and the changed `preloadInitial` default.
+- Review deprecated `splitting` only for the Angular unit-test builder with Vitest 5. Preserve Jest and verify its preset/adapter peers independently.
+
+Source: https://github.com/angular/angular-cli/releases/tag/v22.2.0 (reviewed 2026-10-23).
+
 ## Procedure
 
 1. Inspect the inputs and confirm the risk is present.

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedOn": "2026-10-01",
+  "reviewedOn": "2026-10-24",
   "statesAreSourceReadinessNotRemotePublication": true,
   "taskGuide": "docs/publication-plan.md",
   "targets": [
@@ -9,7 +9,12 @@
       "channel": "repository-marketplace",
       "state": "package-ready",
       "hostInvocation": "not-verified",
-      "reference": "https://developers.openai.com/plugins/build/plugins"
+      "reference": "https://developers.openai.com/plugins/build/plugins",
+      "sourceValidation": {
+        "guide": "docs/publication-plan.md",
+        "scope": "package-and-local-discovery-only",
+        "remotePublication": "not-verified"
+      }
     },
     {
       "id": "openai-public",
@@ -23,7 +28,12 @@
       "channel": "repository-marketplace",
       "state": "package-ready",
       "hostInvocation": "not-verified",
-      "reference": "https://code.claude.com/docs/en/plugin-marketplaces"
+      "reference": "https://code.claude.com/docs/en/plugin-marketplaces",
+      "sourceValidation": {
+        "guide": "docs/publication-plan.md",
+        "scope": "package-and-local-discovery-only",
+        "remotePublication": "not-verified"
+      }
     },
     {
       "id": "anthropic-public",
@@ -37,21 +47,41 @@
       "channel": "telemetry-directory",
       "state": "listing-not-verified",
       "hostInvocation": "not-verified",
-      "reference": "https://www.skills.sh/docs/faq"
+      "reference": "https://www.skills.sh/docs/faq",
+      "sourceValidation": {
+        "guide": "docs/publication-plan.md",
+        "scope": "package-and-local-discovery-only",
+        "remotePublication": "not-verified"
+      },
+      "discovery": {
+        "root": "ngautopilot entry skill only",
+        "focusedPack": "agent-plugins/ngautopilot-angular-21-to-22",
+        "cliVersionTested": "1.7.4"
+      }
     },
     {
       "id": "pi",
       "channel": "npm-package",
       "state": "package-ready",
       "hostInvocation": "not-verified",
-      "reference": "https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/packages.md"
+      "reference": "https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/packages.md",
+      "sourceValidation": {
+        "guide": "docs/publication-plan.md",
+        "scope": "package-and-local-discovery-only",
+        "remotePublication": "not-verified"
+      }
     },
     {
       "id": "openclaw-clawhub",
       "channel": "skill-registry",
       "state": "not-submitted",
       "hostInvocation": "not-verified",
-      "reference": "https://docs.openclaw.ai/clawhub/quickstart"
+      "reference": "https://docs.openclaw.ai/clawhub/quickstart",
+      "sourceValidation": {
+        "guide": "docs/publication-plan.md",
+        "scope": "package-and-local-discovery-only",
+        "remotePublication": "not-verified"
+      }
     },
     {
       "id": "hermes",

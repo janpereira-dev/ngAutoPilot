@@ -63,6 +63,14 @@ Angular 22 changes testing behavior enough that agents need a narrow checklist i
 
 Angular 22.x and later where this Angular 22 behavior is relevant.
 
+## Angular 22.2 evidence and procedure
+
+Angular 22.2 adds `angularCompilerOptions.strictUnclaimedEventNames`. It defaults to false even when `strictTemplates` is true. It checks single-identifier camelCase events against directive outputs and known native DOM events; dashed custom events and qualifying `CUSTOM_ELEMENTS_SCHEMA` elements are exceptions.
+
+Compile a real misspelled output binding and its corrected form when enabling the option. Inspect custom-event conventions before adoption. This is a compiler strictness option, not an `extendedDiagnostics.checks` key. Keep stricter policy adoption separate from the dependency hop and do not silence failures by disabling strictTemplates globally.
+
+Sources: https://angular.dev/tools/cli/template-typecheck and https://github.com/angular/angular/releases/tag/v22.2.0 (reviewed 2026-10-23).
+
 ## Procedure
 
 1. Inspect the inputs and confirm the risk is present.

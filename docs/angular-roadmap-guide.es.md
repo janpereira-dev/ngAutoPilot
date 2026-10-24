@@ -52,6 +52,17 @@ Para **21 → 22**, utiliza `skills/angular/upgrades/21-to-22/angular-21-to-22-u
 | `angular.upgrade.templates.*`; `angular.upgrade.components.*` | Operadores, creación dinámica y nodos proyectables | Comportamiento correcto de plantillas y componentes |
 | `angular.upgrade.di.*`; `angular.upgrade.debug.*` | DI obsoleta y dependencias de atributos debug | Retirada de supuestos no compatibles |
 
+## Evidencia del ecosistema, agentes y radar de investigación de octubre
+
+Revisión del 2026-10-24. En un ecosistema corporativo conectado, planifica cada salto en orden de dependencias: librerías → host → MFEs, con orden topológico entre librerías. Los consumidores desconocidos o una librería que falla bloquean el trabajo dependiente. Es una política del ecosistema, no una exigencia universal de Angular.
+
+El gate genérico ya cubre Angular 22. Exige aplicabilidad, responsable y evidencia real de build/toolchain, contratos públicos de consumidores, Jest/unitarias, API/BFF, E2E, visual y seguridad. Una comprobación requerida ausente produce BLOCKED aunque build y unitarias pasen. Distingue snapshots DOM/componentes de comparaciones visuales en navegador.
+
+- [Referencia de modernización del ecosistema](../skills/angular/upgrades/angular-upgrade-orchestrator/references/ecosystem-modernization.md): procedimiento de impacto en consumidores, registro propuesto de reparaciones verificadas, contrato del benchmark de calidad de gates y fuentes versionadas de RELAY, Refactoring Ripple, VerifierBench, snapshots y DynaCI. Se contrastaron sus resúmenes; no se reprodujeron los experimentos y no prueban efectos sobre Angular 22.
+- [Referencia de gobierno de agentes](../skills/_core/autopilot-orchestrator/references/agent-governance.md): un responsable final, tareas acotadas, presupuestos de iteración/tiempo, aceptación independiente y condiciones de cierre; revisión de permisos/datos/revocación para monitorización de secretos, métricas de modelos y GitHub Apps empresariales.
+
+Prioriza evidencia de consumidores, reutilización de reparaciones verificadas y calibración de gates sobre un conjunto fijo de migraciones reales. Mide regresiones, falsos positivos/negativos, intervenciones manuales, tiempo y coste de modelos. No añadas especialistas para compensar evidencia ausente. Este cambio añade conocimiento operativo y contratos de aceptación de pilotos, no un ejecutor multi-repo, servicio de reparaciones, recolector de telemetría ni instalaciones empresariales automáticas.
+
 ## Moderniza después
 
 `angular.modernization.*` cubre control flow, `@defer`, standalone-first y preparación zoneless. La disponibilidad sigue dependiendo de la versión. No amplíes una actualización solo porque exista un patrón más nuevo.

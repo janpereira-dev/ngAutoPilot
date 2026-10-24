@@ -63,6 +63,14 @@ Angular 22 changes ai / mcp / webmcp behavior enough that agents need a narrow c
 
 Angular 22.x and later where this Angular 22 behavior is relevant.
 
+## Angular 22.2 evidence and procedure
+
+Angular CLI 22.2 adds `--root` to `ng mcp`. Confirm the locally installed CLI's `ng mcp --help`, then set the root to the intended workspace directory. For nested Maven/JEE layouts, locate `angular.json` under `1-DEVELOPMENT/jeeApp/*-web/src/main/front/`; do not use the Git root by assumption.
+
+Verify the process cwd, local CLI version, selected projects, exposed tool schemas and permissions. Keep Angular's development MCP separate from NgAutoPilot's catalog MCP and browser-facing WebMCP. No MCP configuration proves that a server is installed or running. Capture a successful workspace discovery call before reporting integration complete.
+
+Source: https://github.com/angular/angular-cli/releases/tag/v22.2.0 (reviewed 2026-10-23).
+
 ## Procedure
 
 1. Inspect the inputs and confirm the risk is present.

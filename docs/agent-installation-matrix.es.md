@@ -34,7 +34,7 @@ El salto 5 → 6 es un ejemplo: elige el correspondiente a tu proyecto. En una m
 | Gemini CLI | `gemini` | adaptado | `.gemini/` | `GEMINI.md` |
 | OpenCode | `opencode` | nativo | `.opencode/` | `opencode.json` |
 | OpenClaw | `openclaw` | experimental | `.openclaw/` | `openclaw.json` |
-| Pi | `pi` | no verificado | `.pi/` | `PI.md` |
+| Pi | `pi` | solo exportación | `.pi/` | `PI.md` |
 | Hermes Agent | `hermes` | no verificado | `.hermes/` | `HERMES.md` |
 | Cliente Markdown genérico | `generic` | solo exportación | directorio elegido | `AGENTS.md` |
 
