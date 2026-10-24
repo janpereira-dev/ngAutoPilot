@@ -52,4 +52,4 @@ Create components that are easy to adopt correctly and hard to misuse without ex
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)

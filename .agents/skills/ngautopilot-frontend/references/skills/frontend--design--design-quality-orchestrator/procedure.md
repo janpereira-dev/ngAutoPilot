@@ -54,4 +54,4 @@ Turn broad interface requests into one bounded design pass with measurable closu
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)

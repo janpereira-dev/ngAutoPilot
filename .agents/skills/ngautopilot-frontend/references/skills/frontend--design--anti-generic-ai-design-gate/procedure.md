@@ -53,4 +53,4 @@ Block unreasoned accumulation of fashionable patterns while preserving useful, f
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)

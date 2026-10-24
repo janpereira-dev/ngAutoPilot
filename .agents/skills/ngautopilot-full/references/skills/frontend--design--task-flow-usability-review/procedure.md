@@ -52,4 +52,4 @@ Verify that users complete intended work accurately and confidently; visual poli
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)

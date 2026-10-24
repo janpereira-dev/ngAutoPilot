@@ -53,4 +53,4 @@ Provide measurable closure for design work: blockers override score, while evide
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)

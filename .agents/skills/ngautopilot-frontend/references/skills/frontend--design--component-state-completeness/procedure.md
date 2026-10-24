@@ -52,4 +52,4 @@ Prevent happy-path components that fail under production state, content, accessi
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)

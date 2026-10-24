@@ -53,4 +53,4 @@ Prevent invented users, policy, content, visual identity, and success metrics fr
 
 ## References
 
-- [Design Excellence Guide](../../../../docs/design-excellence-guide.md)
+- [Design Excellence Guide](../../docs/design-excellence-guide.md)
