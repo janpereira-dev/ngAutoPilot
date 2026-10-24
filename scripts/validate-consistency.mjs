@@ -135,6 +135,7 @@ function findSkillFiles(rootDir) {
     if (entry.isDirectory()) {
       files.push(...findSkillFiles(fullPath));
     } else if (entry.isFile() && entry.name === 'SKILL.md') {
+      if (path.resolve(fullPath) === path.resolve(root, 'skills', 'SKILL.md')) continue;
       files.push(fullPath);
     }
   }
