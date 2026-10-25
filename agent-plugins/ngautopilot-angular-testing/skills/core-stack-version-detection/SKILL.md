@@ -80,7 +80,7 @@ skills/_core/compatibility-router/SKILL.md
 
 Use detected versions as input for `core.compatibility-router`.
 
-Current official Angular documentation lists active support for Angular 19, 20, and 21, and provides Node, TypeScript, and RxJS compatibility tables. Older Angular versions can still exist in real repositories, but they should be treated as legacy or unsupported by current Angular support policy.
+Determine support status separately from the detected version using `angular.versioning.angular-node-typescript-rxjs-matrix` and its dated official reference. Historical Node, TypeScript and RxJS ranges help reproduce legacy projects; matching a historical row does not establish current Angular or runtime security support.
 
 ## Decision Rules
 
