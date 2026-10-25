@@ -31,26 +31,14 @@ Source packs:
 - `ngautopilot-angular-13-to-14`
 - `ngautopilot-angular-14-to-15`
 
-Every canonical procedure selected by this gateway is **included locally** under `references/skills/`. No npm installation or network call is required after this skill is installed. Advanced users may also use the native NgAutoPilot CLI to install additional specialized packs:
-
-- `ngautopilot-angular-12-to-13`
-- `ngautopilot-angular-13-to-14`
-- `ngautopilot-angular-14-to-15`
-
-Example:
-
-```bash
-npm exec --package=ngautopilot -- ngautopilot install --agent <agent> --pack <pack-id> --scope project --dry-run
-```
-
-Replace `<agent>` and `<pack-id>` with IDs returned by `ngautopilot adapters` and `ngautopilot packs`.
+Every canonical procedure selected by this gateway is **included locally** under `references/skills/`. No second installer is required. External source citations and optional repository documentation links provide further reading; the procedures themselves are installed files.
 
 ## Progressive disclosure
 
 - Start with `references/index.md`; it links to the exact local `references/skills/<id>/procedure.md` needed.
 - Those procedures are full copies of the canonical source, not pointers to another repository.
 - Activate only the single appropriate procedure or Angular major hop; never load all referenced files into context.
-- If the route requires a specialist, consult `references/agents/` and `references/prompts/` when present.
+- If the route requires a specialist, consult `references/agents/` and `references/agents/prompts/` when present.
 - Do not load unrelated capability families merely because they are installed.
 
 ## Safety

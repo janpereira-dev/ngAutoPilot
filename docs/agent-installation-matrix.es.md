@@ -11,7 +11,24 @@ NgAutoPilot utiliza un catálogo y una política de packs compartidos. El adapta
 
 ## Flujo recomendado
 
-Desde el proyecto receptor:
+Desde el proyecto que quieres mejorar, elige pack y agente:
+
+```bash
+npx skills add janpereira-dev/ngAutoPilot
+```
+
+Para instalar directamente en Codex y comprobar el resultado:
+
+```bash
+npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-angular-6-8 -a codex
+npx skills list -a codex
+```
+
+Los 15 packs públicos incluyen procedimientos y referencias de código locales. Añade `--list` a `skills add` para consultar las opciones. La matriz inferior describe el instalador nativo separado de NgAutoPilot; sus rutas no son los destinos que selecciona `npx skills`.
+
+## Avanzado: instalación con el adaptador nativo
+
+Utiliza la CLI nativa opcional para cambios de pack gestionados, copias o packs de un salto concreto. Previsualiza el plan primero:
 
 ```bash
 npm exec --package=ngautopilot -- ngautopilot adapters

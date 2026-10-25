@@ -59,6 +59,9 @@ jobs:
       - name: Sync plugin bundles
         run: npm run plugins:sync
 
+      - name: Sync public npx skills bundles
+        run: npm run npx-skills:sync
+
       - name: Sync Agent Plugins
         run: npm run agent-plugins:sync
 
@@ -66,7 +69,7 @@ jobs:
         run: npm run openai:validate
 
       - name: Check generated drift
-        run: git diff --exit-code -- catalog.json plugins agent-plugins .agents/plugins/marketplace.json .claude-plugin/marketplace.json
+        run: node scripts/check-generated-drift.mjs catalog.json plugins agent-plugins .agents/skills .agents/plugins/marketplace.json .claude-plugin/marketplace.json
 
       - name: Verify npx skills discovery and real installation
         env:

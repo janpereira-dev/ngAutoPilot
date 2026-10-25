@@ -1,10 +1,5 @@
 # Registro de subagentes NgAutoPilot
 
-<!-- docs:navigation:start -->
-[English](README.md) · [Mapa](../../docs/README.es.md) · [Inicio](../../README.es.md)
-
-<!-- docs:navigation:end -->
-
 Este directorio es la ruta estable del pack de subagentes. Contiene **ocho roles documentados**; no afirma incluir quince agentes ejecutables.
 
 ## Política
@@ -44,4 +39,4 @@ Roles de apoyo:
 - `subagents/support/07-compatibility-gatekeeper.md`: Angular, semántica JavaScript, Node, TypeScript, RxJS y herramientas.
 - `subagents/support/08-repo-cartographer.md`: organización del repositorio, catálogo y descubrimiento.
 
-Estos Markdown describen roles: instalarlos no ejecuta ni autoriza delegación automáticamente. Consulta la [guía de agentes](../../docs/agents-and-subagents.es.md) antes de utilizarlos.
+Estos Markdown describen roles: instalarlos no ejecuta ni autoriza delegación automáticamente. Consulta la [guía de agentes](https://github.com/janpereira-dev/ngAutoPilot/blob/main/docs/agents-and-subagents.es.md) antes de utilizarlos.

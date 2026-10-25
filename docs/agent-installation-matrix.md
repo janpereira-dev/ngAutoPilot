@@ -15,7 +15,24 @@ NgAutoPilot uses one catalog and pack policy across supported clients. The adapt
 
 ## Recommended flow
 
-Run the commands from the receiving project. Always inspect the plan first:
+Run from the project you want to improve. Choose a pack and the receiving agent:
+
+```bash
+npx skills add janpereira-dev/ngAutoPilot
+```
+
+For a direct Codex install and verification:
+
+```bash
+npx skills add janpereira-dev/ngAutoPilot --skill ngautopilot-angular-6-8 -a codex
+npx skills list -a codex
+```
+
+The 15 public packs include their procedures and code references locally. Use `--list` with `skills add` to preview the choices. The adapter matrix below describes the separate native NgAutoPilot installer; its layouts are not the destinations chosen by `npx skills`.
+
+## Advanced: native adapter installation
+
+Use the optional native CLI for managed pack switching, backups, or a granular single-hop pack. Inspect its plan first:
 
 ```bash
 npm exec --package=ngautopilot -- ngautopilot adapters

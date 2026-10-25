@@ -79,10 +79,10 @@ function hero(language) {
 function firstRun(language) {
   const t = (en, es) => choose(language, en, es);
   const steps = [
-    [t('Find the IDs', 'Busca los IDs'), 'adapters · packs', t('Choose agent + pack', 'Elige agente + pack'), 'compass'],
-    [t('Preview', 'Previsualiza'), '--dry-run', t('Read paths and conflicts', 'Revisa rutas y conflictos'), 'inspect'],
-    [t('Approve', 'Autoriza'), '--yes', t('Only after review', 'Solo después de revisar'), 'approve'],
-    [t('Verify files', 'Verifica archivos'), 'verify', t('Manifest + checksums', 'Manifiesto + checksums'), 'shield'],
+    [t('Explore', 'Consulta'), 'add <source> --list', t('15 public packs', '15 packs públicos'), 'compass'],
+    [t('Choose', 'Elige'), '--skill <id>', t('Pack + receiving agent', 'Pack + agente receptor'), 'inspect'],
+    [t('Install', 'Instala'), 'add <source>', t('Review agent + scope', 'Revisa agente + ámbito'), 'approve'],
+    [t('Verify', 'Comprueba'), 'npx skills list', t('Installed pack appears', 'Aparece el pack instalado'), 'shield'],
   ];
   let body = '';
   for (let i = 0; i < steps.length; i++) {
@@ -96,19 +96,19 @@ function firstRun(language) {
   body += rect(40, 475, 1120, 109, '#d7ebe6', colors.teal) + icon('terminal', 60, 494, colors.teal)
     + text(126, 510, t('Last checkpoint: ask your agent to name the installed skill.', 'Último control: pide al agente que identifique la skill instalada.'), 24, 700)
     + text(126, 546, t('A file check is not proof that the host discovers or invokes it.', 'Verificar archivos no demuestra que el host la encuentre o la invoque.'), 21, 400, colors.muted);
-  return frame(language, 675, '01', t('Your first run: four stops, then a real task', 'Primera ejecución: cuatro paradas y una tarea real'), t('Run from the receiving project. Review the plan before approving any writes.', 'Trabaja desde el proyecto de destino. Revisa el plan antes de autorizar escrituras.'), body, t('Codex project example: .agents/skills/ + AGENTS.md. Installation does not change your app.', 'Ejemplo Codex, proyecto: .agents/skills/ + AGENTS.md. Instalar no modifica tu aplicación.'));
+  return frame(language, 675, '01', t('Your first run: four stops, then a real task', 'Primera ejecución: cuatro paradas y una tarea real'), 'npx skills add janpereira-dev/ngAutoPilot', body, t('Run inside your project. Packs include local procedures; ask the agent to select one.', 'Desde tu proyecto. Los packs incluyen procedimientos locales; pide al agente que elija uno.'));
 }
 function packMap(language) {
   const t = (en, es) => choose(language, en, es);
   const jobs = [
     [t('Any project', 'Cualquier proyecto'), t('Intake, versions, routing', 'Contexto, versiones, selección'), 'core', 'compass', colors.teal],
-    [t('Structure', 'Estructura'), t('Components, services, boundaries', 'Componentes, servicios, límites'), 'angular-foundations', 'stack', colors.violet],
-    [t('State', 'Estado'), 'Signals · RxJS', 'angular-state', 'state', colors.blue],
-    [t('User interface', 'Interfaz'), t('Forms, routes, templates, Material', 'Formularios, rutas, Material'), 'angular-ui', 'ui', colors.coral],
-    [t('Runtime', 'Ejecución'), t('SSR · build · performance', 'SSR · build · rendimiento'), 'angular-runtime', 'terminal', colors.blue],
-    [t('Tests', 'Pruebas'), t('TestBed · components', 'TestBed · componentes'), 'angular-testing', 'test', colors.teal],
+    [t('Angular development', 'Desarrollo Angular'), t('Components, state, forms, tests', 'Componentes, estado, pruebas'), 'angular', 'stack', colors.violet],
+    [t('Angular era', 'Era Angular'), t('Choose the matching version era', 'Elige la era de tu versión'), 'angular-20-22', 'state', colors.blue],
+    [t('Angular upgrades', 'Actualizaciones Angular'), t('Execute one major hop at a time', 'Ejecuta un salto cada vez'), 'angular-upgrades', 'branch', colors.coral],
+    [t('Performance', 'Rendimiento'), t('Measure before optimizing', 'Mide antes de optimizar'), 'performance', 'terminal', colors.blue],
+    [t('Code quality', 'Calidad de código'), t('Types, lint, maintainability', 'Tipos, lint, mantenimiento'), 'quality', 'test', colors.teal],
     [t('Frontend / UX', 'Frontend / UX'), t('Framework-neutral accessibility', 'Accesibilidad sin framework'), 'frontend', 'inspect', colors.violet],
-    [t('One major hop', 'Un salto de versión'), t('Upgrade ≠ modernization', 'Actualizar ≠ modernizar'), 'angular-<from>-to-<to>', 'branch', colors.coral],
+    ['Microfrontends', t('Federation, hosts, remotes', 'Federación, hosts, remotes'), 'angular-microfrontends', 'ui', colors.coral],
   ];
   let body = '';
   jobs.forEach(([title, detail, slug, glyph, color], index) => {
@@ -118,8 +118,8 @@ function packMap(language) {
       + icon(glyph, x + 22, y + 25, color, .85) + text(x + 85, y + 34, title, 26, 700)
       + text(x + 85, y + 65, detail, 20, 400, colors.muted) + text(x + 85, y + 98, slug, 21, 650, color);
   });
-  body += text(42, 770, t('Full ID = ngautopilot- + the label above. Focused packs include Core.', 'ID completo = ngautopilot- + la etiqueta. Los packs específicos incluyen Core.'), 22, 600);
-  return frame(language, 860, '02', t('Choose by the job, not by the size of the pack', 'Elige por la tarea, no por el tamaño del pack'), t('Eight starting points. Use the table below for the exact install IDs.', 'Ocho puntos de partida. La tabla incluye los IDs exactos para instalar.'), body, t('One selection per agent + scope. Switching replaces that selection; inspect and back up first.', 'Una selección por agente + ámbito. Cambiar pack la sustituye: revisa y crea una copia antes.'));
+  body += text(42, 770, t('Full ID = ngautopilot- + the label above. Install only what the task needs.', 'ID completo = ngautopilot- + la etiqueta. Instala lo que necesite la tarea.'), 22, 600);
+  return frame(language, 860, '02', t('Choose by the job, not by the size of the pack', 'Elige por la tarea, no por el tamaño del pack'), t('Eight starting points from the 15 public packs. Era shown: Angular 20–22.', 'Ocho puntos de partida de los 15 packs públicos. Era del ejemplo: Angular 20–22.'), body, 'npx skills add janpereira-dev/ngAutoPilot --skill <id>');
 }
 function concepts(language) {
   const t = (en, es) => choose(language, en, es);

@@ -1,10 +1,5 @@
 # Design Excellence Guide
 
-<!-- docs:navigation:start -->
-[Español](design-excellence-guide.es.md) · [Map](README.md) · [Home](../README.md)
-
-<!-- docs:navigation:end -->
-
 NgAutoPilot design excellence skills turn broad UI requests into bounded, evidence-based work. Start with product intent, select the dominant design risk, apply the smallest specialist set, then finish with one release gate.
 
 ## Routing
