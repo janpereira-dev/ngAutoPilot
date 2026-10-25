@@ -1,7 +1,7 @@
 ---
 id: angular.versioning.angular-node-typescript-rxjs-matrix
 name: Angular Node TypeScript RxJS Matrix
-description: Gate Angular changes with the required Node.js, TypeScript, and RxJS compatibility matrix for the current target version.
+description: Check exact Angular toolchain ranges, historical CLI pairings, browser support and polyfills against the bundled official compatibility reference.
 stack:
   - Angular
   - TypeScript
@@ -20,65 +20,54 @@ triggers:
 
 ## Purpose
 
-Use this skill to handle Angular version compatibility for angular node typescript rxjs matrix in Angular, TypeScript, RxJS projects without mixing it with unrelated migration, modernization, or cleanup work.
+Determine whether the installed and target Angular toolchains satisfy the official compatibility ranges. Keep a compatible historical stack separate from a currently supported release.
 
-This skill keeps the versioning decision explicit: identify the current state, choose the smallest safe action, document compatibility evidence, and leave a validation path that another agent or maintainer can repeat.
+Read [the version, browser and polyfill reference](references/angular-versions.md) for the exact matrix, Angular/CLI pairings before v9, browser Baseline dates and conditional polyfill setup. It contains the official table verified on 2026-10-25; recheck the source when making a new upgrade decision.
 
 ## When to Use
 
 Use this skill when:
 
-- the task mentions angular node typescript rxjs matrix, compatibility matrix, peer dependencies, CLI builders, Node, TypeScript, or RxJS versions;
-- an Angular codebase needs a scoped versioning decision before implementation;
-- compatibility, risk, or ownership is unclear and should be made explicit;
-- the output must be reusable by another agent, reviewer, or release owner.
+- Node, TypeScript or RxJS versions must be checked for an installed or target Angular minor;
+- a pre-v9 application needs a separate Angular/CLI pairing;
+- browser requirements or build/test polyfills affect an Angular compatibility decision.
 
 ## Do
 
-- Inspect the current Angular version, TypeScript version, build tooling, and affected files before recommending changes.
-- Keep the change bounded to the requested workflow and preserve separate upgrade, modernization, and cleanup tracks.
-- Prefer documented Angular APIs and local project conventions over new abstractions.
-- Record assumptions, compatibility evidence, validation commands, and rollback notes.
-- Add or update focused tests when the workflow changes runtime behavior.
+- Detect installed Angular, CLI, TypeScript and RxJS from the owning package and lockfile; inspect local and CI Node versions, builders and peer constraints.
+- Select the exact source row for the installed and target minor. For a minor absent from the table, verify its tagged or published packages and label that evidence separately.
+- Intersect all required ranges. Distinguish declaration-only evidence from locked versions and report each mismatch as a blocker.
+- Use the browser policy for the Angular major and inspect application targets and required browser journeys.
+- Inspect build and test polyfills plus the application's zone-based or zoneless configuration before recommending changes.
 
 Recommended workflow:
 
 ```txt
-1. Identify the affected Angular feature area and version constraints.
-2. Classify the change as migration, modernization, architecture, validation, or cleanup.
-3. Apply the smallest reversible implementation or write the decision artifact.
-4. Validate with the project test, lint, build, or review command that matches the risk.
-5. Summarize remaining risks and the next safe checkpoint.
+1. Record installed and target versions, exact source row and checked date.
+2. Compare every toolchain version with its required ranges, including local and CI Node.
+3. Check support status, pre-v9 CLI pairing, browser policy and polyfill mode.
+4. Return blockers and the project's existing build, test and browser-validation commands.
 ```
 
 ## Do Not
 
-- Do not combine this workflow with an unrelated Angular major-version hop.
-- Do not invent compatibility data, CLI flags, or framework behavior.
-- Do not introduce dependencies unless the local implementation requires them.
-- Do not rewrite a complete architecture layer when a targeted boundary or decision is enough.
-- Do not mark the work complete without a concrete validation or a clear reason validation could not run.
-
-Avoid:
-
-```txt
-Changing framework version, architecture, tests, and cleanup policy in one unreviewable step.
-```
+- Do not treat historical compatibility as current Angular or Node security support.
+- Do not relabel the official 22.0.x row as a verified 22.2.x row or widen `^26.0.0` to all future Node majors.
+- Do not use NgAutoPilot's own Node requirement as the Angular application's runtime requirement.
+- Do not add ZoneJS to a zoneless application just because an older polyfill example includes it.
+- Do not perform an upgrade, dependency installation or change-detection migration as part of the compatibility decision alone.
 
 ## Review Checklist
 
-- [ ] The Angular and tooling versions are known or explicitly called out as unknown.
-- [ ] The versioning scope is isolated from unrelated work.
-- [ ] The recommendation uses documented APIs or existing project patterns.
-- [ ] Compatibility evidence is included when version-specific behavior matters.
-- [ ] Tests, build, lint, or manual validation steps are listed.
-- [ ] Rollback or follow-up notes exist for risky changes.
+- [ ] Installed and target minor, source row/tag and verification date are recorded.
+- [ ] Node, TypeScript and RxJS satisfy all applicable ranges, or each blocker is explicit.
+- [ ] Pre-v9 CLI pairing and historical support limits are considered when applicable.
+- [ ] Browser policy, required browsers and build/test polyfill configuration are checked.
+- [ ] Validation results distinguish completed checks from unavailable evidence.
 
 ## Expected Output
 
-1. Summarize the finding in one concise paragraph.
-2. List the files, APIs, or project boundaries affected.
-3. Provide the smallest safe implementation or decision.
-4. Explain compatibility and risk assumptions.
-5. Provide validation commands or review checks.
-6. Separate follow-up work from the current scope.
+1. Installed and target Angular/CLI versions, support status and source row/tag.
+2. Required versus detected Node, TypeScript and RxJS ranges, with local/CI differences.
+3. Browser baseline and required polyfills for the actual application mode.
+4. PASS, BLOCKED or UNVERIFIED decision with evidence and validation commands; route any authorized upgrade through `angular.versioning.angular-version-compatibility-gate`.

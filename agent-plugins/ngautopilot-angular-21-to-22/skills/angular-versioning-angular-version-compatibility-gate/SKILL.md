@@ -76,6 +76,9 @@ Uses ngUpgrade / AngularJS:
 Uses custom builders:
 Uses Nx:
 Uses monorepo:
+Required browsers / browser targets:
+Build and test polyfills:
+Zone-based or zoneless configuration:
 ```
 
 If any critical version is missing, inspect the repository before deciding.
@@ -103,7 +106,7 @@ Dockerfile
 ## Procedure
 
 1. Detect current project versions.
-2. Normalize the Angular version to the compatibility row.
+2. Use `angular.versioning.angular-node-typescript-rxjs-matrix` and its bundled `references/angular-versions.md` to select the exact compatibility row. For an unlisted minor, record tagged/published package evidence separately.
 3. Validate current compatibility.
 4. Validate target compatibility.
 5. Identify required bridge versions.
@@ -117,6 +120,7 @@ Dockerfile
 - Prefer one Angular major per hop.
 - Route AngularJS, Ivy, ngcc, SSR, router, forms, testing, Material, build and zone risks to the corresponding satellite skill.
 - Return exact blockers and exact required ranges.
+- Check the Angular major's browser policy and actual build/test polyfills. Treat historical rows as compatibility evidence, and verify current support status separately.
 - Validate before recommending the next hop.
 
 ## Do Not
@@ -134,6 +138,7 @@ Dockerfile
 - [ ] Node.js, TypeScript and RxJS ranges are checked.
 - [ ] Angular CLI compatibility is checked when relevant.
 - [ ] Browser support constraints are considered.
+- [ ] Build/test polyfills match the application's zone-based or zoneless mode.
 - [ ] Required satellite skills are identified.
 - [ ] Blocking issues and warnings are explicit.
 - [ ] Validation commands are listed.
