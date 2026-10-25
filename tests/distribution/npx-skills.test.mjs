@@ -109,13 +109,32 @@ test('bundled design procedures preserve local access to referenced documentatio
     const source = path.join(ROOT, 'docs', 'design-excellence-guide.md');
     const guide = path.join(location, 'references', 'docs', 'design-excellence-guide.md');
     assert.equal(fs.existsSync(guide), true);
-    assert.deepEqual(fs.readFileSync(guide), fs.readFileSync(source));
+    assert.equal(fs.readFileSync(guide, 'utf8'), fs.readFileSync(source, 'utf8')
+      .replace(/<!-- docs:navigation:start -->[\s\S]*?<!-- docs:navigation:end -->\s*/, ''));
 
     const skill = path.join(location, 'references', 'skills',
       'frontend--design--design-quality-orchestrator', 'procedure.md');
     const content = fs.readFileSync(skill, 'utf8');
     assert.match(content, /\]\(\.\.\/\.\.\/docs\/design-excellence-guide\.md\)/);
     assert.equal(fs.existsSync(path.resolve(path.dirname(skill), '../../docs/design-excellence-guide.md')), true);
+  }
+});
+
+test('installed bundle Markdown has no dangling local links or second-installer instructions', () => {
+  for (const id of EXPECTED) {
+    const directory = path.join(PUBLIC_ROOT, id);
+    assert.doesNotMatch(fs.readFileSync(path.join(directory, 'SKILL.md'), 'utf8'), /npm exec|references\/prompts\//);
+    for (const entry of fs.readdirSync(directory, { recursive: true, withFileTypes: true })) {
+      if (!entry.isFile() || !entry.name.endsWith('.md')) continue;
+      const file = path.join(entry.parentPath, entry.name);
+      for (const [, reference] of fs.readFileSync(file, 'utf8').matchAll(/!?\[[^\]]+\]\(([^\s)]+)\)/g)) {
+        const resource = reference.split('#')[0];
+        if (!resource || /^(?:[a-z][a-z0-9+.-]*:|\/)/i.test(resource)) continue;
+        const target = path.resolve(path.dirname(file), resource);
+        assert.ok(!path.relative(directory, target).startsWith('..'), `${file}: link escapes bundle: ${reference}`);
+        assert.ok(fs.existsSync(target), `${file}: missing local reference: ${reference}`);
+      }
+    }
   }
 });
 

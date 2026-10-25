@@ -10,7 +10,7 @@ NgAutoPilot es una herramienta de línea de comandos (CLI) y un catálogo de peq
 
 ## 🧭 Empieza aquí: un único comando
 
-![Cuatro controles: elegir IDs, previsualizar sin escribir, autorizar y verificar archivos; después comprobar el descubrimiento en el host.](assets/first-run.es.svg)
+![Consulta las 15 opciones, elige pack y agente, instala y comprueba las skills instaladas.](assets/first-run.es.svg)
 
 Solo necesitas **Node.js 22.20+**, npm y un proyecto existente. No hace falta instalar NgAutoPilot globalmente para el flujo recomendado.
 
@@ -66,22 +66,22 @@ Los gateways reducen el selector **e incluyen los procedimientos canónicos comp
 
 ## 🎒 Elige el pack para la tarea de hoy
 
-![Mapa de tareas: Core, fundamentos, estado, interfaz, ejecución, pruebas, frontend y un único salto de Angular.](assets/pack-map.es.svg)
+![Elige un pack público de Core, Angular, una era, upgrades, calidad, rendimiento, frontend o microfrontends.](assets/pack-map.es.svg)
 
 | Tu tarea | Empieza con |
 | --- | --- |
 | Flujo básico, cualquier proyecto | `ngautopilot-core` |
-| Arquitectura, componentes y servicios Angular | `ngautopilot-angular-foundations` |
-| Signals y RxJS | `ngautopilot-angular-state` |
-| Formularios, rutas, plantillas y Material | `ngautopilot-angular-ui` |
-| SSR, compilación, rendimiento y seguridad | `ngautopilot-angular-runtime` |
-| Pruebas Angular | `ngautopilot-angular-testing` |
+| Arquitectura, componentes, formularios, estado y pruebas Angular | `ngautopilot-angular` |
+| Guías de una era Angular | Un pack de era, por ejemplo `ngautopilot-angular-20-22` |
+| Guías de actualización Angular | `ngautopilot-angular-upgrades` |
+| Rendimiento web y de renderizado medido | `ngautopilot-performance` |
+| Tipado seguro y calidad de código | `ngautopilot-quality` |
 | Accesibilidad y UX independientes del framework | `ngautopilot-frontend` |
-| Un único salto de versión mayor Angular | `ngautopilot-angular-<from>-to-<to>` |
+| Federación, hosts y remotes | `ngautopilot-angular-microfrontends` |
 
-Los packs específicos incluyen Core mediante dependencias. Cambiar de pack para el mismo agente y ámbito **sustituye la selección gestionada**, en lugar de acumular todos los packs anteriores. Los archivos gestionados obsoletos sin cambios pueden eliminarse; los obsoletos modificados se conservan y notifican salvo que se fuerce. Los archivos todavía seleccionados se conservan si están editados salvo autorización explícita con `--force`. Guarda tus personalizaciones e inspecciona cada cambio.
+Todos los IDs de esta tabla funcionan con `npx skills add janpereira-dev/ngAutoPilot --skill <id>`. Puedes instalar varios packs públicos juntos. Para actualizar Angular, abre únicamente el procedimiento del siguiente salto de versión compatible.
 
-`ngautopilot-angular` y `ngautopilot-full` son opciones amplias deliberadas, no recomendaciones para principiantes. [Packs y saltos históricos](docs/packs.es.md).
+La CLI nativa opcional tiene packs más específicos, como `ngautopilot-angular-foundations` y `ngautopilot-angular-17-to-18`. Estos IDs pertenecen a `ngautopilot install --pack`, no al selector de 15 opciones de `npx skills`. Sus reglas de selección gestionada y cambio de pack están en [instalación nativa avanzada](docs/packs.es.md). Utiliza `ngautopilot-full` solo si necesitas todo el catálogo.
 
 ## 🧩 Cinco conceptos útiles
 

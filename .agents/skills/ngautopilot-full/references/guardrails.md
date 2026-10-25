@@ -1,11 +1,6 @@
 # Prompts and Guardrails
 
-<!-- docs:navigation:start -->
-[Español](prompts-and-guardrails.es.md) · [Map](README.md) · [Home](../README.md)
-
-<!-- docs:navigation:end -->
-
-![Brief the agent with task, versions, skill and plan; request named guidance, real checks and remaining limits.](../assets/prompt-guide.svg)
+![Brief the agent with task, versions, skill and plan; request named guidance, real checks and remaining limits.](https://github.com/janpereira-dev/ngAutoPilot/blob/main/assets/prompt-guide.svg)
 
 ## Prompts
 

@@ -10,7 +10,7 @@ NgAutoPilot is a CLI and a catalog of small engineering guides (*skills*). It he
 
 ## 🧭 Start here: one command
 
-![Four checkpoints: choose IDs, preview without writes, approve, verify files; then check host discovery.](assets/first-run.svg)
+![Explore the 15 options, choose a pack and agent, install, then list the installed skills.](assets/first-run.svg)
 
 You only need **Node.js 22.20+**, npm and an existing project. No global NgAutoPilot installation is required for the recommended workflow.
 
@@ -66,22 +66,22 @@ The gateways keep discovery small **and include the canonical procedure bodies l
 
 ## 🎒 Pick the pack for today's job
 
-![Task map: Core, foundations, state, UI, runtime, testing, frontend, and a single Angular upgrade hop.](assets/pack-map.svg)
+![Choose a public pack for Core, Angular, an era, upgrades, quality, performance, frontend, or microfrontends.](assets/pack-map.svg)
 
 | Your task | Start with |
 | --- | --- |
 | Basic workflow, any project | `ngautopilot-core` |
-| Angular architecture, components, services | `ngautopilot-angular-foundations` |
-| Signals and RxJS | `ngautopilot-angular-state` |
-| Forms, routes, templates, Material | `ngautopilot-angular-ui` |
-| SSR, build, performance, security | `ngautopilot-angular-runtime` |
-| Angular tests | `ngautopilot-angular-testing` |
+| Angular architecture, components, forms, state, tests | `ngautopilot-angular` |
+| Guidance for an Angular era | An era pack, e.g. `ngautopilot-angular-20-22` |
+| Angular upgrade guidance | `ngautopilot-angular-upgrades` |
+| Measured rendering and web performance | `ngautopilot-performance` |
+| Language safety and code quality | `ngautopilot-quality` |
 | Framework-neutral accessibility and UX | `ngautopilot-frontend` |
-| Exactly one Angular major hop | `ngautopilot-angular-<from>-to-<to>` |
+| Federation, hosts and remotes | `ngautopilot-angular-microfrontends` |
 
-Focused packs include Core through dependencies. Changing packs at the same agent and scope **switches the managed selection**, rather than accumulating all previous packs. Unchanged obsolete managed files may be removed; modified obsolete files are preserved and reported unless forced. Files still selected are preserved when locally edited unless explicitly forced. Back up customizations and inspect every switch.
+Every ID in this table works with `npx skills add janpereira-dev/ngAutoPilot --skill <id>`. You can install multiple public packs together. For upgrades, open only the procedure for the next supported major hop.
 
-`ngautopilot-angular` and `ngautopilot-full` are deliberate broad choices, not beginner defaults. [All packs and historical hops](docs/packs.md).
+The optional native CLI has additional granular packs such as `ngautopilot-angular-foundations` and `ngautopilot-angular-17-to-18`. Those IDs belong to `ngautopilot install --pack`, not to the 15-option `npx skills` selector. Its managed selection and pack-switching rules are described in [advanced native pack installation](docs/packs.md#advanced-native-pack-installation). Use `ngautopilot-full` only when you need the entire catalog.
 
 ## 🧩 Five useful concepts
 
