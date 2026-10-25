@@ -2,7 +2,7 @@
 id: typescript.strict-types.avoid-any
 name: Avoid Any
 description: >
-  Improves TypeScript safety by replacing unnecessary any usage with unknown, interfaces, DTOs, type guards, or generics.
+  Improves TypeScript safety by replacing unnecessary any usage with unknown, interfaces, DTOs, type guards, or generics, and choosing validated finite value sets instead of unnecessary enums.
 stack:
   - TypeScript
 category: strict-types
@@ -16,6 +16,10 @@ triggers:
   - type guard
   - DTO
   - generic
+  - enum alternatives
+  - literal union
+  - as const
+  - finite value validation
 ---
 
 # Avoid Any
@@ -82,6 +86,12 @@ Use narrow temporary types at integration boundaries:
 type UnknownRecord = Record<string, unknown>;
 ```
 
+### Finite value sets
+
+Prefer a literal union when only a type is needed. Use an `as const` object for named runtime constants or an `as const` array when iteration or validation needs the values, deriving the union from that same source. Check the detected compiler: const assertions require TypeScript 3.4+.
+
+Read [finite values and enum compatibility](references/finite-values.md) when choosing between these forms, writing a membership guard, or replacing an existing enum. Ordinary enums emit JavaScript; objects and arrays also remain at runtime. Only the type declarations are erased.
+
 ## Do Not
 
 Avoid using `any` as a shortcut:
@@ -109,6 +119,8 @@ const payload: object = response;
 
 Use temporary `any` only when there is a clear boundary, migration reason, and follow-up path. Keep it local, documented by naming or surrounding context, and do not leak it through public APIs.
 
+Do not replace enums required by public APIs, generated clients, third-party libraries, reverse mappings, or stored values without an explicit compatibility plan. Avoid implicit numeric enum values in new serialized contracts; reordering can change their meaning. Do not introduce `const enum` as a blanket workaround: emission depends on compiler settings, and published ambient const enums have consumer compatibility risks.
+
 ## Review Checklist
 
 - [ ] Public function parameters and return values do not use `any`.
@@ -119,6 +131,8 @@ Use temporary `any` only when there is a clear boundary, migration reason, and f
 - [ ] Type assertions are narrow and justified.
 - [ ] Temporary `any` usage is isolated and does not spread through the codebase.
 - [ ] Tests cover mapper or guard behavior when runtime data can vary.
+- [ ] Finite value types and membership guards share one source of values; guards reject inputs outside the declared domain.
+- [ ] Enum changes preserve callers, serialized values, and required runtime behavior.
 
 ## Expected Output
 

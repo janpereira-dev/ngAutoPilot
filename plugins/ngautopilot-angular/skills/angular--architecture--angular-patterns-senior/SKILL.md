@@ -59,7 +59,10 @@ god service or generic service -> angular.services.single-responsibility-service
 public reactive contracts -> angular.rxjs.observable-contracts
 version-gated Angular APIs -> angular.versioning.angular-version-gates
 providers, injectors, InjectionToken, or NullInjectorError -> angular.dependency-injection
+finite TypeScript values, enum alternatives, or membership guards -> typescript.strict-types.avoid-any
 ```
+
+For new component and service value contracts, prefer literal unions for types alone or `as const` objects and arrays when runtime values are needed. Keep framework and library enums that their public APIs require; a structural refactor does not authorize an enum migration.
 
 Before recommending code, identify:
 

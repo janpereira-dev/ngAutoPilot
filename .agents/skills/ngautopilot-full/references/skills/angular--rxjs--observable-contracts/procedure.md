@@ -81,6 +81,8 @@ readonly users = this.usersSignal.asReadonly();
 
 Keep Observables for async flows that need cancellation, retries, composition, or multiple emissions over time.
 
+For new finite stream states, prefer literal unions, including discriminated unions when each state carries different data. Use an `as const` object or array only when runtime values are needed and derive the type from it. Validate untrusted emitted values at the boundary; preserve enums required by existing stream consumers.
+
 Specify the temporal contract as well as the emitted type: when input takes effect, whether duplicate values trigger work, which overlapping response may survive, and whether an error completes the stream or allows another command. Keep empty, loading, and failure states distinguishable when consumers depend on that distinction.
 
 ## Do Not

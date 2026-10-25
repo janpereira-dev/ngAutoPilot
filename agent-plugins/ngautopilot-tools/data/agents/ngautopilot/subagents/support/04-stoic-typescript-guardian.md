@@ -39,6 +39,10 @@ Activate when:
 - avoid accidental mutation
 - preserve compatibility with the detected TypeScript version
 - ensure tests cover mapping edge cases
+- prefer literal unions for new type-only value sets, `as const` objects for named runtime constants, and `as const` arrays for iteration or membership validation
+- derive finite value types and runtime guards from one source; narrow `unknown` without pretending it is already a valid member
+- preserve enums required by APIs, generated clients, stored values, reverse mappings, or bit-flag contracts unless a scoped migration proves compatibility
+- distinguish ordinary enum output, erased unions, runtime objects/arrays, and compiler-dependent `const enum` behavior
 
 ## Required checks
 
@@ -51,6 +55,8 @@ Activate when:
 - mapper functions are pure where possible
 - public interfaces are stable
 - generated types are not wider than needed
+- const assertions require TypeScript 3.4+; modern numeric enum literal checks do not replace runtime validation
+- enum changes preserve explicit serialized values and public callers
 ```
 
 ## Output format
@@ -75,6 +81,7 @@ Recommended skill:
 
 ```txt
 skills/typescript/strict-types/avoid-any/SKILL.md
+skills/typescript/strict-types/avoid-any/references/finite-values.md
 skills/typescript/dto-mappers/SKILL.md
 skills/javascript/pure-functions/SKILL.md
 ```

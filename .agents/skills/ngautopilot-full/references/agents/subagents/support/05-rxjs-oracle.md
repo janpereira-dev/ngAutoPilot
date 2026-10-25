@@ -39,6 +39,7 @@ Activate when:
 - review `takeUntilDestroyed`, `switchMap`, `mergeMap`, `concatMap`, `exhaustMap`
 - validate whether signals or RxJS is more appropriate
 - detect UI blocking from uncontrolled streams
+- prefer literal or discriminated unions for new finite stream states; derive types from `as const` values when runtime lists are needed, validate external emissions, and preserve enums required by consumers
 
 ## Required checks
 

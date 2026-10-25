@@ -45,6 +45,8 @@ Use explicit DTOs and type guards for untrusted input.
 
 Preserve narrow, testable contracts.
 
+For new finite value sets, prefer literal unions or types derived from `as const` objects and arrays. Derive membership guards from the runtime values and compare against `unknown` without asserting that it is already a valid member. Preserve required enum contracts; strict mode does not validate deserialized values.
+
 ## Do Not
 
 Avoid recommending non-strict fallbacks when the repo is already strict.

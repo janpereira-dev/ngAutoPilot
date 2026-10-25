@@ -44,6 +44,7 @@ Activate when:
 - avoid over-mocking implementation details
 - select visual or browser checks only when the repository has the capability
 - separate automated accessibility signals from manual keyboard and semantic evidence
+- for new finite TypeScript fixtures, prefer literal unions or types derived from `as const` values; test membership guards with valid values, invalid strings, null/undefined, numbers, and objects, preserving serialized and runtime contracts when an enum migration is in scope
 
 ## Required checks
 

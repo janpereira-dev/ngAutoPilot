@@ -43,6 +43,8 @@ Activate when:
 - review Node/TypeScript constraints
 - decide whether work is blocked
 - distinguish ECMAScript standard semantics, host API support, and toolchain output
+- check TypeScript 3.4+ before recommending `as const` alternatives to new enums; preserve library/generated enum contracts, persisted numeric values, reverse mappings, and bit flags, and keep optional enum modernization outside upgrade hops
+- verify compiler emission and consumer settings before recommending `const enum`; ordinary enums and `as const` runtime objects/arrays do emit JavaScript
 
 ## Required checks
 

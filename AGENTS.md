@@ -29,3 +29,7 @@ This repository is a catalog of reusable micro-skills and plugin bundles for AI 
 - Avoid broad refactors when a narrow fix will do.
 - Do not move or rename large skill trees without a follow-up migration plan.
 - Keep public docs honest about what the local CLI actually supports.
+
+## TypeScript finite values
+
+For new finite value sets, prefer literal unions for types alone, `as const` objects for named runtime constants, and `as const` arrays when iteration or validation needs the same values. Derive types and validators from that single source. Ordinary enums emit runtime code; objects and arrays also remain at runtime. Preserve existing enum contracts, serialized values, and generated or third-party APIs unless migration is in scope. Use `typescript.strict-types.avoid-any` for the detailed decision and validation examples.

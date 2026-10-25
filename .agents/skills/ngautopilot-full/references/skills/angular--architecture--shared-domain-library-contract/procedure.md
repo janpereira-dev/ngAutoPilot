@@ -92,6 +92,8 @@ export class Money {
 
 Keep domain contracts independent from Angular UI and transport details.
 
+For new finite domain values, prefer literal unions when only a type is needed, or derive the union from an `as const` object or array when runtime constants, iteration, or membership validation are needed. Keep one source of allowed values and preserve published enum and persisted-value contracts during any scoped migration.
+
 Example Nx project tags:
 
 ```json
