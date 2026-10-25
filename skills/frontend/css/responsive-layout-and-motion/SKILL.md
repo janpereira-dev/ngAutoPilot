@@ -7,7 +7,7 @@ stack:
   - HTML
 category: styles
 status: stable
-version: 0.10.0
+version: 0.11.0
 owner: NgAutoPilot
 triggers:
   - responsive layout

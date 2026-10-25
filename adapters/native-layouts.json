@@ -77,6 +77,26 @@
         "https://opencode.ai/docs/rules/"
       ]
     },
+    "qwen": {
+      "skills": ".qwen/skills",
+      "instructions": "QWEN.md",
+      "reviewedOn": "2026-10-25",
+      "sources": [
+        "https://qwenlm.github.io/qwen-code-docs/en/users/features/skills/",
+        "https://qwenlm.github.io/qwen-code-docs/en/users/features/memory/"
+      ],
+      "caveat": "Project export only. Review QWEN.md before merging; /skills lists skills and /<skill-name> invokes one. Export does not grant project trust or establish host invocation."
+    },
+    "qoder": {
+      "skills": ".qoder/skills",
+      "instructions": "AGENTS.md",
+      "reviewedOn": "2026-10-25",
+      "sources": [
+        "https://docs.qoder.com/cli/Skills",
+        "https://docs.qoder.com/cli/memory"
+      ],
+      "caveat": "Project export only. Review AGENTS.md before merging; start a new CLI session or use /skills reload, then verify /skills. Desktop ZIP import and public marketplace publication are separate operations."
+    },
     "pi": {
       "skills": ".agents/skills",
       "instructions": "AGENTS.md",

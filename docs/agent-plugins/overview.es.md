@@ -7,7 +7,7 @@
 
 ![Las rutas de entrega tienen contratos distintos; verifica por separado descubrimiento, publicación e integración MCP.](../../assets/distribution-routes.es.svg)
 
-**Genera el artefacto y después demuestra que el agente de destino lo descubre.** NgAutoPilot `0.10.0` genera Agent Plugins 1.0 desde `skills/` y la política de packs de `packs/`. Empaquetar no demuestra instalación.
+**Genera el artefacto y después demuestra que el agente de destino lo descubre.** NgAutoPilot `0.11.0` genera Agent Plugins 1.0 desde `skills/` y la política de packs de `packs/`. Empaquetar no demuestra instalación.
 
 ## ¿Qué incluye?
 

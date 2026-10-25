@@ -196,4 +196,4 @@ MIT · [Licencia](LICENSE) · [Avisos de seguridad](SECURITY.es.md) · [Código 
 
 ## Ruta de release y publicación
 
-[Tareas de release y publicación 0.10.0](docs/publication-plan.es.md) · [Plataforma](docs/capability-platform.es.md) · [Exportaciones nativas](docs/adapter-maintenance.es.md) · [Transiciones seguras](docs/pack-transitions.es.md)
+[Tareas de release y publicación 0.11.0](docs/publication-plan.es.md) · [Plataforma](docs/capability-platform.es.md) · [Exportaciones nativas](docs/adapter-maintenance.es.md) · [Transiciones seguras](docs/pack-transitions.es.md)

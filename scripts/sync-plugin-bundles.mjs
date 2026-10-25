@@ -179,7 +179,7 @@ function stageBundles(stagingRoot) {
 
     const pluginManifest = {
       name: bundle.name,
-      version: '0.10.0',
+      version: '0.11.0',
       description: bundle.description,
       author,
       homepage: repository,
@@ -265,7 +265,7 @@ function writeMarketplaceFiles(bundles) {
       description:
         'NgAutoPilot Claude Code plugin marketplace for core workflow, Angular, JavaScript, TypeScript, CSS, and quality guidance.',
     },
-    version: '0.10.0',
+    version: '0.11.0',
     owner: {
       name: author.name,
     },
@@ -273,7 +273,7 @@ function writeMarketplaceFiles(bundles) {
       name: bundle.name,
       source: { source: 'git-subdir', url: 'janpereira-dev/ngAutoPilot', path: `plugins/${bundle.name}` },
       description: bundle.description,
-      version: '0.10.0',
+      version: '0.11.0',
       author: {
         name: author.name,
       },

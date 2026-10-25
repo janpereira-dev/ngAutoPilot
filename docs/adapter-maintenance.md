@@ -7,7 +7,7 @@
 
 ## Authoritative contract
 
-`adapters/native-layouts.json` is the native **project/workspace export** contract for all ten registered adapters. Every entry links to first-party discovery and instruction documentation. The independent expectations in `tests/installer/exporter.test.mjs` exercise the actual CLI, portable frontmatter, supporting resources, hashes, repeated exports, and conflict refusal.
+`adapters/native-layouts.json` is the native **project/workspace export** contract for twelve clients. It covers every legacy installer adapter and also the export-only Qwen Code and Qoder routes. Every entry links to first-party discovery and instruction documentation. The independent expectations in `tests/installer/exporter.test.mjs` exercise the actual CLI, portable frontmatter, supporting resources, hashes, repeated exports, and conflict refusal.
 
 | Adapter | Exported skills root | Exported instruction file |
 | --- | --- | --- |
@@ -21,8 +21,12 @@
 | OpenClaw | `skills` | `AGENTS.md` |
 | OpenCode | `.opencode/skills` | `AGENTS.md` |
 | Pi | `.agents/skills` | `AGENTS.md` |
+| Qwen Code | `.qwen/skills` | `QWEN.md` |
+| Qoder CLI | `.qoder/skills` | `AGENTS.md` |
 
 OpenClaw exports belong in the configured **agent workspace**, not its configuration directory. Hermes project skills require explicit host project trust. Generic discovery is consumer-defined. No export grants trust, starts an agent, or establishes runtime compatibility.
+
+Qwen Code and Qoder were checked against their linked first-party skill and memory contracts on 2026-10-25; their per-entry review dates do not refresh the older registry-wide review. Use `export --agent qwen` or `export --agent qoder` with a named pack and empty output directory. These routes do not add legacy `install` support or modify user configuration. Qwen lists skills with `/skills` and invokes a skill with `/<skill-name>`. Qoder loads project skills at startup; `/skills reload` refreshes an existing session and `/skills` shows the discovered names. Real invocation still requires a configured, authenticated host.
 
 Both entrypoints use the same engine:
 
@@ -46,7 +50,7 @@ Do not silently replace an existing installation with a native snapshot. A migra
 `.github/workflows/adapter-audit.yml` runs at 09:00 UTC on January, April, July, and October 1, and supports manual dispatch. It opens one tracking issue unless a review is already open. A maintainer owns the issue and must:
 
 1. Re-read every linked first-party source, including trust, precedence, scope, skill naming, and instruction loading rules.
-2. Record documentation/host versions and changes in the issue. Update `reviewedOn` only after actually reviewing all ten adapters.
+2. Record documentation/host versions and changes in the issue. Update registry-wide `reviewedOn` only after actually reviewing every export route; individual additions may carry their own review date.
 3. Update the registry, this table, and the independent integration assertions together.
 4. Run `node scripts/audit-adapters.mjs --check-age`, `npm run test:scripts`, and `npm test`.
 5. Attach real host discovery/invocation evidence when changing a runtime-support claim. Otherwise retain `hostInvocation: not-verified`.

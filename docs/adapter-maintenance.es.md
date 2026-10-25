@@ -7,7 +7,7 @@
 
 ## Contrato autorizado
 
-`adapters/native-layouts.json` define las exportaciones nativas de proyecto para los diez adaptadores. Cada entrada enlaza documentación del proveedor. Las pruebas independientes de `tests/installer/exporter.test.mjs` ejecutan la CLI y comprueban frontmatter portátil, recursos, hashes, repetición y rechazo de conflictos.
+`adapters/native-layouts.json` define las exportaciones nativas de proyecto para doce clientes. Cubre todos los adaptadores históricos del instalador y añade las rutas exclusivas de exportación para Qwen Code y Qoder. Cada entrada enlaza documentación del proveedor. Las pruebas independientes de `tests/installer/exporter.test.mjs` ejecutan la CLI y comprueban frontmatter portátil, recursos, hashes, repetición y rechazo de conflictos.
 
 | Adaptador | Raíz de skills exportadas | Instrucciones |
 | --- | --- | --- |
@@ -21,8 +21,12 @@
 | OpenClaw | `skills` | `AGENTS.md` |
 | OpenCode | `.opencode/skills` | `AGENTS.md` |
 | Pi | `.agents/skills` | `AGENTS.md` |
+| Qwen Code | `.qwen/skills` | `QWEN.md` |
+| Qoder CLI | `.qoder/skills` | `AGENTS.md` |
 
 OpenClaw utiliza el workspace configurado del agente, no su directorio de configuración. Hermes exige confianza explícita en el proyecto. El consumidor define el descubrimiento genérico. Exportar no concede confianza, inicia agentes ni demuestra compatibilidad de ejecución.
+
+Las rutas de Qwen Code y Qoder se contrastaron con sus contratos oficiales de skills y memoria el 2026-10-25. Sus fechas individuales no renuevan la revisión general anterior. Usa `export --agent qwen` o `export --agent qoder`, un pack y un directorio de salida vacío. Estas rutas no añaden soporte al instalador histórico ni modifican la configuración personal. Qwen muestra las skills con `/skills` e invoca una con `/<skill-name>`. Qoder las carga al iniciar; `/skills reload` actualiza una sesión existente y `/skills` muestra los nombres descubiertos. La invocación real requiere un cliente configurado y autenticado.
 
 Ambas entradas usan el mismo motor:
 
@@ -46,7 +50,7 @@ No reemplaces una instalación con una exportación sin una migración: identifi
 `.github/workflows/adapter-audit.yml` corre a las 09:00 UTC el 1 de enero, abril, julio y octubre y admite ejecución manual. Abre una incidencia de seguimiento si no existe otra abierta. Su responsable debe:
 
 1. Releer todas las fuentes oficiales: confianza, precedencia, alcance, nombres y carga de instrucciones.
-2. Registrar versiones y cambios. Actualizar `reviewedOn` solo después de revisar los diez adaptadores.
+2. Registrar versiones y cambios. Actualizar `reviewedOn` general solo después de revisar todas las rutas de exportación; una incorporación individual puede registrar su propia fecha.
 3. Cambiar registro, tabla y aserciones independientes conjuntamente.
 4. Ejecutar `node scripts/audit-adapters.mjs --check-age`, `npm run test:scripts` y `npm test`.
 5. Adjuntar descubrimiento e invocación reales cuando cambie una afirmación de soporte; sin evidencia mantener `hostInvocation: not-verified`.

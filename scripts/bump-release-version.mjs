@@ -153,5 +153,5 @@ function findTextFiles(root) {
 
 function isHistoricalDocumentation(file) {
   const relative = file.split(path.sep).join('/');
-  return relative === 'docs/superpowers' || relative.startsWith('docs/superpowers/') || relative === 'docs/specs' || relative.startsWith('docs/specs/') || relative.startsWith('docs/skill-content-review/');
+  return relative === 'docs/superpowers' || relative.startsWith('docs/superpowers/') || relative === 'docs/specs' || relative.startsWith('docs/specs/') || relative.startsWith('docs/skill-content-review/') || relative === 'docs/rollout-evidence' || relative.startsWith('docs/rollout-evidence/') || /^docs\/security-release-audit(?:\.es)?\.md$/.test(relative);
 }

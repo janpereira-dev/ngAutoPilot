@@ -53,7 +53,7 @@ Este índice cubre documentación para lectores: políticas raíz, todo Markdown
 | [Transiciones seguras entre packs](pack-transitions.es.md) | Guía / política | [English](pack-transitions.md) |
 | [Packs de NgAutoPilot 🎒](packs.es.md) | Guía / política | [English](packs.md) |
 | [Prompts y guardrails: de la petición a una revisión útil 🧭](prompts-and-guardrails.es.md) | Guía / política | [English](prompts-and-guardrails.md) |
-| [Plan de release y distribución: 0.10.0](publication-plan.es.md) | Guía / política | [English](publication-plan.md) |
+| [Plan de release y distribución: 0.11.0](publication-plan.es.md) | Guía / política | [English](publication-plan.md) |
 | [Entrega de estabilización de calidad](quality-stabilization.es.md) | Guía / política | [English](quality-stabilization.md) |
 | [Lista de publicación: evidencia local antes de distribuir 📦](release-checklist.es.md) | Guía / política | [English](release-checklist.md) |
 | [Revisión orientada a Sage: primero expediente, después revisión externa](sage-review.es.md) | Guía / política | [English](sage-review.md) |
@@ -74,6 +74,10 @@ Este índice cubre documentación para lectores: políticas raíz, todo Markdown
 | [Declaración de políticas](../openai/submission/0.10.0/policy-attestation.es.md) | Registro histórico | [English](../openai/submission/0.10.0/policy-attestation.md) |
 | [Notas de versión y disponibilidad](../openai/submission/0.10.0/release-notes.es.md) | Registro histórico | [English](../openai/submission/0.10.0/release-notes.md) |
 | [Casos de prueba del envío](../openai/submission/0.10.0/test-cases.es.md) | Registro histórico | [English](../openai/submission/0.10.0/test-cases.md) |
+| [NgAutoPilot Skills](../openai/submission/0.11.0/listing.es.md) | Registro histórico | [English](../openai/submission/0.11.0/listing.md) |
+| [Declaración de políticas](../openai/submission/0.11.0/policy-attestation.es.md) | Registro histórico | [English](../openai/submission/0.11.0/policy-attestation.md) |
+| [Notas de versión y disponibilidad](../openai/submission/0.11.0/release-notes.es.md) | Registro histórico | [English](../openai/submission/0.11.0/release-notes.md) |
+| [Casos de prueba del envío](../openai/submission/0.11.0/test-cases.es.md) | Registro histórico | [English](../openai/submission/0.11.0/test-cases.md) |
 | [NgAutoPilot Skills](../openai/submission/0.6.0/listing.es.md) | Registro histórico | [English](../openai/submission/0.6.0/listing.md) |
 | [Declaración de cumplimiento](../openai/submission/0.6.0/policy-attestation.es.md) | Registro histórico | [English](../openai/submission/0.6.0/policy-attestation.md) |
 | [Notas de release y disponibilidad](../openai/submission/0.6.0/release-notes.es.md) | Registro histórico | [English](../openai/submission/0.6.0/release-notes.md) |

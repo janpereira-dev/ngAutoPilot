@@ -9,7 +9,18 @@
 
 All notable changes to NgAutoPilot will be documented in this file.
 
-## 0.10.0 - Unreleased
+## 0.11.0 - Unreleased
+
+### Added
+
+- Native project exports for Qwen Code (`.qwen/skills`, `QWEN.md`) and Qoder CLI (`.qoder/skills`, `AGENTS.md`), with portable names, complete references and conflict protection. These exports do not add legacy installer support or claim authenticated host execution.
+
+### Fixed
+
+- Keep dated rollout evidence and historical security audits unchanged when preparing a later release.
+- Include the post-0.10.0 security fixes, complete `npx skills` gateway references and updated Angular/TypeScript guidance in a separately versioned candidate. npm publication remains pending the protected credential.
+
+## 0.10.0 - GitHub release 2026-10-02; npm publication pending
 
 ### Added
 

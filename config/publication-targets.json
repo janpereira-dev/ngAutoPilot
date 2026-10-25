@@ -14,14 +14,16 @@
         "guide": "docs/publication-plan.md",
         "scope": "package-and-local-discovery-only",
         "remotePublication": "not-verified"
-      }
+      },
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "openai-public",
       "channel": "public-directory",
       "state": "not-submitted",
       "hostInvocation": "not-verified",
-      "reference": "https://developers.openai.com/plugins/deploy/submission"
+      "reference": "https://developers.openai.com/plugins/deploy/submission",
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "claude-code",
@@ -33,19 +35,21 @@
         "guide": "docs/publication-plan.md",
         "scope": "package-and-local-discovery-only",
         "remotePublication": "not-verified"
-      }
+      },
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "anthropic-public",
       "channel": "public-directory",
       "state": "not-submitted",
       "hostInvocation": "not-verified",
-      "reference": "https://code.claude.com/docs/en/plugin-marketplaces"
+      "reference": "https://code.claude.com/docs/en/plugin-marketplaces",
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "skills-sh",
       "channel": "telemetry-directory",
-      "state": "listing-not-verified",
+      "state": "listed-with-external-audit-findings",
       "hostInvocation": "not-verified",
       "reference": "https://www.skills.sh/docs/faq",
       "sourceValidation": {
@@ -57,7 +61,9 @@
         "root": "ngautopilot entry skill only",
         "focusedPack": "agent-plugins/ngautopilot-angular-21-to-22",
         "cliVersionTested": "1.7.4"
-      }
+      },
+      "listingUrl": "https://www.skills.sh/janpereira-dev/ngautopilot",
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "pi",
@@ -69,7 +75,8 @@
         "guide": "docs/publication-plan.md",
         "scope": "package-and-local-discovery-only",
         "remotePublication": "not-verified"
-      }
+      },
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "openclaw-clawhub",
@@ -81,105 +88,133 @@
         "guide": "docs/publication-plan.md",
         "scope": "package-and-local-discovery-only",
         "remotePublication": "not-verified"
-      }
+      },
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "hermes",
       "channel": "native-export",
       "state": "export-ready",
       "hostInvocation": "not-verified",
-      "reference": "https://hermes-agent.nousresearch.com/docs/guides/work-with-skills"
+      "reference": "https://hermes-agent.nousresearch.com/docs/guides/work-with-skills",
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "opencode",
       "channel": "native-export",
       "state": "export-ready",
       "hostInvocation": "not-verified",
-      "reference": "https://opencode.ai/docs/skills/"
+      "reference": "https://opencode.ai/docs/skills/",
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "qwen-code",
       "channel": "project-skills",
-      "state": "adapter-pending",
+      "state": "export-ready",
       "hostInvocation": "not-verified",
-      "reference": "https://qwenlm.github.io/qwen-code-docs/en/users/features/skills/"
+      "reference": "https://qwenlm.github.io/qwen-code-docs/en/users/features/skills/",
+      "sourceValidation": {
+        "guide": "docs/adapter-maintenance.md",
+        "scope": "native-export-regression-tests",
+        "reviewedOn": "2026-10-25",
+        "remotePublication": "not-verified"
+      },
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "qoder",
       "channel": "project-skills",
-      "state": "adapter-pending",
+      "state": "export-ready",
       "hostInvocation": "not-verified",
-      "reference": "https://docs.qoder.com/cli/Skills"
+      "reference": "https://docs.qoder.com/cli/Skills",
+      "sourceValidation": {
+        "guide": "docs/adapter-maintenance.md",
+        "scope": "native-export-regression-tests",
+        "reviewedOn": "2026-10-25",
+        "remotePublication": "not-verified"
+      },
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "z-ai",
       "channel": "model-provider",
-      "state": "identity-unresolved",
+      "state": "provider-route-documented",
       "hostInvocation": "not-verified",
-      "reference": "https://docs.z.ai/devpack/tool/claude"
+      "reference": "https://docs.z.ai/devpack/tool/claude",
+      "notes": "The cited source describes Z.ai as a Claude Code model provider. ZI and OpenCodex still need an exact product identity before a separate adapter or registry can be claimed.",
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "copilot",
       "channel": "native-export",
       "state": "export-ready",
       "hostInvocation": "not-verified",
-      "reference": "https://docs.github.com/en/copilot/concepts/agents/about-agent-skills"
+      "reference": "https://docs.github.com/en/copilot/concepts/agents/about-agent-skills",
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "cursor",
       "channel": "native-export",
       "state": "export-ready",
       "hostInvocation": "not-verified",
-      "reference": "https://cursor.com/docs/context/skills"
+      "reference": "https://cursor.com/docs/context/skills",
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "gemini",
       "channel": "native-export",
       "state": "export-ready",
       "hostInvocation": "not-verified",
-      "reference": "https://geminicli.com/docs/cli/skills/"
+      "reference": "https://geminicli.com/docs/cli/skills/",
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "autoskills-sh",
       "channel": "public-directory",
       "state": "submission-bundle-ready",
       "hostInvocation": "not-verified",
-      "reference": "https://www.autoskills.sh/"
+      "reference": "https://www.autoskills.sh/",
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "skillsmp",
       "channel": "public-directory",
       "state": "submission-bundle-ready",
       "hostInvocation": "not-verified",
-      "reference": "https://skillsmp.com/"
+      "reference": "https://skillsmp.com/",
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "skillsllm",
       "channel": "public-directory",
       "state": "submission-bundle-ready",
       "hostInvocation": "not-verified",
-      "reference": "https://skillsllm.com/"
+      "reference": "https://skillsllm.com/",
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "lobehub",
       "channel": "public-directory",
       "state": "submission-bundle-ready",
       "hostInvocation": "not-verified",
-      "reference": "https://lobehub.com/skills"
+      "reference": "https://lobehub.com/skills",
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "mcpmarket",
       "channel": "public-directory",
       "state": "submission-bundle-ready",
       "hostInvocation": "not-verified",
-      "reference": "https://mcpmarket.com/"
+      "reference": "https://mcpmarket.com/",
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     },
     {
       "id": "pypi",
       "channel": "python-package",
       "state": "not-applicable",
       "hostInvocation": "not-verified",
-      "reference": "https://pypi.org/"
+      "reference": "https://pypi.org/",
+      "rolloutEvidence": "docs/rollout-evidence/2026-10-25.json"
     }
   ]
 }

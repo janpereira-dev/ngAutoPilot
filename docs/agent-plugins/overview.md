@@ -7,7 +7,7 @@
 
 ![Delivery routes have different contracts; verify host discovery, publication and MCP integration separately.](../../assets/distribution-routes.svg)
 
-**Generate an artifact, then prove that the target host can discover it.** NgAutoPilot `0.10.0` generates Agent Plugins 1.0 from canonical `skills/` and pack policy in `packs/`. Packaging is not installation evidence.
+**Generate an artifact, then prove that the target host can discover it.** NgAutoPilot `0.11.0` generates Agent Plugins 1.0 from canonical `skills/` and pack policy in `packs/`. Packaging is not installation evidence.
 
 ## What is included?
 

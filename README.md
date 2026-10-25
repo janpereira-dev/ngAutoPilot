@@ -196,4 +196,4 @@ MIT · [License](LICENSE) · [Security reporting](SECURITY.md) · [Code of condu
 
 ## Release and publication roadmap
 
-[0.10.0 release and publication tasks](docs/publication-plan.md) · [Capability platform](docs/capability-platform.md) · [Native exports](docs/adapter-maintenance.md) · [Safe pack transitions](docs/pack-transitions.md)
+[0.11.0 release and publication tasks](docs/publication-plan.md) · [Capability platform](docs/capability-platform.md) · [Native exports](docs/adapter-maintenance.md) · [Safe pack transitions](docs/pack-transitions.md)

@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-10-25",
+  "issue": "https://github.com/janpereira-dev/ngAutoPilot/issues/69",
+  "candidate": {
+    "version": "0.11.0",
+    "baseCommit": "8f17703ae1f5cad6f06897720ac666061771f068",
+    "state": "PREPARATION_NOT_PUBLICATION",
+    "reason": "v0.10.0 predates subsequent security, onboarding and compatibility fixes; preserve its tag and bytes."
+  },
+  "authorization": {
+    "npmPublication": "User explicitly requested preparation only, pending the protected credential.",
+    "humanAttestations": "Not performed or inferred."
+  },
+  "publication": {
+    "npmLatest": "0.9.0",
+    "npm0100Published": false,
+    "protectedEnvironment": "release-security",
+    "protectedSecretCount": 0,
+    "requiredSecret": "RELEASE_NPM_TOKEN",
+    "historicalRun": "https://github.com/janpereira-dev/ngAutoPilot/actions/runs/36977894236",
+    "historicalRunState": "waiting",
+    "branchReview": {
+      "requiredApprovals": 1,
+      "codeOwnerReviewRequired": true,
+      "onlyCodeOwnerIsPRAuthor": true
+    }
+  },
+  "publicPages": [
+    {
+      "kind": "support",
+      "url": "https://janpereira-dev.pages.dev/ngautopilot/support",
+      "httpStatus": 200,
+      "content": "Project issue route, reproduction guidance and best-effort support."
+    },
+    {
+      "kind": "privacy",
+      "url": "https://janpereira-dev.pages.dev/ngautopilot/privacy",
+      "httpStatus": 200,
+      "content": "Local CLI operations, third-party provider processing and sensitive-data boundaries."
+    },
+    {
+      "kind": "terms",
+      "url": "https://janpereira-dev.pages.dev/ngautopilot/terms",
+      "httpStatus": 200,
+      "content": "Repository license, as-is delivery, validation responsibilities and external services."
+    }
+  ],
+  "nativeExports": {
+    "qwen": {
+      "skills": ".qwen/skills",
+      "instructions": "QWEN.md",
+      "sources": [
+        "https://qwenlm.github.io/qwen-code-docs/en/users/features/skills/",
+        "https://qwenlm.github.io/qwen-code-docs/en/users/features/memory/"
+      ],
+      "scope": "project-export-only",
+      "hostInvocation": "not-verified"
+    },
+    "qoder": {
+      "skills": ".qoder/skills",
+      "instructions": "AGENTS.md",
+      "sources": [
+        "https://docs.qoder.com/cli/Skills",
+        "https://docs.qoder.com/cli/memory"
+      ],
+      "scope": "project-export-only",
+      "hostInvocation": "not-verified"
+    }
+  },
+  "hostProbes": {
+    "codex": {
+      "version": "0.162.1",
+      "model": "gpt-6.1-sol",
+      "scope": "Text-only invocation of an installed exported skill against a synthetic TypeScript example.",
+      "result": "Correctly rejected tomato outside the carrot/potato union and recommended a literal union.",
+      "limits": [
+        "Initial repository-reading probe was blocked by local execution policy.",
+        "The successful text-only probe does not prove repository tool access, a clean marketplace profile, or all client surfaces.",
+        "Unrelated configured MCP startup warnings remain separate from this skill-only test."
+      ]
+    },
+    "claude": {
+      "version": "2.1.300",
+      "state": "blocked-authentication",
+      "result": "Not logged in; no model task completed."
+    },
+    "copilot": {
+      "version": "1.0.103",
+      "state": "blocked-authentication",
+      "result": "No authentication information found; no model task completed."
+    }
+  },
+  "skillsCLI": {
+    "version": "1.7.4",
+    "remoteSource": "https://github.com/janpereira-dev/ngAutoPilot",
+    "remoteSourceCommit": "8f17703ae1f5cad6f06897720ac666061771f068",
+    "installedSkill": "ngautopilot-core",
+    "scope": "isolated-project",
+    "mode": "copy",
+    "remoteDiscoveryCount": 15,
+    "localCandidateDiscoveryCount": 15,
+    "installation": "succeeded",
+    "limits": "One legitimate install, with existing telemetry preferences unchanged. The initial installation reported 23 discovered skills; a fresh remote --list returned the expected 15 curated gateways, matching the candidate. No host invocation is inferred from installation.",
+    "initialInstallDiscoveryCount": 23
+  },
+  "skillsSH": {
+    "url": "https://www.skills.sh/janpereira-dev/ngautopilot",
+    "listing": "verified",
+    "listedSkills": 119,
+    "entry": "https://www.skills.sh/janpereira-dev/ngautopilot/ngautopilot",
+    "entryContent": "No SKILL.md available in the observed provider snapshot.",
+    "audits": [
+      {
+        "provider": "Gen Agent Trust Hub",
+        "verdict": "Warn",
+        "auditedAt": null,
+        "detailRetrieved": false,
+        "url": "https://www.skills.sh/janpereira-dev/ngautopilot/ngautopilot/security/agent-trust-hub"
+      },
+      {
+        "provider": "Socket",
+        "verdict": "Fail",
+        "auditedAt": "2026-07-30",
+        "sourceCommit": "b5ce82c8e7d9af8ef000d70d65833f5c320bdc54",
+        "url": "https://www.skills.sh/janpereira-dev/ngautopilot/ngautopilot/security/socket",
+        "findings": [
+          {
+            "path": "docs/angular-caniuse/scrape-angular-caniuse.mjs",
+            "currentSource": "Uses the data-only parser and CSV escaping; three focused regressions passed."
+          },
+          {
+            "path": "scripts/install-git-hooks.mjs",
+            "currentSource": "Absent from current source."
+          },
+          {
+            "path": "skill-lab/scripts/clean-runs.mjs",
+            "currentSource": "Absent from current source."
+          }
+        ],
+        "resolution": "Current-source fixes do not change the external verdict; provider re-audit remains pending."
+      },
+      {
+        "provider": "Snyk",
+        "verdict": "Warn",
+        "auditedAt": "2026-10-01",
+        "riskLevel": "unknown",
+        "url": "https://www.skills.sh/janpereira-dev/ngautopilot/ngautopilot/security/snyk"
+      }
+    ]
+  },
+  "directories": [
+    {
+      "id": "autoskills-sh",
+      "url": "https://www.autoskills.sh/",
+      "observedRoute": "Curated ecosystem page links to skills.sh; no general submission route was established.",
+      "state": "operator-route-unverified"
+    },
+    {
+      "id": "skillsmp",
+      "url": "https://skillsmp.com/",
+      "observedRoute": "Public GitHub indexing; official page describes periodic catalog snapshots. Contact support@skillsmp.com only if the owner explicitly authorizes a message.",
+      "state": "indexing-not-confirmed"
+    },
+    {
+      "id": "skillsllm",
+      "url": "https://skillsllm.com/submit",
+      "observedRoute": "Sign in with GitHub, then submit the skill.",
+      "state": "requires-publisher-login"
+    },
+    {
+      "id": "lobehub",
+      "url": "https://lobehub.com/docs/usage/community/become-a-creator",
+      "observedRoute": "Authenticated creator page -> Skills -> Submit Repository.",
+      "state": "requires-publisher-login"
+    },
+    {
+      "id": "mcpmarket",
+      "url": "https://mcpmarket.com/submit",
+      "observedRoute": "Agent Skill / GitHub repository submission. Free Queue is $0 and advertises 4-6 weeks; paid placement was not selected or purchased.",
+      "state": "prepared-not-submitted"
+    }
+  ],
+  "identity": {
+    "zAI": {
+      "documentedRole": "Model-provider route for Claude Code, not evidence of a separate skill registry.",
+      "source": "https://docs.z.ai/devpack/tool/claude"
+    },
+    "unresolvedNames": [
+      "ZI",
+      "OpenCodex"
+    ]
+  },
+  "requiredExternalActions": [
+    "Provision RELEASE_NPM_TOKEN before npm publication (explicitly deferred by the user).",
+    "Obtain the required independent authorized code-owner review without bypassing branch protection.",
+    "Complete publisher identity/policy attestations and submit exact packages in authenticated portals.",
+    "Authenticate unavailable native hosts and complete the remaining real invocations.",
+    "Obtain operator review/reindexing and retain accepted listing IDs/URLs."
+  ]
+}
