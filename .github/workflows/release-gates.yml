@@ -69,7 +69,7 @@ jobs:
         run: npm run openai:validate
 
       - name: Check generated drift
-        run: git diff --exit-code -- catalog.json plugins agent-plugins .agents/skills .agents/plugins/marketplace.json .claude-plugin/marketplace.json
+        run: node scripts/check-generated-drift.mjs catalog.json plugins agent-plugins .agents/skills .agents/plugins/marketplace.json .claude-plugin/marketplace.json
 
       - name: Verify npx skills discovery and real installation
         env:
