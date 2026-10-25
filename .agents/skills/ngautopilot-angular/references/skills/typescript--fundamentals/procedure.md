@@ -64,6 +64,8 @@ pure functions -> deterministic logic and mutation control
 
 Use versioned or runtime-specific variants only when they materially change the guidance.
 
+For new finite value sets, prefer literal unions when only a type is needed, `as const` objects for named runtime values, and `as const` arrays for iteration or validation. Route implementation and enum compatibility checks to `typescript.strict-types.avoid-any`; preserve existing public and serialized contracts.
+
 ## Do Not
 
 Avoid turning the mother skill into implementation guidance.

@@ -11,3 +11,5 @@ Use NgAutoPilot as a skill-routed system, not as a pool of agents to activate by
 For frontend work, route product and UX discovery to `frontend.design.product-ui-discovery`, reusable foundations to `frontend.design.design-system-governance`, inclusive UI to `frontend.accessibility.inclusive-ui-foundations`, browser evidence to `frontend.testing.frontend-experience-validation`, and performance work to `frontend.performance.web-performance-evidence`.
 
 For Angular visual or accessibility journeys, use `angular.testing.angular-visual-accessibility-e2e-validation` after detecting the Angular version and runner. For JavaScript library, toolchain, host, or polyfill concerns, opt in to `javascript.ecmascript-compatibility-semantics`; it is not a default application skill.
+
+For new finite TypeScript values, prefer literal unions for types alone, `as const` objects for named runtime constants, or `as const` arrays for iteration and membership validation, deriving types and guards from one source. Route to `typescript.strict-types.avoid-any` for details. Preserve required enum and serialized contracts; do not mix optional enum migrations into upgrades.

@@ -62,6 +62,8 @@ Activate this subagent when:
 9. Ensure the right skill is used for the right phase.
 10. Raise architecture blockers before implementation spreads.
 
+For new finite component, service, or domain values, prefer literal unions or derive types from `as const` objects and arrays when runtime values are needed. Preserve Angular/library enum APIs and public contracts; check TypeScript support before recommending const assertions (3.4+).
+
 ## Angular structural checks
 
 When an Angular version is detected, verify only the constraints that are evidenced for that version:

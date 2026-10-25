@@ -311,7 +311,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 587
+        "wordCount": 640
       }
     },
     {
@@ -1009,7 +1009,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 606
+        "wordCount": 657
       }
     },
     {
@@ -3622,7 +3622,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 539
+        "wordCount": 589
       }
     },
     {
@@ -9788,7 +9788,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 908
+        "wordCount": 955
       }
     },
     {
@@ -9898,7 +9898,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 723
+        "wordCount": 736
       }
     },
     {
@@ -11303,7 +11303,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 233
+        "wordCount": 278
       }
     },
     {
@@ -11329,7 +11329,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 243
+        "wordCount": 290
       }
     },
     {
@@ -11355,7 +11355,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 409
+        "wordCount": 452
       }
     },
     {
@@ -11382,7 +11382,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 392
+        "wordCount": 436
       }
     },
     {
@@ -11401,14 +11401,18 @@
         "strict typing",
         "type guard",
         "DTO",
-        "generic"
+        "generic",
+        "enum alternatives",
+        "literal union",
+        "as const",
+        "finite value validation"
       ],
       "compatibility": {},
       "contentSignals": {
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 493
+        "wordCount": 697
       }
     },
     {
@@ -11433,7 +11437,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 273
+        "wordCount": 321
       }
     }
   ]

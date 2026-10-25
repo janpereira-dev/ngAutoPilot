@@ -64,6 +64,8 @@ fundamentals -> learning and adoption path
 
 Use strict-mode variants when the repo already enforces or can adopt strict typing.
 
+For finite value sets, choose a literal union for type-only use or derive the union from an `as const` object or array when runtime values are needed. Route membership guards and enum replacement decisions to `typescript.strict-types.avoid-any`; strict typing alone does not validate external data.
+
 ## Do Not
 
 Avoid turning the mother skill into implementation guidance.

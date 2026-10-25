@@ -45,6 +45,8 @@ Validate untrusted inputs before relying on the shape.
 
 Separate transport DTOs from internal domain or persistence models.
 
+For new finite domain values, prefer literal unions or an `as const` object or array with a derived union when runtime values are needed. Derive boundary membership validation from the same values. Preserve external and persisted enum representations; never renumber implicit numeric members as a mapper cleanup.
+
 ## Do Not
 
 Avoid leaking raw transport payloads into core logic.

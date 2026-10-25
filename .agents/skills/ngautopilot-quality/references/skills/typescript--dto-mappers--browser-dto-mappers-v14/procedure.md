@@ -45,6 +45,8 @@ Keep mapping pure and deterministic.
 
 Separate transport shape from UI shape.
 
+For new finite UI values, prefer literal unions or derive a union from an `as const` object or array when templates or validators need runtime values. Validate incoming membership from that same list; preserve backend enum values and map explicitly when the UI representation differs.
+
 ## Do Not
 
 Avoid binding raw backend DTOs directly to templates.

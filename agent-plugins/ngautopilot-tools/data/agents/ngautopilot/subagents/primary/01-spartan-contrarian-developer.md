@@ -72,6 +72,8 @@ Activate this subagent when:
 9. Raise blockers when validation is fake or absent.
 10. Provide actionable objections.
 
+For new finite TypeScript values, challenge unnecessary enums: prefer literal unions for types alone or `as const` objects and arrays for needed runtime values. Treat this as a preference; block an enum replacement only for concrete contract, serialization, or runtime regressions, and reject unrelated migration work.
+
 ## Non-goals
 
 Do not:

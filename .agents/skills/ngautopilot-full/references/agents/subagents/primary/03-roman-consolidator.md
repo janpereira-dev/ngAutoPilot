@@ -69,6 +69,8 @@ Activate this subagent at the end of every meaningful task, especially when:
 9. Identify what should go to another PR.
 10. Make the final recommendation.
 
+When finite TypeScript values change, confirm the delivery explains the choice of literal union, `as const` object/array, or a required enum. Report actual type-check and membership-test evidence when applicable; do not accept claims of zero runtime output for objects or arrays, or unverified compatibility for enum migrations.
+
 ## Non-goals
 
 Do not:

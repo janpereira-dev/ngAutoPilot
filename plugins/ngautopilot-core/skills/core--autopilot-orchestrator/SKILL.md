@@ -87,6 +87,8 @@ Apply this routing order:
 
 Prefer one focused skill over multiple broad skills. Add a second skill only when the task clearly crosses boundaries.
 
+When a task introduces finite TypeScript values, prefer literal unions for type-only use or `as const` objects and arrays for needed runtime values. Route detailed selection and validation to `typescript.strict-types.avoid-any` when available; preserve required enum APIs and serialized values, and keep optional enum migration separate from upgrades.
+
 ## Execution Workflow
 
 Use this workflow:
