@@ -19,7 +19,8 @@
     "protectedSecretCount": 0,
     "requiredSecret": "RELEASE_NPM_TOKEN",
     "historicalRun": "https://github.com/janpereira-dev/ngAutoPilot/actions/runs/36977894236",
-    "historicalRunState": "waiting",
+    "historicalRunState": "cancelled",
+    "historicalRunDisposition": "Cancelled after preparing the corrected 0.11.0 candidate; do not approve or publish obsolete 0.10.0 bytes as this candidate.",
     "branchReview": {
       "requiredApprovals": 1,
       "codeOwnerReviewRequired": true,
@@ -197,5 +198,40 @@
     "Complete publisher identity/policy attestations and submit exact packages in authenticated portals.",
     "Authenticate unavailable native hosts and complete the remaining real invocations.",
     "Obtain operator review/reindexing and retain accepted listing IDs/URLs."
-  ]
+  ],
+  "validation": {
+    "pullRequest": "https://github.com/janpereira-dev/ngAutoPilot/pull/88",
+    "validatedSourceCommit": "f71e5d876d0489124bbcc353fa57cc76d5cdabc4",
+    "githubChecks": {
+      "passed": 12,
+      "failed": 0,
+      "requiredRelease": "success",
+      "requiredSkillLab": "success",
+      "codeQL": "success",
+      "dependencySocketReport": "success"
+    },
+    "repositoryTests": {
+      "passed": 275,
+      "failed": 0,
+      "skipped": 0,
+      "runtime": "GitHub Actions Linux / Node 24"
+    },
+    "scriptTests": {
+      "passed": 22,
+      "failed": 0
+    },
+    "skillLab": {
+      "passed": 85,
+      "failed": 0,
+      "skipped": 11
+    },
+    "npmAuditKnownVulnerabilities": 0,
+    "pythonAudit": {
+      "dependencies": 38,
+      "knownVulnerabilities": 0,
+      "scope": "wheel-only resolution snapshot"
+    },
+    "mergeState": "REVIEW_REQUIRED",
+    "evidenceOnlyFollowUp": "Subsequent evidence bookkeeping does not claim review or publication."
+  }
 }
