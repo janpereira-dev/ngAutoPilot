@@ -9504,7 +9504,7 @@
         "requiredSections": true,
         "hasProcedure": false,
         "hasRisks": false,
-        "wordCount": 528
+        "wordCount": 543
       }
     },
     {
@@ -9635,7 +9635,9 @@
         "angular hop",
         "angular cli version",
         "typescript range",
-        "rxjs range"
+        "rxjs range",
+        "angular browser support",
+        "angular polyfills"
       ],
       "compatibility": {
         "min": 2
@@ -9644,7 +9646,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": false,
-        "wordCount": 778
+        "wordCount": 846
       }
     },
     {
@@ -9924,7 +9926,7 @@
         "requiredSections": true,
         "hasProcedure": true,
         "hasRisks": true,
-        "wordCount": 753
+        "wordCount": 747
       }
     },
     {
