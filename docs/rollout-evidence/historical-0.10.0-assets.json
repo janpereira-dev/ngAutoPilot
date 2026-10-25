@@ -1,0 +1,137 @@
+{
+  "checkedOn": "2026-10-25",
+  "releaseUrl": "https://github.com/janpereira-dev/ngAutoPilot/releases/tag/v0.10.0",
+  "tag": "v0.10.0",
+  "assets": [
+    {
+      "name": "agent-plugins-SHA256SUMS",
+      "bytes": 510,
+      "sha256": "fd2adcab986d2b5b2dc4a9160f3f9b81373a32ae73987c8e899624a40e467e2e",
+      "verified": true
+    },
+    {
+      "name": "autoskills-sh.tar.gz",
+      "bytes": 1598890,
+      "sha256": "a285ddbaf14cb3cd057f2bd7a4097513e6dd246ffad5f4319bb51907a7f07432",
+      "verified": true
+    },
+    {
+      "name": "lobehub-skills.tar.gz",
+      "bytes": 1598877,
+      "sha256": "052dd9293855a54926257388340109f11287069a7d3c596556c92691dcdc4f5b",
+      "verified": true
+    },
+    {
+      "name": "mcpmarket-skills.tar.gz",
+      "bytes": 1598944,
+      "sha256": "2d22db3f27041dbe76d356c1e6f2c6385a36efe74f3bf8dcbe3f710fa0b071ce",
+      "verified": true
+    },
+    {
+      "name": "ngautopilot-0.10.0.tgz",
+      "bytes": 1371803,
+      "sha256": "e0cb3096062ba1928f72e3c5f7226ddb435d8598f55c98106882879a012f0d9c",
+      "verified": true
+    },
+    {
+      "name": "ngautopilot-angular-21-to-22-0.10.0.zip",
+      "bytes": 41672,
+      "sha256": "6892ef1d040618e10bbdd50453f5e3a3adf9e6ce9dbaec8e079683bf9ce0f9d0",
+      "verified": true
+    },
+    {
+      "name": "ngautopilot-angular-architecture-0.10.0.zip",
+      "bytes": 65889,
+      "sha256": "e1e67c219da12c5bb5eb428c0d53625695749422a0d47290f67720e2b419219a",
+      "verified": true
+    },
+    {
+      "name": "ngautopilot-angular-testing-0.10.0.zip",
+      "bytes": 29826,
+      "sha256": "e9fb7a860bc19985b4133a8408a218f8a2685537d6c65c28961b1b99b1356616",
+      "verified": true
+    },
+    {
+      "name": "ngautopilot-core-0.10.0.zip",
+      "bytes": 15711,
+      "sha256": "a66e25771e7fb438197ad3566365138afa6a503063eca4b08699e932c8d4160a",
+      "verified": true
+    },
+    {
+      "name": "ngautopilot-skills-0.10.0.zip",
+      "bytes": 681751,
+      "sha256": "a61916195f8d5aa55615c9a57d5073abc603b4c8b5e0cd54f8e877b1dd9dd157",
+      "verified": true
+    },
+    {
+      "name": "ngautopilot-tools-0.10.0.zip",
+      "bytes": 335606,
+      "sha256": "2e568a2ec7824184ba3bd3730edc17dc1e07d7105b8e918080284641a9365d4c",
+      "verified": true
+    },
+    {
+      "name": "openai-plugin-SHA256SUMS",
+      "bytes": 96,
+      "sha256": "7405864db7329362821545af6a9cae7f6e58eea9a08d0a2db5835c8a7abbffbd",
+      "verified": true
+    },
+    {
+      "name": "python-dependency-audit.json",
+      "bytes": 2192,
+      "sha256": "1c5cc46bb0c311b65aeba4001329f5366d0c6eb752c4679176ab445bbfe5d2c7",
+      "verified": true
+    },
+    {
+      "name": "release-inventory.json",
+      "bytes": 282215,
+      "sha256": "7363b23982b2da3a0b0a1ad25f1cf72c0360bff645bb66b7cfb889f38961cf3c",
+      "verified": true
+    },
+    {
+      "name": "skillsllm.tar.gz",
+      "bytes": 1598748,
+      "sha256": "c4a7cf179f38e6e16ef12b7ea5514460dd131a9ba139e59afdf484f7f6a4c98e",
+      "verified": true
+    },
+    {
+      "name": "skillsmp-es.tar.gz",
+      "bytes": 1598820,
+      "sha256": "1ca47b3c15b9ffebfdc302ff4ab0528de896b26b3fa70197ffb883a9e857c62d",
+      "verified": true
+    }
+  ],
+  "checksumSidecars": [
+    {
+      "sidecar": "agent-plugins-SHA256SUMS",
+      "asset": "ngautopilot-angular-21-to-22-0.10.0.zip",
+      "verified": true
+    },
+    {
+      "sidecar": "agent-plugins-SHA256SUMS",
+      "asset": "ngautopilot-angular-architecture-0.10.0.zip",
+      "verified": true
+    },
+    {
+      "sidecar": "agent-plugins-SHA256SUMS",
+      "asset": "ngautopilot-angular-testing-0.10.0.zip",
+      "verified": true
+    },
+    {
+      "sidecar": "agent-plugins-SHA256SUMS",
+      "asset": "ngautopilot-core-0.10.0.zip",
+      "verified": true
+    },
+    {
+      "sidecar": "agent-plugins-SHA256SUMS",
+      "asset": "ngautopilot-tools-0.10.0.zip",
+      "verified": true
+    },
+    {
+      "sidecar": "openai-plugin-SHA256SUMS",
+      "asset": "ngautopilot-skills-0.10.0.zip",
+      "verified": true
+    }
+  ],
+  "npmLatest": "0.9.0",
+  "npm0100Published": false
+}

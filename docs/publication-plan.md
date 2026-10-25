@@ -1,4 +1,4 @@
-# Release and distribution plan: 0.10.0
+# Release and distribution plan: 0.11.0
 
 <!-- docs:navigation:start -->
 [Español](publication-plan.es.md) · [Map](README.md) · [Home](../README.md)
@@ -8,6 +8,18 @@
 ![Choose a distribution route](../assets/distribution-routes.svg)
 
 **Build → validate → approve → merge → release → verify.** A complete source release is not automatic public-directory acceptance or a forced update to every user's installation.
+
+## Preparation update — 2026-10-25
+
+The next candidate is **0.11.0** because the existing immutable v0.10.0 tag predates the security and installation fixes now on main. The owner explicitly requested preparation while leaving npm publication pending the protected credential. No historical tag/archive is replaced and no missing human approval is inferred.
+
+[Dated rollout evidence](rollout-evidence/2026-10-25.json) records the live registry, environment, host attempts, public pages and directory routes. [Historical asset verification](rollout-evidence/historical-0.10.0-assets.json) verifies all 16 remote assets and six checksum-sidecar entries. Support, privacy and terms each returned HTTP 200 with project-specific content. Qwen Code and Qoder now have source-backed native exports and focused conflict/resource regressions; use the [native export contract](adapter-maintenance.md).
+
+Codex CLI 0.162.1 successfully invoked an installed skill for a bounded text-only TypeScript task. Its earlier file-reading attempt was blocked by local execution policy; clean marketplace discovery and repository tool access remain separate checks. Claude Code 2.1.300 and Copilot CLI 1.0.103 returned authentication failures. These are explicit external prerequisites, not successful host tests.
+
+The skills.sh listing exists, but its root entry has stale content and external audit findings. Socket's failed snapshot is dated 2026-07-30 at `b5ce82c8e7d9af8ef000d70d65833f5c320bdc54`; the two flagged maintenance scripts are absent from current source, and the scraper uses a data-only parser and CSV escaping covered by regressions. Snyk still displays Warn with unknown risk. Keep these external states visible until provider re-audit; local checks cannot change them.
+
+Public portal preparation is distinct from publication: SkillsLLM requires GitHub sign-in, LobeHub uses an authenticated creator page and Submit Repository, and MCPMarket offers a free review queue. No paid placement is selected. OpenAI/Anthropic publisher declarations, unavailable host logins, directory review and the required independent code-owner review remain pending where no verified completion exists. This work does not close issue 69 automatically.
 
 ## PR 82: source security and installation boundaries
 
@@ -45,14 +57,14 @@ Pi is an npm-based harness. The internal Python Skill Lab module is not a suppor
 - [ ] Inspect the exact-commit Sage packet; record actual external reviewer findings separately. Generation never marks approval.
 - [ ] Obtain the required independent human code-owner approval and pass protected `validate-release` / `validate-skill-lab` checks. The only current code owner is the PR author, who cannot approve their own PR; an authorized independent reviewer must be designated without silently changing ownership. Merge one consolidated PR without bypassing review. [Live rollout tasks](https://github.com/janpereira-dev/ngAutoPilot/issues/69).
 - [ ] Release owner configures **RELEASE_NPM_TOKEN in release-security**. On 2026-10-01 the environment's secret-name API returned none; the repository still had `NPM_TOKEN`. Do not copy credentials into files or fall back to the broader token. Rotate/revoke that historical token after activating the protected route. [Trusted publishing](https://docs.npmjs.com/trusted-publishers/) is the preferred later migration once the package owner configures its OIDC binding; this release does not assume it exists.
-- [ ] Create annotated tag `v0.10.0` from the reviewed merged main commit and publish the GitHub release. Its event now triggers npm and all archive builders, subject to protected environment approval. Manual retry must select the same tag.
+- [ ] Create annotated tag `v0.11.0` from the reviewed merged main commit and publish the GitHub release. Its event now triggers npm and all archive builders, subject to protected environment approval. Manual retry must select the same tag.
 - [ ] Approve the exact-commit release-security deployment after inspecting its packet. Recheck npm version, latest and tarball integrity, GitHub assets/checksums and Actions conclusion.
 
 Retries accept an existing npm version only when its integrity equals the prepared archive. Different bytes fail; `latest` must not move backward. Historical npm versions and user customizations are never replaced. [npm publication rules](https://docs.npmjs.com/cli/v11/commands/npm-publish/) require a new version for changed bytes. Consumers update their chosen host/package explicitly; indexers may lag.
 
 ## P1 — Codex first: the three missing completion gates
 
-1. **Publisher and listing:** owner selects the OpenAI organization/project, completes verified publishing identity and checks listing/icon content. The website is present in metadata; support/privacy/terms URLs could not be verified by the browser retrieval on 2026-10-01. Validate actual public content and ownership before using them. Four URLs are required for attached MCP public review, not a blanket skills-only requirement. [Official submission requirements](https://developers.openai.com/plugins/deploy/submission).
+1. **Publisher and listing:** owner selects the OpenAI organization/project, completes verified publishing identity and checks listing/icon content. The website is present in metadata; support/privacy/terms were checked on 2026-10-25 (HTTP 200 and project-specific content). Ownership and publisher declarations still require the owner. Four URLs are required for attached MCP public review, not a blanket skills-only requirement. [Official submission requirements](https://developers.openai.com/plugins/deploy/submission).
 2. **Real host evidence:** install from the repository marketplace in a clean Codex profile, inspect Components/Skills, then invoke an appropriate skill with a low-risk prompt. Record host version, exact package/tag, discovered names, invocation and output. Local manifest/MCP tests are different evidence. Repeat for Claude Code using its [marketplace procedure](https://code.claude.com/docs/en/plugin-marketplaces).
 3. **Public submission and approval:** validate/build the skills-only ZIP; owner uploads it, makes required policy declarations, submits, resolves findings and publishes. Record draft/submission/approval/public listing IDs separately. Skills-only packages need no MCP review cases, demo or reviewer credentials. Translated metadata import does not yet guarantee translated public listing display. Do not add MCP later without rechecking the official constraints.
 
@@ -66,17 +78,17 @@ No publisher identity, policy attestation, commerce declaration or country selec
 
 ## P3 — OpenClaw, Hermes, Pi and OpenCode
 
-- **ClawHub:** export reviewed skills to flat portable directories with unique owned slugs. Its workflow scans immediate skill folders; our nested source tree must not be submitted blindly. Review permissions/metadata and publisher login; dry-run `clawhub skill publish <skill-folder> --slug <owned-slug> --name <title> --version 0.10.0 --dry-run`, then publish only reviewed selections and inspect version/scan/moderation. [Official quickstart](https://docs.openclaw.ai/clawhub/quickstart). This is skill publication, not an OpenClaw executable plugin, which has additional compatibility fields. No registry token is currently configured or used here.
+- **ClawHub:** export reviewed skills to flat portable directories with unique owned slugs. Its workflow scans immediate skill folders; our nested source tree must not be submitted blindly. Review permissions/metadata and publisher login; dry-run `clawhub skill publish <skill-folder> --slug <owned-slug> --name <title> --version 0.11.0 --dry-run`, then publish only reviewed selections and inspect version/scan/moderation. [Official quickstart](https://docs.openclaw.ai/clawhub/quickstart). This is skill publication, not an OpenClaw executable plugin, which has additional compatibility fields. No registry token is currently configured or used here.
 - **Hermes:** use its source-backed native export in a trusted project, then capture list and real invocation evidence. [Skills usage](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills). Built-in/official hub inclusion is an upstream acceptance process, not something a local export can grant.
-- **Pi:** `pi install npm:ngautopilot@0.10.0`, inspect `pi list` and invoke a skill after trust review. Existing `pi.skills`, prompts and `pi-package` keyword enable package discovery eligibility; [gallery visibility still needs checking](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/packages.md).
+- **Pi:** `pi install npm:ngautopilot@0.11.0`, inspect `pi list` and invoke a skill after trust review. Existing `pi.skills`, prompts and `pi-package` keyword enable package discovery eligibility; [gallery visibility still needs checking](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/packages.md).
 - **OpenCode:** export to its documented native layout, inspect discovery and invoke one skill. Keep the existing adapter distinct from any other product named OpenCodex; verify identity before adding a separate target.
 
 Copilot, Cursor, Gemini and generic exports already have file-layout regressions; their runtime discovery/invocation remains a separate task, not a universal support badge.
 
 ## P4 — Chinese ecosystems without invented support
 
-- **Alibaba Qwen Code:** add a narrow native-layout adapter for `.qwen/skills`, portable naming/resource and conflict tests, then real `/skills` discovery and invocation. [Official skills contract](https://qwenlm.github.io/qwen-code-docs/en/users/features/skills/). Do not rename or move the source tree.
-- **Qoder:** add a source-backed `.qoder/skills` export and real host invocation. [Official CLI skills](https://docs.qoder.com/cli/Skills). Its desktop local ZIP import is distinct from public marketplace acceptance.
+- **Alibaba Qwen Code:** `export --agent qwen` now emits `.qwen/skills` and `QWEN.md`, with independent naming/resource/conflict regressions. Actual `/skills` discovery and `/<skill-name>` invocation still need an authenticated host. [Official skills contract](https://qwenlm.github.io/qwen-code-docs/en/users/features/skills/). The source tree is unchanged.
+- **Qoder:** `export --agent qoder` now emits `.qoder/skills` and `AGENTS.md`, with the same independent regression coverage. Real host invocation remains pending. [Official CLI skills](https://docs.qoder.com/cli/Skills). Its desktop local ZIP import is distinct from public marketplace acceptance.
 - **Z.ai / “ZI”:** clarify target identity before creating an adapter or claiming a marketplace. [Z.ai's Claude Code integration](https://docs.z.ai/devpack/tool/claude) is a model-provider route, not proof of a separate skills registry.
 - Other harnesses: add one named, sourced target at a time, with scope/trust/precedence, installation, resources, discovery, invocation, updates/removal and publishing owner. Unknown targets stay unknown rather than inheriting a universal certification.
 

@@ -119,7 +119,7 @@ Cada pack es JSON en `packs/<pack-id>.json`, con esquema `schemas/pack.schema.js
 {
   "id": "ngautopilot-core",
   "name": "NgAutoPilot Core",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "status": "stable",
   "description": "...",
   "audience": "Everyone",

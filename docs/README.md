@@ -53,7 +53,7 @@ This index covers reader-facing documentation, including root policies, all Mark
 | [Safe pack transitions](pack-transitions.md) | Guide / policy | [Español](pack-transitions.es.md) |
 | [NgAutoPilot Packs](packs.md) | Guide / policy | [Español](packs.es.md) |
 | [Prompts and Guardrails](prompts-and-guardrails.md) | Guide / policy | [Español](prompts-and-guardrails.es.md) |
-| [Release and distribution plan: 0.10.0](publication-plan.md) | Guide / policy | [Español](publication-plan.es.md) |
+| [Release and distribution plan: 0.11.0](publication-plan.md) | Guide / policy | [Español](publication-plan.es.md) |
 | [Quality stabilization delivery](quality-stabilization.md) | Guide / policy | [Español](quality-stabilization.es.md) |
 | [Release checklist: local proof before public delivery 📦](release-checklist.md) | Guide / policy | [Español](release-checklist.es.md) |
 | [Sage-oriented review: packet first, external review second](sage-review.md) | Guide / policy | [Español](sage-review.es.md) |
@@ -74,6 +74,10 @@ This index covers reader-facing documentation, including root policies, all Mark
 | [Policy attestation](../openai/submission/0.10.0/policy-attestation.md) | Historical record | [Español](../openai/submission/0.10.0/policy-attestation.es.md) |
 | [Release notes and availability](../openai/submission/0.10.0/release-notes.md) | Historical record | [Español](../openai/submission/0.10.0/release-notes.es.md) |
 | [Submission test cases](../openai/submission/0.10.0/test-cases.md) | Historical record | [Español](../openai/submission/0.10.0/test-cases.es.md) |
+| [NgAutoPilot Skills](../openai/submission/0.11.0/listing.md) | Historical record | [Español](../openai/submission/0.11.0/listing.es.md) |
+| [Policy attestation](../openai/submission/0.11.0/policy-attestation.md) | Historical record | [Español](../openai/submission/0.11.0/policy-attestation.es.md) |
+| [Release notes and availability](../openai/submission/0.11.0/release-notes.md) | Historical record | [Español](../openai/submission/0.11.0/release-notes.es.md) |
+| [Submission test cases](../openai/submission/0.11.0/test-cases.md) | Historical record | [Español](../openai/submission/0.11.0/test-cases.es.md) |
 | [NgAutoPilot Skills](../openai/submission/0.6.0/listing.md) | Historical record | [Español](../openai/submission/0.6.0/listing.es.md) |
 | [Policy attestation](../openai/submission/0.6.0/policy-attestation.md) | Historical record | [Español](../openai/submission/0.6.0/policy-attestation.es.md) |
 | [Release notes and availability](../openai/submission/0.6.0/release-notes.md) | Historical record | [Español](../openai/submission/0.6.0/release-notes.es.md) |

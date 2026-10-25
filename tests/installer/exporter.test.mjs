@@ -14,6 +14,7 @@ const expected = {
   gemini: ['.gemini/skills', 'GEMINI.md'], generic: ['skills', 'AGENTS.md'],
   hermes: ['.hermes/skills', 'AGENTS.md'], openclaw: ['skills', 'AGENTS.md'],
   opencode: ['.opencode/skills', 'AGENTS.md'], pi: ['.agents/skills', 'AGENTS.md'],
+  qwen: ['.qwen/skills', 'QWEN.md'], qoder: ['.qoder/skills', 'AGENTS.md'],
 };
 function temporary(t) {
   const output = fs.mkdtempSync(path.join(os.tmpdir(), 'ngap-export-test-'));
@@ -21,7 +22,7 @@ function temporary(t) {
   return output;
 }
 const snapshot = output => JSON.parse(fs.readFileSync(path.join(output, '.ngautopilot-export.json'), 'utf8'));
-test('native registry covers exactly ten source-backed adapters', () => {
+test('native registry covers twelve source-backed exports', () => {
   const registry = loadNativeLayouts(root);
   assert.deepEqual(Object.keys(registry.adapters).sort(), Object.keys(expected).sort());
   assert.equal(registry.hostInvocation, 'not-verified');
@@ -102,11 +103,40 @@ test('native export refuses unrecorded discovery-root files before creating or u
     else assert.equal(fs.existsSync(path.join(output, 'NGAUTOPILOT-CATALOG.json')), false);
   }
 });
-test('legacy export entrypoint uses the same ten-adapter engine', (t) => {
+test('legacy export entrypoint uses the same native export engine', (t) => {
   const output = temporary(t);
   const result = JSON.parse(execFileSync(process.execPath, ['scripts/export-adapter.mjs', 'hermes', 'ngautopilot-core', output], { cwd: root, encoding: 'utf8' }));
   assert.equal(result.ok, true);
   assert.ok(fs.existsSync(path.join(output, 'AGENTS.md')));
+});
+
+for (const [agent, [skillsRoot, instructions]] of Object.entries(expected).filter(([id]) => ['qwen', 'qoder'].includes(id))) {
+  test(`${agent} refuses edited resources and unmanaged instructions without changing the snapshot`, (t) => {
+    const output = temporary(t);
+    const occupied = temporary(t);
+    fs.writeFileSync(path.join(occupied, instructions), 'Existing project instructions\n');
+    assert.equal(exportAdapter({ sourceRoot: root, agent, packId: 'ngautopilot-angular-testing', output: occupied }).ok, false);
+    assert.deepEqual(fs.readdirSync(occupied), [instructions]);
+    exportAdapter({ sourceRoot: root, agent, packId: 'ngautopilot-angular-testing', output });
+    const record = fs.readFileSync(path.join(output, '.ngautopilot-export.json'));
+    const reference = snapshot(output).files.find(file => file.path.endsWith('/references/rxjs-search-contract.md'));
+    assert.ok(reference.path.startsWith(`${skillsRoot}/`));
+    fs.appendFileSync(path.join(output, reference.path), '\nProject note\n');
+    const edited = fs.readFileSync(path.join(output, reference.path));
+    assert.equal(exportAdapter({ sourceRoot: root, agent, packId: 'ngautopilot-angular-testing', output }).ok, false);
+    assert.deepEqual(fs.readFileSync(path.join(output, reference.path)), edited);
+    assert.deepEqual(fs.readFileSync(path.join(output, '.ngautopilot-export.json')), record);
+    const install = spawnSync(process.execPath, ['bin/ngautopilot.mjs', 'install', '--agent', agent, '--pack', 'ngautopilot-core', '--dry-run', '--json'], { cwd: root, encoding: 'utf8' });
+    assert.equal(install.status, 1, 'native export must not silently add a legacy installer');
+  });
+}
+
+test('native export rejects unknown and inherited registry keys', (t) => {
+  const output = temporary(t);
+  for (const agent of ['unknown-host', '__proto__', 'constructor', '../codex']) {
+    assert.throws(() => exportAdapter({ sourceRoot: root, agent, packId: 'ngautopilot-core', output }));
+  }
+  assert.deepEqual(fs.readdirSync(output), []);
 });
 test('export rejects symlinked destination parents without writing outside the snapshot', (t) => {
   const output = temporary(t);

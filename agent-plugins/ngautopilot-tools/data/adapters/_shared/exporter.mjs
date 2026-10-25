@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { listAdapters, loadAdapterManifest } from './adapter-core.mjs';
+import { listAdapters } from './adapter-core.mjs';
 import { createRootGuard, assertNoSymlinkParents, safeReadSourceFile, safeRemoveFile, sha256 } from './safe-fs.mjs';
 import { resolvePackSkills } from '../../lib/agent-plugins/pack-resolver.mjs';
 import { ensureUniquePortableNames, renderPortableSkill } from '../../lib/agent-plugins/portable-skill.mjs';
@@ -13,7 +13,7 @@ const RECORD = '.ngautopilot-export.json';
 export function loadNativeLayouts(sourceRoot) {
   const layouts = JSON.parse(safeReadSourceFile(sourceRoot, path.join(sourceRoot, 'adapters/native-layouts.json')));
   const ids = listAdapters(path.join(sourceRoot, 'adapters')).sort();
-  if (JSON.stringify(ids) !== JSON.stringify(Object.keys(layouts.adapters).sort())) throw new Error('native layouts must cover every registered adapter exactly once');
+  if (ids.some(id => !Object.hasOwn(layouts.adapters, id))) throw new Error('native layouts must cover every registered adapter');
   for (const layout of Object.values(layouts.adapters)) {
     for (const value of [layout.skills, layout.instructions]) {
       if (typeof value !== 'string' || !value || path.posix.isAbsolute(value) || value.includes('\\') || value.split('/').some(part => !part || part === '..' || part === '.')) throw new Error('invalid native export path');
@@ -24,8 +24,9 @@ export function loadNativeLayouts(sourceRoot) {
 }
 
 export function exportAdapter({ sourceRoot, agent, packId, output }) {
-  loadAdapterManifest(path.join(sourceRoot, 'adapters'), agent);
-  const layout = loadNativeLayouts(sourceRoot).adapters[agent];
+  const layouts = loadNativeLayouts(sourceRoot).adapters;
+  if (!Object.hasOwn(layouts, agent)) throw new Error(`unknown native export adapter: ${agent}`);
+  const layout = layouts[agent];
   const skills = resolvePackSkills({ sourceRoot, catalogPath: path.join(sourceRoot, 'catalog.json'), packsRoot: path.join(sourceRoot, 'packs'), packId });
   const overrides = Object.fromEntries(skills.flatMap(skill => {
     const candidate = skill.id.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
