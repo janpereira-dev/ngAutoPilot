@@ -385,7 +385,7 @@ export function applyPlan(plan, opts = {}) {
       const sourceChecksum = sha256(sourceContent);
       if (currentChecksum === sourceChecksum) {
         skipped += 1;
-        manifestFiles.push({ path: file.path, checksum: sourceChecksum, owner: 'ngautopilot' });
+        if (existingOwned.has(file.path)) manifestFiles.push({ path: file.path, checksum: sourceChecksum, owner: 'ngautopilot' });
         continue;
       }
       const conflict = currentChecksum
