@@ -18,65 +18,51 @@ triggers:
 
 ## Purpose
 
-Govern DomSanitizer usage so bypasses are explicit, justified, and reviewed.
-
-This skill keeps the security decision explicit: identify the current state, choose the smallest safe action, document compatibility evidence, and leave a validation path that another agent or maintainer can repeat.
+Make every DomSanitizer bypass a reviewed trust boundary. A trust wrapper must never turn arbitrary attacker input into approved HTML or a code-loading resource URL.
 
 ## When to Use
 
-Use this skill when:
-
-- the task mentions angular domsanitizer governance, XSS, DOM sanitization, token storage, SSR security, or dependency triage;
-- an Angular codebase needs a scoped security decision before implementation;
-- compatibility, risk, or ownership is unclear and should be made explicit;
-- the output must be reusable by another agent, reviewer, or release owner.
+Use for bypassSecurityTrust* calls, SafeValue wrappers/pipes, rich-text integrations, embedded resources, or requests to silence Angular sanitization errors. Inspect the installed Angular version and each caller before changing a shared wrapper.
 
 ## Do
 
-- Inspect the current Angular version, TypeScript version, build tooling, and affected files before recommending changes.
-- Keep the change bounded to the requested workflow and preserve separate upgrade, modernization, and cleanup tracks.
-- Prefer documented Angular APIs and local project conventions over new abstractions.
-- Record assumptions, compatibility evidence, validation commands, and rollback notes.
-- Add or update focused tests when the workflow changes runtime behavior.
+### Checks and evidence
 
-Recommended workflow:
+1. Inventory all five bypass methods (Html, Style, Script, Url, ResourceUrl), their aliases/wrappers, and every caller. Record file/line, producer, trust rule, DOM sink and SecurityContext, owner, expiry/review date, and tests. A generic `safe` pipe accepting any string is an unsafe boundary.
+2. Prefer removing the bypass and keeping Angular's context-sensitive binding. SafeValue is a trust assertion, not a sanitization result; calling sanitize on a bypass-created value does not undo its trust. With the installed API, handle null and wrong-context errors by rejecting input, never by falling back to a bypass or raw DOM write.
+3. If a fixed external resource genuinely requires a bypass, build it from application-controlled identifiers and parse the final URL before trusting it. Compare protocol, hostname, port, and allowed path/identifier exactly against the requirement; reject userinfo, unexpected query/fragment, encoded alternatives, and hosts such as `video.example.test.attacker.test` or `video.example.test@attacker.test`. A prefix/suffix string test is insufficient. The example host is synthetic, not a trusted service recommendation.
+4. For approved rich HTML, document the upstream sanitizer, its maintained version/configuration and allowed elements/attributes, and prove input cannot change after sanitization before insertion. Review every consumer; HTML sanitization does not make a value safe for a script, style, or resource URL context. Keep bypass calls adjacent to the checked trust boundary rather than exporting a blanket trust service.
+5. Test the actual Angular consumer with malicious HTML containing onerror, disallowed schemes/hosts, and wrong-context values, plus the intended fixed resource/content. Assert rejection before the bypass for invalid inputs, safe rendered output, and working approved content. Unit tests must not mock the sanitizer into always returning a safe value; exercise its installed implementation and the real browser path.
 
-```txt
-1. Identify the affected Angular feature area and version constraints.
-2. Classify the change as migration, modernization, architecture, validation, or cleanup.
-3. Apply the smallest reversible implementation or write the decision artifact.
-4. Validate with the project test, lint, build, or review command that matches the risk.
-5. Summarize remaining risks and the next safe checkpoint.
-```
+### Regression cases
+
+Run the existing unit and browser suites with synthetic values. Record the command, expected rejection/rendering, actual rejection/rendering, and evidence for each bypass caller. The cases below are review expectations, not permission to run attacker content in production.
+
+| Case | Reproduction and required assertion | Decision on observation |
+| --- | --- | --- |
+| Attacker HTML bypass | A query/API string is marked trusted without a proven sanitization boundary. | FAIL |
+| Host suffix confusion | A lookalike or userinfo URL passes the resource allowlist. | FAIL |
+| Wrong context | A rejected/null/wrong-context value falls back to trusted or raw insertion. | FAIL |
+| Unknown provenance | A wrapper has no traced producer, caller inventory, or real consumer tests. | BLOCKED |
+| Fixed resource | Exact approved URL/content works; all invalid values are rejected before trust and every caller has evidence. | PASS |
+
+FAIL takes precedence over BLOCKED when an unsafe behavior is demonstrated. Report PASS only when each bypass has a justified trust rule and executed positive/negative tests, or when the bypass was removed and the normal binding was verified. An owner signature alone does not make attacker input safe.
 
 ## Do Not
 
-- Do not combine this workflow with an unrelated Angular major-version hop.
-- Do not invent compatibility data, CLI flags, or framework behavior.
-- Do not introduce dependencies unless the local implementation requires them.
-- Do not rewrite a complete architecture layer when a targeted boundary or decision is enough.
-- Do not mark the work complete without a concrete validation or a clear reason validation could not run.
-
-Avoid:
-
-```txt
-Changing framework version, architecture, tests, and cleanup policy in one unreviewable step.
-```
+- Do not add a global safe pipe, cast strings to SafeHtml, or broadly enable unsafe Trusted Types policies to fix an error.
+- Do not treat sanitize as a universal HTML/URL/resource sanitizer or assume it accepts strings in every context.
+- Do not approve an exception without an owner, expiry/review date, and a bounded reason.
 
 ## Review Checklist
 
-- [ ] The Angular and tooling versions are known or explicitly called out as unknown.
-- [ ] The security scope is isolated from unrelated work.
-- [ ] The recommendation uses documented APIs or existing project patterns.
-- [ ] Compatibility evidence is included when version-specific behavior matters.
-- [ ] Tests, build, lint, or manual validation steps are listed.
-- [ ] Rollback or follow-up notes exist for risky changes.
+- [ ] All callers and contexts are mapped, including wrappers and third-party integrations.
+- [ ] Untrusted values fail before trust; safe-value unwrapping and wrong-context behavior are understood.
+- [ ] Host confusion, schemes, HTML payloads, and valid content have real test results.
+- [ ] The bypass was removed or has a scoped, reviewed exception with remaining risk.
 
 ## Expected Output
 
-1. Summarize the finding in one concise paragraph.
-2. List the files, APIs, or project boundaries affected.
-3. Provide the smallest safe implementation or decision.
-4. Explain compatibility and risk assumptions.
-5. Provide validation commands or review checks.
-6. Separate follow-up work from the current scope.
+Return the scoped decision, bypass inventory, minimal removal or trust rule, reviewer/expiry, commands and before/after assertions. Include unresolved provenance, redacted evidence, and rollback steps.
+
+Sources: [DomSanitizer API and context behavior](https://angular.dev/api/platform-browser/DomSanitizer) and [Angular trust boundaries](https://angular.dev/best-practices/security).
