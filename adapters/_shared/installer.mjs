@@ -610,12 +610,23 @@ export function restore(backupRef, installRootOverride) {
     return { ok: false, restoredFiles: 0, warnings: ['backup manifest missing'] };
   }
   const manifest = JSON.parse(safeReadFile(backupGuard, MANIFEST_NAME));
+  if (manifest.version !== 1 || typeof manifest.installationId !== 'string' || !manifest.installationId
+    || typeof manifest.agent !== 'string' || !['project', 'user'].includes(manifest.scope)
+    || !Array.isArray(manifest.files) || new Set(manifest.files.map(entry => entry?.path)).size !== manifest.files.length
+    || manifest.files.some(entry => !entry || typeof entry.path !== 'string' || !entry.path || path.isAbsolute(entry.path)
+      || entry.path.split(/[\\/]/).some(part => !part || part === '.' || part === '..')
+      || entry.owner !== 'ngautopilot' || !/^[a-f0-9]{64}$/.test(entry.checksum))) {
+    return { ok: false, restoredFiles: 0, warnings: ['invalid backup installation manifest'] };
+  }
   if (!manifest.backupChecksums || typeof manifest.backupChecksums !== 'object' || Array.isArray(manifest.backupChecksums)) {
     return { ok: false, restoredFiles: 0, warnings: ['backup integrity metadata missing; create a new backup before restoring'] };
   }
-  const installRoot = installRootOverride || manifest.installRoot;
-  if (!installRoot) {
-    return { ok: false, restoredFiles: 0, warnings: ['installRoot not provided and not in backup manifest'] };
+  if (typeof installRootOverride !== 'string' || !path.isAbsolute(installRootOverride)) {
+    return { ok: false, restoredFiles: 0, warnings: ['an explicit absolute installRoot is required for restore'] };
+  }
+  const installRoot = installRootOverride;
+  if ((backupRef.agent !== undefined && backupRef.agent !== manifest.agent) || (backupRef.scope !== undefined && backupRef.scope !== manifest.scope)) {
+    return { ok: false, restoredFiles: 0, warnings: ['backup agent or scope does not match the selected destination'] };
   }
   const guardRoot = guard(installRoot);
   const current = preflightDestinationExists(guardRoot, MANIFEST_NAME) ? loadManifest(installRoot) : null;
