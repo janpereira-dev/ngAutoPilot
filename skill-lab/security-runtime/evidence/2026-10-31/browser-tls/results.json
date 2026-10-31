@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-10-31T21:55:44.934Z",
+  "recordedAt": "2026-10-31T21:57:24.193Z",
   "platform": "win32",
   "node": "v24.22.1",
   "sources": {
@@ -42,7 +42,7 @@
     "browser.mjs": "1341c145d6b5c47ee1a487d0995170de8d848343649e2830808074a6844116bf",
     "certificates.mjs": "25282a47250539156227c2b9f66ad4e0c6228f276e012c094fe26b68973680d6",
     "server.mjs": "77e6e01bb3efff6ebec6ee76a5935e3a18898d335283b20c907c3f32adf26b02",
-    "playwright.config.mjs": "5a555f8b2be03f202cb2db40865635cc5d0635309fdf30d1b66a5c7ca57121d8",
+    "playwright.config.mjs": "f6e99b0bbb704787e05648ed6928db0eb2f2341e5d43189e08d7bd09f785812d",
     "certificates.spec.mjs": "b7a28acf7a8de372c05c76eaaa2732c432e513f0fc5273279072047a2d3592e9"
   },
   "observations": [
@@ -55,11 +55,11 @@
       ],
       "httpRequestsReachedServer": 0,
       "certificate": {
-        "fingerprint256": "A2:C6:C1:0E:C7:8E:6F:25:C2:9B:19:B9:C4:74:0A:A0:13:C5:31:27:F1:18:92:21:58:5F:3F:36:B9:3F:CF:2D",
+        "fingerprint256": "9A:2C:13:36:EE:EF:5E:DD:AD:69:42:E9:C9:0A:B1:1F:2C:DE:55:11:C1:B8:05:19:2A:EB:D8:CD:F6:A5:54:4E",
         "issuer": "CN=NgAutoPilot lab browser root",
         "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
-        "validFrom": "Oct 31 20:55:23 2026 GMT",
-        "validTo": "Nov  1 21:55:23 2026 GMT"
+        "validFrom": "Oct 31 20:57:05 2026 GMT",
+        "validTo": "Nov  1 21:57:05 2026 GMT"
       },
       "browser": "Chrome/156.0.8078.4",
       "revision": "@f842f52ef39fd97b449eb27cff414bf05a98ddce",
@@ -79,21 +79,21 @@
         "issuer": "NgAutoPilot lab browser root",
         "protocol": "TLS 1.3",
         "subjectName": "localhost",
-        "validFrom": 1793480123,
-        "validTo": 1793570123
+        "validFrom": 1793480225,
+        "validTo": 1793570225
       },
       "certificate": {
-        "fingerprint256": "A2:C6:C1:0E:C7:8E:6F:25:C2:9B:19:B9:C4:74:0A:A0:13:C5:31:27:F1:18:92:21:58:5F:3F:36:B9:3F:CF:2D",
+        "fingerprint256": "9A:2C:13:36:EE:EF:5E:DD:AD:69:42:E9:C9:0A:B1:1F:2C:DE:55:11:C1:B8:05:19:2A:EB:D8:CD:F6:A5:54:4E",
         "issuer": "CN=NgAutoPilot lab browser root",
         "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
-        "validFrom": "Oct 31 20:55:23 2026 GMT",
-        "validTo": "Nov  1 21:55:23 2026 GMT"
+        "validFrom": "Oct 31 20:57:05 2026 GMT",
+        "validTo": "Nov  1 21:57:05 2026 GMT"
       },
       "browser": "Chrome/156.0.8078.4",
       "revision": "@f842f52ef39fd97b449eb27cff414bf05a98ddce",
       "ignoreHTTPSErrors": false,
       "certificateErrorBypassFlags": [],
-      "trustedFingerprint": "8d4068d4df9fe4ee7d74540d9759d690fd036d999f7f4b243a7dfbd85643b3f3",
+      "trustedFingerprint": "de925eca93c49b5d2b9c290eef7daebdd47088a0fda87e8e119dc7f3447d15a7",
       "trustStore": "Fresh Chromium profile ServerCertificate schema 1",
       "systemTrustStoreModified": false
     },
@@ -106,17 +106,17 @@
       ],
       "httpRequestsReachedServer": 0,
       "certificate": {
-        "fingerprint256": "37:B3:BE:6C:96:B6:A0:1C:A6:FF:98:B9:E9:9B:1A:F9:F2:FD:27:DE:42:BE:57:3B:AE:81:6A:CC:3D:82:3A:E2",
+        "fingerprint256": "CB:9C:A7:50:77:DD:2E:F7:CF:67:75:6C:EE:77:5F:12:5F:16:6E:B7:28:1A:A4:9E:C1:6E:0A:81:7F:15:D9:C9",
         "issuer": "CN=NgAutoPilot lab browser root",
         "subjectAltName": "DNS:wrong.example.test",
-        "validFrom": "Oct 31 20:55:23 2026 GMT",
-        "validTo": "Nov  1 21:55:23 2026 GMT"
+        "validFrom": "Oct 31 20:57:05 2026 GMT",
+        "validTo": "Nov  1 21:57:05 2026 GMT"
       },
       "browser": "Chrome/156.0.8078.4",
       "revision": "@f842f52ef39fd97b449eb27cff414bf05a98ddce",
       "ignoreHTTPSErrors": false,
       "certificateErrorBypassFlags": [],
-      "trustedFingerprint": "8d4068d4df9fe4ee7d74540d9759d690fd036d999f7f4b243a7dfbd85643b3f3",
+      "trustedFingerprint": "de925eca93c49b5d2b9c290eef7daebdd47088a0fda87e8e119dc7f3447d15a7",
       "trustStore": "Fresh Chromium profile ServerCertificate schema 1",
       "systemTrustStoreModified": false
     },
@@ -129,17 +129,17 @@
       ],
       "httpRequestsReachedServer": 0,
       "certificate": {
-        "fingerprint256": "09:42:1F:41:28:83:D3:A6:9A:31:14:CA:39:22:5A:CF:0F:99:6B:DC:07:DF:BF:73:B7:EB:BC:84:32:46:42:B3",
+        "fingerprint256": "12:1A:7A:03:63:AF:6B:FE:C6:9F:8B:3F:D4:A4:F3:FB:60:4F:D2:23:B6:35:70:F3:2F:C7:22:2C:43:94:92:3C",
         "issuer": "CN=NgAutoPilot lab browser root",
         "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
-        "validFrom": "Oct 29 21:55:23 2026 GMT",
-        "validTo": "Oct 30 21:55:23 2026 GMT"
+        "validFrom": "Oct 29 21:57:05 2026 GMT",
+        "validTo": "Oct 30 21:57:05 2026 GMT"
       },
       "browser": "Chrome/156.0.8078.4",
       "revision": "@f842f52ef39fd97b449eb27cff414bf05a98ddce",
       "ignoreHTTPSErrors": false,
       "certificateErrorBypassFlags": [],
-      "trustedFingerprint": "8d4068d4df9fe4ee7d74540d9759d690fd036d999f7f4b243a7dfbd85643b3f3",
+      "trustedFingerprint": "de925eca93c49b5d2b9c290eef7daebdd47088a0fda87e8e119dc7f3447d15a7",
       "trustStore": "Fresh Chromium profile ServerCertificate schema 1",
       "systemTrustStoreModified": false
     },
@@ -152,17 +152,17 @@
       ],
       "httpRequestsReachedServer": 0,
       "certificate": {
-        "fingerprint256": "C5:B1:8B:18:16:35:15:33:DE:B3:BE:D6:5F:97:6D:12:23:DB:12:D6:7A:41:06:BF:14:7E:12:86:8F:7D:17:4D",
+        "fingerprint256": "5D:95:C5:C6:53:C0:CB:26:88:57:A5:A0:53:94:CF:D4:92:B1:D0:55:91:E0:8A:45:2E:C3:E1:7F:42:FA:DD:B6",
         "issuer": "CN=NgAutoPilot lab browser root",
         "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
-        "validFrom": "Nov  1 21:55:23 2026 GMT",
-        "validTo": "Nov  2 21:55:23 2026 GMT"
+        "validFrom": "Nov  1 21:57:05 2026 GMT",
+        "validTo": "Nov  2 21:57:05 2026 GMT"
       },
       "browser": "Chrome/156.0.8078.4",
       "revision": "@f842f52ef39fd97b449eb27cff414bf05a98ddce",
       "ignoreHTTPSErrors": false,
       "certificateErrorBypassFlags": [],
-      "trustedFingerprint": "8d4068d4df9fe4ee7d74540d9759d690fd036d999f7f4b243a7dfbd85643b3f3",
+      "trustedFingerprint": "de925eca93c49b5d2b9c290eef7daebdd47088a0fda87e8e119dc7f3447d15a7",
       "trustStore": "Fresh Chromium profile ServerCertificate schema 1",
       "systemTrustStoreModified": false
     },
@@ -175,17 +175,17 @@
       ],
       "httpRequestsReachedServer": 0,
       "certificate": {
-        "fingerprint256": "16:27:B2:F2:B4:5A:7B:A4:6F:80:C6:63:3A:BC:D7:CD:21:ED:28:0A:FF:68:77:2D:B1:B1:64:B5:A3:7D:97:7C",
+        "fingerprint256": "D3:75:6A:3B:05:EB:EA:BA:14:0E:34:4D:9C:5F:E6:41:AB:33:43:E1:EB:B6:A9:65:56:ED:B1:9C:DD:80:11:94",
         "issuer": "CN=NgAutoPilot foreign browser root",
         "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
-        "validFrom": "Oct 31 20:55:23 2026 GMT",
-        "validTo": "Nov  1 21:55:23 2026 GMT"
+        "validFrom": "Oct 31 20:57:05 2026 GMT",
+        "validTo": "Nov  1 21:57:05 2026 GMT"
       },
       "browser": "Chrome/156.0.8078.4",
       "revision": "@f842f52ef39fd97b449eb27cff414bf05a98ddce",
       "ignoreHTTPSErrors": false,
       "certificateErrorBypassFlags": [],
-      "trustedFingerprint": "8d4068d4df9fe4ee7d74540d9759d690fd036d999f7f4b243a7dfbd85643b3f3",
+      "trustedFingerprint": "de925eca93c49b5d2b9c290eef7daebdd47088a0fda87e8e119dc7f3447d15a7",
       "trustStore": "Fresh Chromium profile ServerCertificate schema 1",
       "systemTrustStoreModified": false
     },
@@ -198,11 +198,11 @@
       ],
       "httpRequestsReachedServer": 0,
       "certificate": {
-        "fingerprint256": "A2:C6:C1:0E:C7:8E:6F:25:C2:9B:19:B9:C4:74:0A:A0:13:C5:31:27:F1:18:92:21:58:5F:3F:36:B9:3F:CF:2D",
+        "fingerprint256": "9A:2C:13:36:EE:EF:5E:DD:AD:69:42:E9:C9:0A:B1:1F:2C:DE:55:11:C1:B8:05:19:2A:EB:D8:CD:F6:A5:54:4E",
         "issuer": "CN=NgAutoPilot lab browser root",
         "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
-        "validFrom": "Oct 31 20:55:23 2026 GMT",
-        "validTo": "Nov  1 21:55:23 2026 GMT"
+        "validFrom": "Oct 31 20:57:05 2026 GMT",
+        "validTo": "Nov  1 21:57:05 2026 GMT"
       },
       "browser": "Chrome/156.0.8078.4",
       "revision": "@f842f52ef39fd97b449eb27cff414bf05a98ddce",
