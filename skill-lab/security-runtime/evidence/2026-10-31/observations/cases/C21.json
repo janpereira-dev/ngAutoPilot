@@ -1,0 +1,23 @@
+{
+  "id": "C21",
+  "guide": "angular-domsanitizer-governance",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "browserHydrated": true,
+    "resourceInput": "https://media.example.test.attacker.test/embed/lesson-1",
+    "trustedIframeSrc": "https://media.example.test.attacker.test/embed/lesson-1"
+  },
+  "correction": {
+    "invalidResourcesTested": [
+      "https://media.example.test.attacker.test/embed/lesson-1",
+      "https://media.example.test@attacker.test/embed/lesson-1",
+      "http://media.example.test/embed/lesson-1",
+      "https://media.example.test:444/embed/lesson-1",
+      "https://media.example.test/embed/%6cesson-1",
+      "https://media.example.test/embed/lesson-1?unexpected=1",
+      "https://media.example.test/embed/lesson-1#unexpected"
+    ],
+    "iframeCountForEach": 0
+  }
+}

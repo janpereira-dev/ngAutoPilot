@@ -1,0 +1,23 @@
+{
+  "id": "C24",
+  "guide": "angular-ssr-security-risk-gate",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "status": 200,
+    "untrustedHeaderControlsRenderedOrigin": true,
+    "untrustedHeaderCausedOutboundRequest": true
+  },
+  "correction": {
+    "directRejected": [
+      "Host",
+      "Forwarded",
+      "X-Forwarded-Host",
+      "X-Forwarded-Proto",
+      "X-Forwarded-Prefix",
+      "X-Forwarded-Port"
+    ],
+    "edgeStripsForwarding": true,
+    "unexpectedOutboundRequests": 0
+  }
+}

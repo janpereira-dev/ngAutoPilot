@@ -1,0 +1,16 @@
+{
+  "id": "C23",
+  "guide": "angular-token-storage-policy",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "rotationStatus": 200,
+    "replayStatus": 200,
+    "sessionStatusAfterReplay": 200
+  },
+  "correction": {
+    "rotationStatus": 200,
+    "replayStatus": 401,
+    "sessionStatusAfterReplay": 401
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "id": "C05",
+  "guide": "angular-dependency-vulnerability-triage",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "command": "npm audit --json (controlled unavailable registry)",
+    "exitCode": 1,
+    "error": "",
+    "completeAuditMetadata": false,
+    "knownFindingCount": null
+  },
+  "correction": null
+}

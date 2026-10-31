@@ -1,0 +1,6 @@
+{
+  "name": "synthetic-build-after",
+  "private": true,
+  "scripts": { "build": "node ../../../dependency-probe.mjs ." },
+  "devDependencies": { "lodash": "4.18.1" }
+}

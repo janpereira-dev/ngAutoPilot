@@ -1,0 +1,13 @@
+{
+  "id": "C09",
+  "guide": "angular-token-storage-policy",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "browserHydrated": true,
+    "authStatus": 503,
+    "lifecycleEvidence": null,
+    "csrfEvidence": null
+  },
+  "correction": null
+}

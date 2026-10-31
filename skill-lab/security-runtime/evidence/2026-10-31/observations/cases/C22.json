@@ -1,0 +1,24 @@
+{
+  "id": "C22",
+  "guide": "angular-ssr-security-risk-gate",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "crossUserOrAnonymousLeak": false,
+    "hydratedUser": "BOB_PRIVATE",
+    "cacheControl": "private, no-store",
+    "sequentialOrdersTested": true,
+    "concurrentUsersAndAnonymousTested": true,
+    "edgeAndOriginTested": true,
+    "credentialSerializationObserved": false,
+    "transferState": "Per-render user display data only; HTTP transfer cache disabled",
+    "sharedCache": "No process-wide personalized response cache",
+    "edgeBrowserLoginWorks": true,
+    "peerWithoutOwnedCaRejected": true,
+    "forwardingEvidence": "C24.correction",
+    "egressAndRedirectEvidence": "C03.correction",
+    "topology": "Two real loopback TLS servers: canonical origin and edge that strips forwarded headers, replaces Host, and accepts only its configured Host",
+    "egress": "Only the owned backend origin and explicit paths are authorized, including redirect validation; no production/internal hosts contacted"
+  },
+  "correction": null
+}

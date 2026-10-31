@@ -1,0 +1,18 @@
+{
+  "id": "C19",
+  "guide": "angular-xss-template-safety",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "browserHydrated": true,
+    "href": "javascript:window.__xssProbe=1",
+    "marker": 1,
+    "clicked": true
+  },
+  "correction": {
+    "browserHydrated": true,
+    "href": "unsafe:javascript:window.__xssProbe=1",
+    "marker": 0,
+    "clicked": true
+  }
+}

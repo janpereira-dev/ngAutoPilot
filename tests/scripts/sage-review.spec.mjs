@@ -24,14 +24,26 @@ describe('exact-commit Sage packet', () => {
       fs.writeFileSync(target, 'PRIVATE_LOCAL_DATA');
     }
     fs.writeFileSync(path.join(sourceRoot, 'bin/.env.example'), 'PUBLIC_CONFIGURATION_EXAMPLE');
+    for (const directory of ['observations', 'test-results', 'playwright-report']) {
+      const target = path.join(sourceRoot, 'skill-lab/security-runtime', directory, 'capture.json');
+      fs.mkdirSync(path.dirname(target), { recursive: true });
+      fs.writeFileSync(target, 'PRIVATE_LOCAL_DATA');
+    }
+    const evidence = path.join(sourceRoot, 'skill-lab/security-runtime/evidence/reviewed.json');
+    fs.mkdirSync(path.dirname(evidence), { recursive: true });
+    fs.writeFileSync(evidence, 'PUBLIC_SYNTHETIC_EVIDENCE');
     const { output, manifest } = buildSagePacket({ sourceRoot, commit: 'a'.repeat(40), includePaths: REVIEW_PATHS });
-    expect(manifest.files).toHaveLength(3);
+    expect(manifest.files).toHaveLength(4);
     expect(fs.existsSync(path.join(output, 'bin/.env'))).toBe(false);
     expect(fs.existsSync(path.join(output, 'bin/.sl'))).toBe(false);
     expect(fs.existsSync(path.join(output, 'skill-lab/runs'))).toBe(false);
     expect(fs.existsSync(path.join(output, 'skill-lab/benchmarks/custom/evidence.jsonl'))).toBe(false);
     expect(fs.readFileSync(path.join(output, 'bin/.env.example'), 'utf8')).toBe('PUBLIC_CONFIGURATION_EXAMPLE');
-    expect(verifySagePacket({ sourceRoot, packetRoot: output, commit: 'a'.repeat(40) }).files).toHaveLength(3);
+    for (const directory of ['observations', 'test-results', 'playwright-report']) {
+      expect(fs.existsSync(path.join(output, 'skill-lab/security-runtime', directory))).toBe(false);
+    }
+    expect(fs.readFileSync(path.join(output, 'skill-lab/security-runtime/evidence/reviewed.json'), 'utf8')).toBe('PUBLIC_SYNTHETIC_EVIDENCE');
+    expect(verifySagePacket({ sourceRoot, packetRoot: output, commit: 'a'.repeat(40) }).files).toHaveLength(4);
   });
   it('rejects collector recipes that omit mandatory execution or governance roots', () => {
     const sourceRoot = fixture();

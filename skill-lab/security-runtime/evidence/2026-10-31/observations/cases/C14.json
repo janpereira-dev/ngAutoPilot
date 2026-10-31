@@ -1,0 +1,18 @@
+{
+  "id": "C14",
+  "guide": "angular-xss-template-safety",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "ssrAndHydrationTested": true,
+    "marker": 0,
+    "executableAttributes": 0,
+    "textEscaped": true,
+    "intendedFormattingWorks": true,
+    "allowedHttpsNavigationWorks": true,
+    "scriptUrlControl": "C19.correction",
+    "rawDomControl": "C06.correction",
+    "sourceInventory": "Three query-string inputs; only fixed literal template; normal HTML/URL bindings; no user template compilation; resource trust reviewed separately"
+  },
+  "correction": null
+}

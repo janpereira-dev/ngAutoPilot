@@ -1,0 +1,5 @@
+{
+  "name": "synthetic-runtime-after",
+  "private": true,
+  "dependencies": { "lodash": "4.18.1" }
+}

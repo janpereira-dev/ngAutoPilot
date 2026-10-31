@@ -1,0 +1,53 @@
+name: Security Runtime
+
+on:
+  pull_request:
+    paths:
+      - 'skill-lab/security-runtime/**'
+      - 'skills/angular/security/**'
+      - '.github/workflows/security-runtime.yml'
+      - 'package.json'
+  push:
+    branches: [main]
+    paths:
+      - 'skill-lab/security-runtime/**'
+      - 'skills/angular/security/**'
+      - '.github/workflows/security-runtime.yml'
+      - 'package.json'
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  validate-security-runtime:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: skill-lab/security-runtime
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 24
+      - name: Install the locked application tools
+        run: npm ci --ignore-scripts
+      - name: Install isolated Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Exercise all 25 scenarios
+        run: npm test
+      - name: Test the agent-output grader
+        run: node --test verify-agent.test.mjs
+      - name: Regrade the recorded live agent output and verify source hashes
+        run: npm run test:agent -- evidence/2026-10-31/observations/agent-response.json evidence/2026-10-31/observations/run.json
+      - name: Retain synthetic observations
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: security-runtime-observations
+          path: |
+            skill-lab/security-runtime/observations
+            skill-lab/security-runtime/test-results
+          retention-days: 7

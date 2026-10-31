@@ -1,0 +1,40 @@
+{
+  "retrievedOn": "2026-10-31",
+  "method": "Public primary upstream advisory pages reopened and ranges/prerequisites rechecked during this fresh audit; no public proof-of-concept downloaded or executed.",
+  "advisories": [
+    {
+      "url": "https://github.com/advisories/GHSA-35jh-r3h4-6jhm",
+      "package": "lodash",
+      "affected": "<4.17.21",
+      "patched": "4.17.21",
+      "prerequisite": "Untrusted template variable option reaches generated function syntax. Installed 4.17.20 reproduces the reviewed harmless marker; 4.18.1 rejects it."
+    },
+    {
+      "url": "https://github.com/lodash/lodash/security/advisories/GHSA-r5fr-rjxr-66jc",
+      "package": "lodash",
+      "affected": ">=4.0.0 <4.18.1",
+      "patched": "4.18.1",
+      "prerequisite": "Untrusted imports key names or inherited polluted keys enter template Function construction. This is a distinct route from the variable-option reproduction; it was not claimed executed here."
+    },
+    {
+      "url": "https://github.com/angular/angular-cli/security/advisories/GHSA-x288-3778-4hhx",
+      "package": "@angular/ssr",
+      "affectedRanges": [
+        ">=21.2.0-next.0 <21.2.0-rc.1",
+        ">=21.0.0-next.0 <21.1.5",
+        ">=20.0.0-next.0 <20.3.17",
+        ">=19.0.0-next.0 <19.2.21",
+        "<=18.2.21"
+      ],
+      "patched": [
+        "21.2.0-rc.1",
+        "21.1.5",
+        "20.3.17",
+        "19.2.21"
+      ],
+      "prerequisite": "SSR request URL reconstruction from unvalidated Host/forwarding headers with downstream relative requests or manual origin construction. Lab uses custom Node server with platform-server 22.2.4; no claim about an installed @angular/ssr adapter."
+    }
+  ],
+  "refreshedAt": "2026-10-31T19:50:36.974Z",
+  "auditRunId": "e4c3c692-a8f1-4394-94ac-3e610c7e01f2"
+}

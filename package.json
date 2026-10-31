@@ -61,6 +61,7 @@
     "skills:validate": "node scripts/validate-skills.mjs",
     "skills:validate:frontmatter": "python scripts/validate-skill-frontmatter.py",
     "security:scan": "node scripts/security-scan-skills.mjs",
+    "security:runtime": "npm --prefix skill-lab/security-runtime test",
     "distribution:validate": "node scripts/validate-distribution-contract.mjs",
     "skills:catalog": "node scripts/generate-catalog.mjs",
     "skills:export": "node scripts/export-adapter.mjs",

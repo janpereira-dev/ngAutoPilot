@@ -1,0 +1,25 @@
+{
+  "harness": "Codex collaboration agent",
+  "taskName": "/root/security_guide_subject",
+  "initialContext": "fork_turns=none",
+  "followupCount": 3,
+  "controllerRecordedAt": "2026-10-31 20:04:22 UTC",
+  "finalRunId": "3ae5cd8a-30b1-4fc7-84b0-f9d751de5b46",
+  "priorLiveRunIds": [
+    "388681ab-ed4d-4ec2-9206-32a25c68c1f9",
+    "e4c3c692-a8f1-4394-94ac-3e610c7e01f2",
+    "1c883b5b-9466-432c-a121-654d03ea924e"
+  ],
+  "instructionFile": "audit-task.md",
+  "gradingKey": "Not supplied in the task; oracle and grading files were excluded by instructions. The agent reported not reading them.",
+  "sourceIntegrity": "The final run receipt binds the exact normalized guide/application/test hashes and 25 case hashes; sourceUnchanged=true.",
+  "observedCorrection": "The agent identified that ordered Promise.all batches did not prove strictly sequential isolation. The suite now asserts separate sequential and concurrent batches at origin and proxy, then the agent reran the full 25-case audit.",
+  "verification": "Parent independently compared all 25 decisions with the canonical scenario key, reviewed the reasons, verified cited files/hashes and ran the grader.",
+  "limits": "A bounded live audit by one agent, not cryptographic model attestation or evidence of universal agent reliability. CI regrades the saved output and runs fresh application tests; it does not invoke a live model.",
+  "ciCorrections": [
+    "Node clients validate the owned TLS certificate; a negative test rejects it without the owned CA.",
+    "Egress dispatch chooses only fixed owned capabilities instead of passing request-controlled URL objects.",
+    "Resource fault injection accepts one reserved synthetic lookalike rather than a general prefix validator.",
+    "The Full-export lab-documentation link remains external to the portable resource boundary."
+  ]
+}

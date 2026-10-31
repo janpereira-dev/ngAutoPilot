@@ -1,0 +1,353 @@
+{
+  "runId": "3ae5cd8a-30b1-4fc7-84b0-f9d751de5b46",
+  "guidesRead": {
+    "angular-token-storage-policy": "86bb3c5f90116f0ddc06be002bf3bc0e31e6c28807434bf5e537af9ba5ac09c8",
+    "angular-xss-template-safety": "60f03349a43296f6e6a063073b77a0bb3e87f6e264a0f6232bd04acf3869f4c1",
+    "angular-domsanitizer-governance": "353cec1b96ba58babadca0919057547b5aa6317d3e0c36132f83ded30f80aad3",
+    "angular-ssr-security-risk-gate": "a3fc64ef7f17dccd23f6202ce2c133b4700b79fe106baca350f5c511980b6de5",
+    "angular-dependency-vulnerability-triage": "7853bfa024eb86e2fc3e940f45eb8547fcf3ad8f73c677826af5366da06b47a6"
+  },
+  "commands": [
+    {
+      "command": "From skill-lab/security-runtime: supplied Node 24.22.1 runs supplied node_modules/npm/bin/npm-cli.js test with supplied runtime prepended to PATH (fresh complete run on final fixed inputs)",
+      "exitCode": 0
+    },
+    {
+      "command": "From skill-lab/security-runtime: supplied node manifest.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "From skill-lab/security-runtime: supplied node .cache/audit-receipts.mjs (fresh full and production public-registry audits of lab and four locked projects; per-audit exits retained)",
+      "exitCode": 0
+    }
+  ],
+  "cases": [
+    {
+      "id": "C01",
+      "guide": "angular-domsanitizer-governance",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C01.json",
+        "observations/run.json",
+        "src/app.mjs"
+      ],
+      "reason": "A URL-context operation receives an HTML SafeValue, then the catch path falls back to bypassSecurityTrustHtml. The hydrated subject executes the marker (1) and retains one event attribute. The governance wrong-context rule requires rejection, never a trust fallback. Its nonexecuting correction is separate regression evidence, not a deployed subject fix."
+    },
+    {
+      "id": "C02",
+      "guide": "angular-xss-template-safety",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C02.json",
+        "observations/run.json",
+        "src/app.mjs"
+      ],
+      "reason": "The real hydrated Angular consumer executes the attacker event marker (1) and retains one executable event attribute. This directly meets the event-handler FAIL condition, even though escaped text and intended formatting also render. The corrected binding does not change this subject decision."
+    },
+    {
+      "id": "C03",
+      "guide": "angular-ssr-security-risk-gate",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C03.json",
+        "observations/run.json",
+        "server.mjs",
+        "tests/scenarios.spec.mjs"
+      ],
+      "reason": "The subject request selects the exact owned HTTPS trap capability, which is unauthorized under the normal application egress policy. It returns 200 and the receiver observes /metadata, meeting the internal-fetch FAIL rule. Current source dispatches only fixed probe/redirect/trap capabilities; it never passes the request URL string to a network client. This is a contained policy violation, not proof of arbitrary internal-network reachability. The correction rejects five forbidden targets and the forbidden redirect hop while the approved backend works."
+    },
+    {
+      "id": "C04",
+      "guide": "angular-token-storage-policy",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C04.json",
+        "observations/run.json",
+        "server.mjs",
+        "tests/scenarios.spec.mjs"
+      ],
+      "reason": "An authenticated cross-site form request and a same-origin request with an invalid CSRF token both return 200 and produce two state mutations. Backend CSRF enforcement therefore fails. The correction returns 403 with zero mutations but is a different snapshot."
+    },
+    {
+      "id": "C05",
+      "guide": "angular-dependency-vulnerability-triage",
+      "decision": "BLOCKED",
+      "evidence": [
+        "observations/cases/C05.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "server.mjs"
+      ],
+      "reason": "The real audit against the controlled unavailable registry exits 1 without complete audit metadata; knownFindingCount is null. The test checks an error report and an observed registry request, so this is unavailable audit evidence, not a valid zero-finding report. A successful public audit for another registry/snapshot cannot complete this subject."
+    },
+    {
+      "id": "C06",
+      "guide": "angular-xss-template-safety",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C06.json",
+        "observations/run.json",
+        "src/app.mjs"
+      ],
+      "reason": "The subject sends query data to ElementRef innerHTML after render, bypassing Angular binding sanitization. In the real browser the marker executes (1) and one event attribute remains. This proves the raw DOM sink failure after hydration regardless of the safe correction."
+    },
+    {
+      "id": "C07",
+      "guide": "angular-ssr-security-risk-gate",
+      "decision": "BLOCKED",
+      "evidence": [
+        "observations/cases/C07.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs"
+      ],
+      "reason": "Origin rendering returns 200, but the subject provides no deployment topology, forwarding-header evidence or deployment-cache evidence. The SSR guide explicitly treats missing proxy/deployment evidence as BLOCKED. Other independently bounded subjects cannot supply this unavailable deployment layer."
+    },
+    {
+      "id": "C08",
+      "guide": "angular-domsanitizer-governance",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C08.json",
+        "observations/run.json",
+        "src/app.mjs"
+      ],
+      "reason": "Query input is asserted trusted, passed through sanitize, then bound as trusted HTML. The installed implementation unwraps the trust assertion: the hydrated subject executes marker 1 and keeps an event attribute. Provenance is attacker-controlled; sanitize after bypass does not establish sanitization."
+    },
+    {
+      "id": "C09",
+      "guide": "angular-token-storage-policy",
+      "decision": "BLOCKED",
+      "evidence": [
+        "observations/cases/C09.json",
+        "observations/run.json",
+        "server.mjs",
+        "tests/scenarios.spec.mjs"
+      ],
+      "reason": "Angular hydration works, but the authentication endpoint returns 503 and lifecycle and CSRF evidence are null. A rendered page cannot establish refresh rotation, expiry, server revocation or backend CSRF enforcement. No demonstrated unsafe session behavior overrides the missing-server decision."
+    },
+    {
+      "id": "C10",
+      "guide": "angular-dependency-vulnerability-triage",
+      "decision": "PASS",
+      "evidence": [
+        "observations/cases/C10.json",
+        "observations/run.json",
+        "observations/cases/C13.json",
+        "observations/cases/C20.json",
+        "observations/audit-receipts.json",
+        "observations/upstream-advisories.json",
+        "cases/runtime-after/package-lock.fixture.json",
+        "cases/build-after/package-lock.fixture.json",
+        "dependency-probe.mjs"
+      ],
+      "reason": "Within the corrected application dependency set, full and production audits for the lab, runtime-after and build-after all exit 0 with zero known findings. Locked and independently installed runtime/build lodash versions are 4.18.1. Referenced same-source C13.correction and C20.correction reject the reviewed variable trigger without execution; valid runtime/build content works. Maintainer patch evidence identifies 4.18.1 for the newer imports-key advisory; that distinct exploit vector is not claimed reproduced. Intentional before projects are excluded from the corrected distribution, not hidden findings."
+    },
+    {
+      "id": "C11",
+      "guide": "angular-domsanitizer-governance",
+      "decision": "PASS",
+      "evidence": [
+        "observations/cases/C11.json",
+        "observations/run.json",
+        "src/app.mjs",
+        "server.mjs",
+        "observations/cases/C21.json",
+        "observations/cases/C01.json",
+        "observations/cases/C08.json"
+      ],
+      "reason": "The one active ResourceUrl bypass has a traced producer/caller/context, exact canonical HTTPS host/path rule, owner and review expiry 2027-01-31. Approved iframe content works and invalid/empty values are rejected. Same-source referenced corrections reject seven malformed/confusable URLs before trust, reject wrong contexts and neutralize malicious HTML. Negative-profile bypasses cannot be enabled by request data in this subject."
+    },
+    {
+      "id": "C12",
+      "guide": "angular-token-storage-policy",
+      "decision": "PASS",
+      "evidence": [
+        "observations/cases/C12.json",
+        "observations/run.json",
+        "src/app.mjs",
+        "server.mjs",
+        "observations/cases/C23.json",
+        "observations/cases/C04.json"
+      ],
+      "reason": "The bounded synthetic session inventories credentials separately, leaves local/session storage and IndexedDB empty, and observes HttpOnly/Secure/Lax session cookies. Valid mutation succeeds; missing CSRF is 403, allowed API receives Authorization and controlled foreign origin does not. Server expiry and post-logout bearer reuse return 401. Referenced same-source C23.correction rejects rotated refresh replay and revokes its family; C04.correction confirms cross-site/invalid-token rejection. Source shows a common Origin/token guard on mutation/rotate/logout and a login Origin guard."
+    },
+    {
+      "id": "C13",
+      "guide": "angular-dependency-vulnerability-triage",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C13.json",
+        "observations/run.json",
+        "dependency-probe.mjs",
+        "server.mjs",
+        "cases/runtime-before/package-lock.fixture.json",
+        "observations/upstream-advisories.json"
+      ],
+      "reason": "Installed lodash 4.17.20 is reached through query input, Angular HttpClient and the server template variable option. The reviewed harmless marker executes and the input is not rejected. This is demonstrated runtime reachability of GHSA-35jh-r3h4-6jhm, not an inference from severity. The corrected 4.18.1 control remains supplementary evidence."
+    },
+    {
+      "id": "C14",
+      "guide": "angular-xss-template-safety",
+      "decision": "PASS",
+      "evidence": [
+        "observations/cases/C14.json",
+        "observations/run.json",
+        "src/app.mjs",
+        "src/render.mjs",
+        "tests/scenarios.spec.mjs",
+        "observations/cases/C19.json",
+        "observations/cases/C06.json"
+      ],
+      "reason": "The subject tests the actual Angular binding before hydration and after hydration: marker stays 0, executable attributes are absent, text is escaped, intended formatting remains, and the allowed HTTPS link navigates correctly. Referenced same-source C19.correction rejects script navigation and C06.correction covers the raw sink removal. Source uses a fixed literal Angular template and normal bindings; resource trust is separately governed. This decision covers these traced rendering paths."
+    },
+    {
+      "id": "C15",
+      "guide": "angular-dependency-vulnerability-triage",
+      "decision": "BLOCKED",
+      "evidence": [
+        "observations/cases/C15.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "observations/audit-receipts.json"
+      ],
+      "reason": "The verified devDependency path installs lodash 4.17.20; the full audit exits 1 with one finding while production-only audit exits 0 with none. This subject has no build-configuration or exploit-prerequisite evidence. Omission from production audit does not establish non-reachability; neither PASS nor a fabricated exploit result is justified. C20 is an independently scoped subject and cannot fill this gap."
+    },
+    {
+      "id": "C16",
+      "guide": "angular-domsanitizer-governance",
+      "decision": "BLOCKED",
+      "evidence": [
+        "observations/cases/C16.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs"
+      ],
+      "reason": "One approved consumer renders in a hydrated browser, but the producer record and shared-wrapper caller inventory are unavailable. Governance requires traced provenance and coverage of every caller/context. A working view is not a trust-boundary inventory; the missing records cannot be borrowed from the separate fixed-resource subject."
+    },
+    {
+      "id": "C17",
+      "guide": "angular-token-storage-policy",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C17.json",
+        "observations/run.json",
+        "src/app.mjs",
+        "tests/scenarios.spec.mjs",
+        "server.mjs"
+      ],
+      "reason": "After real browser login, localStorage holds a bearer under the session credential key. A fresh cookie-free browser context receives 401 without credentials and 401 with an invalid bearer, but reusing the stored bearer returns 200 from /api/state. This independently proves the stored JavaScript-readable value is a reusable session secret, meeting the persistent-bearer FAIL rule. The correction stores nothing and has no bearer replay to perform; it does not fix this subject."
+    },
+    {
+      "id": "C18",
+      "guide": "angular-ssr-security-risk-gate",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C18.json",
+        "observations/run.json",
+        "server.mjs",
+        "src/render.mjs",
+        "tests/scenarios.spec.mjs"
+      ],
+      "reason": "The subject reuses the first rendered personalized HTML across users, and another account or anonymous response leaks that private canary; the other account hydrates with the first account display data. This is a demonstrated cross-user cache failure even though Cache-Control says private, no-store and credentials were not serialized. Missing broader tests cannot downgrade demonstrated leakage to BLOCKED."
+    },
+    {
+      "id": "C19",
+      "guide": "angular-xss-template-safety",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C19.json",
+        "observations/run.json",
+        "src/app.mjs"
+      ],
+      "reason": "The hydrated subject binds a trusted javascript: URL, and clicking it executes marker 1. The script-URL FAIL condition is directly measured in the browser. A correction that adds the unsafe: prefix and leaves marker 0 is not evidence that the subject deployed that fix."
+    },
+    {
+      "id": "C20",
+      "guide": "angular-dependency-vulnerability-triage",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C20.json",
+        "observations/run.json",
+        "cases/build-before/package.fixture.json",
+        "cases/build-before/package-lock.fixture.json",
+        "dependency-probe.mjs",
+        "observations/upstream-advisories.json"
+      ],
+      "reason": "The affected lodash 4.17.20 devDependency processes an untrusted CMS variable during content generation and executes the reviewed marker without rejecting it. Ordinary content also works, so a successful build does not remove the demonstrated build-time exploit prerequisite. The separate corrected 4.18.1 control does not remediate this subject."
+    },
+    {
+      "id": "C21",
+      "guide": "angular-domsanitizer-governance",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C21.json",
+        "observations/run.json",
+        "src/app.mjs",
+        "tests/scenarios.spec.mjs"
+      ],
+      "reason": "The negative-control profile injects one exact reserved synthetic lookalike resource URL into the trusted iframe binding. The browser records that lookalike input unchanged as iframe src, meeting the governance host-confusion FAIL condition for this subject. Current source implements this finite injection beside the normal parsed exact-host/path rule; the former general prefix-validator algorithm is absent and is not claimed tested. The correction rejects all seven recorded invalid resources. External iframe destinations remain intercepted by the owned browser harness."
+    },
+    {
+      "id": "C22",
+      "guide": "angular-ssr-security-risk-gate",
+      "decision": "PASS",
+      "evidence": [
+        "observations/cases/C22.json",
+        "observations/run.json",
+        "server.mjs",
+        "src/render.mjs",
+        "src/app.mjs",
+        "observations/cases/C24.json",
+        "observations/cases/C03.json",
+        "observations/upstream-advisories.json",
+        "tests/scenarios.spec.mjs"
+      ],
+      "reason": "For the implemented TLS origin and edge, the permanent suite executes both account/anonymous orders strictly sequentially, followed by separate concurrent batches at both layers, and asserts every response contains only its permitted display data without bearer credentials. Browser hydration and edge login pass. Current Node HTTPS clients use ca: tls.cert with default peer validation; a real Node client without that owned CA is rejected with DEPTH_ZERO_SELF_SIGNED_CERT, while the configured edge succeeds. Source dispatches only fixed owned probe/redirect capabilities, and C03.correction rejects the forbidden trap/redirect hop. C24.correction establishes hostile direct-header rejection and edge stripping. No shared personalized cache or HTTP transfer cache is enabled. PASS covers this measured topology; browser test contexts separately accept the self-signed lab certificate."
+    },
+    {
+      "id": "C23",
+      "guide": "angular-token-storage-policy",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C23.json",
+        "observations/run.json",
+        "server.mjs"
+      ],
+      "reason": "Initial refresh rotation succeeds, but replaying the spent refresh token also returns 200 and the session remains active (200). The old token can rotate again, directly violating the replay/family contract. Reject-and-revoke results in the correction do not change the subject."
+    },
+    {
+      "id": "C24",
+      "guide": "angular-ssr-security-risk-gate",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C24.json",
+        "observations/run.json",
+        "server.mjs",
+        "src/render.mjs",
+        "tests/scenarios.spec.mjs"
+      ],
+      "reason": "A client-supplied forwarded host changes the rendered origin and selects an owned probe request observed by the receiver; response status is 200. These measured origin/outbound side effects meet the spoofed-forwarding FAIL condition. Current source constrains outbound dispatch to fixed owned capabilities even in this negative profile, so the result does not establish arbitrary URL fetches. The subject remains unsafe at its request-origin boundary despite that lab containment."
+    },
+    {
+      "id": "C25",
+      "guide": "angular-xss-template-safety",
+      "decision": "BLOCKED",
+      "evidence": [
+        "observations/cases/C25.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs"
+      ],
+      "reason": "Only a successful SSR response is recorded for this subject. Browser execution was explicitly not run and DOM/navigation evidence is null. The XSS guide requires the affected browser path, malicious and positive controls, and applicable hydration; successful rendering alone cannot establish them. Other snapshots do not substitute for this missing browser run."
+    }
+  ],
+  "limitations": [
+    "Each of the 25 decisions addresses its subject. Corrections are only regression evidence, or explicit same-source support for a separately identified corrected subject. C05/C07/C09/C15/C16/C25 unavailable boundaries are not supplied by unrelated snapshots.",
+    "Runtime evidence is bounded to Angular 22.2.4, Node 24.22.1 and the installed Chromium in the synthetic isolated deployment. No production identity provider, CDN, external widget service, real internal service or unseen proxy layer was audited.",
+    "SSR PASS is scoped to the custom Node/platform-server origin and configured TLS edge. Node server-side HTTPS clients trust the generated owned certificate via ca without disabling peer checks. The separate browser/API test contexts use ignoreHTTPSErrors for self-signed lab access; this is not a browser certificate-validation test. Both sequential orders and separate concurrent batches execute in the current permanent suite.",
+    "Full and production npm receipts were refreshed during this execution and retain registry, timestamp, stderr and each audit exit. Zero known findings applies to the corrected scanned dependency set; before projects intentionally retain vulnerable controls and their findings.",
+    "Primary advisory notes were read earlier in this same session and retain their recorded retrieval scope (2026-10-31T19:50:36.974Z); they were not relabeled as newly retrieved. Relevant installed versions and lockfiles are unchanged, while public npm reports were freshly measured for this run.",
+    "The dependency reproduction covers the reviewed variable-option marker and valid content. It does not claim to execute the distinct imports-key/prototype vector in the newer maintainer advisory, nor any public unreviewed proof-of-concept.",
+    "All 25 case hashes were independently recomputed against this fresh run receipt. Current normalized source/guide hashes match the run manifest and sourceUnchanged is true.",
+    "No source, guide, test, manifest, fixture lockfile or user configuration was edited by the audit. The authorized full test rebuilt generated output and prepared isolated projects; agent-authored files remain within ignored .cache and observations.",
+    "Fault containment is explicit: outbound network calls dispatch only fixed owned probe/redirect/trap capabilities; the trap is enabled only in the internal-fetch negative profile. Resource host-confusion injection is one exact reserved synthetic URL, not a general prefix validator. These controls bound what the negative results demonstrate."
+  ]
+}
