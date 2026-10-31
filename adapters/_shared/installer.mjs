@@ -173,16 +173,18 @@ export function backup(plan, options = {}) {
   const installGuard = guard(installRoot);
   const backupGuard = guard(backupRoot);
   const backedUp = [];
+  const backupChecksums = {};
   for (const file of files) {
     if (!safeExists(installGuard, file.path)) continue;
-    safeWriteFile(backupGuard, file.path, safeReadFile(installGuard, file.path, null));
+    const content = safeReadFile(installGuard, file.path, null);
+    safeWriteFile(backupGuard, file.path, content);
+    backupChecksums[file.path] = sha256(content);
     backedUp.push(file.path);
   }
   // Persist the pre-backup manifest so we can restore precisely.
   const manifest = installation?.manifest || loadManifest(installRoot);
   if (manifest) {
-    manifest.installRoot = installRoot;
-    safeWriteFile(backupGuard, MANIFEST_NAME, JSON.stringify(manifest, null, 2));
+    safeWriteFile(backupGuard, MANIFEST_NAME, JSON.stringify({ ...manifest, installRoot, backupChecksums }, null, 2));
   }
   return { ok: true, backupPath: backupRoot, backedUp };
 }
@@ -607,6 +609,9 @@ export function restore(backupRef, installRootOverride) {
     return { ok: false, restoredFiles: 0, warnings: ['backup manifest missing'] };
   }
   const manifest = JSON.parse(safeReadFile(backupGuard, MANIFEST_NAME));
+  if (!manifest.backupChecksums || typeof manifest.backupChecksums !== 'object' || Array.isArray(manifest.backupChecksums)) {
+    return { ok: false, restoredFiles: 0, warnings: ['backup integrity metadata missing; create a new backup before restoring'] };
+  }
   const installRoot = installRootOverride || manifest.installRoot;
   if (!installRoot) {
     return { ok: false, restoredFiles: 0, warnings: ['installRoot not provided and not in backup manifest'] };
@@ -636,6 +641,10 @@ export function restore(backupRef, installRootOverride) {
       continue;
     }
     let content = safeReadFile(backupGuard, entry.path, null);
+    if (!Object.hasOwn(manifest.backupChecksums, entry.path) || sha256(content) !== manifest.backupChecksums[entry.path]) {
+      warnings.push(`backup checksum mismatch: ${entry.path}`);
+      continue;
+    }
     if (preflightDestinationExists(guardRoot, entry.path)) {
       const existing = safeReadFile(guardRoot, entry.path, null);
       const baseline = owned.get(entry.path);
@@ -666,6 +675,7 @@ export function restore(backupRef, installRootOverride) {
     safeWriteFile(guardRoot, relative, content);
     restoredFiles += 1;
   }
-  saveManifest(installRoot, { ...manifest, installRoot });
+  const { backupChecksums, ...installationManifest } = manifest;
+  saveManifest(installRoot, { ...installationManifest, installRoot });
   return { ok: true, restoredFiles, removedFiles: removals.size, warnings: [] };
 }
