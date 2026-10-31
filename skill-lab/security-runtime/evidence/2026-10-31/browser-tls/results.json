@@ -1,0 +1,216 @@
+{
+  "recordedAt": "2026-10-31T21:55:44.934Z",
+  "platform": "win32",
+  "node": "v24.22.1",
+  "sources": {
+    "textNormalization": "CRLF to LF before SHA-256",
+    "guides": {
+      "angular-token-storage-policy": "86bb3c5f90116f0ddc06be002bf3bc0e31e6c28807434bf5e537af9ba5ac09c8",
+      "angular-xss-template-safety": "60f03349a43296f6e6a063073b77a0bb3e87f6e264a0f6232bd04acf3869f4c1",
+      "angular-domsanitizer-governance": "353cec1b96ba58babadca0919057547b5aa6317d3e0c36132f83ded30f80aad3",
+      "angular-ssr-security-risk-gate": "a3fc64ef7f17dccd23f6202ce2c133b4700b79fe106baca350f5c511980b6de5",
+      "angular-dependency-vulnerability-triage": "7853bfa024eb86e2fc3e940f45eb8547fcf3ad8f73c677826af5366da06b47a6"
+    },
+    "application": {
+      "package.json": "767f02c5395249e61cbd0ca773aa4818db8cff45cdceb035c84e8ea0bc9667a6",
+      "package-lock.json": "1f5f20fd8b1866edbc46fe77f48357e1fccdbcfe57014296397c6e3d44c75b3c",
+      "audit-task.md": "cfc77bcca46e0c0f9df1bec080f29766bdfd9e54f6e68b43bfb227b6969ca491",
+      "build.mjs": "e91c6589999d771a6610fa58679874a09ae5b4ff30a728563c198dfcdcae9fff",
+      "manifest.mjs": "cae7ad734dc23219bf7e7bbc19cfee3a54ab09fe9abecaf17b66d48962a50e71",
+      "reporter.mjs": "1e2c1917e194afad2438f7b379d3fd7ce5a0c60d55837f54fcc1b8cf6a9e8bba",
+      "server.mjs": "fc32d8bd3601f387e804bfb3444f1471a52cfcce205e366b9e5e0d140d94825c",
+      "dependency-probe.mjs": "94799baab9d0eb9c2f372152650f25ae7f1752d58d14b35609352d6389274228",
+      "dependencies.mjs": "81cde5ead935df22b5501fb9265996662d7bf5835a9f2f2b2a89aa5451fa0313",
+      "prepare-cases.mjs": "f93e1cd244a1b77cd8eaac2ccee9c3c79bfc631fe5a4a9ff6cb7f196da32fe4d",
+      "playwright.config.mjs": "a1421551f4d2f5eccdabdacb5392c1518b7573fe12a67c7904d215f70d906740",
+      "src/app.mjs": "b7d965981bfc08de7c98c3336d74b32c76f32ee2b7538ca9bd93eaa985844fe3",
+      "src/browser.mjs": "6bd3877045fd87263b8e8deac7d0a01ea15acedcfdb776340cb1e67626562610",
+      "src/render.mjs": "68728380464becbefae934238759c052daa0fd6b84ae96b4c4ad2a1c45c4ad5d",
+      "tests/helpers.mjs": "d025f109bb36ce4033a7c65f5aa9adae9ac7623bb3a3468e5662d1ce5744a41f",
+      "tests/scenarios.spec.mjs": "d9a26bfe46f82a74672413d62b3174dc64a231c2862cc4d572036bebde6641e4",
+      "cases/runtime-before/package.fixture.json": "7857a9abf5a57f9f3ec255df88fbbe6796f9f54fe8ed9466aa95fc695fb9a6f0",
+      "cases/runtime-before/package-lock.fixture.json": "89b67451486d1873185e7280f5dc2648ba9d248ade255db691e8caddd0c7f84b",
+      "cases/runtime-after/package.fixture.json": "1bfc03259f9635926a60d7c50b328fc7e56b1509c236bf47c97e834b9aabd8ed",
+      "cases/runtime-after/package-lock.fixture.json": "da674b2d658d6028900e91a0415b1bb66ced4165367551ed8ecf782d6d423085",
+      "cases/build-before/package.fixture.json": "c6ccf255d9f28bf5c676e3359e17439550bad41bc3098dc7e7d470fa59ee94c8",
+      "cases/build-before/package-lock.fixture.json": "bcc599402b802eba682b432ca2caaa1d5a3ab8162639d3a83a96cf966d6c38e9",
+      "cases/build-after/package.fixture.json": "f8d545d21537c248ad11fc9c806b3be43758a94297223f341d12a74eadb455a5",
+      "cases/build-after/package-lock.fixture.json": "144456731c73e3e5f210bb24a8e246793a1624e0af75b2d0e2f0e4e1e06de283"
+    }
+  },
+  "testSources": {
+    "browser.mjs": "1341c145d6b5c47ee1a487d0995170de8d848343649e2830808074a6844116bf",
+    "certificates.mjs": "25282a47250539156227c2b9f66ad4e0c6228f276e012c094fe26b68973680d6",
+    "server.mjs": "77e6e01bb3efff6ebec6ee76a5935e3a18898d335283b20c907c3f32adf26b02",
+    "playwright.config.mjs": "5a555f8b2be03f202cb2db40865635cc5d0635309fdf30d1b66a5c7ca57121d8",
+    "certificates.spec.mjs": "b7a28acf7a8de372c05c76eaaa2732c432e513f0fc5273279072047a2d3592e9"
+  },
+  "observations": [
+    {
+      "name": "unknown authority",
+      "outcome": "rejected",
+      "expected": "net::ERR_CERT_AUTHORITY_INVALID",
+      "nativeFailures": [
+        "net::ERR_CERT_AUTHORITY_INVALID"
+      ],
+      "httpRequestsReachedServer": 0,
+      "certificate": {
+        "fingerprint256": "A2:C6:C1:0E:C7:8E:6F:25:C2:9B:19:B9:C4:74:0A:A0:13:C5:31:27:F1:18:92:21:58:5F:3F:36:B9:3F:CF:2D",
+        "issuer": "CN=NgAutoPilot lab browser root",
+        "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
+        "validFrom": "Oct 31 20:55:23 2026 GMT",
+        "validTo": "Nov  1 21:55:23 2026 GMT"
+      },
+      "browser": "Chrome/156.0.8078.4",
+      "revision": "@f842f52ef39fd97b449eb27cff414bf05a98ddce",
+      "ignoreHTTPSErrors": false,
+      "certificateErrorBypassFlags": [],
+      "trustedFingerprint": null,
+      "trustStore": "Fresh Chromium profile ServerCertificate schema 1",
+      "systemTrustStoreModified": false
+    },
+    {
+      "name": "valid chain",
+      "outcome": "accepted",
+      "httpStatus": 200,
+      "angularVersion": "22.2.4",
+      "clientReady": true,
+      "security": {
+        "issuer": "NgAutoPilot lab browser root",
+        "protocol": "TLS 1.3",
+        "subjectName": "localhost",
+        "validFrom": 1793480123,
+        "validTo": 1793570123
+      },
+      "certificate": {
+        "fingerprint256": "A2:C6:C1:0E:C7:8E:6F:25:C2:9B:19:B9:C4:74:0A:A0:13:C5:31:27:F1:18:92:21:58:5F:3F:36:B9:3F:CF:2D",
+        "issuer": "CN=NgAutoPilot lab browser root",
+        "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
+        "validFrom": "Oct 31 20:55:23 2026 GMT",
+        "validTo": "Nov  1 21:55:23 2026 GMT"
+      },
+      "browser": "Chrome/156.0.8078.4",
+      "revision": "@f842f52ef39fd97b449eb27cff414bf05a98ddce",
+      "ignoreHTTPSErrors": false,
+      "certificateErrorBypassFlags": [],
+      "trustedFingerprint": "8d4068d4df9fe4ee7d74540d9759d690fd036d999f7f4b243a7dfbd85643b3f3",
+      "trustStore": "Fresh Chromium profile ServerCertificate schema 1",
+      "systemTrustStoreModified": false
+    },
+    {
+      "name": "wrong host",
+      "outcome": "rejected",
+      "expected": "net::ERR_CERT_COMMON_NAME_INVALID",
+      "nativeFailures": [
+        "net::ERR_CERT_COMMON_NAME_INVALID"
+      ],
+      "httpRequestsReachedServer": 0,
+      "certificate": {
+        "fingerprint256": "37:B3:BE:6C:96:B6:A0:1C:A6:FF:98:B9:E9:9B:1A:F9:F2:FD:27:DE:42:BE:57:3B:AE:81:6A:CC:3D:82:3A:E2",
+        "issuer": "CN=NgAutoPilot lab browser root",
+        "subjectAltName": "DNS:wrong.example.test",
+        "validFrom": "Oct 31 20:55:23 2026 GMT",
+        "validTo": "Nov  1 21:55:23 2026 GMT"
+      },
+      "browser": "Chrome/156.0.8078.4",
+      "revision": "@f842f52ef39fd97b449eb27cff414bf05a98ddce",
+      "ignoreHTTPSErrors": false,
+      "certificateErrorBypassFlags": [],
+      "trustedFingerprint": "8d4068d4df9fe4ee7d74540d9759d690fd036d999f7f4b243a7dfbd85643b3f3",
+      "trustStore": "Fresh Chromium profile ServerCertificate schema 1",
+      "systemTrustStoreModified": false
+    },
+    {
+      "name": "expired leaf",
+      "outcome": "rejected",
+      "expected": "net::ERR_CERT_DATE_INVALID",
+      "nativeFailures": [
+        "net::ERR_CERT_DATE_INVALID"
+      ],
+      "httpRequestsReachedServer": 0,
+      "certificate": {
+        "fingerprint256": "09:42:1F:41:28:83:D3:A6:9A:31:14:CA:39:22:5A:CF:0F:99:6B:DC:07:DF:BF:73:B7:EB:BC:84:32:46:42:B3",
+        "issuer": "CN=NgAutoPilot lab browser root",
+        "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
+        "validFrom": "Oct 29 21:55:23 2026 GMT",
+        "validTo": "Oct 30 21:55:23 2026 GMT"
+      },
+      "browser": "Chrome/156.0.8078.4",
+      "revision": "@f842f52ef39fd97b449eb27cff414bf05a98ddce",
+      "ignoreHTTPSErrors": false,
+      "certificateErrorBypassFlags": [],
+      "trustedFingerprint": "8d4068d4df9fe4ee7d74540d9759d690fd036d999f7f4b243a7dfbd85643b3f3",
+      "trustStore": "Fresh Chromium profile ServerCertificate schema 1",
+      "systemTrustStoreModified": false
+    },
+    {
+      "name": "not yet valid leaf",
+      "outcome": "rejected",
+      "expected": "net::ERR_CERT_DATE_INVALID",
+      "nativeFailures": [
+        "net::ERR_CERT_DATE_INVALID"
+      ],
+      "httpRequestsReachedServer": 0,
+      "certificate": {
+        "fingerprint256": "C5:B1:8B:18:16:35:15:33:DE:B3:BE:D6:5F:97:6D:12:23:DB:12:D6:7A:41:06:BF:14:7E:12:86:8F:7D:17:4D",
+        "issuer": "CN=NgAutoPilot lab browser root",
+        "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
+        "validFrom": "Nov  1 21:55:23 2026 GMT",
+        "validTo": "Nov  2 21:55:23 2026 GMT"
+      },
+      "browser": "Chrome/156.0.8078.4",
+      "revision": "@f842f52ef39fd97b449eb27cff414bf05a98ddce",
+      "ignoreHTTPSErrors": false,
+      "certificateErrorBypassFlags": [],
+      "trustedFingerprint": "8d4068d4df9fe4ee7d74540d9759d690fd036d999f7f4b243a7dfbd85643b3f3",
+      "trustStore": "Fresh Chromium profile ServerCertificate schema 1",
+      "systemTrustStoreModified": false
+    },
+    {
+      "name": "different issuing CA",
+      "outcome": "rejected",
+      "expected": "net::ERR_CERT_AUTHORITY_INVALID",
+      "nativeFailures": [
+        "net::ERR_CERT_AUTHORITY_INVALID"
+      ],
+      "httpRequestsReachedServer": 0,
+      "certificate": {
+        "fingerprint256": "16:27:B2:F2:B4:5A:7B:A4:6F:80:C6:63:3A:BC:D7:CD:21:ED:28:0A:FF:68:77:2D:B1:B1:64:B5:A3:7D:97:7C",
+        "issuer": "CN=NgAutoPilot foreign browser root",
+        "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
+        "validFrom": "Oct 31 20:55:23 2026 GMT",
+        "validTo": "Nov  1 21:55:23 2026 GMT"
+      },
+      "browser": "Chrome/156.0.8078.4",
+      "revision": "@f842f52ef39fd97b449eb27cff414bf05a98ddce",
+      "ignoreHTTPSErrors": false,
+      "certificateErrorBypassFlags": [],
+      "trustedFingerprint": "8d4068d4df9fe4ee7d74540d9759d690fd036d999f7f4b243a7dfbd85643b3f3",
+      "trustStore": "Fresh Chromium profile ServerCertificate schema 1",
+      "systemTrustStoreModified": false
+    },
+    {
+      "name": "profile isolation",
+      "outcome": "rejected",
+      "expected": "net::ERR_CERT_AUTHORITY_INVALID",
+      "nativeFailures": [
+        "net::ERR_CERT_AUTHORITY_INVALID"
+      ],
+      "httpRequestsReachedServer": 0,
+      "certificate": {
+        "fingerprint256": "A2:C6:C1:0E:C7:8E:6F:25:C2:9B:19:B9:C4:74:0A:A0:13:C5:31:27:F1:18:92:21:58:5F:3F:36:B9:3F:CF:2D",
+        "issuer": "CN=NgAutoPilot lab browser root",
+        "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
+        "validFrom": "Oct 31 20:55:23 2026 GMT",
+        "validTo": "Nov  1 21:55:23 2026 GMT"
+      },
+      "browser": "Chrome/156.0.8078.4",
+      "revision": "@f842f52ef39fd97b449eb27cff414bf05a98ddce",
+      "ignoreHTTPSErrors": false,
+      "certificateErrorBypassFlags": [],
+      "trustedFingerprint": null,
+      "trustStore": "Fresh Chromium profile ServerCertificate schema 1",
+      "systemTrustStoreModified": false
+    }
+  ]
+}

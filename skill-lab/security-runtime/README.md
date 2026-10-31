@@ -35,6 +35,21 @@ The vulnerable controls establish that the sensor can detect the unsafe behavior
 
 Negative dependency manifests use `.fixture.json` names, following the lab's fixture convention. `prepare-cases.mjs` materializes them under ignored `.cache/projects/` and installs their locks without lifecycle scripts. Corrected runtime/build projects use lodash 4.18.1; deliberate negative controls use 4.17.20. Audits scan both scopes and never dismiss development dependencies. The [upstream template advisory](https://github.com/advisories/GHSA-35jh-r3h4-6jhm) describes the exercised option; [the current maintainer advisory](https://github.com/lodash/lodash/security/advisories/GHSA-r5fr-rjxr-66jc) also informs the corrected release choice. Skill Lab is excluded from the public npm artifact.
 
+## Strict browser certificate validation
+
+The 25-scenario suite uses `ignoreHTTPSErrors: true` for its synthetic self-signed server. It cannot establish browser certificate validation. Run the separate strict suite after the build:
+
+```sh
+npm run build
+npx playwright test --config browser-tls/playwright.config.mjs
+```
+
+This suite sets `ignoreHTTPSErrors: false` and checks Chromium's actual command line for certificate-error bypass flags. Seven tests establish that an untrusted CA is rejected; a trusted valid chain serves and hydrates Angular; wrong-host, expired, future-dated and foreign-CA certificates are rejected; and the same valid chain is rejected again in a new empty profile. Rejections must produce the native certificate error and zero HTTP requests at the application server.
+
+Each test creates its own Chromium profile. After Chromium initializes its certificate database and stops, the harness adds only the generated CA anchor to that profile, then restarts the browser. It never imports a leaf or changes operating-system trust. This uses Chromium's [profile certificate database](https://chromium.googlesource.com/chromium/src/+/main/chrome/browser/net/server_certificate_database_service_factory.cc) and [trust metadata](https://raw.githubusercontent.com/chromium/chromium/f842f52ef39fd97b449eb27cff414bf05a98ddce/components/server_certificate_database/server_certificate_database.proto); browser version 156.0.8078.4 and schema version 1 are asserted so an upgrade requires explicit review. Full Chromium (`channel: 'chromium'`) is required.
+
+`observations/browser-tls/` records certificate dates and fingerprints, native errors, TLS details, browser identity and source hashes. Temporary keys and profiles remain under ignored `.cache/`; no private keys enter the reviewed evidence. CI runs this suite alongside the original 25 scenarios. These local certificates do not test public PKI revocation, production endpoints or other browsers.
+
 ## Live agent check
 
 Give a fresh independent agent [audit-task.md](audit-task.md), the five actual guide files, the source, and the ability to run the suite. Keep `oracle.json`, `verify-agent*`, and saved evaluation output outside its allowed reads. The agent must execute the tests itself, read their fresh receipt, and produce `observations/agent-response.json` with decisions, reasons, and evidence for all 25 subjects.
