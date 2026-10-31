@@ -18,65 +18,51 @@ triggers:
 
 ## Purpose
 
-Gate SSR changes with host validation, proxy trust, and server-side security boundaries.
-
-This skill keeps the security decision explicit: identify the current state, choose the smallest safe action, document compatibility evidence, and leave a validation path that another agent or maintainer can repeat.
+Gate an SSR change on request-origin trust, outbound request boundaries, and isolation of user-specific rendering data. A rendered page or successful server build cannot establish these properties.
 
 ## When to Use
 
-Use this skill when:
-
-- the task mentions angular ssr security risk gate, XSS, DOM sanitization, token storage, SSR security, or dependency triage;
-- an Angular codebase needs a scoped security decision before implementation;
-- compatibility, risk, or ownership is unclear and should be made explicit;
-- the output must be reusable by another agent, reviewer, or release owner.
+Use for Angular SSR adapters, reverse proxies, server-side HTTP calls, hydration/transfer caches, redirects, or shared provider state. Record exact Angular/SSR/adapter versions, deployment topology, and applicable upstream advisories before relying on framework defaults.
 
 ## Do
 
-- Inspect the current Angular version, TypeScript version, build tooling, and affected files before recommending changes.
-- Keep the change bounded to the requested workflow and preserve separate upgrade, modernization, and cleanup tracks.
-- Prefer documented Angular APIs and local project conventions over new abstractions.
-- Record assumptions, compatibility evidence, validation commands, and rollback notes.
-- Add or update focused tests when the workflow changes runtime behavior.
+### Checks and evidence
 
-Recommended workflow:
+1. Map the public edge, trusted proxy hops, direct origin access, and server routes. Establish the canonical allowed origins. At each proxy, verify strip/overwrite behavior for client-supplied Forwarded, X-Forwarded-Host, X-Forwarded-Proto, X-Forwarded-Prefix, and X-Forwarded-Port; validate Host as well. Do not blindly enable trust-proxy or assume the app sees only edge traffic. Confirm the installed adapter's supported host controls against its version and advisories.
+2. Send synthetic requests through both edge and any reachable origin with hostile Host, Forwarded, and each X-Forwarded-* variant, malformed/multiple values, and a valid control. Assert rejection or canonical rendering without attacker-chosen outbound requests, redirect Location, asset origins, or poisoned cache entries. A status code alone is insufficient: capture test-server outbound traffic and rendered origins.
+3. Trace request-derived URLs into server fetches and redirects. For controlled fixtures, reject loopback 127.0.0.1, private networks, link-local 169.254.169.254, and IPv6 local equivalents unless a specific internal destination is an explicitly authorized application requirement. Validate resolved destinations and every redirect hop; test an allowed host redirecting to a forbidden destination and document DNS/egress controls. Use local mock receivers; never probe real metadata or internal services.
+4. Inventory module-level state, singleton providers, response/CDN caches, TransferState, HTTP transfer cache configuration, and includeHeaders. Keep credentials and secrets out of serialized HTML/hydration. Disable transfer caching for personalized HTTP responses unless a proven design safely scopes them; do not opt authenticated requests into caching by default. Review browser-visible fields separately from intended user data and never serialize sensitive response headers.
+5. Render two synthetic accounts with distinct canaries concurrently and in both sequential orders, including an anonymous request. Assert each response/hydration contains only that request's permitted data and no credentials. Repeat through the deployed cache/proxy configuration. Inspect Cache-Control, cache keys, error paths, and any shared server/provider state; a single-user test cannot detect cross-request leakage.
 
-```txt
-1. Identify the affected Angular feature area and version constraints.
-2. Classify the change as migration, modernization, architecture, validation, or cleanup.
-3. Apply the smallest reversible implementation or write the decision artifact.
-4. Validate with the project test, lint, build, or review command that matches the risk.
-5. Summarize remaining risks and the next safe checkpoint.
-```
+### Regression cases
+
+Run server integration and browser hydration tests in an isolated deployment with mock outbound endpoints. Record the command, expected status/origin/outbound requests/data isolation, actual observations, and redacted evidence. State any unreachable deployment layer as a gap.
+
+| Case | Reproduction and required assertion | Decision on observation |
+| --- | --- | --- |
+| Spoofed forwarding | An untrusted forwarded/Host value controls a rendered origin, redirect, fetch, or shared cache entry. | FAIL |
+| Internal fetch | A request or redirect reaches an unauthorized local/private destination. | FAIL |
+| Cross-user cache | Account B or anonymous HTML/hydration contains account A's private canary or credentials. | FAIL |
+| Missing proxy evidence | Only local mocks ran; actual forwarding rules, origin access, or deployment cache isolation remain unverified. | BLOCKED |
+| Isolated rendering | Valid requests work; hostile origin/fetch cases are contained and concurrent/sequential user isolation passes at each applicable layer. | PASS |
+
+FAIL takes precedence over BLOCKED when an unsafe behavior is demonstrated. Report PASS only when all applicable trust boundaries and isolation checks have executed with evidence. For CSR-only/static output, prove the absence of an SSR server and explain the gate's non-applicability; do not invent successful SSR tests.
 
 ## Do Not
 
-- Do not combine this workflow with an unrelated Angular major-version hop.
-- Do not invent compatibility data, CLI flags, or framework behavior.
-- Do not introduce dependencies unless the local implementation requires them.
-- Do not rewrite a complete architecture layer when a targeted boundary or decision is enough.
-- Do not mark the work complete without a concrete validation or a clear reason validation could not run.
-
-Avoid:
-
-```txt
-Changing framework version, architecture, tests, and cleanup policy in one unreviewable step.
-```
+- Do not copy a current-version host option into an older adapter without checking API support.
+- Do not trust forwarding headers because their names look like proxy metadata.
+- Do not fix a canary leak by hiding the assertion or cache header while leaving shared state intact.
 
 ## Review Checklist
 
-- [ ] The Angular and tooling versions are known or explicitly called out as unknown.
-- [ ] The security scope is isolated from unrelated work.
-- [ ] The recommendation uses documented APIs or existing project patterns.
-- [ ] Compatibility evidence is included when version-specific behavior matters.
-- [ ] Tests, build, lint, or manual validation steps are listed.
-- [ ] Rollback or follow-up notes exist for risky changes.
+- [ ] Exact versions/advisories and every ingress/proxy boundary are documented.
+- [ ] Host/forwarding spoofing and redirect/egress tests have observed outcomes.
+- [ ] Concurrent, sequential, and anonymous rendering isolate private data through deployment caches.
+- [ ] Missing deployment evidence is BLOCKED and any demonstrated unsafe flow is FAIL.
 
 ## Expected Output
 
-1. Summarize the finding in one concise paragraph.
-2. List the files, APIs, or project boundaries affected.
-3. Provide the smallest safe implementation or decision.
-4. Explain compatibility and risk assumptions.
-5. Provide validation commands or review checks.
-6. Separate follow-up work from the current scope.
+Return the scoped gate decision, topology and affected files, minimal fix, commands, before/after evidence, missing deployment checks, and rollback steps. Redact headers and private page data from reports.
+
+Sources: [Angular SSR](https://angular.dev/best-practices/performance/ssr), [Angular security](https://angular.dev/best-practices/security), and the [upstream SSR header advisory](https://github.com/angular/angular-cli/security/advisories/GHSA-x288-3778-4hhx). Verify the installed release and current advisory ranges; do not infer that all Angular majors share the latest protections.

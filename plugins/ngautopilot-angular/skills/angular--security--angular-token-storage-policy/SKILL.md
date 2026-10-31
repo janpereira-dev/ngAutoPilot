@@ -18,65 +18,51 @@ triggers:
 
 ## Purpose
 
-Define a safe policy for storing and rotating auth tokens in Angular applications.
-
-This skill keeps the security decision explicit: identify the current state, choose the smallest safe action, document compatibility evidence, and leave a validation path that another agent or maintainer can repeat.
+Decide whether the application's authentication credentials remain within an explicit storage, transport, expiry, and revocation boundary. A browser storage change alone does not prove session security.
 
 ## When to Use
 
-Use this skill when:
-
-- the task mentions angular token storage policy, XSS, DOM sanitization, token storage, SSR security, or dependency triage;
-- an Angular codebase needs a scoped security decision before implementation;
-- compatibility, risk, or ownership is unclear and should be made explicit;
-- the output must be reusable by another agent, reviewer, or release owner.
+Use for login, refresh, logout, auth interceptors, cookies, or changes to credential persistence. Inspect the installed Angular/auth-library versions, identity provider, API origins, and backend session contract first.
 
 ## Do
 
-- Inspect the current Angular version, TypeScript version, build tooling, and affected files before recommending changes.
-- Keep the change bounded to the requested workflow and preserve separate upgrade, modernization, and cleanup tracks.
-- Prefer documented Angular APIs and local project conventions over new abstractions.
-- Record assumptions, compatibility evidence, validation commands, and rollback notes.
-- Add or update focused tests when the workflow changes runtime behavior.
+### Checks and evidence
 
-Recommended workflow:
+1. Inventory access tokens, refresh tokens, session IDs, and CSRF tokens separately: issuer, readers, storage, lifetime, destination, and logout behavior. Search the application and auth-library configuration, then inspect an actual test login in browser storage and network tools. Do not copy real credentials into reports.
+2. Check localStorage, sessionStorage, IndexedDB, persisted state, URLs, logs, and SSR hydration for bearer/session secrets. Reject persistent JavaScript-readable session secrets as the default policy; encrypting them with a key accessible to the same JavaScript does not fix XSS exposure. In-memory access tokens still face XSS and require bounded lifetimes. An unavoidable provider constraint needs an explicit owner-approved exception and residual risk; it is not evidence that this check passed.
+3. For server sessions, verify Set-Cookie has HttpOnly, Secure, and an appropriate SameSite policy, narrow scope, and expiry. Verify CSRF protection on every state-changing cookie-authenticated route, including login/logout where applicable: an authenticated cross-site request from a disallowed origin must not mutate state. For token-based defenses, also assert rejection of missing/invalid CSRF tokens; for an alternative defense, document and test its server-side enforcement. SameSite and Angular's XSRF header support do not prove backend validation. Cross-origin APIs require a separately verified cookie/CORS/CSRF design.
+4. Test refresh token rotation and replay according to the provider contract: reuse an old refresh token after rotation and assert rejection and the documented session/family response. Check expiry at the server, not only in client timers. For logout, test server-side revocation and the documented residual access-token lifetime; deleting browser state alone cannot revoke a previously issued bearer token.
+5. Inspect the Authorization interceptor's origin allowlist. Send requests to the allowed API and a controlled foreign origin; credentials must reach only the allowed origin. Check redirects, error logging, telemetry, and concurrent refresh failures without recording secrets.
 
-```txt
-1. Identify the affected Angular feature area and version constraints.
-2. Classify the change as migration, modernization, architecture, validation, or cleanup.
-3. Apply the smallest reversible implementation or write the decision artifact.
-4. Validate with the project test, lint, build, or review command that matches the risk.
-5. Summarize remaining risks and the next safe checkpoint.
-```
+### Regression cases
+
+Run in the existing browser and API integration suites with synthetic accounts in an isolated environment. For every case record the command, expected response/state, actual response/state, and redacted evidence. Adapt route names to the project; do not invent a passing command.
+
+| Case | Reproduction and required assertion | Decision on observation |
+| --- | --- | --- |
+| Persistent bearer | Login leaves a reusable refresh/session secret in JavaScript-readable storage. | FAIL |
+| Cookie without CSRF | An authenticated cross-site request from a disallowed origin mutates state, or a required CSRF token is not validated. | FAIL |
+| Revoked refresh replay | An old rotated/revoked refresh token can mint a new session. | FAIL |
+| Missing auth server | Only client mocks ran; rotation/revocation or CSRF enforcement is unverified. | BLOCKED |
+| Bounded session | Storage, cookie/CSRF or explicit bearer-only transport, expiry, rotation, logout bounds, and foreign-origin tests all meet the recorded contract. | PASS |
+
+FAIL takes precedence over BLOCKED when an unsafe behavior is demonstrated. Report PASS only when all applicable checks have executed successfully; justify non-applicable checks with architecture evidence. A failed test cannot become PASS through a risk acceptance entry.
 
 ## Do Not
 
-- Do not combine this workflow with an unrelated Angular major-version hop.
-- Do not invent compatibility data, CLI flags, or framework behavior.
-- Do not introduce dependencies unless the local implementation requires them.
-- Do not rewrite a complete architecture layer when a targeted boundary or decision is enough.
-- Do not mark the work complete without a concrete validation or a clear reason validation could not run.
-
-Avoid:
-
-```txt
-Changing framework version, architecture, tests, and cleanup policy in one unreviewable step.
-```
+- Do not move credentials to cookies without the backend and CSRF changes that the design needs.
+- Do not treat route guards, token decoding, HttpOnly, or a successful Angular build as authorization proof.
+- Do not force an auth-provider migration or add a storage wrapper unrelated to the finding.
 
 ## Review Checklist
 
-- [ ] The Angular and tooling versions are known or explicitly called out as unknown.
-- [ ] The security scope is isolated from unrelated work.
-- [ ] The recommendation uses documented APIs or existing project patterns.
-- [ ] Compatibility evidence is included when version-specific behavior matters.
-- [ ] Tests, build, lint, or manual validation steps are listed.
-- [ ] Rollback or follow-up notes exist for risky changes.
+- [ ] Credential inventory and exact provider/library versions are attached.
+- [ ] Browser storage, cookie flags, CSRF, foreign origins, and lifecycle tests have actual results.
+- [ ] Missing server evidence produces BLOCKED; demonstrated unsafe behavior produces FAIL.
+- [ ] Exceptions name an owner, expiry, compensating controls, and residual risk without hiding failures.
 
 ## Expected Output
 
-1. Summarize the finding in one concise paragraph.
-2. List the files, APIs, or project boundaries affected.
-3. Provide the smallest safe implementation or decision.
-4. Explain compatibility and risk assumptions.
-5. Provide validation commands or review checks.
-6. Separate follow-up work from the current scope.
+Provide the scoped decision, affected files and credential flow, smallest fix, and before/after test results. Include commands and redacted evidence, unresolved assumptions, and rollback steps. Never publish tokens or session cookies.
+
+Sources: [OWASP browser storage](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html), [session lifecycle](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html), and [CSRF controls](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html).
