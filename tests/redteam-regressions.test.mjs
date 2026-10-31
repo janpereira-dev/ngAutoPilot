@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import test from 'node:test';
 
 import { applyPlan, uninstall, backup, restore, verifyInstall, loadManifest } from '../adapters/_shared/installer.mjs';
@@ -60,6 +61,20 @@ test('R3: altered backup bytes are rejected before changing any destination', t 
   const result = restore(saved, plan.installRoot);
   assert.equal(result.ok, false);
   assert.equal(result.restoredFiles, 0);
+  assert.equal(verifyInstall(plan).ok, true);
+});
+
+test('R3: legacy backups without integrity metadata are refused without changing installed bytes', t => {
+  const dir = fixture(t);
+  const plan = simplePlan(dir);
+  assert.equal(applyPlan(plan).ok, true);
+  const saved = backup(plan, { backupDir: path.join(dir, 'backups') });
+  const manifestPath = path.join(saved.backupPath, '.ngautopilot-manifest.json');
+  const { backupChecksums, ...legacy } = JSON.parse(fs.readFileSync(manifestPath));
+  json(manifestPath, legacy);
+  const result = restore(saved, plan.installRoot);
+  assert.equal(result.ok, false);
+  assert.match(result.warnings.join('\n'), /integrity metadata/);
   assert.equal(verifyInstall(plan).ok, true);
 });
 
@@ -137,6 +152,23 @@ test('R6: restore CLI requires an explicit destination and approval', t => {
   assert.equal(verifyInstall(plan).ok, true);
 });
 
+test('R6: restore API refuses implicit destinations, wrong scope and malformed file records', t => {
+  const dir = fixture(t);
+  const plan = simplePlan(dir);
+  assert.equal(applyPlan(plan).ok, true);
+  const saved = backup(plan, { backupDir: path.join(dir, 'backups') });
+  assert.equal(restore(saved).ok, false);
+  assert.equal(restore({ ...saved, agent: 'claude' }, plan.installRoot).ok, false);
+  assert.equal(restore({ ...saved, scope: 'user' }, plan.installRoot).ok, false);
+  const manifestPath = path.join(saved.backupPath, '.ngautopilot-manifest.json');
+  const manifest = JSON.parse(fs.readFileSync(manifestPath));
+  for (const files of [null, [null], [...manifest.files, ...manifest.files], [{ ...manifest.files[0], path: '../outside' }]]) {
+    json(manifestPath, { ...manifest, files });
+    assert.equal(restore(saved, plan.installRoot).ok, false);
+    assert.equal(verifyInstall(plan).ok, true);
+  }
+});
+
 test('R8: agentic gate refuses missing candidates even when evidence declares success', t => {
   const dir = fixture(t);
   const previousCwd = process.cwd();
@@ -148,5 +180,32 @@ test('R8: agentic gate refuses missing candidates even when evidence declares su
     const result = runAgenticGate({ runRoot, harness: 'codex' });
     assert.equal(result.passed, false);
     assert.equal(result.status, 'AGENTIC_GATE_FAILED');
+  } finally { process.chdir(previousCwd); }
+});
+
+test('R8: valid candidate evidence passes while malformed evidence and non-file candidates fail', t => {
+  const dir = fixture(t);
+  const previousCwd = process.cwd();
+  try {
+    process.chdir(dir);
+    const runRoot = path.join(dir, 'skill-lab/runs/example');
+    const candidate = 'skill-lab/runs/example/optimization/candidate.SKILL.md';
+    const candidatePath = path.join(dir, candidate);
+    const evidencePath = path.join(runRoot, 'agentic/codex/evidence.json');
+    const content = '# Public candidate\n';
+    put(candidatePath, content);
+    const evidence = { harness: 'codex', passed: true, candidate, candidateHash: createHash('sha256').update(content).digest('hex'), regressions: [] };
+    json(evidencePath, evidence);
+    assert.equal(runAgenticGate({ runRoot, harness: 'codex' }).passed, true);
+    for (const invalid of [null, [], { ...evidence, regressions: {} }, { ...evidence, candidateHash: null }]) {
+      json(evidencePath, invalid);
+      assert.equal(runAgenticGate({ runRoot, harness: 'codex' }).passed, false);
+    }
+    put(evidencePath, '{');
+    assert.equal(runAgenticGate({ runRoot, harness: 'codex' }).passed, false);
+    json(evidencePath, evidence);
+    fs.unlinkSync(candidatePath);
+    fs.mkdirSync(candidatePath);
+    assert.equal(runAgenticGate({ runRoot, harness: 'codex' }).passed, false);
   } finally { process.chdir(previousCwd); }
 });

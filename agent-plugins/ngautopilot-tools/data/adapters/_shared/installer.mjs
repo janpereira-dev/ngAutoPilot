@@ -173,16 +173,18 @@ export function backup(plan, options = {}) {
   const installGuard = guard(installRoot);
   const backupGuard = guard(backupRoot);
   const backedUp = [];
+  const backupChecksums = {};
   for (const file of files) {
     if (!safeExists(installGuard, file.path)) continue;
-    safeWriteFile(backupGuard, file.path, safeReadFile(installGuard, file.path, null));
+    const content = safeReadFile(installGuard, file.path, null);
+    safeWriteFile(backupGuard, file.path, content);
+    backupChecksums[file.path] = sha256(content);
     backedUp.push(file.path);
   }
   // Persist the pre-backup manifest so we can restore precisely.
   const manifest = installation?.manifest || loadManifest(installRoot);
   if (manifest) {
-    manifest.installRoot = installRoot;
-    safeWriteFile(backupGuard, MANIFEST_NAME, JSON.stringify(manifest, null, 2));
+    safeWriteFile(backupGuard, MANIFEST_NAME, JSON.stringify({ ...manifest, installRoot, backupChecksums }, null, 2));
   }
   return { ok: true, backupPath: backupRoot, backedUp };
 }
@@ -205,6 +207,7 @@ function preflightDestinationExists(guardRoot, relative) {
   // destination. Never let an existence probe turn an unsafe path into a write.
   if (stat.isSymbolicLink()) throw new SafeFsError('symlink_destination', `installation destination is a symbolic link: ${relative}`);
   if (!stat.isFile()) throw new SafeFsError('destination_not_regular_file', `installation destination is not a regular file: ${relative}`);
+  if (stat.nlink > 1) throw new SafeFsError('hardlink_destination', `installation destination has multiple hard links: ${relative}`);
   return true;
 }
 
@@ -382,7 +385,7 @@ export function applyPlan(plan, opts = {}) {
       const sourceChecksum = sha256(sourceContent);
       if (currentChecksum === sourceChecksum) {
         skipped += 1;
-        manifestFiles.push({ path: file.path, checksum: sourceChecksum, owner: 'ngautopilot' });
+        if (existingOwned.has(file.path)) manifestFiles.push({ path: file.path, checksum: sourceChecksum, owner: 'ngautopilot' });
         continue;
       }
       const conflict = currentChecksum
@@ -607,9 +610,23 @@ export function restore(backupRef, installRootOverride) {
     return { ok: false, restoredFiles: 0, warnings: ['backup manifest missing'] };
   }
   const manifest = JSON.parse(safeReadFile(backupGuard, MANIFEST_NAME));
-  const installRoot = installRootOverride || manifest.installRoot;
-  if (!installRoot) {
-    return { ok: false, restoredFiles: 0, warnings: ['installRoot not provided and not in backup manifest'] };
+  if (manifest.version !== 1 || typeof manifest.installationId !== 'string' || !manifest.installationId
+    || typeof manifest.agent !== 'string' || !['project', 'user'].includes(manifest.scope)
+    || !Array.isArray(manifest.files) || new Set(manifest.files.map(entry => entry?.path)).size !== manifest.files.length
+    || manifest.files.some(entry => !entry || typeof entry.path !== 'string' || !entry.path || path.isAbsolute(entry.path)
+      || entry.path.split(/[\\/]/).some(part => !part || part === '.' || part === '..')
+      || entry.owner !== 'ngautopilot' || !/^[a-f0-9]{64}$/.test(entry.checksum))) {
+    return { ok: false, restoredFiles: 0, warnings: ['invalid backup installation manifest'] };
+  }
+  if (!manifest.backupChecksums || typeof manifest.backupChecksums !== 'object' || Array.isArray(manifest.backupChecksums)) {
+    return { ok: false, restoredFiles: 0, warnings: ['backup integrity metadata missing; create a new backup before restoring'] };
+  }
+  if (typeof installRootOverride !== 'string' || !path.isAbsolute(installRootOverride)) {
+    return { ok: false, restoredFiles: 0, warnings: ['an explicit absolute installRoot is required for restore'] };
+  }
+  const installRoot = installRootOverride;
+  if ((backupRef.agent !== undefined && backupRef.agent !== manifest.agent) || (backupRef.scope !== undefined && backupRef.scope !== manifest.scope)) {
+    return { ok: false, restoredFiles: 0, warnings: ['backup agent or scope does not match the selected destination'] };
   }
   const guardRoot = guard(installRoot);
   const current = preflightDestinationExists(guardRoot, MANIFEST_NAME) ? loadManifest(installRoot) : null;
@@ -636,6 +653,10 @@ export function restore(backupRef, installRootOverride) {
       continue;
     }
     let content = safeReadFile(backupGuard, entry.path, null);
+    if (!Object.hasOwn(manifest.backupChecksums, entry.path) || sha256(content) !== manifest.backupChecksums[entry.path]) {
+      warnings.push(`backup checksum mismatch: ${entry.path}`);
+      continue;
+    }
     if (preflightDestinationExists(guardRoot, entry.path)) {
       const existing = safeReadFile(guardRoot, entry.path, null);
       const baseline = owned.get(entry.path);
@@ -666,6 +687,7 @@ export function restore(backupRef, installRootOverride) {
     safeWriteFile(guardRoot, relative, content);
     restoredFiles += 1;
   }
-  saveManifest(installRoot, { ...manifest, installRoot });
+  const { backupChecksums, ...installationManifest } = manifest;
+  saveManifest(installRoot, { ...installationManifest, installRoot });
   return { ok: true, restoredFiles, removedFiles: removals.size, warnings: [] };
 }
