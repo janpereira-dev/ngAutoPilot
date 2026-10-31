@@ -207,6 +207,7 @@ function preflightDestinationExists(guardRoot, relative) {
   // destination. Never let an existence probe turn an unsafe path into a write.
   if (stat.isSymbolicLink()) throw new SafeFsError('symlink_destination', `installation destination is a symbolic link: ${relative}`);
   if (!stat.isFile()) throw new SafeFsError('destination_not_regular_file', `installation destination is not a regular file: ${relative}`);
+  if (stat.nlink > 1) throw new SafeFsError('hardlink_destination', `installation destination has multiple hard links: ${relative}`);
   return true;
 }
 

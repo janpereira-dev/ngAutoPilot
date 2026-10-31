@@ -172,6 +172,7 @@ export function safeWriteFile(guard, rel, content) {
   fs.mkdirSync(path.dirname(absPath), { recursive: true });
   const checksum = sha256(content);
   if (fs.existsSync(absPath)) {
+    if (fs.statSync(absPath).nlink > 1) throw new SafeFsError('hardlink_destination', `write destination has multiple hard links: ${rel}`);
     const existing = fs.readFileSync(absPath);
     if (sha256(existing) === checksum) {
       return { wrote: false, checksum };

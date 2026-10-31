@@ -11,6 +11,7 @@ import { renderPortableSkill } from '../lib/agent-plugins/portable-skill.mjs';
 import { createPluginArchives } from '../lib/agent-plugins/archive.mjs';
 import { scanCandidateSecurity } from '../skill-lab/lib/candidate-security.mjs';
 import { runAgenticGate } from '../skill-lab/lib/agentic-gate.mjs';
+import { createRootGuard, safeWriteFile } from '../adapters/_shared/safe-fs.mjs';
 
 const repo = path.resolve(import.meta.dirname, '..');
 const put = (file, content) => { fs.mkdirSync(path.dirname(file), { recursive: true }); fs.writeFileSync(file, content); };
@@ -87,10 +88,10 @@ test('R4: update does not modify the external member of a hardlink', t => {
   fs.unlinkSync(target);
   fs.linkSync(outside, target);
   put(plan.files[0].source, 'NEW_PUBLIC_CONTENT\n');
-  const update = applyPlan(plan);
+  assert.throws(() => safeWriteFile(createRootGuard(plan.installRoot), plan.files[0].path, 'NEW_PUBLIC_CONTENT\n'), /hardlink_destination/);
+  for (const opts of [{}, { dryRun: true }, { force: true }]) assert.throws(() => applyPlan(plan, opts), /hardlink_destination/);
   assert.equal(fs.readFileSync(outside, 'utf8'), 'OLD_PUBLIC_CONTENT\n');
-  assert.equal(update.ok, true);
-  assert.equal(fs.readFileSync(target, 'utf8'), 'NEW_PUBLIC_CONTENT\n');
+  assert.equal(fs.readFileSync(target, 'utf8'), 'OLD_PUBLIC_CONTENT\n');
 });
 
 test('R2: uninstall preserves identical files that predate the installation', t => {
