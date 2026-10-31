@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import https from 'node:https';
 import { npmAt } from '../dependencies.mjs';
 import { attackVariable } from '../dependency-probe.mjs';
 import {
@@ -392,13 +393,18 @@ test('S4 missing proxy evidence: origin-only SSR cannot certify the deployment e
 test('S5 isolated rendering: the configured edge supports browser auth and isolates users', async ({ browser }) => {
   const isolation = await isolationProbe(browser);
   await usingLab(browser, {}, async (lab) => {
+    const untrusted = await new Promise((resolve) => {
+      https.get(lab.origin, (response) => { response.resume(); resolve('unexpectedly trusted'); })
+        .on('error', (error) => resolve(error.code));
+    });
+    expect(untrusted).toBe('DEPTH_ZERO_SELF_SIGNED_CERT');
     const page = await lab.context.newPage();
     await page.goto(lab.proxy); await expect(page.locator('[data-ready]')).toHaveText('true');
     await page.getByRole('button', { name: 'Login', exact: true }).click();
     await expect(page.getByRole('status')).toHaveText('logged in');
     await page.reload(); await expect(page.locator('[data-user]')).toHaveText('ALICE_PRIVATE');
   });
-  record('C22', ssrGuide, { ...isolation, edgeBrowserLoginWorks: true,
+  record('C22', ssrGuide, { ...isolation, edgeBrowserLoginWorks: true, peerWithoutOwnedCaRejected: true,
     forwardingEvidence: 'C24.correction', egressAndRedirectEvidence: 'C03.correction',
     topology: 'Two real loopback TLS servers: canonical origin and edge that strips forwarded headers, replaces Host, and accepts only its configured Host',
     egress: 'Only the owned backend origin and explicit paths are authorized, including redirect validation; no production/internal hosts contacted',

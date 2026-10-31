@@ -74,20 +74,25 @@ export async function startLab({ fault = '', authAvailable = true } = {}) {
   });
   servers.push(foreignServer);
   foreign = await listen(foreignServer, 'https');
+  const probeTarget = `${backend}/probe`;
+  const redirectTarget = `${backend}/redirect`;
+  const trapTarget = `${foreign}/metadata`;
 
   async function boundedFetch(target, unsafe) {
     let url = new URL(target);
     for (let hop = 0; hop < 4; hop++) {
-      // This lab containment remains enforced even in deliberately vulnerable variants.
-      if (![backend, foreign].includes(url.origin)) throw new Error('Outside owned lab receivers');
-      if (!unsafe && (url.origin !== backend || !['/probe', '/redirect'].includes(url.pathname))) throw new Error('Forbidden destination');
-      const response = url.protocol === 'http:' ? await fetch(url, { redirect: 'manual' }) : await new Promise((resolve, reject) => {
-        const request = https.get(url, { rejectUnauthorized: false }, (result) => {
+      // Dispatch only to fixed owned capabilities, including in the negative control.
+      let response;
+      if (url.href === probeTarget) response = await fetch(probeTarget, { redirect: 'manual' });
+      else if (url.href === redirectTarget) response = await fetch(redirectTarget, { redirect: 'manual' });
+      else if (unsafe && url.href === trapTarget) response = await new Promise((resolve, reject) => {
+        const request = https.get(trapTarget, { ca: tls.cert }, (result) => {
           let text = ''; result.on('data', (data) => { text += data; });
           result.on('end', () => resolve({ status: result.statusCode, headers: new Headers(result.headers), text: async () => text }));
         });
         request.on('error', reject);
       });
+      else throw new Error('Outside authorized owned capabilities');
       if (response.status >= 300 && response.status < 400) { url = new URL(response.headers.get('location'), url); continue; }
       return response.text();
     }
@@ -177,7 +182,7 @@ export async function startLab({ fault = '', authAvailable = true } = {}) {
     if (req.headers.host !== new URL(proxyOrigin).host) { json(res, 400, { error: 'Edge host rejected' }); return; }
     const headers = { ...req.headers, host: new URL(origin).host };
     for (const key of Object.keys(headers)) if (key === 'forwarded' || key.startsWith('x-forwarded-')) delete headers[key];
-    const upstream = https.request(`${origin}${req.url}`, { method: req.method, headers, rejectUnauthorized: false }, (result) => {
+    const upstream = https.request(`${origin}${req.url}`, { method: req.method, headers, ca: tls.cert }, (result) => {
       res.writeHead(result.statusCode, result.headers); result.pipe(res);
     });
     upstream.on('error', () => json(res, 502, { error: 'Lab upstream unavailable' })); req.pipe(upstream);

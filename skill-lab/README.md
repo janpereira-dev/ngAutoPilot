@@ -15,7 +15,7 @@ Is this skill actually better, and did it regress anything critical?
 
 ## Quick Path
 
-For executable Angular security scenarios and a bounded live agent audit, use the separate [runtime security lab](security-runtime/README.md). Its 25 browser/API/build cases and recorded model output are distinct from this lab's deterministic upgrade scorer and SkillOpt optimization flows.
+For executable Angular security scenarios and a bounded live agent audit, use the separate [runtime security lab](https://github.com/janpereira-dev/ngAutoPilot/blob/main/skill-lab/security-runtime/README.md). Its 25 browser/API/build cases and recorded model output are distinct from this lab's deterministic upgrade scorer and SkillOpt optimization flows.
 
 Read [Policy](POLICY.md) before model-backed runs. This lab belongs to the repository, not the public npm package. Multiline examples below use Bash: in PowerShell, use one line per command or native continuation, not a trailing backslash. Replace `<run-id>` and `<harness>` placeholders deliberately. Optimization can incur provider costs and requires separate authorization/configuration.
 

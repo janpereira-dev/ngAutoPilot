@@ -1,6 +1,6 @@
 {
-  "id": "1c883b5b-9466-432c-a121-654d03ea924e",
-  "startedAt": "2026-10-31T19:53:39.399Z",
+  "id": "3ae5cd8a-30b1-4fc7-84b0-f9d751de5b46",
+  "startedAt": "2026-10-31T20:20:49.792Z",
   "node": "v24.22.1",
   "testCount": 25,
   "passed": 25,
@@ -22,16 +22,16 @@
       "build.mjs": "e91c6589999d771a6610fa58679874a09ae5b4ff30a728563c198dfcdcae9fff",
       "manifest.mjs": "cae7ad734dc23219bf7e7bbc19cfee3a54ab09fe9abecaf17b66d48962a50e71",
       "reporter.mjs": "1e2c1917e194afad2438f7b379d3fd7ce5a0c60d55837f54fcc1b8cf6a9e8bba",
-      "server.mjs": "63ad7fbf7541f0fcc17aed03f9761bac54dedfd713855b3dafdf636caa5bf800",
+      "server.mjs": "fc32d8bd3601f387e804bfb3444f1471a52cfcce205e366b9e5e0d140d94825c",
       "dependency-probe.mjs": "94799baab9d0eb9c2f372152650f25ae7f1752d58d14b35609352d6389274228",
       "dependencies.mjs": "81cde5ead935df22b5501fb9265996662d7bf5835a9f2f2b2a89aa5451fa0313",
       "prepare-cases.mjs": "f93e1cd244a1b77cd8eaac2ccee9c3c79bfc631fe5a4a9ff6cb7f196da32fe4d",
       "playwright.config.mjs": "a1421551f4d2f5eccdabdacb5392c1518b7573fe12a67c7904d215f70d906740",
-      "src/app.mjs": "3ff03805cd8a72c22023190ca5af783351d7abca71a02b087a88082bda2eb61e",
+      "src/app.mjs": "b7d965981bfc08de7c98c3336d74b32c76f32ee2b7538ca9bd93eaa985844fe3",
       "src/browser.mjs": "6bd3877045fd87263b8e8deac7d0a01ea15acedcfdb776340cb1e67626562610",
       "src/render.mjs": "68728380464becbefae934238759c052daa0fd6b84ae96b4c4ad2a1c45c4ad5d",
       "tests/helpers.mjs": "d025f109bb36ce4033a7c65f5aa9adae9ac7623bb3a3468e5662d1ce5744a41f",
-      "tests/scenarios.spec.mjs": "7b4b25bc3abe4850271b3dca391eae4f7d56a51d643cb20be9f8555412597d08",
+      "tests/scenarios.spec.mjs": "d9a26bfe46f82a74672413d62b3174dc64a231c2862cc4d572036bebde6641e4",
       "cases/runtime-before/package.fixture.json": "7857a9abf5a57f9f3ec255df88fbbe6796f9f54fe8ed9466aa95fc695fb9a6f0",
       "cases/runtime-before/package-lock.fixture.json": "89b67451486d1873185e7280f5dc2648ba9d248ade255db691e8caddd0c7f84b",
       "cases/runtime-after/package.fixture.json": "1bfc03259f9635926a60d7c50b328fc7e56b1509c236bf47c97e834b9aabd8ed",
@@ -42,7 +42,7 @@
       "cases/build-after/package-lock.fixture.json": "144456731c73e3e5f210bb24a8e246793a1624e0af75b2d0e2f0e4e1e06de283"
     }
   },
-  "finishedAt": "2026-10-31T19:55:50.161Z",
+  "finishedAt": "2026-10-31T20:22:13.683Z",
   "sourceUnchanged": true,
   "caseHashes": {
     "C01.json": "ec04c62987f2ac8e93fec6f4064ed4a5c96376dc160f97f88fa95cedf09f0537",
@@ -66,7 +66,7 @@
     "C19.json": "504051861a28476c4d5ca160f5dd900af749ea899870ae6736c25543a379c134",
     "C20.json": "1b2651385888da43ac36a4d38a34e3c15585b4b2a685007165cb0ab330261f75",
     "C21.json": "6d97427b56141a6799bde33831932ab47b0311213d1c6e5e2653eb9d69e39776",
-    "C22.json": "6db772bfead4fa56b7a9aedab3c7538ed5e6857bc105ee57fa6744b0749c8c35",
+    "C22.json": "ee7956836a4e1ab9575cea728cc7628a185fbcb32867c861ab5d91b6d8f435a0",
     "C23.json": "c843125ff082a11df81c25bc0785ebc5fbf86c4e40a07c549a347999f895fdcc",
     "C24.json": "9142b25fdb0f15d9229b81252254c433133cc5d8c62fa5e147972e3075e86044",
     "C25.json": "f17bed658e3069d722d644e80075d2b0776ae8195c7e18b33f4d7de4326cf685"

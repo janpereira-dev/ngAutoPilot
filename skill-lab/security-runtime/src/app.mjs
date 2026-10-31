@@ -58,11 +58,12 @@ export class App {
     }
     try {
       const url = new URL(resource);
-      const allowed = fault === 'host-prefix'
-        ? resource.startsWith('https://media.example.test')
-        : url.protocol === 'https:' && url.hostname === 'media.example.test' && !url.port
+      // Inject one reserved synthetic lookalike as a negative control, never a general prefix rule.
+      const injectedLookalike = fault === 'host-prefix'
+        && resource === 'https://media.example.test.attacker.test/embed/lesson-1';
+      const allowed = injectedLookalike || (url.protocol === 'https:' && url.hostname === 'media.example.test' && !url.port
           && !url.username && !url.password && url.pathname === '/embed/lesson-1'
-          && !url.search && !url.hash && url.href === resource;
+          && !url.search && !url.hash && url.href === resource);
       if (allowed) this.resource = this.sanitizer.bypassSecurityTrustResourceUrl(resource);
     } catch { /* Invalid resources remain rejected. */ }
     if (!isPlatformBrowser(inject(PLATFORM_ID))) this.state.set(STATE_KEY, this.config);

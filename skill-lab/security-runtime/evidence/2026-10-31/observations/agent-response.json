@@ -1,5 +1,5 @@
 {
-  "runId": "1c883b5b-9466-432c-a121-654d03ea924e",
+  "runId": "3ae5cd8a-30b1-4fc7-84b0-f9d751de5b46",
   "guidesRead": {
     "angular-token-storage-policy": "86bb3c5f90116f0ddc06be002bf3bc0e31e6c28807434bf5e537af9ba5ac09c8",
     "angular-xss-template-safety": "60f03349a43296f6e6a063073b77a0bb3e87f6e264a0f6232bd04acf3869f4c1",
@@ -51,9 +51,10 @@
       "evidence": [
         "observations/cases/C03.json",
         "observations/run.json",
-        "server.mjs"
+        "server.mjs",
+        "tests/scenarios.spec.mjs"
       ],
-      "reason": "The request-supplied, unauthorized loopback target returns 200 and the owned receiver observes a request. This demonstrates the internal-fetch boundary violation; a status alone is not the evidence. Containment to owned receivers makes the reproduction safe but does not authorize that destination for the application."
+      "reason": "The subject request selects the exact owned HTTPS trap capability, which is unauthorized under the normal application egress policy. It returns 200 and the receiver observes /metadata, meeting the internal-fetch FAIL rule. Current source dispatches only fixed probe/redirect/trap capabilities; it never passes the request URL string to a network client. This is a contained policy violation, not proof of arbitrary internal-network reachability. The correction rejects five forbidden targets and the forbidden redirect hop while the approved backend works."
     },
     {
       "id": "C04",
@@ -280,9 +281,10 @@
       "evidence": [
         "observations/cases/C21.json",
         "observations/run.json",
-        "src/app.mjs"
+        "src/app.mjs",
+        "tests/scenarios.spec.mjs"
       ],
-      "reason": "A resource input using a lookalike hostname is accepted and becomes the trusted iframe src in the real consumer. The prefix allowlist does not compare the parsed host exactly, meeting the host-confusion FAIL rule. The seven rejected URLs in the correction establish regression coverage only."
+      "reason": "The negative-control profile injects one exact reserved synthetic lookalike resource URL into the trusted iframe binding. The browser records that lookalike input unchanged as iframe src, meeting the governance host-confusion FAIL condition for this subject. Current source implements this finite injection beside the normal parsed exact-host/path rule; the former general prefix-validator algorithm is absent and is not claimed tested. The correction rejects all seven recorded invalid resources. External iframe destinations remain intercepted by the owned browser harness."
     },
     {
       "id": "C22",
@@ -299,7 +301,7 @@
         "observations/upstream-advisories.json",
         "tests/scenarios.spec.mjs"
       ],
-      "reason": "The permanent suite now performs strictly awaited sequential requests for A/B/anonymous and B/A/anonymous, then a separate Promise.all concurrent batch for each order, through both the configured origin and TLS edge. Every response in both batches must contain only its permitted identity data and no bearer credentials; the fresh execution passes, including browser hydration and edge login. Unlike the previous fixture, these claims are now supported directly by tests/scenarios.spec.mjs rather than an older supplementary run. Source shows no shared personalized response cache, private/no-store responses and disabled HTTP transfer cache. Referenced same-source C24.correction rejects direct hostile headers and strips forwarding at the edge, while C03.correction rejects forbidden targets/redirect hops and permits the authorized backend. PASS covers this measured lab topology."
+      "reason": "For the implemented TLS origin and edge, the permanent suite executes both account/anonymous orders strictly sequentially, followed by separate concurrent batches at both layers, and asserts every response contains only its permitted display data without bearer credentials. Browser hydration and edge login pass. Current Node HTTPS clients use ca: tls.cert with default peer validation; a real Node client without that owned CA is rejected with DEPTH_ZERO_SELF_SIGNED_CERT, while the configured edge succeeds. Source dispatches only fixed owned probe/redirect capabilities, and C03.correction rejects the forbidden trap/redirect hop. C24.correction establishes hostile direct-header rejection and edge stripping. No shared personalized cache or HTTP transfer cache is enabled. PASS covers this measured topology; browser test contexts separately accept the self-signed lab certificate."
     },
     {
       "id": "C23",
@@ -320,9 +322,10 @@
         "observations/cases/C24.json",
         "observations/run.json",
         "server.mjs",
-        "src/render.mjs"
+        "src/render.mjs",
+        "tests/scenarios.spec.mjs"
       ],
-      "reason": "A client-controlled forwarded host changes the rendered origin and causes an outbound request observed by an owned receiver; the response is 200. Both measured side effects meet the spoofed-forwarding FAIL condition. This is application-origin construction in the tested server, not a claim that every Angular release has the same vulnerability."
+      "reason": "A client-supplied forwarded host changes the rendered origin and selects an owned probe request observed by the receiver; response status is 200. These measured origin/outbound side effects meet the spoofed-forwarding FAIL condition. Current source constrains outbound dispatch to fixed owned capabilities even in this negative profile, so the result does not establish arbitrary URL fetches. The subject remains unsafe at its request-origin boundary despite that lab containment."
     },
     {
       "id": "C25",
@@ -339,11 +342,12 @@
   "limitations": [
     "Each of the 25 decisions addresses its subject. Corrections are only regression evidence, or explicit same-source support for a separately identified corrected subject. C05/C07/C09/C15/C16/C25 unavailable boundaries are not supplied by unrelated snapshots.",
     "Runtime evidence is bounded to Angular 22.2.4, Node 24.22.1 and the installed Chromium in the synthetic isolated deployment. No production identity provider, CDN, external widget service, real internal service or unseen proxy layer was audited.",
-    "The SSR PASS scope is the custom Node/platform-server origin and configured TLS edge. The final permanent suite itself now checks both sequential orders and separate concurrent batches. The older supplemental sequential receipt is not used for this final source manifest. An uninstalled @angular/ssr adapter is not claimed patched.",
+    "SSR PASS is scoped to the custom Node/platform-server origin and configured TLS edge. Node server-side HTTPS clients trust the generated owned certificate via ca without disabling peer checks. The separate browser/API test contexts use ignoreHTTPSErrors for self-signed lab access; this is not a browser certificate-validation test. Both sequential orders and separate concurrent batches execute in the current permanent suite.",
     "Full and production npm receipts were refreshed during this execution and retain registry, timestamp, stderr and each audit exit. Zero known findings applies to the corrected scanned dependency set; before projects intentionally retain vulnerable controls and their findings.",
-    "Primary advisory notes were reopened during the immediately preceding audit and retain that temporal scope (2026-10-31T19:50:36.974Z); they were not falsely relabeled as newly retrieved for this run. Relevant installed versions and lockfiles are unchanged, and this run independently refreshes npm findings.",
+    "Primary advisory notes were read earlier in this same session and retain their recorded retrieval scope (2026-10-31T19:50:36.974Z); they were not relabeled as newly retrieved. Relevant installed versions and lockfiles are unchanged, while public npm reports were freshly measured for this run.",
     "The dependency reproduction covers the reviewed variable-option marker and valid content. It does not claim to execute the distinct imports-key/prototype vector in the newer maintainer advisory, nor any public unreviewed proof-of-concept.",
     "All 25 case hashes were independently recomputed against this fresh run receipt. Current normalized source/guide hashes match the run manifest and sourceUnchanged is true.",
-    "No source, guide, test, manifest, fixture lockfile or user configuration was edited by the audit. The authorized full test rebuilt generated output and prepared isolated projects; agent-authored files remain within ignored .cache and observations."
+    "No source, guide, test, manifest, fixture lockfile or user configuration was edited by the audit. The authorized full test rebuilt generated output and prepared isolated projects; agent-authored files remain within ignored .cache and observations.",
+    "Fault containment is explicit: outbound network calls dispatch only fixed owned probe/redirect/trap capabilities; the trap is enabled only in the internal-fetch negative profile. Resource host-confusion injection is one exact reserved synthetic URL, not a general prefix validator. These controls bound what the negative results demonstrate."
   ]
 }

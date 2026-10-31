@@ -14,6 +14,7 @@
     "transferState": "Per-render user display data only; HTTP transfer cache disabled",
     "sharedCache": "No process-wide personalized response cache",
     "edgeBrowserLoginWorks": true,
+    "peerWithoutOwnedCaRejected": true,
     "forwardingEvidence": "C24.correction",
     "egressAndRedirectEvidence": "C03.correction",
     "topology": "Two real loopback TLS servers: canonical origin and edge that strips forwarded headers, replaces Host, and accepts only its configured Host",
