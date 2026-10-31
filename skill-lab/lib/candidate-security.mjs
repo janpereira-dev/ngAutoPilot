@@ -2,7 +2,7 @@ export function scanCandidateSecurity(content, { includeSkillPermissions = true 
   const findings = [];
 
   reportMatches(findings, content, /^(?:<<<<<<<|=======|>>>>>>>)$/m, 'contains unresolved merge marker');
-  reportMatches(findings, content, /[\u200B-\u200D\u2060\uFEFF\u202A-\u202E\u2066-\u2069]/, 'contains invisible or bidirectional Unicode control character');
+  reportMatches(findings, content, /[\u200B-\u200D\u2060\uFEFF\u202A-\u202E\u2066-\u2069\u{E0000}-\u{E007F}]/u, 'contains invisible or bidirectional Unicode control character');
   reportMatches(findings, content, /^\s*(?:curl|wget)\b[^\r\n|]*\|\s*(?:sudo\s+)?(?:ba)?sh\b/im, 'contains remote shell execution pipeline');
   reportMatches(findings, content, /^\s*(?:curl|iwr|irm|Invoke-WebRequest)\b[^\r\n|]*\|\s*(?:iex|Invoke-Expression)\b/im, 'contains remote PowerShell execution pipeline');
   reportMatches(findings, content, /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/, 'contains private key material');
@@ -23,7 +23,13 @@ function reportMatches(findings, content, pattern, message) {
 
 function grantsBroadShellAccess(content) {
   const frontmatter = content.match(/^---\r?\n([\s\S]*?)\r?\n---/);
-  const allowedTools = frontmatter?.[1].match(/^allowed-tools:\s*(.+)$/m)?.[1] ?? '';
+  let allowedTools = '';
+  let inPermissions = false;
+  for (const line of (frontmatter?.[1] ?? '').split(/\r?\n/)) {
+    if (/^(?:allowed-tools|"allowed-tools"|'allowed-tools')\s*:/.test(line)) inPermissions = true;
+    else if (/^[^\s#-]/.test(line)) inPermissions = false;
+    if (inPermissions) allowedTools += `${line}\n`;
+  }
 
   return /\b(?:shell|bash|cmd|powershell|terminal|all)\b|\*/i.test(allowedTools);
 }
