@@ -35,6 +35,21 @@ Los controles vulnerables comprueban que las pruebas detectan el comportamiento 
 
 Los manifiestos de dependencias negativos usan nombres `.fixture.json`, según la convención del laboratorio. `prepare-cases.mjs` los materializa bajo `.cache/projects/`, ignorado por Git, e instala sus locks sin scripts de ciclo de vida. Los proyectos corregidos de ejecución/build usan lodash 4.18.1; los controles negativos usan 4.17.20. Se auditan ambos alcances sin descartar dependencias de desarrollo. La [advertencia original](https://github.com/advisories/GHSA-35jh-r3h4-6jhm) describe la opción probada; la [advertencia actual del mantenedor](https://github.com/lodash/lodash/security/advisories/GHSA-r5fr-rjxr-66jc) también fundamenta la versión corregida. Skill Lab queda fuera del paquete npm público.
 
+## Validación estricta de certificados en el navegador
+
+La suite de 25 escenarios usa `ignoreHTTPSErrors: true` para su servidor sintético con certificado autofirmado. No demuestra la validación de certificados del navegador. Ejecuta la suite estricta independiente después del build:
+
+```sh
+npm run build
+npx playwright test --config browser-tls/playwright.config.mjs
+```
+
+Esta suite establece `ignoreHTTPSErrors: false` y comprueba que los parámetros reales de Chromium no omitan los errores de certificados. Siete pruebas verifican el rechazo de una CA desconocida; la carga e hidratación de Angular con una cadena válida y confiable; el rechazo de certificados con nombre incorrecto, caducados, con fecha futura o de otra CA; y un nuevo rechazo de la cadena válida en otro perfil vacío. Los rechazos deben producir el error nativo de certificado y cero peticiones HTTP al servidor de la aplicación.
+
+Cada prueba crea su propio perfil de Chromium. Después de que Chromium inicialice su base de certificados y se cierre, el laboratorio añade únicamente la CA generada a ese perfil y vuelve a abrir el navegador. Nunca importa un certificado final ni modifica la confianza del sistema operativo. Usa la [base de certificados del perfil](https://chromium.googlesource.com/chromium/src/+/main/chrome/browser/net/server_certificate_database_service_factory.cc) y los [metadatos de confianza](https://raw.githubusercontent.com/chromium/chromium/f842f52ef39fd97b449eb27cff414bf05a98ddce/components/server_certificate_database/server_certificate_database.proto) de Chromium; exige la versión 156.0.8078.4 y el esquema 1 para que una actualización requiera revisión explícita. Necesita Chromium completo (`channel: 'chromium'`).
+
+`observations/browser-tls/` registra fechas y huellas de certificados, errores nativos, detalles TLS, identidad del navegador y hashes del código. Las claves temporales y los perfiles quedan en `.cache/`, ignorado por Git; la evidencia revisada no incluye claves privadas. CI ejecuta esta suite junto con los 25 escenarios originales. Estos certificados locales no prueban revocación de PKI pública, destinos de producción ni otros navegadores.
+
 ## Comprobar un agente real
 
 Entrega a un agente independiente nuevo [audit-task.md](audit-task.md), las cinco guías reales, el código y la capacidad de ejecutar la suite. Mantén `oracle.json`, `verify-agent*` y las evaluaciones guardadas fuera de sus lecturas permitidas. Debe ejecutar las pruebas, leer el recibo nuevo y producir `observations/agent-response.json` con decisiones, razones y evidencias para los 25 casos.

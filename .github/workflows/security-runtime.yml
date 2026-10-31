@@ -38,6 +38,8 @@ jobs:
         run: npx playwright install --with-deps chromium
       - name: Exercise all 25 scenarios
         run: npm test
+      - name: Validate browser certificates without bypassing HTTPS errors
+        run: npx playwright test --config browser-tls/playwright.config.mjs
       - name: Test the agent-output grader
         run: node --test verify-agent.test.mjs
       - name: Regrade the recorded live agent output and verify source hashes
