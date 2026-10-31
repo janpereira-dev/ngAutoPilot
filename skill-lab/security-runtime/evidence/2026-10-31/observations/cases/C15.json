@@ -1,0 +1,19 @@
+{
+  "id": "C15",
+  "guide": "angular-dependency-vulnerability-triage",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "installedVersion": "4.17.20",
+    "dependencyKind": "devDependency",
+    "fullAuditExit": 1,
+    "fullAuditFindings": 1,
+    "productionAuditExit": 0,
+    "productionAuditFindings": 0,
+    "dependencyPathVerified": true,
+    "buildConfigurationEvidence": null,
+    "exploitPrerequisitesEvidence": null,
+    "advisory": "https://github.com/advisories/GHSA-35jh-r3h4-6jhm"
+  },
+  "correction": null
+}

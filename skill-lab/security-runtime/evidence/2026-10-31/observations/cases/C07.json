@@ -1,0 +1,13 @@
+{
+  "id": "C07",
+  "guide": "angular-ssr-security-risk-gate",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "originStatus": 200,
+    "deploymentTopology": null,
+    "proxyHeaderEvidence": null,
+    "deploymentCacheEvidence": null
+  },
+  "correction": null
+}

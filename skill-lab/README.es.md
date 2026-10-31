@@ -13,6 +13,8 @@ Lee la [política](POLICY.es.md) antes de cualquier experimento con modelos. El 
 
 ## Ruta rápida
 
+Para ejecutar los escenarios de seguridad Angular y una auditoría acotada de un agente real, usa el [laboratorio de seguridad en ejecución](security-runtime/README.es.md). Sus 25 casos de navegador/API/build y su salida del agente se comprueban por separado del evaluador determinista de upgrades y de las optimizaciones SkillOpt.
+
 Estos ejemplos multilínea utilizan **Bash**. En PowerShell escribe cada comando en una línea o utiliza su continuación nativa; `\` no continúa líneas en PowerShell.
 
 ```bash

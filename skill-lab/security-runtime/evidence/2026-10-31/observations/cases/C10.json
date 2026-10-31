@@ -1,0 +1,55 @@
+{
+  "id": "C10",
+  "guide": "angular-dependency-vulnerability-triage",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "audits": [
+      {
+        "directory": ".",
+        "scope": "all",
+        "exitCode": 0,
+        "knownFindings": 0
+      },
+      {
+        "directory": ".",
+        "scope": "production",
+        "exitCode": 0,
+        "knownFindings": 0
+      },
+      {
+        "directory": ".cache/projects/runtime-after",
+        "scope": "all",
+        "exitCode": 0,
+        "knownFindings": 0
+      },
+      {
+        "directory": ".cache/projects/runtime-after",
+        "scope": "production",
+        "exitCode": 0,
+        "knownFindings": 0
+      },
+      {
+        "directory": ".cache/projects/build-after",
+        "scope": "all",
+        "exitCode": 0,
+        "knownFindings": 0
+      },
+      {
+        "directory": ".cache/projects/build-after",
+        "scope": "production",
+        "exitCode": 0,
+        "knownFindings": 0
+      }
+    ],
+    "runtimeAndBuildInstalledVersion": "4.18.1",
+    "dependencyPathsVerified": true,
+    "runtimeExploitEvidence": "C13.correction",
+    "buildExploitEvidence": "C20.correction",
+    "validRuntimeAndBuildContentWorks": true,
+    "shippedArtifacts": "Angular browser bundle plus Node SSR server; runtime-after and build-after lockfiles installed independently",
+    "upstreamPatch": "https://github.com/lodash/lodash/security/advisories/GHSA-r5fr-rjxr-66jc",
+    "scope": "The before projects are intentional negative controls, not part of the corrected application dependency set"
+  },
+  "correction": null
+}

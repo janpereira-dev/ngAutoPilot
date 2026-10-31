@@ -1,0 +1,6 @@
+{
+  "name": "synthetic-build-before",
+  "private": true,
+  "scripts": { "build": "node ../../../dependency-probe.mjs ." },
+  "devDependencies": { "lodash": "4.17.20" }
+}

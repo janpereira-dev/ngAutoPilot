@@ -1,0 +1,26 @@
+{
+  "id": "C11",
+  "guide": "angular-domsanitizer-governance",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "browserHydrated": true,
+    "approvedResourceWorks": true,
+    "invalidAndEmptyValuesRejected": true,
+    "invalidUrlEvidence": "C21.correction",
+    "contextEvidence": "C01.correction",
+    "htmlEvidence": "C08.correction",
+    "bypassInventory": [
+      {
+        "caller": "App resource binding",
+        "producer": "request resource parameter",
+        "rule": "Parsed exact HTTPS host, empty userinfo/port/query/fragment, exact canonical path lesson-1",
+        "context": "ResourceUrl",
+        "owner": "synthetic fixture maintainers",
+        "reviewExpiry": "2027-01-31"
+      }
+    ],
+    "otherBypasses": "Negative controls only; no request can enable a negative profile"
+  },
+  "correction": null
+}

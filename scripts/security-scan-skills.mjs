@@ -4,7 +4,12 @@ import path from 'node:path';
 import { scanCandidateSecurity } from '../skill-lab/lib/candidate-security.mjs';
 
 const root = process.cwd();
-const excludedSkillLabDirectories = new Set(['skill-lab/.cache', 'skill-lab/.venv', 'skill-lab/runs']);
+const excludedSkillLabDirectories = new Set([
+  'skill-lab/.cache', 'skill-lab/.venv', 'skill-lab/runs',
+  'skill-lab/security-runtime/node_modules', 'skill-lab/security-runtime/.cache',
+  'skill-lab/security-runtime/dist', 'skill-lab/security-runtime/observations',
+  'skill-lab/security-runtime/test-results', 'skill-lab/security-runtime/playwright-report',
+]);
 const excludedDirectoryNames = new Set(['.git', 'dist', 'node_modules']);
 const findings = [];
 

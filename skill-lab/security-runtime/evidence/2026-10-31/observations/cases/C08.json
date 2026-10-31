@@ -1,0 +1,25 @@
+{
+  "id": "C08",
+  "guide": "angular-domsanitizer-governance",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "browserHydrated": true,
+    "marker": 1,
+    "eventAttributes": 1,
+    "renderedText": "<img src=\"/missing-image\" onerror=\"window.__xssProbe=1\"><b>Allowed formatting</b>",
+    "formattingCount": 1,
+    "status": "ready",
+    "inputSource": "request query -> Angular component binding",
+    "trustFlow": "query input -> bypassSecurityTrustHtml -> sanitize -> trusted HTML binding"
+  },
+  "correction": {
+    "browserHydrated": true,
+    "marker": 0,
+    "eventAttributes": 0,
+    "renderedText": "<img src=\"/missing-image\" onerror=\"window.__xssProbe=1\"><b>Allowed formatting</b>",
+    "formattingCount": 1,
+    "status": "ready",
+    "inputSource": "request query -> Angular component binding"
+  }
+}
