@@ -29,7 +29,7 @@ ngautopilot update --agent codex --pack ngautopilot-full --dry-run --json
 ngautopilot backup --agent codex --json
 # Read warnings and inspect the backup path before choosing to replace any edits.
 ngautopilot update --agent codex --pack ngautopilot-full --yes --force --json
-ngautopilot restore --backup <reported-backup-path> --agent codex --json
+ngautopilot restore --backup <reported-backup-path> --agent codex --yes --json
 ngautopilot verify --agent codex --json
 ```
 

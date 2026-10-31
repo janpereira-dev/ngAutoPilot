@@ -79,7 +79,7 @@ ngautopilot verify --agent codex --scope project [--json]
 ```text
 ngautopilot export --agent generic --pack ngautopilot-core --output ./export-dir [--json]
 ngautopilot backup --agent codex --scope project [--json]
-ngautopilot restore --backup <path> [--agent <id>] [--scope project|user] [--json]
+ngautopilot restore --backup <path> --agent <id> [--scope project|user] --yes [--json]
 ```
 
 La exportación es una copia portable para instalación manual. La copia de seguridad respalda contenido gestionado, no el proyecto entero. La restauración utiliza la ruta devuelta al crear la copia. No existe una opción CLI `--offline`; consulta [instalación](installation.es.md) para el flujo sin conexión.

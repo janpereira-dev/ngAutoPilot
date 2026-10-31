@@ -97,7 +97,7 @@ ngautopilot update --agent codex --scope project --yes
 ngautopilot verify --agent codex --scope project
 ngautopilot uninstall --agent codex --scope project --dry-run
 ngautopilot uninstall --agent codex --scope project --yes
-ngautopilot restore --backup <backup-path>
+ngautopilot restore --backup <backup-path> --agent codex --scope project --yes
 ```
 
 Sustituye `<backup-path>` por la ruta devuelta al crear la copia; no pegues literalmente los marcadores. [Actualización](updating.es.md) · [Desinstalación](uninstalling.es.md).

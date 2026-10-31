@@ -16,7 +16,7 @@
 //   ngautopilot export --agent <id> --pack <id> --output <dir> [--json]
 //   ngautopilot doctor
 //   ngautopilot backup --agent <id> [--scope project|user] [--json]
-//   ngautopilot restore --backup <path> [--agent <id>] [--scope project|user] [--json]
+//   ngautopilot restore --backup <path> --agent <id> [--scope project|user] --yes [--json]
 //   ngautopilot migrate setup --from <major> --to <major> --agent <id> [--yes] [--dry-run] [--json]
 //   ngautopilot migrador --from <major> --to <major> --agent <id> [--yes] [--dry-run] [--json]
 //   ngautopilot work plan --goal <text> [--agent <id>] [--yes] [--dry-run] [--json]
@@ -145,7 +145,7 @@ Usage:
   ngautopilot doctor                        Check catalog integrity
   ngautopilot backup                        Backup managed files
     --agent <id>  [--scope project|user]  [--json]
-  ngautopilot restore                       Restore from backup
+  ngautopilot restore                       Restore with --backup, --agent and --yes
     --backup <path>  [--agent <id>]  [--scope project|user]  [--json]
   ngautopilot migrate setup                 Prepare an approved Angular major-hop plan; does not migrate code
     --from <major>  --to <major>  --agent <id>  [--yes] [--dry-run] [--json]
@@ -433,9 +433,11 @@ function backupCmd(args) {
 function restoreCmd(args) {
   const backupPath = args.backup;
   if (!backupPath) throw new Error('--backup is required');
-  let installRoot = null;
-  if (args.agent) installRoot = resolveScopeRoot(args.agent, args.scope || 'project', process.cwd());
-  const result = restore({ backupPath }, installRoot);
+  if (!args.agent) throw new Error('--agent is required to select the restore destination');
+  const scope = args.scope || 'project';
+  const installRoot = resolveScopeRoot(args.agent, scope, process.cwd());
+  if (!args.yes) return requireApproval(args, { agent: args.agent, scope, installRoot });
+  const result = restore({ backupPath, agent: args.agent, scope }, installRoot);
   if (args.json) jsonOut(result);
   else console.log(`Restore: ${result.restoredFiles} files restored (${result.ok ? 'OK' : 'WARNINGS'})`);
   if (!result.ok) process.exitCode = 1;

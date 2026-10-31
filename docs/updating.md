@@ -38,8 +38,10 @@ Changing `--pack` changes the selection, not just its version. See [packs](packs
 ## 4. Recover if needed
 
 ```bash
-ngautopilot restore --backup <backup-path>
+ngautopilot restore --backup <backup-path> --agent codex --scope project --yes
 ngautopilot verify --agent codex --scope project
 ```
 
 Replace the placeholder with the saved backup path and inspect the restored files. A snapshot restores managed files; it is not a backup of the whole application. [CLI reference](cli-reference.md) · [Troubleshooting](troubleshooting.md).
+
+Run from the receiving project and explicitly select its agent and scope; the backup cannot choose the destination. Without `--yes`, the CLI reports the destination and requests approval without restoring. Only snapshots with recorded backup checksums can be restored; older snapshots without integrity metadata are refused. These checksums detect corrupted bytes, not a malicious source that replaces both data and hashes.
