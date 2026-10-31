@@ -38,8 +38,10 @@ Cambiar `--pack` modifica la selección, no solo su versión. Consulta [packs](p
 ## 4. Recupera si hace falta
 
 ```bash
-ngautopilot restore --backup <backup-path>
+ngautopilot restore --backup <backup-path> --agent codex --scope project --yes
 ngautopilot verify --agent codex --scope project
 ```
 
 Sustituye el marcador por la ruta guardada y revisa los archivos restaurados. La copia restaura archivos gestionados; no respalda toda la aplicación. [Referencia CLI](cli-reference.es.md) · [Solución de problemas](troubleshooting.es.md).
+
+Ejecuta desde el proyecto receptor y selecciona su agente y alcance; el backup no puede elegir el destino. Sin `--yes`, la CLI informa del destino y solicita aprobación sin restaurar. Solo se restauran copias con checksums del respaldo; las antiguas sin metadatos de integridad se rechazan. Estos hashes detectan bytes corruptos, pero no autentican un origen que reemplace tanto los datos como sus hashes.

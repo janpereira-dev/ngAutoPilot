@@ -153,7 +153,7 @@ ngautopilot backup --agent codex --scope project [--json]
 Restore from a backup snapshot.
 
 ```bash
-ngautopilot restore --backup <path> [--agent <id>] [--scope project|user] [--json]
+ngautopilot restore --backup <path> --agent <id> [--scope project|user] --yes [--json]
 ```
 
 ## Angular migration gates
