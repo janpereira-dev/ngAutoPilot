@@ -15,15 +15,25 @@ export function runAgenticGate({ runRoot, harness, evidencePath }) {
   const safeRunRoot = assertInsideLab(labRoot, runRoot);
   const evidenceFile = assertInsideLab(labRoot, evidencePath ?? path.join(safeRunRoot, 'agentic', harness, 'evidence.json'));
   const candidatePath = path.join(safeRunRoot, 'optimization', 'candidate.SKILL.md');
+  const candidateStat = fs.lstatSync(candidatePath, { throwIfNoEntry: false });
+  if (!candidateStat?.isFile() || candidateStat.isSymbolicLink()) return rejection('Candidate must exist as a regular file');
+  try { assertInsideLab(fs.realpathSync(safeRunRoot), fs.realpathSync(candidatePath)); }
+  catch { return rejection('Candidate must remain inside the run directory'); }
 
   if (!fs.existsSync(evidenceFile)) {
     return rejection(`Missing harness evidence: ${path.relative(process.cwd(), evidenceFile).split(path.sep).join('/')}`);
   }
 
-  const evidence = JSON.parse(fs.readFileSync(evidenceFile, 'utf8'));
-  const regressions = evidence.regressions ?? [];
+  let evidence;
+  try { evidence = JSON.parse(fs.readFileSync(evidenceFile, 'utf8')); }
+  catch { return rejection('Invalid harness evidence JSON'); }
+  if (!evidence || typeof evidence !== 'object' || Array.isArray(evidence)
+    || !Array.isArray(evidence.regressions) || typeof evidence.candidateHash !== 'string' || !/^[a-f0-9]{64}$/.test(evidence.candidateHash)) {
+    return rejection('Invalid harness evidence schema');
+  }
+  const regressions = evidence.regressions;
   const expectedCandidate = path.relative(process.cwd(), candidatePath).split(path.sep).join('/');
-  const expectedCandidateHash = fs.existsSync(candidatePath) ? sha256File(candidatePath) : null;
+  const expectedCandidateHash = sha256File(candidatePath);
   const candidateMatches = evidence.candidate === expectedCandidate && evidence.candidateHash === expectedCandidateHash;
   const passed = evidence.harness === harness && candidateMatches && evidence.passed === true && regressions.length === 0;
 
