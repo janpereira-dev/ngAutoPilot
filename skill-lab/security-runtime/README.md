@@ -50,6 +50,14 @@ Each test creates its own Chromium profile. After Chromium initializes its certi
 
 `observations/browser-tls/` records certificate dates and fingerprints, native errors, TLS details, browser identity and source hashes. Temporary keys and profiles remain under ignored `.cache/`; no private keys enter the reviewed evidence. CI runs this suite alongside the original 25 scenarios. These local certificates do not test public PKI revocation, production endpoints or other browsers.
 
+### Firefox and WebKit
+
+The Security Runtime workflow also runs the same seven certificate cases in Firefox 157.0 and WebKit 27.2 using `npx playwright test --config browser-tls/native.config.mjs`. All contexts set `ignoreHTTPSErrors: false`; the harness inspects the actual Linux process arguments for bypass flags and forbids Firefox leaf exceptions. Browser versions are asserted on upgrade.
+
+These native trust tests intentionally require a disposable GitHub-hosted Ubuntu runner. Firefox uses a new [NSS certificate database](https://firefox-source-docs.mozilla.org/security/nss/legacy/tools/nss_tools_certutil/index.html) per test with only the lab CA added and enterprise-root importing disabled. WebKitGTK uses the runner's system trust: the harness adds its uniquely named CA, closes the browser, removes only that CA and rebuilds the disposable trust store in `finally`. It never changes a personal or self-hosted machine's trust. The final no-CA case starts another browser and must reject the chain again. The WebKit isolation boundary is the disposable runner, not a browser profile.
+
+Firefox reports specific NSS errors for authority, hostname and validity failures. WebKit reports a generic native TLS certificate rejection; the certificate metadata and zero application HTTP requests identify each independently constructed negative case. Results, source hashes and native errors are retained under `observations/native-browser-tls/<engine>/` in the CI artifact. This tests Playwright's pinned browser engines on Ubuntu, not branded Safari or Firefox/WebKit on every operating system.
+
 ## Live agent check
 
 Give a fresh independent agent [audit-task.md](audit-task.md), the five actual guide files, the source, and the ability to run the suite. Keep `oracle.json`, `verify-agent*`, and saved evaluation output outside its allowed reads. The agent must execute the tests itself, read their fresh receipt, and produce `observations/agent-response.json` with decisions, reasons, and evidence for all 25 subjects.

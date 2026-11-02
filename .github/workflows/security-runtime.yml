@@ -34,12 +34,16 @@ jobs:
           node-version: 24
       - name: Install the locked application tools
         run: npm ci --ignore-scripts
-      - name: Install isolated Chromium
-        run: npx playwright install --with-deps chromium
+      - name: Install isolated browser engines and NSS tools
+        run: |
+          npx playwright install --with-deps chromium firefox webkit
+          sudo apt-get install -y libnss3-tools
       - name: Exercise all 25 scenarios
         run: npm test
       - name: Validate browser certificates without bypassing HTTPS errors
         run: npx playwright test --config browser-tls/playwright.config.mjs
+      - name: Validate Firefox and WebKit certificates on the disposable runner
+        run: npx playwright test --config browser-tls/native.config.mjs
       - name: Test the agent-output grader
         run: node --test verify-agent.test.mjs
       - name: Regrade the recorded live agent output and verify source hashes
