@@ -1,6 +1,6 @@
 # Angular security runtime lab
 
-[EspaÃ±ol](README.es.md) Â· [Skill Lab](../README.md)
+[Español](README.es.md) · [Skill Lab](../README.md)
 
 This checkout-only integration fixture exercises the 25 review scenarios in the five canonical Angular security guides. It uses Angular 22.2.4 rendering on Node and hydrating in isolated Chromium, real HTTP/TLS session and proxy boundaries, and locked dependency reproductions. The template is a fixed source literal; the small build uses Angular's JIT compiler and esbuild rather than an Angular CLI workspace.
 
