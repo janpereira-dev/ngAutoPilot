@@ -23,7 +23,7 @@ function nativeError(kind) {
   const engine = test.info().project.name;
   if (engine === 'webkit') return 'Unacceptable TLS certificate';
   if (engine === 'firefox') return { authority: 'SEC_ERROR_UNKNOWN_ISSUER', host: 'SSL_ERROR_BAD_CERT_DOMAIN',
-    expired: 'SEC_ERROR_EXPIRED_CERTIFICATE', future: 'MOZILLA_PKIX_ERROR_NOT_YET_VALID_CERTIFICATE' }[kind];
+    expired: 'SEC_ERROR_EXPIRED_CERTIFICATE', future: 'SSL_ERROR_UNKNOWN' }[kind];
   return { authority: 'net::ERR_CERT_AUTHORITY_INVALID', host: 'net::ERR_CERT_COMMON_NAME_INVALID',
     expired: 'net::ERR_CERT_DATE_INVALID', future: 'net::ERR_CERT_DATE_INVALID' }[kind];
 }
@@ -63,7 +63,11 @@ test('accepts the valid CA-signed Angular app with isolated lab trust', async ()
       expect(endpoint.requests).toContain('/browser.js');
       expect(failures).toEqual([]);
       const security = await response.securityDetails();
-      expect(security.issuer).toBe('NgAutoPilot lab browser root');
+      expect(security.subjectName).toContain('localhost');
+      expect(security.validFrom).toBe(Date.parse(authority.leaves.valid.details.validFrom) / 1000);
+      expect(security.validTo).toBe(Date.parse(authority.leaves.valid.details.validTo) / 1000);
+      // Playwright's WebKit response metadata does not expose the issuer.
+      if (test.info().project.name !== 'webkit') expect(security.issuer).toBe('NgAutoPilot lab browser root');
       observations.push({ name: 'valid chain', outcome: 'accepted', httpStatus: response.status(),
         angularVersion: '22.2.4', clientReady: true, security, certificate: authority.leaves.valid.details, ...browser });
     });

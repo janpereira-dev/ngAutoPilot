@@ -1,6 +1,6 @@
 # Angular security runtime lab
 
-[Español](README.es.md) · [Skill Lab](../README.md)
+[EspaÃ±ol](README.es.md) Â· [Skill Lab](../README.md)
 
 This checkout-only integration fixture exercises the 25 review scenarios in the five canonical Angular security guides. It uses Angular 22.2.4 rendering on Node and hydrating in isolated Chromium, real HTTP/TLS session and proxy boundaries, and locked dependency reproductions. The template is a fixed source literal; the small build uses Angular's JIT compiler and esbuild rather than an Angular CLI workspace.
 
@@ -56,7 +56,7 @@ The Security Runtime workflow also runs the same seven certificate cases in Fire
 
 These native trust tests intentionally require a disposable GitHub-hosted Ubuntu runner. Firefox uses a new [NSS certificate database](https://nss-crypto.org/reference/security/nss/legacy/tools/nss_tools_certutil/index.html) per test with only the lab CA added and enterprise-root importing disabled. WebKitGTK uses the runner's system trust: the harness adds its uniquely named CA, closes the browser, removes only that CA and rebuilds the disposable trust store in `finally`. It never changes a personal or self-hosted machine's trust. The final no-CA case starts another browser and must reject the chain again. The WebKit isolation boundary is the disposable runner, not a browser profile.
 
-Firefox reports specific NSS errors for authority, hostname and validity failures. WebKit reports a generic native TLS certificate rejection; the certificate metadata and zero application HTTP requests identify each independently constructed negative case. Results, source hashes and native errors are retained under `observations/native-browser-tls/<engine>/` in the CI artifact. This tests Playwright's pinned browser engines on Ubuntu, not branded Safari or Firefox/WebKit on every operating system.
+Firefox reports specific NSS errors for authority, hostname and expiry; the pinned Playwright adapter reports the future-dated certificate as `SSL_ERROR_UNKNOWN`. WebKit reports a generic native TLS certificate rejection; the certificate metadata and zero application HTTP requests identify each independently constructed negative case. Results, source hashes and native errors are retained under `observations/native-browser-tls/<engine>/` in the CI artifact. This tests Playwright's pinned browser engines on Ubuntu, not branded Safari or Firefox/WebKit on every operating system.
 
 ## Live agent check
 
