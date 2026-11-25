@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - main
+  schedule:
+    - cron: '27 6 * * 1'
 
 permissions:
   contents: read
@@ -13,7 +15,33 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
+  dependency-audit:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        directory:
+          - .
+          - agent-plugins/ngautopilot-tools/data
+          - skill-lab/security-runtime
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 24
+
+      - name: Audit the committed lockfile
+        if: matrix.directory != '.' || github.event_name == 'schedule'
+        working-directory: ${{ matrix.directory }}
+        run: npm audit --include=dev --audit-level=low --registry=https://registry.npmjs.org
+
   validate:
+    if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
@@ -39,6 +67,9 @@ jobs:
 
       - name: Validate distribution contract
         run: npm run distribution:validate
+
+      - name: Validate public skill bundle files
+        run: npm run npx-skills:validate
 
       - name: Regenerate catalog
         run: npm run skills:catalog

@@ -28,7 +28,6 @@ Esta es una instantánea histórica de una fuente secundaria, no la matriz ofici
 - `angular-caniuse.normalized.json`: mismos datos con metadatos de extracción por fila.
 - `*.raw.json`: instantáneas originales de las secciones.
 - `manifest.json`: recuentos, fechas y URL de origen.
-- `scrape-angular-caniuse.mjs`: extractor reproducible con Playwright.
 
 ## Límites conocidos
 
@@ -36,15 +35,3 @@ Esta es una instantánea histórica de una fuente secundaria, no la matriz ofici
 - Las migraciones Update exponen URL por elemento, guardadas en `angular_courses_url`.
 - Las migraciones CLI exponen enlaces Angular cuando existen, guardados en `angular_dev_url`.
 - Las filas MCP no ofrecen anclas estables por elemento; se registra la URL de la pestaña.
-
-## Repetir la extracción
-
-El repositorio no añade Playwright como dependencia solo para la instantánea. Para actualizar datos, instala Playwright deliberadamente y ejecuta:
-
-```bash
-npm i -D playwright
-npx playwright install chromium
-node docs/angular-caniuse/scrape-angular-caniuse.mjs
-```
-
-Preferiblemente utiliza un clon temporal dedicado. Si instalas en tu checkout, revisa únicamente los cambios de dependencias creados por este refresco; no reviertas cambios previos o ajenos.

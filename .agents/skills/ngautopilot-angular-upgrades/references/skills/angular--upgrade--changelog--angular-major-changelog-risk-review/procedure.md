@@ -331,7 +331,7 @@ Gate behavior:
 
 1. Detect current exact Angular version.
 2. Detect target patch or minor baseline within the same major.
-3. Identify changelog entries between current and baseline.
+3. Identify matching version entries from official Angular release notes supplied for review or available locally. Compare facts only. If relevant evidence is missing, record it as unverified and block the next hop where compatibility depends on it.
 4. Classify entries by package.
 5. Search the repository for affected APIs.
 6. Route to specialized skills if needed.
