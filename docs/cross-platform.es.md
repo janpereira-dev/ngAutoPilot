@@ -34,7 +34,7 @@ Esta tabla describe la intención de portabilidad, no una ejecución reciente en
 
 ## Hooks Git
 
-El hook `.githooks/pre-commit` es Bash; Windows requiere Git Bash. `npm run hooks:install` configura `core.hooksPath`, no convierte el hook en Node.
+El hook opcional `.githooks/pre-commit` usa Bash y requiere Git Bash en Windows. Las comprobaciones también se ejecutan en CI.
 
 Si no puedes ejecutar el hook, realiza las comprobaciones disponibles manualmente:
 

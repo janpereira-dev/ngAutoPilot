@@ -7,7 +7,6 @@ writes candidate.SKILL.md under the requested skill-lab output directory.
 
 from __future__ import annotations
 
-import importlib
 import json
 import os
 import pathlib
@@ -46,7 +45,7 @@ def run_bridge(contract: dict[str, Any]) -> pathlib.Path:
     candidate_path = output_directory / "candidate.SKILL.md"
 
     try:
-        skillopt = importlib.import_module("skillopt")
+        import skillopt
     except ModuleNotFoundError as exc:
         raise BridgeError(
             "SkillOpt is not installed for the Skill Lab bridge. "
@@ -156,13 +155,13 @@ def count_jsonl_rows(path: pathlib.Path) -> int:
 
 def _load_env_adapter_base() -> type:
     try:
-        module = importlib.import_module("skillopt.envs.base")
+        from skillopt.envs.base import EnvAdapter
     except ModuleNotFoundError:
         class MissingEnvAdapter:
             pass
 
         return MissingEnvAdapter
-    return module.EnvAdapter
+    return EnvAdapter
 
 
 class NgAutoPilotSkillLabAdapter(_load_env_adapter_base()):

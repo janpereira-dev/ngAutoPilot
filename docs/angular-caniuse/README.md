@@ -28,7 +28,6 @@ This is a historical secondary-source snapshot, not Angular's official compatibi
 - `angular-caniuse.normalized.json` — same data with raw per-row extraction metadata.
 - `*.raw.json` — raw section snapshots.
 - `manifest.json` — extraction counts, timestamps, and source URLs.
-- `scrape-angular-caniuse.mjs` — reproducible Playwright extractor.
 
 ## Known extraction limits
 
@@ -36,15 +35,3 @@ This is a historical secondary-source snapshot, not Angular's official compatibi
 - Update migrations expose item URLs and those are captured in `angular_courses_url`.
 - CLI migrations expose Angular documentation links where present and those are captured in `angular_dev_url`.
 - MCP rows do not expose stable per-item anchors in the rendered table, so the tab URL is recorded.
-
-## Re-run extraction
-
-This repository does not add Playwright as a dependency just for the snapshot. To refresh the data later, install Playwright intentionally and run:
-
-```bash
-npm i -D playwright
-npx playwright install chromium
-node docs/angular-caniuse/scrape-angular-caniuse.mjs
-```
-
-Prefer a dedicated temporary clone. If refreshing in your checkout, review only dependency changes introduced by this refresh; never revert pre-existing or unrelated work.
