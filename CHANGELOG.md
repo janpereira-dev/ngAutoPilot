@@ -9,7 +9,19 @@
 
 All notable changes to NgAutoPilot will be documented in this file.
 
-## 0.11.0 - Unreleased
+## 0.11.1 - Unreleased
+
+### Fixed
+
+- Update semver to 7.8.6 and Vitest to 5.1.0, including the MCP bundle, dependency mirrors and license inventory.
+- Include the published-skill hardening from PR #98 and the browser security runtime regressions added after the 0.11.0 GitHub release.
+- Keep Pi discovery on the curated `.agents/skills` gateways and preserve prompts in the npm package.
+
+### Publication
+
+- Prepare a new immutable npm artifact. npm/Pi availability remains pending until the protected release workflow publishes and verifies `ngautopilot@0.11.1` and `latest`.
+
+## 0.11.0 - GitHub release 2026-10-25; npm publication pending
 
 ### Added
 
