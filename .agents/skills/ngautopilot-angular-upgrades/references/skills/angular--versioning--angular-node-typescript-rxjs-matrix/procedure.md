@@ -22,7 +22,7 @@ triggers:
 
 Determine whether the installed and target Angular toolchains satisfy the official compatibility ranges. Keep a compatible historical stack separate from a currently supported release.
 
-Read [the version, browser and polyfill reference](references/angular-versions.md) for the exact matrix, Angular/CLI pairings before v9, browser Baseline dates and conditional polyfill setup. It contains the official table verified on 2026-10-25; recheck the source when making a new upgrade decision.
+Read [the version, browser and polyfill reference](references/angular-versions.md) for the exact matrix, Angular/CLI pairings before v9, browser Baseline dates and conditional polyfill setup. It contains the official table verified on 2026-10-25; ask for a reviewed exact-version source when the bundled reference does not cover the decision.
 
 ## When to Use
 
@@ -35,7 +35,7 @@ Use this skill when:
 ## Do
 
 - Detect installed Angular, CLI, TypeScript and RxJS from the owning package and lockfile; inspect local and CI Node versions, builders and peer constraints.
-- Select the exact source row for the installed and target minor. For a minor absent from the table, verify its tagged or published packages and label that evidence separately.
+- Select the exact source row for the installed and target minor. For a minor absent from the table, use exact-version Angular release evidence supplied by the reviewer and label it separately. If it is unavailable, report the compatibility decision as UNVERIFIED.
 - Intersect all required ranges. Distinguish declaration-only evidence from locked versions and report each mismatch as a blocker.
 - Use the browser policy for the Angular major and inspect application targets and required browser journeys.
 - Inspect build and test polyfills plus the application's zone-based or zoneless configuration before recommending changes.
