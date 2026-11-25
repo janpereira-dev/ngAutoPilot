@@ -6,7 +6,7 @@ stack:
   - Angular
 category: material
 status: stable
-version: 0.11.0
+version: 0.11.1
 owner: NgAutoPilot
 triggers:
   - material theming

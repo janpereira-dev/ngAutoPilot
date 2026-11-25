@@ -1,0 +1,16 @@
+{
+  "id": "C04",
+  "guide": "angular-token-storage-policy",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "crossSiteStatus": 200,
+    "invalidCsrfStatus": 200,
+    "mutations": 2
+  },
+  "correction": {
+    "crossSiteStatus": 403,
+    "invalidCsrfStatus": 403,
+    "mutations": 0
+  }
+}

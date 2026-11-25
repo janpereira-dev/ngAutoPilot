@@ -9,7 +9,7 @@ stack:
   - RxJS
 category: upgrades
 status: stable
-version: 0.11.0
+version: 0.11.1
 owner: NgAutoPilot
 triggers:
   - Angular 2 to 4

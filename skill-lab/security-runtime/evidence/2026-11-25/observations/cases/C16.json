@@ -1,0 +1,14 @@
+{
+  "id": "C16",
+  "guide": "angular-domsanitizer-governance",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "browserHydrated": true,
+    "approvedViewWorks": true,
+    "producerRecord": null,
+    "sharedWrapperCallerInventory": null,
+    "scope": "The subject evidence covers one consumer; the producer and other callers are unavailable"
+  },
+  "correction": null
+}

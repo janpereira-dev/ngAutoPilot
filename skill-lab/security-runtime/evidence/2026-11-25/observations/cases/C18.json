@@ -1,0 +1,28 @@
+{
+  "id": "C18",
+  "guide": "angular-ssr-security-risk-gate",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "crossUserOrAnonymousLeak": true,
+    "hydratedUser": "ALICE_PRIVATE",
+    "cacheControl": "private, no-store",
+    "sequentialOrdersTested": false,
+    "concurrentUsersAndAnonymousTested": false,
+    "edgeAndOriginTested": false,
+    "credentialSerializationObserved": false,
+    "transferState": "Per-render user display data only; HTTP transfer cache disabled",
+    "sharedCache": "Reuses first rendered HTML for every user"
+  },
+  "correction": {
+    "crossUserOrAnonymousLeak": false,
+    "hydratedUser": "BOB_PRIVATE",
+    "cacheControl": "private, no-store",
+    "sequentialOrdersTested": true,
+    "concurrentUsersAndAnonymousTested": true,
+    "edgeAndOriginTested": true,
+    "credentialSerializationObserved": false,
+    "transferState": "Per-render user display data only; HTTP transfer cache disabled",
+    "sharedCache": "No process-wide personalized response cache"
+  }
+}

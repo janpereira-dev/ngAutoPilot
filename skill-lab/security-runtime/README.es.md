@@ -70,3 +70,7 @@ npm run test:agent -- observations/agent-response.json observations/run.json
 El verificador compara las decisiones independientes con la clave derivada de las guías, rechaza casos incompletos, duplicados o mal clasificados y hashes distintos, y vincula la respuesta con la ejecución identificada. No invoca modelos. El workflow Security Runtime repite los 25 escenarios y evalúa la salida guardada; esa comprobación de JSON no se presenta como una nueva invocación de modelo.
 
 La evidencia de una ejecución real se guarda bajo `evidence/<fecha>/`. El alcance es un agente, una versión de Angular y una topología sintética. Un recibo JSON por sí solo no demuestra procedencia ni fiabilidad general: conserva la invocación real y revisa sus razones. Los proveedores de identidad, DNS/proxies de producción, otras versiones Angular y otros navegadores necesitan evidencia propia.
+
+## Evidencia de la release 0.11.1
+
+El [registro del 2026-11-25](evidence/2026-11-25/live-agent.json) diferencia el fallo de preparación del navegador local de la interpretación independiente del agente sobre las mediciones de GitHub Actions del commit exacto. La CI ejecutó correctamente los 25 escenarios; se verifican el digest del artefacto descargado, los hashes de fuentes y los de cada caso. Los comandos identifican quién los ejecutó. Este modo no afirma que el agente revisor ejecutara correctamente un navegador local ni que CI invoque un modelo. Se conservan los registros del 2026-10-31, que siguen siendo inválidos para guías actuales modificadas, incluso si solo cambió la versión.

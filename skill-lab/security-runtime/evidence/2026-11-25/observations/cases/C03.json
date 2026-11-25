@@ -1,0 +1,17 @@
+{
+  "id": "C03",
+  "guide": "angular-ssr-security-risk-gate",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "suppliedTarget": "unapproved loopback test receiver",
+    "status": 200,
+    "receiverObservedRequest": true
+  },
+  "correction": {
+    "forbiddenTargetsRejected": 5,
+    "redirectHopRejected": true,
+    "forbiddenReceiverRequests": 0,
+    "approvedBackendStatus": 200
+  }
+}

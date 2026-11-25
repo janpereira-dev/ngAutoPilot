@@ -1,0 +1,25 @@
+{
+  "id": "C13",
+  "guide": "angular-dependency-vulnerability-triage",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "version": "4.17.20",
+    "executed": true,
+    "rejected": false,
+    "output": "Hello fixture",
+    "browserHydrated": true,
+    "flow": "query input -> Angular HttpClient -> server lodash.template variable option",
+    "advisory": "https://github.com/advisories/GHSA-35jh-r3h4-6jhm",
+    "trigger": "Reviewed default-parameter marker only; no OS command, file access or exfiltration"
+  },
+  "correction": {
+    "version": "4.18.1",
+    "executed": false,
+    "rejected": true,
+    "browserHydrated": true,
+    "flow": "query input -> Angular HttpClient -> server lodash.template variable option",
+    "advisory": "https://github.com/advisories/GHSA-35jh-r3h4-6jhm",
+    "trigger": "Reviewed default-parameter marker only; no OS command, file access or exfiltration"
+  }
+}

@@ -1,0 +1,400 @@
+{
+  "runId": "3837252d-6958-4b0c-87fa-cb461678cd8e",
+  "guidesRead": {
+    "angular-token-storage-policy": "12f1c4316cc542353049f11bd840762608f4530ab397a16df88c5feb545dfd8e",
+    "angular-xss-template-safety": "5cbf4469831125da5dd02e671541e2261a179b886256673f537b803670a672f1",
+    "angular-domsanitizer-governance": "5ce8399d41f21dd0777ed9a04dfb7f278f85ee78053a4ae00067ca226e20648c",
+    "angular-ssr-security-risk-gate": "abfa5bfe966fb10631fad45a0a5ba2fea4d825dc84c5d283d8d01379da865b10",
+    "angular-dependency-vulnerability-triage": "e6e1de39a5943d25c6fef0422a1cf03ad0be70a684c5bd9ed1ffd7768e96ec45"
+  },
+  "auditMode": "Independent interpretation of measured GitHub Actions execution; explicit replacement of local self-execution mode after infrastructure failure",
+  "provenance": {
+    "repository": "janpereira-dev/ngAutoPilot",
+    "commit": "306d9f4ab0483a655568bea192a9592ea7cccea9",
+    "workflowRun": 45571684335,
+    "job": 139059608965,
+    "artifact": 15002566085,
+    "artifactSha256": "e2c26206e72c2dc78bf784b57470cbf623b46b789c8f830a2ddda48f70af229b",
+    "workflowUrl": "https://github.com/janpereira-dev/ngAutoPilot/actions/runs/45571684335",
+    "localSourceManifestMatchesCi": true,
+    "ciCaseHashesVerified": true,
+    "sourceUnchanged": true
+  },
+  "commands": [
+    {
+      "command": "npm test",
+      "executor": "GitHub Actions",
+      "exitCode": 0,
+      "workflowRun": 45571684335,
+      "job": 139059608965,
+      "commit": "306d9f4ab0483a655568bea192a9592ea7cccea9",
+      "runId": "3837252d-6958-4b0c-87fa-cb461678cd8e",
+      "result": "25 passed, 0 failed, 0 skipped; npm prepare:cases/build/Playwright executed, independently reviewed via log and run receipt; not executed successfully locally by this agent"
+    },
+    {
+      "command": "node --version",
+      "exitCode": 0,
+      "executor": "local agent"
+    },
+    {
+      "command": "npm test",
+      "exitCode": 1,
+      "executor": "local agent",
+      "result": "Build failed before Playwright; Angular packages unresolved"
+    },
+    {
+      "command": "node manifest.mjs",
+      "exitCode": 0,
+      "executor": "local agent"
+    },
+    {
+      "command": "npm ci --ignore-scripts",
+      "exitCode": 0,
+      "executor": "local agent"
+    },
+    {
+      "command": "npm test",
+      "exitCode": 1,
+      "executor": "local agent",
+      "runId": "1a651127-4398-4a09-a8b4-6be16a389f75",
+      "result": "2 passed, 23 browser launch failures; exit 1"
+    },
+    {
+      "command": "npx playwright install chromium",
+      "exitCode": 1,
+      "executor": "local agent"
+    },
+    {
+      "command": "npx playwright install chromium --only-shell",
+      "exitCode": 1,
+      "executor": "local agent"
+    },
+    {
+      "command": "chromium --version",
+      "exitCode": 127,
+      "executor": "local agent"
+    }
+  ],
+  "cases": [
+    {
+      "id": "C01",
+      "guide": "angular-domsanitizer-governance",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C01.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "src/app.mjs"
+      ],
+      "reason": "El subject pide URL, recibe un SafeHtml y cae en bypass HTML: marker=1 y eventAttributes=1 después de hidratación. La guía prohíbe fallback confiado tras error de contexto; la corrección que rechaza no cambia el subject."
+    },
+    {
+      "id": "C02",
+      "guide": "angular-xss-template-safety",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C02.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "src/app.mjs"
+      ],
+      "reason": "La entrada de query alcanza HTML renderizado con marker=1 y un atributo ejecutable. Es XSS demostrado en navegador; correction con marker=0 es regresión suplementaria, no despliegue del arreglo."
+    },
+    {
+      "id": "C03",
+      "guide": "angular-ssr-security-risk-gate",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C03.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "server.mjs"
+      ],
+      "reason": "El destino loopback no autorizado devuelve 200 y el receptor propio observa la solicitud. La guía exige FAIL ante fetch interno no autorizado aunque el experimento permanezca contenido."
+    },
+    {
+      "id": "C04",
+      "guide": "angular-token-storage-policy",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C04.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "server.mjs"
+      ],
+      "reason": "Una petición autenticada cross-site y otra con CSRF inválido devuelven 200; el estado registra dos mutaciones. Fallo de validación backend demostrado; SameSite no lo excusa."
+    },
+    {
+      "id": "C05",
+      "guide": "angular-dependency-vulnerability-triage",
+      "decision": "BLOCKED",
+      "evidence": [
+        "observations/cases/C05.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "dependency-probe.mjs"
+      ],
+      "reason": "El audit ejecutado sale 1 sin metadata completa y knownFindingCount=null. No hay informe confiable; la guía diferencia registro no disponible de cero hallazgos, incluso cuando la cadena error medida esté vacía."
+    },
+    {
+      "id": "C06",
+      "guide": "angular-xss-template-safety",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C06.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "src/app.mjs"
+      ],
+      "reason": "La query se inserta por ElementRef.innerHTML después del render: marker=1 y eventAttributes=1 en navegador hidratado. La guía considera insegura esta ruta DOM real."
+    },
+    {
+      "id": "C07",
+      "guide": "angular-ssr-security-risk-gate",
+      "decision": "BLOCKED",
+      "evidence": [
+        "observations/cases/C07.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "server.mjs"
+      ],
+      "reason": "HTTP 200 en origen no aporta deploymentTopology, proxyHeaderEvidence ni deploymentCacheEvidence: los tres son null. No se puede certificar forwarding/caché del despliegue; no se toman los datos de C22 como si fueran de este subject."
+    },
+    {
+      "id": "C08",
+      "guide": "angular-domsanitizer-governance",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C08.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "src/app.mjs"
+      ],
+      "reason": "El flujo query -> bypassSecurityTrustHtml -> sanitize -> binding conserva confianza: marker=1 y eventAttributes=1. sanitize no revierte la aserción de confianza según la guía y la API instalada observada."
+    },
+    {
+      "id": "C09",
+      "guide": "angular-token-storage-policy",
+      "decision": "BLOCKED",
+      "evidence": [
+        "observations/cases/C09.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "server.mjs"
+      ],
+      "reason": "La página hidrata pero /auth/login devuelve 503 y lifecycleEvidence/csrfEvidence son null. Falta servidor verificable para rotación, revocación y CSRF; renderizar no establece seguridad de sesión."
+    },
+    {
+      "id": "C10",
+      "guide": "angular-dependency-vulnerability-triage",
+      "decision": "PASS",
+      "evidence": [
+        "observations/cases/C10.json",
+        "observations/cases/C13.json",
+        "observations/cases/C20.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "dependency-probe.mjs"
+      ],
+      "reason": "En el conjunto corregido se verifican lodash runtime/build 4.18.1 y sus rutas, seis auditorías all/production de aplicación/runtime-after/build-after con exit 0 y cero hallazgos, artefactos browser/SSR y contenido válido. Las referencias explícitas C13.correction y C20.correction rechazan el marcador sin ejecutarlo; los proyectos before son controles excluidos del conjunto distribuido. PASS queda acotado a ese artefacto sintético y hallazgos conocidos."
+    },
+    {
+      "id": "C11",
+      "guide": "angular-domsanitizer-governance",
+      "decision": "PASS",
+      "evidence": [
+        "observations/cases/C11.json",
+        "observations/cases/C21.json",
+        "observations/cases/C01.json",
+        "observations/cases/C08.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "src/app.mjs"
+      ],
+      "reason": "El único bypass productivo inventariado es ResourceUrl con productor trazado, propietario y revisión 2027-01-31; App compara URL canónica, HTTPS, host, path y ausencia de userinfo/puerto/query/fragment. El recurso aprobado funciona y los valores inválidos/vacíos se rechazan. Sus referencias explícitas C21.correction, C01.correction y C08.correction prueban URLs confundibles, rechazo de contexto y HTML no ejecutable en la misma fuente corregida."
+    },
+    {
+      "id": "C12",
+      "guide": "angular-token-storage-policy",
+      "decision": "PASS",
+      "evidence": [
+        "observations/cases/C12.json",
+        "observations/cases/C23.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "server.mjs"
+      ],
+      "reason": "El inventario separa sesión/refresh/acceso/CSRF; almacenamiento JS persistente vacío, cookie HttpOnly/Secure/Lax, guard CSRF común en servidor y login con Origin. Se observan mutación válida 200, token CSRF ausente 403, Authorization solo al origen autorizado, expiración backend 401 y logout con revocación bearer 401. C23.correction, explícitamente vinculado, aporta rotación 200 y replay/sesión 401. La fuente acota cookies/lifetime y revocación inmediata; PASS al contrato del laboratorio."
+    },
+    {
+      "id": "C13",
+      "guide": "angular-dependency-vulnerability-triage",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C13.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "dependency-probe.mjs"
+      ],
+      "reason": "lodash 4.17.20 recibe la variable CMS desde query -> Angular HttpClient -> API de template servidor: executed=true y rejected=false con el marcador revisado. Es dependencia runtime alcanzable; la corrección 4.18.1 no se atribuye al subject vulnerable."
+    },
+    {
+      "id": "C14",
+      "guide": "angular-xss-template-safety",
+      "decision": "PASS",
+      "evidence": [
+        "observations/cases/C14.json",
+        "observations/cases/C19.json",
+        "observations/cases/C06.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "src/app.mjs"
+      ],
+      "reason": "En SSR e hidratación marker=0 y atributos ejecutables=0; texto escapado, formato previsto y navegación HTTPS positiva funcionan. El inventario describe plantilla literal sin compilación de entrada y bindings normales. Sus referencias C19.correction y C06.correction verifican script URL neutralizada y ausencia de escritura DOM insegura en la fuente corregida."
+    },
+    {
+      "id": "C15",
+      "guide": "angular-dependency-vulnerability-triage",
+      "decision": "BLOCKED",
+      "evidence": [
+        "observations/cases/C15.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "dependency-probe.mjs"
+      ],
+      "reason": "El audit full real encuentra un problema (exit 1), omit=dev no encuentra ninguno (exit 0), y se verifica lodash 4.17.20; pero configuración build y prerrequisitos de explotación son null para este subject. La guía exige BLOCKED por alcance desconocido. No transfiero la alcanzabilidad independiente de C20 ni confundo omit=dev con mitigación."
+    },
+    {
+      "id": "C16",
+      "guide": "angular-domsanitizer-governance",
+      "decision": "BLOCKED",
+      "evidence": [
+        "observations/cases/C16.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "src/app.mjs"
+      ],
+      "reason": "Un consumidor aprobado funciona en navegador, pero producerRecord y sharedWrapperCallerInventory son null y el alcance declara otros llamadores/productor no disponibles. La guía exige proveniencia e inventario completo, no una vista positiva aislada; no se toman los datos de C11 para rellenar esta carencia."
+    },
+    {
+      "id": "C17",
+      "guide": "angular-token-storage-policy",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C17.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "server.mjs"
+      ],
+      "reason": "Después de login el localStorage contiene session-secret y su replay desde un contexto separado devuelve 200 frente a anónimo/bearer inválido 401. Es secreto de sesión reutilizable legible por JS; la guía lo rechaza aunque otro snapshot elimine almacenamiento."
+    },
+    {
+      "id": "C18",
+      "guide": "angular-ssr-security-risk-gate",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C18.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "server.mjs"
+      ],
+      "reason": "crossUserOrAnonymousLeak=true y la vista hidratada del segundo usuario contiene el canario privado del primero. La fuente comparte el primer HTML entre cuentas; private,no-store y no serializar credenciales no corrigen esa fuga. FAIL prevalece sobre comprobaciones adicionales que este perfil no ejecutó."
+    },
+    {
+      "id": "C19",
+      "guide": "angular-xss-template-safety",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C19.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "src/app.mjs"
+      ],
+      "reason": "Se hace clic real en un href javascript: no neutralizado y marker=1. La guía exige FAIL por ejecución de URL script; correction usa unsafe: y marcador cero, pero el subject no está corregido."
+    },
+    {
+      "id": "C20",
+      "guide": "angular-dependency-vulnerability-triage",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C20.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "dependency-probe.mjs"
+      ],
+      "reason": "La devDependency lodash 4.17.20 procesa un nombre de variable CMS no confiable durante generación CI: executed=true, rejected=false y contenido válido funciona. La guía exige FAIL ante exploit de build, aunque el informe production-only no lo incluya. La corrección 4.18.1 es otro snapshot."
+    },
+    {
+      "id": "C21",
+      "guide": "angular-domsanitizer-governance",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C21.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "src/app.mjs"
+      ],
+      "reason": "El host media.example.test.attacker.test termina como src confiado de iframe. La guía exige comparar host exacto y rechazar esta confusión antes del bypass; el consumidor real demuestra que el subject no lo hace."
+    },
+    {
+      "id": "C22",
+      "guide": "angular-ssr-security-risk-gate",
+      "decision": "PASS",
+      "evidence": [
+        "observations/cases/C22.json",
+        "observations/cases/C24.json",
+        "observations/cases/C03.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "server.mjs"
+      ],
+      "reason": "El despliegue sintético tiene origen y edge TLS propios: login browser en edge funciona; usuarios concurrentes/secuenciales en ambos órdenes y anónimo quedan aislados en edge/origen, sin credenciales serializadas y con private,no-store. Las referencias explícitas C24.correction y C03.correction verifican rechazo/limpieza de Host y forwarding, sin tráfico inesperado, destinos privados y redirects bloqueados, más backend positivo 200. El egreso por capacidades exactas evita DNS arbitrario; el PASS se limita a esta topología medida."
+    },
+    {
+      "id": "C23",
+      "guide": "angular-token-storage-policy",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C23.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "server.mjs"
+      ],
+      "reason": "La rotación inicial devuelve 200, pero un refresh gastado vuelve a devolver 200 y la sesión sigue en 200. Es replay aceptado; la guía exige rechazo y respuesta de familia documentada, presentes solo en correction (401/401)."
+    },
+    {
+      "id": "C24",
+      "guide": "angular-ssr-security-risk-gate",
+      "decision": "FAIL",
+      "evidence": [
+        "observations/cases/C24.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "server.mjs"
+      ],
+      "reason": "Una cabecera no confiable controla el origen renderizado y ocasiona una solicitud saliente observada, con status 200. La guía exige FAIL por spoofing aunque un snapshot corregido rechace cabeceras."
+    },
+    {
+      "id": "C25",
+      "guide": "angular-xss-template-safety",
+      "decision": "BLOCKED",
+      "evidence": [
+        "observations/cases/C25.json",
+        "observations/run.json",
+        "tests/scenarios.spec.mjs",
+        "src/app.mjs"
+      ],
+      "reason": "SSR devuelve 200, pero browserExecution indica expresamente que no se ejecutó para este subject y domAndNavigationEvidence=null. La guía requiere navegador real sobre la ruta afectada; no se heredan controles de C14."
+    }
+  ],
+  "limitations": [
+    "El padre cambió explícitamente el encargo tras el bloqueo de infraestructura a interpretar evidencia CI: esta evaluación no satisface por sí sola el requisito original de autoejecución local exitosa. Este agente intentó npm test localmente y mantuvo su run e informe fallidos sin sobrescribirlos.",
+    "Run local 1a651127-4398-4a09-a8b4-6be16a389f75: 2 passed, 23 failed por Chromium1248 ausente. npm ci --ignore-scripts solucionó dependencias; ambos instaladores oficiales Chromium devolvieron 403. No se simuló navegador ni se modificó configuración/fuentes/guías/manifiestos/locks.",
+    "La evidencia CI fue proporcionada como artifact oficial por el padre con procedencia y digest del archivo; yo verifiqué las 25 hashes de casos contra run.json y todos los hashes de fuentes/guías contra manifest local. No descargué personalmente el artifact ni recalculé el digest del ZIP, que no forma parte de los archivos suministrados para esta interpretación.",
+    "El log revisado demuestra npm test con 25 escenarios pasados; el job global terminó fallando en una etapa posterior según procedencia. No se afirma workflow global verde ni se consultó el informe viejo/grader.",
+    "Todas las decisiones corresponden a subject, nunca se reemplazan por correction. Solo uso referencias explícitas de los sujetos positivos a controles de la misma fuente corregida; las carencias independientes C07/C09/C15/C16/C25/C05 se mantienen.",
+    "PASS en C10/C11/C12/C14/C22 es limitado al despliegue sintético, versiones y controles medidos; no certifica una aplicación de producción, un proveedor externo ni un proxy real ajeno al laboratorio. Las pruebas de navegador ignoran la confianza del certificado de laboratorio y no prueban confianza TLS nativa.",
+    "No inspeccioné oracle.json, verify-agent*, evidence existente, documentación de grading, credenciales ni sesiones personales; no delegué ni ejecuté PoC externos o cambios de CA.",
+    "No identifiqué ambigüedad de las guías que cambie estas decisiones. El resultado 25 passed significa que la suite detectó correctamente positivos y negativos previstos, no que los 25 subjects sean seguros. El modelo efectivo no está expuesto."
+  ]
+}

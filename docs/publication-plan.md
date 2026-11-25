@@ -1,4 +1,4 @@
-# Release and distribution plan: 0.11.0
+# Release and distribution plan: 0.11.1
 
 <!-- docs:navigation:start -->
 [Español](publication-plan.es.md) · [Map](README.md) · [Home](../README.md)
@@ -9,9 +9,15 @@
 
 **Build → validate → approve → merge → release → verify.** A complete source release is not automatic public-directory acceptance or a forced update to every user's installation.
 
+## Current publication candidate — 2026-11-25
+
+Version **0.11.1** includes the reviewed semver/Vitest updates and subsequent security hardening. Live npm `latest` and the Pi package page still report **0.9.0**. The GitHub 0.11.0 release did not publish that npm version. Publishing a GitHub release alone must not be reported as updating Pi.
+
+Publish only from the reviewed merged main commit through the existing protected release workflow. It requires `RELEASE_NPM_TOKEN` in `release-security` and the configured exact-commit approval. Do not weaken environment protections or use an unrelated credential. After publication, verify exact npm version, `latest`, tarball integrity and a clean Pi installation; record gallery reindexing separately.
+
 ## Preparation update — 2026-10-25
 
-The next candidate is **0.11.0** because the existing immutable v0.10.0 tag predates the security and installation fixes now on main. The owner explicitly requested preparation while leaving npm publication pending the protected credential. No historical tag/archive is replaced and no missing human approval is inferred.
+The next candidate is **0.11.1** because the existing immutable v0.10.0 tag predates the security and installation fixes now on main. The owner explicitly requested preparation while leaving npm publication pending the protected credential. No historical tag/archive is replaced and no missing human approval is inferred.
 
 [Dated rollout evidence](rollout-evidence/2026-10-25.json) records the live registry, environment, host attempts, public pages and directory routes. [Historical asset verification](rollout-evidence/historical-0.10.0-assets.json) verifies all 16 remote assets and six checksum-sidecar entries. Support, privacy and terms each returned HTTP 200 with project-specific content. Qwen Code and Qoder now have source-backed native exports and focused conflict/resource regressions; use the [native export contract](adapter-maintenance.md).
 
@@ -57,7 +63,7 @@ Pi is an npm-based harness. The internal Python Skill Lab module is not a suppor
 - [ ] Inspect the exact-commit Sage packet; record actual external reviewer findings separately. Generation never marks approval.
 - [ ] Obtain the required independent human code-owner approval and pass protected `validate-release` / `validate-skill-lab` checks. The only current code owner is the PR author, who cannot approve their own PR; an authorized independent reviewer must be designated without silently changing ownership. Merge one consolidated PR without bypassing review. [Live rollout tasks](https://github.com/janpereira-dev/ngAutoPilot/issues/69).
 - [ ] Release owner configures **RELEASE_NPM_TOKEN in release-security**. On 2026-10-01 the environment's secret-name API returned none; the repository still had `NPM_TOKEN`. Do not copy credentials into files or fall back to the broader token. Rotate/revoke that historical token after activating the protected route. [Trusted publishing](https://docs.npmjs.com/trusted-publishers/) is the preferred later migration once the package owner configures its OIDC binding; this release does not assume it exists.
-- [ ] Create annotated tag `v0.11.0` from the reviewed merged main commit and publish the GitHub release. Its event now triggers npm and all archive builders, subject to protected environment approval. Manual retry must select the same tag.
+- [ ] Create annotated tag `v0.11.1` from the reviewed merged main commit and publish the GitHub release. Its event now triggers npm and all archive builders, subject to protected environment approval. Manual retry must select the same tag.
 - [ ] Approve the exact-commit release-security deployment after inspecting its packet. Recheck npm version, latest and tarball integrity, GitHub assets/checksums and Actions conclusion.
 
 Retries accept an existing npm version only when its integrity equals the prepared archive. Different bytes fail; `latest` must not move backward. Historical npm versions and user customizations are never replaced. [npm publication rules](https://docs.npmjs.com/cli/v11/commands/npm-publish/) require a new version for changed bytes. Consumers update their chosen host/package explicitly; indexers may lag.
@@ -78,9 +84,9 @@ No publisher identity, policy attestation, commerce declaration or country selec
 
 ## P3 — OpenClaw, Hermes, Pi and OpenCode
 
-- **ClawHub:** export reviewed skills to flat portable directories with unique owned slugs. Its workflow scans immediate skill folders; our nested source tree must not be submitted blindly. Review permissions/metadata and publisher login; dry-run `clawhub skill publish <skill-folder> --slug <owned-slug> --name <title> --version 0.11.0 --dry-run`, then publish only reviewed selections and inspect version/scan/moderation. [Official quickstart](https://docs.openclaw.ai/clawhub/quickstart). This is skill publication, not an OpenClaw executable plugin, which has additional compatibility fields. No registry token is currently configured or used here.
+- **ClawHub:** export reviewed skills to flat portable directories with unique owned slugs. Its workflow scans immediate skill folders; our nested source tree must not be submitted blindly. Review permissions/metadata and publisher login; dry-run `clawhub skill publish <skill-folder> --slug <owned-slug> --name <title> --version 0.11.1 --dry-run`, then publish only reviewed selections and inspect version/scan/moderation. [Official quickstart](https://docs.openclaw.ai/clawhub/quickstart). This is skill publication, not an OpenClaw executable plugin, which has additional compatibility fields. No registry token is currently configured or used here.
 - **Hermes:** use its source-backed native export in a trusted project, then capture list and real invocation evidence. [Skills usage](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills). Built-in/official hub inclusion is an upstream acceptance process, not something a local export can grant.
-- **Pi:** `pi install npm:ngautopilot@0.11.0`, inspect `pi list` and invoke a skill after trust review. Existing `pi.skills`, prompts and `pi-package` keyword enable package discovery eligibility; [gallery visibility still needs checking](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/packages.md).
+- **Pi:** `pi install npm:ngautopilot@0.11.1`, inspect `pi list` and invoke a skill after trust review. Existing `pi.skills`, prompts and `pi-package` keyword enable package discovery eligibility; [gallery visibility still needs checking](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/packages.md).
 - **OpenCode:** export to its documented native layout, inspect discovery and invoke one skill. Keep the existing adapter distinct from any other product named OpenCodex; verify identity before adding a separate target.
 
 Copilot, Cursor, Gemini and generic exports already have file-layout regressions; their runtime discovery/invocation remains a separate task, not a universal support badge.
