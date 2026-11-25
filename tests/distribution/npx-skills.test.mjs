@@ -168,12 +168,19 @@ test('public gateway generation is deterministic and repository validation is cl
 
   const unexpectedFile = 'unexpected.mjs';
   fs.writeFileSync(path.join(temp, 'skills', '_core', 'project-intake', unexpectedFile), 'export {};\n');
-  assert.throws(() => syncNpxSkills({ root: temp }), /Public skill bundles accept only Markdown files/);
+  assert.throws(() => syncNpxSkills({ root: temp }), /Unsupported file in public skill bundle/);
   assert.deepEqual(snapshotTree(path.join(temp, '.agents', 'skills')), snapshot);
 
   fs.writeFileSync(path.join(temp, '.agents', 'skills', 'ngautopilot-core', unexpectedFile), 'export {};\n');
   assert.ok(validateNpxSkills({ root: temp }).errors.some((error) =>
-    error.includes('Public skill bundles accept only Markdown files') && error.includes(unexpectedFile)));
+    error.includes('Unsupported file in public skill bundle') && error.includes(unexpectedFile)));
+
+  if (process.platform !== 'win32') {
+    const executable = path.join(temp, '.agents', 'skills', 'ngautopilot-core', 'executable.md');
+    fs.writeFileSync(executable, '# Example\n', { mode: 0o755 });
+    assert.ok(validateNpxSkills({ root: temp }).errors.some((error) =>
+      error.includes('Unsupported file in public skill bundle') && error.includes('executable.md')));
+  }
 });
 
 function snapshotTree(directory) {

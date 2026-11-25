@@ -26,7 +26,7 @@
 
 Las skills son Markdown: orientan, no ejecutan directamente. Se revisan mediante `npm run skills:validate`, `npm run skills:validate:frontmatter` y `npm run security:scan`.
 
-Los paquetes públicos para npx y Pi aceptan únicamente archivos Markdown normales. La generación valida el contenido antes de reemplazar los paquetes y CI comprueba también los archivos versionados. Durante la inspección inicial, el texto del repositorio y los metadatos de dependencias se tratan como datos. Las referencias externas sirven para revisión humana.
+Los paquetes públicos para npx y Pi aceptan archivos Markdown, plantillas `.env.example` y recursos `.bin` directamente bajo un directorio `assets`. Todos deben ser archivos normales sin permiso de ejecución. La generación valida el contenido antes de reemplazar los paquetes y CI comprueba también los archivos versionados. Durante la inspección inicial, el texto del repositorio y los metadatos de dependencias se tratan como datos. Las referencias externas sirven para revisión humana.
 
 No deben recomendar ejecución de scripts remotos no confiables, paquetes no revisados, credenciales incrustadas ni rutas privadas. Evita suposiciones de sistema operativo, shell o rutas absolutas. [Niveles de confianza](trust-levels.es.md).
 

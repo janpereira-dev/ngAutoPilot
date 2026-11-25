@@ -68,7 +68,7 @@ jobs:
       - name: Validate distribution contract
         run: npm run distribution:validate
 
-      - name: Validate Markdown-only public skill bundles
+      - name: Validate public skill bundle files
         run: npm run npx-skills:validate
 
       - name: Regenerate catalog
