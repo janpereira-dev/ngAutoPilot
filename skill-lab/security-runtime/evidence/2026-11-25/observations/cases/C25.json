@@ -1,0 +1,12 @@
+{
+  "id": "C25",
+  "guide": "angular-xss-template-safety",
+  "framework": "Angular 22.2.4",
+  "application": "isolated synthetic deployment",
+  "subject": {
+    "serverStatus": 200,
+    "browserExecution": "not run for this subject",
+    "domAndNavigationEvidence": null
+  },
+  "correction": null
+}

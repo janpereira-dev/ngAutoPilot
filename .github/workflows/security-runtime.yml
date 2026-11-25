@@ -47,7 +47,7 @@ jobs:
       - name: Test the agent-output grader
         run: node --test verify-agent.test.mjs
       - name: Regrade the recorded live agent output and verify source hashes
-        run: npm run test:agent -- evidence/2026-10-31/observations/agent-response.json evidence/2026-10-31/observations/run.json
+        run: npm run test:agent -- evidence/2026-11-25/observations/agent-response.json evidence/2026-11-25/observations/run.json
       - name: Retain synthetic observations
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7

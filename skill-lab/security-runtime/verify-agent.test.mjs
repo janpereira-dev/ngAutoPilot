@@ -64,9 +64,19 @@ test('rejects stale, partial, failed or unexecuted evidence', () => {
 
 test('recorded evidence resolves from the lab root even when the caller uses a different directory', () => {
   const cli = fileURLToPath(new URL('verify-agent.mjs', import.meta.url));
-  const evidence = fileURLToPath(new URL('evidence/2026-10-31/observations/agent-response.json', import.meta.url));
-  const run = fileURLToPath(new URL('evidence/2026-10-31/observations/run.json', import.meta.url));
+  const evidence = fileURLToPath(new URL('evidence/2026-11-25/observations/agent-response.json', import.meta.url));
+  const run = fileURLToPath(new URL('evidence/2026-11-25/observations/run.json', import.meta.url));
   const result = spawnSync(process.execPath, [cli, evidence, run], { cwd: os.tmpdir(), encoding: 'utf8' });
   assert.equal(result.status, 0, result.stderr);
   assert.equal(JSON.parse(result.stdout).cases, 25);
+});
+
+
+test('historical receipts cannot approve changed current guide bytes', () => {
+  const cli = fileURLToPath(new URL('verify-agent.mjs', import.meta.url));
+  const evidence = fileURLToPath(new URL('evidence/2026-10-31/observations/agent-response.json', import.meta.url));
+  const run = fileURLToPath(new URL('evidence/2026-10-31/observations/run.json', import.meta.url));
+  const result = spawnSync(process.execPath, [cli, evidence, run], { cwd: os.tmpdir(), encoding: 'utf8' });
+  assert.equal(result.status, 1);
+  assert.match(result.stderr, /canonical guides differ from the audited sources/);
 });

@@ -1,0 +1,332 @@
+{
+  "runId": "1a651127-4398-4a09-a8b4-6be16a389f75",
+  "guidesRead": {
+    "angular-token-storage-policy": "12f1c4316cc542353049f11bd840762608f4530ab397a16df88c5feb545dfd8e",
+    "angular-xss-template-safety": "5cbf4469831125da5dd02e671541e2261a179b886256673f537b803670a672f1",
+    "angular-domsanitizer-governance": "5ce8399d41f21dd0777ed9a04dfb7f278f85ee78053a4ae00067ca226e20648c",
+    "angular-ssr-security-risk-gate": "abfa5bfe966fb10631fad45a0a5ba2fea4d825dc84c5d283d8d01379da865b10",
+    "angular-dependency-vulnerability-triage": "e6e1de39a5943d25c6fef0422a1cf03ad0be70a684c5bd9ed1ffd7768e96ec45"
+  },
+  "commands": [
+    {
+      "command": "node --version",
+      "exitCode": 0
+    },
+    {
+      "command": "npm test",
+      "exitCode": 1
+    },
+    {
+      "command": "node manifest.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "npm ci --ignore-scripts",
+      "exitCode": 0
+    },
+    {
+      "command": "npm test",
+      "exitCode": 1
+    },
+    {
+      "command": "npx playwright install chromium",
+      "exitCode": 1
+    },
+    {
+      "command": "npx playwright install chromium --only-shell",
+      "exitCode": 1
+    },
+    {
+      "command": "chromium --version",
+      "exitCode": 127
+    }
+  ],
+  "cases": [
+    {
+      "id": "C01",
+      "guide": "angular-domsanitizer-governance",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C01.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer rechazo sin fallback ante contexto erróneo; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C02",
+      "guide": "angular-xss-template-safety",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C02.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer eliminación de atributos ejecutables y marcador; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C03",
+      "guide": "angular-ssr-security-risk-gate",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C03.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer contención de fetch y redirecciones; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C04",
+      "guide": "angular-token-storage-policy",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C04.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer rechazo CSRF y ausencia de mutaciones; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C05",
+      "guide": "angular-dependency-vulnerability-triage",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C05.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer resultado observado del registro no disponible; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C06",
+      "guide": "angular-xss-template-safety",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C06.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer inserción DOM después de hidratación; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C07",
+      "guide": "angular-ssr-security-risk-gate",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C07.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer topología y aislamiento en proxy desplegado; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C08",
+      "guide": "angular-domsanitizer-governance",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C08.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer proveniencia y comportamiento real del bypass HTML; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C09",
+      "guide": "angular-token-storage-policy",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C09.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer disponibilidad del servidor de autenticación; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C10",
+      "guide": "angular-dependency-vulnerability-triage",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C10.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer versiones y auditorías de artefactos finales; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C11",
+      "guide": "angular-domsanitizer-governance",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C11.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer consumidor real y contenido aprobado/rechazado; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C12",
+      "guide": "angular-token-storage-policy",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C12.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer contrato completo de sesión acotada; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C13",
+      "guide": "angular-dependency-vulnerability-triage",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C13.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer prerrequisitos de explotación de dependencia runtime; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C14",
+      "guide": "angular-xss-template-safety",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C14.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer controles negativos y positivos SSR/hidratados; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C15",
+      "guide": "angular-dependency-vulnerability-triage",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/cases/C15.json",
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "El audit completo real devuelve exit 1 y un hallazgo; omit=dev devuelve exit 0 y cero. npm explain verifica 4.17.20, pero el subject carece de configuración del build y evidencia de prerrequisitos. La guía exige BLOCKED cuando el alcance es desconocido; no se transfiere la alcanzabilidad de C20 a este subject independiente."
+    },
+    {
+      "id": "C16",
+      "guide": "angular-domsanitizer-governance",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C16.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer proveniencia e inventario de consumidores; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C17",
+      "guide": "angular-token-storage-policy",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C17.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer almacenamiento y reutilización del bearer; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C18",
+      "guide": "angular-ssr-security-risk-gate",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C18.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer aislamiento entre usuarios e hidratación; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C19",
+      "guide": "angular-xss-template-safety",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C19.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer clic en URL script y controles positivos; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C20",
+      "guide": "angular-dependency-vulnerability-triage",
+      "decision": "FAIL",
+      "evidence": [
+        "skill-lab/security-runtime/observations/cases/C20.json",
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "La ejecución real del build-before usa lodash 4.17.20 como devDependency y acepta el marcador revisado derivado de entrada CMS no confiable: executed=true, rejected=false; el control válido funciona. La guía exige FAIL para un exploit de build alcanzable. correction con 4.18.1 rechaza el marcador pero no demuestra que este subject incorporó esa corrección."
+    },
+    {
+      "id": "C21",
+      "guide": "angular-domsanitizer-governance",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C21.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer rechazo de URLs confundibles antes de confiar; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C22",
+      "guide": "angular-ssr-security-risk-gate",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C22.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer límites de ingreso, egreso y caché desplegados; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C23",
+      "guide": "angular-token-storage-policy",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C23.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer rotación, replay y revocación de familia; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C24",
+      "guide": "angular-ssr-security-risk-gate",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C24.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer origen renderizado y tráfico saliente ante forwarding; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    },
+    {
+      "id": "C25",
+      "guide": "angular-xss-template-safety",
+      "decision": "BLOCKED",
+      "evidence": [
+        "skill-lab/security-runtime/observations/run.json",
+        "skill-lab/security-runtime/observations/playwright.json",
+        "skill-lab/security-runtime/tests/scenarios.spec.mjs"
+      ],
+      "reason": "No existe observations/cases/C25.json de esta ejecución: Playwright falla en browserType.launch antes de entrar en la prueba por Chromium faltante. No puedo establecer ruta real de renderizado; los títulos y aserciones de la suite describen expectativas, no mediciones. La guía impide PASS sin ejecución aplicable. Tampoco atribuyo FAIL a este subject ausente sin observación de comportamiento inseguro."
+    }
+  ],
+  "limitations": [
+    "La primera ejecución de npm test falló durante build por dependencias Angular ausentes. Tras npm ci --ignore-scripts con lock inalterado, la ejecución registrada produjo 2 passed, 23 failed, 0 skipped; todas las 23 fallas son de infraestructura browserType.launch, no pruebas de seguridad superadas ni defectos de aplicación demostrados.",
+    "Los instaladores oficiales completo y headless retornaron HTTP 403 desde cdn.playwright.dev; /usr/bin/chromium referencia un binario ausente. No se sustituyó navegador ni configuración, no se instalaron CA ni se consultaron perfiles/sesiones personales.",
+    "Solo C15 y C20 se generaron como observations/cases en el run actual. No fabriqué los otros 23 archivos ni importé observaciones de otra ejecución. La respuesta los conserva una vez cada uno como BLOCKED y sus referencias apuntan al recibo real y reporte Playwright.",
+    "Las cinco guías se leyeron completas y sus hashes usan normalización CRLF a LF; sourceUnchanged=true en el recibo. No se leyeron oracle.json, verificadores, evidence ni documentos de grading.",
+    "Los controles y dependencias son sintéticos. No se ejecutó ningún PoC externo ni se contactaron destinos de explotación externos. Un control corregido suplementario no prueba despliegue de la corrección del subject.",
+    "No se puede evaluar la discriminación completa de las cinco guías hasta repetir npm test con Chromium oficial disponible. No observé ambigüedad decisoria en las guías para los dos subjects medidos; el bloqueo restante es de infraestructura.",
+    "El modelo efectivo no está expuesto a este agente."
+  ]
+}

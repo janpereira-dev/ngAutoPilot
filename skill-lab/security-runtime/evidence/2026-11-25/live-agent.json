@@ -1,0 +1,27 @@
+{
+  "harness": "Codex collaboration agent reviewing GitHub Actions measurements",
+  "taskName": "/root/release_security_audit",
+  "initialContext": "fork_turns=none",
+  "declaredModel": "not exposed by the subject; no cryptographic model attestation",
+  "controllerRecordedAt": "2026-11-25T08:04:02.717371+00:00",
+  "finalRunId": "3837252d-6958-4b0c-87fa-cb461678cd8e",
+  "mode": "CI execution plus independent agent interpretation",
+  "instructionFile": "audit-task.md with an explicit controller override to CI interpretation after local browser infrastructure failure",
+  "gradingKey": "Not supplied; subject reports not reading oracle, verifier or saved evidence.",
+  "verification": "Controller verified official artifact SHA-256, exact application/guide hashes, all case hashes, decisions and reasoning; grader remains unchanged.",
+  "normalization": "Preserved agent-response.original.json unchanged; removed only the skill-lab/security-runtime/ prefix from evidence references in the replayable response to use the existing lab-relative reference contract. No decision, reason, measurement, source hash or run receipt changed.",
+  "ci": {
+    "repository": "janpereira-dev/ngAutoPilot",
+    "commit": "306d9f4ab0483a655568bea192a9592ea7cccea9",
+    "workflowRun": 45571684335,
+    "job": 139059608965,
+    "artifact": 15002566085,
+    "artifactSha256": "e2c26206e72c2dc78bf784b57470cbf623b46b789c8f830a2ddda48f70af229b",
+    "workflowUrl": "https://github.com/janpereira-dev/ngAutoPilot/actions/runs/45571684335",
+    "localSourceManifestMatchesCi": true,
+    "ciCaseHashesVerified": true,
+    "sourceUnchanged": true
+  },
+  "localAttempt": "Preserved under local-attempt: 2 tests passed and 23 browser-launch failures; official Chromium downloads returned 403. No successful local browser run claimed.",
+  "limits": "One independent bounded interpretation of synthetic Angular 22.2.4 measurements, not universal agent reliability, production certification or a model invocation by CI."
+}

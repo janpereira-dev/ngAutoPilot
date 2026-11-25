@@ -70,3 +70,7 @@ npm run test:agent -- observations/agent-response.json observations/run.json
 The grader compares the independent decisions to the guide-derived oracle, rejects incomplete/duplicate/misclassified subjects and mismatched guide/source hashes, and binds the response to the identified run. It does not invoke a model. The Security Runtime workflow reruns the 25 tests and regrades the saved live-audit output; it does not silently treat replayed JSON as a fresh model invocation.
 
 Saved live-run evidence belongs under `evidence/<date>/`. This is a bounded audit of one agent on one synthetic Angular version and topology. A JSON receipt alone cannot establish model provenance or general reliability; retain the actual agent invocation and review its cited reasoning. Production identity providers, DNS/proxies, other Angular versions and other browsers require their own evidence.
+
+## Release 0.11.1 evidence
+
+The [2026-11-25 receipt](evidence/2026-11-25/live-agent.json) distinguishes a failed local browser setup from an independent agent interpretation of the exact-commit GitHub Actions measurements. The CI run executed all 25 scenarios successfully; its downloaded artifact digest, source hashes and per-case hashes are verified. Command records identify the executor. This mode does not claim the reviewing agent successfully executed a local browser or that CI invokes a model. Historical 2026-10-31 receipts are retained and remain invalid for changed current guide bytes, including version-only changes.

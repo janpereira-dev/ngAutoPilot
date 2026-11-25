@@ -1,0 +1,211 @@
+{
+  "recordedAt": "2026-11-25T07:55:25.235Z",
+  "platform": "linux",
+  "node": "v24.22.3",
+  "sources": {
+    "textNormalization": "CRLF to LF before SHA-256",
+    "guides": {
+      "angular-token-storage-policy": "12f1c4316cc542353049f11bd840762608f4530ab397a16df88c5feb545dfd8e",
+      "angular-xss-template-safety": "5cbf4469831125da5dd02e671541e2261a179b886256673f537b803670a672f1",
+      "angular-domsanitizer-governance": "5ce8399d41f21dd0777ed9a04dfb7f278f85ee78053a4ae00067ca226e20648c",
+      "angular-ssr-security-risk-gate": "abfa5bfe966fb10631fad45a0a5ba2fea4d825dc84c5d283d8d01379da865b10",
+      "angular-dependency-vulnerability-triage": "e6e1de39a5943d25c6fef0422a1cf03ad0be70a684c5bd9ed1ffd7768e96ec45"
+    },
+    "application": {
+      "package.json": "767f02c5395249e61cbd0ca773aa4818db8cff45cdceb035c84e8ea0bc9667a6",
+      "package-lock.json": "1f5f20fd8b1866edbc46fe77f48357e1fccdbcfe57014296397c6e3d44c75b3c",
+      "audit-task.md": "cfc77bcca46e0c0f9df1bec080f29766bdfd9e54f6e68b43bfb227b6969ca491",
+      "build.mjs": "e91c6589999d771a6610fa58679874a09ae5b4ff30a728563c198dfcdcae9fff",
+      "manifest.mjs": "cae7ad734dc23219bf7e7bbc19cfee3a54ab09fe9abecaf17b66d48962a50e71",
+      "reporter.mjs": "1e2c1917e194afad2438f7b379d3fd7ce5a0c60d55837f54fcc1b8cf6a9e8bba",
+      "server.mjs": "fc32d8bd3601f387e804bfb3444f1471a52cfcce205e366b9e5e0d140d94825c",
+      "dependency-probe.mjs": "94799baab9d0eb9c2f372152650f25ae7f1752d58d14b35609352d6389274228",
+      "dependencies.mjs": "81cde5ead935df22b5501fb9265996662d7bf5835a9f2f2b2a89aa5451fa0313",
+      "prepare-cases.mjs": "f93e1cd244a1b77cd8eaac2ccee9c3c79bfc631fe5a4a9ff6cb7f196da32fe4d",
+      "playwright.config.mjs": "a1421551f4d2f5eccdabdacb5392c1518b7573fe12a67c7904d215f70d906740",
+      "src/app.mjs": "b7d965981bfc08de7c98c3336d74b32c76f32ee2b7538ca9bd93eaa985844fe3",
+      "src/browser.mjs": "6bd3877045fd87263b8e8deac7d0a01ea15acedcfdb776340cb1e67626562610",
+      "src/render.mjs": "68728380464becbefae934238759c052daa0fd6b84ae96b4c4ad2a1c45c4ad5d",
+      "tests/helpers.mjs": "d025f109bb36ce4033a7c65f5aa9adae9ac7623bb3a3468e5662d1ce5744a41f",
+      "tests/scenarios.spec.mjs": "d9a26bfe46f82a74672413d62b3174dc64a231c2862cc4d572036bebde6641e4",
+      "cases/runtime-before/package.fixture.json": "7857a9abf5a57f9f3ec255df88fbbe6796f9f54fe8ed9466aa95fc695fb9a6f0",
+      "cases/runtime-before/package-lock.fixture.json": "89b67451486d1873185e7280f5dc2648ba9d248ade255db691e8caddd0c7f84b",
+      "cases/runtime-after/package.fixture.json": "1bfc03259f9635926a60d7c50b328fc7e56b1509c236bf47c97e834b9aabd8ed",
+      "cases/runtime-after/package-lock.fixture.json": "da674b2d658d6028900e91a0415b1bb66ced4165367551ed8ecf782d6d423085",
+      "cases/build-before/package.fixture.json": "c6ccf255d9f28bf5c676e3359e17439550bad41bc3098dc7e7d470fa59ee94c8",
+      "cases/build-before/package-lock.fixture.json": "bcc599402b802eba682b432ca2caaa1d5a3ab8162639d3a83a96cf966d6c38e9",
+      "cases/build-after/package.fixture.json": "f8d545d21537c248ad11fc9c806b3be43758a94297223f341d12a74eadb455a5",
+      "cases/build-after/package-lock.fixture.json": "144456731c73e3e5f210bb24a8e246793a1624e0af75b2d0e2f0e4e1e06de283"
+    }
+  },
+  "testSources": {
+    "browser.mjs": "1341c145d6b5c47ee1a487d0995170de8d848343649e2830808074a6844116bf",
+    "certificates.mjs": "25282a47250539156227c2b9f66ad4e0c6228f276e012c094fe26b68973680d6",
+    "server.mjs": "77e6e01bb3efff6ebec6ee76a5935e3a18898d335283b20c907c3f32adf26b02",
+    "playwright.config.mjs": "f6e99b0bbb704787e05648ed6928db0eb2f2341e5d43189e08d7bd09f785812d",
+    "certificates.spec.mjs": "cdd8ca10e39e9ca71b1eb04dea7545afb65e00ff7544352d5fb9b29e8e48a45a",
+    "native-browser.mjs": "d3e207b676accce95000737b135b90b3c65535e256d385b7e3cefeb453f030a6",
+    "native.config.mjs": "6c79a4f8c8a403b61dcb77952a4ba63b17d1811a8dd53172819aec6ac55c2032"
+  },
+  "observations": [
+    {
+      "name": "unknown authority",
+      "outcome": "rejected",
+      "expected": "SEC_ERROR_UNKNOWN_ISSUER",
+      "nativeFailures": [
+        "SEC_ERROR_UNKNOWN_ISSUER"
+      ],
+      "httpRequestsReachedServer": 0,
+      "certificate": {
+        "fingerprint256": "2C:27:14:0D:2F:AA:50:36:83:5D:A1:F2:90:E5:ED:F5:03:A9:7B:DE:D0:EB:6E:31:B5:8A:01:0E:D4:9C:8C:84",
+        "issuer": "CN=NgAutoPilot lab browser root",
+        "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
+        "validFrom": "Nov 25 06:55:10 2026 GMT",
+        "validTo": "Nov 26 07:55:10 2026 GMT"
+      },
+      "browser": "firefox/157.0",
+      "ignoreHTTPSErrors": false,
+      "certificateErrorBypassFlags": [],
+      "trustedFingerprint": null,
+      "trustStore": "Fresh profile NSS database",
+      "personalSystemTrustStoreModified": false
+    },
+    {
+      "name": "valid chain",
+      "outcome": "accepted",
+      "httpStatus": 200,
+      "angularVersion": "22.2.4",
+      "clientReady": true,
+      "security": {
+        "issuer": "NgAutoPilot lab browser root",
+        "protocol": "TLS 1.3",
+        "subjectName": "localhost",
+        "validFrom": 1795589710,
+        "validTo": 1795679710
+      },
+      "certificate": {
+        "fingerprint256": "2C:27:14:0D:2F:AA:50:36:83:5D:A1:F2:90:E5:ED:F5:03:A9:7B:DE:D0:EB:6E:31:B5:8A:01:0E:D4:9C:8C:84",
+        "issuer": "CN=NgAutoPilot lab browser root",
+        "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
+        "validFrom": "Nov 25 06:55:10 2026 GMT",
+        "validTo": "Nov 26 07:55:10 2026 GMT"
+      },
+      "browser": "firefox/157.0",
+      "ignoreHTTPSErrors": false,
+      "certificateErrorBypassFlags": [],
+      "trustedFingerprint": "BE:72:A8:32:41:3B:D5:96:C0:E9:7A:1F:A1:CA:99:E0:4D:B6:1D:05:35:A6:14:DA:57:44:13:90:4E:87:E0:68",
+      "trustStore": "Fresh profile NSS database",
+      "personalSystemTrustStoreModified": false
+    },
+    {
+      "name": "wrong host",
+      "outcome": "rejected",
+      "expected": "SSL_ERROR_BAD_CERT_DOMAIN",
+      "nativeFailures": [
+        "SSL_ERROR_BAD_CERT_DOMAIN"
+      ],
+      "httpRequestsReachedServer": 0,
+      "certificate": {
+        "fingerprint256": "C9:48:BA:CB:6F:AB:BA:70:73:A8:0B:66:40:87:22:D2:DC:EB:D3:C8:86:5D:29:75:EC:3F:B8:D5:D7:89:EF:FA",
+        "issuer": "CN=NgAutoPilot lab browser root",
+        "subjectAltName": "DNS:wrong.example.test",
+        "validFrom": "Nov 25 06:55:10 2026 GMT",
+        "validTo": "Nov 26 07:55:10 2026 GMT"
+      },
+      "browser": "firefox/157.0",
+      "ignoreHTTPSErrors": false,
+      "certificateErrorBypassFlags": [],
+      "trustedFingerprint": "BE:72:A8:32:41:3B:D5:96:C0:E9:7A:1F:A1:CA:99:E0:4D:B6:1D:05:35:A6:14:DA:57:44:13:90:4E:87:E0:68",
+      "trustStore": "Fresh profile NSS database",
+      "personalSystemTrustStoreModified": false
+    },
+    {
+      "name": "expired leaf",
+      "outcome": "rejected",
+      "expected": "SEC_ERROR_EXPIRED_CERTIFICATE",
+      "nativeFailures": [
+        "SEC_ERROR_EXPIRED_CERTIFICATE"
+      ],
+      "httpRequestsReachedServer": 0,
+      "certificate": {
+        "fingerprint256": "6C:D3:12:E4:86:94:E6:19:6C:4B:2F:BB:A3:71:3E:4D:88:81:D3:34:2C:32:2D:A0:4E:B4:FE:AF:EA:B0:35:25",
+        "issuer": "CN=NgAutoPilot lab browser root",
+        "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
+        "validFrom": "Nov 23 07:55:10 2026 GMT",
+        "validTo": "Nov 24 07:55:10 2026 GMT"
+      },
+      "browser": "firefox/157.0",
+      "ignoreHTTPSErrors": false,
+      "certificateErrorBypassFlags": [],
+      "trustedFingerprint": "BE:72:A8:32:41:3B:D5:96:C0:E9:7A:1F:A1:CA:99:E0:4D:B6:1D:05:35:A6:14:DA:57:44:13:90:4E:87:E0:68",
+      "trustStore": "Fresh profile NSS database",
+      "personalSystemTrustStoreModified": false
+    },
+    {
+      "name": "not yet valid leaf",
+      "outcome": "rejected",
+      "expected": "SSL_ERROR_UNKNOWN",
+      "nativeFailures": [
+        "SSL_ERROR_UNKNOWN"
+      ],
+      "httpRequestsReachedServer": 0,
+      "certificate": {
+        "fingerprint256": "76:C0:A6:35:C3:06:8B:E2:DE:F6:12:AC:44:A1:70:2A:C8:95:F5:05:8A:97:D4:7E:55:16:2A:FB:A8:97:1E:37",
+        "issuer": "CN=NgAutoPilot lab browser root",
+        "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
+        "validFrom": "Nov 26 07:55:10 2026 GMT",
+        "validTo": "Nov 27 07:55:10 2026 GMT"
+      },
+      "browser": "firefox/157.0",
+      "ignoreHTTPSErrors": false,
+      "certificateErrorBypassFlags": [],
+      "trustedFingerprint": "BE:72:A8:32:41:3B:D5:96:C0:E9:7A:1F:A1:CA:99:E0:4D:B6:1D:05:35:A6:14:DA:57:44:13:90:4E:87:E0:68",
+      "trustStore": "Fresh profile NSS database",
+      "personalSystemTrustStoreModified": false
+    },
+    {
+      "name": "different issuing CA",
+      "outcome": "rejected",
+      "expected": "SEC_ERROR_UNKNOWN_ISSUER",
+      "nativeFailures": [
+        "SEC_ERROR_UNKNOWN_ISSUER"
+      ],
+      "httpRequestsReachedServer": 0,
+      "certificate": {
+        "fingerprint256": "88:24:EC:F3:06:2C:0D:37:19:EB:0D:05:9F:E4:B9:68:F1:75:0B:5B:02:63:88:C9:61:71:F7:33:1D:76:2B:F2",
+        "issuer": "CN=NgAutoPilot foreign browser root",
+        "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
+        "validFrom": "Nov 25 06:55:10 2026 GMT",
+        "validTo": "Nov 26 07:55:10 2026 GMT"
+      },
+      "browser": "firefox/157.0",
+      "ignoreHTTPSErrors": false,
+      "certificateErrorBypassFlags": [],
+      "trustedFingerprint": "BE:72:A8:32:41:3B:D5:96:C0:E9:7A:1F:A1:CA:99:E0:4D:B6:1D:05:35:A6:14:DA:57:44:13:90:4E:87:E0:68",
+      "trustStore": "Fresh profile NSS database",
+      "personalSystemTrustStoreModified": false
+    },
+    {
+      "name": "trust isolation",
+      "outcome": "rejected",
+      "expected": "SEC_ERROR_UNKNOWN_ISSUER",
+      "nativeFailures": [
+        "SEC_ERROR_UNKNOWN_ISSUER"
+      ],
+      "httpRequestsReachedServer": 0,
+      "certificate": {
+        "fingerprint256": "2C:27:14:0D:2F:AA:50:36:83:5D:A1:F2:90:E5:ED:F5:03:A9:7B:DE:D0:EB:6E:31:B5:8A:01:0E:D4:9C:8C:84",
+        "issuer": "CN=NgAutoPilot lab browser root",
+        "subjectAltName": "DNS:localhost, IP Address:127.0.0.1",
+        "validFrom": "Nov 25 06:55:10 2026 GMT",
+        "validTo": "Nov 26 07:55:10 2026 GMT"
+      },
+      "browser": "firefox/157.0",
+      "ignoreHTTPSErrors": false,
+      "certificateErrorBypassFlags": [],
+      "trustedFingerprint": null,
+      "trustStore": "Fresh profile NSS database",
+      "personalSystemTrustStoreModified": false
+    }
+  ]
+}
