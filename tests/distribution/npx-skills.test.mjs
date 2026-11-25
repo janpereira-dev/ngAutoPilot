@@ -165,6 +165,15 @@ test('public gateway generation is deterministic and repository validation is cl
   assert.deepEqual(snapshotTree(path.join(temp, '.agents', 'skills')), snapshot);
 
   assert.deepEqual(validateNpxSkills({ root: ROOT }).errors, []);
+
+  const unexpectedFile = 'unexpected.mjs';
+  fs.writeFileSync(path.join(temp, 'skills', '_core', 'project-intake', unexpectedFile), 'export {};\n');
+  assert.throws(() => syncNpxSkills({ root: temp }), /Public skill bundles accept only Markdown files/);
+  assert.deepEqual(snapshotTree(path.join(temp, '.agents', 'skills')), snapshot);
+
+  fs.writeFileSync(path.join(temp, '.agents', 'skills', 'ngautopilot-core', unexpectedFile), 'export {};\n');
+  assert.ok(validateNpxSkills({ root: temp }).errors.some((error) =>
+    error.includes('Public skill bundles accept only Markdown files') && error.includes(unexpectedFile)));
 });
 
 function snapshotTree(directory) {

@@ -49,7 +49,8 @@ Audit Angular libraries for `ngcc` and View Engine compatibility before Angular 
 - `metadata.json` references
 - `postinstall` scripts
 - library build scripts
-- published package metadata
+- installed package manifests and lockfile entries for exact library versions
+- maintainer-supplied compatibility evidence when the exact version is unavailable locally
 
 ## Procedure
 

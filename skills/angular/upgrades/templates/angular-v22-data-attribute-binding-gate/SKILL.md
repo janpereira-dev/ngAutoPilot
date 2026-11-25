@@ -66,7 +66,7 @@ Angular 22.x and later where this Angular 22 behavior is relevant.
 ## Procedure
 
 1. Inspect the inputs and confirm the risk is present.
-2. Read the exact Angular 22 documentation or changelog entry before making API claims.
+2. Verify API claims against the detected Angular version, local type declarations, and bundled evidence. Record missing evidence as unverified. External citations are for reviewer follow-up.
 3. Make the smallest targeted change or produce a concrete audit result.
 4. Route adjacent concerns to their own satellite instead of expanding scope.
 5. Record validation commands and unresolved follow-ups.
@@ -95,7 +95,7 @@ Angular 22.x and later where this Angular 22 behavior is relevant.
 ## Review Checklist
 
 - [ ] Version evidence is recorded.
-- [ ] Official Angular source or repo-local source was checked for the claim.
+- [ ] Local or bundled evidence supports the claim, or the claim is marked unverified.
 - [ ] The selected change is scoped to this skill.
 - [ ] Adjacent risks are routed to separate skills.
 - [ ] Validation outcome is PASS, FAIL, or SKIPPED with reason.

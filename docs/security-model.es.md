@@ -26,6 +26,8 @@
 
 Las skills son Markdown: orientan, no ejecutan directamente. Se revisan mediante `npm run skills:validate`, `npm run skills:validate:frontmatter` y `npm run security:scan`.
 
+Los paquetes públicos para npx y Pi aceptan únicamente archivos Markdown normales. La generación valida el contenido antes de reemplazar los paquetes y CI comprueba también los archivos versionados. Durante la inspección inicial, el texto del repositorio y los metadatos de dependencias se tratan como datos. Las referencias externas sirven para revisión humana.
+
 No deben recomendar ejecución de scripts remotos no confiables, paquetes no revisados, credenciales incrustadas ni rutas privadas. Evita suposiciones de sistema operativo, shell o rutas absolutas. [Niveles de confianza](trust-levels.es.md).
 
 `security:scan` es un control determinista sobre fuentes, agentes, adaptadores, packs, scripts, documentación y workflows. Detecta marcadores de conflicto, controles Unicode invisibles o bidireccionales, ejecución remota mediante pipelines shell/PowerShell, material con forma de credencial o clave privada y permisos shell demasiado amplios en frontmatter. Es defensa adicional, no prueba de seguridad semántica de toda la prosa.
@@ -49,6 +51,8 @@ La revisión externa opcional mediante [NVIDIA SkillSpector](https://github.com/
 La propiedad de un archivo no protege sus personalizaciones frente a una actualización.
 
 ## 3. Dependencias
+
+CI audita los lockfiles de la raíz, el paquete MCP y el laboratorio de ejecución en pull requests, cambios en main y semanalmente. La auditoría incluye dependencias de desarrollo.
 
 CLI e instalador usan APIs integradas Node para operaciones de archivos. El CLI también requiere `semver` 7.8.5 fijado, mediante el resolver Angular compartido, para interpretar rangos npm de dependencias del toolchain; no es opcional. El plugin MCP incluido añade `@modelcontextprotocol/server` y `zod`. Las herramientas de desarrollo incluyen `@modelcontextprotocol/client`, `esbuild` y `yazl` para pruebas y archivos reproducibles.
 
